@@ -32,7 +32,8 @@ export default function Login() {
       else if (user.role === 'admin') navigate('/area-admin');
       else navigate(user.role === 'therapist' ? '/area-terapeuta' : '/area-paziente');
     } catch (err) {
-      if (!err.response) {
+      const status = err.response?.status;
+      if (!err.response || status === 502 || status === 503 || status === 504) {
         setError('Il server sta riattivandosi: attendi qualche secondo e premi di nuovo Accedi.');
       } else {
         setError(err.response?.data?.error || t('common.error'));

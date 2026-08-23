@@ -12,16 +12,18 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Se il server (Render free) sta riattivandosi, la richiesta fallisce senza
-// risposta: riproviamo automaticamente fino a 3 volte con 15 secondi di attesa.
+// Se il server (Render free) sta riattivandosi, la richiesta può fallire senza
+// risposta oppure rispondere con 502/503/504: riproviamo automaticamente
+// fino a 4 volte con 15 secondi di attesa (~60 secondi in totale).
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    const { config } = error;
+    const { config, response } = error;
     if (!config) return Promise.reject(error);
     config._retryCount = config._retryCount || 0;
-    const noResponse = !error.response;
-    if (noResponse && config._retryCount < 3) {
+    const retryableStatus = response && [502, 503, 504, 429].includes(response.status);
+    const noResponse = !response;
+    if ((noResponse || retryableStatus) && config._retryCount < 4) {
       config._retryCount += 1;
       await new Promise((resolve) => setTimeout(resolve, 15000));
       return api(config);
