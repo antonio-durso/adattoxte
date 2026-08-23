@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
@@ -15,6 +15,11 @@ export default function Login() {
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
+  // "Sveglia" il server appena la pagina di login si apre (Render free si addormenta)
+  useEffect(() => {
+    api.get('/health').catch(() => {});
+  }, []);
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
@@ -26,7 +31,11 @@ export default function Login() {
       else if (user.role === 'admin') navigate('/area-admin');
       else navigate(user.role === 'therapist' ? '/area-terapeuta' : '/area-paziente');
     } catch (err) {
-      setError(err.response?.data?.error || t('common.error'));
+      if (!err.response) {
+        setError('Il server sta riattivandosi: attendi qualche secondo e premi di nuovo Accedi.');
+      } else {
+        setError(err.response?.data?.error || t('common.error'));
+      }
     } finally {
       setBusy(false);
     }
