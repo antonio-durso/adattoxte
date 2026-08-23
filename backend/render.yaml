@@ -5,6 +5,7 @@
 services:
   - type: web
     name: adattoxte-backend
+    plan: free
     runtime: node
     rootDir: backend
     buildCommand: npm install
