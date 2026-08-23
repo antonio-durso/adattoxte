@@ -26,6 +26,7 @@ app.use('/api/bookings', require('./routes/bookings'));
 app.use('/api/messages', require('./routes/messages'));
 app.use('/api/payments', require('./routes/payments'));
 app.use('/api/referral', require('./routes/referral'));
+app.use('/api/admin', require('./routes/admin'));
 
 // Gestione errori centralizzata
 app.use((err, req, res, next) => {

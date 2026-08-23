@@ -13,7 +13,11 @@ export default function Navbar() {
     navigate('/');
   }
 
-  const areaLink = user?.role === 'therapist' ? '/area-terapeuta' : user?.role === 'patient' ? '/area-paziente' : null;
+  const areaLink =
+    user?.role === 'therapist' ? '/area-terapeuta'
+    : user?.role === 'patient' ? '/area-paziente'
+    : user?.role === 'admin' ? '/area-admin'
+    : null;
 
   return (
     <header className="navbar">
@@ -23,7 +27,11 @@ export default function Navbar() {
         </Link>
         <nav className="nav-links">
           <Link to="/terapeuti">{t('nav.therapists')}</Link>
-          {areaLink && <Link to={areaLink}>{user.role === 'therapist' ? t('nav.therapistArea') : t('nav.patientArea')}</Link>}
+          {areaLink && (
+            <Link to={areaLink}>
+              {user.role === 'therapist' ? t('nav.therapistArea') : user.role === 'patient' ? t('nav.patientArea') : t('nav.adminArea')}
+            </Link>
+          )}
           <Link to="/impostazioni">{t('nav.settings')}</Link>
           <button className="lang-toggle" onClick={() => setLang(lang === 'it' ? 'en' : 'it')} aria-label={t('common.language')}>
             {lang === 'it' ? 'EN' : 'IT'}

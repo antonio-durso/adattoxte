@@ -12,6 +12,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import PatientDashboard from './pages/PatientDashboard';
 import TherapistDashboard from './pages/TherapistDashboard';
+import AdminDashboard from './pages/AdminDashboard';
 import Settings from './pages/Settings';
 import Privacy from './pages/Privacy';
 import CookiePolicy from './pages/CookiePolicy';
@@ -46,6 +47,14 @@ export default function App() {
                 element={
                   <ProtectedRoute role="therapist">
                     <TherapistDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/area-admin"
+                element={
+                  <ProtectedRoute role="admin">
+                    <AdminDashboard />
                   </ProtectedRoute>
                 }
               />
