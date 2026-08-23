@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import api from '../api';
 import Messaging from '../components/Messaging';
 import VideoRoom from '../components/VideoRoom';
+import ReferralCard from '../components/ReferralCard';
 
 const STATUS_LABEL = {
   pending: 'In attesa di conferma',
@@ -51,6 +52,8 @@ export default function PatientDashboard() {
 
       {error && <p className="error-text">{error}</p>}
       {loading && <p className="muted">Caricamento…</p>}
+
+      <ReferralCard />
 
       {!loading && upcoming.length === 0 && <p className="muted">Non hai sedute in programma. <a href="/terapeuti">Trova il tuo terapeuta</a>.</p>}
 

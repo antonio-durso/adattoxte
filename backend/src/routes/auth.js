@@ -24,7 +24,7 @@ function isValidEmail(email) {
 
 // POST /api/auth/register
 router.post('/register', (req, res) => {
-  const { name, email, password, role, consent } = req.body || {};
+  const { name, email, password, role, consent, refCode } = req.body || {};
 
   if (!name || !email || !password) {
     return res.status(400).json({ error: 'Nome, email e password sono obbligatori' });
@@ -44,17 +44,30 @@ router.post('/register', (req, res) => {
 
   const id = crypto.randomUUID();
   const passwordHash = bcrypt.hashSync(String(password), 10);
+  const referralCode = crypto.randomBytes(4).toString('hex').toUpperCase();
   const insert = db.prepare(
-    'INSERT INTO users (id, name, email, password_hash, role, consent_to_tos, consent_date) VALUES (?, ?, ?, ?, ?, 1, ?)'
+    'INSERT INTO users (id, name, email, password_hash, role, consent_to_tos, consent_date, referral_code) VALUES (?, ?, ?, ?, ?, 1, ?, ?)'
   );
-  insert.run(id, name.trim(), email.toLowerCase(), passwordHash, role, new Date().toISOString());
+  insert.run(id, name.trim(), email.toLowerCase(), passwordHash, role, new Date().toISOString(), referralCode);
 
   if (role === 'therapist') {
     db.prepare('INSERT INTO therapist_profiles (user_id) VALUES (?)').run(id);
   }
 
+  // Programma referral (BP cap. 6.2): chi si registra con un codice riceve 10€ di credito
+  let referralApplied = false;
+  if (refCode) {
+    const referrer = db.prepare('SELECT id FROM users WHERE referral_code = ?').get(String(refCode).trim().toUpperCase());
+    if (referrer && referrer.id !== id) {
+      db.prepare('INSERT INTO referrals (id, referrer_id, referred_id) VALUES (?, ?, ?)')
+        .run(crypto.randomUUID(), referrer.id, id);
+      db.prepare('UPDATE users SET credit = credit + 10 WHERE id = ?').run(id);
+      referralApplied = true;
+    }
+  }
+
   const user = db.prepare('SELECT * FROM users WHERE id = ?').get(id);
-  res.status(201).json({ token: signToken(user), user: publicUser(user) });
+  res.status(201).json({ token: signToken(user), user: publicUser(user), referralApplied });
 });
 
 // POST /api/auth/login

@@ -14,6 +14,19 @@ const stripe = process.env.STRIPE_SECRET_KEY
   ? require('stripe')(process.env.STRIPE_SECRET_KEY)
   : null;
 
+/**
+ * Programma referral: alla PRIMA seduta pagata dell'invitato,
+ * il referrer riceve 10€ di credito e il referral diventa "rewarded".
+ */
+function rewardReferralIfFirstPaid(patientId) {
+  const paidCount = db.prepare('SELECT COUNT(*) AS c FROM bookings WHERE patient_id = ? AND paid = 1').get(patientId).c;
+  if (paidCount !== 1) return;
+  const ref = db.prepare('SELECT * FROM referrals WHERE referred_id = ? AND status = ?').get(patientId, 'pending');
+  if (!ref) return;
+  db.prepare('UPDATE referrals SET status = ? WHERE id = ?').run('rewarded', ref.id);
+  db.prepare('UPDATE users SET credit = credit + 10 WHERE id = ?').run(ref.referrer_id);
+}
+
 // POST /api/payments/checkout - crea sessione di pagamento per una prenotazione
 router.post('/checkout', authRequired, requireRole('patient'), async (req, res) => {
   const { bookingId } = req.body || {};
@@ -29,6 +42,7 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
   // MODALITÀ DEMO: nessuna chiave Stripe configurata
   if (!stripe) {
     db.prepare('UPDATE bookings SET paid = 1 WHERE id = ?').run(booking.id);
+    rewardReferralIfFirstPaid(req.user.id);
     return res.json({
       demo: true,
       message: 'Pagamento demo confermato (nessuna chiave Stripe configurata)',
@@ -82,6 +96,8 @@ router.post('/webhook', (req, res) => {
     const bookingId = event.data.object.metadata?.bookingId;
     if (bookingId) {
       db.prepare('UPDATE bookings SET paid = 1 WHERE id = ?').run(bookingId);
+      const b = db.prepare('SELECT patient_id FROM bookings WHERE id = ?').get(bookingId);
+      if (b) rewardReferralIfFirstPaid(b.patient_id);
     }
   }
   res.json({ received: true });

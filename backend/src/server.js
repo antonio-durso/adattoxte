@@ -25,6 +25,7 @@ app.use('/api/therapists', require('./routes/therapists'));
 app.use('/api/bookings', require('./routes/bookings'));
 app.use('/api/messages', require('./routes/messages'));
 app.use('/api/payments', require('./routes/payments'));
+app.use('/api/referral', require('./routes/referral'));
 
 // Gestione errori centralizzata
 app.use((err, req, res, next) => {

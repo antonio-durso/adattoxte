@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
 
@@ -7,6 +7,7 @@ export default function Register() {
   const { register } = useAuth();
   const { t } = useI18n();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const [form, setForm] = useState({
     name: '',
@@ -14,6 +15,7 @@ export default function Register() {
     password: '',
     role: 'patient',
     consent: false,
+    refCode: searchParams.get('ref') || '',
   });
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
@@ -71,6 +73,17 @@ export default function Register() {
           <label className="field">
             <span>Password (minimo 8 caratteri)</span>
             <input type="password" value={form.password} onChange={(e) => set('password', e.target.value)} required minLength={8} />
+          </label>
+          <label className="field">
+            <span>Codice invito (opzionale)</span>
+            <input
+              type="text"
+              value={form.refCode}
+              onChange={(e) => set('refCode', e.target.value.toUpperCase())}
+              placeholder="es. A1B2C3D4 — ricevi 10 € di credito"
+              maxLength={10}
+            />
+            {form.refCode && <span className="muted small">🎁 Con questo codice ricevi 10 € di credito sulla prima seduta!</span>}
           </label>
 
           <label className="checkbox">

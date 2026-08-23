@@ -58,6 +58,7 @@ Apri <http://localhost:5173> nel browser.
 - **Area paziente**: sedute, storico, annullamento, messaggi
 - **Area terapeuta**: agenda, conferma/annulla/completa sedute, messaggi
 - **GDPR**: consenso, informativa privacy, export dati (art. 20), cancellazione account (art. 17)
+- **Programma referral** "invita un amico": codice invito, 10 € di credito a entrambi
 - **Multilingua** italiano/inglese
 - **PWA-ready** (manifest)
 
@@ -78,10 +79,13 @@ Apri <http://localhost:5173> nel browser.
 │       ├── pages/            # landing, terapeuti, prenotazione, dashboard, GDPR
 │       ├── components/       # navbar, footer, video, messaggi, cookie
 │       └── context/          # autenticazione
+├── content/seo/              # articoli SEO per il marketing (6 articoli pronti)
 └── docs/
     ├── ARCHITETTURA.md       # schema DB ed endpoint API
     ├── MAPPING-BUSINESS-PLAN.md
-    └── DEPLOY-GRATUITO.md    # come andare online a costo zero
+    ├── DEPLOY-GRATUITO.md    # come andare online a costo zero
+    ├── LANCIO-ONLINE.md      # checklist completa per il lancio
+    └── GIT-GITHUB.md         # come pubblicare il codice su GitHub
 ```
 
 ## Documentazione

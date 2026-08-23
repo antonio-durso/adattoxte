@@ -9,6 +9,7 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 
 const dataDir = path.join(__dirname, '..', 'data');
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
@@ -28,6 +29,8 @@ function initDb() {
       bio           TEXT DEFAULT '',
       consent_to_tos INTEGER NOT NULL DEFAULT 0,
       consent_date  TEXT,
+      referral_code TEXT UNIQUE,
+      credit        INTEGER NOT NULL DEFAULT 0,
       created_at    TEXT NOT NULL DEFAULT (datetime('now'))
     );
 
@@ -63,21 +66,42 @@ function initDb() {
       end_time       TEXT NOT NULL,
       type           TEXT NOT NULL CHECK (type IN ('individual','couple')),
       price          INTEGER NOT NULL,
+      credit_used    INTEGER NOT NULL DEFAULT 0,
       status         TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','confirmed','completed','cancelled')),
       paid           INTEGER NOT NULL DEFAULT 0,
       room_name      TEXT NOT NULL,
       created_at     TEXT NOT NULL DEFAULT (datetime('now'))
     );
 
-    CREATE TABLE IF NOT EXISTS messages (
+    CREATE TABLE IF NOT EXISTS referrals (
       id          TEXT PRIMARY KEY,
-      sender_id   TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-      recipient_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-      content     TEXT NOT NULL,
-      read        INTEGER NOT NULL DEFAULT 0,
+      referrer_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      referred_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      status      TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','rewarded')),
       created_at  TEXT NOT NULL DEFAULT (datetime('now'))
     );
   `);
+
+  // Migrazioni per database esistenti (colonne aggiunte in seguito)
+  const userCols = db.prepare('PRAGMA table_info(users)').all().map((c) => c.name);
+  if (!userCols.includes('credit')) {
+    db.exec('ALTER TABLE users ADD COLUMN credit INTEGER NOT NULL DEFAULT 0');
+  }
+  if (!userCols.includes('referral_code')) {
+    db.exec('ALTER TABLE users ADD COLUMN referral_code TEXT');
+    db.exec('CREATE UNIQUE INDEX IF NOT EXISTS idx_users_referral_code ON users(referral_code)');
+  }
+  const bookingCols = db.prepare('PRAGMA table_info(bookings)').all().map((c) => c.name);
+  if (!bookingCols.includes('credit_used')) {
+    db.exec('ALTER TABLE bookings ADD COLUMN credit_used INTEGER NOT NULL DEFAULT 0');
+  }
+
+  // Codici invito per gli utenti esistenti che non ne hanno uno
+  const missing = db.prepare('SELECT id FROM users WHERE referral_code IS NULL').all();
+  const setCode = db.prepare('UPDATE users SET referral_code = ? WHERE id = ?');
+  for (const row of missing) {
+    setCode.run(crypto.randomBytes(4).toString('hex').toUpperCase(), row.id);
+  }
   return Promise.resolve();
 }
 

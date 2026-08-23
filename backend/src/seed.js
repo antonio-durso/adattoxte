@@ -77,7 +77,7 @@ function hash(pw) {
 function run() {
   initDb().then(() => {
     const insertUser = db.prepare(
-      'INSERT OR IGNORE INTO users (id, name, email, password_hash, role, bio, consent_to_tos, consent_date) VALUES (?, ?, ?, ?, ?, ?, 1, ?)'
+      'INSERT OR IGNORE INTO users (id, name, email, password_hash, role, bio, consent_to_tos, consent_date, referral_code) VALUES (?, ?, ?, ?, ?, ?, 1, ?, ?)'
     );
     const insertProfile = db.prepare(
       'INSERT OR IGNORE INTO therapist_profiles (user_id, specialties, price_individual, price_couple, license, experience_years, languages, photo_url, verified) VALUES (?, ?, 45, 50, ?, ?, ?, ?, ?)'
@@ -85,16 +85,16 @@ function run() {
 
     // Admin
     const adminId = crypto.randomUUID();
-    insertUser.run(adminId, 'Amministratore Adatto x Te', 'admin@adattoxte.it', hash('Admin123!'), 'admin', '', new Date().toISOString());
+    insertUser.run(adminId, 'Amministratore Adatto x Te', 'admin@adattoxte.it', hash('Admin123!'), 'admin', '', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
 
     // Paziente demo
     const patientId = crypto.randomUUID();
-    insertUser.run(patientId, 'Antonio Demo', 'antonio@adattoxte.it', hash('Demo1234!'), 'patient', 'Utente di prova per testare la piattaforma.', new Date().toISOString());
+    insertUser.run(patientId, 'Antonio Demo', 'antonio@adattoxte.it', hash('Demo1234!'), 'patient', 'Utente di prova per testare la piattaforma.', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
 
     // Terapeuti
     for (const t of THERAPISTS) {
       const id = crypto.randomUUID();
-      insertUser.run(id, t.name, t.email, hash(t.password), 'therapist', t.bio, new Date().toISOString());
+      insertUser.run(id, t.name, t.email, hash(t.password), 'therapist', t.bio, new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
       insertProfile.run(id, JSON.stringify(t.specialties), t.license, t.experienceYears, JSON.stringify(t.languages), '', t.verified ? 1 : 0);
     }
 

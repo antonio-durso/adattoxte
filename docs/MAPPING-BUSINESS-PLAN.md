@@ -80,3 +80,9 @@ le funzionalità implementate nella piattaforma.
 - Messaggistica asincrona tra paziente e terapeuta
 - Export dati e cancellazione account GDPR direttamente dalle impostazioni
 - PWA installabile su mobile (sostituisce l'app nativa a costo zero)
+- Programma referral "invita un amico" (cap. 6.2): codice invito, 10 € di
+  credito all'invitato alla registrazione, 10 € al referrer alla prima seduta
+  pagata dell'invitato
+- Logo e palette fedeli al documento originale: azzurro #48A8D8 e pesca #F0AA82
+  estratti dalle pagine 1-2 del PDF
+- 6 articoli SEO pronti (content/seo/) per l'acquisizione clienti organica

@@ -61,12 +61,14 @@ lancio pubblico. Ogni voce indica **cosa manca**, **chi la fa** e **quanto costa
 
 ## 🚀 Passo 6 — Marketing (a costo zero, come da cap. 5 BP)
 
-1. **SEO**: pubblicare 10-20 articoli (es. "psicologo online", "psicologo dello
-   sport", "preparazione mentale concorsi") — posso scriverli io
+1. **SEO**: i primi 6 articoli sono già scritti in `content/seo/` (psicologo
+   online, psicologia dello sport, concorsi pubblici, terapia di coppia,
+   ansia/depressione, online vs studio) — da pubblicare su un blog collegato al
+   dominio (es. /blog) e indicizzati su Google Search Console
 2. **Social organici**: profili brand + contenuti del team (competenze Google Ads
    e piano editoriale già nel BP, cap. 1.2)
-3. **Referral**: la funzione "invita un amico" (il BP la prevede) — la sviluppo
-   come prossima feature
+3. **Referral**: ✅ già implementato — codice invito personale, 10 € di credito
+   a entrambi (area paziente → "Invita un amico")
 4. **Network**: ordini professionali, centri sportivi, associazioni (partner
    chiave del BP)
 

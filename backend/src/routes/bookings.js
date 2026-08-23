@@ -23,6 +23,7 @@ function bookingView(row) {
     endTime: row.end_time,
     type: row.type,
     price: row.price,
+    creditUsed: row.credit_used || 0,
     status: row.status,
     paid: !!row.paid,
     roomName: row.room_name,
@@ -63,15 +64,24 @@ router.post('/', requireRole('patient'), (req, res) => {
   if (overlap) return res.status(409).json({ error: 'Il terapeuta ha già una seduta in quell\'orario' });
 
   const profile = db.prepare('SELECT price_individual, price_couple FROM therapist_profiles WHERE user_id = ?').get(therapistId);
-  const price = type === 'couple' ? profile.price_couple : profile.price_individual;
+  const basePrice = type === 'couple' ? profile.price_couple : profile.price_individual;
+
+  // Programma referral: applica il credito accumulato (fino al prezzo della seduta)
+  let creditUsed = 0;
+  const userRow = db.prepare('SELECT credit FROM users WHERE id = ?').get(req.user.id);
+  if (userRow.credit > 0) {
+    creditUsed = Math.min(userRow.credit, basePrice);
+    db.prepare('UPDATE users SET credit = credit - ? WHERE id = ?').run(creditUsed, req.user.id);
+  }
+  const price = Math.max(1, basePrice - creditUsed);
 
   const bookingId = crypto.randomUUID();
   const roomName = 'AdattoXTe-' + bookingId.slice(0, 8).toUpperCase();
 
   db.prepare(`
-    INSERT INTO bookings (id, patient_id, therapist_id, availability_id, date, start_time, end_time, type, price, room_name)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-  `).run(bookingId, req.user.id, therapistId, slot.id, date, startTime, endTime, type, price, roomName);
+    INSERT INTO bookings (id, patient_id, therapist_id, availability_id, date, start_time, end_time, type, price, credit_used, room_name)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(bookingId, req.user.id, therapistId, slot.id, date, startTime, endTime, type, price, creditUsed, roomName);
 
   db.prepare('UPDATE availabilities SET booked = 1 WHERE id = ?').run(slot.id);
 
