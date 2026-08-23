@@ -13,6 +13,8 @@ import Login from './pages/Login';
 import PatientDashboard from './pages/PatientDashboard';
 import TherapistDashboard from './pages/TherapistDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import BlogList from './pages/BlogList';
+import BlogArticle from './pages/BlogArticle';
 import Settings from './pages/Settings';
 import Privacy from './pages/Privacy';
 import CookiePolicy from './pages/CookiePolicy';
@@ -29,6 +31,8 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/terapeuti" element={<Therapists />} />
               <Route path="/terapeuti/:id" element={<TherapistDetail />} />
+              <Route path="/blog" element={<BlogList />} />
+              <Route path="/blog/:slug" element={<BlogArticle />} />
               <Route path="/registrazione" element={<Register />} />
               <Route path="/accedi" element={<Login />} />
               <Route path="/privacy" element={<Privacy />} />
