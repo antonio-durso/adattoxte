@@ -15,7 +15,7 @@ export default function ProtectedRoute({ children, role }) {
   if (!user) return <Navigate to="/accedi" replace />;
 
   if (role && user.role !== role) {
-    const fallback = user.role === 'therapist' ? '/area-terapeuta' : user.role === 'patient' ? '/area-paziente' : '/';
+    const fallback = user.role === 'therapist' ? '/area-terapeuta' : user.role === 'patient' ? '/area-paziente' : '/area-admin';
     return <Navigate to={fallback} replace />;
   }
 

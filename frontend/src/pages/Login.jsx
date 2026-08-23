@@ -22,6 +22,7 @@ export default function Login() {
       const user = await login(email, password);
       const from = location.state?.from;
       if (from) navigate(from);
+      else if (user.role === 'admin') navigate('/area-admin');
       else navigate(user.role === 'therapist' ? '/area-terapeuta' : '/area-paziente');
     } catch (err) {
       setError(err.response?.data?.error || t('common.error'));
