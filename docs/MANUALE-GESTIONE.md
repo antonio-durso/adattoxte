@@ -10,10 +10,14 @@ come gestire i terapeuti e come usare la piattaforma.
 
 | Cosa | Indirizzo |
 |---|---|
-| **Sito pubblico** (da condividere con i pazienti) | https://frontend-lovat-eta-71.vercel.app |
+| **Sito pubblico** (da condividere con i pazienti) | https://adattoxte.vercel.app |
 | Backend (API) | https://adattoxte-backend.onrender.com |
 | Codice sorgente | https://github.com/antonio-durso/adattoxte |
 | Anteprima statica (facoltativa) | https://antonio-durso.github.io/adattoxte/ |
+
+> Nota: il precedente indirizzo `frontend-lovat-eta-71.vercel.app` è stato
+> sostituito: Google lo aveva segnalato per errore come "sito pericoloso"
+> (falso positivo sui domini gratuiti). Usa sempre `adattoxte.vercel.app`.
 
 ## 2. Account di accesso
 
@@ -46,7 +50,7 @@ primo accesso.
 Hai la gestione completa dei terapeuti direttamente dal sito. Ecco i passaggi.
 
 ### 3.1 Accedere all'Area Admin
-1. Apri il sito: https://frontend-lovat-eta-71.vercel.app
+1. Apri il sito: https://adattoxte.vercel.app
 2. Tocca **"Accedi"** (in alto a destra)
 3. Inserisci `admin@adattoxte.it` e la password `Admin123!`
 4. Nel menu in alto comparirà la voce **"Area admin"** → toccala
