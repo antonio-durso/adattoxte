@@ -57,6 +57,7 @@ Apri <http://localhost:5173> nel browser.
 - **Videochiamata** Jitsi Meet per sedute confermate e pagate
 - **Area paziente**: sedute, storico, annullamento, messaggi
 - **Area terapeuta**: agenda, conferma/annulla/completa sedute, messaggi
+- **Area admin**: gestione completa dei terapeuti (crea/modifica/elimina profili, prezzi, verifica)
 - **GDPR**: consenso, informativa privacy, export dati (art. 20), cancellazione account (art. 17)
 - **Programma referral** "invita un amico": codice invito, 10 € di credito a entrambi
 - **Multilingua** italiano/inglese
@@ -85,6 +86,7 @@ Apri <http://localhost:5173> nel browser.
     ├── MAPPING-BUSINESS-PLAN.md
     ├── DEPLOY-GRATUITO.md    # come andare online a costo zero
     ├── LANCIO-ONLINE.md      # checklist completa per il lancio
+    ├── MANUALE-GESTIONE.md   # manuale operativo (accessi, area admin, terapeuti)
     └── GIT-GITHUB.md         # come pubblicare il codice su GitHub
 ```
 
