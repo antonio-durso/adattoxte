@@ -17,7 +17,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: CORS_ORIGIN
-        value: https://frontend-lovat-eta-71.vercel.app,https://adattoxte.vercel.app
+        value: https://frontend-lovat-eta-71.vercel.app,https://adattoxte.vercel.app,https://antonio-durso.github.io
       - key: FRONTEND_URL
         value: https://adattoxte.vercel.app
       - key: STRIPE_SECRET_KEY
