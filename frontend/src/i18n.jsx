@@ -1,0 +1,99 @@
+import { createContext, useContext, useEffect, useState } from 'react';
+
+const I18nContext = createContext(null);
+
+const translations = {
+  it: {
+    'nav.home': 'Home',
+    'nav.therapists': 'I nostri terapeuti',
+    'nav.login': 'Accedi',
+    'nav.register': 'Registrati',
+    'nav.patientArea': 'Area paziente',
+    'nav.therapistArea': 'Area terapeuta',
+    'nav.settings': 'Impostazioni',
+    'nav.logout': 'Esci',
+    'hero.title': 'Il supporto psicologico giusto, adatto a te',
+    'hero.subtitle': 'Terapisti qualificati, sedute video da casa, in qualsiasi momento. Scegli il professionista più adatto alle tue esigenze.',
+    'hero.cta': 'Trova il tuo terapeuta',
+    'hero.secondary': 'Come funziona',
+    'services.title': 'I nostri servizi',
+    'services.subtitle': 'Dalla salute mentale generale a settori specifici: psicologia dello sport, preparazione ai concorsi, psicologia giuridica e terapia di coppia.',
+    'how.title': 'Come funziona',
+    'how.step1': 'Registrati e scegli il tuo terapeuta',
+    'how.step1d': 'Crea il tuo account e confronta i profili dei professionisti certificati.',
+    'how.step2': 'Prenota la tua seduta',
+    'how.step2d': 'Scegli giorno e ora tra gli slot disponibili, individuale o di coppia.',
+    'how.step3': 'Parla con il tuo terapeuta in video',
+    'how.step3d': 'Collegati alla videochiamata sicura dal tuo spazio personale.',
+    'pricing.title': 'Prezzi semplici',
+    'pricing.individual': 'Seduta individuale',
+    'pricing.individual.d': '45€ a seduta, 50 minuti, videochiamata sicura con il tuo terapeuta.',
+    'pricing.couple': 'Seduta di coppia',
+    'pricing.couple.d': '50€ a seduta, 50 minuti, per due persone in collegamento.',
+    'cta.title': 'Inizia oggi il tuo percorso di benessere',
+    'cta.subtitle': 'Migliaia di persone scelgono la terapia online per la sua flessibilità. Anche tu puoi.',
+    'footer.tagline': 'Consulenza psicologica online, semplice e accessibile.',
+    'common.loading': 'Caricamento…',
+    'common.error': 'Si è verificato un errore',
+    'common.book': 'Prenota',
+    'common.save': 'Salva',
+    'common.back': 'Indietro',
+    'common.individual': 'Individuale',
+    'common.couple': 'Coppia',
+    'common.language': 'Lingua',
+  },
+  en: {
+    'nav.home': 'Home',
+    'nav.therapists': 'Our therapists',
+    'nav.login': 'Log in',
+    'nav.register': 'Sign up',
+    'nav.patientArea': 'Patient area',
+    'nav.therapistArea': 'Therapist area',
+    'nav.settings': 'Settings',
+    'nav.logout': 'Log out',
+    'hero.title': 'The right psychological support, made for you',
+    'hero.subtitle': 'Qualified therapists, video sessions from home, anytime. Choose the professional best suited to your needs.',
+    'hero.cta': 'Find your therapist',
+    'hero.secondary': 'How it works',
+    'services.title': 'Our services',
+    'services.subtitle': 'From general mental health to specific areas: sports psychology, exam preparation, legal psychology and couples therapy.',
+    'how.title': 'How it works',
+    'how.step1': 'Sign up and choose your therapist',
+    'how.step1d': 'Create your account and compare certified professionals.',
+    'how.step2': 'Book your session',
+    'how.step2d': 'Pick day and time among available slots, individual or couples.',
+    'how.step3': 'Talk to your therapist on video',
+    'how.step3d': 'Join the secure video call from your personal area.',
+    'pricing.title': 'Simple pricing',
+    'pricing.individual': 'Individual session',
+    'pricing.individual.d': '€45 per session, 50 minutes, secure video call with your therapist.',
+    'pricing.couple': 'Couples session',
+    'pricing.couple.d': '€50 per session, 50 minutes, for two people connected.',
+    'cta.title': 'Start your wellness journey today',
+    'cta.subtitle': 'Thousands of people choose online therapy for its flexibility. You can too.',
+    'footer.tagline': 'Online psychological counseling, simple and accessible.',
+    'common.loading': 'Loading…',
+    'common.error': 'Something went wrong',
+    'common.book': 'Book',
+    'common.save': 'Save',
+    'common.back': 'Back',
+    'common.individual': 'Individual',
+    'common.couple': 'Couples',
+    'common.language': 'Language',
+  },
+};
+
+export function I18nProvider({ children }) {
+  const [lang, setLang] = useState(() => localStorage.getItem('adt_lang') || 'it');
+
+  useEffect(() => {
+    localStorage.setItem('adt_lang', lang);
+    document.documentElement.lang = lang;
+  }, [lang]);
+
+  const t = (key) => (translations[lang] && translations[lang][key]) || translations.it[key] || key;
+
+  return <I18nContext.Provider value={{ lang, setLang, t }}>{children}</I18nContext.Provider>;
+}
+
+export const useI18n = () => useContext(I18nContext);

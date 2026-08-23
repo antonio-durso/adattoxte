@@ -1,0 +1,25 @@
+# Render blueprint per il backend Adatto x Te
+# Uso: su https://render.com -> New -> Blueprint -> seleziona questo repo
+# Il frontend (Vercel) e il backend (Render) restano separati:
+# imposta VITE_API_URL sul frontend = URL di questo servizio.
+services:
+  - type: web
+    name: adattoxte-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        value: https://il-tuo-dominio.it
+      - key: FRONTEND_URL
+        value: https://il-tuo-dominio.it
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false

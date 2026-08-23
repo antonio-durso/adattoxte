@@ -1,0 +1,49 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { useI18n } from '../i18n';
+import Logo from './Logo';
+
+export default function Navbar() {
+  const { user, logout } = useAuth();
+  const { t, lang, setLang } = useI18n();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    logout();
+    navigate('/');
+  }
+
+  const areaLink = user?.role === 'therapist' ? '/area-terapeuta' : user?.role === 'patient' ? '/area-paziente' : null;
+
+  return (
+    <header className="navbar">
+      <div className="container navbar-inner">
+        <Link to="/" className="brand">
+          <Logo />
+        </Link>
+        <nav className="nav-links">
+          <Link to="/terapeuti">{t('nav.therapists')}</Link>
+          {areaLink && <Link to={areaLink}>{user.role === 'therapist' ? t('nav.therapistArea') : t('nav.patientArea')}</Link>}
+          <Link to="/impostazioni">{t('nav.settings')}</Link>
+          <button className="lang-toggle" onClick={() => setLang(lang === 'it' ? 'en' : 'it')} aria-label={t('common.language')}>
+            {lang === 'it' ? 'EN' : 'IT'}
+          </button>
+          {user ? (
+            <button className="btn btn-outline btn-sm" onClick={handleLogout}>
+              {t('nav.logout')}
+            </button>
+          ) : (
+            <>
+              <Link to="/accedi" className="btn btn-outline btn-sm">
+                {t('nav.login')}
+              </Link>
+              <Link to="/registrazione" className="btn btn-primary btn-sm">
+                {t('nav.register')}
+              </Link>
+            </>
+          )}
+        </nav>
+      </div>
+    </header>
+  );
+}

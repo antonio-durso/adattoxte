@@ -1,0 +1,16 @@
+# Dipendenze
+node_modules/
+
+# Build
+dist/
+build/
+
+# Dati e configurazioni locali
+backend/data/
+.env
+.env.local
+
+# Log e sistema
+*.log
+.DS_Store
+Thumbs.db
