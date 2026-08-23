@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
 
@@ -8,9 +8,10 @@ export default function Login() {
   const { t } = useI18n();
   const navigate = useNavigate();
   const location = useLocation();
+  const [params] = useSearchParams();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(params.get('email') || '');
+  const [password, setPassword] = useState(params.get('pw') || '');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 

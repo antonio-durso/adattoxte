@@ -1,8 +1,9 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export default function ProtectedRoute({ children, role }) {
   const { user, loading } = useAuth();
+  const location = useLocation();
 
   if (loading) {
     return (
@@ -12,7 +13,7 @@ export default function ProtectedRoute({ children, role }) {
     );
   }
 
-  if (!user) return <Navigate to="/accedi" replace />;
+  if (!user) return <Navigate to="/accedi" replace state={{ from: location.pathname }} />;
 
   if (role && user.role !== role) {
     const fallback = user.role === 'therapist' ? '/area-terapeuta' : user.role === 'patient' ? '/area-paziente' : '/area-admin';
