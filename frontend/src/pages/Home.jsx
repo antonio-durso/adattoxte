@@ -5,6 +5,7 @@ import Reveal from '../components/Reveal';
 import HeroComic from '../components/HeroComic';
 import Seo from '../components/Seo';
 import ReviewsStrip from '../components/ReviewsStrip';
+import Faq from '../components/Faq';
 
 // Il contenuto del blog (69 articoli) si carica dopo il primo rendering
 const BlogPreview = lazy(() => import('../components/BlogPreview'));
@@ -174,6 +175,35 @@ export default function Home() {
           style={{ width: '100%', maxWidth: 860, borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.12)', margin: '32px auto 0', display: 'block' }}
         />
       </section>
+
+      {/* Pilastri del servizio (stile BetterHelp) */}
+      <section className="container section">
+        <div className="grid cards" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
+          <Reveal>
+            <div className="card" style={{ height: '100%' }}>
+              <div style={{ fontSize: 34 }}>💬</div>
+              <h3>Messaggi illimitati</h3>
+              <p className="muted">Resta in contatto con il tuo terapeuta tra una seduta e l'altra: scrivigli quando ne hai bisogno.</p>
+            </div>
+          </Reveal>
+          <Reveal delay={90}>
+            <div className="card" style={{ height: '100%' }}>
+              <div style={{ fontSize: 34 }}>🧪</div>
+              <h3>Test clinici gratuiti</h3>
+              <p className="muted">GAD-7 e PHQ-9 per capire come stai, in 5 minuti. <Link to="/test">Fai il test →</Link></p>
+            </div>
+          </Reveal>
+          <Reveal delay={180}>
+            <div className="card" style={{ height: '100%' }}>
+              <div style={{ fontSize: 34 }}>⭐</div>
+              <h3>Recensioni verificate</h3>
+              <p className="muted">Ogni valutazione arriva da una seduta completata. <Link to="/recensioni">Leggile →</Link></p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <Faq />
 
       <section className="container section">
         <Reveal>
