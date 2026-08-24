@@ -4,7 +4,8 @@ import { useEffect } from 'react';
  * Seo — imposta title, description, canonical, Open Graph e JSON-LD per pagina.
  * Uso: <Seo title="..." description="..." jsonLd={{...}} />
  */
-const BASE = 'https://adattoxte.vercel.app';
+// URL base configurabile: VITE_SITE_URL (per il passaggio al dominio .it)
+const BASE = (import.meta.env.VITE_SITE_URL || 'https://adattoxte.vercel.app').replace(/\/$/, '');
 
 function setMeta(attr, key, content) {
   if (!content) return;

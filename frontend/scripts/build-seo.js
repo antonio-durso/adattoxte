@@ -9,7 +9,21 @@ const frontendDir = path.join(__dirname, '..');
 const contentDir = path.join(frontendDir, 'src', 'content');
 const publicDir = path.join(frontendDir, 'public');
 
-const BASE = 'https://adattoxte.vercel.app';
+// URL base del sito: priorità a SITE_URL (env) -> VITE_SITE_URL in .env.production -> default attuale.
+// Così il passaggio al dominio .it richiede solo di cambiare VITE_SITE_URL in .env.production.
+function resolveBase() {
+  if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/$/, '');
+  try {
+    const envProd = fs.readFileSync(path.join(frontendDir, '.env.production'), 'utf8');
+    const m = envProd.match(/^\s*VITE_SITE_URL\s*=\s*(.+)\s*$/m);
+    if (m && m[1]) return m[1].trim().replace(/\/$/, '');
+  } catch (e) {
+    /* fallback */
+  }
+  return 'https://adattoxte.vercel.app';
+}
+
+const BASE = resolveBase();
 const today = new Date().toISOString().slice(0, 10);
 
 // Rotte statiche della SPA (pagine indicizzabili)

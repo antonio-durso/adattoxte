@@ -88,14 +88,17 @@ export default function NicheLanding({ niche }) {
       </div>
 
       {/* Benefici */}
-      <div className="grid cards" style={{ marginTop: 34 }}>
-        {n.benefits.map((b, i) => (
-          <div className="card" key={b.title} style={{ height: '100%' }}>
-            <div style={{ fontSize: 32 }}>{b.icon}</div>
-            <h3>{b.title}</h3>
-            <p className="muted">{b.text}</p>
-          </div>
-        ))}
+      <div style={{ marginTop: 34 }}>
+        <h2 style={{ textAlign: 'center' }}>I benefici di questo percorso</h2>
+        <div className="grid cards">
+          {n.benefits.map((b, i) => (
+            <div className="card" key={b.title} style={{ height: '100%' }}>
+              <div style={{ fontSize: 32 }}>{b.icon}</div>
+              <h3>{b.title}</h3>
+              <p className="muted">{b.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Come funziona */}

@@ -43,7 +43,11 @@ export default function HeroComic() {
       <img
         src="/images/hero.webp"
         alt="Seduta di psicologia online da casa"
-        style={{ width: '100%', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.18)', display: 'block' }}
+        width={1536}
+        height={1024}
+        fetchPriority="high"
+        loading="eager"
+        style={{ width: '100%', height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.18)', display: 'block' }}
       />
 
       {/* Fumetto che esce dal personaggio */}

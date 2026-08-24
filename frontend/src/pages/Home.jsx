@@ -172,7 +172,10 @@ export default function Home() {
         <img
           src="/images/workspace.webp"
           alt="Il tuo spazio per le sedute online"
-          style={{ width: '100%', maxWidth: 860, borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.12)', margin: '32px auto 0', display: 'block' }}
+          width={1536}
+          height={1024}
+          loading="lazy"
+          style={{ width: '100%', maxWidth: 860, height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.12)', margin: '32px auto 0', display: 'block' }}
         />
       </section>
 
@@ -300,7 +303,10 @@ export default function Home() {
           <img
             src="/images/costa.webp"
             alt="Il benessere parte da te"
-            style={{ width: '100%', maxWidth: 860, borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.25)', margin: '32px auto 0', display: 'block' }}
+            width={1536}
+            height={1024}
+            loading="lazy"
+            style={{ width: '100%', maxWidth: 860, height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.25)', margin: '32px auto 0', display: 'block' }}
           />
         </div>
       </section>
