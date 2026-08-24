@@ -90,8 +90,50 @@ export default function Therapists() {
       {error && <p className="error-text">{error}</p>}
       {!loading && !error && therapists.length === 0 && <p className="muted">Nessun terapeuta trovato.</p>}
 
+      {!loading && !error && therapists.length > 0 && specialty && (
+        <div style={{ margin: '18px 0 8px' }}>
+          <h2 style={{ margin: 0 }}>✅ Ti consigliamo questi professionisti</h2>
+          <p className="muted">Abbiamo selezionato per te {therapists.length} profili in «{specialty}». I primi 3 sono i nostri consigliati.</p>
+        </div>
+      )}
+
+      {!loading && !error && therapists.length > 0 && specialty && (
+        <div className="grid cards">
+          {therapists.slice(0, 3).map((th) => (
+            <Link to={`/terapeuti/${th.id}`} className="card therapist-card" key={th.id}
+              style={{ border: '2px solid #4f46e5', boxShadow: '0 10px 24px rgba(79,70,229,.18)' }}>
+              <span className="badge" style={{ background: '#4f46e5', color: '#fff', alignSelf: 'flex-start' }}>⭐ Consigliato</span>
+              <div className="avatar">P</div>
+              <h3>Psicologo{th.specialties && th.specialties[0] ? ` · ${th.specialties[0]}` : ''}</h3>
+              <div className="tags">
+                {th.specialties.map((s) => (
+                  <span className="tag" key={s}>
+                    {s}
+                  </span>
+                ))}
+              </div>
+              <p className="card-bio">{th.bio}</p>
+              {th.ratingCount > 0 && (
+                <div className="tags">
+                  <span className="tag ok" style={{ fontWeight: 700 }}>★ {th.ratingAvg} ({th.ratingCount} recensioni)</span>
+                </div>
+              )}
+              <div className="card-meta">
+                <span>da {th.priceIndividual} €/seduta</span>
+                <span>{th.experienceYears} anni di esperienza</span>
+              </div>
+              <span className="btn btn-primary btn-block">{t('common.book')}</span>
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {!loading && !error && specialty && therapists.length > 3 && (
+        <h3 style={{ margin: '26px 0 10px' }}>Altri professionisti disponibili</h3>
+      )}
+
       <div className="grid cards">
-        {therapists.map((th) => (
+        {(specialty ? therapists.slice(3) : therapists).map((th) => (
           <Link to={`/terapeuti/${th.id}`} className="card therapist-card" key={th.id}>
             <div className="avatar">P</div>
             <h3>Psicologo{th.specialties && th.specialties[0] ? ` · ${th.specialties[0]}` : ''}</h3>
