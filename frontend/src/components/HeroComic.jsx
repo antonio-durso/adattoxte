@@ -41,7 +41,7 @@ export default function HeroComic() {
       style={{ position: 'relative', width: '100%', maxWidth: 860, margin: '28px auto 0', cursor: 'pointer' }}
     >
       <img
-        src="/images/hero.jpg"
+        src="/images/hero.webp"
         alt="Seduta di psicologia online da casa"
         style={{ width: '100%', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.18)', display: 'block' }}
       />

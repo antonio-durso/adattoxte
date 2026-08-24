@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 import Reveal from '../components/Reveal';
 import HeroComic from '../components/HeroComic';
-import { articles, totalArticles } from '../content/articles';
 import Seo from '../components/Seo';
 import ReviewsStrip from '../components/ReviewsStrip';
+
+// Il contenuto del blog (69 articoli) si carica dopo il primo rendering
+const BlogPreview = lazy(() => import('../components/BlogPreview'));
 
 const SERVICES = [
   { icon: '🏃', title: 'Psicologia dello sport', desc: 'Gestione della pressione, ansia da prestazione e motivazione per atleti.' },
@@ -167,7 +169,7 @@ export default function Home() {
           ))}
         </div>
         <img
-          src="/images/workspace.jpg"
+          src="/images/workspace.webp"
           alt="Il tuo spazio per le sedute online"
           style={{ width: '100%', maxWidth: 860, borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.12)', margin: '32px auto 0', display: 'block' }}
         />
@@ -203,28 +205,9 @@ export default function Home() {
 
       <ReviewsStrip />
 
-      <section className="container section">
-        <Reveal>
-          <h2>Dal nostro blog</h2>
-          <p className="section-sub">
-            Guide e approfondimenti di psicologia scritti dai nostri professionisti.{' '}
-            <Link to="/blog">Leggi tutti i {totalArticles} articoli →</Link>
-          </p>
-        </Reveal>
-        <div className="grid cards">
-          {articles.slice(0, 3).map((a, i) => (
-            <Reveal key={a.slug} delay={i * 90}>
-              <Link to={`/blog/${a.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div className="card" style={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  <h3 style={{ margin: 0, lineHeight: 1.3 }}>{a.title}</h3>
-                  <p className="muted small" style={{ flex: 1 }}>{a.metaDescription}</p>
-                  <span className="btn btn-outline btn-sm" style={{ alignSelf: 'flex-start' }}>Leggi l'articolo</span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <Suspense fallback={null}>
+        <BlogPreview />
+      </Suspense>
 
       <section className="container section" style={{ background: 'var(--bg-soft)', borderRadius: 20 }}>
         <Reveal>
@@ -285,7 +268,7 @@ export default function Home() {
             {t('nav.register')}
           </Link>
           <img
-            src="/images/costa.jpg"
+            src="/images/costa.webp"
             alt="Il benessere parte da te"
             style={{ width: '100%', maxWidth: 860, borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.25)', margin: '32px auto 0', display: 'block' }}
           />
