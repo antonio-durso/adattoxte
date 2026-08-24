@@ -1,11 +1,21 @@
-// Indice completo degli articoli del blog (50 articoli)
+// Indice completo degli articoli del blog (65 articoli)
 import { baseArticles } from './articles-base';
 import { extraArticles } from './extra-articles';
 import { extraArticles2 } from './extra-articles-2';
 import { extraArticles3 } from './extra-articles-3';
 import { extraArticles4 } from './extra-articles-4';
+import { extraArticles5 } from './extra-articles-5';
+import { extraArticles6 } from './extra-articles-6';
 
-export const articles = [...baseArticles, ...extraArticles, ...extraArticles2, ...extraArticles3, ...extraArticles4].sort(
+export const articles = [
+  ...baseArticles,
+  ...extraArticles,
+  ...extraArticles2,
+  ...extraArticles3,
+  ...extraArticles4,
+  ...extraArticles5,
+  ...extraArticles6,
+].sort(
   (a, b) => (a.date < b.date ? 1 : -1)
 );
 
