@@ -24,3 +24,15 @@ services:
         sync: false
       - key: STRIPE_WEBHOOK_SECRET
         sync: false
+      # Email automatiche (Brevo) — SMTP_PASS è segreta: va impostata nel pannello Render
+      # (Service -> Environment -> SMTP_PASS), MAI nel codice (repo pubblico)
+      - key: SMTP_HOST
+        value: smtp-relay.brevo.com
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        value: b68801001@smtp-brevo.com
+      - key: EMAIL_FROM
+        value: noreply@adattoxte.it
+      - key: EMAIL_NAME
+        value: Adatto x Te
