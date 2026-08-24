@@ -5,6 +5,7 @@ import Reveal from '../components/Reveal';
 import HeroComic from '../components/HeroComic';
 import { articles, totalArticles } from '../content/articles';
 import Seo from '../components/Seo';
+import ReviewsStrip from '../components/ReviewsStrip';
 
 const SERVICES = [
   { icon: '🏃', title: 'Psicologia dello sport', desc: 'Gestione della pressione, ansia da prestazione e motivazione per atleti.' },
@@ -199,6 +200,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      <ReviewsStrip />
 
       <section className="container section">
         <Reveal>
