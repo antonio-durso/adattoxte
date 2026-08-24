@@ -50,6 +50,12 @@ router.post('/register', (req, res) => {
   );
   insert.run(id, name.trim(), email.toLowerCase(), passwordHash, role, new Date().toISOString(), referralCode);
 
+  // Email di benvenuto (automatica; in modalità demo logga su console finché SMTP non è configurato)
+  try {
+    const mailer = require('../mailer');
+    mailer.sendEmail(email.toLowerCase(), 'Benvenuto su Adatto x Te', 'welcome', { name: name.trim(), role }).catch(() => {});
+  } catch (e) { /* il mailer non blocca mai la registrazione */ }
+
   if (role === 'therapist') {
     db.prepare('INSERT INTO therapist_profiles (user_id) VALUES (?)').run(id);
   }

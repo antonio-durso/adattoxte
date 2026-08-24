@@ -6,6 +6,36 @@
 const express = require('express');
 const crypto = require('crypto');
 const { db } = require('../db');
+const mailer = require('../mailer');
+
+// Router pubblico (solo il cron promemoria — protetto da CRON_SECRET, senza JWT)
+const publicRouter = express.Router();
+
+// POST /api/bookings/cron/reminders - promemoria automatici sedute (chiamato da un cron esterno)
+// Sicuro: richiede header x-cron-secret se CRON_SECRET è configurato
+publicRouter.post('/cron/reminders', (req, res) => {
+  const secret = process.env.CRON_SECRET;
+  if (secret && req.headers['x-cron-secret'] !== secret) return res.status(401).json({ error: 'non autorizzato' });
+  const today = new Date().toISOString().slice(0, 10);
+  const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+  const rows = db.prepare(`
+    SELECT b.*, u1.name AS patient_name, u2.name AS therapist_name
+    FROM bookings b
+    JOIN users u1 ON u1.id = b.patient_id
+    JOIN users u2 ON u2.id = b.therapist_id
+    WHERE b.status = 'confirmed' AND b.reminder_sent = 0 AND (b.date = ? OR b.date = ?)
+  `).all(today, tomorrow);
+  let sent = 0;
+  for (const r of rows) {
+    const patient = db.prepare('SELECT email FROM users WHERE id = ?').get(r.patient_id);
+    if (patient) {
+      mailer.sendEmail(patient.email, 'Promemoria: la tua seduta è ' + (r.date === today ? 'oggi' : 'domani'), 'sessionReminder', { ...r, isToday: r.date === today }).catch(() => {});
+      sent += 1;
+    }
+    db.prepare('UPDATE bookings SET reminder_sent = 1 WHERE id = ?').run(r.id);
+  }
+  res.json({ ok: true, sent });
+});
 const { authRequired, requireRole } = require('../middleware/auth');
 
 const router = express.Router();
@@ -139,6 +169,12 @@ router.post('/', requireRole('patient'), (req, res) => {
     WHERE b.id = ?
   `).get(bookingId);
 
+  // Email: notifica al terapeuta della nuova richiesta
+  const therapistMail = db.prepare('SELECT email FROM users WHERE id = ?').get(therapistId);
+  if (therapistMail) {
+    mailer.sendEmail(therapistMail.email, 'Nuova richiesta di prenotazione', 'bookingConfirmedTherapist', row).catch(() => {});
+  }
+
   res.status(201).json({ booking: bookingView(row) });
 });
 
@@ -188,6 +224,19 @@ router.patch('/:id/status', (req, res) => {
     JOIN users u2 ON u2.id = b.therapist_id
     WHERE b.id = ?
   `).get(booking.id);
+
+  // Email automatiche in base allo stato
+  const patientMail = db.prepare('SELECT email FROM users WHERE id = ?').get(booking.patient_id);
+  const therapistMail = db.prepare('SELECT email FROM users WHERE id = ?').get(booking.therapist_id);
+  if (status === 'confirmed') {
+    if (patientMail) mailer.sendEmail(patientMail.email, 'Prenotazione confermata', 'bookingConfirmedPatient', row).catch(() => {});
+    if (therapistMail) mailer.sendEmail(therapistMail.email, 'Seduta confermata', 'bookingConfirmedTherapist', row).catch(() => {});
+  } else if (status === 'completed') {
+    if (patientMail) mailer.sendEmail(patientMail.email, 'Come è andata la seduta? Lascia una valutazione', 'reviewInvite', row).catch(() => {});
+  } else if (status === 'cancelled') {
+    if (patientMail) mailer.sendEmail(patientMail.email, 'Prenotazione annullata', 'bookingCancelled', row).catch(() => {});
+  }
+
   res.json({ booking: bookingView(row) });
 });
 
@@ -199,4 +248,4 @@ function addMinutes(hhmm, minutes) {
   return `${String(nh).padStart(2, '0')}:${String(nm).padStart(2, '0')}`;
 }
 
-module.exports = router;
+module.exports = [publicRouter, router];

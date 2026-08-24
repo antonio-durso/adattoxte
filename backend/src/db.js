@@ -70,6 +70,7 @@ function initDb() {
       status         TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','confirmed','completed','cancelled')),
       paid           INTEGER NOT NULL DEFAULT 0,
       room_name      TEXT NOT NULL,
+      reminder_sent  INTEGER NOT NULL DEFAULT 0,
       created_at     TEXT NOT NULL DEFAULT (datetime('now'))
     );
 
@@ -110,6 +111,9 @@ function initDb() {
   }
   if (!bookingCols.includes('therapist_notes')) {
     db.exec("ALTER TABLE bookings ADD COLUMN therapist_notes TEXT DEFAULT ''");
+  }
+  if (!bookingCols.includes('reminder_sent')) {
+    db.exec('ALTER TABLE bookings ADD COLUMN reminder_sent INTEGER NOT NULL DEFAULT 0');
   }
 
   // Codici invito per gli utenti esistenti che non ne hanno uno
