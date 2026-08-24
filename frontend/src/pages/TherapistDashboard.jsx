@@ -13,6 +13,7 @@ const STATUS_LABEL = {
 export default function TherapistDashboard() {
   const [sessions, setSessions] = useState([]);
   const [conversations, setConversations] = useState([]);
+  const [earnings, setEarnings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [chatPeer, setChatPeer] = useState(null);
@@ -27,6 +28,10 @@ export default function TherapistDashboard() {
     api
       .get('/messages/conversations')
       .then((r) => setConversations(r.data.conversations))
+      .catch(() => {});
+    api
+      .get('/therapists/earnings')
+      .then((r) => setEarnings(r.data.earnings))
       .catch(() => {});
   }
 
@@ -51,6 +56,23 @@ export default function TherapistDashboard() {
       <h1>La mia agenda</h1>
       {error && <p className="error-text">{error}</p>}
       {loading && <p className="muted">Caricamento…</p>}
+
+      {earnings && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 10, marginBottom: 24 }}>
+          {[
+            { label: 'Guadagnati (completate)', value: `${earnings.completed} €` },
+            { label: 'Confermate', value: `${earnings.confirmed} €` },
+            { label: 'In attesa', value: `${earnings.pending} €` },
+            { label: 'Sedute completate', value: earnings.completedCount },
+            { label: 'Prenotazioni totali', value: earnings.totalBookings },
+          ].map((c) => (
+            <div key={c.label} style={{ border: '1px solid #e5e7eb', borderRadius: 12, padding: '12px 14px', background: '#fff' }}>
+              <div className="stat-label">{c.label}</div>
+              <div style={{ fontSize: 22, fontWeight: 700 }}>{c.value}</div>
+            </div>
+          ))}
+        </div>
+      )}
 
       <h2>Sedute in programma</h2>
       {!loading && upcoming.length === 0 && <p className="muted">Nessuna seduta in programma.</p>}
@@ -108,7 +130,10 @@ export default function TherapistDashboard() {
                 <div className="booking-main">
                   <h3>{s.patientName}</h3>
                   <p>{new Date(s.date + 'T00:00:00').toLocaleDateString('it-IT')} · {s.startTime} · {s.type === 'couple' ? 'coppia' : 'individuale'} · {s.price} €</p>
-                  <div className="tags"><span className={'tag status-' + s.status}>{STATUS_LABEL[s.status]}</span></div>
+                  <div className="tags">
+                    <span className={'tag status-' + s.status}>{STATUS_LABEL[s.status]}</span>
+                    {s.myRating ? <span className="tag ok">★ {s.myRating} dal paziente</span> : null}
+                  </div>
                 </div>
               </div>
             ))}

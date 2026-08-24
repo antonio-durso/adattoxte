@@ -45,6 +45,7 @@ function bookingView(row) {
     paid: !!row.paid,
     roomName: row.room_name,
     createdAt: row.created_at,
+    myRating: row.my_rating != null ? Number(row.my_rating) : null,
   };
 }
 
@@ -116,7 +117,8 @@ router.post('/', requireRole('patient'), (req, res) => {
 // GET /api/bookings/my - sedute del paziente
 router.get('/my', requireRole('patient'), (req, res) => {
   const rows = db.prepare(`
-    SELECT b.*, u2.name AS therapist_name
+    SELECT b.*, u2.name AS therapist_name,
+           (SELECT r.score FROM ratings r WHERE r.booking_id = b.id) AS my_rating
     FROM bookings b
     JOIN users u2 ON u2.id = b.therapist_id
     WHERE b.patient_id = ? ORDER BY b.date DESC, b.start_time DESC
@@ -127,7 +129,8 @@ router.get('/my', requireRole('patient'), (req, res) => {
 // GET /api/bookings/my-sessions - agenda del terapeuta
 router.get('/my-sessions', requireRole('therapist'), (req, res) => {
   const rows = db.prepare(`
-    SELECT b.*, u1.name AS patient_name
+    SELECT b.*, u1.name AS patient_name,
+           (SELECT r.score FROM ratings r WHERE r.booking_id = b.id) AS my_rating
     FROM bookings b
     JOIN users u1 ON u1.id = b.patient_id
     WHERE b.therapist_id = ? ORDER BY b.date DESC, b.start_time DESC

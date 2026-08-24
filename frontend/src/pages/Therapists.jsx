@@ -11,6 +11,15 @@ const SPECIALTIES = [
   'ansia e depressione',
 ];
 
+// Matching guidato: cosa cerca il paziente -> specializzazione
+const NEEDS = [
+  { label: '😰 Ansia e stress', value: 'ansia e depressione' },
+  { label: '💑 Coppia e relazioni', value: 'terapia di coppia' },
+  { label: '🏃 Sport e prestazione', value: 'psicologia dello sport' },
+  { label: '📚 Concorsi pubblici', value: 'preparazione concorsi pubblici' },
+  { label: '⚖️ Psicologia giuridica', value: 'psicologia giuridica' },
+];
+
 export default function Therapists() {
   const { t } = useI18n();
   const [therapists, setTherapists] = useState([]);
@@ -34,6 +43,31 @@ export default function Therapists() {
   return (
     <div className="container section">
       <h1>{t('nav.therapists')}</h1>
+
+      <div style={{ marginBottom: 18 }}>
+        <p className="muted small" style={{ marginBottom: 8 }}>
+          <strong>Di cosa hai bisogno?</strong> Tocca per trovare subito il professionista giusto:
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          {NEEDS.map((n) => (
+            <button
+              key={n.value}
+              onClick={() => setSpecialty(specialty === n.value ? '' : n.value)}
+              style={{
+                border: specialty === n.value ? '2px solid #4f46e5' : '1px solid #e5e7eb',
+                background: specialty === n.value ? '#eef2ff' : '#fff',
+                borderRadius: 999,
+                padding: '8px 14px',
+                fontSize: 14,
+                cursor: 'pointer',
+              }}
+            >
+              {n.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="filters">
         <input
           type="search"
@@ -69,6 +103,11 @@ export default function Therapists() {
               ))}
             </div>
             <p className="card-bio">{th.bio}</p>
+            {th.ratingCount > 0 && (
+              <div className="tags">
+                <span className="tag ok" style={{ fontWeight: 700 }}>★ {th.ratingAvg} ({th.ratingCount} recensioni)</span>
+              </div>
+            )}
             <div className="card-meta">
               <span>da {th.priceIndividual} €/seduta</span>
               <span>{th.experienceYears} anni di esperienza</span>

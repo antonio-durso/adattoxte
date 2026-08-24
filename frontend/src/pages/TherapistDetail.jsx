@@ -35,6 +35,7 @@ export default function TherapistDetail() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(null);
   const [booking, setBooking] = useState(false);
+  const [reviews, setReviews] = useState([]);
 
   const days = useMemo(nextDays, []);
 
@@ -44,6 +45,10 @@ export default function TherapistDetail() {
       .then((r) => setTherapist(r.data.therapist))
       .catch(() => setError(t('common.error')))
       .finally(() => setLoading(false));
+    api
+      .get(`/ratings/therapist/${id}`)
+      .then((r) => setReviews(r.data.ratings || []))
+      .catch(() => setReviews([]));
   }, [id, t]);
 
   useEffect(() => {
@@ -126,6 +131,13 @@ export default function TherapistDetail() {
           <div className="card profile-card">
             <div className="avatar avatar-lg">P</div>
             <h1>Psicologo{therapist.specialties && therapist.specialties[0] ? ` · ${therapist.specialties[0]}` : ''}</h1>
+            {therapist.ratingCount > 0 && (
+              <div className="tags">
+                <span className="tag ok" style={{ fontWeight: 700, fontSize: 15 }}>
+                  ★ {therapist.ratingAvg} · {therapist.ratingCount} recensioni
+                </span>
+              </div>
+            )}
             <div className="tags">
               {therapist.specialties.map((s) => (
                 <span className="tag" key={s}>{s}</span>
@@ -200,6 +212,24 @@ export default function TherapistDetail() {
             )}
           </div>
         </div>
+      )}
+
+      {reviews.length > 0 && (
+        <section className="container section" style={{ maxWidth: 760, margin: '0 auto' }}>
+          <h2>Recensioni dei pazienti</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {reviews.map((r, i) => (
+              <div key={i} className="card" style={{ padding: '14px 16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <strong>★ {r.score}</strong>
+                  <span className="muted small">{new Date(r.created_at + 'Z').toLocaleDateString('it-IT')}</span>
+                </div>
+                {r.comment && <p style={{ marginTop: 8 }}>{r.comment}</p>}
+                <p className="muted small" style={{ marginTop: 4 }}>— paziente verificato</p>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
     </div>
   );
