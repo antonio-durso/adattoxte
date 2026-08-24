@@ -144,6 +144,7 @@ async function sendEmail(to, subject, key, data) {
           subject,
           htmlContent: html,
         }),
+        signal: AbortSignal.timeout(15000),
       });
       const body = await res.text();
       if (!res.ok) {

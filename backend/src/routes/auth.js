@@ -23,7 +23,7 @@ function isValidEmail(email) {
 }
 
 // POST /api/auth/register
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
   const { name, email, password, role, consent, refCode } = req.body || {};
 
   if (!name || !email || !password) {
@@ -50,11 +50,14 @@ router.post('/register', (req, res) => {
   );
   insert.run(id, name.trim(), email.toLowerCase(), passwordHash, role, new Date().toISOString(), referralCode);
 
-  // Email di benvenuto (automatica; in modalità demo logga su console finché SMTP non è configurato)
+  // Email di benvenuto (ATTESA del risultato: i Logs di Render mostrano l'esito esatto dell'invio)
   try {
     const mailer = require('../mailer');
-    mailer.sendEmail(email.toLowerCase(), 'Benvenuto su Adatto x Te', 'welcome', { name: name.trim(), role }).catch(() => {});
-  } catch (e) { /* il mailer non blocca mai la registrazione */ }
+    const mailResult = await mailer.sendEmail(email.toLowerCase(), 'Benvenuto su Adatto x Te', 'welcome', { name: name.trim(), role });
+    console.log('✉️  risultato invio benvenuto:', JSON.stringify(mailResult));
+  } catch (e) {
+    console.error('✉️  errore invio benvenuto (non blocca la registrazione):', e.message);
+  }
 
   if (role === 'therapist') {
     db.prepare('INSERT INTO therapist_profiles (user_id) VALUES (?)').run(id);
