@@ -1,368 +1,453 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://adattoxte.vercel.app</loc>
+    <loc>https://adattoxte.vercel.app/</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/terapeuti</loc>
     <lastmod>2026-08-24</lastmod>
-    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog</loc>
     <lastmod>2026-08-24</lastmod>
-    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://adattoxte.vercel.app/risorse</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://adattoxte.vercel.app/test</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/registrazione</loc>
     <lastmod>2026-08-24</lastmod>
-    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/accedi</loc>
     <lastmod>2026-08-24</lastmod>
-    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/privacy</loc>
     <lastmod>2026-08-24</lastmod>
-    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/cookie</loc>
     <lastmod>2026-08-24</lastmod>
-    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/termini</loc>
     <lastmod>2026-08-24</lastmod>
-    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/ansia-e-depressione-segnali</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/preparazione-concorsi-pubblici</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/psicologia-dello-sport</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/psicologo-online-o-studio</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/psicologo-online</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/terapia-di-coppia-online</loc>
     <lastmod>2026-08-24</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://adattoxte.vercel.app/blog/come-scegliere-uno-psicologo</loc>
-    <lastmod>2026-08-24</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://adattoxte.vercel.app/blog/ansia-da-esame</loc>
-    <lastmod>2026-08-24</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://adattoxte.vercel.app/blog/burnout-lavoro</loc>
-    <lastmod>2026-08-24</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://adattoxte.vercel.app/blog/insonnia-e-stress</loc>
-    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/autostima-bassa</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/elaborazione-del-lutto</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/dipendenza-da-smartphone</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/separazione-e-figli</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/ansia-generalizzata</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/attacchi-di-panico</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/depressione-chiedere-aiuto</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/stress-lavoro-correlato</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/mindfulness</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/assertivita</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/relazioni-tossiche</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/gelosia-in-coppia</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/comunicazione-di-coppia</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/crisi-di-coppia</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/psicoterapia-online-privacy</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/primo-colloquio-psicologo</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/quanto-dura-percorso-psicologico</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/psicologo-psicoterapeuta-differenze</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/psicologo-adolescenti</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/ansia-sociale</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/fobie</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/disturbo-ossessivo-compulsivo</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/alimentazione-emozioni</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/dipendenza-affettiva</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/stress-post-traumatico</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/benessere-mentale</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/meditazione-ansia</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/gestione-della-rabbia</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/perfezionismo</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/procrastinazione</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/autostima-lavoro</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/maternita-benessere-psicologico</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/menopausa-benessere</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/paura-del-futuro</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/resilienza</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/supporto-psicologico-separazione</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/motivazione-allenamento</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/equilibrio-lavoro-vita-privata</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/solitudine</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/digital-detox</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/sindrome-dell-impostore</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/adhd-negli-adulti</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/burnout-genitoriale</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/adolescenti-e-social-media</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/agorafobia</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/ansia-da-prestazione</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/autostima-dei-bambini</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/dialogo-interno</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/psicologo-online-all-estero</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/timidezza</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/riposo-e-pausa-mentale</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/supporto-per-caregivers</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/dipendenza-da-gioco</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/perdita-del-lavoro</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adattoxte.vercel.app/blog/cambiare-lavoro</loc>
     <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adattoxte.vercel.app/blog/come-scegliere-uno-psicologo</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adattoxte.vercel.app/blog/ansia-da-esame</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adattoxte.vercel.app/blog/burnout-lavoro</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adattoxte.vercel.app/blog/insonnia-e-stress</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 </urlset>

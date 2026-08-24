@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { articles, totalArticles } from '../content/articles';
+import Seo from '../components/Seo';
 
 function formatDate(iso) {
   try {
@@ -12,6 +13,11 @@ function formatDate(iso) {
 export default function BlogList() {
   return (
     <div className="container section">
+      <Seo
+        title="Blog di psicologia"
+        description="Articoli di psicologia scritti dai nostri professionisti: ansia, depressione, coppia, sport, concorsi pubblici. Guide pratiche e approfondimenti."
+        path="/blog"
+      />
       <h1>Blog di Adatto x Te</h1>
       <p className="muted">
         Articoli di psicologia scritti dai nostri professionisti: guide, approfondimenti e consigli pratici

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
+import Seo from '../components/Seo';
 
 export default function Register() {
   const { register } = useAuth();
@@ -44,6 +45,7 @@ export default function Register() {
 
   return (
     <div className="container section auth-page">
+      <Seo title="Registrati" description="Crea il tuo account su Adatto x Te per prenotare sedute o offrire i tuoi servizi." path="/registrazione" />
       <div className="card form-card">
         <h1>Registrati</h1>
         <p className="muted">Crea il tuo account per prenotare sedute o offrire i tuoi servizi.</p>

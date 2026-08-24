@@ -12,6 +12,13 @@ const STATUS_LABEL = {
   cancelled: 'Annullata',
 };
 
+function daysUntil(dateStr) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const d = new Date(dateStr + 'T00:00:00');
+  return Math.round((d - today) / 86400000);
+}
+
 function Stars({ value, onChange }) {
   return (
     <div style={{ display: 'flex', gap: 6, fontSize: 26 }}>
@@ -93,6 +100,8 @@ export default function PatientDashboard() {
     .filter((b) => b.status === 'pending' || b.status === 'confirmed')
     .sort((a, b) => (a.date + a.startTime).localeCompare(b.date + b.startTime));
   const past = bookings.filter((b) => b.status === 'completed' || b.status === 'cancelled');
+  const unratedCompleted = past.filter((b) => b.status === 'completed' && !b.myRating);
+  const nextSession = upcoming[0];
 
   return (
     <div className="container section">
@@ -102,6 +111,48 @@ export default function PatientDashboard() {
       {loading && <p className="muted">Caricamento…</p>}
 
       <ReferralCard />
+
+      {!loading && nextSession && (
+        <div className="card" style={{ marginBottom: 20, padding: 16, borderLeft: '4px solid #48A8D8' }}>
+          <p className="muted small" style={{ margin: 0, letterSpacing: 1 }}>📅 PROSSIMA SEDUTA</p>
+          <p style={{ margin: '6px 0 0' }}>
+            <strong>{nextSession.therapistName}</strong> · {new Date(nextSession.date + 'T00:00:00').toLocaleDateString('it-IT')} · {nextSession.startTime}
+          </p>
+          <p className="muted small" style={{ margin: '4px 0 0' }}>
+            {daysUntil(nextSession.date) === 0
+              ? 'Oggi! Preparati e collega la videochiamata al momento della seduta.'
+              : daysUntil(nextSession.date) === 1
+                ? 'Domani: ti aspettiamo.'
+                : `Tra ${daysUntil(nextSession.date)} giorni.`}
+          </p>
+        </div>
+      )}
+
+      {!loading && unratedCompleted.length > 0 && (
+        <div className="card" style={{ marginBottom: 20, padding: 18, background: '#eef2ff', border: '2px solid #4f46e5' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
+            <div>
+              <h3 style={{ margin: 0 }}>Come è andata la seduta? ⭐</h3>
+              <p className="muted small" style={{ margin: '4px 0 0' }}>
+                La tua valutazione aiuta altri pazienti e i nostri terapeuti a migliorare. Bastano 30 secondi.
+              </p>
+            </div>
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                const b = unratedCompleted[0];
+                setRatingFor(b.id);
+                setRatingScore(0);
+                setRatingComment('');
+                setRatingMsg('');
+                setTimeout(() => document.getElementById('rating-' + b.id)?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+              }}
+            >
+              ★ Valuta ora
+            </button>
+          </div>
+        </div>
+      )}
 
       {!loading && upcoming.length === 0 && <p className="muted">Non hai sedute in programma. <a href="/terapeuti">Trova il tuo terapeuta</a>.</p>}
 
@@ -177,7 +228,7 @@ export default function PatientDashboard() {
                 </div>
               </div>
               {ratingFor === b.id && (
-                <div className="card" style={{ marginTop: 10, background: '#f8fafc' }}>
+                <div id={'rating-' + b.id} className="card" style={{ marginTop: 10, background: '#f8fafc' }}>
                   <h4>Come è andata la seduta?</h4>
                   <Stars value={ratingScore} onChange={setRatingScore} />
                   <textarea

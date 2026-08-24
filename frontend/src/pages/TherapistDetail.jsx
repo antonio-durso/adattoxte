@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import api from '../api';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
+import Seo from '../components/Seo';
 
 function nextDays(count = 7) {
   const days = [];
@@ -101,6 +102,26 @@ export default function TherapistDetail() {
 
   return (
     <div className="container section">
+      <Seo
+        title={`Psicologo${therapist.specialties && therapist.specialties[0] ? ` · ${therapist.specialties[0]}` : ' · consulenza psicologica'}`}
+        description={(therapist.bio || 'Psicologo online verificato su Adatto x Te.').slice(0, 155)}
+        path={`/terapeuti/${therapist.id}`}
+        jsonLd={
+          therapist.ratingCount > 0
+            ? {
+                '@context': 'https://schema.org',
+                '@type': 'ProfessionalService',
+                name: `Psicologo${therapist.specialties && therapist.specialties[0] ? ` · ${therapist.specialties[0]}` : ''}`,
+                description: (therapist.bio || '').slice(0, 200),
+                aggregateRating: {
+                  '@type': 'AggregateRating',
+                  ratingValue: therapist.ratingAvg,
+                  reviewCount: therapist.ratingCount,
+                },
+              }
+            : null
+        }
+      />
       <Link to="/terapeuti" className="back-link">← {t('common.back')}</Link>
 
       {success ? (

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api';
 import { useI18n } from '../i18n';
+import Seo from '../components/Seo';
 
 const SPECIALTIES = [
   'psicologia dello sport',
@@ -42,6 +43,11 @@ export default function Therapists() {
 
   return (
     <div className="container section">
+      <Seo
+        title="Trova il tuo terapeuta"
+        description="Trova lo psicologo giusto per te: ansia, depressione, terapia di coppia, psicologia dello sport, preparazione ai concorsi. Sedute online da 45€."
+        path="/terapeuti"
+      />
       <h1>{t('nav.therapists')}</h1>
 
       <div style={{ marginBottom: 18 }}>

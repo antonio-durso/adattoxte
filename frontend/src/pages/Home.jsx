@@ -4,6 +4,7 @@ import { useI18n } from '../i18n';
 import Reveal from '../components/Reveal';
 import HeroComic from '../components/HeroComic';
 import { articles, totalArticles } from '../content/articles';
+import Seo from '../components/Seo';
 
 const SERVICES = [
   { icon: '🏃', title: 'Psicologia dello sport', desc: 'Gestione della pressione, ansia da prestazione e motivazione per atleti.' },
@@ -97,6 +98,12 @@ export default function Home() {
 
   return (
     <>
+      <Seo
+        title="Psicologia online"
+        description="Terapisti qualificati, sedute video da casa, in qualsiasi momento. Psicologia online a 45€: ansia, coppia, sport, concorsi pubblici."
+        path="/"
+        image="https://adattoxte.vercel.app/images/hero.jpg"
+      />
       <section className="hero">
         <div className="container hero-inner">
           <h1>{t('hero.title')}</h1>

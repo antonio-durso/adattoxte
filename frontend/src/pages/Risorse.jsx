@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 const GUIDE = [
   {
@@ -67,6 +68,11 @@ export default function Risorse() {
 
   return (
     <div className="container section" style={{ maxWidth: 760, margin: '0 auto' }}>
+      <Seo
+        title="Risorse gratuite"
+        description="Guide pratiche di psicologia: prima seduta, tecniche di respirazione per l'ansia, diario delle emozioni, videochiamate. Risorse gratuite Adatto x Te."
+        path="/risorse"
+      />
       <h1>Risorse gratuite</h1>
       <p className="muted">
         Guide pratiche scritte dai nostri terapeuti per iniziare il tuo percorso con più consapevolezza.
