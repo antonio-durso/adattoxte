@@ -2,33 +2,46 @@
  * mailer.js — invio email automatiche (conferme, promemoria, invito recensioni).
  *
  * Configurazione via variabili d'ambiente (vedi MANUALE.md):
- *   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_FROM, EMAIL_NAME
+ *   MODALITÀ API Brevo (consigliata su Render free: le porte SMTP 25/465/587
+ *   sono bloccate dal piano gratuito di Render dal 16/09/2025):
+ *     BREVO_API_KEY   — chiave API Brevo (inizia con xkeysib-)
+ *     EMAIL_FROM, EMAIL_NAME
+ *   MODALITÀ SMTP (alternativa, per ambienti che consentono SMTP):
+ *     SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_FROM, EMAIL_NAME
  *
  * Senza configurazione le email NON vengono inviate: il sistema funziona in
  * modalità demo e scrive l'email su console (utile per testare i trigger).
  */
-let transporter = null;
+const BREVO_API_KEY = process.env.BREVO_API_KEY;
+const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
+
+let smtpTransporter = null;
 let configured = false;
 
-try {
-  const nodemailer = require('nodemailer');
-  const host = process.env.SMTP_HOST;
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  if (host && user && pass) {
-    transporter = nodemailer.createTransport({
-      host,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: Number(process.env.SMTP_PORT || 587) === 465,
-      auth: { user, pass },
-    });
-    configured = true;
-    console.log('✉️  mailer: SMTP configurato (' + host + ')');
-  } else {
-    console.log('✉️  mailer: modalità demo (SMTP non configurato — email loggate su console)');
+if (BREVO_API_KEY) {
+  configured = true;
+  console.log('✉️  mailer: modalità API Brevo attiva (https)');
+} else {
+  try {
+    const nodemailer = require('nodemailer');
+    const host = process.env.SMTP_HOST;
+    const user = process.env.SMTP_USER;
+    const pass = process.env.SMTP_PASS;
+    if (host && user && pass) {
+      smtpTransporter = nodemailer.createTransport({
+        host,
+        port: Number(process.env.SMTP_PORT || 587),
+        secure: Number(process.env.SMTP_PORT || 587) === 465,
+        auth: { user, pass },
+      });
+      configured = true;
+      console.log('✉️  mailer: SMTP configurato (' + host + ')');
+    } else {
+      console.log('✉️  mailer: modalità demo (SMTP/API non configurato — email loggate su console)');
+    }
+  } catch (e) {
+    console.log('✉️  mailer: non disponibile (' + e.message + ')');
   }
-} catch (e) {
-  console.log('✉️  mailer: non disponibile (' + e.message + ')');
 }
 
 const FROM = () => ({
@@ -117,7 +130,29 @@ async function sendEmail(to, subject, key, data) {
     return { demo: true, to, subject };
   }
   try {
-    await transporter.sendMail({ from: FROM(), to, subject, html });
+    if (BREVO_API_KEY) {
+      const res = await fetch(BREVO_API_URL, {
+        method: 'POST',
+        headers: {
+          'api-key': BREVO_API_KEY,
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          sender: FROM(),
+          to: [{ email: to }],
+          subject,
+          htmlContent: html,
+        }),
+      });
+      const body = await res.text();
+      if (!res.ok) {
+        throw new Error('Brevo API ' + res.status + ': ' + body.slice(0, 200));
+      }
+      console.log(`✉️  email inviata a ${to} (API Brevo): ${subject}`);
+      return { ok: true, to, subject };
+    }
+    await smtpTransporter.sendMail({ from: FROM(), to, subject, html });
     console.log(`✉️  email inviata a ${to}: ${subject}`);
     return { ok: true, to, subject };
   } catch (e) {
