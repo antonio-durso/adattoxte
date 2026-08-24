@@ -45,19 +45,24 @@ export default function AdminDashboard() {
 
   async function loadAll() {
     try {
-      const [ov, th, sp, bk] = await Promise.all([
+      const [ov, th, sp] = await Promise.all([
         api.get('/admin/overview'),
         api.get('/admin/therapists'),
         api.get('/admin/specialties'),
-        api.get('/admin/bookings'),
       ]);
       setOverview(ov.data.overview);
       setTherapists(th.data.therapists);
       setSpecialties(sp.data.specialties);
-      setBookings(bk.data.bookings || []);
       setError('');
     } catch {
       setError('Impossibile caricare i dati. Riprova.');
+      return;
+    }
+    try {
+      const bk = await api.get('/admin/bookings');
+      setBookings(bk.data.bookings || []);
+    } catch {
+      setBookings([]);
     }
   }
 
