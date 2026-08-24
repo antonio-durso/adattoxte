@@ -13,6 +13,9 @@ export default function Footer() {
         </div>
         <div className="footer-links">
           <Link to="/terapeuti">{t('nav.therapists')}</Link>
+          <Link to="/psicologo-concorsi-pubblici">Psicologo concorsi</Link>
+          <Link to="/psicologo-sport">Psicologo sport</Link>
+          <Link to="/psicologia-giuridica">Psicologia giuridica</Link>
           <Link to="/privacy">Privacy</Link>
           <Link to="/cookie">Cookie</Link>
           <Link to="/termini">Termini</Link>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import api from '../api';
 import { useI18n } from '../i18n';
 import Seo from '../components/Seo';
@@ -27,7 +27,8 @@ export default function Therapists() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [q, setQ] = useState('');
-  const [specialty, setSpecialty] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [specialty, setSpecialty] = useState(searchParams.get('specialty') || '');
 
   useEffect(() => {
     setLoading(true);
@@ -58,7 +59,11 @@ export default function Therapists() {
           {NEEDS.map((n) => (
             <button
               key={n.value}
-              onClick={() => setSpecialty(specialty === n.value ? '' : n.value)}
+              onClick={() => {
+                const v = specialty === n.value ? '' : n.value;
+                setSpecialty(v);
+                setSearchParams(v ? { specialty: v } : {}, { replace: true });
+              }}
               style={{
                 border: specialty === n.value ? '2px solid #4f46e5' : '1px solid #e5e7eb',
                 background: specialty === n.value ? '#eef2ff' : '#fff',

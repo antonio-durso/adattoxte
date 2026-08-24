@@ -22,6 +22,7 @@ const Receipt = lazy(() => import('./pages/Receipt'));
 const Risorse = lazy(() => import('./pages/Risorse'));
 const Recensioni = lazy(() => import('./pages/Recensioni'));
 const CheckIn = lazy(() => import('./pages/CheckIn'));
+const NicheLanding = lazy(() => import('./pages/NicheLanding'));
 const Settings = lazy(() => import('./pages/Settings'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
@@ -53,6 +54,9 @@ export default function App() {
                 <Route path="/risorse" element={<Risorse />} />
                 <Route path="/recensioni" element={<Recensioni />} />
                 <Route path="/test" element={<CheckIn />} />
+                <Route path="/psicologo-concorsi-pubblici" element={<NicheLanding niche="concorsi" />} />
+                <Route path="/psicologo-sport" element={<NicheLanding niche="sport" />} />
+                <Route path="/psicologia-giuridica" element={<NicheLanding niche="giuridica" />} />
                 <Route path="/registrazione" element={<Register />} />
                 <Route path="/accedi" element={<Login />} />
                 <Route path="/privacy" element={<Privacy />} />

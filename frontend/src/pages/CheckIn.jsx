@@ -124,6 +124,18 @@ export default function CheckIn() {
             <p>{result.text}</p>
           </div>
 
+          {/* Suggerimento terapeuta in base al risultato (stile Talkspace) */}
+          <div className="card" style={{ padding: 18, marginTop: 12, background: '#eef2ff', border: '2px solid #4f46e5' }}>
+            <strong>🧭 Il terapeuta giusto per te</strong>
+            <p className="muted" style={{ margin: '6px 0 10px' }}>
+              In base al tuo risultato, ti consigliamo un professionista specializzato in{' '}
+              <strong>ansia e depressione</strong>, con esperienza nelle difficoltà che hai indicato.
+            </p>
+            <Link to="/terapeuti?specialty=ansia%20e%20depressione" className="btn btn-primary">
+              Trova il tuo terapeuta →
+            </Link>
+          </div>
+
           {test === 'umore' && answers[8] > 0 && (
             <div className="card" style={{ padding: 18, border: '2px solid #b91c1c', marginTop: 12 }}>
               <strong>⚠️ Se hai pensieri di farti del male, non restare solo/a.</strong>

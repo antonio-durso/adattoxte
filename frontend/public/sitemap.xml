@@ -37,6 +37,24 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://adattoxte.vercel.app/psicologo-concorsi-pubblici</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://adattoxte.vercel.app/psicologo-sport</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://adattoxte.vercel.app/psicologia-giuridica</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://adattoxte.vercel.app/registrazione</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
