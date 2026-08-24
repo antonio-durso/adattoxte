@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 import Reveal from '../components/Reveal';
+import { articles, totalArticles } from '../content/articles';
 
 const SERVICES = [
   { icon: '🏃', title: 'Psicologia dello sport', desc: 'Gestione della pressione, ansia da prestazione e motivazione per atleti.' },
@@ -119,6 +120,11 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+          <img
+            src="/images/hero.jpg"
+            alt="Seduta di psicologia online da casa"
+            style={{ width: '100%', maxWidth: 860, borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.18)', margin: '28px auto 0', display: 'block' }}
+          />
         </div>
       </section>
 
@@ -155,6 +161,11 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
+        <img
+          src="/images/workspace.jpg"
+          alt="Il tuo spazio per le sedute online"
+          style={{ width: '100%', maxWidth: 860, borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.12)', margin: '32px auto 0', display: 'block' }}
+        />
       </section>
 
       <section className="container section">
@@ -182,6 +193,29 @@ export default function Home() {
               </Link>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="container section">
+        <Reveal>
+          <h2>Dal nostro blog</h2>
+          <p className="section-sub">
+            Guide e approfondimenti di psicologia scritti dai nostri professionisti.{' '}
+            <Link to="/blog">Leggi tutti i {totalArticles} articoli →</Link>
+          </p>
+        </Reveal>
+        <div className="grid cards">
+          {articles.slice(0, 3).map((a, i) => (
+            <Reveal key={a.slug} delay={i * 90}>
+              <Link to={`/blog/${a.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div className="card" style={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  <h3 style={{ margin: 0, lineHeight: 1.3 }}>{a.title}</h3>
+                  <p className="muted small" style={{ flex: 1 }}>{a.metaDescription}</p>
+                  <span className="btn btn-outline btn-sm" style={{ alignSelf: 'flex-start' }}>Leggi l'articolo</span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -243,6 +277,11 @@ export default function Home() {
           <Link to="/registrazione" className="btn btn-light btn-lg">
             {t('nav.register')}
           </Link>
+          <img
+            src="/images/costa.jpg"
+            alt="Il benessere parte da te"
+            style={{ width: '100%', maxWidth: 860, borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.25)', margin: '32px auto 0', display: 'block' }}
+          />
         </div>
       </section>
     </>

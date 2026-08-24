@@ -167,14 +167,19 @@ export default function AdminDashboard() {
 
   const statCards = overview
     ? [
-        { label: 'Pazienti', value: overview.patients },
-        { label: 'Terapeuti', value: overview.therapists },
-        { label: 'Prenotazioni totali', value: overview.bookingsTotal },
-        { label: 'In attesa', value: overview.bookingsPending },
-        { label: 'Confermate', value: overview.bookingsConfirmed },
-        { label: 'Completate', value: overview.bookingsCompleted },
+        { label: 'Pazienti', value: overview.patients, target: 'bookings' },
+        { label: 'Terapeuti', value: overview.therapists, target: 'therapists' },
+        { label: 'Prenotazioni totali', value: overview.bookingsTotal, target: 'bookings' },
+        { label: 'In attesa', value: overview.bookingsPending, target: 'bookings' },
+        { label: 'Confermate', value: overview.bookingsConfirmed, target: 'bookings' },
+        { label: 'Completate', value: overview.bookingsCompleted, target: 'bookings' },
       ]
     : [];
+
+  function scrollToSection(target) {
+    const id = target === 'therapists' ? 'sezione-terapeuti' : 'sezione-prenotazioni';
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
   return (
     <div className="container section">
@@ -186,10 +191,22 @@ export default function AdminDashboard() {
       {statCards.length > 0 && (
         <div style={gridStyle}>
           {statCards.map((s) => (
-            <div key={s.label} style={cardStyle}>
+            <button
+              key={s.label}
+              onClick={() => scrollToSection(s.target)}
+              style={{
+                ...cardStyle,
+                cursor: 'pointer',
+                textAlign: 'left',
+                border: '1px solid var(--border, #e5e7eb)',
+                background: '#fff',
+              }}
+              title="Tocca per vedere i dettagli"
+            >
               <div className="stat-label">{s.label}</div>
               <div style={{ fontSize: 26, fontWeight: 700 }}>{s.value}</div>
-            </div>
+              <div className="muted small">Tocca per i dettagli ↓</div>
+            </button>
           ))}
         </div>
       )}
@@ -283,7 +300,7 @@ export default function AdminDashboard() {
         </form>
       )}
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+      <div id="sezione-terapeuti" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12, scrollMarginTop: 16 }}>
         <h2 style={{ margin: 0 }}>Terapeuti ({therapists.length})</h2>
         {!editing && (
           <button className="btn btn-primary btn-sm" onClick={startNew}>
@@ -315,7 +332,7 @@ export default function AdminDashboard() {
         ))}
       </div>
 
-      <h2 style={{ margin: '28px 0 12px' }}>Prenotazioni ({bookings.length})</h2>
+      <h2 id="sezione-prenotazioni" style={{ margin: '28px 0 12px', scrollMarginTop: 16 }}>Prenotazioni ({bookings.length})</h2>
       {bookings.length === 0 && <p className="muted">Nessuna prenotazione ancora. Quando un paziente prenota, la vedrai qui.</p>}
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
