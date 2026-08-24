@@ -16,6 +16,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import BlogList from './pages/BlogList';
 import BlogArticle from './pages/BlogArticle';
 import Receipt from './pages/Receipt';
+import Risorse from './pages/Risorse';
 import Settings from './pages/Settings';
 import Privacy from './pages/Privacy';
 import CookiePolicy from './pages/CookiePolicy';
@@ -35,6 +36,7 @@ export default function App() {
               <Route path="/blog" element={<BlogList />} />
               <Route path="/blog/:slug" element={<BlogArticle />} />
               <Route path="/ricevuta/:id" element={<Receipt />} />
+              <Route path="/risorse" element={<Risorse />} />
               <Route path="/registrazione" element={<Register />} />
               <Route path="/accedi" element={<Login />} />
               <Route path="/privacy" element={<Privacy />} />

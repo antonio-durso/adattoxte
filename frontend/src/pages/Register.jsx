@@ -13,7 +13,7 @@ export default function Register() {
     name: '',
     email: '',
     password: '',
-    role: 'patient',
+    role: searchParams.get('tipo') === 'terapeuta' ? 'therapist' : 'patient',
     consent: false,
     refCode: searchParams.get('ref') || '',
   });

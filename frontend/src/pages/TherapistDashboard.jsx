@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import api from '../api';
 import Messaging from '../components/Messaging';
 import VideoRoom from '../components/VideoRoom';
+import { useAuth } from '../context/AuthContext';
 
 const STATUS_LABEL = {
   pending: 'In attesa di conferma',
@@ -11,9 +12,12 @@ const STATUS_LABEL = {
 };
 
 export default function TherapistDashboard() {
+  const { user } = useAuth();
   const [sessions, setSessions] = useState([]);
   const [conversations, setConversations] = useState([]);
   const [earnings, setEarnings] = useState(null);
+  const [notesDrafts, setNotesDrafts] = useState({});
+  const [notesBusy, setNotesBusy] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [chatPeer, setChatPeer] = useState(null);
@@ -87,6 +91,7 @@ export default function TherapistDashboard() {
               </p>
               <div className="tags">
                 <span className={'tag status-' + s.status}>{STATUS_LABEL[s.status]}</span>
+                {s.packageSessions === 3 && <span className="tag">🎁 Pacchetto 3 sedute</span>}
                 {s.paid ? <span className="tag ok">Pagata</span> : <span className="tag">Da pagare</span>}
               </div>
             </div>
@@ -126,19 +131,72 @@ export default function TherapistDashboard() {
           <h2>Storico</h2>
           <div className="booking-list">
             {past.map((s) => (
-              <div className="card booking-item" key={s.id}>
-                <div className="booking-main">
-                  <h3>{s.patientName}</h3>
-                  <p>{new Date(s.date + 'T00:00:00').toLocaleDateString('it-IT')} · {s.startTime} · {s.type === 'couple' ? 'coppia' : 'individuale'} · {s.price} €</p>
-                  <div className="tags">
-                    <span className={'tag status-' + s.status}>{STATUS_LABEL[s.status]}</span>
-                    {s.myRating ? <span className="tag ok">★ {s.myRating} dal paziente</span> : null}
+              <Fragment key={s.id}>
+                <div className="card booking-item">
+                  <div className="booking-main">
+                    <h3>{s.patientName}</h3>
+                    <p>{new Date(s.date + 'T00:00:00').toLocaleDateString('it-IT')} · {s.startTime} · {s.type === 'couple' ? 'coppia' : 'individuale'} · {s.price} €</p>
+                    <div className="tags">
+                      <span className={'tag status-' + s.status}>{STATUS_LABEL[s.status]}</span>
+                      {s.packageSessions === 3 && <span className="tag">🎁 Pacchetto 3 sedute</span>}
+                      {s.myRating ? <span className="tag ok">★ {s.myRating} dal paziente</span> : null}
+                    </div>
+                  </div>
+                  <div className="card" style={{ marginTop: 10, background: '#f8fafc', padding: 12 }}>
+                    <p className="label" style={{ margin: '0 0 6px', fontSize: 13 }}>📝 Note cliniche (visibili solo a te)</p>
+                    <textarea
+                      rows={2}
+                      placeholder="Appunti sulla seduta: andamento, obiettivi, spunti…"
+                      value={notesDrafts[s.id] ?? s.therapistNotes ?? ''}
+                      onChange={(e) => setNotesDrafts((d) => ({ ...d, [s.id]: e.target.value }))}
+                      style={{ width: '100%', padding: 8, borderRadius: 8, border: '1px solid #e5e7eb', fontSize: 14 }}
+                    />
+                    <button
+                      className="btn btn-outline btn-sm"
+                      style={{ marginTop: 6 }}
+                      disabled={notesBusy === s.id}
+                      onClick={async () => {
+                        setNotesBusy(s.id);
+                        try {
+                          await api.patch(`/bookings/${s.id}/notes`, { notes: notesDrafts[s.id] ?? '' });
+                        } catch (e) {
+                          setError(e.response?.data?.error || 'Errore nel salvataggio');
+                        } finally {
+                          setNotesBusy(null);
+                        }
+                      }}
+                    >
+                      {notesBusy === s.id ? 'Salvataggio…' : 'Salva note'}
+                    </button>
                   </div>
                 </div>
-              </div>
+              </Fragment>
             ))}
           </div>
         </>
+      )}
+
+      {user?.referralCode && (
+        <div className="card" style={{ marginBottom: 24, padding: 16 }}>
+          <h2 style={{ margin: 0 }}>🤝 Invita un collega</h2>
+          <p className="muted small">
+            Per ogni terapeuta che si registra con il tuo codice ricevi <strong>+20 € di credito</strong>.
+          </p>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', marginTop: 8 }}>
+            <code style={{ background: '#f1f5f9', padding: '8px 12px', borderRadius: 8, fontSize: 14 }}>
+              https://adattoxte.vercel.app/registrazione?ref={user.referralCode}&tipo=terapeuta
+            </code>
+            <button
+              className="btn btn-outline btn-sm"
+              onClick={() => {
+                navigator.clipboard?.writeText(`https://adattoxte.vercel.app/registrazione?ref=${user.referralCode}&tipo=terapeuta`);
+                setError('');
+              }}
+            >
+              📋 Copia link
+            </button>
+          </div>
+        </div>
       )}
 
       <h2>Conversazioni</h2>

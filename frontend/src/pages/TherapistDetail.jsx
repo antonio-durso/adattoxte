@@ -36,6 +36,7 @@ export default function TherapistDetail() {
   const [success, setSuccess] = useState(null);
   const [booking, setBooking] = useState(false);
   const [reviews, setReviews] = useState([]);
+  const [pkg, setPkg] = useState(1);
 
   const days = useMemo(nextDays, []);
 
@@ -63,6 +64,7 @@ export default function TherapistDetail() {
   }, [id, date]);
 
   const price = therapist ? (type === 'couple' ? therapist.priceCouple : therapist.priceIndividual) : 0;
+  const packagePrice = pkg === 3 ? Math.round(price * 3 * 0.85) : price;
   const availableSlots = slots.filter((s) => s.available);
 
   async function handleBook() {
@@ -79,7 +81,7 @@ export default function TherapistDetail() {
     setError('');
     try {
       const startTime = slots.find((s) => s.id === selectedSlot)?.startTime;
-      const r = await api.post('/bookings', { therapistId: id, date, startTime, type });
+      const r = await api.post('/bookings', { therapistId: id, date, startTime, type, packageSessions: pkg });
       const created = r.data.booking;
       const pay = await api.post('/payments/checkout', { bookingId: created.id });
       setSuccess({
@@ -163,6 +165,20 @@ export default function TherapistDetail() {
               </button>
             </div>
 
+            <div className="type-toggle" style={{ marginTop: 8 }}>
+              <button className={pkg === 1 ? 'chip active' : 'chip'} onClick={() => setPkg(1)}>
+                Seduta singola · {price} €
+              </button>
+              <button className={pkg === 3 ? 'chip active' : 'chip'} onClick={() => setPkg(3)}>
+                🎁 Pacchetto 3 sedute · {Math.round(price * 3 * 0.85)} € (-15%)
+              </button>
+            </div>
+            {pkg === 3 && (
+              <p className="muted small" style={{ marginTop: 6 }}>
+                Risparmi {Math.round(price * 3 * 0.15)} €. Paghi 3 sedute, poi le prenoti quando vuoi con il terapeuta.
+              </p>
+            )}
+
             <p className="label">Scegli il giorno</p>
             <div className="date-row">
               {days.map((d) => (
@@ -199,11 +215,11 @@ export default function TherapistDetail() {
 
             <div className="booking-summary">
               <span>Totale</span>
-              <strong>{price} €</strong>
+              <strong>{pkg === 3 ? `🎁 ${packagePrice} € (3 sedute)` : `${price} €`}</strong>
             </div>
 
             <button className="btn btn-primary btn-block btn-lg" onClick={handleBook} disabled={!selectedSlot || booking}>
-              {booking ? 'Prenotazione in corso…' : user ? `Conferma e paga ${price} €` : 'Accedi per prenotare'}
+              {booking ? 'Prenotazione in corso…' : user ? `Conferma e paga ${pkg === 3 ? packagePrice : price} €` : 'Accedi per prenotare'}
             </button>
             {!user && (
               <p className="muted small">

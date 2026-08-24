@@ -116,6 +116,7 @@ export default function PatientDashboard() {
               </p>
               <div className="tags">
                 <span className={'tag status-' + b.status}>{STATUS_LABEL[b.status]}</span>
+                {b.packageSessions === 3 && <span className="tag">🎁 Pacchetto 3 sedute</span>}
                 {b.paid ? <span className="tag ok">Pagata</span> : <span className="tag">Da pagare</span>}
               </div>
             </div>
@@ -156,6 +157,7 @@ export default function PatientDashboard() {
                   <p>{new Date(b.date + 'T00:00:00').toLocaleDateString('it-IT')} · {b.startTime} · {b.type === 'couple' ? 'coppia' : 'individuale'} · {b.price} €</p>
                   <div className="tags">
                     <span className={'tag status-' + b.status}>{STATUS_LABEL[b.status]}</span>
+                {b.packageSessions === 3 && <span className="tag">🎁 Pacchetto 3 sedute</span>}
                     {b.myRating ? <span className="tag ok">Valutata ★ {b.myRating}</span> : null}
                   </div>
                 </div>

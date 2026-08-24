@@ -46,18 +46,21 @@ function bookingView(row) {
     roomName: row.room_name,
     createdAt: row.created_at,
     myRating: row.my_rating != null ? Number(row.my_rating) : null,
+    packageSessions: row.package_sessions || 1,
+    therapistNotes: row.therapist_notes || '',
   };
 }
 
-// POST /api/bookings - il paziente prenota una seduta
+// POST /api/bookings - il paziente prenota una seduta (o un pacchetto 3 sedute)
 router.post('/', requireRole('patient'), (req, res) => {
-  const { therapistId, date, startTime, type } = req.body || {};
+  const { therapistId, date, startTime, type, packageSessions } = req.body || {};
   if (!therapistId || !date || !startTime) {
     return res.status(400).json({ error: 'terapeuta, data e ora sono obbligatori' });
   }
   if (!['individual', 'couple'].includes(type)) {
     return res.status(400).json({ error: 'Tipo seduta non valido (individual o couple)' });
   }
+  const pkg = Number(packageSessions) === 3 ? 3 : 1;
 
   const therapist = db.prepare('SELECT id FROM users WHERE id = ? AND role = ?').get(therapistId, 'therapist');
   if (!therapist) return res.status(404).json({ error: 'Terapeuta non trovato' });
@@ -83,23 +86,24 @@ router.post('/', requireRole('patient'), (req, res) => {
 
   const profile = db.prepare('SELECT price_individual, price_couple FROM therapist_profiles WHERE user_id = ?').get(therapistId);
   const basePrice = type === 'couple' ? profile.price_couple : profile.price_individual;
+  const packageTotal = pkg === 3 ? Math.round(basePrice * 3 * 0.85) : basePrice; // pacchetto 3 sedute: -15%
 
-  // Programma referral: applica il credito accumulato (fino al prezzo della seduta)
+  // Programma referral: applica il credito accumulato (fino al prezzo della seduta/pacchetto)
   let creditUsed = 0;
   const userRow = db.prepare('SELECT credit FROM users WHERE id = ?').get(req.user.id);
   if (userRow.credit > 0) {
-    creditUsed = Math.min(userRow.credit, basePrice);
+    creditUsed = Math.min(userRow.credit, packageTotal);
     db.prepare('UPDATE users SET credit = credit - ? WHERE id = ?').run(creditUsed, req.user.id);
   }
-  const price = Math.max(1, basePrice - creditUsed);
+  const price = Math.max(1, packageTotal - creditUsed);
 
   const bookingId = crypto.randomUUID();
   const roomName = 'AdattoXTe-' + bookingId.slice(0, 8).toUpperCase();
 
   db.prepare(`
-    INSERT INTO bookings (id, patient_id, therapist_id, availability_id, date, start_time, end_time, type, price, credit_used, room_name)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-  `).run(bookingId, req.user.id, therapistId, slot.id, date, startTime, endTime, type, price, creditUsed, roomName);
+    INSERT INTO bookings (id, patient_id, therapist_id, availability_id, date, start_time, end_time, type, price, credit_used, room_name, package_sessions)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(bookingId, req.user.id, therapistId, slot.id, date, startTime, endTime, type, price, creditUsed, roomName, pkg);
 
   db.prepare('UPDATE availabilities SET booked = 1 WHERE id = ?').run(slot.id);
 
@@ -112,6 +116,16 @@ router.post('/', requireRole('patient'), (req, res) => {
   `).get(bookingId);
 
   res.status(201).json({ booking: bookingView(row) });
+});
+
+// PATCH /api/bookings/:id/notes - il terapeuta salva le note cliniche della seduta
+router.patch('/:id/notes', requireRole('therapist'), (req, res) => {
+  const booking = db.prepare('SELECT * FROM bookings WHERE id = ?').get(req.params.id);
+  if (!booking) return res.status(404).json({ error: 'Prenotazione non trovata' });
+  if (booking.therapist_id !== req.user.id) return res.status(403).json({ error: 'Non autorizzato' });
+  const notes = String((req.body || {}).notes || '').slice(0, 3000);
+  db.prepare('UPDATE bookings SET therapist_notes = ? WHERE id = ?').run(notes, booking.id);
+  res.json({ ok: true, notes });
 });
 
 // GET /api/bookings/my - sedute del paziente

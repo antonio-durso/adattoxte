@@ -28,6 +28,7 @@ export default function Navbar() {
         <nav className="nav-links">
           <Link to="/terapeuti">{t('nav.therapists')}</Link>
           <Link to="/blog">{t('nav.blog')}</Link>
+          <Link to="/risorse">{t('nav.risorse')}</Link>
           {areaLink && (
             <Link to={areaLink}>
               {user.role === 'therapist' ? t('nav.therapistArea') : user.role === 'patient' ? t('nav.patientArea') : t('nav.adminArea')}

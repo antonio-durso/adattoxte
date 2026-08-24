@@ -57,11 +57,16 @@ router.post('/register', (req, res) => {
   // Programma referral (BP cap. 6.2): chi si registra con un codice riceve 10€ di credito
   let referralApplied = false;
   if (refCode) {
-    const referrer = db.prepare('SELECT id FROM users WHERE referral_code = ?').get(String(refCode).trim().toUpperCase());
+    const referrer = db.prepare('SELECT id, role FROM users WHERE referral_code = ?').get(String(refCode).trim().toUpperCase());
     if (referrer && referrer.id !== id) {
       db.prepare('INSERT INTO referrals (id, referrer_id, referred_id) VALUES (?, ?, ?)')
         .run(crypto.randomUUID(), referrer.id, id);
       db.prepare('UPDATE users SET credit = credit + 10 WHERE id = ?').run(id);
+      // Referral professionisti: un terapeuta che porta un collega riceve +20€ di credito
+      if (role === 'therapist' && referrer.role === 'therapist') {
+        db.prepare('UPDATE users SET credit = credit + 20 WHERE id = ?').run(referrer.id);
+        db.prepare("UPDATE referrals SET status = 'rewarded' WHERE referred_id = ?").run(id);
+      }
       referralApplied = true;
     }
   }

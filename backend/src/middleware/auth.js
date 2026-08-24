@@ -13,7 +13,15 @@ function signToken(user) {
 }
 
 function publicUser(u) {
-  return { id: u.id, name: u.name, email: u.email, role: u.role, bio: u.bio };
+  return {
+    id: u.id,
+    name: u.name,
+    email: u.email,
+    role: u.role,
+    bio: u.bio,
+    referralCode: u.referral_code || null,
+    credit: u.credit || 0,
+  };
 }
 
 function authRequired(req, res, next) {

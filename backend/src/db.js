@@ -105,6 +105,12 @@ function initDb() {
   if (!bookingCols.includes('credit_used')) {
     db.exec('ALTER TABLE bookings ADD COLUMN credit_used INTEGER NOT NULL DEFAULT 0');
   }
+  if (!bookingCols.includes('package_sessions')) {
+    db.exec('ALTER TABLE bookings ADD COLUMN package_sessions INTEGER NOT NULL DEFAULT 1');
+  }
+  if (!bookingCols.includes('therapist_notes')) {
+    db.exec("ALTER TABLE bookings ADD COLUMN therapist_notes TEXT DEFAULT ''");
+  }
 
   // Codici invito per gli utenti esistenti che non ne hanno uno
   const missing = db.prepare('SELECT id FROM users WHERE referral_code IS NULL').all();
