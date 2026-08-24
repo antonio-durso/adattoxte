@@ -80,6 +80,16 @@ function initDb() {
       status      TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','rewarded')),
       created_at  TEXT NOT NULL DEFAULT (datetime('now'))
     );
+
+    CREATE TABLE IF NOT EXISTS ratings (
+      id           TEXT PRIMARY KEY,
+      booking_id   TEXT NOT NULL UNIQUE REFERENCES bookings(id) ON DELETE CASCADE,
+      patient_id   TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      therapist_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      score        INTEGER NOT NULL CHECK (score BETWEEN 1 AND 5),
+      comment      TEXT DEFAULT '',
+      created_at   TEXT NOT NULL DEFAULT (datetime('now'))
+    );
   `);
 
   // Migrazioni per database esistenti (colonne aggiunte in seguito)

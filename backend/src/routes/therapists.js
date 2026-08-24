@@ -4,6 +4,7 @@
  */
 const express = require('express');
 const { db } = require('../db');
+const { authRequired, requireRole } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -32,8 +33,25 @@ function therapistView(row) {
     languages: parseLanguages(row),
     photoUrl: row.photo_url || '',
     verified: !!row.verified,
+    ratingAvg: row.rating_avg != null ? Number(row.rating_avg) : null,
+    ratingCount: row.rating_count || 0,
   };
 }
+
+// GET /api/therapists/earnings — guadagni del terapeuta (dashboards concorrenti)
+router.get('/earnings', authRequired, requireRole('therapist'), (req, res) => {
+  const rows = db.prepare('SELECT status, price FROM bookings WHERE therapist_id = ?').all(req.user.id);
+  const sum = (statuses) => rows.filter((b) => statuses.includes(b.status)).reduce((a, b) => a + (b.price || 0), 0);
+  res.json({
+    earnings: {
+      completed: sum(['completed']),
+      confirmed: sum(['confirmed']),
+      pending: sum(['pending']),
+      totalBookings: rows.length,
+      completedCount: rows.filter((b) => b.status === 'completed').length,
+    },
+  });
+});
 
 // GET /api/therapists?q=&specialty=
 router.get('/', (req, res) => {
@@ -43,7 +61,9 @@ router.get('/', (req, res) => {
   const rows = db.prepare(`
     SELECT u.id, u.name, u.role, u.bio,
            p.specialties, p.price_individual, p.price_couple,
-           p.license, p.experience_years, p.languages, p.photo_url, p.verified
+           p.license, p.experience_years, p.languages, p.photo_url, p.verified,
+           (SELECT ROUND(AVG(r.score), 1) FROM ratings r WHERE r.therapist_id = u.id) AS rating_avg,
+           (SELECT COUNT(*) FROM ratings r WHERE r.therapist_id = u.id) AS rating_count
     FROM users u
     JOIN therapist_profiles p ON p.user_id = u.id
     WHERE u.role = 'therapist'
@@ -65,7 +85,9 @@ router.get('/:id', (req, res) => {
   const row = db.prepare(`
     SELECT u.id, u.name, u.role, u.bio,
            p.specialties, p.price_individual, p.price_couple,
-           p.license, p.experience_years, p.languages, p.photo_url, p.verified
+           p.license, p.experience_years, p.languages, p.photo_url, p.verified,
+           (SELECT ROUND(AVG(r.score), 1) FROM ratings r WHERE r.therapist_id = u.id) AS rating_avg,
+           (SELECT COUNT(*) FROM ratings r WHERE r.therapist_id = u.id) AS rating_count
     FROM users u
     JOIN therapist_profiles p ON p.user_id = u.id
     WHERE u.id = ? AND u.role = 'therapist'

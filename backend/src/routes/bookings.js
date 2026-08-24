@@ -11,6 +11,23 @@ const { authRequired, requireRole } = require('../middleware/auth');
 const router = express.Router();
 router.use(authRequired);
 
+// GET /api/bookings/:id — dettaglio prenotazione (paziente proprietario, terapeuta o admin)
+router.get('/:id', (req, res) => {
+  const row = db.prepare(`
+    SELECT b.*, u1.name AS patient_name, u2.name AS therapist_name
+    FROM bookings b
+    JOIN users u1 ON u1.id = b.patient_id
+    JOIN users u2 ON u2.id = b.therapist_id
+    WHERE b.id = ?
+  `).get(req.params.id);
+  if (!row) return res.status(404).json({ error: 'Prenotazione non trovata' });
+  const isAdmin = req.user.role === 'admin';
+  const isOwner = row.patient_id === req.user.id;
+  const isTherapist = row.therapist_id === req.user.id;
+  if (!isAdmin && !isOwner && !isTherapist) return res.status(403).json({ error: 'Non autorizzato' });
+  res.json({ booking: bookingView(row) });
+});
+
 function bookingView(row) {
   return {
     id: row.id,
