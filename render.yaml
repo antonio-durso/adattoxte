@@ -36,3 +36,5 @@ services:
         value: noreply@adattoxte.it
       - key: EMAIL_NAME
         value: Adatto x Te
+      # SMTP_PASS (chiave Brevo) NON va nel repo: GitHub lo blocca (secret scanning).
+      # Impostarla nel pannello Render: Service -> Environment -> SMTP_PASS -> Salva.

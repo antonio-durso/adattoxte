@@ -16,7 +16,11 @@ app.use('/api/payments/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
 
 app.get('/api/health', (req, res) => {
-  res.json({ ok: true, service: 'adattoxte-backend', version: '1.0.0' });
+  let mailerStatus = 'demo';
+  try {
+    mailerStatus = require('./mailer').configured ? 'attivo' : 'demo';
+  } catch (e) { mailerStatus = 'non-disponibile'; }
+  res.json({ ok: true, service: 'adattoxte-backend', version: '1.0.0', mailer: mailerStatus });
 });
 
 app.use('/api/auth', require('./routes/auth'));
