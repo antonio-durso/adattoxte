@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 import Reveal from '../components/Reveal';
+import HeroComic from '../components/HeroComic';
 import { articles, totalArticles } from '../content/articles';
 
 const SERVICES = [
@@ -120,11 +121,7 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <img
-            src="/images/hero.jpg"
-            alt="Seduta di psicologia online da casa"
-            style={{ width: '100%', maxWidth: 860, borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.18)', margin: '28px auto 0', display: 'block' }}
-          />
+          <HeroComic />
         </div>
       </section>
 
