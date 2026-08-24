@@ -124,8 +124,8 @@ export default function TherapistDetail() {
       ) : (
         <div className="profile-layout">
           <div className="card profile-card">
-            <div className="avatar avatar-lg">{therapist.name.replace(/^(Dott\.?s?a?\.?)\s*/, '').charAt(0)}</div>
-            <h1>{therapist.name}</h1>
+            <div className="avatar avatar-lg">P</div>
+            <h1>Psicologo{therapist.specialties && therapist.specialties[0] ? ` · ${therapist.specialties[0]}` : ''}</h1>
             <div className="tags">
               {therapist.specialties.map((s) => (
                 <span className="tag" key={s}>{s}</span>

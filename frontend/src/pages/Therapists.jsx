@@ -59,8 +59,8 @@ export default function Therapists() {
       <div className="grid cards">
         {therapists.map((th) => (
           <Link to={`/terapeuti/${th.id}`} className="card therapist-card" key={th.id}>
-            <div className="avatar">{th.name.replace(/^(Dott\.?s?a?\.?)\s*/, '').charAt(0)}</div>
-            <h3>{th.name}</h3>
+            <div className="avatar">P</div>
+            <h3>Psicologo{th.specialties && th.specialties[0] ? ` · ${th.specialties[0]}` : ''}</h3>
             <div className="tags">
               {th.specialties.map((s) => (
                 <span className="tag" key={s}>

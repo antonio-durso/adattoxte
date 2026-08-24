@@ -37,6 +37,7 @@ export default function AdminDashboard() {
   const [overview, setOverview] = useState(null);
   const [therapists, setTherapists] = useState([]);
   const [specialties, setSpecialties] = useState([]);
+  const [bookings, setBookings] = useState([]);
   const [editing, setEditing] = useState(null); // null | 'new' | terapeuta
   const [form, setForm] = useState(emptyForm());
   const [error, setError] = useState('');
@@ -44,17 +45,43 @@ export default function AdminDashboard() {
 
   async function loadAll() {
     try {
-      const [ov, th, sp] = await Promise.all([
+      const [ov, th, sp, bk] = await Promise.all([
         api.get('/admin/overview'),
         api.get('/admin/therapists'),
         api.get('/admin/specialties'),
+        api.get('/admin/bookings'),
       ]);
       setOverview(ov.data.overview);
       setTherapists(th.data.therapists);
       setSpecialties(sp.data.specialties);
+      setBookings(bk.data.bookings || []);
       setError('');
     } catch {
       setError('Impossibile caricare i dati. Riprova.');
+    }
+  }
+
+  async function setBookingStatus(bookingId, status) {
+    try {
+      await api.patch(`/admin/bookings/${bookingId}/status`, { status });
+      await loadAll();
+    } catch (err) {
+      setError(err.response?.data?.error || 'Errore durante l\'aggiornamento');
+    }
+  }
+
+  const statusLabel = (s) =>
+    ({ pending: 'In attesa', confirmed: 'Confermata', completed: 'Completata', cancelled: 'Annullata' }[s] || s);
+
+  const statusColor = (s) =>
+    ({ pending: '#d97706', confirmed: '#166534', completed: '#1d4ed8', cancelled: '#b91c1c' }[s] || '#6b7280');
+
+  function formatDateTime(b) {
+    try {
+      const d = new Date(b.date + 'T00:00:00');
+      return `${d.toLocaleDateString('it-IT')} · ${b.start_time || ''}`;
+    } catch {
+      return `${b.date} · ${b.start_time || ''}`;
     }
   }
 
@@ -278,6 +305,38 @@ export default function AdminDashboard() {
                 <button className="btn btn-outline btn-sm" onClick={() => startEdit(t)}>Modifica</button>
                 <button className="btn btn-outline btn-sm" onClick={() => remove(t)} style={{ color: '#b91c1c' }}>Elimina</button>
               </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h2 style={{ margin: '28px 0 12px' }}>Prenotazioni ({bookings.length})</h2>
+      {bookings.length === 0 && <p className="muted">Nessuna prenotazione ancora. Quando un paziente prenota, la vedrai qui.</p>}
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        {bookings.map((b) => (
+          <div key={b.id} style={cardStyle}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+              <div>
+                <strong>{b.patient_name}</strong> → <strong>{b.therapist_name}</strong>
+                <div className="muted small">{formatDateTime(b)} · {b.price ?? b.priceIndividual ?? ''} €</div>
+                <span className="badge" style={{ background: '#fef3c7', color: statusColor(b.status) }}>
+                  {statusLabel(b.status)}
+                </span>
+              </div>
+              {b.status !== 'cancelled' && b.status !== 'completed' && (
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  {b.status === 'pending' && (
+                    <button className="btn btn-primary btn-sm" onClick={() => setBookingStatus(b.id, 'confirmed')}>Conferma</button>
+                  )}
+                  {b.status === 'confirmed' && (
+                    <button className="btn btn-outline btn-sm" onClick={() => setBookingStatus(b.id, 'completed')}>Completa</button>
+                  )}
+                  <button className="btn btn-outline btn-sm" style={{ color: '#b91c1c' }} onClick={() => setBookingStatus(b.id, 'cancelled')}>
+                    Annulla
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         ))}

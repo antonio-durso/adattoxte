@@ -190,4 +190,28 @@ router.delete('/therapists/:id', (req, res) => {
   res.json({ ok: true, deleted: existing.id });
 });
 
+// GET /api/admin/bookings — elenco completo delle prenotazioni
+router.get('/bookings', (req, res) => {
+  const rows = db.prepare(`
+    SELECT b.*, u1.name AS patient_name, u2.name AS therapist_name
+    FROM bookings b
+    JOIN users u1 ON u1.id = b.patient_id
+    JOIN users u2 ON u2.id = b.therapist_id
+    ORDER BY b.date DESC, b.start_time DESC
+  `).all();
+  res.json({ bookings: rows });
+});
+
+// PATCH /api/admin/bookings/:id/status — conferma/annulla/completa dall'admin
+router.patch('/bookings/:id/status', (req, res) => {
+  const { status } = req.body || {};
+  if (!['pending', 'confirmed', 'completed', 'cancelled'].includes(status)) {
+    return res.status(400).json({ error: 'Stato non valido' });
+  }
+  const booking = db.prepare('SELECT * FROM bookings WHERE id = ?').get(req.params.id);
+  if (!booking) return res.status(404).json({ error: 'Prenotazione non trovata' });
+  db.prepare('UPDATE bookings SET status = ? WHERE id = ?').run(status, booking.id);
+  res.json({ ok: true, status });
+});
+
 module.exports = router;
