@@ -23,6 +23,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/me', require('./routes/me'));
 app.use('/api/therapists', require('./routes/therapists'));
 app.use('/api/bookings', require('./routes/bookings'));
+app.use('/api/ratings', require('./routes/ratings'));
 app.use('/api/messages', require('./routes/messages'));
 app.use('/api/payments', require('./routes/payments'));
 app.use('/api/referral', require('./routes/referral'));

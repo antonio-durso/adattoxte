@@ -11,6 +11,30 @@ const { authRequired, requireRole } = require('../middleware/auth');
 const router = express.Router();
 router.use(authRequired);
 
+// GET /api/bookings/my - sedute del paziente (PRIMA di /:id per evitare conflitto di route)
+router.get('/my', requireRole('patient'), (req, res) => {
+  const rows = db.prepare(`
+    SELECT b.*, u2.name AS therapist_name,
+           (SELECT r.score FROM ratings r WHERE r.booking_id = b.id) AS my_rating
+    FROM bookings b
+    JOIN users u2 ON u2.id = b.therapist_id
+    WHERE b.patient_id = ? ORDER BY b.date DESC, b.start_time DESC
+  `).all(req.user.id);
+  res.json({ bookings: rows.map(bookingView) });
+});
+
+// GET /api/bookings/my-sessions - agenda del terapeuta (PRIMA di /:id per evitare conflitto di route)
+router.get('/my-sessions', requireRole('therapist'), (req, res) => {
+  const rows = db.prepare(`
+    SELECT b.*, u1.name AS patient_name,
+           (SELECT r.score FROM ratings r WHERE r.booking_id = b.id) AS my_rating
+    FROM bookings b
+    JOIN users u1 ON u1.id = b.patient_id
+    WHERE b.therapist_id = ? ORDER BY b.date DESC, b.start_time DESC
+  `).all(req.user.id);
+  res.json({ bookings: rows.map(bookingView) });
+});
+
 // GET /api/bookings/:id — dettaglio prenotazione (paziente proprietario, terapeuta o admin)
 router.get('/:id', (req, res) => {
   const row = db.prepare(`
@@ -126,30 +150,6 @@ router.patch('/:id/notes', requireRole('therapist'), (req, res) => {
   const notes = String((req.body || {}).notes || '').slice(0, 3000);
   db.prepare('UPDATE bookings SET therapist_notes = ? WHERE id = ?').run(notes, booking.id);
   res.json({ ok: true, notes });
-});
-
-// GET /api/bookings/my - sedute del paziente
-router.get('/my', requireRole('patient'), (req, res) => {
-  const rows = db.prepare(`
-    SELECT b.*, u2.name AS therapist_name,
-           (SELECT r.score FROM ratings r WHERE r.booking_id = b.id) AS my_rating
-    FROM bookings b
-    JOIN users u2 ON u2.id = b.therapist_id
-    WHERE b.patient_id = ? ORDER BY b.date DESC, b.start_time DESC
-  `).all(req.user.id);
-  res.json({ bookings: rows.map(bookingView) });
-});
-
-// GET /api/bookings/my-sessions - agenda del terapeuta
-router.get('/my-sessions', requireRole('therapist'), (req, res) => {
-  const rows = db.prepare(`
-    SELECT b.*, u1.name AS patient_name,
-           (SELECT r.score FROM ratings r WHERE r.booking_id = b.id) AS my_rating
-    FROM bookings b
-    JOIN users u1 ON u1.id = b.patient_id
-    WHERE b.therapist_id = ? ORDER BY b.date DESC, b.start_time DESC
-  `).all(req.user.id);
-  res.json({ bookings: rows.map(bookingView) });
 });
 
 // PATCH /api/bookings/:id/status - conferma/annulla/completa
