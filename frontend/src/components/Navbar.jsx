@@ -29,6 +29,7 @@ export default function Navbar() {
           <Link to="/terapeuti">{t('nav.therapists')}</Link>
           <Link to="/blog">{t('nav.blog')}</Link>
           <Link to="/risorse">{t('nav.risorse')}</Link>
+          <Link to="/recensioni">{t('nav.reviews')}</Link>
           <Link to="/test">🧠 Test</Link>
           {areaLink && (
             <Link to={areaLink}>

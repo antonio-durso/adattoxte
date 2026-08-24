@@ -17,6 +17,7 @@ import BlogList from './pages/BlogList';
 import BlogArticle from './pages/BlogArticle';
 import Receipt from './pages/Receipt';
 import Risorse from './pages/Risorse';
+import Recensioni from './pages/Recensioni';
 import CheckIn from './pages/CheckIn';
 import Settings from './pages/Settings';
 import Privacy from './pages/Privacy';
@@ -38,6 +39,7 @@ export default function App() {
               <Route path="/blog/:slug" element={<BlogArticle />} />
               <Route path="/ricevuta/:id" element={<Receipt />} />
               <Route path="/risorse" element={<Risorse />} />
+              <Route path="/recensioni" element={<Recensioni />} />
               <Route path="/test" element={<CheckIn />} />
               <Route path="/registrazione" element={<Register />} />
               <Route path="/accedi" element={<Login />} />

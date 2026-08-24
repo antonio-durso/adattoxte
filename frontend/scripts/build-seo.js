@@ -18,6 +18,7 @@ const STATIC_ROUTES = [
   { path: '/terapeuti', priority: '0.9', freq: 'daily' },
   { path: '/blog', priority: '0.9', freq: 'daily' },
   { path: '/risorse', priority: '0.6', freq: 'weekly' },
+  { path: '/recensioni', priority: '0.7', freq: 'weekly' },
   { path: '/test', priority: '0.5', freq: 'weekly' },
   { path: '/registrazione', priority: '0.5', freq: 'monthly' },
   { path: '/accedi', priority: '0.4', freq: 'monthly' },

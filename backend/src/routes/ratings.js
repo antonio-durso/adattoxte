@@ -32,6 +32,74 @@ router.post('/', authRequired, requireRole('patient'), (req, res) => {
   res.status(201).json({ ok: true, rating: { id, score: s, comment: String(comment || '') } });
 });
 
+// GET /api/ratings — aggregato pubblico di tutte le recensioni (pagina /recensioni)
+// Il nome del terapeuta è mascherato ("Psicologo · specializzazione") per coerenza
+// con l'anonimato del catalogo: il nome si svela dopo la prenotazione.
+router.get('/', (req, res) => {
+  const stats = db
+    .prepare(
+      `SELECT COUNT(*) AS total, ROUND(AVG(score), 1) AS avg FROM ratings`
+    )
+    .get();
+  const distribution = db
+    .prepare(`SELECT score, COUNT(*) AS count FROM ratings GROUP BY score ORDER BY score DESC`)
+    .all();
+  const therapists = db
+    .prepare(
+      `SELECT u.id, u.name, p.specialties, COUNT(r.id) AS count, ROUND(AVG(r.score), 1) AS avg
+       FROM ratings r
+       JOIN users u ON u.id = r.therapist_id
+       JOIN therapist_profiles p ON p.user_id = u.id
+       GROUP BY u.id ORDER BY count DESC`
+    )
+    .all()
+    .map((t) => {
+      let specialty = 'consulenza psicologica';
+      try {
+        const list = JSON.parse(t.specialties || '[]');
+        if (list.length) specialty = list[0];
+      } catch {}
+      return {
+        id: t.id,
+        name: t.name,
+        label: `Psicologo · ${specialty}`,
+        count: t.count,
+        avg: Number(t.avg),
+      };
+    });
+  const ratings = db
+    .prepare(
+      `SELECT r.id, r.score, r.comment, r.created_at, u.name AS therapist_name,
+              p.specialties
+       FROM ratings r
+       JOIN users u ON u.id = r.therapist_id
+       JOIN therapist_profiles p ON p.user_id = u.id
+       ORDER BY r.created_at DESC LIMIT 200`
+    )
+    .all()
+    .map((r) => {
+      let specialty = 'consulenza psicologica';
+      try {
+        const list = JSON.parse(r.specialties || '[]');
+        if (list.length) specialty = list[0];
+      } catch {}
+      return {
+        id: r.id,
+        score: r.score,
+        comment: r.comment,
+        createdAt: r.created_at,
+        therapistLabel: `Psicologo · ${specialty}`,
+      };
+    });
+  res.json({
+    total: stats.total || 0,
+    avg: stats.avg || null,
+    distribution: distribution.map((d) => ({ score: d.score, count: d.count })),
+    therapists,
+    ratings,
+  });
+});
+
 // GET /api/ratings/therapist/:id — recensioni pubbliche di un terapeuta
 router.get('/therapist/:id', (req, res) => {
   const rows = db
