@@ -80,9 +80,10 @@
         s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
         document.head.appendChild(s);
       }
-      if ('requestIdleCallback' in window) requestIdleCallback(initAnalytics, { timeout: 8000 });
-      else if (document.readyState === 'complete') initAnalytics();
-      else window.addEventListener('load', initAnalytics);
+      setTimeout(function () {
+        if ('requestIdleCallback' in window) requestIdleCallback(initAnalytics, { timeout: 3000 });
+        else initAnalytics();
+      }, 5000);
     </script>
 
     <!-- Meta Pixel: caricato DOPO il load della pagina per non bloccare l'LCP -->
@@ -99,9 +100,10 @@
         fbq('init', pid);
         fbq('track', 'PageView');
       }
-      if ('requestIdleCallback' in window) requestIdleCallback(initPixel, { timeout: 8000 });
-      else if (document.readyState === 'complete') initPixel();
-      else window.addEventListener('load', initPixel);
+      setTimeout(function () {
+        if ('requestIdleCallback' in window) requestIdleCallback(initPixel, { timeout: 3000 });
+        else initPixel();
+      }, 5000);
     </script>
     <!-- CSS critico minimo (evita salto layout/flash bianco prima del caricamento JS) -->
     <style>
