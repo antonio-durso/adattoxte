@@ -20,6 +20,11 @@ const NICHES = {
       { icon: '🔥', title: 'Motivazione e costanza', text: 'Supporto per mantenere la costanza nei mesi di studio, senza crolli.' },
     ],
     articleKws: ['concorsi', 'esame'],
+    faq: [
+      { q: 'Uno psicologo può davvero aiutarmi con l\'ansia da concorso?', a: 'Sì: lo psicologo ti insegna tecniche di gestione dell\'ansia, concentrazione e simulazione mentale, e ti accompagna nei mesi di preparazione, aiutandoti a mantenere costanza e lucidità il giorno della prova.' },
+      { q: 'Le sedute online funzionano per la preparazione ai concorsi?', a: 'Assolutamente: le sedute in videochiamata ti permettono di allenarti nelle stesse condizioni in cui affronterai la prova, da casa, con la stessa efficacia delle sedute in presenza.' },
+      { q: 'Quanto dura un percorso per l\'ansia da concorso?', a: 'Dipende dal punto di partenza e dall\'obiettivo: solitamente 4-8 incontri, ma la durata viene concordata con lo psicologo in base alle tue esigenze.' },
+    ],
   },
   sport: {
     path: '/psicologo-sport',
@@ -35,6 +40,11 @@ const NICHES = {
       { icon: '🏆', title: 'Mentalità vincente', text: 'Obiettivi, autoefficacia e gestione della sconfitta per una crescita continua.' },
     ],
     articleKws: ['sport', 'prestazione'],
+    faq: [
+      { q: 'Cos\'è la psicologia dello sport?', a: 'È la disciplina che applica le conoscenze psicologiche alla prestazione sportiva: gestione dell\'ansia da gara, motivazione, concentrazione, gestione delle pressioni e rientro dagli infortuni.' },
+      { q: 'Serve solo agli atleti professionisti?', a: 'No: anche gli amatori e chi fa sport per benessere possono beneficiare del supporto psicologico, per esempio per l\'ansia da prestazione o per riprendere l\'attività dopo un blocco.' },
+      { q: 'Come funziona una seduta di psicologia dello sport online?', a: 'In videochiamata, con esercizi pratici di respirazione, visualizzazione e gestione dell\'attivazione, applicabili sia in gara sia in allenamento.' },
+    ],
   },
   giuridica: {
     path: '/psicologia-giuridica',
@@ -50,6 +60,11 @@ const NICHES = {
       { icon: '🛡️', title: 'Riservatezza totale', text: 'Sedute online, nessuno ti vede entrare in uno studio in un momento delicato.' },
     ],
     articleKws: ['giuridica', 'separazione'],
+    faq: [
+      { q: 'Quando serve uno psicologo giuridico?', a: 'In separazioni e divorzi, affidamenti dei figli, consulenze tecniche d\'ufficio (CTU), sostegno alle vittime e mediazione: lo psicologo giuridico affianca persone e avvocati nelle situazioni delicate legate alla giustizia.' },
+      { q: 'Che differenza c\'è tra psicologo giuridico e perito?', a: 'Lo psicologo giuridico può svolgere consulenze tecniche per conto del tribunale (CTU/CTP) o offrire sostegno e valutazione alle parti; il perito è nominato dal giudice e ha compiti specifici di valutazione.' },
+      { q: 'Le consulenze psicologiche in ambito giuridico possono svolgersi online?', a: 'Il sostegno psicologico legato a vicende giudiziarie può essere supportato da colloqui online, mentre le valutazioni tecniche ufficiali seguono le regole del tribunale competente.' },
+    ],
   },
 };
 
@@ -76,6 +91,21 @@ export default function NicheLanding({ niche }) {
           provider: { '@type': 'Organization', name: 'Adatto x Te' },
           areaServed: 'IT',
           serviceType: 'Consulenza psicologica online',
+        }}
+      />
+      {/* FAQPage JSON-LD (rich snippet FAQ su Google) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: n.faq.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          }),
         }}
       />
 
@@ -125,6 +155,15 @@ export default function NicheLanding({ niche }) {
       {/* Articoli correlati */}
       {related.length > 0 && (
         <>
+          {/* FAQ visive (a11y: details/summary) */}
+          <h2 style={{ marginTop: 34 }}>{lang === 'it' ? 'Domande frequenti' : 'Frequently asked questions'}</h2>
+          {n.faq.map((f) => (
+            <details key={f.q} style={{ marginBottom: 8, border: '1px solid #e2e8f0', borderRadius: 10, padding: '10px 14px', background: '#fff' }}>
+              <summary style={{ cursor: 'pointer', fontWeight: 600, fontSize: 14.5 }}>{f.q}</summary>
+              <p className="muted small" style={{ margin: '8px 0 0' }}>{f.a}</p>
+            </details>
+          ))}
+
           <h2 style={{ marginTop: 34 }}>{lang === 'it' ? 'Approfondimenti' : 'Further reading'}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 12 }}>
             {related.map((r) => (
