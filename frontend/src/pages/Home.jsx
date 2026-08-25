@@ -297,6 +297,32 @@ export default function Home() {
           />
         </div>
       </section>
+
+      {/* Fascia di fiducia e trasparenza (normativa sanitaria) */}
+      <section style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0', padding: '26px 16px' }}>
+        <div className="container" style={{ maxWidth: 900 }}>
+          <h2 style={{ textAlign: 'center', fontSize: 17, margin: '0 0 18px' }}>🔒 {t('trust.title')}</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14, textAlign: 'center' }}>
+            <div className="card" style={{ padding: 16 }}>
+              <div style={{ fontSize: 24 }} aria-hidden="true">🎓</div>
+              <strong style={{ display: 'block', fontSize: 14, margin: '6px 0 4px' }}>{t('trust.professional')}</strong>
+              <span className="muted small">{t('trust.albo')}</span>
+            </div>
+            <div className="card" style={{ padding: 16 }}>
+              <div style={{ fontSize: 24 }} aria-hidden="true">⚕️</div>
+              <strong style={{ display: 'block', fontSize: 14, margin: '6px 0 4px' }}>{t('trust.emergencyTitle')}</strong>
+              <span className="muted small">{t('trust.emergency')}</span>
+            </div>
+            <div className="card" style={{ padding: 16 }}>
+              <div style={{ fontSize: 24 }} aria-hidden="true">🔗</div>
+              <strong style={{ display: 'block', fontSize: 14, margin: '6px 0 4px' }}>{t('trust.legal')}</strong>
+              <span className="muted small">
+                <Link to="/privacy">{t('trust.privacy')}</Link> · <Link to="/termini">{t('trust.terms')}</Link>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
