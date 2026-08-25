@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { getArticle, articles } from '../content/articles';
 import Seo from '../components/Seo';
+import TestCta from '../components/TestCta';
 
 function formatDate(iso) {
   try {
@@ -37,6 +38,38 @@ export default function BlogArticle() {
 
   const minutes = readingMinutes(article.body);
   const keyword = (article.keyword || '').toLowerCase();
+  // Schema medico per contenuti salute (E-E-A-T, settore YMYL)
+  const medical = /ansia|depress|stress|psicolog|panic|salute|benessere|sonno|trauma|umore/i.test(
+    keyword + ' ' + (article.title || '')
+  );
+  const articleSchema = medical
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'MedicalWebPage',
+        headline: article.title,
+        description: article.metaDescription,
+        datePublished: article.date,
+        dateModified: article.date,
+        inLanguage: 'it',
+        author: { '@type': 'Organization', name: 'Redazione Adatto x Te' },
+        publisher: { '@type': 'Organization', name: 'Adatto x Te' },
+        about: { '@type': 'MedicalCondition', name: 'Salute mentale e benessere psicologico' },
+        mainEntityOfPage: `https://adattoxte.vercel.app/blog/${article.slug}`,
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: article.title,
+        description: article.metaDescription,
+        datePublished: article.date,
+        dateModified: article.date,
+        inLanguage: 'it',
+        author: { '@type': 'Organization', name: 'Redazione Adatto x Te' },
+        publisher: { '@type': 'Organization', name: 'Adatto x Te' },
+        mainEntityOfPage: `https://adattoxte.vercel.app/blog/${article.slug}`,
+      };
+  // Test consigliato in base al tema dell'articolo (Hub & Spoke)
+  const testVariant = /umore|depress|tristez|burnout|sonno/i.test(keyword + ' ' + article.title) ? 'umore' : 'ansia';
   const related = articles
     .filter((a) => a.slug !== article.slug)
     .sort((a, b) => {
@@ -53,18 +86,7 @@ export default function BlogArticle() {
         description={article.metaDescription}
         path={`/blog/${article.slug}`}
         image="https://adattoxte.vercel.app/images/hero.jpg"
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'Article',
-          headline: article.title,
-          description: article.metaDescription,
-          datePublished: article.date,
-          dateModified: article.date,
-          inLanguage: 'it',
-          author: { '@type': 'Organization', name: 'Redazione Adatto x Te' },
-          publisher: { '@type': 'Organization', name: 'Adatto x Te' },
-          mainEntityOfPage: `https://adattoxte.vercel.app/blog/${article.slug}`,
-        }}
+        jsonLd={articleSchema}
       />
       <Link to="/blog" className="muted small" style={{ display: 'inline-block', marginBottom: 12 }}>
         ← Torna al blog
@@ -83,6 +105,11 @@ export default function BlogArticle() {
         </div>
         <div dangerouslySetInnerHTML={{ __html: article.body }} />
       </article>
+
+      {/* CTA verso i test clinici (contenuto → strumento) */}
+      <div style={{ maxWidth: 760, margin: '0 auto' }}>
+        <TestCta variant={testVariant} />
+      </div>
 
       {related.length > 0 && (
         <div style={{ maxWidth: 760, margin: '26px auto 0' }}>

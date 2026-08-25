@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 // Test di benessere gratuiti (modello Talkspace/BetterHelp — "free mental health tests")
 // GAD-7 (ansia) e PHQ-9 (umore), scale di dominio pubblico.
@@ -59,6 +60,25 @@ export default function CheckIn() {
 
   return (
     <div className="container section" style={{ maxWidth: 680, margin: '0 auto' }}>
+      <Seo
+        title="Test ansia GAD-7 e umore PHQ-9 gratuiti"
+        description="Test di benessere gratuiti basati sulle scale cliniche GAD-7 e PHQ-9: risultato immediato e suggerimento del terapeuta giusto per te. Non è una diagnosi."
+        path="/test"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'MedicalWebPage',
+          name: 'Test ansia GAD-7 e umore PHQ-9',
+          description: 'Test di screening gratuiti per ansia (GAD-7) e umore (PHQ-9) con risultato immediato e suggerimento terapeuta.',
+          inLanguage: 'it',
+          audience: { '@type': 'MedicalAudience', name: 'Adulti che vogliono valutare il proprio benessere emotivo' },
+          about: [
+            { '@type': 'MedicalCondition', name: "Disturbo d'ansia generalizzata" },
+            { '@type': 'MedicalCondition', name: 'Depressione' },
+          ],
+          isPartOf: { '@type': 'WebSite', name: 'Adatto x Te', url: 'https://adattoxte.vercel.app' },
+          mainEntityOfPage: 'https://adattoxte.vercel.app/test',
+        }}
+      />
       <h1>🧠 Test di benessere gratuito</h1>
       <p className="muted">
         Rispondi con sincerità a 7-9 domande e ricevi subito un orientamento sul tuo stato
@@ -156,6 +176,40 @@ export default function CheckIn() {
           </p>
         </>
       )}
+
+      {/* Fonti scientifiche (E-E-A-T: settore YMYL salute) */}
+      <div className="card" style={{ padding: 18, marginTop: 22, background: '#f8fafc' }}>
+        <h2 style={{ fontSize: 16, margin: '0 0 8px' }}>📚 Fonti scientifiche</h2>
+        <p className="muted small" style={{ margin: '0 0 8px' }}>
+          I test si basano sulle scale cliniche internazionali GAD-7 e PHQ-9, validate dalla ricerca:
+        </p>
+        <ul className="muted small" style={{ margin: 0, paddingLeft: 18, lineHeight: 1.9 }}>
+          <li>
+            Spitzer RL, Kroenke K, Williams JBW, Löwe B. (2006) —{' '}
+            <a href="https://pubmed.ncbi.nlm.nih.gov/16717171/" target="_blank" rel="noopener">
+              GAD-7: scala di valutazione del disturbo d'ansia generalizzata (PubMed)
+            </a>
+          </li>
+          <li>
+            Kroenke K, Spitzer RL, Williams JBW. (2001) —{' '}
+            <a href="https://pubmed.ncbi.nlm.nih.gov/11556941/" target="_blank" rel="noopener">
+              PHQ-9: validità della scala per la severità della depressione (PubMed)
+            </a>
+          </li>
+          <li>
+            American Psychological Association —{' '}
+            <a href="https://www.apa.org/topics/anxiety" target="_blank" rel="noopener">
+              Ansia: cos'è, sintomi e come si manifesta (APA)
+            </a>
+          </li>
+          <li>
+            Organizzazione Mondiale della Sanità —{' '}
+            <a href="https://www.who.int/news-room/fact-sheets/detail/anxiety-disorders" target="_blank" rel="noopener">
+              Disturbi d'ansia: scheda informativa (OMS)
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
