@@ -288,8 +288,8 @@ export default function Home() {
             {t('nav.register')}
           </Link>
           <img
-            src="/images/costa.webp"
-            alt="Il benessere parte da te"
+            src="/images/hero.webp"
+            alt="Seduta di psicologia online: il benessere parte da te"
             width={1536}
             height={1024}
             loading="lazy"
