@@ -22,7 +22,7 @@ const NEEDS = [
 ];
 
 export default function Therapists() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [therapists, setTherapists] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -115,7 +115,7 @@ export default function Therapists() {
               style={{ border: '2px solid #4f46e5', boxShadow: '0 10px 24px rgba(79,70,229,.18)' }}>
               <span className="badge" style={{ background: '#4f46e5', color: '#fff', alignSelf: 'flex-start' }}>⭐ Consigliato</span>
               <div className="avatar">P</div>
-              <h3>Psicologo{th.specialties && th.specialties[0] ? ` · ${t('specialty.' + th.specialties[0]) || th.specialties[0]}` : ''}</h3>
+              <h3>{t('catalog.psychologist')}{th.specialties && th.specialties[0] ? ` · ${t('specialty.' + th.specialties[0]) || th.specialties[0]}` : ''}</h3>
               <div className="tags">
                 {th.specialties.map((s) => (
                   <span className="tag" key={s}>
@@ -130,7 +130,7 @@ export default function Therapists() {
                 </div>
               )}
               <div className="card-meta">
-                <span>da {th.priceIndividual} €/seduta</span>
+                <span>{lang === 'it' ? 'da' : 'from'} {th.priceIndividual} €/seduta</span>
                 <span>{th.experienceYears} anni di esperienza</span>
               </div>
               <span className="btn btn-primary btn-block">{t('common.book')}</span>
@@ -147,7 +147,7 @@ export default function Therapists() {
         {(specialty ? therapists.slice(3) : therapists).map((th) => (
           <Link to={`/terapeuti/${th.id}`} className="card therapist-card" key={th.id}>
             <div className="avatar">P</div>
-            <h3>Psicologo{th.specialties && th.specialties[0] ? ` · ${th.specialties[0]}` : ''}</h3>
+            <h3>{t('catalog.psychologist')}{th.specialties && th.specialties[0] ? ` · ${t('specialty.' + th.specialties[0]) || th.specialties[0]}` : ''}</h3>
             <div className="tags">
               {th.specialties.map((s) => (
                 <span className="tag" key={s}>

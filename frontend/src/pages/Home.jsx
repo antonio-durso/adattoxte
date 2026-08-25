@@ -67,24 +67,11 @@ const TESTIMONIALS = [
 ];
 
 function CountUp({ target, prefix = '', suffix = '' }) {
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    let current = 0;
-    const step = Math.max(1, Math.round(target / 40));
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      setValue(current);
-    }, 28);
-    return () => clearInterval(timer);
-  }, [target]);
+  // Statico: nessuna animazione JS (riduce TBT -> migliore performance Lighthouse)
   return (
     <span>
       {prefix}
-      {value}
+      {target}
       {suffix}
     </span>
   );

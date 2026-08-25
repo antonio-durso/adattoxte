@@ -55,6 +55,7 @@ const translations = {
     'need.psicologia dello sport': '🏃 Sport e prestazione',
     'need.preparazione concorsi pubblici': '📚 Concorsi pubblici',
     'need.psicologia giuridica': '⚖️ Psicologia giuridica',
+    'catalog.psychologist': 'Psicologo',
   },
   en: {
     'nav.home': 'Home',
@@ -108,6 +109,7 @@ const translations = {
     'need.psicologia dello sport': '🏃 Sport & performance',
     'need.preparazione concorsi pubblici': '📚 Public exams',
     'need.psicologia giuridica': '⚖️ Forensic psychology',
+    'catalog.psychologist': 'Psychologist',
   },
 };
 

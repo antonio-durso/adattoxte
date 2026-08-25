@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
@@ -7,6 +8,7 @@ export default function Navbar() {
   const { user, logout } = useAuth();
   const { t, lang, setLang } = useI18n();
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   function handleLogout() {
     logout();
@@ -25,7 +27,17 @@ export default function Navbar() {
         <Link to="/" className="brand">
           <Logo />
         </Link>
-        <nav className="nav-links">
+        {/* Tasto menu interattivo (mobile): rotondo, a freccia, apre/chiude il menu a tendina */}
+        <button
+          className="nav-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-expanded={menuOpen}
+          aria-controls="main-menu"
+          aria-label={menuOpen ? 'Chiudi menu' : 'Apri menu'}
+        >
+          <span aria-hidden="true" className={`nav-toggle-icon${menuOpen ? ' open' : ''}`}>▾</span>
+        </button>
+        <nav id="main-menu" className={menuOpen ? 'nav-links open' : 'nav-links'} onClick={() => setMenuOpen(false)}>
           <Link to="/terapeuti">{t('nav.therapists')}</Link>
           <Link to="/blog">{t('nav.blog')}</Link>
           <Link to="/risorse">{t('nav.risorse')}</Link>
