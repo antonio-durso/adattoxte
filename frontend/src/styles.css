@@ -441,8 +441,8 @@ a.card:hover { text-decoration: none; transform: translateY(-2px); box-shadow: 0
 .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-top: 18px; padding-bottom: 28px; flex-wrap: wrap; }
 .footer p { color: var(--text-muted); font-size: 14px; margin: 4px 0 0; }
 .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
-.footer-links a { color: var(--primary); font-size: 14px; font-weight: 500; }
-.footer-links a:hover { color: var(--primary-dark); }
+.footer-links a { color: var(--primary-dark); font-size: 14px; font-weight: 500; }
+.footer-links a:hover { color: var(--primary-deeper); }
 /* Logo interattivo: cliccabile e animato (fluttua in continuo + movimento al passaggio) */
 @keyframes floatLogo {
   0%, 100% { transform: translateY(0) rotate(0deg); }
