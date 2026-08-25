@@ -51,7 +51,9 @@ export default function BlogArticle() {
         datePublished: article.date,
         dateModified: article.date,
         inLanguage: 'it',
-        author: { '@type': 'Organization', name: 'Redazione Adatto x Te' },
+        // E-E-A-T: quando sarà disponibile uno psicologo reale, sostituire con
+        // { '@type': 'Person', name: '...', jobTitle: 'Psicologo Clinico', url: '...', identifier: 'Albo n. ...' }
+        author: { '@type': 'Organization', name: 'Redazione Adatto x Te', url: 'https://adattoxte.vercel.app/blog' },
         publisher: { '@type': 'Organization', name: 'Adatto x Te' },
         about: { '@type': 'MedicalCondition', name: 'Salute mentale e benessere psicologico' },
         mainEntityOfPage: `https://adattoxte.vercel.app/blog/${article.slug}`,
@@ -64,7 +66,9 @@ export default function BlogArticle() {
         datePublished: article.date,
         dateModified: article.date,
         inLanguage: 'it',
-        author: { '@type': 'Organization', name: 'Redazione Adatto x Te' },
+        // E-E-A-T: quando sarà disponibile uno psicologo reale, sostituire con
+        // { '@type': 'Person', name: '...', jobTitle: 'Psicologo Clinico', url: '...', identifier: 'Albo n. ...' }
+        author: { '@type': 'Organization', name: 'Redazione Adatto x Te', url: 'https://adattoxte.vercel.app/blog' },
         publisher: { '@type': 'Organization', name: 'Adatto x Te' },
         mainEntityOfPage: `https://adattoxte.vercel.app/blog/${article.slug}`,
       };
@@ -96,12 +100,20 @@ export default function BlogArticle() {
         style={{ padding: '24px 20px', maxWidth: 760, margin: '0 auto', lineHeight: 1.65 }}
       >
         <h1 style={{ marginTop: 0 }}>{article.title}</h1>
-        <div className="muted small" style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center', marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid #f1f5f9' }}>
-          <span>✍️ Redazione Adatto x Te</span>
-          <span>·</span>
-          <span>{formatDate(article.date)}</span>
-          <span>·</span>
-          <span>⏱ {minutes} min di lettura</span>
+        {/* Byline autore (E-E-A-T: Google premia gli articoli firmati) */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, paddingBottom: 14, borderBottom: '1px solid #f1f5f9' }}>
+          <div
+            aria-hidden="true"
+            style={{ width: 44, height: 44, borderRadius: '50%', background: '#2f7ba6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 19, flexShrink: 0 }}
+          >
+            {(article.author || 'Redazione Adatto x Te').charAt(0)}
+          </div>
+          <div style={{ lineHeight: 1.4 }}>
+            <strong style={{ display: 'block', fontSize: 14.5 }}>Scritto da {article.author || 'Redazione Adatto x Te'}</strong>
+            <span className="muted" style={{ fontSize: 12.5 }}>
+              {formatDate(article.date)} · ⏱ {minutes} min di lettura
+            </span>
+          </div>
         </div>
         <div dangerouslySetInnerHTML={{ __html: article.body }} />
       </article>

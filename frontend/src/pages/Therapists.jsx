@@ -73,7 +73,7 @@ export default function Therapists() {
                 cursor: 'pointer',
               }}
             >
-              {n.label}
+              {t('need.' + n.value) || n.label}
             </button>
           ))}
         </div>
@@ -91,7 +91,7 @@ export default function Therapists() {
           <option value="">Tutte le specializzazioni</option>
           {SPECIALTIES.map((s) => (
             <option key={s} value={s}>
-              {s}
+              {t('specialty.' + s) || s}
             </option>
           ))}
         </select>
@@ -104,7 +104,7 @@ export default function Therapists() {
       {!loading && !error && therapists.length > 0 && specialty && (
         <div style={{ margin: '18px 0 8px' }}>
           <h2 style={{ margin: 0 }}>✅ Ti consigliamo questi professionisti</h2>
-          <p className="muted">Abbiamo selezionato per te {therapists.length} profili in «{specialty}». I primi 3 sono i nostri consigliati.</p>
+          <p className="muted">Abbiamo selezionato per te {therapists.length} profili in «{t('specialty.' + specialty) || specialty}». I primi 3 sono i nostri consigliati.</p>
         </div>
       )}
 
@@ -115,11 +115,11 @@ export default function Therapists() {
               style={{ border: '2px solid #4f46e5', boxShadow: '0 10px 24px rgba(79,70,229,.18)' }}>
               <span className="badge" style={{ background: '#4f46e5', color: '#fff', alignSelf: 'flex-start' }}>⭐ Consigliato</span>
               <div className="avatar">P</div>
-              <h3>Psicologo{th.specialties && th.specialties[0] ? ` · ${th.specialties[0]}` : ''}</h3>
+              <h3>Psicologo{th.specialties && th.specialties[0] ? ` · ${t('specialty.' + th.specialties[0]) || th.specialties[0]}` : ''}</h3>
               <div className="tags">
                 {th.specialties.map((s) => (
                   <span className="tag" key={s}>
-                    {s}
+                    {t('specialty.' + s) || s}
                   </span>
                 ))}
               </div>

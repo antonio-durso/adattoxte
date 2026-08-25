@@ -103,7 +103,7 @@ export default function TherapistDetail() {
   return (
     <div className="container section">
       <Seo
-        title={`Psicologo${therapist.specialties && therapist.specialties[0] ? ` · ${therapist.specialties[0]}` : ' · consulenza psicologica'}`}
+        title={`Psicologo${therapist.specialties && therapist.specialties[0] ? ` · ${t('specialty.' + therapist.specialties[0]) || therapist.specialties[0]}` : ' · consulenza psicologica'}`}
         description={(therapist.bio || 'Psicologo online verificato su Adatto x Te.').slice(0, 155)}
         path={`/terapeuti/${therapist.id}`}
         jsonLd={
@@ -111,7 +111,7 @@ export default function TherapistDetail() {
             ? {
                 '@context': 'https://schema.org',
                 '@type': 'ProfessionalService',
-                name: `Psicologo${therapist.specialties && therapist.specialties[0] ? ` · ${therapist.specialties[0]}` : ''}`,
+                name: `Psicologo${therapist.specialties && therapist.specialties[0] ? ` · ${t('specialty.' + therapist.specialties[0]) || therapist.specialties[0]}` : ''}`,
                 description: (therapist.bio || '').slice(0, 200),
                 aggregateRating: {
                   '@type': 'AggregateRating',
@@ -153,7 +153,7 @@ export default function TherapistDetail() {
         <div className="profile-layout">
           <div className="card profile-card">
             <div className="avatar avatar-lg">P</div>
-            <h1>Psicologo{therapist.specialties && therapist.specialties[0] ? ` · ${therapist.specialties[0]}` : ''}</h1>
+            <h1>Psicologo{therapist.specialties && therapist.specialties[0] ? ` · ${t('specialty.' + therapist.specialties[0]) || therapist.specialties[0]}` : ''}</h1>
             {therapist.ratingCount > 0 && (
               <div className="tags">
                 <span className="tag ok" style={{ fontWeight: 700, fontSize: 15 }}>

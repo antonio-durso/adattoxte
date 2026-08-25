@@ -37,8 +37,13 @@ export default function Navbar() {
             </Link>
           )}
           <Link to="/impostazioni">{t('nav.settings')}</Link>
-          <button className="lang-toggle" onClick={() => setLang(lang === 'it' ? 'en' : 'it')} aria-label={t('common.language')}>
-            {lang === 'it' ? 'EN' : 'IT'}
+          <button
+            className="lang-toggle"
+            onClick={() => setLang(lang === 'it' ? 'en' : 'it')}
+            aria-label={`${t('common.language')}: ${lang === 'it' ? 'EN' : 'IT'}`}
+            title={`${t('common.language')}: ${lang === 'it' ? 'EN' : 'IT'}`}
+          >
+            {lang === 'it' ? 'EN' : 'IT'} <span aria-hidden="true">▾</span>
           </button>
           {user ? (
             <button className="btn btn-outline btn-sm" onClick={handleLogout}>

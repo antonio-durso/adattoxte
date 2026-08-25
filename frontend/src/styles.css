@@ -3,15 +3,15 @@
    - azzurro #48A8D8 (strisce decorative, indice)
    - pesca #F0AA82 (linee del logo, copertina) */
 :root {
-  --primary: #48a8d8;
-  --primary-dark: #3a8cb5;
-  --primary-deeper: #2f7ba6;
+  --primary: #2f7ba6;
+  --primary-dark: #286a8f;
+  --primary-deeper: #205573;
   --primary-soft: #eaf5fb;
   --accent: #f0aa82;
   --accent-dark: #d98d63;
   --accent-soft: #fdf3ee;
   --text: #22333b;
-  --text-muted: #5f7484;
+  --text-muted: #4d6171;
   --bg: #ffffff;
   --bg-soft: #f4f9fc;
   --border: #d9e8f3;
@@ -36,6 +36,18 @@ h1, h2, h3 { line-height: 1.25; margin: 0 0 0.5em; }
 p { margin: 0 0 1em; }
 a { color: var(--primary); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* Accessibilità: focus visibile da tastiera su tutti gli elementi interattivi */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.lang-toggle:focus-visible,
+.btn:focus-visible,
+.nav-links a:focus-visible {
+  outline-offset: 3px;
+}
 img { max-width: 100%; }
 
 .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
@@ -88,8 +100,8 @@ img { max-width: 100%; }
   transition: background 0.15s, transform 0.05s;
 }
 .btn:active { transform: scale(0.98); }
-.btn-primary { background: var(--primary-dark); color: #fff; }
-.btn-primary:hover { background: var(--primary-deeper); text-decoration: none; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); text-decoration: none; }
 .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
 .btn-outline { background: transparent; color: var(--primary); border: 1.5px solid var(--primary); }
 .btn-outline:hover { background: var(--primary-soft); text-decoration: none; }
