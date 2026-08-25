@@ -429,9 +429,23 @@ a.card:hover { text-decoration: none; transform: translateY(-2px); box-shadow: 0
 .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
 .footer-links a { color: #1e293b; font-size: 14px; font-weight: 500; }
 .footer-links a:hover { color: var(--primary); text-decoration: underline; }
-/* Logo interattivo: cliccabile e animato (leggero movimento al passaggio) */
-.footer-logo { display: inline-block; transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.2); }
-.footer-logo:hover { transform: scale(1.08) rotate(-2deg); }
+/* Logo interattivo: cliccabile e animato (fluttua in continuo + movimento al passaggio) */
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(-1.5deg); }
+}
+.footer-logo {
+  display: inline-block;
+  animation: floatLogo 3.5s ease-in-out infinite;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.2);
+}
+.footer-logo:hover {
+  animation-play-state: paused;
+  transform: scale(1.12) rotate(-3deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-logo { animation: none; }
+}
 .legal { max-width: 760px; }
 .legal h2 { text-align: left; font-size: 19px; margin-top: 28px; }
 
