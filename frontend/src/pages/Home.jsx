@@ -298,15 +298,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Fascia di fiducia e trasparenza (normativa sanitaria) — unica, senza duplicati */}
-      <section style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0', padding: '22px 16px' }}>
-        <div className="container" style={{ maxWidth: 900, textAlign: 'center' }}>
-          <h2 style={{ fontSize: 16, margin: '0 0 8px' }}>🔒 {t('trust.title')}</h2>
-          <p className="muted small" style={{ margin: 0 }}>
-            <Link to="/privacy">{t('trust.privacy')}</Link> · <Link to="/termini">{t('trust.terms')}</Link>
-          </p>
-        </div>
-      </section>
     </>
   );
 }
