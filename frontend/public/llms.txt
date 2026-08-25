@@ -1,0 +1,19 @@
+# Adatto x Te
+
+> Adatto x Te è una piattaforma italiana di psicologia online: test di benessere gratuiti basati sulle scale cliniche GAD-7 e PHQ-9, incontri di supporto psicologico in videochiamata con professionisti iscritti all'albo, e un blog di articoli scientifici su ansia, depressione e benessere emotivo. Il sito è bilingue italiano/inglese.
+
+## Pagine principali
+
+- [Home](https://adattoxte.vercel.app/): presentazione della piattaforma, come funziona il percorso di supporto psicologico online e accesso ai servizi.
+- [Test di benessere](https://adattoxte.vercel.app/check-in): test gratuito sull'ansia (GAD-7, 7 domande) e sull'umore (PHQ-9, 9 domande) con risultato immediato e orientamento.
+- [Terapeuti](https://adattoxte.vercel.app/terapeuti): elenco dei professionisti disponibili, specializzazioni e prenotazione di una videochiamata.
+- [Blog](https://adattoxte.vercel.app/blog): articoli divulgativi su ansia, depressione, relazioni e benessere, con fonti scientifiche (PubMed, APA, OMS).
+
+## Note
+
+- I test non sono una diagnosi medica e non sostituiscono una valutazione professionale.
+- In caso di emergenza in Italia: 112, oppure 1522 (numero anti-violenza e sostegno psicologico).
+
+## Informazioni legali
+
+- [Privacy](https://adattoxte.vercel.app/privacy) e [Termini di servizio](https://adattoxte.vercel.app/termini).
