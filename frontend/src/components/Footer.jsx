@@ -40,8 +40,8 @@ export default function Footer() {
           <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px solid #e2e8f0', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 8, justifyContent: 'space-between' }}>
             <span style={{ fontSize: 12, color: '#0f172a', fontWeight: 700 }}>🔒 Trasparenza e sicurezza</span>
             <span style={{ fontSize: 12, display: 'flex', gap: 14 }}>
-              <Link to="/privacy" style={{ color: '#2f7ba6', textDecoration: 'underline', fontWeight: 600 }}>{t('trust.privacy')}</Link>
-              <Link to="/termini" style={{ color: '#2f7ba6', textDecoration: 'underline', fontWeight: 600 }}>{t('trust.terms')}</Link>
+              <Link to="/privacy" style={{ color: '#286a8f', textDecoration: 'underline', fontWeight: 600 }}>{t('trust.privacy')}</Link>
+              <Link to="/termini" style={{ color: '#286a8f', textDecoration: 'underline', fontWeight: 600 }}>{t('trust.terms')}</Link>
             </span>
           </div>
         </div>
