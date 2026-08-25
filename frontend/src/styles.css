@@ -72,7 +72,19 @@ img { max-width: 100%; }
   padding-bottom: 12px;
   flex-wrap: wrap;
 }
-.brand { display: inline-flex; align-items: center; }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  animation: floatLogo 3.5s ease-in-out infinite;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.2);
+}
+.brand:hover {
+  animation-play-state: paused;
+  transform: scale(1.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand { animation: none; }
+}
 .nav-toggle { display: none; }
 .nav-links { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .nav-links a:not(.btn) { color: var(--text); font-weight: 500; }
