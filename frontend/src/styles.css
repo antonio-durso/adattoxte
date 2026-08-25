@@ -34,8 +34,10 @@ html, body {
 
 h1, h2, h3 { line-height: 1.25; margin: 0 0 0.5em; }
 p { margin: 0 0 1em; }
-a { color: var(--primary); text-decoration: none; }
+a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
 a:hover { text-decoration: underline; }
+/* Link senza sottolineatura dove il design è pulito (menu, pulsanti, logo) */
+.btn, .nav-links a, .brand, .footer-logo { text-decoration: none; }
 
 /* Accessibilità: focus visibile da tastiera su tutti gli elementi interattivi */
 :focus-visible {
@@ -439,8 +441,8 @@ a.card:hover { text-decoration: none; transform: translateY(-2px); box-shadow: 0
 .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-top: 18px; padding-bottom: 28px; flex-wrap: wrap; }
 .footer p { color: var(--text-muted); font-size: 14px; margin: 4px 0 0; }
 .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
-.footer-links a { color: #1e293b; font-size: 14px; font-weight: 500; }
-.footer-links a:hover { color: var(--primary); text-decoration: underline; }
+.footer-links a { color: var(--primary); font-size: 14px; font-weight: 500; }
+.footer-links a:hover { color: var(--primary-dark); }
 /* Logo interattivo: cliccabile e animato (fluttua in continuo + movimento al passaggio) */
 @keyframes floatLogo {
   0%, 100% { transform: translateY(0) rotate(0deg); }
