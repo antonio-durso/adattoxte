@@ -109,6 +109,23 @@ export default function BlogArticle() {
         image="https://adattoxte.vercel.app/images/hero.jpg"
         jsonLd={articleSchema}
       />
+      {/* FAQPage rich snippet (se l'articolo ha domande frequenti) */}
+      {article.faq && article.faq.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: article.faq.map((f) => ({
+                '@type': 'Question',
+                name: f.q,
+                acceptedAnswer: { '@type': 'Answer', text: f.a },
+              })),
+            }),
+          }}
+        />
+      )}
       <Link to="/blog" className="muted small" style={{ display: 'inline-block', marginBottom: 12 }}>
         {lang === 'it' ? '← Torna al blog' : '← Back to the blog'}
       </Link>
