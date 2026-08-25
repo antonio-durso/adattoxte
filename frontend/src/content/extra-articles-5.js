@@ -23,7 +23,7 @@ export const extraArticles5 = [
     slug: 'adhd-negli-adulti',
     title: 'ADHD negli adulti: riconoscere i segnali e chiedere aiuto',
     keyword: 'ADHD adulti',
-    metaDescription: "L'ADHD non riguarda solo i bambini. Scopri come si manifesta il disturbo da deficit di attenzione e iperattività negli adulti e l'importanza di una diagnosi corretta.",
+    metaDescription: "L'ADHD non riguarda solo i bambini. Scopri come si manifesta il disturbo da deficit di attenzione negli adulti e l'importanza di una diagnosi corretta.",
     date: '2026-08-24',
     body: `<h1>ADHD negli adulti: riconoscere i segnali e chiedere aiuto</h1>
 <p>Il Disturbo da Deficit di Attenzione e Iperattività (ADHD) è spesso associato all'infanzia, ma è ormai ampiamente dimostrato che i sintomi possono persistere nell'età adulta. Negli adulti, l'ADHD si manifesta in modo diverso: l'iperattività fisica spesso si trasforma in un'irrequietezza interiore, mentre le difficoltà di organizzazione diventano ostacoli significativi nella gestione del lavoro e della vita quotidiana.</p>
@@ -81,7 +81,7 @@ export const extraArticles5 = [
   },
   {
     slug: 'agorafobia',
-    title: 'Agorafobia: sintomi e come affrontare la paura degli spazi aperti',
+    title: 'Agorafobia: sintomi e come superare la paura',
     keyword: 'agorafobia',
     metaDescription: "L'agorafobia non è solo paura degli spazi aperti, ma timore di non poter fuggire o ricevere aiuto. Scopri come gestire l'ansia e riprendere i tuoi spazi.",
     date: '2026-08-24',

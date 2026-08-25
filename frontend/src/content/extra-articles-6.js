@@ -1,7 +1,7 @@
 export const extraArticles6 = [
   {
     slug: 'psicologo-online-all-estero',
-    title: 'Psicologo online per italiani all\'estero: la terapia che ti segue ovunque',
+    title: 'Psicologo online per italiani all\'estero',
     keyword: 'psicologo online estero',
     metaDescription: 'Vivere all\'estero può essere difficile. Scopri come un supporto psicologico online in italiano può aiutarti a gestire il malessere e l\'adattamento.',
     date: '2026-08-24',
@@ -25,7 +25,7 @@ export const extraArticles6 = [
     slug: 'timidezza',
     title: 'Timidezza: quando diventa un limite e come superarla',
     keyword: 'timidezza',
-    metaDescription: 'La timidezza non deve essere un ostacolo. Impara a riconoscerla e a gestirla con il supporto professionale per vivere relazioni più serene.',
+    metaDescription: 'La timidezza non deve essere un ostacolo. Impara a riconoscerla e a gestirla con il supporto professionale per vivere relazioni più serene e autentiche.',
     date: '2026-08-24',
     body: `<h1>Timidezza: quando diventa un limite e come superarla</h1>
 <p>La timidezza è un tratto del carattere comune a molte persone. Si manifesta spesso come una sensazione di disagio o apprensione in situazioni sociali nuove o con persone poco conosciute. Sebbene una moderata timidezza sia del tutto normale, quando questa inizia a interferire con la vita quotidiana, le relazioni o la carriera, può diventare un limite invalidante che merita attenzione psicologica.</p>
@@ -77,7 +77,7 @@ export const extraArticles6 = [
   },
   {
     slug: 'supporto-per-caregivers',
-    title: 'Chi accudisce: il supporto psicologico per chi si prende cura degli altri',
+    title: 'Chi accudisce: supporto psicologico per i caregiver',
     keyword: 'caregiver supporto psicologico',
     metaDescription: 'Essere un caregiver è un impegno gravoso. Scopri come il supporto psicologico può prevenire il burnout e aiutarti a gestire lo stress emotivo.',
     date: '2026-08-24',
@@ -99,9 +99,9 @@ export const extraArticles6 = [
   },
   {
     slug: 'dipendenza-da-gioco',
-    title: 'Dipendenza da gioco e internet: riconoscerla e chiedere aiuto',
+    title: 'Dipendenza da gioco: riconoscerla e chiedere aiuto',
     keyword: 'dipendenza da gioco',
-    metaDescription: 'Le dipendenze comportamentali sono rischiose. Scopri come identificare i segnali della dipendenza da gioco e internet e come uscirne.',
+    metaDescription: 'Le dipendenze comportamentali sono un rischio reale. Scopri come identificare i segnali della dipendenza da gioco e internet e come uscirne con il giusto supporto.',
     date: '2026-08-24',
     body: `<h1>Dipendenza da gioco e internet: riconoscerla e chiedere aiuto</h1>
 <p>Negli ultimi anni, le dipendenze comportamentali legate al gioco d'azzardo online e all'uso eccessivo di internet sono diventate una sfida crescente per la salute mentale. Queste forme di dipendenza, pur non coinvolgendo sostanze, attivano gli stessi circuiti cerebrali del piacere e della ricompensa, portando a una perdita di controllo che può devastare la vita personale, economica e sociale dell'individuo.</p>
@@ -123,7 +123,7 @@ export const extraArticles6 = [
     slug: 'perdita-del-lavoro',
     title: 'Perdita del lavoro: gestire la crisi e ritrovare energia',
     keyword: 'perdita del lavoro',
-    metaDescription: 'Perdere il lavoro è un trauma. Scopri strategie psicologiche per affrontare il cambiamento, gestire l\'ansia e ripartire con nuove energie.',
+    metaDescription: 'Perdere il lavoro è un trauma. Scopri strategie psicologiche per affrontare il cambiamento, gestire l\'ansia e ripartire con nuove energie e fiducia.',
     date: '2026-08-24',
     body: `<h1>Perdita del lavoro: gestire la crisi e ritrovare energia</h1>
 <p>La perdita del lavoro rappresenta molto più di una semplice interruzione del reddito; per molti, è una vera e propria crisi di identità. Il lavoro non è solo un mezzo di sussistenza, ma una fonte di scopo, relazioni sociali e stabilità quotidiana. Affrontare questa transizione richiede tempo, pazienza e una solida strategia psicologica per evitare di cadere nello sconforto cronico.</p>

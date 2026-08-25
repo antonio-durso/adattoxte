@@ -1,7 +1,7 @@
 export const extraArticles4 = [
   {
     slug: 'gestione-della-rabbia',
-    title: 'Gestione della rabbia: tecniche pratiche per riprendere il controllo',
+    title: 'Gestione della rabbia: tecniche per riprendere il controllo',
     keyword: 'gestione della rabbia',
     metaDescription: 'Scopri tecniche pratiche per la gestione della rabbia. Impara a riconoscere i segnali e a trasformare questa emozione in energia costruttiva con Adatto x Te.',
     date: '2026-08-24',
@@ -22,7 +22,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'perfezionismo',
-    title: 'Perfezionismo: quando la ricerca dell\'eccellenza diventa un problema',
+    title: 'Perfezionismo: quando l\'eccellenza diventa un problema',
     keyword: 'perfezionismo',
     metaDescription: 'Il perfezionismo può essere un ostacolo al successo e alla felicità. Scopri come riconoscere il perfezionismo clinico e come gestirlo efficacemente.',
     date: '2026-08-24',
@@ -43,7 +43,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'procrastinazione',
-    title: 'Procrastinazione: cause psicologiche e soluzioni per smettere di rimandare',
+    title: 'Procrastinazione: cause e come smettere di rimandare',
     keyword: 'procrastinazione',
     metaDescription: 'Perché rimandiamo sempre a domani? Scopri le cause profonde della procrastinazione e le strategie pratiche per ritrovare la tua produttività.',
     date: '2026-08-24',
@@ -106,7 +106,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'menopausa-benessere',
-    title: 'Menopausa e benessere emotivo: gestire la transizione con serenità',
+    title: 'Menopausa e benessere emotivo: gestirla con serenità',
     keyword: 'menopausa benessere',
     metaDescription: 'La menopausa non è solo un cambiamento fisico. Scopri come affrontare gli aspetti emotivi e psicologici di questa fase con il supporto di Adatto x Te.',
     date: '2026-08-24',
@@ -148,9 +148,9 @@ export const extraArticles4 = [
   },
   {
     slug: 'resilienza',
-    title: 'Resilienza: come svilupparla per affrontare le sfide della vita',
+    title: 'Resilienza: come svilupparla e affrontare le sfide',
     keyword: 'resilienza',
-    metaDescription: 'La resilienza non è una dote innata ma una capacità che si può allenare. Scopri come sviluppare la resilienza emotiva con Adatto x Te.',
+    metaDescription: 'La resilienza non è una dote innata ma una capacità che si può allenare. Scopri come sviluppare la resilienza emotiva per affrontare meglio le difficoltà.',
     date: '2026-08-24',
     body: `<h1>Resilienza: come svilupparla per affrontare le sfide della vita</h1>
 <p>La resilienza è la capacità di un individuo di affrontare e superare eventi traumatici o periodi di difficoltà, uscendone rinforzato o addirittura trasformato. Non è una caratteristica che si ha o non si ha; è un insieme di comportamenti, pensieri e azioni che possono essere appresi e sviluppati da chiunque. Essere resilienti non significa non provare dolore, ma saper navigare attraverso di esso.</p>
@@ -170,9 +170,9 @@ export const extraArticles4 = [
   },
   {
     slug: 'supporto-psicologico-separazione',
-    title: 'Supporto psicologico dopo la separazione: ripartire da se stessi',
+    title: 'Supporto psicologico dopo la separazione: ripartire',
     keyword: 'supporto psicologico separazione',
-    metaDescription: 'La fine di una relazione è un lutto che richiede tempo. Scopri l\'importanza del supporto psicologico dopo la separazione con Adatto x Te.',
+    metaDescription: 'La fine di una relazione è un lutto che richiede tempo. Scopri l\'importanza del supporto psicologico dopo la separazione per ripartire con serenità.',
     date: '2026-08-24',
     body: `<h1>Supporto psicologico dopo la separazione: ripartire da se stessi</h1>
 <p>La fine di una relazione importante, che sia un matrimonio o una convivenza, rappresenta uno degli eventi più stressanti nella vita di una persona. È un vero e proprio lutto che coinvolge la perdita di una routine, di un progetto di vita e, spesso, di una parte della propria identità. In questo contesto, cercare un supporto psicologico separazione può essere fondamentale per elaborare il dolore e guardare al futuro.</p>
@@ -191,7 +191,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'motivazione-allenamento',
-    title: 'Motivazione ad allenarsi: la psicologia dello sport per amatori',
+    title: 'Motivazione ad allenarsi: la psicologia dello sport',
     keyword: 'motivazione allenamento',
     metaDescription: 'Perché è così difficile essere costanti nello sport? Scopri i segreti della motivazione ad allenarsi attraverso la psicologia con Adatto x Te.',
     date: '2026-08-24',
@@ -212,7 +212,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'equilibrio-lavoro-vita-privata',
-    title: 'Equilibrio lavoro e vita privata: come ritrovare il proprio tempo',
+    title: 'Equilibrio lavoro e vita privata: ritrovare il tempo',
     keyword: 'equilibrio lavoro vita privata',
     metaDescription: 'Il work-life balance è essenziale per prevenire il burnout. Scopri le strategie per un sano equilibrio lavoro e vita privata con Adatto x Te.',
     date: '2026-08-24',
@@ -235,7 +235,7 @@ export const extraArticles4 = [
     slug: 'solitudine',
     title: 'Solitudine e isolamento: quando chiedere aiuto',
     keyword: 'solitudine',
-    metaDescription: 'Sentirsi soli non è una colpa. Scopri la differenza tra solitudine e isolamento e come ritrovare la connessione sociale con Adatto x Te.',
+    metaDescription: 'Sentirsi soli non è una colpa. Scopri la differenza tra solitudine e isolamento e come ritrovare la connessione sociale con un supporto adatto a te.',
     date: '2026-08-24',
     body: `<h1>Solitudine e isolamento: quando chiedere aiuto</h1>
 <p>La solitudine è un'esperienza umana universale, ma nel mondo moderno ha assunto sfumature preoccupanti. È importante distinguere tra la solitudine scelta (il desiderio di stare con se stessi per ricaricarsi) e la solitudine subita, che può portare a un isolamento sociale profondo e a conseguenze negative sulla salute mentale e fisica, come depressione e ansia.</p>
@@ -254,9 +254,9 @@ export const extraArticles4 = [
   },
   {
     slug: 'digital-detox',
-    title: 'Digital detox: come riprendere il controllo della propria vita digitale',
+    title: 'Digital detox: riprendere il controllo della vita digitale',
     keyword: 'digital detox',
-    metaDescription: 'Troppo tempo sugli schermi? Scopri i benefici del digital detox e come ristabilire un rapporto sano con la tecnologia con Adatto x Te.',
+    metaDescription: 'Troppo tempo sugli schermi? Scopri i benefici del digital detox e come ristabilire un rapporto sano con la tecnologia, senza rinunce drastiche.',
     date: '2026-08-24',
     body: `<h1>Digital detox: come riprendere il controllo della propria vita digitale</h1>
 <p>La tecnologia è uno strumento straordinario, ma il suo uso eccessivo può avere un impatto significativo sulla nostra salute mentale. Il digital detox, ovvero la pratica di ridurre o sospendere l'uso di dispositivi digitali, sta diventando essenziale per combattere lo stress da sovraccarico informativo, l'ansia da confronto sociale e la riduzione della capacità di attenzione.</p>

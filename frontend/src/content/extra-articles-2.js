@@ -3,7 +3,7 @@ export const extraArticles2 = [
     slug: 'autostima-bassa',
     title: 'Autostima bassa: come migliorarla e vivere con più fiducia',
     keyword: 'autostima bassa',
-    metaDescription: 'Scopri come migliorare l\'autostima bassa con consigli pratici e il supporto della psicoterapia online. Ritrova fiducia in te stesso oggi.',
+    metaDescription: 'Scopri come migliorare l\'autostima bassa con consigli pratici e il supporto della psicoterapia online per ritrovare fiducia in te stesso ogni giorno.',
     date: '2026-08-24',
     body: `<h1>Autostima bassa: come migliorarla e vivere con più fiducia</h1>
 <p>L'autostima non è un tratto immutabile del carattere, ma una percezione di sé che può variare nel tempo. Soffrire di autostima bassa significa spesso sentirsi inadeguati, temere il giudizio altrui e svalutare i propri successi. Tuttavia, è possibile intraprendere un percorso di cambiamento per ritrovare il proprio valore.</p>
@@ -30,7 +30,7 @@ export const extraArticles2 = [
     slug: 'elaborazione-del-lutto',
     title: 'Elaborazione del lutto: come affrontare una perdita',
     keyword: 'elaborazione del lutto',
-    metaDescription: 'L\'elaborazione del lutto è un processo complesso e personale. Scopri le fasi del dolore e come trovare supporto psicologico online.',
+    metaDescription: 'L\'elaborazione del lutto è un processo complesso e personale. Scopri le fasi del dolore e come trovare supporto psicologico online per affrontarlo.',
     date: '2026-08-24',
     body: `<h1>Elaborazione del lutto: come affrontare una perdita</h1>
 <p>La perdita di una persona cara è una delle esperienze più dolorose e trasformative della vita umana. L'elaborazione del lutto non è un percorso lineare, ma un viaggio individuale che richiede tempo, pazienza e una profonda accoglienza delle proprie emozioni. Non esiste un modo giusto o sbagliato di soffrire, esiste solo il tuo modo.</p>
@@ -82,7 +82,7 @@ export const extraArticles2 = [
   },
   {
     slug: 'separazione-e-figli',
-    title: 'Separazione e figli: come proteggere i bambini durante il divorzio',
+    title: 'Separazione e figli: proteggere i bambini nel divorzio',
     keyword: 'separazione e figli',
     metaDescription: 'Affrontare una separazione con figli richiede sensibilità. Leggi i nostri consigli per gestire il divorzio proteggendo il benessere dei più piccoli.',
     date: '2026-08-24',
@@ -190,7 +190,7 @@ export const extraArticles2 = [
   },
   {
     slug: 'stress-lavoro-correlato',
-    title: 'Stress lavoro-correlato: riconoscerlo e gestirlo efficacemente',
+    title: 'Stress lavoro-correlato: riconoscerlo e gestirlo',
     keyword: 'stress lavoro correlato',
     metaDescription: 'Il burnout è dietro l\'angolo? Impara a identificare i sintomi dello stress lavoro-correlato e scopri come ristabilire un equilibrio vita-lavoro sano.',
     date: '2026-08-24',
@@ -219,7 +219,7 @@ export const extraArticles2 = [
     slug: 'mindfulness',
     title: 'Mindfulness: cos\'è, benefici e come iniziare a praticarla',
     keyword: 'mindfulness',
-    metaDescription: 'La mindfulness è la chiave per ridurre lo stress e vivere nel presente. Scopri cos\'è, quali sono i vantaggi e come iniziare oggi stesso.',
+    metaDescription: 'La mindfulness è la chiave per ridurre lo stress e vivere nel presente. Scopri cos\'è, quali sono i benefici e come iniziare a praticarla oggi.',
     date: '2026-08-24',
     body: `<h1>Mindfulness: cos'è, benefici e come iniziare a praticarla</h1>
 <p>Negli ultimi anni si sente parlare sempre più spesso di mindfulness, ma di cosa si tratta esattamente? La mindfulness è la pratica di prestare attenzione al momento presente in modo intenzionale e non giudicante. È uno strumento potente per contrastare il pilota automatico con cui spesso affrontiamo le nostre giornate frenetiche.</p>
@@ -244,7 +244,7 @@ export const extraArticles2 = [
   },
   {
     slug: 'assertivita',
-    title: 'Assertività: imparare a dire di no e comunicare i propri bisogni',
+    title: 'Assertività: dire di no e comunicare i propri bisogni',
     keyword: 'assertivita',
     metaDescription: 'L\'assertività è l\'abilità di esprimersi con fermezza e rispetto. Scopri come migliorare la tua comunicazione e smettere di subire le decisioni altrui.',
     date: '2026-08-24',
@@ -271,7 +271,7 @@ export const extraArticles2 = [
   },
   {
     slug: 'relazioni-tossiche',
-    title: 'Relazioni tossiche: come riconoscerle e trovare la forza di uscirne',
+    title: 'Relazioni tossiche: riconoscerle e trovare la forza',
     keyword: 'relazioni tossiche',
     metaDescription: 'Ti senti svuotato o manipolato dal partner? Impara a identificare i segnali di una relazione tossica e scopri come proteggere la tua salute mentale.',
     date: '2026-08-24',
@@ -325,7 +325,7 @@ export const extraArticles2 = [
   },
   {
     slug: 'comunicazione-di-coppia',
-    title: 'Comunicazione di coppia: l\'arte dell\'ascolto attivo e dell\'empatia',
+    title: 'Comunicazione di coppia: ascolto attivo ed empatia',
     keyword: 'comunicazione di coppia',
     metaDescription: 'Migliorare la comunicazione è essenziale per la felicità di coppia. Scopri come ascoltare davvero il partner e risolvere i conflitti senza litigare.',
     date: '2026-08-24',
@@ -352,7 +352,7 @@ export const extraArticles2 = [
   },
   {
     slug: 'crisi-di-coppia',
-    title: 'Crisi di coppia: quando intervenire e come ritrovare l\'intesa',
+    title: 'Crisi di coppia: come ritrovare l\'intesa',
     keyword: 'crisi di coppia',
     metaDescription: 'La crisi di coppia è un\'opportunità di crescita o la fine? Scopri come affrontare i momenti difficili e quando rivolgersi alla terapia di coppia.',
     date: '2026-08-24',

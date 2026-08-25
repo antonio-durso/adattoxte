@@ -26,7 +26,7 @@ export const extraArticles = [
     slug: 'ansia-da-esame',
     title: 'Ansia da esame: tecniche psicologiche per gestirla',
     keyword: 'ansia da esame',
-    metaDescription: 'Ansia da esame: come riconoscerla, tecniche di respirazione e preparazione mentale, quando serve il supporto di uno psicologo.',
+    metaDescription: 'Ansia da esame: come riconoscerla, tecniche di respirazione e preparazione mentale, e quando può servire il supporto di uno psicologo online.',
     date: '2026-08-24',
     body: `<h1>Ansia da esame: tecniche psicologiche per gestirla</h1>
 <p>Palpitazioni, mente che si svuota, paura di non farcela: l'ansia da esame colpisce studenti di ogni età, dalle superiori all'università fino ai concorsi pubblici. È una reazione normale del corpo, ma quando diventa paralizzante va affrontata con le strategie giuste.</p>

@@ -3,7 +3,7 @@ export const extraArticles3 = [
     slug: "psicoterapia-online-privacy",
     title: "Psicoterapia online: privacy e sicurezza dei dati",
     keyword: "psicoterapia online privacy",
-    metaDescription: "Scopri come la psicoterapia online protegge i tuoi dati. Sicurezza, crittografia e privacy per il tuo percorso su Adatto x Te.",
+    metaDescription: "Scopri come la psicoterapia online protegge i tuoi dati: sicurezza, crittografia, riservatezza e privacy per un percorso sereno su Adatto x Te.",
     date: "2026-08-24",
     body: `<h1>Psicoterapia online: privacy e sicurezza dei dati</h1>
 <p>La scelta di intraprendere un percorso psicologico è un passo importante verso il benessere personale. Quando questo percorso avviene nel mondo digitale, è naturale porsi domande sulla sicurezza e sulla riservatezza dei propri dati sensibili. La privacy nella psicoterapia online non è solo un obbligo legale, ma la base fondamentale su cui si costruisce il rapporto di fiducia tra paziente e terapeuta.</p>
@@ -20,7 +20,7 @@ export const extraArticles3 = [
     slug: "primo-colloquio-psicologo",
     title: "Primo colloquio con lo psicologo: cosa aspettarsi",
     keyword: "primo colloquio psicologo",
-    metaDescription: "Preparati al tuo primo colloquio psicologico. Scopri cosa succede durante la prima seduta e come superare l'ansia iniziale.",
+    metaDescription: "Preparati al tuo primo colloquio psicologico: cosa succede durante la prima seduta, come superare l'ansia iniziale e come trarne il massimo.",
     date: "2026-08-24",
     body: `<h1>Primo colloquio con lo psicologo: cosa aspettarsi</h1>
 <p>Sentirsi nervosi prima del primo colloquio con lo psicologo è assolutamente normale. Molte persone si chiedono cosa dovranno dire, se saranno giudicate o come si svolgerà concretamente la seduta. Sapere cosa aspettarsi può aiutare a ridurre l'ansia e a vivere questo momento con maggiore serenità, vedendolo come l'inizio di una trasformazione positiva.</p>
@@ -36,7 +36,7 @@ export const extraArticles3 = [
     slug: "quanto-dura-percorso-psicologico",
     title: "Quanto dura un percorso psicologico",
     keyword: "quanto dura un percorso psicologico",
-    metaDescription: "Qual è la durata di una terapia? Scopri i fattori che influenzano i tempi di un percorso psicologico e l'importanza della costanza.",
+    metaDescription: "Qual è la durata di una terapia? Scopri i fattori che influenzano i tempi di un percorso psicologico e l'importanza della costanza nelle sedute.",
     date: "2026-08-24",
     body: `<h1>Quanto dura un percorso psicologico?</h1>
 <p>Una delle domande più comuni che le persone si pongono prima di iniziare la terapia è: quanto tempo ci vorrà per stare meglio? La risposta non è univoca, poiché ogni individuo è unico e le problematiche da affrontare variano notevolmente per complessità e profondità. Tuttavia, comprendere i fattori che influenzano la durata del percorso può aiutare a gestire le aspettative e a impegnarsi con maggiore consapevolezza.</p>
@@ -52,7 +52,7 @@ export const extraArticles3 = [
     slug: "psicologo-psicoterapeuta-differenze",
     title: "Psicologo o psicoterapeuta: differenze",
     keyword: "psicologo o psicoterapeuta",
-    metaDescription: "Qual è la differenza tra psicologo e psicoterapeuta? Una guida chiara per scegliere il professionista giusto per le tue necessità.",
+    metaDescription: "Qual è la differenza tra psicologo e psicoterapeuta? Una guida chiara per scegliere il professionista giusto per le tue necessità e il tuo percorso.",
     date: "2026-08-24",
     body: `<h1>Psicologo o psicoterapeuta: quali sono le differenze?</h1>
 <p>Spesso i termini psicologo e psicoterapeuta vengono usati come sinonimi, ma in realtà indicano figure professionali con percorsi formativi e competenze differenti. Capire questa distinzione è fondamentale per scegliere il tipo di supporto più adatto alla propria situazione e assicurarsi di ricevere il trattamento corretto.</p>
@@ -68,7 +68,7 @@ export const extraArticles3 = [
     slug: "psicologo-adolescenti",
     title: "Psicologo per adolescenti: come funziona",
     keyword: "psicologo adolescenti",
-    metaDescription: "Il supporto psicologico per gli adolescenti. Come funziona la terapia per i giovani, il ruolo dei genitori e la privacy.",
+    metaDescription: "Il supporto psicologico per gli adolescenti: come funziona la terapia per i giovani, il ruolo dei genitori, la privacy e come scegliere lo psicologo giusto.",
     date: "2026-08-24",
     body: `<h1>Psicologo per adolescenti: come funziona il supporto</h1>
 <p>L'adolescenza è una fase di grandi trasformazioni fisiche, emotive e sociali. È un periodo delicato in cui possono emergere insicurezze, conflitti con i genitori, difficoltà scolastiche o problemi legati all'identità. Rivolgersi a uno psicologo per adolescenti può offrire ai ragazzi uno spazio neutro e protetto dove esprimere se stessi senza timore di essere giudicati dai familiari o dai coetanei.</p>
@@ -107,7 +107,7 @@ export const extraArticles3 = [
     slug: "fobie",
     title: "Fobie: come si affrontano",
     keyword: "fobie",
-    metaDescription: "Cosa sono le fobie e come superarle? Scopri le diverse tipologie di fobie e il ruolo della terapia nel recupero del benessere mentale.",
+    metaDescription: "Cosa sono le fobie e come superarle? Scopri le diverse tipologie, i sintomi più comuni e il ruolo della terapia nel recupero del benessere mentale.",
     date: "2026-08-24",
     body: `<h1>Fobie: cosa sono e come si possono affrontare</h1>
 <p>Le fobie sono paure intense, irrazionali e sproporzionate rispetto al pericolo reale rappresentato da un oggetto, un animale o una situazione specifica. Mentre la paura è un'emozione adattiva che ci protegge dai pericoli, la fobia diventa una reazione paralizzante che può indurre a comportamenti di evitamento estremi, limitando la libertà personale e causando un forte stress psicofisico.</p>
@@ -123,7 +123,7 @@ export const extraArticles3 = [
     slug: "disturbo-ossessivo-compulsivo",
     title: "Disturbo ossessivo-compulsivo (DOC): riconoscerlo",
     keyword: "disturbo ossessivo compulsivo",
-    metaDescription: "Cos'è il Disturbo Ossessivo-Compulsivo? Impara a riconoscere ossessioni e compulsioni e scopri come la terapia può aiutarti a gestirli.",
+    metaDescription: "Cos'è il Disturbo Ossessivo-Compulsivo? Impara a riconoscere ossessioni e compulsioni e scopri come la terapia psicologica può aiutarti a gestirli.",
     date: "2026-08-24",
     body: `<h1>Disturbo ossessivo-compulsivo: come riconoscerlo e gestirlo</h1>
 <p>Il Disturbo Ossessivo-Compulsivo (DOC) è una condizione caratterizzata dalla presenza di pensieri intrusivi, persistenti e indesiderati (ossessioni) e da comportamenti ripetitivi o azioni mentali (compulsioni) che la persona si sente obbligata a compiere per ridurre l'ansia provocata dalle ossessioni. Questo ciclo può occupare molte ore della giornata e interferire pesantemente con le attività lavorative, sociali e affettive.</p>
@@ -155,7 +155,7 @@ export const extraArticles3 = [
     slug: "dipendenza-affettiva",
     title: "Dipendenza affettiva: riconoscerla e uscirne",
     keyword: "dipendenza affettiva",
-    metaDescription: "Cos'è la dipendenza affettiva e come influisce sulle relazioni? Segnali, cause e il percorso terapeutico per ritrovare l'autonomia emotiva.",
+    metaDescription: "Cos'è la dipendenza affettiva e come influisce sulle relazioni? Segnali, cause e il percorso terapeutico per ritrovare la tua autonomia emotiva.",
     date: "2026-08-24",
     body: `<h1>Dipendenza affettiva: come riconoscerla e trovare l'autonomia</h1>
 <p>La dipendenza affettiva è una condizione relazionale in cui una persona sente di non poter vivere senza l'altro, mettendo i bisogni del partner costantemente al di sopra dei propri. In questi casi, l'amore non è più una scelta libera ma una necessità vitale che genera sofferenza, ansia da separazione e una progressiva perdita di autostima. Riconoscere questa dinamica è essenziale per spezzare il circolo vizioso e costruire relazioni sane e paritarie.</p>
@@ -194,7 +194,7 @@ export const extraArticles3 = [
     slug: "benessere-mentale",
     title: "Benessere mentale quotidiano: 10 abitudini",
     keyword: "benessere mentale",
-    metaDescription: "Migliora la tua salute mentale ogni giorno. 10 abitudini pratiche per ridurre lo stress, aumentare la resilienza e vivere meglio.",
+    metaDescription: "Migliora la tua salute mentale ogni giorno con 10 abitudini pratiche per ridurre lo stress, aumentare la resilienza e vivere con più serenità.",
     date: "2026-08-24",
     body: `<h1>Benessere mentale quotidiano: 10 abitudini fondamentali</h1>
 <p>La salute mentale non è un obiettivo finale, ma un processo continuo che va alimentato ogni giorno. Piccoli cambiamenti nelle nostre abitudini quotidiane possono avere un impatto significativo sulla nostra resilienza, sulla gestione dello stress e sulla qualità generale della nostra vita. Prendersi cura della mente è importante quanto prendersi cura del corpo.</p>
