@@ -8,7 +8,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div>
-          <Logo />
+          <div style={{ transform: 'scale(1.15)', transformOrigin: 'left center' }}>
+            <Logo />
+          </div>
           <p>{t('footer.tagline')}</p>
         </div>
         <div className="footer-links">
