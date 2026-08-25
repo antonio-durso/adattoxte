@@ -21,12 +21,12 @@ export default function Footer() {
           <Link to="/cookie">Cookie</Link>
         </div>
         {/* Nota emergenza interattiva + Trasparenza (design stile siti importanti) */}
-        <div style={{ width: '100%', borderTop: '1px solid rgba(255,255,255,.15)', marginTop: 16, paddingTop: 14, background: 'rgba(255,255,255,.04)', borderRadius: 14, padding: 14 }}>
+        <div style={{ width: '100%', borderTop: '1px solid var(--border)', marginTop: 16, paddingTop: 14, background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 14, padding: 14 }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 10, justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, flex: '1 1 220px' }}>
               <span aria-hidden="true" style={{ fontSize: 22 }}>⚕️</span>
-              <span className="muted small" style={{ fontSize: 12, lineHeight: 1.5 }}>
-                <strong>Non è un servizio di emergenza.</strong> In caso di pericolo chiama:
+              <span style={{ fontSize: 12, lineHeight: 1.5, color: '#334155' }}>
+                <strong style={{ color: '#0f172a' }}>Non è un servizio di emergenza.</strong> In caso di pericolo chiama:
               </span>
             </div>
             <div style={{ display: 'flex', gap: 8 }}>
@@ -35,11 +35,11 @@ export default function Footer() {
               <a href="tel:1522" style={{ background: '#db2777', color: '#fff', borderRadius: 999, padding: '7px 14px', fontSize: 13, fontWeight: 700, textDecoration: 'none' }}>📞 1522</a>
             </div>
           </div>
-          <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px solid rgba(255,255,255,.08)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 8, justifyContent: 'space-between' }}>
-            <span className="muted small" style={{ fontSize: 12 }}>🔒 <strong>Trasparenza e sicurezza</strong></span>
-            <span className="muted small" style={{ fontSize: 12, display: 'flex', gap: 14 }}>
-              <Link to="/privacy" style={{ color: '#fff', textDecoration: 'underline' }}>{t('trust.privacy')}</Link>
-              <Link to="/termini" style={{ color: '#fff', textDecoration: 'underline' }}>{t('trust.terms')}</Link>
+          <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px solid #e2e8f0', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 8, justifyContent: 'space-between' }}>
+            <span style={{ fontSize: 12, color: '#0f172a', fontWeight: 700 }}>🔒 Trasparenza e sicurezza</span>
+            <span style={{ fontSize: 12, display: 'flex', gap: 14 }}>
+              <Link to="/privacy" style={{ color: '#2f7ba6', textDecoration: 'underline', fontWeight: 600 }}>{t('trust.privacy')}</Link>
+              <Link to="/termini" style={{ color: '#2f7ba6', textDecoration: 'underline', fontWeight: 600 }}>{t('trust.terms')}</Link>
             </span>
           </div>
         </div>
