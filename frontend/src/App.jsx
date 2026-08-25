@@ -6,9 +6,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CookieBanner from './components/CookieBanner';
 import ProtectedRoute from './components/ProtectedRoute';
-
-// Code splitting: ogni pagina si carica solo quando serve (JS iniziale molto più leggero)
-const Home = lazy(() => import('./pages/Home'));
+// Home EAGER: la pagina principale si rende subito (LCP veloce); le altre restano lazy
+import Home from './pages/Home';
 const Therapists = lazy(() => import('./pages/Therapists'));
 const TherapistDetail = lazy(() => import('./pages/TherapistDetail'));
 const Register = lazy(() => import('./pages/Register'));

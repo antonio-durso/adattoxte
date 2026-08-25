@@ -66,9 +66,9 @@
     }
     </script>
 
-    <!-- Google Analytics 4: attivo solo se VITE_GA4_ID è valorizzato (es. G-XXXXXXXXXX) -->
+    <!-- Google Analytics 4: caricato DOPO il load della pagina per non bloccare l'LCP -->
     <script>
-      (function () {
+      function initAnalytics() {
         var id = '%VITE_GA4_ID%';
         if (!id || id.indexOf('G-') !== 0) return;
         window.dataLayer = window.dataLayer || [];
@@ -79,12 +79,15 @@
         s.async = true;
         s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
         document.head.appendChild(s);
-      })();
+      }
+      if ('requestIdleCallback' in window) requestIdleCallback(initAnalytics, { timeout: 8000 });
+      else if (document.readyState === 'complete') initAnalytics();
+      else window.addEventListener('load', initAnalytics);
     </script>
 
-    <!-- Meta Pixel: attivo solo se VITE_META_PIXEL_ID è valorizzato -->
+    <!-- Meta Pixel: caricato DOPO il load della pagina per non bloccare l'LCP -->
     <script>
-      (function () {
+      function initPixel() {
         var pid = '%VITE_META_PIXEL_ID%';
         if (!pid || pid.indexOf('VITE_META_PIXEL_ID') === 0) return;
         !function (f, b, e, v, n, t, s) {
@@ -95,11 +98,33 @@
         }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', pid);
         fbq('track', 'PageView');
-      })();
+      }
+      if ('requestIdleCallback' in window) requestIdleCallback(initPixel, { timeout: 8000 });
+      else if (document.readyState === 'complete') initPixel();
+      else window.addEventListener('load', initPixel);
     </script>
+    <!-- CSS critico minimo (evita salto layout/flash bianco prima del caricamento JS) -->
+    <style>
+      body { margin: 0; background: #f8fafc; }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Hero critico statico: stesse classi CSS della home (nessun salto di layout al montaggio React) -->
+    <div id="root">
+      <section class="hero">
+        <div class="container hero-inner">
+          <h1>Il supporto psicologico giusto, adatto a te</h1>
+          <p class="hero-sub">Terapisti qualificati, sedute video da casa, in qualsiasi momento. Scegli il professionista più adatto alle tue esigenze.</p>
+          <div class="hero-actions">
+            <a href="/terapeuti" class="btn btn-primary btn-lg">Trova il tuo terapeuta</a>
+            <a href="#come-funziona" class="btn btn-outline btn-lg">Come funziona</a>
+          </div>
+          <div class="hero-comic" style="position:relative;width:100%;max-width:860px;margin:28px auto 0">
+            <img src="/images/hero.webp" alt="Seduta di psicologia online da casa" width="1536" height="1024" fetchpriority="high" style="width:100%;height:auto;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.18);display:block" />
+          </div>
+        </div>
+      </section>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
