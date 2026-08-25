@@ -139,7 +139,8 @@ async function sendEmail(to, subject, key, data) {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          sender: FROM(),
+          // Brevo API vuole "email" (non "address" come nodemailer): senza, risponde 400
+          sender: { name: FROM().name, email: FROM().address },
           to: [{ email: to }],
           subject,
           htmlContent: html,
