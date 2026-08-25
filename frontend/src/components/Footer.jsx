@@ -8,9 +8,11 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div>
-          <div style={{ transform: 'scale(1.15)', transformOrigin: 'left center' }}>
-            <Logo />
-          </div>
+          <Link to="/" className="footer-logo" aria-label="Adatto x Te — torna alla home">
+            <span style={{ display: 'inline-block', transform: 'scale(1.15)', transformOrigin: 'left center' }}>
+              <Logo />
+            </span>
+          </Link>
           <p>{t('footer.tagline')}</p>
         </div>
         <div className="footer-links">

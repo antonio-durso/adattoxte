@@ -424,10 +424,14 @@ a.card:hover { text-decoration: none; transform: translateY(-2px); box-shadow: 0
 
 /* ===== Footer & legal ===== */
 .footer { border-top: 1px solid var(--border); background: var(--bg-soft); margin-top: 48px; }
-.footer-inner { display: flex; justify-content: space-between; gap: 20px; padding-top: 28px; padding-bottom: 28px; flex-wrap: wrap; }
+.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-top: 18px; padding-bottom: 28px; flex-wrap: wrap; }
 .footer p { color: var(--text-muted); font-size: 14px; margin: 4px 0 0; }
 .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
-.footer-links a { color: var(--text-muted); font-size: 14px; }
+.footer-links a { color: #1e293b; font-size: 14px; font-weight: 500; }
+.footer-links a:hover { color: var(--primary); text-decoration: underline; }
+/* Logo interattivo: cliccabile e animato (leggero movimento al passaggio) */
+.footer-logo { display: inline-block; transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.2); }
+.footer-logo:hover { transform: scale(1.08) rotate(-2deg); }
 .legal { max-width: 760px; }
 .legal h2 { text-align: left; font-size: 19px; margin-top: 28px; }
 
