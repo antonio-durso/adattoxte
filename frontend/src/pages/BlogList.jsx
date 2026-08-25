@@ -2,14 +2,29 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { articles, totalArticles } from '../content/articles';
 import Seo from '../components/Seo';
+import { useI18n } from '../i18n';
 
-function formatDate(iso) {
+function formatDate(iso, lang) {
   try {
-    return new Date(iso).toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' });
+    return new Date(iso).toLocaleDateString(lang === 'it' ? 'it-IT' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   } catch {
     return iso;
   }
 }
+
+// Traduzione nomi categorie (IT -> EN)
+const CAT_EN = {
+  Ansia: 'Anxiety',
+  Depressione: 'Depression',
+  Coppia: 'Couples',
+  Sport: 'Sport',
+  Concorsi: 'Exams',
+  Lavoro: 'Work',
+  Sonno: 'Sleep',
+  Famiglia: 'Family',
+  Fobie: 'Phobias',
+  Altro: 'Other',
+};
 
 // Categorie automatiche dagli articoli (keyword + titolo)
 const CAT_RULES = [
@@ -31,7 +46,29 @@ function articleCategory(a) {
 }
 
 export default function BlogList() {
+  const { lang } = useI18n();
   const [cat, setCat] = useState('Tutti');
+  const L =
+    lang === 'it'
+      ? {
+          title: 'Blog di Adatto x Te',
+          seoTitle: 'Blog di psicologia',
+          seoDesc: 'Articoli di psicologia scritti dai nostri professionisti: ansia, depressione, coppia, sport, concorsi pubblici. Guide pratiche e approfondimenti.',
+          desc: 'Articoli di psicologia scritti dai nostri professionisti: guide, approfondimenti e consigli pratici su ansia, coppia, lavoro, sport e benessere.',
+          all: 'Tutti',
+          empty: 'Nessun articolo in questa categoria.',
+          readMore: "Leggi l'articolo",
+        }
+      : {
+          title: 'Adatto x Te Blog',
+          seoTitle: 'Psychology Blog',
+          seoDesc: 'Psychology articles written by our professionals: anxiety, depression, couples, sport, public exams. Practical guides and in-depth insights.',
+          desc: 'Psychology articles written by our professionals: guides, insights and practical advice on anxiety, couples, work, sport and wellbeing.',
+          all: 'All',
+          empty: 'No articles in this category.',
+          readMore: 'Read the article',
+        };
+  const catLabel = (c) => (lang === 'it' ? c : c === 'Tutti' ? L.all : CAT_EN[c] || c);
 
   const categories = useMemo(() => {
     const set = new Set(articles.map(articleCategory));
@@ -43,14 +80,13 @@ export default function BlogList() {
   return (
     <div className="container section">
       <Seo
-        title="Blog di psicologia"
-        description="Articoli di psicologia scritti dai nostri professionisti: ansia, depressione, coppia, sport, concorsi pubblici. Guide pratiche e approfondimenti."
+        title={L.seoTitle}
+        description={L.seoDesc}
         path="/blog"
       />
-      <h1>Blog di Adatto x Te</h1>
+      <h1>{L.title}</h1>
       <p className="muted">
-        Articoli di psicologia scritti dai nostri professionisti: guide, approfondimenti e consigli pratici
-        su ansia, coppia, lavoro, sport e benessere. {totalArticles} articoli disponibili.
+        {L.desc} {totalArticles} {lang === 'it' ? 'articoli disponibili.' : 'articles available.'}
       </p>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, margin: '16px 0' }}>
@@ -68,13 +104,13 @@ export default function BlogList() {
               color: 'inherit',
             }}
           >
-            {c}
+            {catLabel(c)}
             {c !== 'Tutti' && ` (${articles.filter((a) => articleCategory(a) === c).length})`}
           </button>
         ))}
       </div>
 
-      {filtered.length === 0 && <p className="muted">Nessun articolo in questa categoria.</p>}
+      {filtered.length === 0 && <p className="muted">{L.empty}</p>}
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
         {filtered.map((a) => (
@@ -84,14 +120,14 @@ export default function BlogList() {
               style={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 8, padding: 18 }}
             >
               <div className="muted small" style={{ textTransform: 'uppercase', letterSpacing: 1 }}>
-                {articleCategory(a)} · {formatDate(a.date)}
+                {catLabel(articleCategory(a))} · {formatDate(a.date, lang)}
               </div>
               <h3 style={{ margin: 0, lineHeight: 1.3 }}>{a.title}</h3>
               <p className="muted small" style={{ flex: 1 }}>
                 {a.metaDescription}
               </p>
               <span className="btn btn-outline btn-sm" style={{ alignSelf: 'flex-start' }}>
-                Leggi l'articolo
+                {L.readMore}
               </span>
             </div>
           </Link>

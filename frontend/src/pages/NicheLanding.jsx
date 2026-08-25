@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { articles } from '../content/articles';
 import Seo from '../components/Seo';
+import { useI18n } from '../i18n';
 
 // Landing page per nicchia: contenuti dedicati + CTA + articoli correlati
 // Le nicchie (concorsi, sport, giuridica) sono il nostro vantaggio sui concorrenti.
@@ -53,6 +54,7 @@ const NICHES = {
 };
 
 export default function NicheLanding({ niche }) {
+  const { lang } = useI18n();
   const n = NICHES[niche];
   if (!n) return null;
 
@@ -123,7 +125,7 @@ export default function NicheLanding({ niche }) {
       {/* Articoli correlati */}
       {related.length > 0 && (
         <>
-          <h2 style={{ marginTop: 34 }}>Approfondimenti</h2>
+          <h2 style={{ marginTop: 34 }}>{lang === 'it' ? 'Approfondimenti' : 'Further reading'}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 12 }}>
             {related.map((r) => (
               <Link key={r.slug} to={`/blog/${r.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>

@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getArticle, articles } from '../content/articles';
 import Seo from '../components/Seo';
 import TestCta from '../components/TestCta';
+import { useI18n } from '../i18n';
 
 function formatDate(iso) {
   try {
@@ -28,6 +29,7 @@ function readingMinutes(html) {
 
 export default function BlogArticle() {
   const { slug } = useParams();
+  const { lang } = useI18n();
   const article = getArticle(slug);
 
   if (!article) {
@@ -108,7 +110,7 @@ export default function BlogArticle() {
         jsonLd={articleSchema}
       />
       <Link to="/blog" className="muted small" style={{ display: 'inline-block', marginBottom: 12 }}>
-        ← Torna al blog
+        {lang === 'it' ? '← Torna al blog' : '← Back to the blog'}
       </Link>
       <article
         className="card"
@@ -124,9 +126,11 @@ export default function BlogArticle() {
             {ARTICLE_AUTHOR.initial}
           </div>
           <div style={{ lineHeight: 1.4 }}>
-            <strong style={{ display: 'block', fontSize: 14.5 }}>Scritto da {ARTICLE_AUTHOR.name}</strong>
+            <strong style={{ display: 'block', fontSize: 14.5 }}>
+              {lang === 'it' ? 'Scritto da' : 'Written by'} {ARTICLE_AUTHOR.name}
+            </strong>
             <span className="muted" style={{ fontSize: 12.5 }}>
-              {ARTICLE_AUTHOR.role} · {formatDate(article.date)} · ⏱ {minutes} min di lettura
+              {ARTICLE_AUTHOR.role} · {formatDate(article.date)} · ⏱ {minutes} {lang === 'it' ? 'min di lettura' : 'min read'}
             </span>
           </div>
         </div>
@@ -140,7 +144,7 @@ export default function BlogArticle() {
 
       {related.length > 0 && (
         <div style={{ maxWidth: 760, margin: '26px auto 0' }}>
-          <h2 style={{ fontSize: 18 }}>Articoli correlati</h2>
+          <h2 style={{ fontSize: 18 }}>{lang === 'it' ? 'Articoli correlati' : 'Related articles'}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 12 }}>
             {related.map((r) => (
               <Link key={r.slug} to={`/blog/${r.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -155,9 +159,9 @@ export default function BlogArticle() {
       )}
 
       <div style={{ textAlign: 'center', marginTop: 28 }}>
-        <p className="muted">Vuoi parlare con un professionista verificato?</p>
+        <p className="muted">{lang === 'it' ? 'Vuoi parlare con un professionista verificato?' : 'Want to talk to a verified professional?'}</p>
         <Link to="/terapeuti" className="btn btn-primary">
-          Trova il tuo terapeuta
+          {lang === 'it' ? 'Trova il tuo terapeuta' : 'Find your therapist'}
         </Link>
       </div>
     </div>
