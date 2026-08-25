@@ -14,6 +14,7 @@ function formatDate(iso) {
 // Autore reale con credenziali (E-E-A-T / YMYL: Google premia gli articoli firmati da professionisti)
 const ARTICLE_AUTHOR = {
   name: "Dott. Antonio D'Urso",
+  studio: 'Studio di Psicologia Clinica e Giuridica',
   role: 'Psicologo · Albo Psicologi Campania n. 5408',
   initial: 'A',
 };
@@ -63,6 +64,7 @@ export default function BlogArticle() {
           name: "Dott. Antonio D'Urso",
           jobTitle: 'Psicologo',
           identifier: 'Albo Psicologi Campania n. 5408',
+          worksFor: { '@type': 'Organization', name: 'Studio di Psicologia Clinica e Giuridica' },
           url: 'https://adattoxte.vercel.app/blog',
         },
         publisher: { '@type': 'Organization', name: 'Adatto x Te' },
@@ -82,6 +84,7 @@ export default function BlogArticle() {
           name: "Dott. Antonio D'Urso",
           jobTitle: 'Psicologo',
           identifier: 'Albo Psicologi Campania n. 5408',
+          worksFor: { '@type': 'Organization', name: 'Studio di Psicologia Clinica e Giuridica' },
           url: 'https://adattoxte.vercel.app/blog',
         },
         publisher: { '@type': 'Organization', name: 'Adatto x Te' },
@@ -124,7 +127,9 @@ export default function BlogArticle() {
             {ARTICLE_AUTHOR.initial}
           </div>
           <div style={{ lineHeight: 1.4 }}>
-            <strong style={{ display: 'block', fontSize: 14.5 }}>Scritto da {ARTICLE_AUTHOR.name}</strong>
+            <strong style={{ display: 'block', fontSize: 14.5 }}>
+              Scritto da {ARTICLE_AUTHOR.name} — {ARTICLE_AUTHOR.studio}
+            </strong>
             <span className="muted" style={{ fontSize: 12.5 }}>
               {ARTICLE_AUTHOR.role} · {formatDate(article.date)} · ⏱ {minutes} min di lettura
             </span>
