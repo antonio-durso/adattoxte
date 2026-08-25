@@ -64,13 +64,16 @@ function btn(url, label) {
 }
 
 const TEMPLATES = {
-  welcome: (name, role) =>
-    base(`
+  welcome: (data) => {
+    const name = (data && data.name) || '';
+    const role = (data && data.role) || 'patient';
+    return base(`
       <h2 style="margin-top:0">Benvenuto${role === 'therapist' ? ' tra i nostri professionisti' : ''}, ${name}!</h2>
       <p>Il tuo account su Adatto x Te è stato creato con successo.</p>
       <p>${role === 'therapist' ? 'Completa il tuo profilo e inizia a ricevere prenotazioni: il catalogo ti aspetta.' : 'Trova il terapeuta giusto per te e prenota la tua prima seduta online.'}</p>
       ${btn('https://adattoxte.vercel.app' + (role === 'therapist' ? '/area-terapeuta' : '/terapeuti'), role === 'therapist' ? 'Apri il tuo pannello' : 'Trova il tuo terapeuta')}
-    `),
+    `);
+  },
   bookingConfirmedPatient: (booking) =>
     base(`
       <h2 style="margin-top:0">Prenotazione confermata ✅</h2>
