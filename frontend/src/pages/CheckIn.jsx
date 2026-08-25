@@ -75,6 +75,12 @@ export default function CheckIn() {
             { '@type': 'MedicalCondition', name: "Disturbo d'ansia generalizzata" },
             { '@type': 'MedicalCondition', name: 'Depressione' },
           ],
+          author: {
+            '@type': 'Person',
+            name: "Dott. Antonio D'Urso",
+            jobTitle: 'Psicologo',
+            identifier: 'Albo Psicologi Campania n. 5408',
+          },
           isPartOf: { '@type': 'WebSite', name: 'Adatto x Te', url: 'https://adattoxte.vercel.app' },
           mainEntityOfPage: 'https://adattoxte.vercel.app/test',
         }}

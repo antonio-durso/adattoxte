@@ -11,6 +11,13 @@ function formatDate(iso) {
   }
 }
 
+// Autore reale con credenziali (E-E-A-T / YMYL: Google premia gli articoli firmati da professionisti)
+const ARTICLE_AUTHOR = {
+  name: "Dott. Antonio D'Urso",
+  role: 'Psicologo · Albo Psicologi Campania n. 5408',
+  initial: 'A',
+};
+
 function readingMinutes(html) {
   const words = (html || '')
     .replace(/<[^>]+>/g, ' ')
@@ -51,9 +58,13 @@ export default function BlogArticle() {
         datePublished: article.date,
         dateModified: article.date,
         inLanguage: 'it',
-        // E-E-A-T: quando sarà disponibile uno psicologo reale, sostituire con
-        // { '@type': 'Person', name: '...', jobTitle: 'Psicologo Clinico', url: '...', identifier: 'Albo n. ...' }
-        author: { '@type': 'Organization', name: 'Redazione Adatto x Te', url: 'https://adattoxte.vercel.app/blog' },
+        author: {
+          '@type': 'Person',
+          name: "Dott. Antonio D'Urso",
+          jobTitle: 'Psicologo',
+          identifier: 'Albo Psicologi Campania n. 5408',
+          url: 'https://adattoxte.vercel.app/blog',
+        },
         publisher: { '@type': 'Organization', name: 'Adatto x Te' },
         about: { '@type': 'MedicalCondition', name: 'Salute mentale e benessere psicologico' },
         mainEntityOfPage: `https://adattoxte.vercel.app/blog/${article.slug}`,
@@ -66,9 +77,13 @@ export default function BlogArticle() {
         datePublished: article.date,
         dateModified: article.date,
         inLanguage: 'it',
-        // E-E-A-T: quando sarà disponibile uno psicologo reale, sostituire con
-        // { '@type': 'Person', name: '...', jobTitle: 'Psicologo Clinico', url: '...', identifier: 'Albo n. ...' }
-        author: { '@type': 'Organization', name: 'Redazione Adatto x Te', url: 'https://adattoxte.vercel.app/blog' },
+        author: {
+          '@type': 'Person',
+          name: "Dott. Antonio D'Urso",
+          jobTitle: 'Psicologo',
+          identifier: 'Albo Psicologi Campania n. 5408',
+          url: 'https://adattoxte.vercel.app/blog',
+        },
         publisher: { '@type': 'Organization', name: 'Adatto x Te' },
         mainEntityOfPage: `https://adattoxte.vercel.app/blog/${article.slug}`,
       };
@@ -106,12 +121,12 @@ export default function BlogArticle() {
             aria-hidden="true"
             style={{ width: 44, height: 44, borderRadius: '50%', background: '#2f7ba6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 19, flexShrink: 0 }}
           >
-            {(article.author || 'Redazione Adatto x Te').charAt(0)}
+            {ARTICLE_AUTHOR.initial}
           </div>
           <div style={{ lineHeight: 1.4 }}>
-            <strong style={{ display: 'block', fontSize: 14.5 }}>Scritto da {article.author || 'Redazione Adatto x Te'}</strong>
+            <strong style={{ display: 'block', fontSize: 14.5 }}>Scritto da {ARTICLE_AUTHOR.name}</strong>
             <span className="muted" style={{ fontSize: 12.5 }}>
-              {formatDate(article.date)} · ⏱ {minutes} min di lettura
+              {ARTICLE_AUTHOR.role} · {formatDate(article.date)} · ⏱ {minutes} min di lettura
             </span>
           </div>
         </div>
