@@ -11,6 +11,12 @@ services:
     buildCommand: npm install
     startCommand: sh -c "npm run seed && npm start"
     healthCheckPath: /api/health
+    # Disco persistente: senza, il database SQLite viene cancellato a ogni
+    # deploy (dati persi: pazienti, prenotazioni). Piccolo costo (~0.25$/GB/mese).
+    disk:
+      name: adattoxte-data
+      mountPath: /opt/render/project/src/backend/data
+      sizeGB: 1
     envVars:
       - key: NODE_VERSION
         value: 20
@@ -35,4 +41,4 @@ services:
         sync: false
       # sandbox (test) oppure live (pagamenti reali)
       - key: PAYPAL_MODE
-        value: sandbox
+        value: live
