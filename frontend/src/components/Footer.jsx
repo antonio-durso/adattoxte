@@ -20,6 +20,12 @@ export default function Footer() {
           <Link to="/psicologo-concorsi-pubblici">Psicologo concorsi</Link>
           <Link to="/psicologo-sport">Psicologo sport</Link>
           <Link to="/psicologia-giuridica">Psicologia giuridica</Link>
+          <Link to="/psicologo-online/depressione">Psicologo online depressione</Link>
+          <Link to="/psicologo-online/ansia">Psicologo online ansia</Link>
+          <Link to="/psicologo-online/attacchi-di-panico">Psicologo online attacchi di panico</Link>
+          <Link to="/psicologo-online/insonnia">Psicologo online insonnia</Link>
+          <Link to="/psicologo-online/milano">Psicologo online Milano</Link>
+          <Link to="/psicologo-online/roma">Psicologo online Roma</Link>
           <Link to="/cookie">Cookie</Link>
         </div>
         {/* Nota emergenza interattiva + Trasparenza (design stile siti importanti) */}

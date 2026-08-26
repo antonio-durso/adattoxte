@@ -6,6 +6,8 @@ import { execSync, spawn } from 'node:child_process';
 import { mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { disturbi } from '../src/content/disturbi.js';
+import { citta } from '../src/content/citta.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -17,7 +19,10 @@ const BASE_URL = `http://localhost:${PORT}`;
 // IMPORTANTE: la home '/' va PER ULTIMA: il fallback SPA di vite preview serve
 // dist/index.html; se la home (che viene resa senza moduli React) venisse
 // sovrascritta prima, le altre rotte riceverebbero la home senza React.
+// Le landing "psicologo online + disturbo/città" vengono generate dagli archivi.
 const ROUTES = [
+  ...disturbi.map((d) => `/psicologo-online/${d.slug}`),
+  ...citta.map((c) => `/psicologo-online/${c.slug}`),
   '/terapeuti',
   '/blog',
   '/risorse',
@@ -161,8 +166,10 @@ async function main() {
         console.log(`  [diag] ${route} servita con modulo React: ${hasModule}`);
       } catch {}
       try {
+        // Budget ampio solo per la home (carica dati API); 8s per le altre
+        const budget = route === '/' ? 20000 : 8000;
         let dom = execSync(
-          `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=20000 --dump-dom "${url}"`,
+          `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=${budget} --dump-dom "${url}"`,
           { encoding: 'utf8', timeout: 90000, maxBuffer: 32 * 1024 * 1024 }
         );
         // Rotte statiche: rimuovi i moduli React (entry + preload) → zero JS framework

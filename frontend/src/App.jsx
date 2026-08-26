@@ -23,6 +23,7 @@ const Risorse = lazy(() => import('./pages/Risorse'));
 const Recensioni = lazy(() => import('./pages/Recensioni'));
 const CheckIn = lazy(() => import('./pages/CheckIn'));
 const NicheLanding = lazy(() => import('./pages/NicheLanding'));
+const DisturboLanding = lazy(() => import('./pages/DisturboLanding'));
 const Settings = lazy(() => import('./pages/Settings'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
@@ -57,6 +58,7 @@ export default function App() {
                 <Route path="/psicologo-concorsi-pubblici" element={<NicheLanding niche="concorsi" />} />
                 <Route path="/psicologo-sport" element={<NicheLanding niche="sport" />} />
                 <Route path="/psicologia-giuridica" element={<NicheLanding niche="giuridica" />} />
+                <Route path="/psicologo-online/:slug" element={<DisturboLanding />} />
                 <Route path="/registrazione" element={<Register />} />
                 <Route path="/accedi" element={<Login />} />
                 <Route path="/privacy" element={<Privacy />} />

@@ -639,3 +639,11 @@ body:not(.react-mounted) .reveal { opacity: 1; transform: none; }
   .video-frame { height: 320px; }
   .section { padding: 36px 16px; }
 }
+
+/* Landing programmatiche: disturbi e città */
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.check-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; max-width: 720px; }
+.check-list li { padding-left: 26px; position: relative; line-height: 1.55; }
+.check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+.faq-item summary { cursor: pointer; font-weight: 600; }
+.faq-item p { margin: 8px 0 0; color: var(--muted, #64748b); }
