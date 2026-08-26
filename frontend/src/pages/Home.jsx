@@ -7,8 +7,30 @@ import Seo from '../components/Seo';
 import ReviewsStrip from '../components/ReviewsStrip';
 import Faq from '../components/Faq';
 
-// Il contenuto del blog (69 articoli) si carica dopo il primo rendering
+// Il contenuto del blog (69 articoli) si carica quando il main thread è libero
 const BlogPreview = lazy(() => import('../components/BlogPreview'));
+
+// Rimanda il download/import del chunk articoli a dopo il lavoro critico
+// (requestIdleCallback -> TBT più basso, nessun cambio visivo)
+function DeferredBlogPreview() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    const start = () => { if (!cancelled) setReady(true); };
+    if ('requestIdleCallback' in window) {
+      const id = requestIdleCallback(start, { timeout: 2500 });
+      return () => { cancelled = true; cancelIdleCallback(id); };
+    }
+    const t = setTimeout(start, 600);
+    return () => { cancelled = true; clearTimeout(t); };
+  }, []);
+  if (!ready) return null;
+  return (
+    <Suspense fallback={null}>
+      <BlogPreview />
+    </Suspense>
+  );
+}
 
 const SERVICES = [
   { icon: '🏃', title: 'Psicologia dello sport', desc: 'Gestione della pressione, ansia da prestazione e motivazione per atleti.' },
@@ -225,9 +247,7 @@ export default function Home() {
 
       <ReviewsStrip />
 
-      <Suspense fallback={null}>
-        <BlogPreview />
-      </Suspense>
+      <DeferredBlogPreview />
 
       <section className="container section" style={{ background: 'var(--bg-soft)', borderRadius: 20 }}>
         <Reveal>

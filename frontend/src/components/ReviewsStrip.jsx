@@ -8,12 +8,23 @@ export default function ReviewsStrip() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    api
-      .get('/ratings')
-      .then((r) => {
-        if (r.data && r.data.total > 0) setData(r.data);
-      })
-      .catch(() => {});
+    let cancelled = false;
+    const run = () => {
+      if (cancelled) return;
+      api
+        .get('/ratings')
+        .then((r) => {
+          if (!cancelled && r.data && r.data.total > 0) setData(r.data);
+        })
+        .catch(() => {});
+    };
+    // Rimanda il fetch a quando il main thread è libero (TBT più basso)
+    if ('requestIdleCallback' in window) {
+      const id = requestIdleCallback(run, { timeout: 2500 });
+      return () => { cancelled = true; cancelIdleCallback(id); };
+    }
+    const t = setTimeout(run, 400);
+    return () => { cancelled = true; clearTimeout(t); };
   }, []);
 
   if (!data) return null;
