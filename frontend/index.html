@@ -83,7 +83,7 @@
       setTimeout(function () {
         if ('requestIdleCallback' in window) requestIdleCallback(initAnalytics, { timeout: 3000 });
         else initAnalytics();
-      }, 7000);
+      }, 12000);
     </script>
 
     <!-- Meta Pixel: caricato DOPO il load della pagina per non bloccare l'LCP -->
@@ -103,7 +103,7 @@
       setTimeout(function () {
         if ('requestIdleCallback' in window) requestIdleCallback(initPixel, { timeout: 3000 });
         else initPixel();
-      }, 7000);
+      }, 12000);
     </script>
     <!-- CSS critico minimo (evita salto layout/flash bianco prima del caricamento JS) -->
     <style>
