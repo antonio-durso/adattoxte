@@ -22,6 +22,13 @@ services:
         value: https://adattoxte.vercel.app
       - key: TRUSTPILOT_URL
         value: https://it.trustpilot.com/evaluate/adattoxte.com
+      # Mittente email: usa un indirizzo VERIFICATO nel pannello Brevo
+      # (Settings -> Senders & Domains). Se adattoxte.it non e' verificato,
+      # Brevo blocca l'invio: imposta qui un mittente verificato.
+      - key: EMAIL_FROM
+        sync: false
+      - key: EMAIL_NAME
+        value: Adatto x Te
       - key: PAYPAL_CLIENT_ID
         sync: false
       - key: PAYPAL_CLIENT_SECRET
