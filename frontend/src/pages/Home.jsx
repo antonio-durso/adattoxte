@@ -4,8 +4,11 @@ import { useI18n } from '../i18n';
 import Reveal from '../components/Reveal';
 import HeroComic from '../components/HeroComic';
 import Seo from '../components/Seo';
-import ReviewsStrip from '../components/ReviewsStrip';
-import Faq from '../components/Faq';
+// Sezioni sotto la piega: chunk separati, caricati solo quando servono
+// (render differito via <Deferred>) -> TBT più basso, niente lavoro in avvio
+const ReviewsStrip = lazy(() => import('../components/ReviewsStrip'));
+const Faq = lazy(() => import('../components/Faq'));
+const TestimonialsSlider = lazy(() => import('../components/TestimonialsSlider'));
 
 // Il contenuto del blog (69 articoli) si carica quando il main thread è libero
 const BlogPreview = lazy(() => import('../components/BlogPreview'));
@@ -81,12 +84,7 @@ const FAQS = [
   },
 ];
 
-const TESTIMONIALS = [
-  { text: 'Ho prenotato in due minuti e la videochiamata è stata impeccabile. Finalmente la terapia si adatta ai miei orari.', author: 'Marco, 34 — Milano' },
-  { text: 'La preparazione mentale ai concorsi mi ha aiutato a gestire l’ansia dell’esame. Consigliatissimo.', author: 'Luca, 27 — Roma' },
-  { text: 'Io e mia moglie seguiamo la terapia di coppia online: comodissima, anche quando siamo in viaggio.', author: 'Giulia, 41 — Torino' },
-  { text: 'Da sportivo pensavo fosse impossibile, invece la psicologia dello sport da remoto funziona davvero.', author: 'Alessandro, 29 — Napoli' },
-];
+
 
 function CountUp({ target, prefix = '', suffix = '' }) {
   // Statico: nessuna animazione JS (riduce TBT -> migliore performance Lighthouse)
@@ -114,46 +112,6 @@ function Deferred({ children, delay = 2500 }) {
     return () => { cancelled = true; clearTimeout(t); };
   }, [delay]);
   return ready ? children : null;
-}
-
-// Carosello testimonianze isolato: il cambio slide ri-renderizza SOLO questo
-// blocco (prima ri-renderizzava tutta la Home ogni 6s -> TBT più alto)
-function TestimonialsSlider() {
-  const [slide, setSlide] = useState(0);
-  useEffect(() => {
-    const timer = setInterval(() => setSlide((s) => (s + 1) % TESTIMONIALS.length), 6000);
-    return () => clearInterval(timer);
-  }, []);
-  return (
-    <section className="container section">
-      <Reveal>
-        <h2>Chi ci ha già scelto</h2>
-        <p className="section-sub">Le esperienze di chi ha iniziato un percorso con Adatto x Te.</p>
-      </Reveal>
-      <Reveal delay={100}>
-        <div className="testimonial-slider">
-          <figure className="testimonial">
-            <blockquote>“{TESTIMONIALS[slide].text}”</blockquote>
-            <figcaption>{TESTIMONIALS[slide].author}</figcaption>
-          </figure>
-          <div className="testimonial-dots">
-            {TESTIMONIALS.map((_, i) => (
-              <button
-                key={i}
-                className={`testimonial-dot ${slide === i ? 'active' : ''}`}
-                onClick={() => setSlide(i)}
-                aria-label={`Testimonianza ${i + 1}`}
-              />
-            ))}
-          </div>
-          <div className="testimonial-arrows">
-            <button className="t-arrow" onClick={() => setSlide((slide - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)} aria-label="Precedente">←</button>
-            <button className="t-arrow" onClick={() => setSlide((slide + 1) % TESTIMONIALS.length)} aria-label="Successiva">→</button>
-          </div>
-        </div>
-      </Reveal>
-    </section>
-  );
 }
 
 export default function Home() {
@@ -267,7 +225,7 @@ export default function Home() {
       </section>
 
       <Deferred>
-      <Faq />
+      <Suspense fallback={null}><Faq /></Suspense>
 
       <section className="container section">
         <Reveal>
@@ -297,7 +255,7 @@ export default function Home() {
         </div>
       </section>
 
-      <ReviewsStrip />
+      <Suspense fallback={null}><ReviewsStrip /></Suspense>
 
       <DeferredBlogPreview />
 
@@ -323,7 +281,7 @@ export default function Home() {
         </div>
       </section>
 
-      <TestimonialsSlider />
+      <Suspense fallback={null}><TestimonialsSlider /></Suspense>
 
       <section className="cta-band">
         <div className="container">
