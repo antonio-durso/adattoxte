@@ -122,7 +122,7 @@ export default function BlogList() {
               <div className="muted small" style={{ textTransform: 'uppercase', letterSpacing: 1 }}>
                 {catLabel(articleCategory(a))} · {formatDate(a.date, lang)}
               </div>
-              <h3 style={{ margin: 0, lineHeight: 1.3 }}>{a.title}</h3>
+              <h2 style={{ margin: 0, lineHeight: 1.3, fontSize: '1.15rem' }}>{a.title}</h2>
               <p className="muted small" style={{ flex: 1 }}>
                 {a.metaDescription}
               </p>

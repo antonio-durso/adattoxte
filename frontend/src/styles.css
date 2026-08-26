@@ -447,6 +447,8 @@ a.card:hover { text-decoration: none; transform: translateY(-2px); box-shadow: 0
 .booking-actions { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; justify-content: center; }
 .small { font-size: 13px; }
 .muted { color: var(--text-muted); }
+/* Link dentro testi attenuati: colore scuro + sottolineatura (contrasto a11y) */
+.muted a { color: var(--primary-dark); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ===== Messaging ===== */
 .messaging { display: flex; flex-direction: column; height: 420px; }

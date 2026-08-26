@@ -83,11 +83,12 @@ export default function Therapists() {
         <input
           type="search"
           placeholder="Cerca per nome o specializzazione…"
+          aria-label="Cerca per nome o specializzazione"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           className="search-input"
         />
-        <select value={specialty} onChange={(e) => setSpecialty(e.target.value)} className="search-input">
+        <select value={specialty} onChange={(e) => setSpecialty(e.target.value)} className="search-input" aria-label="Filtra per specializzazione">
           <option value="">Tutte le specializzazioni</option>
           {SPECIALTIES.map((s) => (
             <option key={s} value={s}>
@@ -115,7 +116,7 @@ export default function Therapists() {
               style={{ border: '2px solid #4f46e5', boxShadow: '0 10px 24px rgba(79,70,229,.18)' }}>
               <span className="badge" style={{ background: '#4f46e5', color: '#fff', alignSelf: 'flex-start' }}>⭐ Consigliato</span>
               <div className="avatar">P</div>
-              <h3>{t('catalog.psychologist')}{th.specialties && th.specialties[0] ? ` · ${t('specialty.' + th.specialties[0]) || th.specialties[0]}` : ''}</h3>
+              <h2 style={{ margin: 0 }}>{t('catalog.psychologist')}{th.specialties && th.specialties[0] ? ` · ${t('specialty.' + th.specialties[0]) || th.specialties[0]}` : ''}</h2>
               <div className="tags">
                 {th.specialties.map((s) => (
                   <span className="tag" key={s}>
@@ -140,14 +141,14 @@ export default function Therapists() {
       )}
 
       {!loading && !error && specialty && therapists.length > 3 && (
-        <h3 style={{ margin: '26px 0 10px' }}>Altri professionisti disponibili</h3>
+        <h2 style={{ margin: '26px 0 10px' }}>Altri professionisti disponibili</h2>
       )}
 
       <div className="grid cards">
         {(specialty ? therapists.slice(3) : therapists).map((th) => (
           <Link to={`/terapeuti/${th.id}`} className="card therapist-card" key={th.id}>
             <div className="avatar">P</div>
-            <h3>{t('catalog.psychologist')}{th.specialties && th.specialties[0] ? ` · ${t('specialty.' + th.specialties[0]) || th.specialties[0]}` : ''}</h3>
+            <h2 style={{ margin: 0 }}>{t('catalog.psychologist')}{th.specialties && th.specialties[0] ? ` · ${t('specialty.' + th.specialties[0]) || th.specialties[0]}` : ''}</h2>
             <div className="tags">
               {th.specialties.map((s) => (
                 <span className="tag" key={s}>

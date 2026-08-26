@@ -19,7 +19,7 @@ export default function BlogPreview() {
           <Reveal key={a.slug} delay={i * 90}>
             <Link to={`/blog/${a.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <div className="card" style={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 8 }}>
-                <h3 style={{ margin: 0, lineHeight: 1.3 }}>{a.title}</h3>
+                <h2 style={{ margin: 0, lineHeight: 1.3, fontSize: '1.15rem' }}>{a.title}</h2>
                 <p className="muted small" style={{ flex: 1 }}>{a.metaDescription}</p>
                 <span className="btn btn-outline btn-sm" style={{ alignSelf: 'flex-start' }}>Leggi l'articolo</span>
               </div>
