@@ -21,23 +21,10 @@ const NEEDS = [
   { label: '⚖️ Psicologia giuridica', value: 'psicologia giuridica' },
 ];
 
-// Dati terapeuti già presenti nell'HTML statico (iniettati dal prerender):
-// la pagina appare completa subito, senza scheletro né spostamenti (CLS ~0)
-const initialData = (() => {
-  try {
-    const el = typeof document !== 'undefined' && document.getElementById('__INITIAL_DATA__');
-    if (el) {
-      const parsed = JSON.parse(el.textContent);
-      return parsed && Array.isArray(parsed.therapists) ? parsed.therapists : null;
-    }
-  } catch {}
-  return null;
-})();
-
 export default function Therapists() {
   const { t, lang } = useI18n();
-  const [therapists, setTherapists] = useState(initialData || []);
-  const [loading, setLoading] = useState(!initialData);
+  const [therapists, setTherapists] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [q, setQ] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
@@ -113,8 +100,8 @@ export default function Therapists() {
 
       {loading && (
         <div className="grid cards" aria-busy="true">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div className="card therapist-card skeleton" key={i} aria-hidden="true">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div className="card therapist-card skeleton" key={i} aria-hidden="true" style={{ minHeight: 357 }}>
               <div className="skeleton-bar" style={{ width: 48, height: 48, borderRadius: '50%', marginBottom: 10 }} />
               <div className="skeleton-bar" style={{ width: '70%', height: 16, marginBottom: 10 }} />
               <div className="skeleton-bar" style={{ width: '45%', height: 12, marginBottom: 12 }} />
@@ -134,7 +121,7 @@ export default function Therapists() {
           </div>
           <div className="grid cards">
             {Array.from({ length: 3 }).map((_, i) => (
-              <div className="card therapist-card skeleton" key={i}>
+              <div className="card therapist-card skeleton" key={i} style={{ minHeight: 379 }}>
                 <div className="skeleton-bar" style={{ width: 90, height: 22, marginBottom: 10 }} />
                 <div className="skeleton-bar" style={{ width: 48, height: 48, borderRadius: '50%', marginBottom: 10 }} />
                 <div className="skeleton-bar" style={{ width: '70%', height: 16, marginBottom: 10 }} />

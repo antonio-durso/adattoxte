@@ -169,17 +169,6 @@ async function main() {
             .replace(/<link[^>]*rel="modulepreload"[^>]*>/g, '')
             .replace(/<script[^>]*type="module"[^>]*><\/script>/g, '');
         }
-        // /terapeuti: inietta i dati reali come JSON (niente skeleton/flash/CLS)
-        if (route === '/terapeuti') {
-          try {
-            const data = execSync(`curl -s "${BASE_URL}/api/therapists"`, { encoding: 'utf8', timeout: 10000 });
-            const parsed = JSON.parse(data);
-            if (parsed && Array.isArray(parsed.therapists)) {
-              const tag = `<script id="__INITIAL_DATA__" type="application/json">${JSON.stringify({ therapists: parsed.therapists })}</script>`;
-              dom = dom.replace('</body>', tag + '</body>');
-            }
-          } catch {}
-        }
         // Home: striscia recensioni SUBITO nell'HTML (static.js poi riempie i numeri)
         if (route === '/') {
           const strip =
