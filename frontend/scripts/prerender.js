@@ -34,9 +34,11 @@ const ROUTES = [
   '/',
 ];
 
-// Rotte 100% statiche: HTML puro, nessun modulo React (vedi src/main.jsx)
+// Rotte 100% statiche: HTML puro, nessun modulo React (vedi src/main.jsx).
+// NOTA: '/' NON e' nella lista: la home dipende da dati API (terapeuti,
+// testimonianze, articoli); mantenendo React attivo il contenuto si completa
+// nel browser anche se la cattura statica avviene con dati parziali.
 const STATIC_NO_MOUNT = new Set([
-  '/',
   '/blog',
   '/risorse',
   '/psicologo-concorsi-pubblici',
