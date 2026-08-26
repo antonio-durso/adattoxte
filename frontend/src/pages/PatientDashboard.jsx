@@ -282,6 +282,13 @@ export default function PatientDashboard() {
                     </button>
                     <button className="btn btn-outline btn-sm" onClick={() => setRatingFor(null)}>Annulla</button>
                   </div>
+                  <p className="muted small" style={{ marginTop: 10, marginBottom: 0 }}>
+                    Vuoi aiutare altri pazienti a scegliere con fiducia?{' '}
+                    <a href="https://it.trustpilot.com/evaluate/adattoxte.com" target="_blank" rel="noopener noreferrer">
+                      Lascia una recensione pubblica su Trustpilot
+                    </a>
+                    .
+                  </p>
                 </div>
               )}
               </Fragment>

@@ -15,6 +15,10 @@
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 
+// Pagina di recensione Trustpilot della piattaforma (dominio verificato su Trustpilot)
+const TRUSTPILOT_URL =
+  process.env.TRUSTPILOT_URL || 'https://it.trustpilot.com/evaluate/adattoxte.com';
+
 let smtpTransporter = null;
 let configured = false;
 
@@ -112,6 +116,8 @@ const TEMPLATES = {
       <p>La tua seduta con <strong>${booking.therapist_name}</strong> è stata completata.</p>
       <p>Ci vogliono 30 secondi: lascia una valutazione con le stelle e un commento. Aiuti altri pazienti e il tuo terapeuta a migliorare.</p>
       ${btn('https://adattoxte.vercel.app/area-paziente', 'Valuta la tua seduta')}
+      <p style="font-size:13px;color:#64748b">Oppure racconta la tua esperienza in modo pubblico su <strong>Trustpilot</strong>: è il modo migliore per aiutare chi cerca uno psicologo online a scegliere con fiducia.</p>
+      ${btn(TRUSTPILOT_URL, 'Recensisci su Trustpilot')}
     `),
   bookingCancelled: (booking) =>
     base(`
