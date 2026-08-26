@@ -58,6 +58,36 @@ function chromePath() {
 function freePort() {
   try { execSync(`fuser -k ${PORT}/tcp 2>/dev/null || true`, { stdio: 'ignore' }); } catch {}
   try { execSync(`pkill -f "vite preview --port ${PORT}" 2>/dev/null || true`, { stdio: 'ignore' }); } catch {}
+  try { execSync('fuser -k 3001/tcp 2>/dev/null || true', { stdio: 'ignore' }); } catch {}
+}
+
+// Avvia il backend locale (seed + server) per catturare le pagine con i DATI REALI
+function startBackend() {
+  const backendDir = join(ROOT, '..', 'backend');
+  try {
+    execSync('node src/seed.js', { cwd: backendDir, timeout: 30000, stdio: 'ignore' });
+  } catch (e) {
+    console.log('⚠️  seed backend:', String(e.message || e).slice(0, 80));
+  }
+  return spawn('node', ['src/server.js'], { cwd: backendDir, stdio: 'ignore' });
+}
+
+function waitFor(url, tries = 40) {
+  return new Promise((resolve) => {
+    let n = 0;
+    const tick = () => {
+      n += 1;
+      try {
+        execSync(`curl -s -o /dev/null -w "%{http_code}" ${url}`, { timeout: 3000 });
+        resolve(true);
+        return;
+      } catch {
+        if (n >= tries) return resolve(false);
+        setTimeout(tick, 250);
+      }
+    };
+    tick();
+  });
 }
 
 function waitForServer(url, tries = 40) {
@@ -107,6 +137,11 @@ async function main() {
     stdio: 'ignore',
     detached: false,
   });
+  // Backend locale: le pagine vengono catturate CON i dati reali
+  console.log('Avvio backend locale (seed + server)…');
+  const backend = startBackend();
+  const backendOk = await waitFor('http://localhost:3001/api/health');
+  console.log(backendOk ? '  ✅ backend attivo' : '  ⚠️ backend non raggiungibile: pagine dati senza contenuto');
 
   let ok = 0;
   try {
@@ -134,6 +169,17 @@ async function main() {
             .replace(/<link[^>]*rel="modulepreload"[^>]*>/g, '')
             .replace(/<script[^>]*type="module"[^>]*><\/script>/g, '');
         }
+        // /terapeuti: inietta i dati reali come JSON (niente skeleton/flash/CLS)
+        if (route === '/terapeuti') {
+          try {
+            const data = execSync(`curl -s "${BASE_URL}/api/therapists"`, { encoding: 'utf8', timeout: 10000 });
+            const parsed = JSON.parse(data);
+            if (parsed && Array.isArray(parsed.therapists)) {
+              const tag = `<script id="__INITIAL_DATA__" type="application/json">${JSON.stringify({ therapists: parsed.therapists })}</script>`;
+              dom = dom.replace('</body>', tag + '</body>');
+            }
+          } catch {}
+        }
         // Home: striscia recensioni SUBITO nell'HTML (static.js poi riempie i numeri)
         if (route === '/') {
           const strip =
@@ -158,6 +204,7 @@ async function main() {
     console.log(`Prerender completato: ${ok}/${ROUTES.length} rotte`);
   } finally {
     server.kill('SIGTERM');
+    backend.kill('SIGTERM');
   }
 }
 
