@@ -158,7 +158,10 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
       },
     });
   } catch (err) {
-    console.error('PayPal error:', err.message);
+    console.error(
+      'PayPal checkout error:',
+      JSON.stringify({ message: err.message, detail: err.detail || null }, null, 2)
+    );
     res.status(500).json({ error: 'Errore nella creazione del pagamento' });
   }
 });
@@ -209,7 +212,10 @@ router.post('/capture', authRequired, requireRole('patient'), async (req, res) =
     }
     return res.status(400).json({ error: 'Pagamento non completato. Riprova.' });
   } catch (err) {
-    console.error('PayPal capture error:', err.message);
+    console.error(
+      'PayPal capture error:',
+      JSON.stringify({ message: err.message, detail: err.detail || null }, null, 2)
+    );
     res.status(500).json({ error: 'Errore nella conferma del pagamento' });
   }
 });
