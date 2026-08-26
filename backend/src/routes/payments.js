@@ -1,10 +1,11 @@
 /**
- * Pagamenti: integrazione nativa PayPal — Advanced Checkout con
- * Advanced Card Processing (elaborazione avanzata delle carte).
+ * Pagamenti: integrazione nativa PayPal — Checkout standard (reindirizzamento).
  *
- * Il paziente inserisce i dati della carta di credito direttamente nel sito
- * (campi sicuri ospitati da PayPal) e i fondi vengono accreditati sul conto
- * PayPal Business del titolare della piattaforma.
+ * Il paziente viene reindirizzato alla pagina sicura di PayPal, dove può pagare
+ * con carta di credito (anche senza conto PayPal) oppure col suo saldo PayPal;
+ * i fondi vengono accreditati automaticamente sul conto PayPal Business del
+ * titolare della piattaforma. Al ritorno (return_url) il backend cattura
+ * l'addebito e marca la seduta come pagata.
  *
  * Senza credenziali PAYPAL_* configurate la piattaforma funziona in modalità
  * demo (la seduta viene marcata pagata senza addebito reale).
@@ -136,6 +137,8 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
             brand_name: 'Adatto x Te',
             user_action: 'CONTINUE',
             shipping_preference: 'NO_SHIPPING',
+            return_url: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/area-paziente?paid=1`,
+            cancel_url: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/area-paziente?paid=0`,
           },
         }),
       },
@@ -144,7 +147,7 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
     res.json({
       demo: false,
       orderId: order.id,
-      clientId: process.env.PAYPAL_CLIENT_ID,
+      approvalUrl: order.links.find((l) => l.rel === 'approve')?.href || null,
       booking: {
         id: booking.id,
         price: booking.price,

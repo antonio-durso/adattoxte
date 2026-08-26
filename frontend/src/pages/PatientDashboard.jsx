@@ -45,6 +45,7 @@ function Stars({ value, onChange }) {
 
 export default function PatientDashboard() {
   const [searchParams] = useSearchParams();
+  const [paymentStatus, setPaymentStatus] = useState(''); // 'ok' | 'ko' | ''
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -66,6 +67,20 @@ export default function PatientDashboard() {
   }
 
   useEffect(load, []);
+
+  // Al ritorno da PayPal (?paid=1&token=...), conferma l'addebito e segna la seduta pagata
+  useEffect(() => {
+    const paid = searchParams.get('paid');
+    const token = searchParams.get('token');
+    if (paid === '1' && token) {
+      api
+        .post('/payments/capture', { orderId: token })
+        .then((r) => setPaymentStatus(r.data.paid ? 'ok' : 'ko'))
+        .catch(() => setPaymentStatus('ko'));
+    } else if (paid === '1') {
+      setPaymentStatus('ok');
+    }
+  }, [searchParams]);
 
   async function cancel(id) {
     setBusyId(id);
@@ -108,9 +123,19 @@ export default function PatientDashboard() {
     <div className="container section">
       <h1>La mia area</h1>
 
-      {searchParams.get('paid') === '1' && (
+      {paymentStatus === 'ok' && (
         <div className="card" style={{ marginBottom: 20, padding: 16, background: '#ecfdf5', border: '2px solid #10b981' }}>
           <p style={{ margin: 0 }} className="ok-text">✅ Pagamento confermato. La tua seduta è registrata come pagata.</p>
+        </div>
+      )}
+      {paymentStatus === 'ko' && (
+        <div className="card" style={{ marginBottom: 20, padding: 16, background: '#fffbeb', border: '2px solid #f59e0b' }}>
+          <p style={{ margin: 0 }}>⚠️ Il pagamento risulta ancora in corso. Se vedi l’addebito su PayPal, ricarica tra poco; altrimenti usa “Paga ora” sulla prenotazione.</p>
+        </div>
+      )}
+      {searchParams.get('paid') === '0' && (
+        <div className="card" style={{ marginBottom: 20, padding: 16, background: '#f8fafc', border: '2px solid #cbd5e1' }}>
+          <p style={{ margin: 0 }} className="muted">Pagamento annullato: nessun addebito. Puoi pagare quando vuoi dalla tua prenotazione.</p>
         </div>
       )}
 
