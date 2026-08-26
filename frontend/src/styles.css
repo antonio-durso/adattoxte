@@ -284,10 +284,22 @@ img { max-width: 100%; }
 .testimonial figcaption { color: var(--text-muted); font-size: 14px; }
 .testimonial-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
 .testimonial-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  border: none; background: var(--border); cursor: pointer; padding: 0;
+  width: 24px; height: 24px; border-radius: 50%;
+  border: none; background: transparent; cursor: pointer; padding: 0;
+  position: relative;
 }
-.testimonial-dot.active { background: var(--primary); }
+/* Pallino visivo 10px centrato dentro l'area tattile 24px (target-size a11y) */
+.testimonial-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.2s ease;
+}
+.testimonial-dot.active::before { background: var(--primary); }
 .testimonial-arrows { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
 .t-arrow {
   border: 1.5px solid var(--border); background: var(--bg);
