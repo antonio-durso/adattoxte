@@ -9,6 +9,7 @@ import { extraArticles6 } from './extra-articles-6';
 import { extraArticles7 } from './extra-articles-7';
 import { extraArticles8 } from './extra-articles-8';
 import { extraArticles9 } from './extra-articles-9';
+import { extraArticles10 } from './extra-articles-10';
 
 export const articles = [
   ...baseArticles,
@@ -21,6 +22,7 @@ export const articles = [
   ...extraArticles7,
   ...extraArticles8,
   ...extraArticles9,
+  ...extraArticles10,
 ].sort(
   (a, b) => (a.date < b.date ? 1 : -1)
 );
