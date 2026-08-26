@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 import Reveal from '../components/Reveal';
@@ -13,25 +13,33 @@ const TestimonialsSlider = lazy(() => import('../components/TestimonialsSlider')
 // Il contenuto del blog (69 articoli) si carica quando il main thread è libero
 const BlogPreview = lazy(() => import('../components/BlogPreview'));
 
-// Rimanda il download/import del chunk articoli a dopo il lavoro critico
-// (requestIdleCallback -> TBT più basso, nessun cambio visivo)
+// Il chunk articoli (224KB) si carica SOLO quando il visitatore si avvicina
+// alla sezione blog (IntersectionObserver): zero lavoro all'avvio -> TBT basso
 function DeferredBlogPreview() {
-  const [ready, setReady] = useState(false);
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
-    let cancelled = false;
-    const start = () => { if (!cancelled) setReady(true); };
-    if ('requestIdleCallback' in window) {
-      const id = requestIdleCallback(start, { timeout: 2500 });
-      return () => { cancelled = true; cancelIdleCallback(id); };
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setVisible(true);
+      return;
     }
-    const t = setTimeout(start, 600);
-    return () => { cancelled = true; clearTimeout(t); };
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '600px' }
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
-  if (!ready) return null;
   return (
-    <Suspense fallback={null}>
-      <BlogPreview />
-    </Suspense>
+    <div ref={ref}>
+      <Suspense fallback={null}>{visible && <BlogPreview />}</Suspense>
+    </div>
   );
 }
 
@@ -97,21 +105,36 @@ function CountUp({ target, prefix = '', suffix = '' }) {
   );
 }
 
-// Rimanda il render dei figli a quando il main thread è libero
-// (timeout di sicurezza: il contenuto compare comunque entro `delay` ms)
-function Deferred({ children, delay = 2500 }) {
+// Le sezioni sotto la piega si caricano quando il visitatore si avvicina
+// (IntersectionObserver, margine 600px: il contenuto è pronto prima che si
+// arrivi a vederlo). Fallback di sicurezza: compare comunque entro `delay` ms.
+function Deferred({ children, delay = 5000 }) {
+  const ref = useRef(null);
   const [ready, setReady] = useState(false);
   useEffect(() => {
-    let cancelled = false;
-    const start = () => { if (!cancelled) setReady(true); };
-    if ('requestIdleCallback' in window) {
-      const id = requestIdleCallback(start, { timeout: delay });
-      return () => { cancelled = true; cancelIdleCallback(id); };
+    const el = ref.current;
+    const start = () => setReady(true);
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      start();
+      return;
     }
-    const t = setTimeout(start, delay);
-    return () => { cancelled = true; clearTimeout(t); };
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          start();
+          io.disconnect();
+        }
+      },
+      { rootMargin: '600px' }
+    );
+    io.observe(el);
+    const t = setTimeout(start, delay); // sicurezza: mai nascosto oltre il delay
+    return () => {
+      io.disconnect();
+      clearTimeout(t);
+    };
   }, [delay]);
-  return ready ? children : null;
+  return <div ref={ref}>{ready ? children : null}</div>;
 }
 
 export default function Home() {
