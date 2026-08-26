@@ -24,3 +24,7 @@ services:
         sync: false
       - key: STRIPE_WEBHOOK_SECRET
         sync: false
+      # Imposta a "1" SOLO dopo aver attivato PayPal nella Dashboard Stripe
+      # (Impostazioni -> Metodi di pagamento). Disponibile per aziende UE.
+      - key: STRIPE_PAYPAL_ENABLED
+        sync: false

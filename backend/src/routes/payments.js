@@ -53,8 +53,15 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
 
   // MODALITÀ REALE: Stripe Checkout Session
   try {
+    // Metodi di pagamento: carta sempre attiva. PayPal via Stripe viene mostrato
+    // solo dopo l'attivazione in Dashboard Stripe (Impostazioni → Metodi di
+    // pagamento → PayPal, disponibile per aziende UE, Italia inclusa) e con
+    // la variabile STRIPE_PAYPAL_ENABLED=1, così il checkout non fallisce
+    // se PayPal non è ancora stato attivato sull'account.
+    const paymentMethods = ['card'];
+    if (process.env.STRIPE_PAYPAL_ENABLED === '1') paymentMethods.push('paypal');
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
+      payment_method_types: paymentMethods,
       mode: 'payment',
       line_items: [
         {
