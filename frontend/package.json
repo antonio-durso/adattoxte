@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/build-seo.js",
-    "build": "vite build && node scripts/prerender.js",
+    "build": "vite build && node scripts/prerender.js && node scripts/inline-css.cjs",
     "preview": "vite preview"
   },
   "dependencies": {
