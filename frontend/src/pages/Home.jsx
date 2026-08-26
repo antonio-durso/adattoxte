@@ -99,15 +99,66 @@ function CountUp({ target, prefix = '', suffix = '' }) {
   );
 }
 
-export default function Home() {
-  const { t } = useI18n();
-  const [openFaq, setOpenFaq] = useState(0);
-  const [slide, setSlide] = useState(0);
+// Rimanda il render dei figli a quando il main thread è libero
+// (timeout di sicurezza: il contenuto compare comunque entro `delay` ms)
+function Deferred({ children, delay = 2500 }) {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    const start = () => { if (!cancelled) setReady(true); };
+    if ('requestIdleCallback' in window) {
+      const id = requestIdleCallback(start, { timeout: delay });
+      return () => { cancelled = true; cancelIdleCallback(id); };
+    }
+    const t = setTimeout(start, delay);
+    return () => { cancelled = true; clearTimeout(t); };
+  }, [delay]);
+  return ready ? children : null;
+}
 
+// Carosello testimonianze isolato: il cambio slide ri-renderizza SOLO questo
+// blocco (prima ri-renderizzava tutta la Home ogni 6s -> TBT più alto)
+function TestimonialsSlider() {
+  const [slide, setSlide] = useState(0);
   useEffect(() => {
     const timer = setInterval(() => setSlide((s) => (s + 1) % TESTIMONIALS.length), 6000);
     return () => clearInterval(timer);
   }, []);
+  return (
+    <section className="container section">
+      <Reveal>
+        <h2>Chi ci ha già scelto</h2>
+        <p className="section-sub">Le esperienze di chi ha iniziato un percorso con Adatto x Te.</p>
+      </Reveal>
+      <Reveal delay={100}>
+        <div className="testimonial-slider">
+          <figure className="testimonial">
+            <blockquote>“{TESTIMONIALS[slide].text}”</blockquote>
+            <figcaption>{TESTIMONIALS[slide].author}</figcaption>
+          </figure>
+          <div className="testimonial-dots">
+            {TESTIMONIALS.map((_, i) => (
+              <button
+                key={i}
+                className={`testimonial-dot ${slide === i ? 'active' : ''}`}
+                onClick={() => setSlide(i)}
+                aria-label={`Testimonianza ${i + 1}`}
+              />
+            ))}
+          </div>
+          <div className="testimonial-arrows">
+            <button className="t-arrow" onClick={() => setSlide((slide - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)} aria-label="Precedente">←</button>
+            <button className="t-arrow" onClick={() => setSlide((slide + 1) % TESTIMONIALS.length)} aria-label="Successiva">→</button>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+export default function Home() {
+  const { t } = useI18n();
+  const [openFaq, setOpenFaq] = useState(0);
 
   return (
     <>
@@ -215,6 +266,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Deferred>
       <Faq />
 
       <section className="container section">
@@ -271,34 +323,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container section">
-        <Reveal>
-          <h2>Chi ci ha già scelto</h2>
-          <p className="section-sub">Le esperienze di chi ha iniziato un percorso con Adatto x Te.</p>
-        </Reveal>
-        <Reveal delay={100}>
-          <div className="testimonial-slider">
-            <figure className="testimonial">
-              <blockquote>“{TESTIMONIALS[slide].text}”</blockquote>
-              <figcaption>{TESTIMONIALS[slide].author}</figcaption>
-            </figure>
-            <div className="testimonial-dots">
-              {TESTIMONIALS.map((_, i) => (
-                <button
-                  key={i}
-                  className={`testimonial-dot ${slide === i ? 'active' : ''}`}
-                  onClick={() => setSlide(i)}
-                  aria-label={`Testimonianza ${i + 1}`}
-                />
-              ))}
-            </div>
-            <div className="testimonial-arrows">
-              <button className="t-arrow" onClick={() => setSlide((slide - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)} aria-label="Precedente">←</button>
-              <button className="t-arrow" onClick={() => setSlide((slide + 1) % TESTIMONIALS.length)} aria-label="Successiva">→</button>
-            </div>
-          </div>
-        </Reveal>
-      </section>
+      <TestimonialsSlider />
 
       <section className="cta-band">
         <div className="container">
@@ -317,6 +342,7 @@ export default function Home() {
           />
         </div>
       </section>
+      </Deferred>
 
     </>
   );
