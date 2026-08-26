@@ -139,7 +139,7 @@ export default function NicheLanding({ niche }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
           <div>
             <strong>1. Prenoti</strong>
-            <p className="muted small">Scegli l'orario che preferisci, paghi in modalità demo: 45€ la seduta individuale.</p>
+            <p className="muted small">Scegli l'orario che preferisci, paghi online in modo sicuro con carta di credito: 45€ la seduta individuale.</p>
           </div>
           <div>
             <strong>2. Parli in video</strong>

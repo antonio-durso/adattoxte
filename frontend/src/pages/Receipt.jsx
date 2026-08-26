@@ -46,7 +46,7 @@ export default function Receipt() {
                   ['Orario', `${booking.startTime}–${booking.endTime}`],
                   ['Tipo di seduta', booking.type === 'couple' ? 'Coppia' : 'Individuale'],
                   ['Stato', STATUS_LABEL[booking.status] || booking.status],
-                  ['Pagamento', booking.paid ? 'Pagata' : 'Da pagare (modalità demo)'],
+                  ['Pagamento', booking.paid ? 'Pagata' : 'Da pagare'],
                 ].map(([k, v]) => (
                   <tr key={k} style={{ borderBottom: '1px solid #f1f5f9' }}>
                     <td style={{ padding: '9px 6px', color: '#64748b', fontWeight: 600, width: '45%' }}>{k}</td>

@@ -5,7 +5,7 @@ import Reveal from './Reveal';
 const FAQS = [
   {
     q: 'Come funziona la prenotazione di una seduta?',
-    a: 'Scegli la specializzazione che ti interessa, prenoti l\'orario che preferisci, paghi in modalità demo e ricevi il link per la videochiamata. Il nome del terapeuta viene mostrato dopo la prenotazione, per garantire la massima riservatezza.',
+    a: 'Scegli la specializzazione che ti interessa, prenoti l\'orario che preferisci, paghi online in modo sicuro con carta di credito (via PayPal) e ricevi il link per la videochiamata. Il nome del terapeuta viene mostrato dopo la prenotazione, per garantire la massima riservatezza.',
   },
   {
     q: 'Quanto costa una seduta?',
