@@ -14,7 +14,7 @@ export default function CookiePolicy() {
       <ul>
         <li><strong>Cookie tecnici (necessari):</strong> gestione della sessione di autenticazione, preferenze lingua e consenso cookie. Non richiedono consenso (art. 122 D.Lgs. 196/2003).</li>
         <li><strong>Cookie di analisi (solo con consenso):</strong> statistiche aggregate di utilizzo, per migliorare il servizio.</li>
-        <li><strong>Cookie di terze parti:</strong> la videochiamata (Jitsi Meet) e i pagamenti (Stripe) possono impostare cookie propri secondo le rispettive informative.</li>
+        <li><strong>Cookie di terze parti:</strong> la videochiamata (Jitsi Meet) e i pagamenti (PayPal) possono impostare cookie propri secondo le rispettive informative.</li>
       </ul>
 
       <h2>3. Come gestire le preferenze</h2>

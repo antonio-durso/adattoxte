@@ -37,7 +37,7 @@ export default function Terms() {
       <h2>4. Prenotazioni, prezzi e pagamenti</h2>
       <ul>
         <li>Seduta individuale: 45 € · Seduta di coppia: 50 € (prezzi base, come indicato nella scheda del professionista).</li>
-        <li>Il pagamento avviene online, prima della seduta, tramite circuito sicuro (Stripe o equivalente).</li>
+        <li>Il pagamento avviene online, prima della seduta, tramite circuito sicuro (PayPal).</li>
         <li>Le cancellazioni con almeno <strong>24 ore di preavviso</strong> sono rimborsate; oltre tale termine il rimborso è a discrezione del professionista.</li>
         <li>La ricevuta della seduta è disponibile nell'area personale.</li>
       </ul>

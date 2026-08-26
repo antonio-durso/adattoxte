@@ -65,7 +65,7 @@ const FAQS = [
   },
   {
     q: 'I pagamenti sono sicuri?',
-    a: 'Sì. In fase di lancio i pagamenti sono gestiti da Stripe, il principale processore di pagamenti europeo: i dati della carta non passano mai dai nostri server.',
+    a: 'Sì. I pagamenti con carta sono processati in modo sicuro da PayPal: i dati della carta non passano mai dai nostri server e i fondi vengono accreditati sul conto PayPal della piattaforma.',
   },
   {
     q: 'I miei dati sono protetti?',

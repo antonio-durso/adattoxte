@@ -13,6 +13,7 @@ const TherapistDetail = lazy(() => import('./pages/TherapistDetail'));
 const Register = lazy(() => import('./pages/Register'));
 const Login = lazy(() => import('./pages/Login'));
 const PatientDashboard = lazy(() => import('./pages/PatientDashboard'));
+const Checkout = lazy(() => import('./pages/Checkout'));
 const TherapistDashboard = lazy(() => import('./pages/TherapistDashboard'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 const BlogList = lazy(() => import('./pages/BlogList'));
@@ -66,6 +67,14 @@ export default function App() {
                   element={
                     <ProtectedRoute role="patient">
                       <PatientDashboard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/pagamento/:bookingId"
+                  element={
+                    <ProtectedRoute role="patient">
+                      <Checkout />
                     </ProtectedRoute>
                   }
                 />

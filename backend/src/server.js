@@ -28,8 +28,6 @@ const authLimiter = rateLimit({
 });
 app.use('/api/auth', authLimiter);
 
-// Il webhook Stripe necessita del body grezzo (firma)
-app.use('/api/payments/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
 
 app.get('/api/health', (req, res) => {

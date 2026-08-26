@@ -34,7 +34,6 @@ export default function TherapistDetail() {
   const [loading, setLoading] = useState(true);
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState(null);
   const [booking, setBooking] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [pkg, setPkg] = useState(1);
@@ -84,12 +83,8 @@ export default function TherapistDetail() {
       const startTime = slots.find((s) => s.id === selectedSlot)?.startTime;
       const r = await api.post('/bookings', { therapistId: id, date, startTime, type, packageSessions: pkg });
       const created = r.data.booking;
-      const pay = await api.post('/payments/checkout', { bookingId: created.id });
-      setSuccess({
-        booking: created,
-        paid: pay.data.paid,
-        demo: pay.data.demo,
-      });
+      // Vai alla pagina di pagamento: il paziente inserisce la carta (PayPal Advanced Card Processing)
+      navigate(`/pagamento/${created.id}`);
     } catch (e) {
       setError(e.response?.data?.error || t('common.error'));
     } finally {
@@ -124,33 +119,7 @@ export default function TherapistDetail() {
       />
       <Link to="/terapeuti" className="back-link">← {t('common.back')}</Link>
 
-      {success ? (
-        <div className="card success-card">
-          <h2>Prenotazione effettuata 🎉</h2>
-          <p>
-            <strong>{therapist.name}</strong> · {new Date(success.booking.date + 'T00:00:00').toLocaleDateString('it-IT')} alle{' '}
-            {success.booking.startTime} · {success.booking.type === 'couple' ? 'seduta di coppia' : 'seduta individuale'} ·{' '}
-            {success.booking.price} €
-          </p>
-          <p className={success.paid ? 'ok-text' : 'muted'}>
-            {success.paid
-              ? success.demo
-                ? 'Pagamento demo confermato. La seduta è registrata come pagata.'
-                : 'Pagamento confermato. La seduta è registrata come pagata.'
-              : 'In attesa del pagamento.'}
-          </p>
-          <p className="muted">Sala video: {success.booking.roomName} — trovi il link nella tua area personale.</p>
-          <div className="row-gap">
-            <button className="btn btn-primary" onClick={() => navigate('/area-paziente')}>
-              Vai alla mia area
-            </button>
-            <button className="btn btn-outline" onClick={() => { setSuccess(null); setSelectedSlot(''); }}>
-              Prenota un’altra seduta
-            </button>
-          </div>
-        </div>
-      ) : (
-        <div className="profile-layout">
+      <div className="profile-layout">
           <div className="card profile-card">
             <div className="avatar avatar-lg">P</div>
             <h1>Psicologo{therapist.specialties && therapist.specialties[0] ? ` · ${t('specialty.' + therapist.specialties[0]) || therapist.specialties[0]}` : ''}</h1>
@@ -249,7 +218,6 @@ export default function TherapistDetail() {
             )}
           </div>
         </div>
-      )}
 
       {reviews.length > 0 && (
         <section className="container section" style={{ maxWidth: 760, margin: '0 auto' }}>

@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import api from '../api';
 import Messaging from '../components/Messaging';
 import VideoRoom from '../components/VideoRoom';
@@ -44,6 +44,7 @@ function Stars({ value, onChange }) {
 }
 
 export default function PatientDashboard() {
+  const [searchParams] = useSearchParams();
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -106,6 +107,12 @@ export default function PatientDashboard() {
   return (
     <div className="container section">
       <h1>La mia area</h1>
+
+      {searchParams.get('paid') === '1' && (
+        <div className="card" style={{ marginBottom: 20, padding: 16, background: '#ecfdf5', border: '2px solid #10b981' }}>
+          <p style={{ margin: 0 }} className="ok-text">✅ Pagamento confermato. La tua seduta è registrata come pagata.</p>
+        </div>
+      )}
 
       {error && <p className="error-text">{error}</p>}
       {loading && <p className="muted">Caricamento…</p>}
@@ -172,6 +179,11 @@ export default function PatientDashboard() {
               </div>
             </div>
             <div className="booking-actions">
+              {!b.paid && (b.status === 'pending' || b.status === 'confirmed') && (
+                <Link to={`/pagamento/${b.id}`} className="btn btn-primary btn-sm">
+                  💳 Paga ora
+                </Link>
+              )}
               {b.status === 'confirmed' && b.paid && (
                 <button className="btn btn-primary" onClick={() => setRoom(b.roomName)}>
                   📹 Entra nella videochiamata

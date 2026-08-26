@@ -52,7 +52,7 @@ export default function Privacy() {
       <ul>
         <li><strong>Videochiamate:</strong> Jitsi Meet (infrastruttura crittografata; le sessioni non vengono registrate dalla piattaforma).</li>
         <li><strong>Email transazionali:</strong> Brevo (invio di conferme, promemoria e notifiche).</li>
-        <li><strong>Pagamenti (quando attivi):</strong> Stripe — i dati di pagamento sono gestiti esclusivamente dal fornitore, che non condivide con noi i dati completi della carta.</li>
+        <li><strong>Pagamenti (quando attivi):</strong> PayPal — i dati di pagamento (carta di credito) sono gestiti esclusivamente da PayPal, che non condivide con noi i dati completi della carta.</li>
         <li><strong>Hosting:</strong> Vercel (frontend) e Render (backend), con server in area UE.</li>
         <li><strong>Statistiche e marketing:</strong> Google Analytics 4 e Meta Pixel, attivati solo con il tuo consenso (banner cookie), con misure di anonimizzazione.</li>
       </ul>
