@@ -162,8 +162,8 @@ async function main() {
       } catch {}
       try {
         let dom = execSync(
-          `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=8000 --dump-dom "${url}"`,
-          { encoding: 'utf8', timeout: 60000, maxBuffer: 32 * 1024 * 1024 }
+          `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=20000 --dump-dom "${url}"`,
+          { encoding: 'utf8', timeout: 90000, maxBuffer: 32 * 1024 * 1024 }
         );
         // Rotte statiche: rimuovi i moduli React (entry + preload) → zero JS framework
         if (STATIC_NO_MOUNT.has(route)) {

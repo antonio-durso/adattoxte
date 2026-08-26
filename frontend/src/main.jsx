@@ -6,8 +6,9 @@ import './styles.css';
 // Rotte pubbliche completamente statiche (prerender): l'HTML è già completo,
 // niente idratazione React (zero JS del framework su queste pagine).
 // Le interazioni (menu, FAQ, carosello, cookie...) sono gestite da /static.js
+// NOTA: '/' NON è nella lista: la home dipende da dati API e il prerender può
+// catturarla parziale; con React attivo il contenuto si completa nel browser.
 const STATIC_ROUTES = new Set([
-  '/',
   '/blog',
   '/risorse',
   '/psicologo-concorsi-pubblici',
