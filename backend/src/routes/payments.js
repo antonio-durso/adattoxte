@@ -147,6 +147,7 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
     res.json({
       demo: false,
       orderId: order.id,
+      clientId: process.env.PAYPAL_CLIENT_ID,
       approvalUrl: order.links.find((l) => l.rel === 'approve')?.href || null,
       booking: {
         id: booking.id,

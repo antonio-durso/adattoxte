@@ -3,12 +3,11 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import api from '../api';
 
 /**
- * Pagina di pagamento: crea l'ordine PayPal e reindirizza il paziente alla
- * pagina sicura di PayPal, dove potrà pagare con carta di credito (anche
- * senza conto PayPal) oppure col suo saldo PayPal. I fondi vengono accreditati
- * sul conto PayPal Business della piattaforma. Dopo il pagamento PayPal
- * riporta automaticamente il paziente su /area-paziente?paid=1&token=...
- * dove il backend cattura l'addebito e segna la seduta come pagata.
+ * Pagina di pagamento con popup PayPal (Smart Buttons): il paziente rimane
+ * sul sito, clicca il pulsante PayPal, paga nella finestra PayPal (carta di
+ * credito o saldo PayPal) e al termine la finestra si chiude: la conferma
+ * appare qui, dentro la piattaforma. Il backend crea l'ordine e, dopo
+ * l'approvazione, cattura l'addebito (fondi sul conto PayPal Business).
  * Senza credenziali PayPal configurate mostra la modalità demo.
  */
 
@@ -20,7 +19,7 @@ export default function Checkout() {
   const [demo, setDemo] = useState(false);
   const [booking, setBooking] = useState(null);
   const [error, setError] = useState('');
-  const [approvalUrl, setApprovalUrl] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -34,21 +33,13 @@ export default function Checkout() {
           setDemo(true);
           setBooking(pay.data.bookingId ? { id: pay.data.bookingId } : null);
           setLoading(false);
-          setTimeout(() => navigate('/area-paziente?paid=1'), 1500);
           return;
         }
 
         if (cancelled) return;
         setBooking(pay.data.booking);
-        setApprovalUrl(pay.data.approvalUrl);
         setLoading(false);
-
-        // Reindirizzamento automatico alla pagina sicura di PayPal
-        if (pay.data.approvalUrl) {
-          window.location.href = pay.data.approvalUrl;
-        } else {
-          setError('Link di pagamento non disponibile. Riprova.');
-        }
+        await renderPayPalButtons(pay.data.clientId, pay.data.orderId);
       } catch (e) {
         if (!cancelled) {
           setLoading(false);
@@ -64,7 +55,42 @@ export default function Checkout() {
     return () => {
       cancelled = true;
     };
-  }, [bookingId, navigate]);
+  }, [bookingId]);
+
+  async function renderPayPalButtons(clientId, orderId) {
+    if (window.paypal) {
+      await mountButtons(clientId, orderId);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(
+      clientId
+    )}&components=buttons&currency=EUR&intent=capture`;
+    script.onload = () => mountButtons(clientId, orderId);
+    script.onerror = () => setError('Impossibile caricare il pagamento PayPal. Riprova.');
+    document.body.appendChild(script);
+  }
+
+  async function mountButtons(clientId, orderId) {
+    try {
+      await window.paypal.Buttons({
+        style: { layout: 'vertical', color: 'gold', shape: 'rect', label: 'paypal' },
+        createOrder: () => orderId,
+        onApprove: async (data) => {
+          try {
+            const r = await api.post('/payments/capture', { orderId: data.orderID });
+            setSuccess({ paid: !!r.data.paid, demo: false });
+          } catch (e) {
+            setError(e.response?.data?.error || 'Errore nella conferma del pagamento');
+          }
+        },
+        onCancel: () => setError('Pagamento annullato. Nessun addebito effettuato.'),
+        onError: () => setError('Errore durante il pagamento. Riprova.'),
+      }).render('#paypal-button-container');
+    } catch (e) {
+      setError('Impossibile avviare il pagamento PayPal. Riprova.');
+    }
+  }
 
   if (loading) {
     return (
@@ -74,14 +100,33 @@ export default function Checkout() {
     );
   }
 
-  if (error && !booking) {
+  if (success) {
     return (
       <div className="container section" style={{ maxWidth: 560, margin: '0 auto' }}>
-        <div className="card" style={{ padding: 20 }}>
-          <p className="error-text">{error}</p>
-          <Link to="/area-paziente" className="btn btn-primary">
-            Torna alla mia area
-          </Link>
+        <div className="card success-card">
+          <h2>Pagamento confermato 🎉</h2>
+          {booking && (
+            <p>
+              <strong>
+                {booking.type === 'couple' ? 'Seduta di coppia' : 'Seduta individuale'}
+              </strong>{' '}
+              · {new Date(booking.date + 'T00:00:00').toLocaleDateString('it-IT')} alle{' '}
+              {booking.startTime} · {booking.price} €
+            </p>
+          )}
+          <p className="ok-text">
+            {success.demo
+              ? 'Pagamento demo confermato. La seduta è registrata come pagata.'
+              : 'Pagamento effettuato con successo. La seduta è registrata come pagata e trovi il link alla videochiamata nella tua area personale.'}
+          </p>
+          <div className="row-gap">
+            <button className="btn btn-primary" onClick={() => navigate('/area-paziente')}>
+              Vai alla mia area
+            </button>
+            <Link to="/terapeuti" className="btn btn-outline">
+              Prenota un’altra seduta
+            </Link>
+          </div>
         </div>
       </div>
     );
@@ -93,7 +138,9 @@ export default function Checkout() {
         <div className="card success-card">
           <h2>Pagamento demo 🎉</h2>
           <p className="ok-text">Pagamento demo confermato. La seduta è registrata come pagata.</p>
-          <p className="muted">Ti stiamo reindirizzando alla tua area personale…</p>
+          <button className="btn btn-primary" onClick={() => navigate('/area-paziente')}>
+            Vai alla mia area
+          </button>
         </div>
       </div>
     );
@@ -110,16 +157,23 @@ export default function Checkout() {
             <strong>{booking.price} €</strong>
           </p>
         )}
-        <p>
-          Stai per essere reindirizzato alla pagina sicura di PayPal, dove potrai pagare con la
-          carta di credito o con il tuo account PayPal.
-        </p>
-        {error && <p className="error-text">{error}</p>}
-        {approvalUrl && (
-          <a href={approvalUrl} className="btn btn-primary btn-block btn-lg" style={{ textAlign: 'center', textDecoration: 'none' }}>
-            Vai al pagamento su PayPal
-          </a>
+
+        {error && (
+          <>
+            <p className="error-text">{error}</p>
+            <button className="btn btn-outline" onClick={() => window.location.reload()}>
+              Riprova
+            </button>
+          </>
         )}
+
+        <div id="paypal-button-container" style={{ marginTop: 8 }}></div>
+
+        <p className="muted small" style={{ marginTop: 12 }}>
+          Pagamento sicuro processato da PayPal: puoi pagare con carta di credito o con il tuo
+          account PayPal. I dati della carta non passano mai dai nostri server e i fondi vengono
+          accreditati sul conto PayPal della piattaforma.
+        </p>
       </div>
     </div>
   );
