@@ -13,9 +13,11 @@ const DIST = join(ROOT, 'dist');
 const PORT = 4173;
 const BASE_URL = `http://localhost:${PORT}`;
 
-// Rotte pubbliche da pre-renderizzare (niente rotte protette o con parametri)
+// Rotte pubbliche da pre-renderizzare (niente rotte protette o con parametri).
+// IMPORTANTE: la home '/' va PER ULTIMA: il fallback SPA di vite preview serve
+// dist/index.html; se la home (che viene resa senza moduli React) venisse
+// sovrascritta prima, le altre rotte riceverebbero la home senza React.
 const ROUTES = [
-  '/',
   '/terapeuti',
   '/blog',
   '/risorse',
@@ -29,7 +31,21 @@ const ROUTES = [
   '/privacy',
   '/cookie',
   '/termini',
+  '/',
 ];
+
+// Rotte 100% statiche: HTML puro, nessun modulo React (vedi src/main.jsx)
+const STATIC_NO_MOUNT = new Set([
+  '/',
+  '/blog',
+  '/risorse',
+  '/psicologo-concorsi-pubblici',
+  '/psicologo-sport',
+  '/psicologia-giuridica',
+  '/privacy',
+  '/cookie',
+  '/termini',
+]);
 
 function chromePath() {
   try {
@@ -73,6 +89,17 @@ async function main() {
     return;
   }
 
+  // SPA fallback per le rotte React (login, dashboard, /terapeuti/:id, /blog/:slug...):
+  // copia dell'index.html originale CON il modulo React, serve quando una rotta
+  // non ha un file prerenderizzato. Il rewrite di vercel.json punta a /app.html.
+  try {
+    const { copyFileSync } = await import('node:fs');
+    copyFileSync(join(DIST, 'index.html'), join(DIST, 'app.html'));
+    console.log('  📄 app.html (fallback SPA con React) creato');
+  } catch (e) {
+    console.log('⚠️  app.html non creato:', e.message);
+  }
+
   freePort();
   console.log('Avvio server preview…');
   const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], {
@@ -88,12 +115,25 @@ async function main() {
       return;
     }
     for (const route of ROUTES) {
-      const url = `${BASE_URL}${route}`;
+      // Il flag __prerender forza il render React anche sulle rotte statiche
+      const url = `${BASE_URL}${route}?__prerender=1`;
+      // Log diagnostico: il servito contiene il modulo React?
       try {
-        const dom = execSync(
+        const served = execSync(`curl -s "${url}"`, { encoding: 'utf8', timeout: 5000 });
+        const hasModule = /type="module"[^>]*src="\/assets\/index-/.test(served);
+        console.log(`  [diag] ${route} servita con modulo React: ${hasModule}`);
+      } catch {}
+      try {
+        let dom = execSync(
           `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=8000 --dump-dom "${url}"`,
           { encoding: 'utf8', timeout: 60000, maxBuffer: 32 * 1024 * 1024 }
         );
+        // Rotte statiche: rimuovi i moduli React (entry + preload) → zero JS framework
+        if (STATIC_NO_MOUNT.has(route)) {
+          dom = dom
+            .replace(/<link[^>]*rel="modulepreload"[^>]*>/g, '')
+            .replace(/<script[^>]*type="module"[^>]*><\/script>/g, '');
+        }
         const outFile = route === '/' ? join(DIST, 'index.html') : join(DIST, route.slice(1), 'index.html');
         mkdirSync(dirname(outFile), { recursive: true });
         writeFileSync(outFile, dom);
