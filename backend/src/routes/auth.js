@@ -6,7 +6,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const { db } = require('../db');
-const { signToken, publicUser } = require('../middleware/auth');
+const { signToken, publicUser, authRequired } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -94,6 +94,26 @@ router.post('/login', (req, res) => {
     return res.status(401).json({ error: 'Credenziali non valide' });
   }
   res.json({ token: signToken(user), user: publicUser(user) });
+});
+
+// POST /api/auth/change-password - cambio password (richiede la password attuale)
+router.post('/change-password', authRequired, (req, res) => {
+  const { currentPassword, newPassword } = req.body || {};
+  if (!currentPassword || !newPassword) {
+    return res.status(400).json({ error: 'Password attuale e nuova password sono obbligatorie' });
+  }
+  if (String(newPassword).length < 8) {
+    return res.status(400).json({ error: 'La nuova password deve avere almeno 8 caratteri' });
+  }
+  const user = db.prepare('SELECT * FROM users WHERE id = ?').get(req.user.id);
+  if (!user || !bcrypt.compareSync(String(currentPassword), user.password_hash)) {
+    return res.status(401).json({ error: 'Password attuale non corretta' });
+  }
+  db.prepare('UPDATE users SET password_hash = ? WHERE id = ?').run(
+    bcrypt.hashSync(String(newPassword), 10),
+    req.user.id
+  );
+  res.json({ ok: true });
 });
 
 // GET /api/auth/specialties - elenco specializzazioni (per filtri e form)

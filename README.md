@@ -38,15 +38,7 @@ Apri <http://localhost:5173> nel browser.
 
 ### Account demo
 
-| Ruolo | Email | Password |
-|---|---|---|
-| Admin | admin@adattoxte.it | Admin123! |
-| Paziente | antonio@adattoxte.it | Demo1234! |
-| Terapeuta | elena.bianchi@adattoxte.it | Terapeuta1! |
-| Terapeuta | marco.russo@adattoxte.it | Terapeuta2! |
-| Terapeuta | giulia.conti@adattoxte.it | Terapeuta3! |
-| Terapeuta | luca.ferrari@adattoxte.it | Terapeuta4! |
-| Terapeuta | sara.greco@adattoxte.it | Terapeuta5! |
+⚠️ **Sicurezza:** in produzione le password degli account demo vengono generate casualmente al seed (visibili nei log di Render) e non sono documentate pubblicamente. Le credenziali di accesso vanno richieste al titolare della piattaforma. In ambiente di sviluppo le password sono quelle definite nel file `backend/src/seed.js`.
 
 ## Funzionalità
 

@@ -267,13 +267,23 @@ function run() {
       'INSERT OR IGNORE INTO therapist_profiles (user_id, specialties, price_individual, price_couple, license, experience_years, languages, photo_url, verified) VALUES (?, ?, 45, 50, ?, ?, ?, ?, ?)'
     );
 
+    // SICUREZZA: in produzione gli account demo vengono creati con password
+    // CASUALI (stampate nei log), mai con quelle pubbliche documentate.
+    const isProd = process.env.NODE_ENV === 'production';
+    const demoPw = (label, fallback) => {
+      if (!isProd) return fallback;
+      const pw = crypto.randomBytes(9).toString('base64url') + '!A';
+      console.log(`[SEED] ${label}: password generata = ${pw} (conservala, non è pubblica)`);
+      return pw;
+    };
+
     // Admin
     const adminId = crypto.randomUUID();
-    insertUser.run(adminId, 'Amministratore Adatto x Te', 'admin@adattoxte.it', hash('Admin123!'), 'admin', '', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
+    insertUser.run(adminId, 'Amministratore Adatto x Te', 'admin@adattoxte.it', hash(demoPw('admin', 'Admin123!')), 'admin', '', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
 
     // Paziente demo
     const patientId = crypto.randomUUID();
-    insertUser.run(patientId, 'Antonio Demo', 'antonio@adattoxte.it', hash('Demo1234!'), 'patient', 'Utente di prova per testare la piattaforma.', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
+    insertUser.run(patientId, 'Antonio Demo', 'antonio@adattoxte.it', hash(demoPw('paziente demo', 'Demo1234!')), 'patient', 'Utente di prova per testare la piattaforma.', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
 
     // Terapeuti (idempotente: riusa l'ID esistente per email, così il profilo
     // non viola la foreign key al secondo run)
@@ -281,7 +291,7 @@ function run() {
       let id = db.prepare('SELECT id FROM users WHERE email = ?').get(t.email)?.id;
       if (!id) {
         id = crypto.randomUUID();
-        insertUser.run(id, t.name, t.email, hash(t.password), 'therapist', t.bio, new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
+        insertUser.run(id, t.name, t.email, hash(demoPw(t.email, t.password)), 'therapist', t.bio, new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
       }
       insertProfile.run(id, JSON.stringify(t.specialties), t.license, t.experienceYears, JSON.stringify(t.languages), '', t.verified ? 1 : 0);
     }
@@ -290,8 +300,10 @@ function run() {
     seedReviews();
 
     console.log('✅ Seed completato');
-    console.log('   Admin:    admin@adattoxte.it / Admin123!');
-    console.log('   Paziente: antonio@adattoxte.it / Demo1234!');
+    if (!isProd) {
+      console.log('   Admin:    admin@adattoxte.it / Admin123!');
+      console.log('   Paziente: antonio@adattoxte.it / Demo1234!');
+    }
     console.log('   Terapeuti demo (email / password):');
     for (const t of THERAPISTS) console.log(`   - ${t.email} / ${t.password}`);
   });

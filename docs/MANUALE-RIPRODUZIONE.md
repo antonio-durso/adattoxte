@@ -31,29 +31,18 @@
 ## 2. CREDENZIALI E ACCOUNT (TUTTI)
 
 ### Account piattaforma (seed automatico)
-| Ruolo | Email | Password |
-|---|---|---|
-| Admin | admin@adattoxte.it | Admin123! |
-| Paziente demo | antonio@adattoxte.it | Demo1234! |
-| Terapeuta 1 | elena.bianchi@adattoxte.it | Terapeuta1! |
-| Terapeuta 2 | marco.russo@adattoxte.it | Terapeuta2! |
-| Terapeuta 3 | giulia.conti@adattoxte.it | Terapeuta3! |
-| Terapeuta 4 | luca.ferrari@adattoxte.it | Terapeuta4! |
-| Terapeuta 5 | sara.greco@adattoxte.it | Terapeuta5! |
+⚠️ **Sicurezza:** in produzione le password vengono generate casualmente al seed (visibili nei log di Render) e NON sono documentate. Le credenziali attuali vanno richieste al titolare. In sviluppo, le password sono quelle in `backend/src/seed.js`.
 
 ### Account esterni
 | Servizio | Identificativo | Note |
 |---|---|---|
-| GitHub | antonio-durso | password cambiata il 24/08 (account personale) |
+| GitHub | antonio-durso | account personale |
 | Vercel | team "spazio-cambiamento", utente antdurso1-7724 | progetto "adattoxte" |
 | Render | account con sign-in GitHub | Blueprint "adattoxte-backend" |
 | Gmail | ant.durso1@gmail.com | usato per recuperi password |
-| Google Search Console | proprietà https://adattoxte.vercel.app/ | meta tag: `<meta name="google-site-verification" content="LaLxpY_r91NfbWwxBuKEBsiR_cykBocaGhyAnF4nrn8" />` |
+| Google Search Console | proprietà https://adattoxte.vercel.app/ | meta tag di verifica presente nel frontend |
 
-### Link "magico" per l'accesso admin (campi precompilati — NON condividere)
-```
-https://adattoxte.vercel.app/accedi?email=admin@adattoxte.it&pw=Admin123%21
-```
+> ⚠️ Il link "magico" con email+password nell'URL è stato **rimosso** per motivi di sicurezza (credenziali nell'URL = rischio di esposizione).
 
 ---
 
@@ -283,6 +272,6 @@ cd dist && cp index.html 404.html && git init -q && git config user.name "antoni
 
 # Verifica salute backend
 curl https://adattoxte-backend.onrender.com/api/health
-# Verifica login admin
-curl -X POST https://adattoxte-backend.onrender.com/api/auth/login -H "Content-Type: application/json" -d '{"email":"admin@adattoxte.it","password":"Admin123!"}'
+# Verifica login admin (usare la password attuale, NON è più quella pubblica)
+curl -X POST https://adattoxte-backend.onrender.com/api/auth/login -H "Content-Type: application/json" -d '{"email":"admin@adattoxte.it","password":"PASSWORD_ATTUALE"}'
 ```
