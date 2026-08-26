@@ -55,7 +55,12 @@ const STATIC_NO_MOUNT = new Set([
 ]);
 
 function chromePath() {
-  const candidates = [process.env.CHROME_PATH, '/tmp/chrome/chrome-linux64/chrome', '/opt/google/chrome/chrome'].filter(Boolean);
+  const candidates = [
+    process.env.CHROME_PATH,
+    '/tmp/chrome/chrome-linux64/chrome',
+    '/tmp/chrome-linux64/chrome',
+    '/opt/google/chrome/chrome',
+  ].filter(Boolean);
   for (const p of candidates) {
     try {
       if (existsSync(p)) return p;
@@ -69,7 +74,9 @@ function chromePath() {
 }
 
 // Best-effort: installa Chrome per il prerender (se fallisce -> prerender saltato,
-// come prima: la build resta valida e il sito funziona via rendering JS)
+// come prima: la build resta valida e il sito funziona via rendering JS).
+// Tentativo 1: npx @puppeteer/browsers. Tentativo 2: download diretto
+// "Chrome for Testing" via curl (aggira le restrizioni npm della build).
 async function ensureChrome() {
   const found = chromePath();
   if (found) return found;
@@ -79,11 +86,17 @@ async function ensureChrome() {
       stdio: 'ignore',
       timeout: 240000,
     });
-    const p = '/tmp/chrome/chrome-linux64/chrome';
-    return existsSync(p) ? p : '';
+    if (existsSync('/tmp/chrome/chrome-linux64/chrome')) return '/tmp/chrome/chrome-linux64/chrome';
+  } catch {}
+  try {
+    const ver = execSync('curl -sL https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE', { encoding: 'utf8', timeout: 30000 }).trim();
+    execSync(`curl -sL -o /tmp/chrome.zip https://storage.googleapis.com/chrome-for-testing-public/${ver}/linux64/chrome-linux64.zip`, { stdio: 'ignore', timeout: 300000 });
+    execSync('unzip -o -q /tmp/chrome.zip -d /tmp/', { stdio: 'ignore', timeout: 60000 });
+    if (existsSync('/tmp/chrome-linux64/chrome')) return '/tmp/chrome-linux64/chrome';
   } catch {
-    return '';
+    console.log('   installazione Chrome non riuscita');
   }
+  return '';
 }
 
 function freePort() {
