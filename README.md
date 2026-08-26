@@ -16,7 +16,7 @@ sicure, messaggistica, pagamenti e conformità GDPR.
 | Backend | Node.js + Express + SQLite | 0 € |
 | Frontend | React + Vite | 0 € |
 | Videochiamate | Jitsi Meet (WebRTC) | 0 € |
-| Pagamenti | Stripe (modalità demo senza chiavi) | 0 € fino al lancio |
+| Pagamenti | PayPal Checkout (popup sul sito, carta di credito) | 0 € di attivazione; commissioni solo a incasso |
 | Database | SQLite (file locale) | 0 € |
 
 ## Avvio in 3 comandi
@@ -53,7 +53,8 @@ Apri <http://localhost:5173> nel browser.
 - **Landing page** con servizi, "come funziona" e prezzi (45 € / 50 €)
 - **Catalogo terapeuti** con ricerca e filtri per specializzazione
 - **Prenotazione sedute** (individuale / coppia) con scelta di giorno e ora
-- **Pagamenti** in modalità demo; attivabili con chiavi Stripe reali
+- **Pagamenti** PayPal con popup sul sito: il paziente paga con carta di credito (o saldo PayPal) e i fondi arrivano sul conto PayPal Business della piattaforma. Senza credenziali PayPal configurate resta in modalità demo
+- **Recensioni**: valutazione interna dopo la seduta + invito automatico alla recensione pubblica su Trustpilot
 - **Videochiamata** Jitsi Meet per sedute confermate e pagate
 - **Area paziente**: sedute, storico, annullamento, messaggi
 - **Area terapeuta**: agenda, conferma/annulla/completa sedute, messaggi
