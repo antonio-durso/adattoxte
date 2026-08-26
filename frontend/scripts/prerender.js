@@ -55,8 +55,32 @@ const STATIC_NO_MOUNT = new Set([
 ]);
 
 function chromePath() {
+  const candidates = [process.env.CHROME_PATH, '/tmp/chrome/chrome-linux64/chrome', '/opt/google/chrome/chrome'].filter(Boolean);
+  for (const p of candidates) {
+    try {
+      if (existsSync(p)) return p;
+    } catch {}
+  }
   try {
     return execSync('command -v google-chrome || command -v chromium || command -v chromium-browser', { encoding: 'utf8' }).trim();
+  } catch {
+    return '';
+  }
+}
+
+// Best-effort: installa Chrome per il prerender (se fallisce -> prerender saltato,
+// come prima: la build resta valida e il sito funziona via rendering JS)
+async function ensureChrome() {
+  const found = chromePath();
+  if (found) return found;
+  console.log('⚠️  Chrome non trovato: tentativo di installazione (best-effort)...');
+  try {
+    execSync('npx --yes @puppeteer/browsers install chrome@stable --path /tmp/chrome', {
+      stdio: 'ignore',
+      timeout: 240000,
+    });
+    const p = '/tmp/chrome/chrome-linux64/chrome';
+    return existsSync(p) ? p : '';
   } catch {
     return '';
   }
@@ -116,7 +140,7 @@ function waitForServer(url, tries = 40) {
 }
 
 async function main() {
-  const chrome = chromePath();
+  const chrome = await ensureChrome();
   if (!chrome) {
     console.log('⚠️  Chrome non trovato: prerender saltato (build statica valida comunque)');
     return;
