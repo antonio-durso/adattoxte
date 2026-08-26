@@ -529,6 +529,8 @@ a.card:hover { text-decoration: none; transform: translateY(-2px); box-shadow: 0
 /* ===== Reveal animations ===== */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: none; }
+/* Pagine statiche (senza React): niente observer per la dissolvenza → tutto visibile */
+body:not(.react-mounted) .reveal { opacity: 1; transform: none; }
 
 /* ===== Logo (dal business plan: testo nero + due linee pesca) ===== */
 .logo {

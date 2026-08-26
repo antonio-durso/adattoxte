@@ -26,6 +26,9 @@ const PRERENDER = new URLSearchParams(window.location.search).has('__prerender')
 if (!STATIC_ROUTES.has(path) || PRERENDER) {
   // Disattiva gli handler vanilla (le interazioni tornano a React)
   if (typeof window.__disableStatic === 'function') window.__disableStatic();
+  // Sui percorsi React le dissolvenze "reveal" funzionano con l'observer;
+  // sulle pagine statiche (senza questa classe) il CSS le rende sempre visibili
+  document.body.classList.add('react-mounted');
 
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
