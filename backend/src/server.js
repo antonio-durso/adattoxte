@@ -5,11 +5,28 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const compression = require('compression');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { initDb } = require('./db');
 
 const app = express();
 
+// Sicurezza header HTTP (CSP, X-Frame-Options, nosniff, ...)
+app.use(helmet());
+// Compressione gzip delle risposte HTTP (prima delle rotte)
+app.use(compression());
 app.use(cors({ origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : true }));
+
+// Rate limiting su /api/auth (protezione login/registrazione da brute force)
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minuti
+  max: 20,                  // massimo 20 richieste per IP
+  standardHeaders: true,    // Restituisce gli header RateLimit-*
+  legacyHeaders: false,
+  message: { error: 'Troppi tentativi. Riprova tra qualche minuto.' },
+});
+app.use('/api/auth', authLimiter);
 
 // Il webhook Stripe necessita del body grezzo (firma)
 app.use('/api/payments/webhook', express.raw({ type: 'application/json' }));

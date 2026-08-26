@@ -255,25 +255,25 @@ export default function CheckIn() {
         <ul className="muted small" style={{ margin: 0, paddingLeft: 18, lineHeight: 1.9 }}>
           <li>
             Spitzer RL, Kroenke K, Williams JBW, Löwe B. (2006) —{' '}
-            <a href="https://pubmed.ncbi.nlm.nih.gov/16717171/" target="_blank" rel="noopener">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/16717171/" target="_blank" rel="noopener noreferrer">
               GAD-7: scala di valutazione del disturbo d'ansia generalizzata (PubMed)
             </a>
           </li>
           <li>
             Kroenke K, Spitzer RL, Williams JBW. (2001) —{' '}
-            <a href="https://pubmed.ncbi.nlm.nih.gov/11556941/" target="_blank" rel="noopener">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/11556941/" target="_blank" rel="noopener noreferrer">
               PHQ-9: validità della scala per la severità della depressione (PubMed)
             </a>
           </li>
           <li>
             American Psychological Association —{' '}
-            <a href="https://www.apa.org/topics/anxiety" target="_blank" rel="noopener">
+            <a href="https://www.apa.org/topics/anxiety" target="_blank" rel="noopener noreferrer">
               Ansia: cos'è, sintomi e come si manifesta (APA)
             </a>
           </li>
           <li>
             Organizzazione Mondiale della Sanità —{' '}
-            <a href="https://www.who.int/news-room/fact-sheets/detail/anxiety-disorders" target="_blank" rel="noopener">
+            <a href="https://www.who.int/news-room/fact-sheets/detail/anxiety-disorders" target="_blank" rel="noopener noreferrer">
               Disturbi d'ansia: scheda informativa (OMS)
             </a>
           </li>
