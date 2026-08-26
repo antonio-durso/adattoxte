@@ -1,0 +1,18 @@
+name: keep-alive
+
+# Mantiene sveglio il backend su Render (piano gratuito: dorme dopo ~15 min di
+# inattivita). Un ping ogni 5 minuti evita il risveglio di 30-60s ai pazienti.
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping backend health
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 60 https://adattoxte-backend.onrender.com/api/health || echo 000)
+          echo "backend health HTTP: $code"
+          [ "$code" = "200" ] || echo "attenzione: backend non risponde (HTTP $code)"
