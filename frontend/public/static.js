@@ -161,27 +161,33 @@
     }
   }
 
-  // ---- Striscia recensioni (fetch /api/ratings come ReviewsStrip) ----
+  // ---- Striscia recensioni: visibile SUBITO, numeri riempiti appena arrivano ----
   var faqSection = document.querySelector('.faq-list');
   if (faqSection) {
+    var strip = document.querySelector('.reviews-strip-static');
+    if (!strip) {
+      strip = document.createElement('section');
+      strip.className = 'container section reviews-strip-static';
+      strip.style.textAlign = 'center';
+      strip.innerHTML =
+        '<div class="card" style="padding:28px 20px;border:1px solid #f59e0b55;background:linear-gradient(135deg,#fff8ef,#fff)">' +
+        '<div style="font-size:42px;color:#f59e0b" aria-hidden="true">★★★★★</div>' +
+        '<h2 style="margin:10px 0 4px">Recensioni verificate</h2>' +
+        '<p class="muted" style="max-width:520px;margin:0 auto">Ogni valutazione arriva da una seduta completata sulla piattaforma. I nostri pazienti raccontano la loro esperienza.</p>' +
+        '<a href="/recensioni" class="btn btn-outline" style="margin-top:14px">Leggi le recensioni</a>' +
+        '</div>';
+      var target = faqSection.closest('section');
+      if (target) target.parentNode.insertBefore(strip, target);
+    }
+    // Numeri appena arrivano (se il backend è addormentato, il riquadro è già visibile)
     fetch('/api/ratings')
       .then(function (r) { return r.json(); })
       .then(function (d) {
         if (!d || !d.total || d.total <= 0) return;
-        var section = document.createElement('section');
-        section.className = 'container section';
-        section.style.textAlign = 'center';
-        section.innerHTML =
-          '<div class="card" style="padding:28px 20px;border:1px solid #f59e0b55;background:linear-gradient(135deg,#fff8ef,#fff)">' +
-          '<div style="font-size:42px;color:#f59e0b">★★★★★</div>' +
-          '<h2 style="margin:10px 0 4px">' + d.avg + ' su 5 · ' + d.total + ' recensioni verificate</h2>' +
-          '<p class="muted" style="max-width:520px;margin:0 auto">Ogni valutazione arriva da una seduta completata sulla piattaforma. I nostri pazienti raccontano la loro esperienza.</p>' +
-          '<a href="/recensioni" class="btn btn-outline" style="margin-top:14px">Leggi le recensioni</a>' +
-          '</div>';
-        var target = faqSection.closest('section');
-        if (target) target.parentNode.insertBefore(section, target);
+        var h2 = strip.querySelector('h2');
+        if (h2) h2.textContent = d.avg + ' su 5 · ' + d.total + ' recensioni verificate';
       })
-      .catch(function () { /* niente recensioni: nessun blocco */ });
+      .catch(function () { /* i numeri restano generici */ });
   }
 
   // Espone la funzione per disattivare tutto quando React monta

@@ -134,6 +134,18 @@ async function main() {
             .replace(/<link[^>]*rel="modulepreload"[^>]*>/g, '')
             .replace(/<script[^>]*type="module"[^>]*><\/script>/g, '');
         }
+        // Home: striscia recensioni SUBITO nell'HTML (static.js poi riempie i numeri)
+        if (route === '/') {
+          const strip =
+            '<section class="container section reviews-strip-static" style="text-align:center">' +
+            '<div class="card" style="padding:28px 20px;border:1px solid #f59e0b55;background:linear-gradient(135deg,#fff8ef,#fff)">' +
+            '<div style="font-size:42px;color:#f59e0b" aria-hidden="true">★★★★★</div>' +
+            '<h2 style="margin:10px 0 4px">Recensioni verificate</h2>' +
+            '<p class="muted" style="max-width:520px;margin:0 auto">Ogni valutazione arriva da una seduta completata sulla piattaforma. I nostri pazienti raccontano la loro esperienza.</p>' +
+            '<a href="/recensioni" class="btn btn-outline" style="margin-top:14px">Leggi le recensioni</a>' +
+            '</div></section>';
+          dom = dom.replace('<section id="domande-frequenti"', strip + '<section id="domande-frequenti"');
+        }
         const outFile = route === '/' ? join(DIST, 'index.html') : join(DIST, route.slice(1), 'index.html');
         mkdirSync(dirname(outFile), { recursive: true });
         writeFileSync(outFile, dom);

@@ -61,7 +61,7 @@ export default function Faq() {
   }, []);
 
   return (
-    <section className="container section" style={{ maxWidth: 860, margin: '0 auto' }}>
+    <section id="domande-frequenti" className="container section" style={{ maxWidth: 860, margin: '0 auto' }}>
       <Reveal>
         <h2>Domande frequenti</h2>
       </Reveal>
