@@ -26,8 +26,17 @@ function resolveBase() {
 const BASE = resolveBase();
 const today = new Date().toISOString().slice(0, 10);
 
+// Landing programmatiche "psicologo online + disturbo/città" (dagli archivi)
+const { disturbi } = await import('../src/content/disturbi.js');
+const { citta } = await import('../src/content/citta.js');
+const LANDING_ROUTES = [
+  ...disturbi.map((d) => ({ path: `/psicologo-online/${d.slug}`, priority: '0.7', freq: 'weekly' })),
+  ...citta.map((c) => ({ path: `/psicologo-online/${c.slug}`, priority: '0.6', freq: 'weekly' })),
+];
+
 // Rotte statiche della SPA (pagine indicizzabili)
 const STATIC_ROUTES = [
+  ...LANDING_ROUTES,
   { path: '/', priority: '1.0', freq: 'daily' },
   { path: '/terapeuti', priority: '0.9', freq: 'daily' },
   { path: '/blog', priority: '0.9', freq: 'daily' },
