@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
-import preact from '@preact/preset-vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [preact()],
+  plugins: [react()],
   server: {
     port: 5173,
     host: true,
@@ -15,7 +15,7 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       output: {
-        // Split librerie: il "motore" (preact/compat) viene cacheato separatamente
+        // Split librerie: il "motore" react viene cacheato separatamente
         manualChunks: {
           react: ['react', 'react-dom', 'react-router-dom'],
         },
