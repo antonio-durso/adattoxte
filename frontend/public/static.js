@@ -26,6 +26,64 @@
     });
   }
 
+  // ---- Pulsante "Installa app" (PWA) ----
+  var installBtn = document.querySelector('.install-app-btn');
+  if (installBtn) {
+    var deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+    click(installBtn, function () {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(function () { deferredPrompt = null; });
+      } else {
+        showInstallHelp();
+      }
+    });
+  }
+
+  function showInstallHelp() {
+    if (document.querySelector('.install-dialog')) return;
+    var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    var lang = localStorage.getItem('adt_lang') === 'en' ? 'en' : 'it';
+    var tx = {
+      it: {
+        title: "Installa l'app",
+        ios: 'Su iPhone/iPad: apri il menu Condividi (quadrato con freccia) e scegli "Aggiungi a schermata Home".',
+        android: 'Su Android o computer: scegli "Installa app" (o "Aggiungi a schermata Home") dal menu del browser.',
+        close: 'Chiudi',
+      },
+      en: {
+        title: 'Install the app',
+        ios: 'On iPhone/iPad: open the Share menu (square with arrow) and choose "Add to Home Screen".',
+        android: 'On Android or computer: choose "Install app" (or "Add to Home Screen") from the browser menu.',
+        close: 'Close',
+      },
+    }[lang];
+
+    var overlay = document.createElement('div');
+    overlay.className = 'install-overlay';
+    overlay.innerHTML =
+      '<div class="install-dialog" role="dialog" aria-modal="true" aria-labelledby="install-title">' +
+      '<h3 id="install-title">' + tx.title + '</h3>' +
+      '<p>' + (isIOS ? tx.ios : tx.android) + '</p>' +
+      '<button class="btn btn-primary btn-sm">' + tx.close + '</button>' +
+      '</div>';
+
+    function close() {
+      overlay.remove();
+      document.removeEventListener('keydown', esc);
+    }
+    function esc(e) { if (e.key === 'Escape') close(); }
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    overlay.querySelector('button').addEventListener('click', close);
+    document.addEventListener('keydown', esc);
+    document.body.appendChild(overlay);
+    overlay.querySelector('button').focus();
+  }
+
   // ---- Toggle lingua (come in React: localStorage + reload) ----
   var langBtn = document.querySelector('.lang-toggle');
   if (langBtn) {
