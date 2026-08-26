@@ -50,7 +50,7 @@ if (BREVO_API_KEY) {
 
 const FROM = () => ({
   name: process.env.EMAIL_NAME || 'Adatto x Te',
-  address: process.env.EMAIL_FROM || 'noreply@adattoxte.it',
+  address: process.env.EMAIL_FROM || 'ant.durso1@gmail.com',
 });
 
 function base(html) {
