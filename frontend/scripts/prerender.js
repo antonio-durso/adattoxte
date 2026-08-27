@@ -229,7 +229,7 @@ async function main() {
             '<p class="muted" style="max-width:520px;margin:0 auto">Ogni valutazione arriva da una seduta completata sulla piattaforma. I nostri pazienti raccontano la loro esperienza.</p>' +
             '<a href="/recensioni" class="btn btn-outline" style="margin-top:14px">Leggi le recensioni</a>' +
             '</div></section>';
-          dom = dom.replace('<section', strip + '<section');
+          dom = dom.replace('<section id="domande-frequenti"', strip + '<section id="domande-frequenti"');
         }
         const outFile = route === '/' ? join(DIST, 'index.html') : join(DIST, route.slice(1), 'index.html');
         mkdirSync(dirname(outFile), { recursive: true });
