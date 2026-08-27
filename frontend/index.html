@@ -98,8 +98,10 @@
           n.queue = []; t = b.createElement(e); t.async = !0;
           t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
         }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', pid);
-        fbq('track', 'PageView');
+        try {
+          if (window.fbq) fbq('init', pid);
+          if (window.fbq) fbq('track', 'PageView');
+        } catch (e) { /* il pixel non deve mai bloccare la pagina */ }
       }
       setTimeout(function () {
         if ('requestIdleCallback' in window) requestIdleCallback(initPixel, { timeout: 3000 });

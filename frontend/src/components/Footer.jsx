@@ -69,7 +69,7 @@ export default function Footer() {
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 6 }}>
           <span title="PayPal" style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 8px', display: 'inline-flex', alignItems: 'center', fontSize: 12, fontStyle: 'italic', fontWeight: 700 }}>
             <span style={{ color: '#003087' }}>Pay</span>
-            <span style={{ color: '#009cde' }}>Pal</span>
+            <span style={{ color: '#006ba6' }}>Pal</span>
           </span>
           <span title="Visa" style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 8px', fontSize: 12, fontStyle: 'italic', fontWeight: 800, color: '#1a1f71', letterSpacing: '0.5px' }}>VISA</span>
           <span title="Mastercard" style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 8px', display: 'inline-flex', alignItems: 'center' }}>
@@ -86,7 +86,7 @@ export default function Footer() {
             </svg>
           </span>
         </div>
-        <span style={{ fontSize: 11, color: '#94a3b8' }}>{t('footer.paymentsNote')}</span>
+        <span style={{ fontSize: 11, color: '#64748b' }}>{t('footer.paymentsNote')}</span>
       </div>
     </footer>
   );

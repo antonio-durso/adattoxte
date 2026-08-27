@@ -43,16 +43,16 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={submit} style={{ maxWidth: 560, margin: '0 auto', display: 'grid', gap: 10, textAlign: 'left' }}>
-      <input type="text" name="name" placeholder={t('contact.name')} value={form.name} onChange={set('name')} required maxLength={120} style={inputStyle} />
-      <input type="email" name="email" placeholder={t('contact.email')} value={form.email} onChange={set('email')} required maxLength={160} style={inputStyle} />
-      <select name="role" value={form.role} onChange={set('role')} style={inputStyle}>
+      <input type="text" name="name" placeholder={t('contact.name')} aria-label={t('contact.name')} value={form.name} onChange={set('name')} required maxLength={120} style={inputStyle} />
+      <input type="email" name="email" placeholder={t('contact.email')} aria-label={t('contact.email')} value={form.email} onChange={set('email')} required maxLength={160} style={inputStyle} />
+      <select name="role" value={form.role} onChange={set('role')} aria-label={t('contact.role')} style={inputStyle}>
         <option value="altro">{t('contact.roleOther')}</option>
         <option value="paziente">{t('contact.rolePatient')}</option>
         <option value="psicologo">{t('contact.rolePsy')}</option>
         <option value="giornalista">{t('contact.roleJournalist')}</option>
       </select>
-      <input type="text" name="subject" placeholder={t('contact.subject')} value={form.subject} onChange={set('subject')} maxLength={200} style={inputStyle} />
-      <textarea name="message" placeholder={t('contact.message')} value={form.message} onChange={set('message')} required maxLength={5000} rows={5} style={{ ...inputStyle, resize: 'vertical' }} />
+      <input type="text" name="subject" placeholder={t('contact.subject')} aria-label={t('contact.subject')} value={form.subject} onChange={set('subject')} maxLength={200} style={inputStyle} />
+      <textarea name="message" placeholder={t('contact.message')} aria-label={t('contact.message')} value={form.message} onChange={set('message')} required maxLength={5000} rows={5} style={{ ...inputStyle, resize: 'vertical' }} />
       {/* Honeypot anti-bot: invisibile agli utenti, i bot lo compilano */}
       <input type="text" name="__hp__" value={form.__hp__} onChange={set('__hp__')} tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: 'none' }} />
       <button type="submit" className="btn btn-primary" disabled={status === 'sending'} style={{ justifySelf: 'center', marginTop: 6 }}>
