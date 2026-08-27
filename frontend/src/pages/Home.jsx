@@ -10,43 +10,26 @@ const ReviewsStrip = lazy(() => import('../components/ReviewsStrip'));
 const Faq = lazy(() => import('../components/Faq'));
 const TestimonialsSlider = lazy(() => import('../components/TestimonialsSlider'));
 
-// Il contenuto del blog (69 articoli) si carica quando il main thread è libero
-const BlogPreview = lazy(() => import('../components/BlogPreview'));
+// Anteprima blog STATICA (3 articoli, ~0,3KB): evita il chunk articoli (244KB)
+// sulla home → meno JS, TBT più basso, LCP più veloce.
+import { blogPreview } from '../content/blog-preview.js';
 
-// Il chunk articoli (224KB) si carica SOLO quando il visitatore si avvicina
-// alla sezione blog (IntersectionObserver): zero lavoro all'avvio -> TBT basso
 function DeferredBlogPreview() {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === 'undefined') {
-      setVisible(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          io.disconnect();
-          // Il chunk articoli (250KB) parte solo a thread libero: TBT basso
-          const show = () => setVisible(true);
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(show, { timeout: 5000 });
-          } else {
-            setTimeout(show, 1500);
-          }
-        }
-      },
-      { rootMargin: '300px' }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
   return (
-    // minHeight riserva lo spazio dell'anteprima blog: quando il chunk arriva
-    // la sezione riempie lo spazio già esistente (CLS minimo)
-    <div ref={ref} style={{ minHeight: 300 }}>
-      <Suspense fallback={null}>{visible && <BlogPreview />}</Suspense>
+    <div style={{ minHeight: 300 }}>
+      <div className="container section" style={{ paddingTop: 8 }}>
+        <Reveal>
+          <h2 style={{ textAlign: 'center' }}>Dal nostro blog</h2>
+        </Reveal>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginTop: 18 }}>
+          {blogPreview.map((a) => (
+            <Link key={a.slug} to={`/blog/${a.slug}`} className="card" style={{ padding: 18, textDecoration: 'none', display: 'block' }}>
+              <h3 style={{ fontSize: 16, margin: '0 0 6px', color: '#0f172a' }}>{a.title}</h3>
+              <p className="muted" style={{ fontSize: 12, margin: 0 }}>{a.date}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -200,7 +183,7 @@ export default function Home() {
           width={1536}
           height={1024}
           loading="lazy"
-          style={{ width: '100%', maxWidth: 700, height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.12)', margin: '32px auto 0', display: 'block' }}
+          style={{ width: '100%', maxWidth: '86%', height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.12)', margin: '32px auto 0', display: 'block' }}
         />
       </section>
 
@@ -303,7 +286,7 @@ export default function Home() {
             width={1536}
             height={1024}
             loading="lazy"
-            style={{ width: '100%', maxWidth: 700, height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.25)', margin: '32px auto 0', display: 'block' }}
+            style={{ width: '100%', maxWidth: '86%', height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.25)', margin: '32px auto 0', display: 'block' }}
           />
         </div>
       </section>
