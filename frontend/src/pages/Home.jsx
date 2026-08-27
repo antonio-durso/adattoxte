@@ -179,7 +179,7 @@ export default function Home() {
           ))}
         </div>
         <img
-          src="/images/workspace.webp"
+          src="/images/workspace-portal.webp"
           alt="Il tuo spazio per le sedute online"
           width={1536}
           height={1024}
