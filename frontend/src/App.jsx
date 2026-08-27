@@ -26,6 +26,7 @@ const NicheLanding = lazy(() => import('./pages/NicheLanding'));
 const DisturboLanding = lazy(() => import('./pages/DisturboLanding'));
 const Settings = lazy(() => import('./pages/Settings'));
 const Privacy = lazy(() => import('./pages/Privacy'));
+const ChiSiamo = lazy(() => import('./pages/ChiSiamo'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const Terms = lazy(() => import('./pages/Terms'));
 
@@ -48,6 +49,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/terapeuti" element={<Therapists />} />
+                <Route path="/chi-siamo" element={<ChiSiamo />} />
                 <Route path="/terapeuti/:id" element={<TherapistDetail />} />
                 <Route path="/blog" element={<BlogList />} />
                 <Route path="/blog/:slug" element={<BlogArticle />} />

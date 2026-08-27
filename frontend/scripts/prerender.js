@@ -26,6 +26,7 @@ const ROUTES = [
   ...citta.map((c) => `/psicologo-online/${c.slug}`),
   ...articles.map((a) => `/blog/${a.slug}`),
   '/terapeuti',
+  '/chi-siamo',
   '/blog',
   '/risorse',
   '/recensioni',

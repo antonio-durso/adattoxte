@@ -39,6 +39,7 @@ const STATIC_ROUTES = [
   ...LANDING_ROUTES,
   { path: '/', priority: '1.0', freq: 'daily' },
   { path: '/terapeuti', priority: '0.9', freq: 'daily' },
+  { path: '/chi-siamo', priority: '0.6', freq: 'monthly' },
   { path: '/blog', priority: '0.9', freq: 'daily' },
   { path: '/risorse', priority: '0.6', freq: 'weekly' },
   { path: '/recensioni', priority: '0.7', freq: 'weekly' },
