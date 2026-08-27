@@ -162,7 +162,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container section" id="come-funziona">
+      <section className="container section section-deep" id="come-funziona">
+        <div className="portal-glow" aria-hidden="true" />
         <Reveal>
           <h2>{t('how.title')}</h2>
         </Reveal>
