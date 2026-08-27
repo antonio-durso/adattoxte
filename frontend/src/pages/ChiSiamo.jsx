@@ -43,10 +43,11 @@ export default function ChiSiamo() {
             <h3 style={{ margin: '0 0 4px', fontSize: 17 }}>Dott. Antonio D'Urso</h3>
             <p style={{ margin: '0 0 8px', fontSize: 13, color: '#475569', fontWeight: 700 }}>Fondatore e Direttore</p>
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, color: '#334155' }}>
-              Psicologo iscritto all'Albo, fondatore e direttore di Adatto x Te. Coordina
-              l'équipe dei terapeuti, la selezione dei professionisti e la qualità dei
-              percorsi clinici della piattaforma. Ha ideato il modello "online, accessibile,
-              senza vincoli" per rendere la terapia davvero alla portata di tutti.
+              Psicologo iscritto all'Albo con 13 anni di esperienza, fondatore e direttore
+              di Adatto x Te. Coordina l'équipe dei terapeuti, la selezione dei professionisti
+              e la qualità dei percorsi clinici della piattaforma. Ha ideato il modello
+              "online, accessibile, senza vincoli" per rendere la terapia davvero alla portata
+              di tutti.
             </p>
           </div>
         </div>
