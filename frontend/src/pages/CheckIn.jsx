@@ -153,8 +153,8 @@ export default function CheckIn() {
             jobTitle: 'Psicologo',
             identifier: 'Albo Psicologi Campania n. 5408',
           },
-          isPartOf: { '@type': 'WebSite', name: 'Adatto x Te', url: 'https://adattoxte.vercel.app' },
-          mainEntityOfPage: 'https://adattoxte.vercel.app/test',
+          isPartOf: { '@type': 'WebSite', name: 'Adatto x Te', url: 'https://www.adattoxte.com' },
+          mainEntityOfPage: 'https://www.adattoxte.com/test',
         }}
       />
       <h1>{L.title}</h1>

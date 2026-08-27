@@ -113,7 +113,7 @@ export default function Home() {
         title="Psicologia online"
         description="Terapisti qualificati, sedute video da casa, in qualsiasi momento. Psicologia online a 45€: ansia, coppia, sport, concorsi pubblici."
         path="/"
-        image="https://adattoxte.vercel.app/images/hero.jpg"
+        image="https://www.adattoxte.com/images/hero.jpg"
       />
       <section className="hero">
         <div className="container hero-inner">

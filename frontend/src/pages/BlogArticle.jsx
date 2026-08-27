@@ -116,7 +116,7 @@ export default function BlogArticle() {
         title={article.title}
         description={article.metaDescription}
         path={`/blog/${article.slug}`}
-        image="https://adattoxte.vercel.app/images/hero.jpg"
+        image="https://www.adattoxte.com/images/hero.jpg"
         jsonLd={articleSchema}
       />
       {/* FAQPage rich snippet (se l'articolo ha domande frequenti) */}

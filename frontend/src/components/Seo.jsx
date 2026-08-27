@@ -5,7 +5,7 @@ import { useEffect } from 'react';
  * Uso: <Seo title="..." description="..." jsonLd={{...}} />
  */
 // URL base configurabile: VITE_SITE_URL (per il passaggio al dominio .it)
-const BASE = (import.meta.env.VITE_SITE_URL || 'https://adattoxte.vercel.app').replace(/\/$/, '');
+const BASE = (import.meta.env.VITE_SITE_URL || 'https://www.adattoxte.com').replace(/\/$/, '');
 
 function setMeta(attr, key, content) {
   if (!content) return;

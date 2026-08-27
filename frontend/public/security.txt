@@ -1,0 +1,4 @@
+Contact: mailto:info@adattoxte.it
+Expires: 2027-08-28T23:59:59Z
+Preferred-Languages: it, en
+Canonical: https://www.adattoxte.com/security.txt

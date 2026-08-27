@@ -4,10 +4,10 @@
 
 ## Pagine principali
 
-- [Home](https://adattoxte.vercel.app/): presentazione della piattaforma, come funziona il percorso di supporto psicologico online e accesso ai servizi.
-- [Test di benessere](https://adattoxte.vercel.app/check-in): test gratuito sull'ansia (GAD-7, 7 domande) e sull'umore (PHQ-9, 9 domande) con risultato immediato e orientamento.
-- [Terapeuti](https://adattoxte.vercel.app/terapeuti): elenco dei professionisti disponibili, specializzazioni e prenotazione di una videochiamata.
-- [Blog](https://adattoxte.vercel.app/blog): articoli divulgativi su ansia, depressione, relazioni e benessere, con fonti scientifiche (PubMed, APA, OMS).
+- [Home](https://www.adattoxte.com/): presentazione della piattaforma, come funziona il percorso di supporto psicologico online e accesso ai servizi.
+- [Test di benessere](https://www.adattoxte.com/check-in): test gratuito sull'ansia (GAD-7, 7 domande) e sull'umore (PHQ-9, 9 domande) con risultato immediato e orientamento.
+- [Terapeuti](https://www.adattoxte.com/terapeuti): elenco dei professionisti disponibili, specializzazioni e prenotazione di una videochiamata.
+- [Blog](https://www.adattoxte.com/blog): articoli divulgativi su ansia, depressione, relazioni e benessere, con fonti scientifiche (PubMed, APA, OMS).
 
 ## Note
 
@@ -16,4 +16,4 @@
 
 ## Informazioni legali
 
-- [Privacy](https://adattoxte.vercel.app/privacy) e [Termini di servizio](https://adattoxte.vercel.app/termini).
+- [Privacy](https://www.adattoxte.com/privacy) e [Termini di servizio](https://www.adattoxte.com/termini).

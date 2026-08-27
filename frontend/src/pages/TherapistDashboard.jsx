@@ -184,12 +184,12 @@ export default function TherapistDashboard() {
           </p>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', marginTop: 8 }}>
             <code style={{ background: '#f1f5f9', padding: '8px 12px', borderRadius: 8, fontSize: 14 }}>
-              https://adattoxte.vercel.app/registrazione?ref={user.referralCode}&tipo=terapeuta
+              https://www.adattoxte.com/registrazione?ref={user.referralCode}&tipo=terapeuta
             </code>
             <button
               className="btn btn-outline btn-sm"
               onClick={() => {
-                navigator.clipboard?.writeText(`https://adattoxte.vercel.app/registrazione?ref=${user.referralCode}&tipo=terapeuta`);
+                navigator.clipboard?.writeText(`https://www.adattoxte.com/registrazione?ref=${user.referralCode}&tipo=terapeuta`);
                 setError('');
               }}
             >
