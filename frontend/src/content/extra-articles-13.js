@@ -4,7 +4,7 @@ export const extraArticles13 = [
     slug: 'quanto-costa-la-terapia',
     title: 'Quanto costa la terapia psicologica: prezzi medi e come risparmiare',
     keyword: 'quanto costa la terapia',
-    metaDescription: 'Quanto costa la terapia psicologica in Italia: prezzi medi online e in studio, differenze tra psicologo e psicoterapeuta, bonus psicologo e strategie per risparmiare.',
+    metaDescription: 'Quanto costa la terapia psicologica in Italia: prezzi medi online e in studio, differenze tra psicologo e psicoterapeuta e strategie per risparmiare.',
     date: '2026-08-28',
     body: `<h1>Quanto costa la terapia psicologica: prezzi medi e come risparmiare</h1>
 <p>Il costo è una delle prime domande quando si pensa di iniziare un percorso psicologico — e anche uno dei motivi per cui tante persone rimandano. Ecco i prezzi medi in Italia, cosa li influenza e le strategie concrete per rendere la terapia sostenibile.</p>
@@ -14,7 +14,7 @@ export const extraArticles13 = [
 <h2>Non è solo il prezzo della singola seduta</h2>
 <p>Oltre alla tariffa, considera: il <strong>primo colloquio</strong> (a volte gratuito o a prezzo ridotto), la <strong>frequenza</strong> (di solito settimanale o bisettimanale all'inizio) e la <strong>durata</strong> del percorso. Per molti problemi, come ansia e attacchi di panico, le terapie brevi di orientamento cognitivo-comportamentale producono risultati in 8-15 sedute: è possibile farsi un'idea realistica del budget totale già dopo i primi incontri.</p>
 <h2>Come risparmiare senza rinunciare alla qualità</h2>
-<ul><li><strong>Scegli la terapia online</strong>: tariffe più basse e zero spostamenti;</li><li><strong>Valuta i pacchetti</strong>: molte piattaforme applicano sconti se prenoti più sedute insieme;</li><li><strong>Usa il bonus psicologo</strong>: se hai un ISEE fino a 50.000 euro puoi ottenere fino a 1.500 euro (max 50 euro a seduta), da usare con gli psicoterapeuti che aderiscono all'iniziativa;</li><li><strong>Verifica il welfare aziendale</strong>: molte aziende offrono voucher o rimborsi per il supporto psicologico dei dipendenti;</li><li><strong>Informati sui servizi pubblici</strong>: consultori e centri clinici universitari propongono percorsi a tariffe calmierate, spesso con tempi di attesa più lunghi.</li></ul>
+<ul><li><strong>Scegli la terapia online</strong>: tariffe più basse e zero spostamenti;</li><li><strong>Valuta i pacchetti</strong>: molte piattaforme applicano sconti se prenoti più sedute insieme;</li><li><strong>Verifica il welfare aziendale</strong>: molte aziende offrono voucher o rimborsi per il supporto psicologico dei dipendenti;</li><li><strong>Informati sui servizi pubblici</strong>: consultori e centri clinici universitari propongono percorsi a tariffe calmierate, spesso con tempi di attesa più lunghi.</li></ul>
 <p>Il consiglio più importante: <strong>non scegliere il terapeuta solo in base al prezzo</strong>. La sintonia e la competenza contano più della tariffa, e un percorso efficace costa meno, nel lungo periodo, di sedute inefficaci.</p>
 <h2>La terapia è un investimento</h2>
 <p>Un percorso psicologico riduce i sintomi, migliora le relazioni e la qualità della vita, e previene problemi più seri che costerebbero molto di più in termini di salute, lavoro e tempo. Considerarlo un investimento, non una spesa, aiuta anche a scegliere con più serenità.</p>
