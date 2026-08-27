@@ -71,6 +71,7 @@ function initDb() {
       paid           INTEGER NOT NULL DEFAULT 0,
       room_name      TEXT NOT NULL,
       reminder_sent  INTEGER NOT NULL DEFAULT 0,
+      review_reminder_sent INTEGER NOT NULL DEFAULT 0,
       created_at     TEXT NOT NULL DEFAULT (datetime('now'))
     );
 
@@ -114,6 +115,9 @@ function initDb() {
   }
   if (!bookingCols.includes('reminder_sent')) {
     db.exec('ALTER TABLE bookings ADD COLUMN reminder_sent INTEGER NOT NULL DEFAULT 0');
+  }
+  if (!bookingCols.includes('review_reminder_sent')) {
+    db.exec('ALTER TABLE bookings ADD COLUMN review_reminder_sent INTEGER NOT NULL DEFAULT 0');
   }
 
   // Codici invito per gli utenti esistenti che non ne hanno uno

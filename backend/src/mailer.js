@@ -19,6 +19,9 @@ const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 const TRUSTPILOT_URL =
   process.env.TRUSTPILOT_URL || 'https://it.trustpilot.com/evaluate/adattoxte.com';
 
+// URL base del sito (www è il dominio canonico; vercel.app reindirizza comunque)
+const SITE_URL = 'https://www.adattoxte.com';
+
 let smtpTransporter = null;
 let configured = false;
 
@@ -58,7 +61,7 @@ function base(html) {
     <div style="background:#48A8D8;color:#fff;padding:18px 24px;border-radius:12px 12px 0 0;font-size:20px;font-weight:700">Adatto x Te</div>
     <div style="border:1px solid #e2e8f0;border-top:none;border-radius:0 0 12px 12px;padding:24px">${html}</div>
     <p style="font-size:12px;color:#94a3b8;text-align:center;margin-top:14px">
-      Adatto x Te · Psicologia online · <a href="https://adattoxte.vercel.app" style="color:#94a3b8">adattoxte.vercel.app</a>
+      Adatto x Te · Psicologia online · <a href="${SITE_URL}" style="color:#94a3b8">www.adattoxte.com</a>
     </p>
   </div>`;
 }
@@ -75,7 +78,7 @@ const TEMPLATES = {
       <h2 style="margin-top:0">Benvenuto${role === 'therapist' ? ' tra i nostri professionisti' : ''}, ${name}!</h2>
       <p>Il tuo account su Adatto x Te è stato creato con successo.</p>
       <p>${role === 'therapist' ? 'Completa il tuo profilo e inizia a ricevere prenotazioni: il catalogo ti aspetta.' : 'Trova il terapeuta giusto per te e prenota la tua prima seduta online.'}</p>
-      ${btn('https://adattoxte.vercel.app' + (role === 'therapist' ? '/area-terapeuta' : '/terapeuti'), role === 'therapist' ? 'Apri il tuo pannello' : 'Trova il tuo terapeuta')}
+      ${btn(SITE_URL + (role === 'therapist' ? '/area-terapeuta' : '/terapeuti'), role === 'therapist' ? 'Apri il tuo pannello' : 'Trova il tuo terapeuta')}
     `);
   },
   bookingConfirmedPatient: (booking) =>
@@ -87,7 +90,7 @@ const TEMPLATES = {
         ${new Date(booking.date + 'T00:00:00').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' })} alle ${booking.start_time}<br/>
         Seduta ${booking.type === 'couple' ? 'di coppia' : 'individuale'} · ${booking.price}€
       </p>
-      ${btn('https://adattoxte.vercel.app/area-paziente', 'Vai alla tua area personale')}
+      ${btn(SITE_URL + '/area-paziente', 'Vai alla tua area personale')}
       <p style="font-size:13px;color:#64748b">La videochiamata si apre nel browser cliccando il link nella tua prenotazione (Jitsi Meet, nessuna installazione).</p>
     `),
   bookingConfirmedTherapist: (booking) =>
@@ -99,7 +102,7 @@ const TEMPLATES = {
         ${new Date(booking.date + 'T00:00:00').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' })} alle ${booking.start_time}<br/>
         Seduta ${booking.type === 'couple' ? 'di coppia' : 'individuale'} · ${booking.price}€
       </p>
-      ${btn('https://adattoxte.vercel.app/area-terapeuta', 'Apri la tua agenda')}
+      ${btn(SITE_URL + '/area-terapeuta', 'Apri la tua agenda')}
     `),
   sessionReminder: (booking) =>
     base(`
@@ -108,15 +111,24 @@ const TEMPLATES = {
         <strong>${booking.therapist_name}</strong><br/>
         ${new Date(booking.date + 'T00:00:00').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' })} alle ${booking.start_time}
       </p>
-      ${btn('https://adattoxte.vercel.app/area-paziente', 'Apri la tua prenotazione')}
+      ${btn(SITE_URL + '/area-paziente', 'Apri la tua prenotazione')}
     `),
   reviewInvite: (booking) =>
     base(`
       <h2 style="margin-top:0">Come è andata la seduta? ⭐</h2>
       <p>La tua seduta con <strong>${booking.therapist_name}</strong> è stata completata.</p>
       <p>Ci vogliono 30 secondi: lascia una valutazione con le stelle e un commento. Aiuti altri pazienti e il tuo terapeuta a migliorare.</p>
-      ${btn('https://adattoxte.vercel.app/area-paziente', 'Valuta la tua seduta')}
+      ${btn(SITE_URL + '/area-paziente', 'Valuta la tua seduta')}
       <p style="font-size:13px;color:#64748b">Oppure racconta la tua esperienza in modo pubblico su <strong>Trustpilot</strong>: è il modo migliore per aiutare chi cerca uno psicologo online a scegliere con fiducia.</p>
+      ${btn(TRUSTPILOT_URL, 'Recensisci su Trustpilot')}
+    `),
+  reviewReminder: (booking) =>
+    base(`
+      <h2 style="margin-top:0">Ci siamo dimenticati di chiederti una cosa 🤗</h2>
+      <p>La tua seduta con <strong>${booking.therapist_name}</strong> si è conclusa da qualche giorno e ci farebbe davvero piacere sapere com'è andata.</p>
+      <p>Ti bastano 30 secondi: una valutazione con le stelle e, se vuoi, due righe di commento. È il regalo più utile che puoi fare a chi sta scegliendo uno psicologo online.</p>
+      ${btn(SITE_URL + '/area-paziente', 'Valuta la tua seduta')}
+      <p style="font-size:13px;color:#64748b">Preferisci raccontarlo in modo pubblico? Una recensione su <strong>Trustpilot</strong> aiuta ancora di più chi cerca con fiducia.</p>
       ${btn(TRUSTPILOT_URL, 'Recensisci su Trustpilot')}
     `),
   bookingCancelled: (booking) =>
@@ -124,7 +136,7 @@ const TEMPLATES = {
       <h2 style="margin-top:0">Prenotazione annullata</h2>
       <p>La seduta del ${new Date(booking.date + 'T00:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'long' })} alle ${booking.start_time} è stata annullata.</p>
       <p>Se vuoi, puoi prenotare un nuovo appuntamento quando preferisci.</p>
-      ${btn('https://adattoxte.vercel.app/terapeuti', 'Trova un nuovo orario')}
+      ${btn(SITE_URL + '/terapeuti', 'Trova un nuovo orario')}
     `),
 };
 

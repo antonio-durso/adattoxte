@@ -9,6 +9,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { initDb } = require('./db');
+const { startReminders } = require('./reminders');
 
 const app = express();
 
@@ -61,6 +62,16 @@ initDb()
     app.listen(PORT, () => {
       console.log(`✅ Adatto x Te backend in ascolto su http://localhost:${PORT}`);
       console.log(`   Health check: http://localhost:${PORT}/api/health`);
+      try {
+        const mailer = require('./mailer');
+        if (mailer.configured) {
+          startReminders();
+        } else {
+          console.log('🔔 reminders: non attivi (mailer in modalità demo)');
+        }
+      } catch (e) {
+        console.error('⚠️  reminders: avvio non riuscito:', e.message);
+      }
     });
   })
   .catch((err) => {
