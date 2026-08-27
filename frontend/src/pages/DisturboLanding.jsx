@@ -106,6 +106,11 @@ function CittaView({ c }) {
       { '@type': 'Question', name: `Come funziona lo psicologo online a ${c.nome}?`, acceptedAnswer: { '@type': 'Answer', text: `Le sedute si svolgono in videochiamata: prenoti giorno e ora, paghi online (45€) e ti colleghi da casa o da dove preferisci, anche se vivi a ${c.nome} o in provincia.` } },
       { '@type': 'Question', name: `Devo recarmi in uno studio a ${c.nome}?`, acceptedAnswer: { '@type': 'Answer', text: 'No: il servizio è completamente online, in tutta Italia. La terapia online ha la stessa efficacia di quella in presenza ed è più comoda da conciliare con lavoro e famiglia.' } },
       { '@type': 'Question', name: `Quanto costa una seduta a ${c.nome}?`, acceptedAnswer: { '@type': 'Answer', text: 'La seduta individuale costa 45€, quella di coppia 50€. Pagamento sicuro online con carta di credito.' } },
+      ...(c.faqExtra || []).map(([q, a]) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
     ],
   };
   const altre = citta.filter((x) => x.slug !== c.slug && x.regione === c.regione).slice(0, 5);
@@ -127,6 +132,7 @@ function CittaView({ c }) {
           Hai bisogno di uno psicologo a {c.nome} ma non vuoi spostarti, aspettare o incastrare gli orari di uno studio?
           Con Adatto x Te le sedute si svolgono in videochiamata, in tutta Italia (provincia di {c.provincia} inclusa).
         </p>
+        {c.intro && <p style={{ maxWidth: 640, marginTop: 12 }}>{c.intro}</p>}
         <div className="row-gap" style={{ margin: '18px 0' }}>
           <Link to="/terapeuti" className="btn btn-primary btn-lg">Trova il tuo terapeuta</Link>
           <span className="muted">Sedute da 45€ · Videochiamata sicura · Sera e weekend</span>
@@ -160,6 +166,7 @@ function CittaView({ c }) {
         ['Le sedute si svolgono davvero online?', `Sì: tutto avviene in videochiamata sicura. Puoi fare terapia a ${c.nome} senza recarti in studio, con la stessa qualità di quella in presenza.`],
         ['Posso scegliere lo psicologo che preferisco?', `Sì: la piattaforma ti mostra i profili dei terapeuti (specializzazioni, recensioni, lingue) e prenoti direttamente l\'orario che vuoi.`],
         ['Come funziona il pagamento?', `Il pagamento avviene online con carta di credito, in modo sicuro: 45€ la seduta individuale, 50€ quella di coppia.`],
+        ...(c.faqExtra || []),
       ]} />
 
       <section className="container section">
