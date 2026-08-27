@@ -113,43 +113,12 @@ function CountUp({ target, prefix = '', suffix = '' }) {
   );
 }
 
-// Le sezioni sotto la piega si caricano quando il visitatore si avvicina
-// (IntersectionObserver, margine 600px: il contenuto è pronto prima che si
-// arrivi a vederlo). Fallback di sicurezza: compare comunque entro `delay` ms.
-function Deferred({ children, delay = 5000 }) {
-  const ref = useRef(null);
-  const [ready, setReady] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    const start = () => setReady(true);
-    if (!el || typeof IntersectionObserver === 'undefined') {
-      start();
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          start();
-          io.disconnect();
-        }
-      },
-      { rootMargin: '600px' }
-    );
-    io.observe(el);
-    const t = setTimeout(start, delay); // sicurezza: mai nascosto oltre il delay
-    return () => {
-      io.disconnect();
-      clearTimeout(t);
-    };
-  }, [delay]);
-  // Il contenuto è SEMPRE montato (visibilità nascosta finché non è pronto):
-  // lo spazio è riservato fin dall'inizio → nessun layout shift (CLS) quando
-  // la sezione compare. Nel prerender il fallback scatta comunque (tempo virtuale).
-  return (
-    <div ref={ref} style={ready ? undefined : { visibility: 'hidden' }}>
-      {children}
-    </div>
-  );
+// Le sezioni sotto la piega sono già contenute nell'HTML prerenderizzato:
+// vengono montate e mostrate SUBITO, identiche al server → nessun mismatch di
+// idratazione (niente errori console → Best Practices 100) e spazio riservato
+// fin dal primo paint → CLS ~0.
+function Deferred({ children }) {
+  return <>{children}</>;
 }
 
 export default function Home() {
