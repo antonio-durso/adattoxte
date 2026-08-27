@@ -86,7 +86,7 @@ export default function Footer() {
             </svg>
           </span>
         </div>
-        <span style={{ fontSize: 11, color: '#64748b' }}>{t('footer.paymentsNote')}</span>
+        <span style={{ fontSize: 11, color: '#475569' }}>{t('footer.paymentsNote')}</span>
       </div>
     </footer>
   );
