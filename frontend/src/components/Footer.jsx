@@ -52,6 +52,33 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {/* Metodi di pagamento accettati (fiducia, stile e-commerce) */}
+      <div className="container" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 12, paddingTop: 14, paddingBottom: 16 }}>
+        <span style={{ fontSize: 12, fontWeight: 700, color: '#0f172a', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+          <span aria-hidden="true">🔒</span> {t('footer.payments')}
+        </span>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 6 }}>
+          <span title="PayPal" style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 8px', display: 'inline-flex', alignItems: 'center', fontSize: 12, fontStyle: 'italic', fontWeight: 700 }}>
+            <span style={{ color: '#003087' }}>Pay</span>
+            <span style={{ color: '#009cde' }}>Pal</span>
+          </span>
+          <span title="Visa" style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 8px', fontSize: 12, fontStyle: 'italic', fontWeight: 800, color: '#1a1f71', letterSpacing: '0.5px' }}>VISA</span>
+          <span title="Mastercard" style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 8px', display: 'inline-flex', alignItems: 'center' }}>
+            <svg width="20" height="14" viewBox="0 0 36 24" aria-hidden="true">
+              <circle cx="14" cy="12" r="10" fill="#EB001B" />
+              <circle cx="22" cy="12" r="10" fill="#F79E1B" fillOpacity="0.9" />
+            </svg>
+          </span>
+          <span title="American Express" style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 8px', fontSize: 10, fontWeight: 800, color: '#006FCF', letterSpacing: '0.5px' }}>AMEX</span>
+          <span title="Maestro" style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 8px', display: 'inline-flex', alignItems: 'center' }}>
+            <svg width="20" height="14" viewBox="0 0 36 24" aria-hidden="true">
+              <circle cx="14" cy="12" r="10" fill="#0F2B7A" />
+              <circle cx="22" cy="12" r="10" fill="#D9222A" />
+            </svg>
+          </span>
+        </div>
+        <span style={{ fontSize: 11, color: '#94a3b8' }}>{t('footer.paymentsNote')}</span>
+      </div>
     </footer>
   );
 }
