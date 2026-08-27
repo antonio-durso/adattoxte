@@ -222,6 +222,16 @@ export default function Home() {
         </Reveal>
         <div className="grid pricing">
           <Reveal>
+            <div className="card pricing-card featured">
+              <h3>{t('pricing.free.title')}</h3>
+              <div className="price">0 €</div>
+              <p>{t('pricing.free.d')}</p>
+              <Link to="/terapeuti" className="btn btn-primary">
+                {t('hero.cta')}
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal>
             <div className="card pricing-card">
               <h3>{t('pricing.individual')}</h3>
               <div className="price">45 €</div>

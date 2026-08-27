@@ -28,6 +28,15 @@ export default function Checkout() {
       try {
         const pay = await api.post('/payments/checkout', { bookingId });
 
+        // Prima seduta gratuita (15 minuti): nessun pagamento, conferma immediata
+        if (pay.data.free) {
+          if (cancelled) return;
+          setBooking(pay.data.booking);
+          setSuccess({ paid: true, demo: false, free: true });
+          setLoading(false);
+          return;
+        }
+
         if (pay.data.demo) {
           if (cancelled) return;
           setDemo(true);
@@ -104,20 +113,22 @@ export default function Checkout() {
     return (
       <div className="container section" style={{ maxWidth: 560, margin: '0 auto' }}>
         <div className="card success-card">
-          <h2>Pagamento confermato 🎉</h2>
+          <h2>{success.free ? 'Seduta gratuita confermata 🎉' : 'Pagamento confermato 🎉'}</h2>
           {booking && (
             <p>
               <strong>
                 {booking.type === 'couple' ? 'Seduta di coppia' : 'Seduta individuale'}
               </strong>{' '}
               · {new Date(booking.date + 'T00:00:00').toLocaleDateString('it-IT')} alle{' '}
-              {booking.startTime} · {booking.price} €
+              {booking.startTime} · {success.free ? 'Gratuita' : `${booking.price} €`}
             </p>
           )}
           <p className="ok-text">
-            {success.demo
-              ? 'Pagamento demo confermato. La seduta è registrata come pagata.'
-              : 'Pagamento effettuato con successo. La seduta è registrata come pagata e trovi il link alla videochiamata nella tua area personale.'}
+            {success.free
+              ? 'La tua prima seduta conoscitiva è gratuita: trovi il link alla videochiamata nella tua area personale.'
+              : success.demo
+                ? 'Pagamento demo confermato. La seduta è registrata come pagata.'
+                : 'Pagamento effettuato con successo. La seduta è registrata come pagata e trovi il link alla videochiamata nella tua area personale.'}
           </p>
           <div className="row-gap">
             <button className="btn btn-primary" onClick={() => navigate('/area-paziente')}>

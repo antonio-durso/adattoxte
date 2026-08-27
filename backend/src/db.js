@@ -77,6 +77,7 @@ function initDb() {
       type           TEXT NOT NULL CHECK (type IN ('individual','couple')),
       price          INTEGER NOT NULL,
       credit_used    INTEGER NOT NULL DEFAULT 0,
+      is_free        INTEGER NOT NULL DEFAULT 0,
       status         TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','confirmed','completed','cancelled')),
       paid           INTEGER NOT NULL DEFAULT 0,
       room_name      TEXT NOT NULL,
@@ -128,6 +129,9 @@ function initDb() {
   }
   if (!bookingCols.includes('review_reminder_sent')) {
     db.exec('ALTER TABLE bookings ADD COLUMN review_reminder_sent INTEGER NOT NULL DEFAULT 0');
+  }
+  if (!bookingCols.includes('is_free')) {
+    db.exec('ALTER TABLE bookings ADD COLUMN is_free INTEGER NOT NULL DEFAULT 0');
   }
 
   // Codici invito per gli utenti esistenti che non ne hanno uno

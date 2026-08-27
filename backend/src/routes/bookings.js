@@ -95,6 +95,8 @@ function bookingView(row) {
     type: row.type,
     price: row.price,
     creditUsed: row.credit_used || 0,
+    free: row.is_free === 1,
+    isFree: row.is_free === 1,
     status: row.status,
     paid: !!row.paid,
     roomName: row.room_name,
@@ -116,6 +118,13 @@ router.post('/', requireRole('patient'), (req, res) => {
   }
   const pkg = Number(packageSessions) === 3 ? 3 : 1;
 
+  // Prima seduta individuale gratuita (15 minuti conoscitivi): vale solo per la
+  // prima prenotazione del paziente; le sedute successive sono sempre a pagamento.
+  const priorBookings = db
+    .prepare("SELECT COUNT(*) AS c FROM bookings WHERE patient_id = ? AND status IN ('pending','confirmed','completed')")
+    .get(req.user.id).c;
+  const isFree = type === 'individual' && priorBookings === 0;
+
   const therapist = db.prepare('SELECT id FROM users WHERE id = ? AND role = ?').get(therapistId, 'therapist');
   if (!therapist) return res.status(404).json({ error: 'Terapeuta non trovato' });
 
@@ -130,7 +139,8 @@ router.post('/', requireRole('patient'), (req, res) => {
   if (slot.booked) return res.status(409).json({ error: 'Orario non più disponibile, scegline un altro' });
 
   // Controlla sovrapposizioni con prenotazioni attive del terapeuta
-  const endTime = addMinutes(startTime, slot.duration_min);
+  const sessionMinutes = isFree ? 15 : slot.duration_min;
+  const endTime = addMinutes(startTime, sessionMinutes);
   const overlap = db.prepare(`
     SELECT id FROM bookings
     WHERE therapist_id = ? AND date = ? AND status IN ('pending','confirmed')
@@ -142,22 +152,27 @@ router.post('/', requireRole('patient'), (req, res) => {
   const basePrice = type === 'couple' ? profile.price_couple : profile.price_individual;
   const packageTotal = pkg === 3 ? Math.round(basePrice * 3 * 0.85) : basePrice; // pacchetto 3 sedute: -15%
 
-  // Programma referral: applica il credito accumulato (fino al prezzo della seduta/pacchetto)
+  let price;
   let creditUsed = 0;
-  const userRow = db.prepare('SELECT credit FROM users WHERE id = ?').get(req.user.id);
-  if (userRow.credit > 0) {
-    creditUsed = Math.min(userRow.credit, packageTotal);
-    db.prepare('UPDATE users SET credit = credit - ? WHERE id = ?').run(creditUsed, req.user.id);
+  if (isFree) {
+    price = 0;
+  } else {
+    // Programma referral: applica il credito accumulato (fino al prezzo della seduta/pacchetto)
+    const userRow = db.prepare('SELECT credit FROM users WHERE id = ?').get(req.user.id);
+    if (userRow.credit > 0) {
+      creditUsed = Math.min(userRow.credit, packageTotal);
+      db.prepare('UPDATE users SET credit = credit - ? WHERE id = ?').run(creditUsed, req.user.id);
+    }
+    price = Math.max(1, packageTotal - creditUsed);
   }
-  const price = Math.max(1, packageTotal - creditUsed);
 
   const bookingId = crypto.randomUUID();
   const roomName = 'AdattoXTe-' + bookingId.slice(0, 8).toUpperCase();
 
   db.prepare(`
-    INSERT INTO bookings (id, patient_id, therapist_id, availability_id, date, start_time, end_time, type, price, credit_used, room_name, package_sessions)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-  `).run(bookingId, req.user.id, therapistId, slot.id, date, startTime, endTime, type, price, creditUsed, roomName, pkg);
+    INSERT INTO bookings (id, patient_id, therapist_id, availability_id, date, start_time, end_time, type, price, credit_used, is_free, room_name, package_sessions)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(bookingId, req.user.id, therapistId, slot.id, date, startTime, endTime, type, price, creditUsed, isFree ? 1 : 0, roomName, pkg);
 
   db.prepare('UPDATE availabilities SET booked = 1 WHERE id = ?').run(slot.id);
 

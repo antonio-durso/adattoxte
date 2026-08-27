@@ -88,7 +88,7 @@ const TEMPLATES = {
       <p style="background:#f8fafc;border-radius:10px;padding:14px">
         <strong>${booking.therapist_name}</strong><br/>
         ${new Date(booking.date + 'T00:00:00').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' })} alle ${booking.start_time}<br/>
-        Seduta ${booking.type === 'couple' ? 'di coppia' : 'individuale'} · ${booking.price}€
+        Seduta ${booking.type === 'couple' ? 'di coppia' : 'individuale'}${booking.is_free ? ' · prima seduta gratuita (15 minuti)' : ` · ${booking.price}€`}
       </p>
       ${btn(SITE_URL + '/area-paziente', 'Vai alla tua area personale')}
       <p style="font-size:13px;color:#64748b">La videochiamata si apre nel browser cliccando il link nella tua prenotazione (Jitsi Meet, nessuna installazione).</p>
@@ -100,7 +100,7 @@ const TEMPLATES = {
       <p style="background:#f8fafc;border-radius:10px;padding:14px">
         <strong>${booking.patient_name}</strong><br/>
         ${new Date(booking.date + 'T00:00:00').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' })} alle ${booking.start_time}<br/>
-        Seduta ${booking.type === 'couple' ? 'di coppia' : 'individuale'} · ${booking.price}€
+        Seduta ${booking.type === 'couple' ? 'di coppia' : 'individuale'}${booking.is_free ? ' · prima seduta gratuita (15 minuti)' : ` · ${booking.price}€`}
       </p>
       ${btn(SITE_URL + '/area-terapeuta', 'Apri la tua agenda')}
     `),

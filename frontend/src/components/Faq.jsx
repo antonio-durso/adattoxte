@@ -12,6 +12,10 @@ const FAQS = [
     a: 'La seduta individuale costa 45€, quella di coppia 50€. Il pacchetto di 3 sedute prevede uno sconto del 15%.',
   },
   {
+    q: 'È prevista una prima seduta gratuita?',
+    a: 'Sì: la prima seduta individuale è gratuita e dura 15 minuti — un colloquio conoscitivo per capire se il terapeuta fa per te. Se poi vuoi continuare, paghi solo le sedute successive (45€ individuale, 50€ di coppia).',
+  },
+  {
     q: 'I terapeuti sono qualificati?',
     a: 'Sì: tutti i professionisti della piattaforma sono verificati, con specializzazione indicata, esperienza e recensioni reali lasciate dai pazienti dopo le sedute completate.',
   },

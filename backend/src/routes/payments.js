@@ -74,7 +74,7 @@ async function paypalFetch(path, options = {}, token) {
  */
 function rewardReferralIfFirstPaid(patientId) {
   const paidCount = db
-    .prepare('SELECT COUNT(*) AS c FROM bookings WHERE patient_id = ? AND paid = 1')
+    .prepare('SELECT COUNT(*) AS c FROM bookings WHERE patient_id = ? AND paid = 1 AND is_free = 0')
     .get(patientId).c;
   if (paidCount !== 1) return;
   const ref = db
@@ -97,6 +97,22 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
   if (booking.paid) return res.status(409).json({ error: 'Prenotazione già pagata' });
   if (booking.status !== 'pending' && booking.status !== 'confirmed') {
     return res.status(409).json({ error: 'La prenotazione non è pagabile in questo stato' });
+  }
+
+  // SEDUTA GRATUITA (prima seduta individuale, 15 minuti): nessun addebito PayPal,
+  // la prenotazione viene marcata come saldata direttamente.
+  if (booking.is_free) {
+    db.prepare('UPDATE bookings SET paid = 1 WHERE id = ?').run(booking.id);
+    return res.json({
+      free: true,
+      booking: {
+        id: booking.id,
+        type: booking.type,
+        date: booking.date,
+        startTime: booking.start_time,
+        price: 0,
+      },
+    });
   }
 
   // MODALITÀ DEMO: nessuna credenziale PayPal configurata
