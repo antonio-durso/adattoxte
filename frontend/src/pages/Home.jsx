@@ -6,7 +6,6 @@ import HeroComic from '../components/HeroComic';
 import Seo from '../components/Seo';
 // Sezioni sotto la piega: chunk separati, caricati solo quando servono
 // (render differito via <Deferred>) -> TBT più basso, niente lavoro in avvio
-const ReviewsStrip = lazy(() => import('../components/ReviewsStrip'));
 const Faq = lazy(() => import('../components/Faq'));
 const TestimonialsSlider = lazy(() => import('../components/TestimonialsSlider'));
 
@@ -245,7 +244,8 @@ export default function Home() {
         </div>
       </section>
 
-      <Suspense fallback={null}><ReviewsStrip /></Suspense>
+      {/* Striscia recensioni: la gestisce static.js sulle pagine statiche
+          (la crea davanti alla sezione FAQ e riempie i numeri dal backend) */}
 
       <DeferredBlogPreview />
 

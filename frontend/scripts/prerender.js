@@ -43,10 +43,10 @@ const ROUTES = [
 ];
 
 // Rotte 100% statiche: HTML puro, nessun modulo React (vedi src/main.jsx).
-// NOTA: '/' NON e' nella lista: la home dipende da dati API (terapeuti,
-// testimonianze, articoli); mantenendo React attivo il contenuto si completa
-// nel browser anche se la cattura statica avviene con dati parziali.
+// NOTA: anche '/' e' statica: e' interamente prerenderizzata e le interazioni
+// (menu, lingua, cookie, FAQ, slider, recensioni) sono gestite da /static.js.
 const STATIC_NO_MOUNT = new Set([
+  '/',
   '/blog',
   '/risorse',
   '/psicologo-concorsi-pubblici',
@@ -218,6 +218,18 @@ async function main() {
           dom = dom
             .replace(/<link[^>]*rel="modulepreload"[^>]*>/g, '')
             .replace(/<script[^>]*type="module"[^>]*><\/script>/g, '');
+        }
+        // Home: striscia recensioni SUBITO nell'HTML (static.js poi riempie i numeri)
+        if (route === '/' && !dom.includes('reviews-strip-static')) {
+          const strip =
+            '<section class="container section reviews-strip-static" style="text-align:center">' +
+            '<div class="card" style="padding:28px 20px;border:1px solid #f59e0b55;background:linear-gradient(135deg,#fff8ef,#fff)">' +
+            '<div style="font-size:42px;color:#f59e0b" aria-hidden="true">★★★★★</div>' +
+            '<h2 style="margin:10px 0 4px">Recensioni verificate</h2>' +
+            '<p class="muted" style="max-width:520px;margin:0 auto">Ogni valutazione arriva da una seduta completata sulla piattaforma. I nostri pazienti raccontano la loro esperienza.</p>' +
+            '<a href="/recensioni" class="btn btn-outline" style="margin-top:14px">Leggi le recensioni</a>' +
+            '</div></section>';
+          dom = dom.replace('<section', strip + '<section');
         }
         const outFile = route === '/' ? join(DIST, 'index.html') : join(DIST, route.slice(1), 'index.html');
         mkdirSync(dirname(outFile), { recursive: true });
