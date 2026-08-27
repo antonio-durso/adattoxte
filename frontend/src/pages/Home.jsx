@@ -27,11 +27,17 @@ function DeferredBlogPreview() {
     const io = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) {
-          setVisible(true);
           io.disconnect();
+          // Il chunk articoli (250KB) parte solo a thread libero: TBT basso
+          const show = () => setVisible(true);
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(show, { timeout: 5000 });
+          } else {
+            setTimeout(show, 1500);
+          }
         }
       },
-      { rootMargin: '600px' }
+      { rootMargin: '300px' }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -225,7 +231,7 @@ export default function Home() {
           width={1536}
           height={1024}
           loading="lazy"
-          style={{ width: '100%', maxWidth: 860, height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.12)', margin: '32px auto 0', display: 'block' }}
+          style={{ width: '100%', maxWidth: 700, height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.12)', margin: '32px auto 0', display: 'block' }}
         />
       </section>
 
@@ -328,7 +334,7 @@ export default function Home() {
             width={1536}
             height={1024}
             loading="lazy"
-            style={{ width: '100%', maxWidth: 860, height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.25)', margin: '32px auto 0', display: 'block' }}
+            style={{ width: '100%', maxWidth: 700, height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.25)', margin: '32px auto 0', display: 'block' }}
           />
         </div>
       </section>
