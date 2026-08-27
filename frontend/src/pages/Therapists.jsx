@@ -29,9 +29,11 @@ export default function Therapists() {
   const [q, setQ] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const [specialty, setSpecialty] = useState(searchParams.get('specialty') || '');
+  const [reload, setReload] = useState(0);
 
   useEffect(() => {
     setLoading(true);
+    setError('');
     const params = new URLSearchParams();
     if (q) params.set('q', q);
     if (specialty) params.set('specialty', specialty);
@@ -40,7 +42,7 @@ export default function Therapists() {
       .then((r) => setTherapists(r.data.therapists))
       .catch(() => setError(t('common.error')))
       .finally(() => setLoading(false));
-  }, [q, specialty, t]);
+  }, [q, specialty, t, reload]);
 
   return (
     <div className="container section">
@@ -133,7 +135,14 @@ export default function Therapists() {
           </div>
         </div>
       )}
-      {error && <p className="error-text">{error}</p>}
+      {error && (
+        <>
+          <p className="error-text">{error}</p>
+          <button className="btn btn-outline btn-sm" onClick={() => setReload((n) => n + 1)}>
+            Riprova
+          </button>
+        </>
+      )}
       {!loading && !error && therapists.length === 0 && <p className="muted">Nessun terapeuta trovato.</p>}
 
       {!loading && !error && therapists.length > 0 && specialty && (

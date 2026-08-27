@@ -4,7 +4,10 @@ import axios from 'axios';
 // In produzione si imposta VITE_API_URL con l'URL del backend (es. https://api.adattoxte.it).
 const baseURL = import.meta.env.VITE_API_URL || '/api';
 
-const api = axios.create({ baseURL });
+// Timeout 25s: se il server non risponde (cold start Render), scatta l'errore
+// e il retry qui sotto riprova; senza timeout una richiesta appesa bloccherebbe
+// le pagine su "Caricamento…" o "Si è verificato un errore" per sempre.
+const api = axios.create({ baseURL, timeout: 25000 });
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('adt_token');
