@@ -65,11 +65,16 @@ export default function BlogArticle() {
           name: "Dott. Antonio D'Urso",
           jobTitle: 'Psicologo',
           identifier: 'Albo Psicologi Campania n. 5408',
-          url: 'https://adattoxte.vercel.app/blog',
+          url: 'https://www.adattoxte.com/chi-siamo',
         },
-        publisher: { '@type': 'Organization', name: 'Adatto x Te' },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Adatto x Te',
+          url: 'https://www.adattoxte.com',
+          sameAs: ['https://it.trustpilot.com/review/adattoxte.com'],
+        },
         about: { '@type': 'MedicalCondition', name: 'Salute mentale e benessere psicologico' },
-        mainEntityOfPage: `https://adattoxte.vercel.app/blog/${article.slug}`,
+        mainEntityOfPage: `https://www.adattoxte.com/blog/${article.slug}`,
       }
     : {
         '@context': 'https://schema.org',
@@ -84,10 +89,15 @@ export default function BlogArticle() {
           name: "Dott. Antonio D'Urso",
           jobTitle: 'Psicologo',
           identifier: 'Albo Psicologi Campania n. 5408',
-          url: 'https://adattoxte.vercel.app/blog',
+          url: 'https://www.adattoxte.com/chi-siamo',
         },
-        publisher: { '@type': 'Organization', name: 'Adatto x Te' },
-        mainEntityOfPage: `https://adattoxte.vercel.app/blog/${article.slug}`,
+        publisher: {
+          '@type': 'Organization',
+          name: 'Adatto x Te',
+          url: 'https://www.adattoxte.com',
+          sameAs: ['https://it.trustpilot.com/review/adattoxte.com'],
+        },
+        mainEntityOfPage: `https://www.adattoxte.com/blog/${article.slug}`,
       };
   // Test consigliato in base al tema dell'articolo (Hub & Spoke)
   const testVariant = /umore|depress|tristez|burnout|sonno/i.test(keyword + ' ' + article.title) ? 'umore' : 'ansia';
@@ -153,6 +163,25 @@ export default function BlogArticle() {
         </div>
         <div dangerouslySetInnerHTML={{ __html: article.body }} />
       </article>
+
+      {/* Bio autore a fine articolo (E-E-A-T: firma del professionista) */}
+      <div style={{ maxWidth: 760, margin: '26px auto 0', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 12, padding: '18px 20px', display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+        <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#2f7ba6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 18, flexShrink: 0 }}>
+          {ARTICLE_AUTHOR.initial}
+        </div>
+        <div style={{ fontSize: 13.5, lineHeight: 1.55, color: '#334155' }}>
+          <strong style={{ display: 'block', marginBottom: 4 }}>
+            {lang === 'it' ? 'Chi ha scritto questo articolo' : 'About the author'}
+          </strong>
+          {lang === 'it'
+            ? `Questo articolo è stato scritto da ${ARTICLE_AUTHOR.name}, ${ARTICLE_AUTHOR.role.toLowerCase()} e fondatore di Adatto x Te, con 13 anni di esperienza nel settore. I contenuti sono revisionati dall'équipe e non sostituiscono un consulto professionale.`
+            : `This article was written by ${ARTICLE_AUTHOR.name}, ${ARTICLE_AUTHOR.role} and founder of Adatto x Te, with 13 years of experience in the field. Content is reviewed by the team and does not replace professional advice.`}
+          {' '}
+          <Link to="/chi-siamo" className="muted small" style={{ textDecoration: 'underline' }}>
+            {lang === 'it' ? 'Scopri chi siamo' : 'Learn more about us'}
+          </Link>
+        </div>
+      </div>
 
       {/* CTA verso i test clinici (contenuto → strumento) */}
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
