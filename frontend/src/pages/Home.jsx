@@ -116,6 +116,7 @@ export default function Home() {
         image="https://www.adattoxte.com/images/hero.jpg"
       />
       <section className="hero">
+        <div className="portal-rings" aria-hidden="true" />
         <div className="container hero-inner">
           <h1>{t('hero.title')}</h1>
           <p className="hero-sub">{t('hero.subtitle')}</p>
@@ -143,10 +144,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container section">
+      <section className="container section section-deep">
+        <div className="portal-glow" aria-hidden="true" />
         <Reveal>
           <h2>{t('services.title')}</h2>
-          <p className="section-sub">{t('services.subtitle')}</p>
         </Reveal>
         <div className="grid cards">
           {SERVICES.map((s, i) => (
@@ -216,7 +217,8 @@ export default function Home() {
       <Deferred>
       <Suspense fallback={null}><Faq /></Suspense>
 
-      <section className="container section">
+      <section className="container section section-deep">
+        <div className="portal-glow" aria-hidden="true" />
         <Reveal>
           <h2>{t('pricing.title')}</h2>
         </Reveal>

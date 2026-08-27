@@ -647,3 +647,57 @@ body:not(.react-mounted) .reveal { opacity: 1; transform: none; }
 .check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
 .faq-item summary { cursor: pointer; font-weight: 600; }
 .faq-item p { margin: 8px 0 0; color: var(--muted, #64748b); }
+
+/* ===== Portali sereni: profondità sulle zone bianche (decorativo, CSS puro) ===== */
+body {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 42%, #f4f9fc 100%);
+}
+
+/* Anelli concentrici "portale" dietro la hero, che respirano lentamente */
+.portal-rings {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(780px, 96vw);
+  height: min(780px, 96vw);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle, rgba(72, 168, 216, 0.16) 0%, rgba(95, 201, 201, 0.08) 40%, transparent 62%),
+    repeating-radial-gradient(circle at center, transparent 0 36px, rgba(72, 168, 216, 0.07) 36px 38px);
+  animation: portal-breathe 14s ease-in-out infinite;
+}
+
+@keyframes portal-breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.85; }
+  50% { transform: translate(-50%, -50%) scale(1.045); opacity: 1; }
+}
+
+/* Bagliori aurora (azzurro/ciano/viola tenue) nelle sezioni bianche */
+.portal-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(520px 340px at 12% 0%, rgba(72, 168, 216, 0.10) 0%, transparent 70%),
+    radial-gradient(460px 320px at 88% 12%, rgba(95, 201, 201, 0.08) 0%, transparent 70%),
+    radial-gradient(420px 300px at 50% 100%, rgba(165, 180, 252, 0.07) 0%, transparent 70%);
+}
+
+.section-deep {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-deep > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Accessibilità: niente animazioni se l'utente le ha disattivate */
+@media (prefers-reduced-motion: reduce) {
+  .portal-rings { animation: none; }
+}
