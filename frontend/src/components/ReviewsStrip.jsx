@@ -27,8 +27,8 @@ export default function ReviewsStrip() {
     return () => { cancelled = true; clearTimeout(t); };
   }, []);
 
-  if (!data) return null;
-
+  // La sezione è SEMPRE renderizzata (spazio riservato): quando arrivano i dati
+  // cambia solo il testo dei numeri, niente layout shift (CLS)
   return (
     <section className="container section" style={{ textAlign: 'center' }}>
       <div
@@ -37,7 +37,7 @@ export default function ReviewsStrip() {
       >
         <div style={{ fontSize: 42, color: '#f59e0b' }}>★★★★★</div>
         <h2 style={{ margin: '10px 0 4px' }}>
-          {data.avg} su 5 · {data.total} recensioni verificate
+          {data ? `${data.avg} su 5 · ${data.total} recensioni verificate` : 'Recensioni verificate'}
         </h2>
         <p className="muted" style={{ maxWidth: 520, margin: '0 auto' }}>
           Ogni valutazione arriva da una seduta completata sulla piattaforma. I nostri pazienti raccontano la loro esperienza.

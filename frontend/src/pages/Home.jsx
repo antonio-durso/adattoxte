@@ -37,7 +37,9 @@ function DeferredBlogPreview() {
     return () => io.disconnect();
   }, []);
   return (
-    <div ref={ref}>
+    // minHeight riserva lo spazio dell'anteprima blog: quando il chunk arriva
+    // la sezione riempie lo spazio già esistente (CLS minimo)
+    <div ref={ref} style={{ minHeight: 300 }}>
       <Suspense fallback={null}>{visible && <BlogPreview />}</Suspense>
     </div>
   );
@@ -134,7 +136,14 @@ function Deferred({ children, delay = 5000 }) {
       clearTimeout(t);
     };
   }, [delay]);
-  return <div ref={ref}>{ready ? children : null}</div>;
+  // Il contenuto è SEMPRE montato (visibilità nascosta finché non è pronto):
+  // lo spazio è riservato fin dall'inizio → nessun layout shift (CLS) quando
+  // la sezione compare. Nel prerender il fallback scatta comunque (tempo virtuale).
+  return (
+    <div ref={ref} style={ready ? undefined : { visibility: 'hidden' }}>
+      {children}
+    </div>
+  );
 }
 
 export default function Home() {
