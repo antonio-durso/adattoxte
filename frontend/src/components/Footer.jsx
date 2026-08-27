@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 import Logo from './Logo';
+import ContactForm from './ContactForm';
+
+// ⚠️ INSERIRE I NUMERI DI TELEFONO VERI DELLA PIATTAFORMA
+// (es. '+39 333 1234567'). I placeholder vanno sostituiti prima del lancio.
+const CONTACT_PHONES = ['+39 000 000 0000'];
 
 export default function Footer() {
   const { t } = useI18n();
@@ -52,6 +57,24 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {/* Modulo contatti: pazienti, psicologi, giornalisti, collaborazioni */}
+      <section className="container section" id="contatti" style={{ paddingBottom: 8 }}>
+        <h2 style={{ textAlign: 'center', marginBottom: 8 }}>{t('contact.title')}</h2>
+        <p className="section-sub" style={{ maxWidth: 560, textAlign: 'center', marginBottom: 18 }}>
+          {t('contact.subtitle')}
+        </p>
+        {CONTACT_PHONES.length > 0 && (
+          <p style={{ textAlign: 'center', marginBottom: 16, fontSize: 14, color: '#334155' }}>
+            {t('contact.phones')}{' '}
+            {CONTACT_PHONES.map((p, i) => (
+              <a key={p} href={`tel:${p.replace(/\s/g, '')}`} style={{ fontWeight: 700, color: '#1a3d6d', textDecoration: 'none' }}>
+                {i > 0 ? ' · ' : ''}{p}
+              </a>
+            ))}
+          </p>
+        )}
+        <ContactForm />
+      </section>
       {/* Metodi di pagamento accettati (fiducia, stile e-commerce) */}
       <div className="container" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 12, paddingTop: 14, paddingBottom: 16 }}>
         <span style={{ fontSize: 12, fontWeight: 700, color: '#0f172a', display: 'inline-flex', alignItems: 'center', gap: 6 }}>

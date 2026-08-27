@@ -56,6 +56,16 @@ function initDb() {
       UNIQUE(therapist_id, date, start_time)
     );
 
+    CREATE TABLE IF NOT EXISTS contact_messages (
+      id         TEXT PRIMARY KEY,
+      name       TEXT NOT NULL,
+      email      TEXT NOT NULL,
+      role       TEXT,
+      subject    TEXT,
+      message    TEXT NOT NULL,
+      created_at TEXT NOT NULL DEFAULT (datetime('now'))
+    );
+
     CREATE TABLE IF NOT EXISTS bookings (
       id             TEXT PRIMARY KEY,
       patient_id     TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,

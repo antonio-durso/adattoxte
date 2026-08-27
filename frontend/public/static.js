@@ -190,6 +190,44 @@
       .catch(function () { /* i numeri restano generici */ });
   }
 
+  // ---- Modulo contatti (pagine statiche senza React) ----
+  var contactForms = document.querySelectorAll('.contact-form');
+  contactForms.forEach(function (form) {
+    on(form, 'submit', function (e) {
+      e.preventDefault();
+      var data = {};
+      new FormData(form).forEach(function (v, k) { data[k] = v; });
+      if (data.__hp__) return; // honeypot anti-bot
+      var btn = form.querySelector('[type="submit"]');
+      var status = form.querySelector('.contact-status');
+      if (btn) { btn.disabled = true; btn.textContent = 'Invio in corso…'; }
+      if (status) { status.textContent = ''; status.style.color = ''; }
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then(function (r) {
+          return r.json().catch(function () { return {}; }).then(function (b) { return { ok: r.ok, body: b }; });
+        })
+        .then(function (res) {
+          if (res.ok) {
+            form.reset();
+            if (status) { status.textContent = 'Messaggio inviato! Ti risponderemo al più presto.'; status.style.color = '#15803d'; }
+          } else if (status) {
+            status.textContent = (res.body && res.body.error) || 'Errore di invio, riprova.';
+            status.style.color = '#b91c1c';
+          }
+        })
+        .catch(function () {
+          if (status) { status.textContent = 'Errore di rete, riprova.'; status.style.color = '#b91c1c'; }
+        })
+        .finally(function () {
+          if (btn) { btn.disabled = false; btn.textContent = 'Invia messaggio'; }
+        });
+    });
+  });
+
   // Espone la funzione per disattivare tutto quando React monta
   window.__disableStatic = function () {
     handlers.forEach(function (h) { h[0].removeEventListener(h[1], h[2]); });

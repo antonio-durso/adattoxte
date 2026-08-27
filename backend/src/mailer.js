@@ -138,7 +138,26 @@ const TEMPLATES = {
       <p>Se vuoi, puoi prenotare un nuovo appuntamento quando preferisci.</p>
       ${btn(SITE_URL + '/terapeuti', 'Trova un nuovo orario')}
     `),
+  contactMessage: (d) =>
+    base(`
+      <h2 style="margin-top:0">📩 Nuovo messaggio dal modulo contatti</h2>
+      <p><strong>Da:</strong> ${esc(d.name)} &lt;${esc(d.email)}&gt;</p>
+      <p><strong>Chi scrive:</strong> ${esc(d.role)}</p>
+      ${d.subject ? `<p><strong>Oggetto:</strong> ${esc(d.subject)}</p>` : ''}
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;margin-top:10px;white-space:pre-wrap">${esc(d.message)}</div>
+      <p style="font-size:12px;color:#94a3b8;margin-top:16px">Puoi rispondere direttamente a <a href="mailto:${esc(d.email)}">${esc(d.email)}</a></p>
+    `),
 };
+
+// Escape HTML per contenuti inseriti dagli utenti (sicurezza email)
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
 /**
  * Invia una email. Ritorna sempre una Promise (mai throw).
