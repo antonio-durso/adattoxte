@@ -8,6 +8,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { disturbi } from '../src/content/disturbi.js';
 import { citta } from '../src/content/citta.js';
+import { articles } from '../src/content/articles.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -23,6 +24,7 @@ const BASE_URL = `http://localhost:${PORT}`;
 const ROUTES = [
   ...disturbi.map((d) => `/psicologo-online/${d.slug}`),
   ...citta.map((c) => `/psicologo-online/${c.slug}`),
+  ...articles.map((a) => `/blog/${a.slug}`),
   '/terapeuti',
   '/blog',
   '/risorse',
@@ -52,6 +54,7 @@ const STATIC_NO_MOUNT = new Set([
   '/privacy',
   '/cookie',
   '/termini',
+  ...articles.map((a) => `/blog/${a.slug}`),
 ]);
 
 function chromePath() {

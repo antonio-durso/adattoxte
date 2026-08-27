@@ -1,17 +1,19 @@
 // Indice completo degli articoli del blog (65 articoli)
-import { baseArticles } from './articles-base';
-import { extraArticles } from './extra-articles';
-import { extraArticles2 } from './extra-articles-2';
-import { extraArticles3 } from './extra-articles-3';
-import { extraArticles4 } from './extra-articles-4';
-import { extraArticles5 } from './extra-articles-5';
-import { extraArticles6 } from './extra-articles-6';
-import { extraArticles7 } from './extra-articles-7';
-import { extraArticles8 } from './extra-articles-8';
-import { extraArticles9 } from './extra-articles-9';
-import { extraArticles10 } from './extra-articles-10';
-import { extraArticles11 } from './extra-articles-11';
-import { extraArticles12 } from './extra-articles-12';
+// NOTA: estensione .js esplicita negli import: serve sia a Vite sia al
+// prerender statico (Node ESM richiede l'estensione).
+import { baseArticles } from './articles-base.js';
+import { extraArticles } from './extra-articles.js';
+import { extraArticles2 } from './extra-articles-2.js';
+import { extraArticles3 } from './extra-articles-3.js';
+import { extraArticles4 } from './extra-articles-4.js';
+import { extraArticles5 } from './extra-articles-5.js';
+import { extraArticles6 } from './extra-articles-6.js';
+import { extraArticles7 } from './extra-articles-7.js';
+import { extraArticles8 } from './extra-articles-8.js';
+import { extraArticles9 } from './extra-articles-9.js';
+import { extraArticles10 } from './extra-articles-10.js';
+import { extraArticles11 } from './extra-articles-11.js';
+import { extraArticles12 } from './extra-articles-12.js';
 
 export const articles = [
   ...baseArticles,

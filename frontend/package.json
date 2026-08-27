@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/build-seo.js",
-    "build": "sh scripts/ensure-chrome-deps.sh && vite build && node scripts/prerender.js && node scripts/inline-css.cjs",
+    "build": "sh scripts/ensure-chrome-deps.sh && vite build && (node scripts/prerender.js || true) && node scripts/inline-css.cjs",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -20,11 +20,13 @@ const STATIC_ROUTES = new Set([
 ]);
 
 const path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
+// Anche gli articoli del blog sono pagine prerenderizzate statiche
+const isStatic = STATIC_ROUTES.has(path) || (path.startsWith('/blog/') && path.length > 6);
 // Durante il prerender statico (scripts/prerender.js) forziamo il render anche
 // sulle rotte statiche, così l'HTML catturato contiene TUTTO il contenuto
 const PRERENDER = new URLSearchParams(window.location.search).has('__prerender');
 
-if (!STATIC_ROUTES.has(path) || PRERENDER) {
+if (!isStatic || PRERENDER) {
   // Disattiva gli handler vanilla (le interazioni tornano a React)
   if (typeof window.__disableStatic === 'function') window.__disableStatic();
   // Sui percorsi React le dissolvenze "reveal" usano l'observer.
