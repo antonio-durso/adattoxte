@@ -51,16 +51,14 @@ export default function ChiSiamo() {
           </div>
         </div>
 
-        <div className="card" style={cardStyle}>
-          <div style={avatarStyle('#0e7490')}>R</div>
+        <div className="card" style={{ ...cardStyle, maxWidth: 640, margin: '0 auto' }}>
+          <div style={avatarStyle('#0e7490')}>AD</div>
           <div>
-            <h3 style={{ margin: '0 0 4px', fontSize: 17 }}>Dott. Russo</h3>
-            <p style={{ margin: '0 0 8px', fontSize: 13, color: '#475569', fontWeight: 700 }}>Psicologo clinico</p>
+            <h3 style={{ margin: '0 0 4px', fontSize: 17 }}>Aree di intervento</h3>
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, color: '#334155' }}>
-              Psicologo dell'équipe di Adatto x Te, si occupa di psicologia clinica (aree
-              dell'ansia e dell'umore), di psicologia forense e giuridica e di psicologia
-              del lavoro. La sua attività abbraccia molteplici aree del disagio psicologico,
-              con esperienza trasversale tra clinica e ambiti applicativi.
+              Psicologia clinica (aree dell'ansia e dell'umore), psicologia forense e
+              giuridica, psicologia del lavoro. La sua attività abbraccia molteplici aree
+              del disagio psicologico, con esperienza trasversale tra clinica e ambiti applicativi.
             </p>
           </div>
         </div>
