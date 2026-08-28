@@ -44,6 +44,23 @@ export default function App() {
     <I18nProvider>
       <AuthProvider>
         <BrowserRouter>
+          <div className="portal-bg" aria-hidden="true">
+            <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="portalGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#48A8D8" />
+                  <stop offset="50%" stopColor="#5fc9c9" />
+                  <stop offset="100%" stopColor="#a5b4fc" />
+                </linearGradient>
+              </defs>
+              <circle className="p-circle p-1" cx="300" cy="300" r="95" />
+              <circle className="p-circle p-2" cx="300" cy="300" r="140" />
+              <circle className="p-circle p-3" cx="300" cy="300" r="185" />
+              <circle className="p-circle p-4" cx="300" cy="300" r="230" />
+              <circle className="p-circle p-5" cx="300" cy="300" r="275" />
+              <circle className="p-circle p-6" cx="300" cy="300" r="320" />
+            </svg>
+          </div>
           <Navbar />
           <main>
             <Suspense fallback={<PageLoader />}>
