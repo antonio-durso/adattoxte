@@ -830,29 +830,29 @@ body::before {
   100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
 }
 
-.ti-text {
+.ti-logo {
   position: absolute;
   left: 0;
   top: 0;
   transform: translate(-50%, -50%);
-  font-weight: 700;
-  font-size: 17px;
-  letter-spacing: 0.3px;
-  color: #286a8f;
-  white-space: nowrap;
   opacity: 0;
-  animation: ti-text-pop 1.9s ease-in-out forwards;
+  animation: ti-logo-pop 2.1s ease-in-out forwards;
 }
 
-@keyframes ti-text-pop {
-  0%   { opacity: 0; transform: translate(-50%, -40%) scale(0.7); }
-  25%  { opacity: 1; transform: translate(-50%, -55%) scale(1.06); }
-  75%  { opacity: 0.85; transform: translate(-50%, -80%) scale(1.0); }
-  100% { opacity: 0; transform: translate(-50%, -115%) scale(0.95); }
+.ti-logo .logo-text {
+  font-size: 22px;
+  white-space: nowrap;
+}
+
+@keyframes ti-logo-pop {
+  0%   { opacity: 0; transform: translate(-50%, -42%) scale(0.55); }
+  22%  { opacity: 1; transform: translate(-50%, -58%) scale(1.0); }
+  70%  { opacity: 0.9; transform: translate(-50%, -95%) scale(0.96); }
+  100% { opacity: 0; transform: translate(-50%, -150%) scale(0.9); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ti-ring, .ti-text { animation: none; }
+  .ti-ring, .ti-logo { animation: none; }
 }
 
 /* Anelli di sfondo un po' più visibili */

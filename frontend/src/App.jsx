@@ -30,6 +30,7 @@ const ChiSiamo = lazy(() => import('./pages/ChiSiamo'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const Terms = lazy(() => import('./pages/Terms'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+import PortalInteractive from './components/PortalInteractive';
 
 function PageLoader() {
   return (
@@ -63,6 +64,7 @@ export default function App() {
               <circle className="p-circle p-8" cx="300" cy="300" r="380" />
             </svg>
           </div>
+          <PortalInteractive />
           <Navbar />
           <main>
             <Suspense fallback={<PageLoader />}>

@@ -36,10 +36,14 @@ export default function PortalInteractive() {
         cluster.appendChild(ring);
       }
 
-      const text = document.createElement('div');
-      text.className = 'ti-text';
-      text.textContent = 'Adatto x Te';
-      cluster.appendChild(text);
+      // Il logo "Adatto x Te" (stesso stile della pagina iniziale: due linee
+      // pesca ai lati della scritta) esce dagli anelli, si muove e scompare.
+      const logo = document.createElement('span');
+      logo.className = 'logo ti-logo';
+      logo.setAttribute('aria-hidden', 'true');
+      logo.innerHTML =
+        '<span class="logo-line"></span><span class="logo-text">Adatto <em>x</em> Te</span><span class="logo-line"></span>';
+      cluster.appendChild(logo);
 
       layer.appendChild(cluster);
       setTimeout(() => cluster.remove(), 2300);
