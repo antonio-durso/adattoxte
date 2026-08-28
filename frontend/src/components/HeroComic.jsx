@@ -28,8 +28,8 @@ export default function HeroComic() {
       style={{ position: 'relative', width: '100%', maxWidth: 860, margin: '28px auto 0', cursor: 'pointer' }}
     >
       <img
-        src="/images/hero.webp"
-        alt="Seduta di psicologia online da casa"
+        src="/images/workspace-portal.webp"
+        alt="Seduta di psicologia online in uno spazio sereno"
         width={1536}
         height={1024}
         fetchPriority="high"
