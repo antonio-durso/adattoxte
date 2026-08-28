@@ -53,12 +53,14 @@ export default function App() {
                   <stop offset="100%" stopColor="#a5b4fc" />
                 </linearGradient>
               </defs>
-              <circle className="p-circle p-1" cx="300" cy="300" r="95" />
-              <circle className="p-circle p-2" cx="300" cy="300" r="140" />
-              <circle className="p-circle p-3" cx="300" cy="300" r="185" />
-              <circle className="p-circle p-4" cx="300" cy="300" r="230" />
-              <circle className="p-circle p-5" cx="300" cy="300" r="275" />
-              <circle className="p-circle p-6" cx="300" cy="300" r="320" />
+              <circle className="p-circle p-1" cx="300" cy="300" r="65" />
+              <circle className="p-circle p-2" cx="300" cy="300" r="110" />
+              <circle className="p-circle p-3" cx="300" cy="300" r="155" />
+              <circle className="p-circle p-4" cx="300" cy="300" r="200" />
+              <circle className="p-circle p-5" cx="300" cy="300" r="245" />
+              <circle className="p-circle p-6" cx="300" cy="300" r="290" />
+              <circle className="p-circle p-7" cx="300" cy="300" r="335" />
+              <circle className="p-circle p-8" cx="300" cy="300" r="380" />
             </svg>
           </div>
           <Navbar />

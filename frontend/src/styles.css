@@ -796,3 +796,72 @@ body::before {
   .portal-bg { animation: none; }
   .p-circle { animation: none; opacity: 0.18; }
 }
+
+/* ===== Portale interattivo: anelli che si aprono dove tocchi ===== */
+.portal-touch {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ti-cluster {
+  position: fixed;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.ti-ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid rgba(72, 168, 216, 0.55);
+  box-shadow: 0 0 26px rgba(72, 168, 216, 0.28), inset 0 0 26px rgba(95, 201, 201, 0.16);
+  opacity: 0;
+  animation: ti-ring-expand 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes ti-ring-expand {
+  0%   { transform: translate(-50%, -50%) scale(0.2); opacity: 0.75; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+.ti-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.3px;
+  color: #286a8f;
+  white-space: nowrap;
+  opacity: 0;
+  animation: ti-text-pop 1.9s ease-in-out forwards;
+}
+
+@keyframes ti-text-pop {
+  0%   { opacity: 0; transform: translate(-50%, -40%) scale(0.7); }
+  25%  { opacity: 1; transform: translate(-50%, -55%) scale(1.06); }
+  75%  { opacity: 0.85; transform: translate(-50%, -80%) scale(1.0); }
+  100% { opacity: 0; transform: translate(-50%, -115%) scale(0.95); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ti-ring, .ti-text { animation: none; }
+}
+
+/* Anelli di sfondo un po' più visibili */
+.p-circle {
+  stroke-width: 2;
+}
+@keyframes portal-open {
+  0%   { opacity: 0; transform: scale(0.5); }
+  30%  { opacity: 0.62; }
+  70%  { opacity: 0.3; transform: scale(1.0); }
+  100% { opacity: 0; transform: scale(1.08); }
+}
