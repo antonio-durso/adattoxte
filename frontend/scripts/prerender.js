@@ -229,7 +229,7 @@ async function main() {
         // Budget ampio solo per la home (carica dati API); 8s per le altre
         const budget = route === '/' ? 20000 : 8000;
         let dom = execSync(
-          `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=${budget} --dump-dom "${url}"`,
+          `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=${budget} --timeout=25000 --dump-dom "${url}"`,
           { encoding: 'utf8', timeout: 90000, maxBuffer: 32 * 1024 * 1024 }
         );
         // Rotte statiche: rimuovi i moduli React (entry + preload) → zero JS framework
