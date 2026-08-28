@@ -18,10 +18,16 @@ function setMeta(attr, key, content) {
   el.setAttribute('content', content);
 }
 
-export default function Seo({ title, description, path = '/', image, jsonLd }) {
+export default function Seo({ title, description, path = '/', image, jsonLd, noindex }) {
   useEffect(() => {
     const fullTitle = title ? `${title} | Adatto x Te` : 'Adatto x Te - Psicologia online';
     document.title = fullTitle;
+    if (noindex) {
+      setMeta('name', 'robots', 'noindex');
+    } else {
+      const robotsMeta = document.querySelector('meta[name="robots"]');
+      if (robotsMeta && robotsMeta.getAttribute('content') === 'noindex') robotsMeta.remove();
+    }
     setMeta('name', 'description', description || 'Adatto x Te - Piattaforma di consulenza psicologica online. Terapisti qualificati, sedute video da casa.');
     setMeta('property', 'og:title', fullTitle);
     setMeta('property', 'og:description', description || 'Adatto x Te - Piattaforma di consulenza psicologica online.');
@@ -51,8 +57,10 @@ export default function Seo({ title, description, path = '/', image, jsonLd }) {
     return () => {
       const el = document.getElementById('seo-jsonld');
       if (el) el.remove();
+      const robotsMeta = document.querySelector('meta[name="robots"]');
+      if (robotsMeta && robotsMeta.getAttribute('content') === 'noindex') robotsMeta.remove();
     };
-  }, [title, description, path, image, jsonLd]);
+  }, [title, description, path, image, jsonLd, noindex]);
 
   return null;
 }

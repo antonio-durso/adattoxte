@@ -29,6 +29,7 @@ const Privacy = lazy(() => import('./pages/Privacy'));
 const ChiSiamo = lazy(() => import('./pages/ChiSiamo'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const Terms = lazy(() => import('./pages/Terms'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
   return (
@@ -106,7 +107,7 @@ export default function App() {
                     </ProtectedRoute>
                   }
                 />
-                <Route path="*" element={<Navigate to="/" replace />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
           </main>
