@@ -27,8 +27,13 @@ const isStatic = STATIC_ROUTES.has(path) || (path.startsWith('/blog/') && path.l
 // Durante il prerender statico (scripts/prerender.js) forziamo il render anche
 // sulle rotte statiche, così l'HTML catturato contiene TUTTO il contenuto
 const PRERENDER = new URLSearchParams(window.location.search).has('__prerender');
+// Fallback (fix Vercel 28/08): se il prerender NON è stato eseguito (su Vercel
+// manca Chrome e lo script esce in silenzio), l'HTML servito non contiene
+// header/main ma solo la hero statica: montiamo React comunque, così la pagina
+// funziona via rendering client-side (come con la vecchia architettura).
+const hasStaticContent = !!(document.querySelector('header, nav, main'));
 
-if (!isStatic || PRERENDER) {
+if (!isStatic || PRERENDER || !hasStaticContent) {
   // Disattiva gli handler vanilla (le interazioni tornano a React)
   if (typeof window.__disableStatic === 'function') window.__disableStatic();
   // Sui percorsi React le dissolvenze "reveal" usano l'observer.
