@@ -22,8 +22,10 @@ const BASE_URL = `http://localhost:${PORT}`;
 // sovrascritta prima, le altre rotte riceverebbero la home senza React.
 // Le landing "psicologo online + disturbo/città" vengono generate dagli archivi.
 // Modalità veloce per CI/Vercel (PRERENDER_FAST=1): prerenderizza SOLO le rotte
-// statiche senza mount React (vedi STATIC_NO_MOUNT), ~20 pagine in ~2 minuti.
-// Le landing programmatiche restano rendering JS lato client (Google le indicizza).
+// statiche senza mount React (vedi STATIC_NO_MOUNT), 9 pagine in ~1-2 minuti.
+// Niente articoli: la cattura Chrome di tutte le rotte blog supera il limite di
+// build di Vercel (45 min). Articoli e landing restano rendering JS lato client
+// (Google le indicizza).
 const FAST = process.env.PRERENDER_FAST === '1';
 const STATIC_CORE = [
   '/blog',
@@ -37,7 +39,7 @@ const STATIC_CORE = [
   '/',
 ];
 const ROUTES = FAST
-  ? [...articles.map((a) => `/blog/${a.slug}`), ...STATIC_CORE]
+  ? STATIC_CORE
   : [
       ...disturbi.map((d) => `/psicologo-online/${d.slug}`),
       ...citta.map((c) => `/psicologo-online/${c.slug}`),
