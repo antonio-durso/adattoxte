@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/build-seo.js",
-    "build": "vite build && if [ \"$VERCEL\" = \"1\" ]; then sh scripts/ensure-chrome-deps.sh && PRERENDER_FAST=1 node scripts/prerender.js; else sh scripts/ensure-chrome-deps.sh && (node scripts/prerender.js || true); fi && node scripts/inline-css.cjs",
+    "build": "vite build && if [ \"$VERCEL\" = \"1\" ]; then PRERENDER_FAST=1 node scripts/prerender.js; else sh scripts/ensure-chrome-deps.sh && (node scripts/prerender.js || true); fi && node scripts/inline-css.cjs",
     "preview": "vite preview"
   },
   "dependencies": {
