@@ -279,7 +279,9 @@ function run() {
 
     // Admin
     const adminId = crypto.randomUUID();
-    insertUser.run(adminId, 'Amministratore Adatto x Te', 'admin@adattoxte.it', hash(demoPw('admin', 'Admin123!')), 'admin', '', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
+    const adminPw = process.env.SEED_ADMIN_PASSWORD || demoPw('admin', 'Admin123!');
+    if (process.env.SEED_ADMIN_PASSWORD) console.log(`[SEED] admin: password da variabile d'ambiente SEED_ADMIN_PASSWORD`);
+    insertUser.run(adminId, 'Amministratore Adatto x Te', 'admin@adattoxte.it', hash(adminPw), 'admin', '', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
 
     // Paziente demo
     const patientId = crypto.randomUUID();
