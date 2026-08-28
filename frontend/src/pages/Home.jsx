@@ -305,6 +305,54 @@ export default function Home() {
           />
         </div>
       </section>
+
+      {/* Sezione social: segui Adatto x Te su Instagram e Facebook */}
+      <section className="container section" style={{ background: 'linear-gradient(120deg,#eaf4fb,#ffffff 55%,#fdf3ee)', borderRadius: 24 }}>
+        <h2 style={{ textAlign: 'center', marginBottom: 6 }}>Seguici sui social</h2>
+        <p className="section-sub" style={{ maxWidth: 560, textAlign: 'center', margin: '0 auto 24px' }}>
+          Consigli di benessere, approfondimenti e novità: ti aspettiamo su Instagram e Facebook.
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 18, justifyContent: 'center', alignItems: 'center' }}>
+          <a
+            href="https://www.instagram.com/adattoxte"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: 14, background: '#fff', border: '1px solid #e2e8f0', borderRadius: 16, padding: '12px 18px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(0,0,0,.06)' }}
+          >
+            <img
+              src="/images/social/instagram-profile.png"
+              alt="Adatto x Te su Instagram"
+              width={72}
+              height={72}
+              loading="lazy"
+              style={{ borderRadius: 18, display: 'block' }}
+            />
+            <span style={{ lineHeight: 1.3 }}>
+              <strong style={{ display: 'block', color: '#1a1a2e' }}>Instagram</strong>
+              <span style={{ fontSize: 13, color: '#286a8f', fontWeight: 600 }}>@adattoxte</span>
+            </span>
+          </a>
+          <a
+            href="https://www.facebook.com/people/Adatto-x-Te/61593750877130/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: 14, background: '#fff', border: '1px solid #e2e8f0', borderRadius: 16, padding: '12px 18px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(0,0,0,.06)' }}
+          >
+            <img
+              src="/images/social/facebook-cover.png"
+              alt="Adatto x Te su Facebook"
+              width={168}
+              height={62}
+              loading="lazy"
+              style={{ borderRadius: 12, display: 'block' }}
+            />
+            <span style={{ lineHeight: 1.3 }}>
+              <strong style={{ display: 'block', color: '#1a1a2e' }}>Facebook</strong>
+              <span style={{ fontSize: 13, color: '#286a8f', fontWeight: 600 }}>Adatto x Te</span>
+            </span>
+          </a>
+        </div>
+      </section>
       </Deferred>
 
     </>
