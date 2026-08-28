@@ -180,6 +180,8 @@ export default function Home() {
         </div>
         <img
           src="/images/workspace-portal.webp"
+          srcSet="/images/workspace-portal-768.webp 768w, /images/workspace-portal.webp 1536w"
+          sizes="(max-width: 1200px) 86vw, 1036px"
           alt="Il tuo spazio per le sedute online"
           width={1536}
           height={1024}

@@ -29,9 +29,11 @@ export default function HeroComic() {
     >
       <img
         src="/images/hero.webp"
+        srcSet="/images/hero-480.webp 480w, /images/hero-768.webp 768w, /images/hero.webp 900w"
+        sizes="(max-width: 900px) 100vw, 900px"
         alt="Seduta di psicologia online da casa"
-        width={1536}
-        height={1024}
+        width={900}
+        height={600}
         fetchPriority="high"
         loading="eager"
         style={{ width: '100%', height: 'auto', borderRadius: 18, boxShadow: '0 18px 40px rgba(0,0,0,.18)', display: 'block' }}
