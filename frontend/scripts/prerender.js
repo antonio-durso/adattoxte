@@ -21,26 +21,43 @@ const BASE_URL = `http://localhost:${PORT}`;
 // dist/index.html; se la home (che viene resa senza moduli React) venisse
 // sovrascritta prima, le altre rotte riceverebbero la home senza React.
 // Le landing "psicologo online + disturbo/città" vengono generate dagli archivi.
-const ROUTES = [
-  ...disturbi.map((d) => `/psicologo-online/${d.slug}`),
-  ...citta.map((c) => `/psicologo-online/${c.slug}`),
-  ...articles.map((a) => `/blog/${a.slug}`),
-  '/terapeuti',
-  '/chi-siamo',
+// Modalità veloce per CI/Vercel (PRERENDER_FAST=1): prerenderizza SOLO le rotte
+// statiche senza mount React (vedi STATIC_NO_MOUNT), ~20 pagine in ~2 minuti.
+// Le landing programmatiche restano rendering JS lato client (Google le indicizza).
+const FAST = process.env.PRERENDER_FAST === '1';
+const STATIC_CORE = [
   '/blog',
   '/risorse',
-  '/recensioni',
-  '/test',
   '/psicologo-concorsi-pubblici',
   '/psicologo-sport',
   '/psicologia-giuridica',
-  '/registrazione',
-  '/accedi',
   '/privacy',
   '/cookie',
   '/termini',
   '/',
 ];
+const ROUTES = FAST
+  ? [...articles.map((a) => `/blog/${a.slug}`), ...STATIC_CORE]
+  : [
+      ...disturbi.map((d) => `/psicologo-online/${d.slug}`),
+      ...citta.map((c) => `/psicologo-online/${c.slug}`),
+      ...articles.map((a) => `/blog/${a.slug}`),
+      '/terapeuti',
+      '/chi-siamo',
+      '/blog',
+      '/risorse',
+      '/recensioni',
+      '/test',
+      '/psicologo-concorsi-pubblici',
+      '/psicologo-sport',
+      '/psicologia-giuridica',
+      '/registrazione',
+      '/accedi',
+      '/privacy',
+      '/cookie',
+      '/termini',
+      '/',
+    ];
 
 // Rotte 100% statiche: HTML puro, nessun modulo React (vedi src/main.jsx).
 // NOTA: anche '/' e' statica: e' interamente prerenderizzata e le interazioni
