@@ -652,8 +652,16 @@ body:not(.react-mounted) .reveal { opacity: 1; transform: none; }
 /* Aurora a tutta pagina: il bianco diventa un colore tridimensionale che
    cambia lentamente (azzurro -> ciano -> viola tenue), calmo e sereno.
    Un solo livello fisso dietro il contenuto, animato con transform (GPU). */
+/* Colore di riserva su <html>; il body resta trasparente così il livello
+   aurora (body::before, z-index negativo) si vede SOPRA lo sfondo di riserva
+   e SOTTO il contenuto — senza questo accorgimento l'aurora restava
+   nascosta dietro il background-color del body. */
+html {
+  background-color: #eef6fc;
+}
+
 body {
-  background-color: #f6fafd;
+  background-color: transparent;
 }
 
 body::before {
@@ -663,11 +671,11 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 55% 45% at 22% 8%, rgba(72, 168, 216, 0.20) 0%, transparent 62%),
-    radial-gradient(ellipse 50% 42% at 82% 18%, rgba(95, 201, 201, 0.16) 0%, transparent 62%),
-    radial-gradient(ellipse 48% 40% at 45% 88%, rgba(165, 180, 252, 0.16) 0%, transparent 62%),
-    radial-gradient(ellipse 42% 36% at 8% 60%, rgba(140, 190, 240, 0.10) 0%, transparent 60%),
-    linear-gradient(180deg, #ffffff 0%, #f5faff 45%, #edf6fc 100%);
+    radial-gradient(ellipse 55% 45% at 22% 8%, rgba(72, 168, 216, 0.26) 0%, transparent 62%),
+    radial-gradient(ellipse 50% 42% at 82% 18%, rgba(95, 201, 201, 0.20) 0%, transparent 62%),
+    radial-gradient(ellipse 48% 40% at 45% 88%, rgba(165, 180, 252, 0.20) 0%, transparent 62%),
+    radial-gradient(ellipse 42% 36% at 8% 60%, rgba(140, 190, 240, 0.13) 0%, transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #f5faff 45%, #e4f2fb 100%);
   background-size: 140% 140%;
   animation: aurora-drift 34s ease-in-out infinite alternate;
   will-change: transform;
