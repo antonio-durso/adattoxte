@@ -3,17 +3,19 @@
  * Piattaforma di consulenza psicologica online (business plan cap. 4.1)
  */
 require('dotenv').config();
-const express = require('express');
 
-// Monitoraggio errori (Sentry) — attivo solo se SENTRY_DSN è configurato su Render
+// Monitoraggio errori (Sentry) — attivo solo se SENTRY_DSN è configurato su Render.
+// IMPORTANTE: va inizializzato PRIMA di require('express') per l'instrumentazione.
 const Sentry = require('@sentry/node');
 if (process.env.SENTRY_DSN) {
   Sentry.init({
     dsn: process.env.SENTRY_DSN,
     environment: process.env.NODE_ENV || 'production',
     tracesSampleRate: 0.1,
+    integrations: [Sentry.expressIntegration()],
   });
 }
+const express = require('express');
 const cors = require('cors');
 const compression = require('compression');
 const helmet = require('helmet');
@@ -25,9 +27,6 @@ const app = express();
 
 // Sicurezza header HTTP (CSP, X-Frame-Options, nosniff, ...)
 app.use(helmet());
-if (process.env.SENTRY_DSN) {
-  app.use(Sentry.Handlers.requestHandler());
-}
 // Compressione gzip delle risposte HTTP (prima delle rotte)
 app.use(compression());
 app.use(cors({ origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : true }));
@@ -66,7 +65,7 @@ app.use('/api/admin', require('./routes/admin'));
 
 // Sentry: handler degli errori (dopo le route, prima dell'error handler finale)
 if (process.env.SENTRY_DSN) {
-  app.use(Sentry.Handlers.errorHandler());
+  Sentry.setupExpressErrorHandler(app);
 }
 
 // Gestione errori centralizzata
