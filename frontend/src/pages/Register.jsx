@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
 import Seo from '../components/Seo';
+import { track } from '../analytics';
 
 export default function Register() {
   const { register } = useAuth();
@@ -40,6 +41,7 @@ export default function Register() {
     setBusy(true);
     try {
       const user = await register(form);
+      try { track('sign_up', { method: 'email', role: user.role }); } catch (e) {}
       navigate(user.role === 'therapist' ? '/area-terapeuta' : '/area-paziente');
     } catch (err) {
       setError(err.response?.data?.error || t('common.error'));
