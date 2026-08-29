@@ -6,7 +6,7 @@ export const extraArticles12 = [
     keyword: 'unobravo vs serenis confronto',
     metaDescription: 'Confronto tra le principali piattaforme di psicologia online in Italia: prezzi, primo colloquio, recensioni. Unobravo vs Serenis vs Adatto x Te, con i numeri aggiornati.',
     date: '2026-08-27',
-    body: `<h1>Unobravo, Serenis o Adatto x Te: confronto prezzi e servizi</h1>
+    body: `<h2>Unobravo, Serenis o Adatto x Te: confronto prezzi e servizi</h2>
 <p>Se stai cercando uno psicologo online in Italia, i nomi che compaiono più spesso sono <strong>Unobravo</strong> e <strong>Serenis</strong>, le due piattaforme più grandi del settore. Ma "più grande" non significa "più adatto a te": prezzi, modalità e servizi cambiano. In questa guida confrontiamo i numeri reali delle tre piattaforme — inclusa <strong>Adatto x Te</strong> — aggiornati ad agosto 2026.</p>
 <h2>Prezzi a confronto</h2>
 <ul>
