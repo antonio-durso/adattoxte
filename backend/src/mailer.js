@@ -147,6 +147,20 @@ const TEMPLATES = {
       <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;margin-top:10px;white-space:pre-wrap">${esc(d.message)}</div>
       <p style="font-size:12px;color:#94a3b8;margin-top:16px">Puoi rispondere direttamente a <a href="mailto:${esc(d.email)}">${esc(d.email)}</a></p>
     `),
+  testResult: (d) =>
+    base(`
+      <h2 style="margin-top:0">Ecco il tuo risultato 🧠</h2>
+      <p>Grazie per aver completato il test di benessere (<strong>${esc(d.testLabel)}</strong>).</p>
+      <p style="background:#f8fafc;border-radius:10px;padding:16px;text-align:center">
+        <span style="font-size:13px;color:#64748b">Il tuo punteggio</span><br/>
+        <span style="font-size:34px;font-weight:800;color:#48A8D8">${d.score == null ? '—' : esc(String(d.score))}</span><br/>
+        <span style="font-weight:700">${esc(d.level || '')}</span>
+      </p>
+      <p style="font-size:13px;color:#64748b">Ricorda: il test è uno strumento di consapevolezza e non costituisce una diagnosi. Solo un professionista può interpretarlo nel contesto di un percorso.</p>
+      ${btn(SITE_URL + '/test', 'Rifai il test')}
+      ${btn(SITE_URL + '/terapeuti', 'Parla con uno psicologo')}
+      <p style="font-size:12px;color:#94a3b8">Ricevi questa email perché hai richiesto il risultato del test su Adatto x Te. Puoi chiedere la cancellazione dei tuoi dati in qualsiasi momento scrivendo a ${esc(process.env.EMAIL_FROM || 'ant.durso1@gmail.com')}.</p>
+    `),
 };
 
 // Escape HTML per contenuti inseriti dagli utenti (sicurezza email)

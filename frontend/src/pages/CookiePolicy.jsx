@@ -1,6 +1,13 @@
+import Seo from '../components/Seo';
+
 export default function CookiePolicy() {
   return (
     <div className="container section legal">
+      <Seo
+        title="Informativa cookie"
+        description="Informativa cookie di Adatto x Te: cookie tecnici e di analisi, consenso, durata e come gestire le preferenze."
+        path="/cookie"
+      />
       <h1>Informativa cookie</h1>
       <p className="muted">Ultimo aggiornamento: {new Date().toLocaleDateString('it-IT')}</p>
 
@@ -30,7 +37,7 @@ export default function CookiePolicy() {
       </p>
 
       <h2>5. Contatti</h2>
-      <p>Per domande sui cookie: privacy@adattoxte.it</p>
+      <p>Per domande sui cookie: ant.durso1@gmail.com</p>
     </div>
   );
 }

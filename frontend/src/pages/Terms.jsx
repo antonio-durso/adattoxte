@@ -1,6 +1,13 @@
+import Seo from '../components/Seo';
+
 export default function Terms() {
   return (
     <div className="container section legal">
+      <Seo
+        title="Termini di servizio"
+        description="Termini di servizio di Adatto x Te: prenotazioni, prezzi (45€/50€), pagamenti PayPal, rimborsi e numeri di emergenza."
+        path="/termini"
+      />
       <h1>Termini di servizio</h1>
       <p className="muted">Ultimo aggiornamento: {new Date().toLocaleDateString('it-IT')}</p>
 
@@ -98,7 +105,7 @@ export default function Terms() {
 
       <h2>11. Contatti</h2>
       <p>
-        Per qualsiasi domanda su servizio, prenotazioni o dati personali: <strong>privacy@adattoxte.it</strong>.
+        Per qualsiasi domanda su servizio, prenotazioni o dati personali: <strong>ant.durso1@gmail.com</strong>.
       </p>
     </div>
   );

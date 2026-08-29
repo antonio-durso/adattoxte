@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 const cardStyle = {
   background: '#fff',
@@ -28,6 +29,11 @@ const avatarStyle = (bg) => ({
 export default function ChiSiamo() {
   return (
     <main className="container" style={{ paddingTop: 40, paddingBottom: 48 }}>
+      <Seo
+        title="Chi siamo"
+        description="Adatto x Te è la piattaforma di psicologia online che rende la terapia accessibile: sedute in videochiamata da 45€, terapeuti iscritti all'Albo, recensioni verificate."
+        path="/chi-siamo"
+      />
       <h1 style={{ textAlign: 'center' }}>Chi siamo</h1>
       <p className="section-sub" style={{ maxWidth: 640, textAlign: 'center', margin: '0 auto 26px' }}>
         Adatto x Te è la piattaforma di psicologia online che rende la terapia accessibile:

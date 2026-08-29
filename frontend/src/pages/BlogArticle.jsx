@@ -117,7 +117,18 @@ export default function BlogArticle() {
         description={article.metaDescription}
         path={`/blog/${article.slug}`}
         image="https://www.adattoxte.com/images/hero.jpg"
-        jsonLd={articleSchema}
+        jsonLd={[
+          articleSchema,
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.adattoxte.com/' },
+              { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.adattoxte.com/blog' },
+              { '@type': 'ListItem', position: 3, name: article.title, item: `https://www.adattoxte.com/blog/${article.slug}` },
+            ],
+          },
+        ]}
       />
       {/* FAQPage rich snippet (se l'articolo ha domande frequenti) */}
       {article.faq && article.faq.length > 0 && (

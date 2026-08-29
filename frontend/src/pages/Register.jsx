@@ -16,6 +16,7 @@ export default function Register() {
     password: '',
     role: searchParams.get('tipo') === 'terapeuta' ? 'therapist' : 'patient',
     consent: false,
+    healthConsent: false,
     refCode: searchParams.get('ref') || '',
   });
   const [error, setError] = useState('');
@@ -30,6 +31,10 @@ export default function Register() {
     setError('');
     if (!form.consent) {
       setError('Devi accettare l’informativa privacy e i termini di servizio.');
+      return;
+    }
+    if (!form.healthConsent) {
+      setError('Devi acconsentire al trattamento dei dati relativi alla salute (art. 9 GDPR).');
       return;
     }
     setBusy(true);
@@ -92,6 +97,17 @@ export default function Register() {
             <input type="checkbox" checked={form.consent} onChange={(e) => set('consent', e.target.checked)} />
             <span>
               Accetto l’<Link to="/privacy">informativa privacy</Link> e i <Link to="/termini">termini di servizio</Link> (Reg. UE 2016/679).
+            </span>
+          </label>
+
+          {/* Consenso dedicato ai dati di salute (art. 9 GDPR): separato dai termini,
+              come richiesto per le categorie speciali di dati (test, sedute, note) */}
+          <label className="checkbox">
+            <input type="checkbox" checked={form.healthConsent} onChange={(e) => set('healthConsent', e.target.checked)} />
+            <span>
+              Acconsento <strong>esplicitamente</strong> al trattamento dei miei dati relativi alla salute
+              (esiti dei test, contenuto delle sedute e delle comunicazioni) per la finalità di erogare il
+              servizio richiesto, ai sensi dell'<Link to="/privacy">art. 9 del Reg. UE 2016/679</Link>.
             </span>
           </label>
 

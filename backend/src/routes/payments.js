@@ -11,10 +11,21 @@
  * demo (la seduta viene marcata pagata senza addebito reale).
  */
 const express = require('express');
+const rateLimit = require('express-rate-limit');
 const { db } = require('../db');
 const { authRequired, requireRole } = require('../middleware/auth');
 
 const router = express.Router();
+
+// Rate limiting sugli endpoint di pagamento (anti abuso: max 20 operazioni/15 min per IP)
+const paymentsLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Troppi tentativi di pagamento. Riprova tra qualche minuto.' },
+});
+router.use(paymentsLimiter);
 
 const PAYPAL_CONFIGURED = !!(process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET);
 const PAYPAL_API =

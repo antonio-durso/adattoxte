@@ -43,20 +43,25 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
     }
     canonical.setAttribute('href', BASE + path);
 
-    // JSON-LD per pagina (sostituisce il precedente)
-    const prev = document.getElementById('seo-jsonld');
-    if (prev) prev.remove();
+    // JSON-LD per pagina: accetta un oggetto singolo o un ARRAY di oggetti
+    // (es. FAQPage + BreadcrumbList + Article), sostituisce i precedenti
+    const prevAll = document.querySelectorAll('[data-seo-jsonld]');
+    prevAll.forEach((el) => el.remove());
     if (jsonLd) {
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.id = 'seo-jsonld';
-      script.text = JSON.stringify(jsonLd);
-      document.head.appendChild(script);
+      const items = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+      items.forEach((item, i) => {
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.id = `seo-jsonld-${i}`;
+        script.setAttribute('data-seo-jsonld', '1');
+        script.text = JSON.stringify(item);
+        document.head.appendChild(script);
+      });
     }
 
     return () => {
-      const el = document.getElementById('seo-jsonld');
-      if (el) el.remove();
+      const els = document.querySelectorAll('[data-seo-jsonld]');
+      els.forEach((el) => el.remove());
       const robotsMeta = document.querySelector('meta[name="robots"]');
       if (robotsMeta && robotsMeta.getAttribute('content') === 'noindex') robotsMeta.remove();
     };

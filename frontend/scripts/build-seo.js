@@ -43,6 +43,8 @@ const STATIC_ROUTES = [
   { path: '/blog', priority: '0.9', freq: 'daily' },
   { path: '/risorse', priority: '0.6', freq: 'weekly' },
   { path: '/recensioni', priority: '0.7', freq: 'weekly' },
+  { path: '/prezzi', priority: '0.7', freq: 'weekly' },
+  { path: '/aziende', priority: '0.6', freq: 'weekly' },
   { path: '/test', priority: '0.5', freq: 'weekly' },
   { path: '/psicologo-concorsi-pubblici', priority: '0.8', freq: 'weekly' },
   { path: '/psicologo-sport', priority: '0.8', freq: 'weekly' },

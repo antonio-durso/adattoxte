@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import api from '../api';
+import { track } from '../analytics';
 
 /**
  * Pagina di pagamento con popup PayPal (Smart Buttons): il paziente rimane
@@ -34,6 +35,7 @@ export default function Checkout() {
           setBooking(pay.data.booking);
           setSuccess({ paid: true, demo: false, free: true });
           setLoading(false);
+          track('first_session_free', { bookingId: pay.data.booking?.id });
           return;
         }
 
@@ -42,6 +44,7 @@ export default function Checkout() {
           setDemo(true);
           setBooking(pay.data.bookingId ? { id: pay.data.bookingId } : null);
           setLoading(false);
+          track('demo_payment', { bookingId: pay.data.bookingId });
           return;
         }
 
@@ -89,6 +92,9 @@ export default function Checkout() {
           try {
             const r = await api.post('/payments/capture', { orderId: data.orderID });
             setSuccess({ paid: !!r.data.paid, demo: false });
+            if (r.data.paid) {
+              track('purchase', { value: Number(booking?.price) || 0, currency: 'EUR', bookingId: r.data.bookingId });
+            }
           } catch (e) {
             setError(e.response?.data?.error || 'Errore nella conferma del pagamento');
           }
@@ -138,6 +144,13 @@ export default function Checkout() {
               Prenota un’altra seduta
             </Link>
           </div>
+          {booking?.id && (
+            <p style={{ marginTop: 12, textAlign: 'center' }}>
+              <Link to={`/ricevuta/${booking.id}`} className="muted small" style={{ color: '#286a8f', fontWeight: 600 }}>
+                🧾 Scarica la ricevuta
+              </Link>
+            </p>
+          )}
         </div>
       </div>
     );

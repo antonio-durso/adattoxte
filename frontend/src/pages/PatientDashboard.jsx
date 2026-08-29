@@ -123,6 +123,19 @@ export default function PatientDashboard() {
     <div className="container section">
       <h1>La mia area</h1>
 
+      {/* E5: numeri di emergenza sempre visibili nell'area paziente */}
+      <div className="card" style={{ marginBottom: 20, padding: '12px 16px', background: '#fff7ed', border: '2px solid #f97316' }}>
+        <p style={{ margin: 0, fontSize: 13, lineHeight: 1.6, color: '#431407' }}>
+          <strong>⚕️ Questo servizio non è un servizio di emergenza.</strong> Se hai pensieri di farti del male o
+          stai vivendo una situazione di pericolo, chiama subito{' '}
+          <a href="tel:112" style={{ color: '#b91c1c', fontWeight: 700 }}>112</a> /{' '}
+          <a href="tel:118" style={{ color: '#b91c1c', fontWeight: 700 }}>118</a> (24h) ·{' '}
+          <a href="tel:1522" style={{ color: '#b91c1c', fontWeight: 700 }}>1522</a> anti-violenza (24h) ·{' '}
+          <a href="tel:199284284" style={{ color: '#b91c1c', fontWeight: 700 }}>199 284 284</a> Telefono Amico
+          (10-24) · oppure rivolgiti al Pronto Soccorso più vicino.
+        </p>
+      </div>
+
       {paymentStatus === 'ok' && (
         <div className="card" style={{ marginBottom: 20, padding: 16, background: '#ecfdf5', border: '2px solid #10b981' }}>
           <p style={{ margin: 0 }} className="ok-text">✅ Pagamento confermato. La tua seduta è registrata come pagata.</p>

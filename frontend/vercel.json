@@ -5,7 +5,7 @@
       "destination": "https://adattoxte-backend.onrender.com/api/$1"
     },
     {
-      "source": "/(.*)",
+      "source": "/(psicologo-online|blog|terapeuti|chi-siamo|ricevuta|risorse|recensioni|test|psicologo-concorsi-pubblici|psicologo-sport|psicologia-giuridica|registrazione|accedi|privacy|cookie|termini|area-paziente|pagamento|area-terapeuta|area-admin|impostazioni|prezzi|aziende)(/.*)?",
       "destination": "/index.html"
     }
   ],

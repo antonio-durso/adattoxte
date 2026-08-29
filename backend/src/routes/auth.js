@@ -24,7 +24,7 @@ function isValidEmail(email) {
 
 // POST /api/auth/register
 router.post('/register', async (req, res) => {
-  const { name, email, password, role, consent, refCode } = req.body || {};
+  const { name, email, password, role, consent, healthConsent, refCode } = req.body || {};
 
   if (!name || !email || !password) {
     return res.status(400).json({ error: 'Nome, email e password sono obbligatori' });
@@ -38,6 +38,10 @@ router.post('/register', async (req, res) => {
   if (!consent) {
     return res.status(400).json({ error: 'Devi accettare l\'informativa privacy e i termini di servizio (GDPR)' });
   }
+  // Consenso dedicato ai dati di salute (categoria speciale, art. 9 GDPR)
+  if (!healthConsent) {
+    return res.status(400).json({ error: 'Devi acconsentire al trattamento dei dati relativi alla salute (art. 9 GDPR)' });
+  }
 
   const existing = db.prepare('SELECT id FROM users WHERE email = ?').get(email.toLowerCase());
   if (existing) return res.status(409).json({ error: 'Esiste già un account con questa email' });
@@ -46,9 +50,9 @@ router.post('/register', async (req, res) => {
   const passwordHash = bcrypt.hashSync(String(password), 10);
   const referralCode = crypto.randomBytes(4).toString('hex').toUpperCase();
   const insert = db.prepare(
-    'INSERT INTO users (id, name, email, password_hash, role, consent_to_tos, consent_date, referral_code) VALUES (?, ?, ?, ?, ?, 1, ?, ?)'
+    'INSERT INTO users (id, name, email, password_hash, role, consent_to_tos, consent_date, health_consent, health_consent_date, referral_code) VALUES (?, ?, ?, ?, ?, 1, ?, 1, ?, ?)'
   );
-  insert.run(id, name.trim(), email.toLowerCase(), passwordHash, role, new Date().toISOString(), referralCode);
+  insert.run(id, name.trim(), email.toLowerCase(), passwordHash, role, new Date().toISOString(), new Date().toISOString(), referralCode);
 
   // Email di benvenuto (ATTESA del risultato: i Logs di Render mostrano l'esito esatto dell'invio)
   try {

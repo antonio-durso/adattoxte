@@ -29,6 +29,8 @@ function initDb() {
       bio           TEXT DEFAULT '',
       consent_to_tos INTEGER NOT NULL DEFAULT 0,
       consent_date  TEXT,
+      health_consent INTEGER NOT NULL DEFAULT 0,
+      health_consent_date TEXT,
       referral_code TEXT UNIQUE,
       credit        INTEGER NOT NULL DEFAULT 0,
       created_at    TEXT NOT NULL DEFAULT (datetime('now'))
@@ -54,6 +56,16 @@ function initDb() {
       duration_min INTEGER NOT NULL DEFAULT 50,
       booked       INTEGER NOT NULL DEFAULT 0,
       UNIQUE(therapist_id, date, start_time)
+    );
+
+    CREATE TABLE IF NOT EXISTS newsletter_leads (
+      id           TEXT PRIMARY KEY,
+      email        TEXT NOT NULL,
+      test         TEXT,
+      score        INTEGER,
+      level        TEXT,
+      consent      INTEGER NOT NULL DEFAULT 1,
+      created_at   TEXT NOT NULL DEFAULT (datetime('now'))
     );
 
     CREATE TABLE IF NOT EXISTS contact_messages (
@@ -109,6 +121,10 @@ function initDb() {
   const userCols = db.prepare('PRAGMA table_info(users)').all().map((c) => c.name);
   if (!userCols.includes('credit')) {
     db.exec('ALTER TABLE users ADD COLUMN credit INTEGER NOT NULL DEFAULT 0');
+  }
+  if (!userCols.includes('health_consent')) {
+    db.exec('ALTER TABLE users ADD COLUMN health_consent INTEGER NOT NULL DEFAULT 0');
+    db.exec('ALTER TABLE users ADD COLUMN health_consent_date TEXT');
   }
   if (!userCols.includes('referral_code')) {
     db.exec('ALTER TABLE users ADD COLUMN referral_code TEXT');

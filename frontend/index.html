@@ -26,12 +26,16 @@
     <link rel="preconnect" href="https://meet.jit.si" />
     <link rel="preload" as="image" href="/images/hero.webp" />
 
-    <!-- Canonical dinamico: ogni pagina dichiara se stessa come versione canonica (SEO) -->
+    <!-- Canonical dinamico: ogni pagina dichiara se stessa come versione canonica (SEO).
+         Usa l'URL base del sito (mai location.origin: durante il prerender statico
+         l'origin sarebbe localhost:4173 e il canonical finirebbe rotto in produzione). -->
     <link rel="canonical" href="%VITE_SITE_URL%/" />
     <script>
       (function () {
         try {
-          var url = location.origin + location.pathname;
+          var base = '%VITE_SITE_URL%' || 'https://www.adattoxte.com';
+          base = base.replace(/\/+$/, '');
+          var url = base + location.pathname;
           var canon = document.querySelector('link[rel="canonical"]');
           if (canon) canon.setAttribute('href', url);
           var og = document.querySelector('meta[property="og:url"]');
@@ -40,7 +44,6 @@
       })();
     </script>
     <link rel="alternate" hreflang="it" href="%VITE_SITE_URL%/" />
-    <link rel="alternate" hreflang="en" href="%VITE_SITE_URL%/en" />
     <link rel="alternate" hreflang="x-default" href="%VITE_SITE_URL%/" />
 
     <!-- Open Graph -->
@@ -51,7 +54,6 @@
     <meta property="og:description" content="Terapisti qualificati, sedute video da casa, in qualsiasi momento. Psicologia online a 45€." />
     <meta property="og:image" content="%VITE_SITE_URL%/images/hero.jpg" />
     <meta property="og:locale" content="it_IT" />
-    <meta property="og:locale:alternate" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -94,9 +96,12 @@
     }
     </script>
 
-    <!-- Google Analytics 4: caricato DOPO il load della pagina per non bloccare l'LCP -->
+    <!-- Google Analytics 4: caricato SOLO dopo il consenso esplicito dell'utente
+         (banner cookie, chiave adt_cookie_consent) e DOPO il load per non bloccare l'LCP -->
     <script>
       function initAnalytics() {
+        if (window.__adtAnalytics) return;
+        window.__adtAnalytics = true;
         var id = '%VITE_GA4_ID%';
         if (!id || id.indexOf('G-') !== 0) return;
         window.dataLayer = window.dataLayer || [];
@@ -109,14 +114,17 @@
         document.head.appendChild(s);
       }
       setTimeout(function () {
+        if (localStorage.getItem('adt_cookie_consent') !== 'accepted') return;
         if ('requestIdleCallback' in window) requestIdleCallback(initAnalytics, { timeout: 3000 });
         else initAnalytics();
       }, 12000);
     </script>
 
-    <!-- Meta Pixel: caricato DOPO il load della pagina per non bloccare l'LCP -->
+    <!-- Meta Pixel: caricato SOLO dopo il consenso esplicito dell'utente (banner cookie) -->
     <script>
       function initPixel() {
+        if (window.__adtPixel) return;
+        window.__adtPixel = true;
         var pid = '%VITE_META_PIXEL_ID%';
         if (!pid || pid.indexOf('VITE_META_PIXEL_ID') === 0) return;
         !function (f, b, e, v, n, t, s) {
@@ -131,6 +139,7 @@
         } catch (e) { /* il pixel non deve mai bloccare la pagina */ }
       }
       setTimeout(function () {
+        if (localStorage.getItem('adt_cookie_consent') !== 'accepted') return;
         if ('requestIdleCallback' in window) requestIdleCallback(initPixel, { timeout: 3000 });
         else initPixel();
       }, 12000);

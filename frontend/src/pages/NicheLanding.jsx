@@ -83,15 +83,25 @@ export default function NicheLanding({ niche }) {
         title={n.title}
         description={n.desc}
         path={n.path}
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'Service',
-          name: n.h1,
-          description: n.desc,
-          provider: { '@type': 'Organization', name: 'Adatto x Te' },
-          areaServed: 'IT',
-          serviceType: 'Consulenza psicologica online',
-        }}
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            name: n.h1,
+            description: n.desc,
+            provider: { '@type': 'Organization', name: 'Adatto x Te' },
+            areaServed: 'IT',
+            serviceType: 'Consulenza psicologica online',
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.adattoxte.com/' },
+              { '@type': 'ListItem', position: 2, name: n.h1, item: 'https://www.adattoxte.com' + n.path },
+            ],
+          },
+        ]}
       />
       {/* FAQPage JSON-LD (rich snippet FAQ su Google) */}
       <script

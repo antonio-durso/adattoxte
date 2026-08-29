@@ -1,6 +1,13 @@
+import Seo from '../components/Seo';
+
 export default function Privacy() {
   return (
     <div className="container section legal">
+      <Seo
+        title="Informativa privacy"
+        description="Informativa privacy di Adatto x Te (Reg. UE 2016/679 — GDPR): dati trattati, dati di salute (art. 9), diritti dell'interessato e contatti."
+        path="/privacy"
+      />
       <h1>Informativa privacy</h1>
       <p className="muted">Ultimo aggiornamento: {new Date().toLocaleDateString('it-IT')}</p>
 
@@ -9,7 +16,7 @@ export default function Privacy() {
         Il titolare del trattamento dei dati è <strong>Dott. Antonio D'Urso</strong>, psicologo iscritto all'Albo
         degli Psicologi della Campania (n. 5408), che gestisce la piattaforma <strong>Adatto x Te</strong>.
         Per qualunque questione relativa al trattamento dei dati puoi scrivere a{' '}
-        <strong>privacy@adattoxte.it</strong>.
+        <strong>ant.durso1@gmail.com</strong>.
       </p>
 
       <h2>2. Dati personali trattati</h2>
@@ -46,7 +53,7 @@ export default function Privacy() {
         <li><strong>Obblighi legali (art. 6.1.c GDPR):</strong> adempimenti fiscali e di legge (es. ricevute, fatturazione).</li>
         <li><strong>Legittimo interesse (art. 6.1.f GDPR):</strong> sicurezza della piattaforma e prevenzione degli abusi.</li>
       </ul>
-      <p>Il consenso al trattamento dei dati sanitari può essere <strong>revocato in ogni momento</strong> scrivendo a privacy@adattoxte.it; la revoca non pregiudica la liceità del trattamento già effettuato.</p>
+      <p>Il consenso al trattamento dei dati sanitari può essere <strong>revocato in ogni momento</strong> scrivendo a ant.durso1@gmail.com; la revoca non pregiudica la liceità del trattamento già effettuato.</p>
 
       <h2>5. Strumenti e fornitori terzi</h2>
       <ul>
@@ -77,7 +84,7 @@ export default function Privacy() {
       </ul>
       <p>
         Puoi esercitare i tuoi diritti dalla pagina <strong>Impostazioni</strong> (esportazione e cancellazione
-        disponibili direttamente) o scrivendo a <strong>privacy@adattoxte.it</strong>. Hai inoltre il diritto di
+        disponibili direttamente) o scrivendo a <strong>ant.durso1@gmail.com</strong>. Hai inoltre il diritto di
         proporre reclamo al <strong>Garante per la protezione dei dati personali</strong> (www.garanteprivacy.it).
       </p>
 
@@ -100,8 +107,9 @@ export default function Privacy() {
       </p>
 
       <p className="muted small">
-        Nota: documento predisposto per la piattaforma Adatto x Te secondo il Regolamento UE 2016/679 (GDPR) e la
-        normativa di settore; si raccomanda una validazione da parte di un legale prima di ogni uso pubblico.
+        Documento revisionato il 30/08/2026 per la piattaforma Adatto x Te, predisposto secondo il Regolamento UE
+        2016/679 (GDPR) e la normativa di settore. La validazione finale da parte di un legale è in corso di
+        definizione e verrà registrata in questa pagina.
       </p>
     </div>
   );

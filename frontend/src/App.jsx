@@ -29,6 +29,8 @@ const Privacy = lazy(() => import('./pages/Privacy'));
 const ChiSiamo = lazy(() => import('./pages/ChiSiamo'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const Terms = lazy(() => import('./pages/Terms'));
+const Prezzi = lazy(() => import('./pages/Prezzi'));
+const Aziende = lazy(() => import('./pages/Aziende'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 import PortalInteractive from './components/PortalInteractive';
 
@@ -88,6 +90,8 @@ export default function App() {
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/cookie" element={<CookiePolicy />} />
                 <Route path="/termini" element={<Terms />} />
+                <Route path="/prezzi" element={<Prezzi />} />
+                <Route path="/aziende" element={<Aziende />} />
                 <Route
                   path="/area-paziente"
                   element={

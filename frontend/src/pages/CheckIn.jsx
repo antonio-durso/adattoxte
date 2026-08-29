@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import api from '../api';
 import Seo from '../components/Seo';
+import { track } from '../analytics';
 import { useI18n } from '../i18n';
 
 // Test di benessere gratuiti (modello Talkspace/BetterHelp) — GAD-7 (ansia) e PHQ-9 (umore), dominio pubblico.
@@ -78,6 +80,13 @@ export default function CheckIn() {
   const [test, setTest] = useState('ansia');
   const [answers, setAnswers] = useState(Array(9).fill(null));
   const [done, setDone] = useState(false);
+  // B4: consenso esplicito dati di salute (art. 9 GDPR) prima di vedere il risultato
+  const [healthConsent, setHealthConsent] = useState(false);
+  // D1: lead magnet — ricevi il risultato via email
+  const [email, setEmail] = useState('');
+  const [emailOptin, setEmailOptin] = useState(false);
+  const [emailStatus, setEmailStatus] = useState('idle'); // idle | sending | ok | error
+  const [emailMsg, setEmailMsg] = useState('');
 
   const questions = QUESTIONS[test][lang] || QUESTIONS[test].it;
   const scale = SCALE[lang] || SCALE.it;
@@ -104,6 +113,16 @@ export default function CheckIn() {
           crisisText: 'Chiama subito il 112 (emergenza) o il 1522 (numero anti-violenza e sostegno psicologico), oppure rivolgiti al Pronto Soccorso più vicino. Se stai male ora, un professionista può ascoltarti subito.',
           talk: 'Parla con uno psicologo',
           retry: 'Rifai il test',
+          consentLabel: 'Acconsento al trattamento dei miei dati relativi alla salute per la valutazione del test (art. 9 GDPR).',
+          consentError: 'Per vedere il risultato devi acconsentire al trattamento dei dati di salute (art. 9 GDPR).',
+          emailTitle: '📧 Ricevi il risultato via email',
+          emailSub: 'Inserisci la tua email per ricevere il punteggio e il livello del test direttamente nella tua casella.',
+          emailPlaceholder: 'La tua email',
+          emailConsent: 'Acconsento a ricevere il risultato via email e all\'invio dei miei dati (solo per questo invio, nessuna newsletter).',
+          emailCta: 'Invia il risultato →',
+          emailSending: 'Invio in corso…',
+          emailOk: 'Risultato inviato! Controlla la tua casella.',
+          emailErr: 'Invio non riuscito. Riprova.',
           disclaimer: '⚠️ Questo test usa le scale standard internazionali GAD-7 e PHQ-9 (dominio pubblico) ma non sostituisce una valutazione professionale.',
           sourcesTitle: '📚 Fonti scientifiche',
           sourcesIntro: 'I test si basano sulle scale cliniche internazionali GAD-7 e PHQ-9, validate dalla ricerca:',
@@ -125,6 +144,16 @@ export default function CheckIn() {
           crisisText: 'Call 112 (emergency) or 1522 (anti-violence and psychological support line), or go to the nearest emergency room. If you feel unwell right now, a professional can listen to you immediately.',
           talk: 'Talk to a psychologist',
           retry: 'Retake the test',
+          consentLabel: 'I consent to the processing of my health-related data for the evaluation of this test (Art. 9 GDPR).',
+          consentError: 'To see your result you must consent to the processing of health data (Art. 9 GDPR).',
+          emailTitle: '📧 Get your result by email',
+          emailSub: 'Enter your email to receive your score and level directly in your inbox.',
+          emailPlaceholder: 'Your email',
+          emailConsent: 'I consent to receiving the result by email and to the sending of my data (for this delivery only, no newsletter).',
+          emailCta: 'Send my result →',
+          emailSending: 'Sending…',
+          emailOk: 'Result sent! Check your inbox.',
+          emailErr: 'Could not send. Please try again.',
           disclaimer: '⚠️ This test uses the international GAD-7 and PHQ-9 clinical scales (public domain) but does not replace a professional evaluation.',
           sourcesTitle: '📚 Scientific sources',
           sourcesIntro: 'The tests are based on the international clinical scales GAD-7 and PHQ-9, validated by research:',
@@ -198,10 +227,23 @@ export default function CheckIn() {
             </div>
           ))}
 
+          {/* B4: consenso esplicito dati di salute (art. 9 GDPR) prima del risultato */}
+          <label className="checkbox" style={{ marginTop: 10, display: 'block' }}>
+            <input type="checkbox" checked={healthConsent} onChange={(e) => setHealthConsent(e.target.checked)} />
+            <span>{L.consentLabel}</span>
+          </label>
+          {allAnswered && !healthConsent && (
+            <p className="error-text" style={{ margin: '6px 0 0' }}>{L.consentError}</p>
+          )}
+
           <button
             className="btn btn-primary btn-lg"
-            disabled={!allAnswered}
-            onClick={() => setDone(true)}
+            disabled={!allAnswered || !healthConsent}
+            onClick={() => {
+              if (!healthConsent) return;
+              setDone(true);
+              try { track('test_completed', { test, score: total }); } catch (e) {}
+            }}
             style={{ marginTop: 8 }}
           >
             {allAnswered ? L.cta : L.ctaPending(answers.filter((a) => a != null).length, questions.length)}
@@ -234,9 +276,57 @@ export default function CheckIn() {
             </div>
           )}
 
+          {/* D1: lead magnet — ricevi il risultato via email (opt-in esplicito) */}
+          <div className="card" style={{ padding: 18, marginTop: 14, background: '#f8fafc' }}>
+            <strong>{L.emailTitle}</strong>
+            <p className="muted small" style={{ margin: '4px 0 10px' }}>{L.emailSub}</p>
+            {emailStatus !== 'ok' ? (
+              <>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={L.emailPlaceholder}
+                  aria-label={L.emailPlaceholder}
+                  style={{ width: '100%', boxSizing: 'border-box', padding: '10px 12px', borderRadius: 8, border: '1px solid #cbd5e1', fontSize: 14 }}
+                />
+                <label className="checkbox" style={{ display: 'block', margin: '8px 0' }}>
+                  <input type="checkbox" checked={emailOptin} onChange={(e) => setEmailOptin(e.target.checked)} />
+                  <span className="muted small">{L.emailConsent}</span>
+                </label>
+                <button
+                  className="btn btn-primary btn-sm"
+                  disabled={emailStatus === 'sending' || !emailOptin || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)}
+                  onClick={async () => {
+                    setEmailStatus('sending');
+                    try {
+                      await api.post('/newsletter', {
+                        email: email.trim(),
+                        test,
+                        score: total,
+                        level: result.level,
+                        consent: emailOptin,
+                      });
+                      setEmailStatus('ok');
+                      try { track('test_result_email', { test, score: total }); } catch (e) {}
+                    } catch (e) {
+                      setEmailStatus('error');
+                      setEmailMsg(L.emailErr);
+                    }
+                  }}
+                >
+                  {emailStatus === 'sending' ? L.emailSending : L.emailCta}
+                </button>
+                {emailStatus === 'error' && <p className="error-text small" style={{ margin: '8px 0 0' }}>{emailMsg || L.emailErr}</p>}
+              </>
+            ) : (
+              <p className="ok-text" style={{ color: '#15803d', fontWeight: 600, margin: 0 }}>{L.emailOk}</p>
+            )}
+          </div>
+
           <div style={{ display: 'flex', gap: 10, marginTop: 18, flexWrap: 'wrap' }}>
             <Link to="/terapeuti" className="btn btn-primary">{L.talk}</Link>
-            <button className="btn btn-outline" onClick={() => { setAnswers(Array(9).fill(null)); setDone(false); }}>
+            <button className="btn btn-outline" onClick={() => { setAnswers(Array(9).fill(null)); setDone(false); setHealthConsent(false); }}>
               {L.retry}
             </button>
           </div>

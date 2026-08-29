@@ -34,11 +34,48 @@ export default function Messaging({ peerId, peerName }) {
     }
   }
 
+  async function exportConversation() {
+    try {
+      const r = await api.get('/messages/export');
+      const blob = new Blob([JSON.stringify(r.data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'adattoxte-messaggi.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      setError('Esportazione non riuscita. Riprova.');
+    }
+  }
+
+  async function deleteConversation() {
+    if (!window.confirm('Vuoi eliminare questa conversazione? L\'operazione è definitiva (diritto all\'oblio, art. 17 GDPR).')) return;
+    try {
+      await api.delete(`/messages/conversations/${peerId}`);
+      setMessages([]);
+    } catch (e) {
+      setError(e.response?.data?.error || 'Cancellazione non riuscita');
+    }
+  }
+
   if (!peerId) return <p className="muted">Seleziona una conversazione.</p>;
 
   return (
     <div className="messaging">
-      <div className="messaging-header">{peerName}</div>
+      <div className="messaging-header">
+        <span>{peerName}</span>
+        <span style={{ display: 'inline-flex', gap: 8 }}>
+          <button className="btn btn-outline btn-sm" onClick={exportConversation} aria-label="Esporta i messaggi (art. 20 GDPR)">
+            ⬇️ Esporta
+          </button>
+          <button className="btn btn-outline btn-sm" onClick={deleteConversation} aria-label="Elimina la conversazione (art. 17 GDPR)">
+            🗑️ Elimina
+          </button>
+        </span>
+      </div>
       <div className="messaging-body">
         {loading && <p className="muted">Caricamento…</p>}
         {error && <p className="error-text">{error}</p>}

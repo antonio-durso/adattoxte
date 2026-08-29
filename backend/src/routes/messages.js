@@ -86,4 +86,52 @@ router.get('/conversations/:userId', (req, res) => {
   });
 });
 
+// GET /api/messages/export - GDPR art. 20: esporta TUTTI i messaggi dell'utente (JSON)
+router.get('/export', (req, res) => {
+  const me = req.user.id;
+  const rows = db.prepare(`
+    SELECT m.id, m.sender_id AS senderId, m.recipient_id AS recipientId,
+           m.content, m.read, m.created_at AS createdAt,
+           sender.name AS senderName, recipient.name AS recipientName
+    FROM messages m
+    JOIN users sender ON sender.id = m.sender_id
+    JOIN users recipient ON recipient.id = m.recipient_id
+    WHERE m.sender_id = ? OR m.recipient_id = ?
+    ORDER BY m.created_at ASC
+  `).all(me, me);
+
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Content-Disposition', 'attachment; filename="adattoxte-messaggi.json"');
+  res.json({
+    exportedAt: new Date().toISOString(),
+    user: { id: me, name: req.user.name, email: req.user.email },
+    messages: rows,
+  });
+});
+
+// DELETE /api/messages/conversations/:userId - GDPR art. 17: cancella la conversazione con un utente
+router.delete('/conversations/:userId', (req, res) => {
+  const me = req.user.id;
+  const peerId = req.params.userId;
+  const peer = db.prepare('SELECT id, name FROM users WHERE id = ?').get(peerId);
+  if (!peer) return res.status(404).json({ error: 'Utente non trovato' });
+
+  const result = db.prepare(`
+    DELETE FROM messages
+    WHERE (sender_id = ? AND recipient_id = ?) OR (sender_id = ? AND recipient_id = ?)
+  `).run(me, peerId, peerId, me);
+
+  res.json({ ok: true, deleted: result.changes });
+});
+
+// DELETE /api/messages/:messageId - GDPR art. 17: cancella un singolo messaggio (solo se di proprietà)
+router.delete('/:messageId', (req, res) => {
+  const me = req.user.id;
+  const msg = db.prepare('SELECT * FROM messages WHERE id = ?').get(req.params.messageId);
+  if (!msg) return res.status(404).json({ error: 'Messaggio non trovato' });
+  if (msg.sender_id !== me) return res.status(403).json({ error: 'Puoi cancellare solo i tuoi messaggi' });
+  db.prepare('DELETE FROM messages WHERE id = ?').run(msg.id);
+  res.json({ ok: true, deleted: 1 });
+});
+
 module.exports = router;

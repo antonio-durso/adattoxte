@@ -30,20 +30,31 @@ function FaqBlock({ faqs }) {
 
 function DisturboView({ d }) {
   const related = disturbi.filter((x) => x.slug !== d.slug).slice(0, 6);
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: d.faq.map(([q, a]) => ({
-      '@type': 'Question',
-      name: q,
-      acceptedAnswer: { '@type': 'Answer', text: a },
-    })),
-  };
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: d.faq.map(([q, a]) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.adattoxte.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Terapeuti', item: 'https://www.adattoxte.com/terapeuti' },
+        { '@type': 'ListItem', position: 3, name: `Psicologo online per ${d.nome}`, item: `https://www.adattoxte.com/psicologo-online/${d.slug}` },
+      ],
+    },
+  ];
   return (
     <>
       <Seo
-        title={d.keyword.charAt(0).toUpperCase() + d.keyword.slice(1)}
-        description={`${d.nome}: sintomi, quando chiedere aiuto e come funziona la terapia online con uno psicologo qualificato. Sedute da 45€, videochiamata sicura.`}
+        title={`Psicologo online per ${d.nome}`}
+        description={`${d.nome}: sintomi, quando chiedere aiuto e come funziona la terapia online con uno psicologo qualificato. Prima seduta gratuita, sedute da 45€, videochiamata sicura.`}
         path={`/psicologo-online/${d.slug}`}
         jsonLd={jsonLd}
       />
@@ -99,10 +110,11 @@ function DisturboView({ d }) {
 }
 
 function CittaView({ c }) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
       { '@type': 'Question', name: `Come funziona lo psicologo online a ${c.nome}?`, acceptedAnswer: { '@type': 'Answer', text: `Le sedute si svolgono in videochiamata: prenoti giorno e ora, paghi online (45€) e ti colleghi da casa o da dove preferisci, anche se vivi a ${c.nome} o in provincia.` } },
       { '@type': 'Question', name: `Devo recarmi in uno studio a ${c.nome}?`, acceptedAnswer: { '@type': 'Answer', text: 'No: il servizio è completamente online, in tutta Italia. La terapia online ha la stessa efficacia di quella in presenza ed è più comoda da conciliare con lavoro e famiglia.' } },
       { '@type': 'Question', name: `Quanto costa una seduta a ${c.nome}?`, acceptedAnswer: { '@type': 'Answer', text: 'La seduta individuale costa 45€, quella di coppia 50€. Pagamento sicuro online con carta di credito.' } },
@@ -112,7 +124,17 @@ function CittaView({ c }) {
         acceptedAnswer: { '@type': 'Answer', text: a },
       })),
     ],
-  };
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.adattoxte.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Terapeuti', item: 'https://www.adattoxte.com/terapeuti' },
+        { '@type': 'ListItem', position: 3, name: `Psicologo online a ${c.nome}`, item: `https://www.adattoxte.com/psicologo-online/${c.slug}` },
+      ],
+    },
+  ];
   const altre = citta.filter((x) => x.slug !== c.slug && x.regione === c.regione).slice(0, 5);
   const principali = citta.filter((x) => ['milano', 'roma', 'torino', 'napoli', 'bologna', 'firenze'].includes(x.slug) && x.slug !== c.slug);
   return (

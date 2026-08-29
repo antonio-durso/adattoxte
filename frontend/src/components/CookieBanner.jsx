@@ -6,6 +6,14 @@ export default function CookieBanner() {
   function choose(value) {
     localStorage.setItem('adt_cookie_consent', value);
     setVisible(false);
+    // Se l'utente accetta ORA, inizializza subito analytics e pixel
+    // (le funzioni globali sono definite in index.html e sono idempotenti)
+    if (value === 'accepted') {
+      try {
+        if (typeof window.initAnalytics === 'function') window.initAnalytics();
+        if (typeof window.initPixel === 'function') window.initPixel();
+      } catch (e) { /* non deve mai bloccare la UI */ }
+    }
   }
 
   if (!visible) return null;
