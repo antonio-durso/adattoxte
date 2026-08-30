@@ -1,26 +1,29 @@
 // Nuovi articoli SEO scritti per Adatto x Te
 export const extraArticles = [
   {
-    slug: 'come-scegliere-uno-psicologo',
-    title: 'Come scegliere lo psicologo giusto: guida pratica',
-    keyword: 'come scegliere psicologo',
-    metaDescription: 'Come scegliere lo psicologo giusto: specializzazione, albo professionale, prezzo, primo colloquio. Guida pratica per trovare il terapeuta adatto a te.',
-    date: '2026-08-24',
-    body: `<h1>Come scegliere lo psicologo giusto: guida pratica</h1>
-<p>Scegliere uno psicologo è una decisione personale e importante: il rapporto di fiducia con il terapeuta è uno dei fattori che più influenzano l'esito del percorso. Ecco i criteri concreti per fare una scelta informata e sentirti al sicuro.</p>
-<h2>1. Verifica le credenziali professionali</h2>
-<p>Il primo controllo è quello dell'<strong>iscrizione all'albo degli psicologi</strong>: ogni professionista deve essere iscritto e il numero è pubblico. Su una piattaforma seria come Adatto x Te i terapeuti mostrano numero di albo, specializzazioni e anni di esperienza direttamente nel profilo.</p>
-<h2>2. Scegli per specializzazione, non per nome</h2>
-<p>Non esiste un terapeuta "migliore in assoluto": esiste quello più adatto al tuo problema. Cerchi supporto per l'ansia? Per la terapia di coppia? Per la preparazione a un concorso pubblico? Scegli un professionista che lavori proprio su quell'area: i risultati arrivano prima.</p>
-<h2>3. Valuta il primo contatto</h2>
-<p>Prima di prenotare, leggi la presentazione del terapeuta e, se puoi, scrivigli un messaggio. Il primo scambio dice già molto sul suo stile e sulla sua capacità di metterti a tuo agio. Un buon terapeuta ti risponde con chiarezza e senza fretta.</p>
-<h2>4. Controlla prezzo e modalità</h2>
-<p>La seduta individuale online costa in media 45-60 euro, quella in studio 60-80 euro. Su Adatto x Te la seduta individuale è <strong>45 euro</strong> e quella di coppia <strong>50 euro</strong>, senza abbonamenti: paghi solo quando prenoti.</p>
-<h2>5. Dai al percorso il tempo di funzionare</h2>
-<p>Il primo colloquio serve a conoscervi e a definire gli obiettivi: non giudicarlo come una seduta "riuscita o fallita". Se dopo 2-3 incontri non ti trovi a tuo agio, è legittimo cambiare professionista: la sintonia è parte della terapia.</p>
-<h2>Quando capire che il terapeuta è quello giusto</h2>
-<ul><li>ti senti ascoltato e compreso, senza essere giudicato;</li><li>gli obiettivi del percorso sono chiari e condivisi;</li><li>esci dalle sedute con qualcosa di concreto su cui lavorare;</li><li>ti senti libero di fare domande anche sui dubbi più semplici.</li></ul>
-<p>Se ti stai chiedendo da dove iniziare, su <a href="/terapeuti">Adatto x Te</a> puoi confrontare profili verificati di professionisti in diverse specializzazioni e <a href="/registrazione">registrarti gratuitamente</a>: il primo passo è più semplice di quanto pensi.</p>`
+        slug: 'gaslighting-riconoscerlo',
+        title: 'Gaslighting: riconoscerlo e difendersi dalla manipolazione',
+        keyword: 'gaslighting',
+        metaDescription: 'Gaslighting: cos\'è, come riconoscerlo e come difendersi dalla manipolazione psicologica in coppia, in famiglia e sul lavoro. Segnali, esempi e strategie.',
+        date: '2026-08-31',
+        body: `<p>Il gaslighting è una forma di manipolazione psicologica in cui una persona fa dubitare l'altra della propria percezione della realtà: "Non è andata come dici tu", "Ti sei inventato tutto", "Sei troppo sensibile". Chi lo subisce arriva a non fidarsi più di sé stesso, delle proprie emozioni e dei propri ricordi. Riconoscerlo è il primo passo per difendersi.</p>
+    <h2>Come riconoscerlo: i segnali tipici</h2>
+    <ul><li><strong>Negare l'evidenza</strong>: fatti accaduti davanti a te vengono smentiti con sicurezza ("Non ho mai detto questo", "Stai esagerando").</li>
+    <li><strong>Ridicolizzare le tue emozioni</strong>: le tue reazioni vengono banalizzate o derise ("Fai sempre un dramma per niente").</li>
+    <li><strong>Isolamento</strong>: la persona cerca di allontanarti da amici e familiari, cioè da chi potrebbe confermare la tua versione dei fatti.</li>
+    <li><strong>Confusione crescente</strong>: col tempo ti accorgi di scusarti sempre tu, di dubitare di tutto e di camminare sulle uova.</li>
+    </ul>
+    <h2>Perché è così difficile accorgersene</h2>
+    <p>Il gaslighting agisce in modo graduale: le prime smentite sembrano semplici incomprensioni, e solo dopo settimane o mesi si instaura il dubbio sistematico su di sé. È proprio questa lentezza a renderlo insidioso: chi lo subisce non si accorge di stare perdendo fiducia in sé, ma ne nota i sintomi — ansia, insonnia, sensazione di "impazzire".</p>
+    <h2>Gli effetti sulla salute mentale</h2>
+    <p>Chi subisce gaslighting sviluppa spesso ansia, depressione, bassa autostima e senso di colpa cronico. Non è debolezza di carattere: è una risposta psicologica normale a una dinamica tossica. Riconoscere la dinamica, non la propria presunta "fragilità", è il punto di partenza per uscirne.</p>
+    <h2>Come difendersi</h2>
+    <ul><li><strong>Ancora la tua realtà</strong>: annota date, fatti e parole. Quando il confronto ti confonde, rileggere ciò che hai scritto ti aiuta a ritrovare il terreno.</li>
+    <li><strong>Parlane con persone di fiducia</strong>: confrontare la tua esperienza con altri interrompe il circolo del dubbio.</li>
+    <li><strong>Poni confini chiari</strong>: frasi come "Non accetto che mi si dica come mi sento" riaffermano la tua autorità sulle tue emozioni.</li>
+    <li><strong>Valuta la distanza</strong>: se la manipolazione è sistematica e non cambia nonostante i confronti, allontanarsi dalla relazione, anche temporaneamente, è spesso la scelta più sana.</li>
+    </ul>
+    <p>Un percorso psicologico aiuta a ricostruire la fiducia in te stesso, a riconoscere le dinamiche tossiche e a decidere con lucidità. Su <a href="/terapeuti">Adatto x Te</a> trovi professionisti specializzati in relazioni e autostima: <a href="/registrazione">registrati gratuitamente</a> e inizia con una prima seduta conoscitiva senza impegno.</p>`
   },
   {
     slug: 'ansia-da-esame',

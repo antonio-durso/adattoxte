@@ -46,6 +46,11 @@ export default function BlogArticle() {
   }
 
   const minutes = readingMinutes(article.body);
+  // Un solo H1 per pagina: l'H1 è il titolo dell'articolo, quindi gli H1 presenti
+  // nei body vengono retrocessi a H2 (evita H1 duplicati nelle pagine blog).
+  const bodyHtml = (article.body || '')
+    .replace(/<h1([^>]*)>/g, '<h2$1>')
+    .replace(/<\/h1>/g, '</h2>');
   const keyword = (article.keyword || '').toLowerCase();
   // Schema medico per contenuti salute (E-E-A-T, settore YMYL)
   const medical = /ansia|depress|stress|psicolog|panic|salute|benessere|sonno|trauma|umore/i.test(
@@ -172,7 +177,7 @@ export default function BlogArticle() {
             </span>
           </div>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: article.body }} />
+        <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
       </article>
 
       {/* Bio autore a fine articolo (E-E-A-T: firma del professionista) */}

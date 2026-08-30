@@ -118,29 +118,30 @@ export const extraArticles7 = [
 <p class="muted small"><em>Disclaimer: questo articolo ha scopo informativo e non sostituisce una valutazione professionale.</em></p>`,
   },
   {
-    slug: 'terapia-di-coppia-online-guida',
-    title: 'Terapia di coppia online: come funziona e quando serve',
-    keyword: 'terapia di coppia online',
-    metaDescription: "La terapia di coppia online aiuta a ricostruire il dialogo e superare le crisi. Come funziona, quando serve e quali risultati puoi aspettarti.",
-    date: '2026-08-30',
-    faq: [
-      { q: 'La terapia di coppia online è efficace come quella in presenza?', a: 'Sì: la ricerca mostra che la terapia a distanza ha efficacia paragonabile. La videochiamata consente inoltre di partecipare anche da luoghi diversi.' },
-      { q: 'Quando è il momento di iniziare?', a: 'Quando i litigi si ripetono, il dialogo si è interrotto, si evitano i confronti o si pensa che "tanto non cambierà nulla". Meglio intervenire prima che la distanza si consolidi.' },
-      { q: 'Cosa succede nella prima seduta?', a: 'Lo psicologo ascolta entrambi, raccoglie la storia della coppia e concorda gli obiettivi. Servono impegno, sincerità e rispetto reciproco.' },
-    ],
-    body: `<p>La terapia di coppia online funziona: la ricerca mostra che la psicoterapia a distanza ha un'efficacia paragonabile a quella in presenza, con il vantaggio di poter partecipare anche da casa o da città diverse. Serve quando il dialogo si è rotto, i litigi si ripetono o una crisi sembra senza uscita: un professionista aiuta la coppia a riascoltarsi e a cambiare le dinamiche che bloccano.</p>
-
-<h2>Come funziona</h2>
-<p>Le sedute si svolgono in videochiamata, di solito settimanali, con entrambi i partner presenti (o anche separatamente in alcuni casi). Il terapeuta crea uno spazio sicuro e neutrale, fa emergere i bisogni di ciascuno e propone esercizi pratici da fare a casa: ascolto attivo, comunicazione senza accuse, momenti di coppia programmati. Non si tratta di dare ragione a uno dei due, ma di ricostruire la relazione.</p>
-
-<h2>Quando serve davvero</h2>
-<p>Non solo nelle crisi profonde: la terapia di coppia è utile anche per prepararsi a un figlio, gestire una separazione serena o ritrovare intimità dopo anni di routine. Più si interviene presto, più è facile invertire la rotta. Sul <a href="/terapeuti">catalogo</a> puoi filtrare per terapia di coppia e prenotare in pochi minuti.</p>
-
-<h2>Domande frequenti</h2>
-<details><summary>La terapia di coppia online è efficace come quella in presenza?</summary><p>Sì: efficacia paragonabile, con il vantaggio di poter partecipare anche da luoghi diversi.</p></details>
-<details><summary>Quando è il momento di iniziare?</summary><p>Quando i litigi si ripetono, il dialogo si è interrotto o si evita il confronto.</p></details>
-<details><summary>Cosa succede nella prima seduta?</summary><p>Il terapeuta ascolta entrambi e concorda gli obiettivi: servono impegno e sincerità.</p></details>
-
-<p class="muted small"><em>Disclaimer: questo articolo ha scopo informativo e non sostituisce una valutazione professionale.</em></p>`,
-  },
+        slug: 'tradimento-ricostruire-fiducia',
+        title: 'Tradimento: come ricostruire la fiducia nella coppia',
+        keyword: 'tradimento ricostruire fiducia',
+        metaDescription: 'Dopo un tradimento si può ricostruire la fiducia? Le fasi della crisi, gli errori da evitare, il ruolo della terapia di coppia e come decidere se ripartire.',
+        date: '2026-08-31',
+        faq: [
+          { q: 'Si può ricostruire la fiducia dopo un tradimento?', a: 'Sì, ma richiede tempo, impegno e la volontà di entrambi di lavorare sulla relazione: la fiducia non torna da sola, si costruisce con gesti coerenti nel tempo.' },
+          { q: 'Quanto dura la crisi dopo un tradimento?', a: 'Le fasi emotive (shock, rabbia, tristezza) possono durare mesi; il percorso di ricostruzione, con o senza terapia, richiede in genere dai sei mesi a un anno e più.' },
+          { q: 'La terapia di coppia serve davvero in questi casi?', a: 'Sì: uno psicologo aiuta a trasformare il dolore in comunicazione, a capire le cause profonde e a decidere in modo consapevole se e come ripartire.' },
+        ],
+        body: `<p>Scoprire un tradimento è uno degli eventi più dolorosi in una relazione: alla ferita si mescolano rabbia, senso di colpa, vergogna e la domanda che torna ossessiva — "si può ancora avere fiducia in noi?". Non esiste una risposta unica, ma esiste un percorso: capire cosa è successo, cosa significa per la coppia e se entrambi vogliono davvero ricostruire.</p>
+    <h2>La tempesta emotiva: cosa succede subito dopo</h2>
+    <p>Le prime settimane sono dominate da emozioni intense e alternate: shock, incredulità, rabbia, tristezza, ma anche momenti di apparente normalità. Ogni partner vive il proprio dolore — chi ha tradito prova spesso colpa e vergogna, chi è stato tradito ferita e senso di inadeguatezza. Prendersi il tempo per elaborare, senza decisioni affrettate né sotto pressione, è il primo passo utile.</p>
+    <h2>Gli errori da evitare</h2>
+    <ul><li><strong>Decidere nella tempesta</strong>: né "chiudiamo tutto" detto nella rabbia, né "ripartiamo come se nulla fosse" detto per paura di restare soli.</li>
+    <li><strong>Il tribunale dei dettagli</strong>: chiedere e raccontare ogni singolo particolare non ricostruisce la fiducia, alimenta la sofferenza.</li>
+    <li><strong>Coinvolgere tutti</strong>: famiglia e amici, per quanto in buona fede, rendono più difficile la comunicazione diretta tra i partner.</li>
+    <li><strong>Saltare le cause</strong>: se la relazione è arrivata a quel punto, di solito c'è un problema di fondo — distanza emotiva, bisogni inespressi, difficoltà di comunicazione — che senza affrontarlo si ripresenterà.</li>
+    </ul>
+    <h2>Si può ricostruire la fiducia?</h2>
+    <p>Sì, ma la fiducia non torna da sola: si ricostruisce con gesti coerenti e ripetuti nel tempo. Chi ha tradito deve assumersi la responsabilità senza giustificazioni, rispondere alle domande necessarie e rendere la relazione più trasparente; chi è stato tradito deve poter esprimere il dolore senza essere giudicato. È un lavoro lungo — spesso mesi — e non sempre la conclusione è restare insieme: a volte il vero risultato del percorso è separarsi con meno dolore e più lucidità.</p>
+    <h2>Il ruolo della terapia di coppia</h2>
+    <p>Uno psicologo specializzato offre uno spazio neutrale dove le emozioni possono essere dette senza accuse, aiuta a far emergere le cause profonde della crisi e accompagna la coppia nel decidere — ripartire o chiudere — con consapevolezza, non per impulso. Le sedute online si adattano anche a partner che vivono in città diverse.</p>
+    <p>Se state attraversando questa fase, su <a href="/terapeuti">Adatto x Te</a> puoi trovare psicologi specializzati in terapia di coppia. <a href="/registrazione">Registrati gratuitamente</a> e inizia con una prima seduta conoscitiva.</p>
+    <p class="muted small"><em>Disclaimer: questo articolo ha scopo informativo e non sostituisce una valutazione professionale.</em></p>`
+  }
 ];
