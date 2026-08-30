@@ -19,20 +19,19 @@ function parseLanguages(row) {
   try { return JSON.parse(row.languages || '["it"]'); } catch { return ['it']; }
 }
 
+// Vista PUBBLICA del catalogo: nessun nome/cognome né numero di licenza.
+// Il nome del terapeuta si svela solo dopo la prenotazione (endpoint autenticati).
 function therapistView(row) {
   return {
     id: row.id,
-    name: row.name,
     role: row.role,
     bio: row.bio || '',
     specialties: parseSpecialties(row),
     priceIndividual: row.price_individual,
     priceCouple: row.price_couple,
-    license: row.license || '',
     experienceYears: row.experience_years || 0,
     languages: parseLanguages(row),
     photoUrl: row.photo_url || '',
-    verified: !!row.verified,
     ratingAvg: row.rating_avg != null ? Number(row.rating_avg) : null,
     ratingCount: row.rating_count || 0,
   };
@@ -72,7 +71,7 @@ router.get('/', (req, res) => {
 
   let list = rows.map(therapistView);
   if (q) {
-    list = list.filter(t => t.name.toLowerCase().includes(q) || t.bio.toLowerCase().includes(q));
+    list = list.filter(t => t.bio.toLowerCase().includes(q) || t.specialties.some(s => s.toLowerCase().includes(q)));
   }
   if (specialty) {
     list = list.filter(t => t.specialties.some(s => s.toLowerCase() === specialty.toLowerCase()));

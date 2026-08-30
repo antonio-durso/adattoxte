@@ -31,6 +31,7 @@ const STATIC_ROUTES = new Set([
   '/cookie',
   '/termini',
   '/tibiz',
+  '/equipe',
 ]);
 
 const path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';

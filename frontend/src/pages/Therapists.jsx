@@ -53,6 +53,30 @@ export default function Therapists() {
       />
       <h1>{t('nav.therapists')}</h1>
 
+      <div
+        className="team-banner"
+        style={{
+          background: 'linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%)',
+          border: '1px solid #e0e7ff',
+          borderRadius: 16,
+          padding: '22px 24px',
+          marginBottom: 22,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 8,
+        }}
+      >
+        <h2 style={{ margin: 0 }}>{t('team.title')}</h2>
+        <p className="muted" style={{ margin: 0, maxWidth: 720 }}>
+          {t('team.sub')}
+        </p>
+        <div style={{ marginTop: 4 }}>
+          <Link to="/equipe" className="btn btn-primary">
+            {t('team.cta')}
+          </Link>
+        </div>
+      </div>
+
       <div style={{ marginBottom: 18 }}>
         <p className="muted small" style={{ marginBottom: 8 }}>
           <strong>Di cosa hai bisogno?</strong> Tocca per trovare subito il professionista giusto:
@@ -84,8 +108,8 @@ export default function Therapists() {
       <div className="filters">
         <input
           type="search"
-          placeholder="Cerca per nome o specializzazione…"
-          aria-label="Cerca per nome o specializzazione"
+          placeholder="Cerca per specializzazione o esigenza…"
+          aria-label="Cerca per specializzazione o esigenza"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           className="search-input"

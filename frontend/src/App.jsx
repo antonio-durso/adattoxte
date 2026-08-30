@@ -32,6 +32,7 @@ const Terms = lazy(() => import('./pages/Terms'));
 const Prezzi = lazy(() => import('./pages/Prezzi'));
 const Aziende = lazy(() => import('./pages/Aziende'));
 const Tibiz = lazy(() => import('./pages/Tibiz'));
+const Equipe = lazy(() => import('./pages/Equipe'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 import PortalInteractive from './components/PortalInteractive';
 

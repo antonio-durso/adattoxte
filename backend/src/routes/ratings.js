@@ -61,7 +61,6 @@ router.get('/', (req, res) => {
       } catch {}
       return {
         id: t.id,
-        name: t.name,
         label: `Psicologo · ${specialty}`,
         count: t.count,
         avg: Number(t.avg),

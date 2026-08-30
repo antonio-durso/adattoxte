@@ -67,6 +67,7 @@ export default function Footer() {
           <Link to="/prezzi">Prezzi</Link>
           <Link to="/aziende">Per le aziende</Link>
           <Link to="/chi-siamo">Chi siamo</Link>
+          <Link to="/equipe">Équipe clinica</Link>
           <Link to="/psicologo-concorsi-pubblici">Psicologo concorsi</Link>
           <Link to="/psicologo-sport">Psicologo sport</Link>
           <Link to="/psicologia-giuridica">Psicologia giuridica</Link>
