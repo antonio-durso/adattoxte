@@ -14,7 +14,7 @@ export default function Privacy() {
       <h2>1. Titolare del trattamento</h2>
       <p>
         Il titolare del trattamento dei dati è <strong>Dott. Antonio D'Urso</strong>, psicologo iscritto all'Albo
-        degli Psicologi della Campania (n. 5408), che gestisce la piattaforma <strong>Adatto x Te</strong>.
+        degli Psicologi della Campania , che gestisce la piattaforma <strong>Adatto x Te</strong>.
         Per qualunque questione relativa al trattamento dei dati puoi scrivere a{' '}
         <strong>antonio.durso.749@psypec.it</strong>.
       </p>
