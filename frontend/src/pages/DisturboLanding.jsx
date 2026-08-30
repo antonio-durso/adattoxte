@@ -156,6 +156,13 @@ function CittaView({ c }) {
           Con Adatto x Te le sedute si svolgono in videochiamata, in tutta Italia (provincia di {c.provincia} inclusa).
         </p>
         {c.intro && <p style={{ maxWidth: 640, marginTop: 12 }}>{c.intro}</p>}
+        {c.local && (
+          <div
+            className="card"
+            style={{ maxWidth: 640, marginTop: 16, padding: '18px 20px', textAlign: 'left', lineHeight: 1.6 }}
+            dangerouslySetInnerHTML={{ __html: c.local }}
+          />
+        )}
         <div className="row-gap" style={{ margin: '18px 0' }}>
           <Link to="/terapeuti" className="btn btn-primary btn-lg">Trova il tuo terapeuta</Link>
           <span className="muted">Sedute da 45€ · Videochiamata sicura · Sera e weekend</span>

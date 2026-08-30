@@ -632,6 +632,7 @@ export const citta = [
     provincia: 'Milano',
     regione: 'Lombardia',
     intro: 'A Milano i ritmi di lavoro e la pressione quotidiana lasciano poco spazio al benessere: con la terapia online non devi incastrare spostamenti o orari di uno studio, prenoti la seduta quando sei libero, anche la sera dopo il lavoro.',
+    local: `<h3>La terapia online a Milano: flessibilità per ritmi intensi</h3><p>A Milano i prezzi in studio superano spesso i <strong>70-100 euro</strong> a seduta e i ritmi lavorativi lasciano pochi spazi. La terapia online a <strong>45 euro</strong> elimina il problema degli orari: basta un telefono e 50 minuti, dal divano di casa o dall'ufficio.</p><p>È la scelta ideale per chi fa il pendolare, per chi lavora in azienda con orari lunghi e per chi si è trasferito all'estero ma vuole parlare nella propria lingua con un professionista italiano.</p>`,
     faqExtra: [
       ['Posso prenotare la sera o nel weekend, dopo il lavoro a Milano?', 'Sì: su Adatto x Te trovi orari flessibili, con sedute anche la sera e nel weekend, pensate per chi vive a Milano e ha una giornata piena.'],
       ['Devo andare in uno studio a Milano per la prima seduta?', 'No: tutto avviene in videochiamata sicura, da casa o dall\'ufficio. Il servizio copre Milano e tutta la provincia, senza spostamenti.'],
@@ -665,6 +666,7 @@ export const citta = [
     provincia: 'Napoli',
     regione: 'Campania',
     intro: 'A Napoli e in tutta la provincia, la terapia online ti permette di iniziare un percorso senza dipendere dagli orari di uno studio o dagli spostamenti: scegli tu quando e da dove collegarti.',
+    local: `<h3>Perché la terapia online conviene a Napoli</h3><p>A Napoli una seduta in studio costa in media <strong>60-80 euro</strong>, senza contare il tempo e lo stress degli spostamenti: tangenziale, centro e traffico dell'ora di punta possono assorbire un'ora tra andata e ritorno. Con Adatto x Te la seduta costa <strong>45 euro</strong> e ti colleghi da casa, anche nella pausa pranzo o dopo il turno.</p><p>Il modello si adatta bene a chi lavora su turni (sanità, porto, commercio), agli studenti universitari e a chi vive nell'hinterland o in provincia: stessa qualità di uno studio in città, senza dipendere da orari e mezzi.</p>`,
     faqExtra: [
       ['È possibile parlare con uno psicologo online restando anonimi?', 'Sì: il catalogo è anonimo e il nome del terapeuta viene mostrato solo dopo la prenotazione, per garantire la massima riservatezza.'],
       ['Posso fare terapia di coppia online da Napoli?', 'Sì: la seduta di coppia costa 50€ e si svolge in videochiamata, comoda anche quando i partner vivono in città diverse.'],
@@ -918,6 +920,7 @@ export const citta = [
     provincia: 'Roma',
     regione: 'Lazio',
     intro: 'A Roma lo stress da traffico, i tempi lunghi degli spostamenti e la pressione di studio e concorsi pubblici mettono a dura prova: con Adatto x Te la seduta è in videochiamata, senza code né attese, ovunque tu sia nella capitale.',
+    local: `<h3>Psicologo online a Roma: niente più spostamenti in una città enorme</h3><p>Roma è una delle città più estese d'Italia: raggiungere uno studio può significare attraversare mezza città tra traffico e parcheggi. Le sedute online a <strong>45 euro</strong> (contro i 60-90 euro in studio) si svolgono in videochiamata, da casa o dall'ufficio, senza stress.</p><p>Una scelta particolarmente utile per chi lavora nel settore pubblico o privato con orari rigidi, per i genitori con bambini piccoli e per chi vive nei Comuni limitrofi o nella provincia di Roma.</p>`,
     faqExtra: [
       ['Preparo un concorso pubblico a Roma: mi potete aiutare?', 'Sì: su Adatto x Te trovi psicologi specializzati in preparazione ai concorsi, con supporto per ansia da prestazione e gestione dello stress.'],
       ['Le sedute online a Roma funzionano bene?', 'Sì: la terapia online ha la stessa efficacia di quella in presenza ed eviti i tempi di spostamento nella città. Ti colleghi da dove preferisci.'],
