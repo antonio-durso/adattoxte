@@ -28,11 +28,12 @@ const today = new Date().toISOString().slice(0, 10);
 
 // Landing programmatiche "psicologo online + disturbo/città" (dagli archivi)
 const { disturbi } = await import('../src/content/disturbi.js');
-const { citta } = await import('../src/content/citta.js');
+const { citta, CITTA_TOP } = await import('../src/content/citta.js');
 const LANDING_ROUTES = [
   ...disturbi.map((d) => ({ path: `/psicologo-online/${d.slug}`, priority: '0.7', freq: 'weekly' })),
-  // Solo città con contenuto unico (intro/faqExtra): le altre restano noindex e fuori sitemap
-  ...citta.filter((c) => c.intro).map((c) => ({ path: `/psicologo-online/${c.slug}`, priority: '0.6', freq: 'weekly' })),
+  // Solo le città TOP con contenuto differenziato: le altre restano noindex e fuori sitemap
+  // (evita doorway pages / thin content: le pagine esistono ma non vengono indicizzate)
+  ...citta.filter((c) => CITTA_TOP.includes(c.slug)).map((c) => ({ path: `/psicologo-online/${c.slug}`, priority: '0.6', freq: 'weekly' })),
 ];
 
 // Rotte statiche della SPA (pagine indicizzabili)

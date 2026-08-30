@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import { disturbi } from '../content/disturbi';
-import { citta } from '../content/citta';
+import { citta, CITTA_TOP } from '../content/citta';
 
 /**
  * Pagina dinamica "psicologo online + disturbo" e "psicologo online + città".
@@ -144,7 +144,7 @@ function CittaView({ c }) {
         description={`Psicologo online a ${c.nome} e in tutta Italia: sedute in videochiamata da 45€, terapeuti qualificati, orari flessibili. Prenota in 2 minuti.`}
         path={`/psicologo-online/${c.slug}`}
         jsonLd={jsonLd}
-        noindex={!c.intro}
+        noindex={!c.intro || !CITTA_TOP.includes(c.slug)}
       />
       <div className="container section">
         <p className="muted small" style={{ marginBottom: 4 }}>

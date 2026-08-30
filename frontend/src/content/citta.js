@@ -2,6 +2,13 @@
 // Il servizio è online da tutta Italia: le pagine catturano la ricerca locale.
 // Struttura: { nome, slug, provincia, regione }
 
+// Città con contenuto differenziato: le uniche indicizzate (le altre sono noindex
+// per evitare doorway pages / thin content). Lista basata sui volumi di ricerca.
+export const CITTA_TOP = [
+  'milano', 'roma', 'napoli', 'torino', 'bari', 'bologna', 'firenze',
+  'verona', 'palermo', 'genova', 'padova', 'catania', 'bergamo', 'brescia', 'cagliari',
+];
+
 export const citta = [
     {
     nome: 'Agrigento',
