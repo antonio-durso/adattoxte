@@ -137,6 +137,30 @@ export default function Footer() {
         </div>
         <span style={{ fontSize: 11, color: '#475569' }}>{t('footer.paymentsNote')}</span>
       </div>
+      {/* Marchio TBIZ – Research & Ideas for Business (Regione Campania) */}
+      <div className="container" style={{ paddingTop: 4, paddingBottom: 22, textAlign: 'center' }}>
+        <div
+          style={{
+            display: 'inline-flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 10,
+            maxWidth: 680,
+            background: '#f8fafc',
+            border: '1px solid #e2e8f0',
+            borderRadius: 14,
+            padding: '18px 22px',
+          }}
+        >
+          <img
+            src="/images/tbiz-logo.png"
+            alt="TBIZ – Research & Ideas for Business (TechnologyBIZ)"
+            style={{ height: 120, width: 'auto', display: 'block' }}
+            loading="lazy"
+          />
+          <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, color: '#334155' }}>{t('footer.tbizText')}</p>
+        </div>
+      </div>
     </footer>
   );
 }

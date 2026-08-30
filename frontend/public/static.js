@@ -228,6 +228,38 @@
     });
   });
 
+  // ---- Effetto portale: anelli + logo "Adatto x Te" al tocco (come in React) ----
+  // Sui percorsi React questo listener viene rimosso da __disableStatic qui sotto.
+  var portalTouch = document.querySelector('.portal-touch');
+  if (portalTouch) {
+    var portalReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    on(window, 'pointerdown', function (e) {
+      if (portalReduced) return;
+      if (e.button !== undefined && e.button !== 0) return; // solo tasto sinistro
+      if (portalTouch.childElementCount > 6) portalTouch.firstChild.remove();
+      var cluster = document.createElement('div');
+      cluster.className = 'ti-cluster';
+      cluster.style.left = e.clientX + 'px';
+      cluster.style.top = e.clientY + 'px';
+      for (var i = 0; i < 5; i++) {
+        var ring = document.createElement('div');
+        ring.className = 'ti-ring';
+        ring.style.width = (110 + i * 42) + 'px';
+        ring.style.height = (110 + i * 42) + 'px';
+        ring.style.animationDelay = (i * 90) + 'ms';
+        cluster.appendChild(ring);
+      }
+      var logo = document.createElement('span');
+      logo.className = 'logo ti-logo';
+      logo.setAttribute('aria-hidden', 'true');
+      logo.innerHTML =
+        '<span class="logo-line"></span><span class="logo-text">Adatto <em>x</em> Te</span><span class="logo-line"></span>';
+      cluster.appendChild(logo);
+      portalTouch.appendChild(cluster);
+      setTimeout(function () { cluster.remove(); }, 2300);
+    });
+  }
+
   // Espone la funzione per disattivare tutto quando React monta
   window.__disableStatic = function () {
     handlers.forEach(function (h) { h[0].removeEventListener(h[1], h[2]); });
