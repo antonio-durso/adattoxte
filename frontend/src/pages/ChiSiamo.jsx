@@ -49,11 +49,11 @@ export default function ChiSiamo() {
             <h3 style={{ margin: '0 0 4px', fontSize: 17 }}>Dott. Antonio D'Urso</h3>
             <p style={{ margin: '0 0 8px', fontSize: 13, color: '#475569', fontWeight: 700 }}>Fondatore e Direttore</p>
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, color: '#334155' }}>
-              Psicologo iscritto all'Albo con 13 anni di esperienza, fondatore e direttore
-              di Adatto x Te. Coordina l'équipe dei terapeuti, la selezione dei professionisti
-              e la qualità dei percorsi clinici della piattaforma. Ha ideato il modello
-              "online, accessibile, senza vincoli" per rendere la terapia davvero alla portata
-              di tutti.
+              Psicologo iscritto all'Albo degli Psicologi della Campania (n. 5408) con 13 anni
+              di esperienza, fondatore e direttore clinico di Adatto x Te. Coordina l'équipe dei
+              terapeuti, la selezione dei professionisti e la qualità dei percorsi clinici della
+              piattaforma. Ha ideato il modello "online, accessibile, senza vincoli" per rendere
+              la terapia davvero alla portata di tutti.
             </p>
           </div>
         </div>
@@ -74,13 +74,13 @@ export default function ChiSiamo() {
       <h2 style={{ textAlign: 'center', margin: '34px 0 18px' }}>L'équipe</h2>
       <div className="card" style={{ maxWidth: 860, margin: '0 auto', padding: '22px 24px' }}>
         <p style={{ margin: '0 0 10px', fontSize: 14, lineHeight: 1.6, color: '#334155' }}>
-          Dietro Adatto x Te c'è un'équipe di circa <strong>100 psicologi e psicoterapeuti</strong>,
-          selezionati tra professionisti iscritti all'Albo con comprovata esperienza.
+          Dietro Adatto x Te c'è un'équipe di <strong>psicologi e psicoterapeuti selezionati</strong>
+          tra professionisti iscritti all'Albo con comprovata esperienza.
         </p>
         <p style={{ margin: '0 0 10px', fontSize: 14, lineHeight: 1.6, color: '#334155' }}>
           Per garantire la <strong>massima riservatezza</strong>, il catalogo è anonimo: il nome del
-          terapeuta viene mostrato dopo la prenotazione. Ogni <strong>recensione è verificata</strong> e
-          arriva esclusivamente da sedute completate sulla piattaforma.
+          terapeuta viene mostrato dopo la prenotazione. Le recensioni sono le valutazioni lasciate
+          dai pazienti dopo le sedute completate.
         </p>
         <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: '#334155' }}>
           <strong>Politica editoriale</strong>: i contenuti del blog sono scritti da psicologi
