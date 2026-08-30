@@ -14,6 +14,31 @@ if (import.meta.env.VITE_SENTRY_DSN) {
   });
 }
 
+// Dopo un deploy, il browser può avere in cache un bundle VECCHIO che chiede
+// chunk eliminati/rinominati -> "Failed to fetch dynamically imported module".
+// In quel caso la pagina non serve a niente: la ricarichiamo una volta (il
+// reload scarica l'HTML e i chunk nuovi, coerenti tra loro).
+// Guardia anti-loop: massimo un reload automatico ogni 15 secondi.
+function isChunkLoadError(err) {
+  const msg = err && err.message ? String(err.message) : String(err || '');
+  return (
+    msg.includes('Failed to fetch dynamically imported module') ||
+    msg.includes('Importing a module script failed') ||
+    msg.includes('error loading dynamically imported module') ||
+    msg.includes('dynamically imported module')
+  );
+}
+
+function handleBoundaryError(error) {
+  if (!isChunkLoadError(error)) return;
+  const last = Number(sessionStorage.getItem('adt-chunk-reload') || 0);
+  const now = Date.now();
+  if (now - last > 15000) {
+    sessionStorage.setItem('adt-chunk-reload', String(now));
+    window.location.reload();
+  }
+}
+
 // Rotte pubbliche completamente statiche (prerender): l'HTML è già completo,
 // niente idratazione React (zero JS del framework su queste pagine).
 // Le interazioni (menu, FAQ, carosello, cookie...) sono gestite da /static.js
@@ -58,6 +83,7 @@ if (!isStatic || PRERENDER || !hasStaticContent) {
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
       <Sentry.ErrorBoundary
+        onError={handleBoundaryError}
         fallback={
           <div style={{ textAlign: 'center', padding: '80px 20px', fontFamily: 'system-ui, sans-serif' }}>
             <h1 style={{ color: '#48A8D8' }}>Ops, qualcosa è andato storto</h1>
