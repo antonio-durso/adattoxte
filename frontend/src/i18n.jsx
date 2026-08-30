@@ -6,6 +6,7 @@ const translations = {
   it: {
     'nav.home': 'Home',
     'nav.therapists': 'I nostri terapeuti',
+    'nav.equipe': 'Équipe',
     'nav.blog': 'Blog',
     'nav.risorse': 'Risorse',
     'nav.reviews': 'Recensioni',
@@ -96,6 +97,7 @@ const translations = {
   en: {
     'nav.home': 'Home',
     'nav.therapists': 'Our therapists',
+    'nav.equipe': 'Team',
     'nav.blog': 'Blog',
     'nav.risorse': 'Resources',
     'nav.reviews': 'Reviews',

@@ -123,6 +123,11 @@ function CittaView({ c }) {
         name: q,
         acceptedAnswer: { '@type': 'Answer', text: a },
       })),
+      ...(c.faqLocal || []).map(([q, a]) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
     ],
     },
     {
