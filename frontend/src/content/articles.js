@@ -20,6 +20,8 @@ import { extraArticles15 } from './extra-articles-15.js';
 import { extraArticles16 } from './extra-articles-16.js';
 import { extraArticles17 } from './extra-articles-17.js';
 import { extraArticles18 } from './extra-articles-18.js';
+import { extraArticles19 } from './extra-articles-19.js';
+import { extraArticles20 } from './extra-articles-20.js';
 
 export const articles = [
   ...baseArticles,
@@ -41,6 +43,8 @@ export const articles = [
   ...extraArticles16,
   ...extraArticles17,
   ...extraArticles18,
+  ...extraArticles19,
+  ...extraArticles20,
 ].sort(
   (a, b) => (a.date < b.date ? 1 : -1)
 );
