@@ -156,10 +156,12 @@ export default function Footer() {
             <img
               src="/images/tbiz-logo.png"
               alt="TBIZ – Research & Ideas for Business (TechnologyBIZ)"
+              className="tbiz-logo"
               style={{ height: 120, width: 'auto', display: 'block' }}
               loading="lazy"
             />
           </Link>
+          <span className="tbiz-hint">Scopri il programma ↓</span>
           <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, color: '#334155' }}>{t('footer.tbizText')}</p>
         </div>
       </div>

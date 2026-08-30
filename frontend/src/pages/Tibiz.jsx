@@ -83,6 +83,56 @@ export default function Tibiz() {
 
       <section className="container section">
         <Reveal>
+          <h2>Percorso e riconoscimenti</h2>
+          <p className="section-sub" style={{ maxWidth: 680 }}>
+            Le tappe del percorso di Adatto x Te nell'ambito del programma TBIZ, con riferimenti
+            ufficiali al progetto (CUP B89J19000760007, capofila Associazione Oggi Lavoro).
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 18, maxWidth: 720 }}>
+            <div style={{ borderLeft: '3px solid #286a8f', paddingLeft: 16 }}>
+              <strong>2023 — Selezione alla TBIZ Call for Ideas</strong>
+              <p style={{ margin: '4px 0 0', color: 'var(--text-secondary, #475569)' }}>
+                La candidatura di Adatto x Te viene accettata dal programma TBIZ (TechnologyBIZ),
+                programma di open innovation della Regione Campania, capofila Associazione Oggi Lavoro.
+              </p>
+            </div>
+            <div style={{ borderLeft: '3px solid #286a8f', paddingLeft: 16 }}>
+              <strong>Ottobre 2023 — Percorso di business acceleration</strong>
+              <p style={{ margin: '4px 0 0', color: 'var(--text-secondary, #475569)' }}>
+                Laboratori didattici a Napoli (gestione d'impresa, comunicazione aziendale, open
+                innovation) e redazione del business plan della startup.
+              </p>
+            </div>
+            <div style={{ borderLeft: '3px solid #286a8f', paddingLeft: 16 }}>
+              <strong>2 ottobre 2023 — Consegna del business plan definitivo</strong>
+              <p style={{ margin: '4px 0 0', color: 'var(--text-secondary, #475569)' }}>
+                Il business plan di Adatto x Te, realizzato per il percorso TBIZ, copre analisi di
+                mercato e della concorrenza, modello di business, fattibilità tecnologica, analisi
+                dei rischi e previsioni economico-finanziarie.
+              </p>
+            </div>
+            <div style={{ borderLeft: '3px solid #286a8f', paddingLeft: 16 }}>
+              <strong>Dicembre 2023 – gennaio 2024 — Chiusura del percorso</strong>
+              <p style={{ margin: '4px 0 0', color: 'var(--text-secondary, #475569)' }}>
+                Comunicazioni ufficiali della segreteria organizzativa e rimborso spese di
+                partecipazione ai laboratori.
+              </p>
+            </div>
+            <div style={{ borderLeft: '3px solid #9ca3af', paddingLeft: 16, opacity: 0.85 }}>
+              <strong>Attestato di partecipazione — in corso di rilascio</strong>
+              <p style={{ margin: '4px 0 0', color: 'var(--text-secondary, #475569)' }}>
+                Il documento ufficiale di partecipazione sarà pubblicato qui appena disponibile.
+              </p>
+            </div>
+          </div>
+          <p className="muted small" style={{ marginTop: 18 }}>
+            Documentazione conservata dal titolare e disponibile su richiesta.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="container section">
+        <Reveal>
           <h2>Fonti ufficiali</h2>
           <ul style={{ lineHeight: 2 }}>
             <li>
