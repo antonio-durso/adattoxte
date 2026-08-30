@@ -436,7 +436,7 @@ export default function Home() {
             ⚠️ <strong>Emergenze:</strong> questa piattaforma non è un servizio di emergenza. In caso di
             pericolo immediato chiama il <strong>112</strong> (Numero Unico di Emergenza) o il{' '}
             <strong>118</strong>. Se stai vivendo un momento di crisi e hai bisogno di parlare,{' '}
-            <strong>Telefono Amico</strong> è disponibile al <strong>02 2327 2327</strong> (9:00-24:00).
+            <strong>Telefono Amico</strong> è disponibile al <strong>199 284 284</strong> (10:00-24:00).
           </div>
         </Reveal>
       </section>

@@ -78,7 +78,7 @@ export default function Terms() {
       <ul>
         <li><strong>112 / 118</strong> — Numero Unico di Emergenza / Emergenza sanitaria (24h)</li>
         <li><strong>1522</strong> — Numero anti-violenza e stalking (gratuito, 24h)</li>
-        <li><strong>02 2327 2327</strong> — Telefono Amico (volontari che ascoltano, tutti i giorni 9-24)</li>
+        <li><strong>199 284 284</strong> — Telefono Amico (volontari che ascoltano, tutti i giorni 10-24)</li>
         <li>Oppure rivolgiti al <strong>Pronto Soccorso</strong> più vicino.</li>
       </ul>
 

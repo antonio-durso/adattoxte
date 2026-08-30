@@ -131,8 +131,8 @@ export default function PatientDashboard() {
           <a href="tel:112" style={{ color: '#b91c1c', fontWeight: 700 }}>112</a> /{' '}
           <a href="tel:118" style={{ color: '#b91c1c', fontWeight: 700 }}>118</a> (24h) ·{' '}
           <a href="tel:1522" style={{ color: '#b91c1c', fontWeight: 700 }}>1522</a> anti-violenza (24h) ·{' '}
-          <a href="tel:0223272327" style={{ color: '#b91c1c', fontWeight: 700 }}>02 2327 2327</a> Telefono Amico
-          (9-24) · oppure rivolgiti al Pronto Soccorso più vicino.
+          <a href="tel:199284284" style={{ color: '#b91c1c', fontWeight: 700 }}>199 284 284</a> Telefono Amico
+          (10-24) · oppure rivolgiti al Pronto Soccorso più vicino.
         </p>
       </div>
 
