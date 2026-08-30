@@ -114,6 +114,34 @@ export default function Home() {
         description="Terapisti qualificati, sedute video da casa, in qualsiasi momento. Psicologia online a 45€: ansia, coppia, sport, concorsi pubblici."
         path="/"
         image="https://www.adattoxte.com/images/hero.jpg"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'Organization',
+              '@id': 'https://www.adattoxte.com/#organization',
+              name: 'Adatto x Te',
+              url: 'https://www.adattoxte.com/',
+              email: 'antonio.durso.749@psypec.it',
+              logo: 'https://www.adattoxte.com/images/hero.jpg',
+              sameAs: [
+                'https://www.instagram.com/adattoxte',
+                'https://www.facebook.com/people/Adatto-x-Te/61593750877130/',
+                'https://www.linkedin.com/company/adattoxte',
+                'https://www.tiktok.com/@adattoxte',
+                'https://it.trustpilot.com/review/adattoxte.com',
+              ],
+            },
+            {
+              '@type': 'WebSite',
+              '@id': 'https://www.adattoxte.com/#website',
+              url: 'https://www.adattoxte.com/',
+              name: 'Adatto x Te — Psicologia online',
+              publisher: { '@id': 'https://www.adattoxte.com/#organization' },
+              inLanguage: 'it-IT',
+            },
+          ],
+        }}
       />
       <section className="hero">
         <div className="portal-rings" aria-hidden="true" />
