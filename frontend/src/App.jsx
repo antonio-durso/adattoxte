@@ -106,6 +106,7 @@ export default function App() {
                 <Route path="/prezzi" element={<Prezzi />} />
                 <Route path="/aziende" element={<Aziende />} />
                 <Route path="/tibiz" element={<Tibiz />} />
+                <Route path="/equipe" element={<Equipe />} />
                 <Route
                   path="/area-paziente"
                   element={
