@@ -39,7 +39,7 @@ const SERVICES = [
   { icon: '⚖️', title: 'Psicologia giuridica', desc: 'Consulenza in ambito forense e supporto ai professionisti legali.' },
   { icon: '💑', title: 'Terapia di coppia', desc: 'Comunicazione, crisi di relazione e supporto alle decisioni, anche da remoto.' },
   { icon: '🧠', title: 'Ansia e depressione', desc: 'Percorsi individuali con approccio cognitivo-comportamentale.' },
-  { icon: '🌍', title: 'Consulenza multilingue', desc: 'Sedute anche in inglese, francese, spagnolo: la terapia parla la tua lingua.' },
+  { icon: '🌍', title: 'Consulenza multilingue', desc: 'Sedute in italiano e inglese: la terapia parla la tua lingua.' },
 ];
 
 const STEPS = [
@@ -78,7 +78,7 @@ const FAQS = [
   },
   {
     q: 'Le sedute sono disponibili in altre lingue?',
-    a: 'Sì: molti dei nostri terapeuti offrono consulenze in inglese, francese e spagnolo. La lingua è indicata nel profilo di ciascun professionista.',
+    a: 'Sì: la piattaforma è disponibile in italiano e inglese e la lingua delle sedute è concordata con il terapeuta, come indicato nel suo profilo.',
   },
 ];
 
@@ -310,7 +310,7 @@ export default function Home() {
       <section className="container section" style={{ background: 'linear-gradient(120deg,#eaf4fb,#ffffff 55%,#fdf3ee)', borderRadius: 24 }}>
         <h2 style={{ textAlign: 'center', marginBottom: 6 }}>Seguici sui social</h2>
         <p className="section-sub" style={{ maxWidth: 560, textAlign: 'center', margin: '0 auto 24px' }}>
-          Consigli di benessere, approfondimenti e novità: ti aspettiamo su Instagram e Facebook.
+          Consigli di benessere, approfondimenti e novità: ti aspettiamo su Instagram, Facebook, LinkedIn e TikTok.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 18, justifyContent: 'center', alignItems: 'center' }}>
           <a
@@ -349,6 +349,40 @@ export default function Home() {
             <span style={{ lineHeight: 1.3 }}>
               <strong style={{ display: 'block', color: '#1a1a2e' }}>Facebook</strong>
               <span style={{ fontSize: 13, color: '#286a8f', fontWeight: 600 }}>Adatto x Te</span>
+            </span>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/adattoxte"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: 14, background: '#fff', border: '1px solid #e2e8f0', borderRadius: 16, padding: '12px 18px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(0,0,0,.06)' }}
+          >
+            <span
+              aria-hidden="true"
+              style={{ width: 72, height: 72, borderRadius: 18, background: '#0A66C2', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 30, fontWeight: 700, flexShrink: 0 }}
+            >
+              in
+            </span>
+            <span style={{ lineHeight: 1.3 }}>
+              <strong style={{ display: 'block', color: '#1a1a2e' }}>LinkedIn</strong>
+              <span style={{ fontSize: 13, color: '#286a8f', fontWeight: 600 }}>Adattoxte</span>
+            </span>
+          </a>
+          <a
+            href="https://www.tiktok.com/@adattoxte"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: 14, background: '#fff', border: '1px solid #e2e8f0', borderRadius: 16, padding: '12px 18px', textDecoration: 'none', boxShadow: '0 6px 18px rgba(0,0,0,.06)' }}
+          >
+            <span
+              aria-hidden="true"
+              style={{ width: 72, height: 72, borderRadius: 18, background: '#000', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26, fontWeight: 700, flexShrink: 0 }}
+            >
+              ♪
+            </span>
+            <span style={{ lineHeight: 1.3 }}>
+              <strong style={{ display: 'block', color: '#1a1a2e' }}>TikTok</strong>
+              <span style={{ fontSize: 13, color: '#286a8f', fontWeight: 600 }}>@adattoxte</span>
             </span>
           </a>
         </div>

@@ -31,7 +31,8 @@ const { disturbi } = await import('../src/content/disturbi.js');
 const { citta } = await import('../src/content/citta.js');
 const LANDING_ROUTES = [
   ...disturbi.map((d) => ({ path: `/psicologo-online/${d.slug}`, priority: '0.7', freq: 'weekly' })),
-  ...citta.map((c) => ({ path: `/psicologo-online/${c.slug}`, priority: '0.6', freq: 'weekly' })),
+  // Solo città con contenuto unico (intro/faqExtra): le altre restano noindex e fuori sitemap
+  ...citta.filter((c) => c.intro).map((c) => ({ path: `/psicologo-online/${c.slug}`, priority: '0.6', freq: 'weekly' })),
 ];
 
 // Rotte statiche della SPA (pagine indicizzabili)

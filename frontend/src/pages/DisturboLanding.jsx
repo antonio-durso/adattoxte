@@ -144,6 +144,7 @@ function CittaView({ c }) {
         description={`Psicologo online a ${c.nome} e in tutta Italia: sedute in videochiamata da 45€, terapeuti qualificati, orari flessibili. Prenota in 2 minuti.`}
         path={`/psicologo-online/${c.slug}`}
         jsonLd={jsonLd}
+        noindex={!c.intro}
       />
       <div className="container section">
         <p className="muted small" style={{ marginBottom: 4 }}>
