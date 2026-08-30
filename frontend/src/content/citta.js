@@ -104,6 +104,7 @@ export const citta = [
     provincia: 'Bari',
     regione: 'Puglia',
     intro: 'A Bari e in tutta la Puglia, la terapia online rende il supporto psicologico accessibile anche a chi ha orari difficili o vive lontano dai centri: prenoti, paghi e ti colleghi in videochiamata.',
+    local: `<h3>Psicologo online a Bari: senza spostamenti né attese</h3><p>A Bari i prezzi in studio partono da circa <strong>50-70 euro</strong>, e per chi abita in provincia (Molfetta, Bitonto, Monopoli, Putignano) ogni seduta significa un viaggio. Con Adatto x Te la seduta costa <strong>45 euro</strong> e basta un telefono: niente traffico, niente parcheggio, niente code in sala d'attesa.</p><p>Un aiuto concreto per chi lavora nel commercio o nella sanità, per gli studenti universitari e per chi vive nei comuni costieri o dell'entroterra.</p>`,
     faqExtra: [
       ['Quali specialisti sono disponibili per chi vive a Bari?', 'Trovi psicologi per ansia e depressione, terapia di coppia, psicologia dello sport, preparazione ai concorsi e psicologia giuridica: confronta i profili e scegli.'],
       ['Posso scrivere al terapeuta tra una seduta e l\'altra?', 'Sì, su Adatto x Te i messaggi con il terapeuta sono illimitati: puoi restare in contatto tra una seduta e l\'altra.'],
@@ -148,6 +149,7 @@ export const citta = [
     provincia: 'Bergamo',
     regione: 'Lombardia',
     intro: 'A Bergamo, tra gli spostamenti tra città bassa e città alta e i ritmi di chi lavora verso Milano, trovare il tempo per la terapia è più facile con le sedute online: prenoti e ti colleghi da dove sei.',
+    local: `<h3>Psicologo online a Bergamo: la scelta di chi fa il pendolare</h3><p>Bergamo vive di pendolarismo: migliaia di persone si spostano ogni giorno verso Milano o dentro la provincia (Dalmine, Treviglio, Seriate, Romano). Tra treni e orari, la seduta in studio (in media <strong>55-80 euro</strong>) diventa difficile da organizzare; online costa <strong>45 euro</strong> e non dipende dagli spostamenti.</p><p>Ideale per chi lavora nella logistica o nell'industria della bassa, per i pendolari Milano-Bergamo e per chi vive nei paesi della Val Brembana o della Val Seriana.</p>`,
     faqExtra: [
       ['Vivo tra Bergamo e Milano: posso prenotare da entrambe le città?', 'Sì, il servizio è completamente online: ti colleghi da dove ti trovi, ti serve solo una connessione stabile e un dispositivo.'],
       ['Come funziona la prima prenotazione?', 'Ti registri, confronti i profili dei terapeuti, scegli l\'orario e paghi online: 45€ la seduta individuale, 50€ quella di coppia, con sconto del 15% sul pacchetto di 3 sedute.'],
@@ -170,6 +172,7 @@ export const citta = [
     provincia: 'Bologna',
     regione: 'Emilia-Romagna',
     intro: 'A Bologna, città universitaria per eccellenza, ansia da esame e pressione degli studi sono tra i motivi più comuni per iniziare un percorso: con Adatto x Te trovi supporto specializzato senza spostarti dalla scrivania.',
+    local: `<h3>Psicologo online a Bologna: la flessibilità che serve agli studenti e a chi lavora</h3><p>Bologna è una città universitaria con ritmi intensi: tra esami, stage e lavoro, trovare lo spazio per la terapia in presenza non è scontato, e lo studio in centro costa in media <strong>55-80 euro</strong>. Online la seduta costa <strong>45 euro</strong> e puoi collegarti da casa, dall'aula studio o in pausa.</p><p>Il modello è particolarmente adatto a studenti fuori sede e a chi lavora nei servizi o nella logistica dell'Emilia, dove gli orari non sempre coincidono con quelli degli studi tradizionali.</p>`,
     faqExtra: [
       ['Sono uno studente universitario a Bologna: posso prenotare sedute tra un esame e l\'altro?', 'Certo: prenoti online l\'orario che preferisci, anche con pochi giorni di anticipo, e annulli o sposti la seduta senza complicazioni.'],
       ['Esistono sconti per i pacchetti?', 'Sì: il pacchetto di 3 sedute ha uno sconto del 15%, così il percorso continuativo costa meno della singola seduta.'],
@@ -192,6 +195,7 @@ export const citta = [
     provincia: 'Brescia',
     regione: 'Lombardia',
     intro: 'A Brescia, tra lavoro, famiglia e gli spostamenti tra la città e la provincia, la terapia online elimina gli ostacoli: una seduta di 50 minuti in videochiamata, quando funziona a te.',
+    local: `<h3>Psicologo online a Brescia: flessibilità per ritmi industriali</h3><p>Brescia e la sua provincia sono un territorio industriale dove gli orari di lavoro sono spesso rigidi (turni in fabbrica, PMI, logistica). La seduta in studio costa in media <strong>55-80 euro</strong>; online <strong>45 euro</strong> e si organizza attorno ai tuoi turni, anche la sera.</p><p>Una soluzione adatta a chi lavora nell'industria o nei servizi, a chi vive nei comuni della Franciacorta o della Valtrompia e a chi fa fatica a trovare uno spazio nella giornata.</p>`,
     faqExtra: [
       ['Faccio orari di lavoro intensi: trovo slot anche la sera?', 'Sì, su Adatto x Te gli orari sono flessibili e puoi prenotare la seduta nell\'orario che preferisci, anche la sera o nel weekend.'],
       ['Quali problemi posso affrontare online?', 'Ansia, stress, depressione, terapia di coppia, psicologia dello sport e preparazione ai concorsi: confronta i profili e scegli lo specialista più adatto.'],
@@ -214,6 +218,7 @@ export const citta = [
     provincia: 'Cagliari',
     regione: 'Sardegna',
     intro: 'A Cagliari e in tutta la Sardegna, dove le distanze e i collegamenti con il resto della penisola complicano gli spostamenti, la terapia online rende il supporto psicologico accessibile a tutti, senza viaggi né attese.',
+    local: `<h3>Psicologo online a Cagliari: continuità anche tra l'isola e il continente</h3><p>A Cagliari una seduta in studio costa in media <strong>50-75 euro</strong>, con gli spostamenti tipici di una città che si allunga lungo il mare (da Quartu al Poetto fino a Elmas e Selargius). Online la seduta costa <strong>45 euro</strong> e funziona ovunque: in città, in provincia o anche fuori dalla Sardegna.</p><p>La continuità del percorso è il vero vantaggio: chi studia o lavora tra Cagliari e il continente (Roma, Milano, Torino) non deve mai interrompere la terapia.</p>`,
     faqExtra: [
       ['Vivo in un paese dell\'interno della Sardegna: posso accedere?', 'Certo: il servizio è online da tutta la Sardegna, ti serve solo una connessione stabile. Nessuno spostamento necessario.'],
       ['Quali sono i prezzi?', 'Prezzi nazionali trasparenti: 45€ a seduta individuale, 50€ di coppia, sconto 15% sul pacchetto di 3 sedute, pagamento sicuro online.'],
@@ -269,6 +274,7 @@ export const citta = [
     provincia: 'Catania',
     regione: 'Sicilia',
     intro: 'A Catania, tra i ritmi della città e le distanze della provincia etnea, iniziare un percorso psicologico online ti permette di ricevere supporto da casa, senza dipendere da orari di studio o spostamenti.',
+    local: `<h3>Psicologo online a Catania: un percorso su misura per il territorio</h3><p>Nell'area metropolitana etnea, tra la città e i comuni della provincia (Acireale, Paternò, Misterbianco, Gravina), ogni seduta in studio comporta uno spostamento. I prezzi in presenza partono da <strong>50-70 euro</strong>; online la seduta costa <strong>45 euro</strong> e la fai da casa, in qualsiasi orario.</p><p>Una soluzione pensata per chi lavora nel commercio o nei servizi con orari lunghi, per gli studenti e per chi preferisce iniziare un percorso nella massima riservatezza.</p>`,
     faqExtra: [
       ['Sono uno studente universitario a Catania: posso prenotare tra gli esami?', 'Sì, prenoti online l\'orario che preferisci e puoi annullare o spostare la seduta senza complicazioni prima dell\'orario previsto.'],
       ['Posso fare terapia di coppia online?', 'Sì, la seduta di coppia costa 50€ e si svolge in videochiamata, comoda anche se i partner vivono in città diverse.'],
@@ -390,6 +396,7 @@ export const citta = [
     provincia: 'Firenze',
     regione: 'Toscana',
     intro: 'A Firenze, tra il lavoro e i ritmi della città, prenderti cura della tua salute mentale deve essere semplice: con le sedute online di Adatto x Te lo è, senza attese né spostamenti.',
+    local: `<h3>Psicologo online a Firenze: più tempo per te, meno tempo in centro</h3><p>A Firenze raggiungere uno studio significa fare i conti con ztl, traffico e parcheggi: una spesa di tempo e denaro che si somma al costo della seduta (in media <strong>60-90 euro</strong> in centro). La terapia online a <strong>45 euro</strong> elimina il problema: ti colleghi da casa, senza spostarti.</p><p>Ideale per chi lavora nel turismo e nella ristorazione (orari serali compresi), per chi abita nelle colline o nei comuni del Chianti e per i professionisti con agende piene.</p>`,
     faqExtra: [
       ['Come scelgo lo psicologo giusto per me a Firenze?', 'Confronti i profili verificati dei terapeuti (specializzazioni, recensioni, lingue) e prenoti in autonomia l\'orario che preferisci.'],
       ['Le sedute sono disponibili anche in inglese?', 'Sì: Adatto x Te offre sedute anche in inglese, francese e spagnolo, utili per chi vive a Firenze o lavora in contesti internazionali.'],
@@ -434,6 +441,7 @@ export const citta = [
     provincia: 'Genova',
     regione: 'Liguria',
     intro: 'A Genova, tra gli impegni di lavoro e gli spostamenti della città, trovare il momento giusto per la terapia è più facile con le sedute online di Adatto x Te: prenoti e ti colleghi quando vuoi.',
+    local: `<h3>Psicologo online a Genova: la terapia che arriva anche in valle</h3><p>A Genova la conformazione della città (lunga e stretta tra il mare e l'entroterra) rende lunghi anche i tragitti brevi sulla mappa: spostarsi tra quartieri o dalla Val Polcevera e dalla Val Bisagno richiede tempo. La seduta in studio costa in media <strong>55-80 euro</strong>; online <strong>45 euro</strong>, da casa.</p><p>Perfetta per chi lavora nel porto e nella logistica con turni irregolari, per i pendolari e per chi vive in provincia o nelle vallate.</p>`,
     faqExtra: [
       ['Come funziona la prenotazione a Genova?', 'Registrati gratuitamente, scegli il terapeuta e l\'orario tra gli slot disponibili e paga online: la prenotazione richiede pochi minuti.'],
       ['Posso cancellare o spostare una seduta?', 'Sì, dall\'area personale puoi cancellare o spostare una prenotazione prima dell\'orario previsto, senza complicazioni.'],
@@ -711,6 +719,7 @@ export const citta = [
     provincia: 'Padova',
     regione: 'Veneto',
     intro: 'A Padova, città universitaria, l\'ansia da esame e la pressione degli studi sono tra le difficoltà più comuni: con Adatto x Te trovi supporto specializzato in videochiamata, senza lasciare la scrivania.',
+    local: `<h3>Psicologo online a Padova: un aiuto per studenti e pendolari del Veneto</h3><p>Padova è una città universitaria con un grande afflusso di studenti e lavoratori che ogni giorno arrivano dalla provincia (Cittadella, Abano, Camposampiero, Piove di Sacco). La terapia in studio costa in media <strong>50-75 euro</strong>; online <strong>45 euro</strong>, senza dipendere da treni e spostamenti.</p><p>Un'opzione comoda per gli studenti fuori sede, per chi lavora nei servizi e per chi alterna periodi a Padova e periodi altrove, mantenendo la continuità del percorso.</p>`,
     faqExtra: [
       ['Sono uno studente fuori sede a Padova: posso accedere?', 'Sì, il servizio è online da tutta Italia: ti colleghi da Padova come da casa, con la stessa qualità di una seduta in studio.'],
       ['Esistono pacchetti per un percorso continuativo?', 'Sì, il pacchetto di 3 sedute prevede uno sconto del 15%: un percorso regolare costa meno delle singole sedute.'],
@@ -722,6 +731,7 @@ export const citta = [
     provincia: 'Palermo',
     regione: 'Sicilia',
     intro: 'A Palermo, come nel resto della Sicilia, la psicologia online elimina le barriere geografiche: bastano una connessione e un dispositivo per iniziare un percorso con professionisti qualificati.',
+    local: `<h3>Psicologo online a Palermo: vicinanza senza dipendere dagli spostamenti</h3><p>Palermo è una città grande e i suoi quartieri sono spesso lontani tra loro: una seduta in studio costa in media <strong>50-70 euro</strong> e può richiedere un lungo tragitto a seconda della zona. Online la seduta costa <strong>45 euro</strong> e arriva dove sei tu, anche in provincia (Bagheria, Monreale, Carini, Partinico).</p><p>Un supporto prezioso per chi lavora nei servizi o nel commercio, per gli studenti e per chi si sente più a suo agio a parlare da casa, nel proprio spazio.</p>`,
     faqExtra: [
       ['Vivo in provincia di Palermo: posso accedere al servizio?', 'Sì, il servizio è completamente online e copre tutta la provincia e la regione: non serve recarsi in uno studio.'],
       ['Quali sono i prezzi a Palermo?', 'I prezzi sono nazionali e trasparenti: 45€ la seduta individuale, 50€ quella di coppia, pagamento sicuro online.'],
@@ -1042,6 +1052,7 @@ export const citta = [
     provincia: 'Torino',
     regione: 'Piemonte',
     intro: 'A Torino, tra lavoro e famiglia, trovare il tempo per prendersi cura di sé non è semplice: le sedute online di Adatto x Te si adattano ai tuoi orari, senza spostamenti per la città.',
+    local: `<h3>Psicologo online a Torino: tempi e costi sotto controllo</h3><p>Nella città dell'industria e dei grandi insediamenti aziendali gli orari di lavoro contano più che altrove: una seduta in studio a Torino costa in media <strong>55-80 euro</strong> e richiede di attraversare la città dopo il lavoro. Online la seduta costa <strong>45 euro</strong> e si fa dal divano, anche durante la pausa.</p><p>Particolarmente utile per chi lavora in fabbrica o in ufficio con turni, per gli studenti delle università torinesi e per chi vive nei comuni dell'hinterland come Settimo, Moncalieri o Rivoli.</p>`,
     faqExtra: [
       ['Quanto costa una seduta di psicologia online a Torino?', 'La seduta individuale costa 45€, quella di coppia 50€, con sconto del 15% sul pacchetto di 3 sedute. Paghi online in modo sicuro.'],
       ['Come funziona la videochiamata?', 'Ti colleghi al link della seduta direttamente dal browser, con Jitsi: nessuna installazione, bastano un dispositivo e una connessione stabile.'],
@@ -1174,6 +1185,7 @@ export const citta = [
     provincia: 'Verona',
     regione: 'Veneto',
     intro: 'A Verona e nella sua provincia, tra lavoro, famiglia e i ritmi di una città turistica, la terapia online si adatta ai tuoi orari: 50 minuti in videochiamata, quando e dove preferisci.',
+    local: `<h3>La terapia online per chi vive a Verona e provincia</h3><p>Verona ha un tessuto di piccole e medie imprese e una vita fatta di spostamenti tra la città e la provincia: tra lavoro e famiglia trovare un'ora libera per uno studio in centro non è semplice. La seduta online a <strong>45 euro</strong> (contro i 50-75 euro in studio) si inserisce nei ritagli della giornata.</p><p>Una soluzione apprezzata anche da chi lavora nel settore turistico e alberghiero, con orari variabili, e da chi vive nei comuni del lago o della Valpolicella.</p>`,
     faqExtra: [
       ['Vivo in provincia di Verona: devo spostarmi in città?', 'No, il servizio è online e funziona ovunque: ti colleghi da casa, dall\'ufficio o ovunque tu sia.'],
       ['Posso cancellare o spostare una seduta?', 'Sì, dall\'area personale puoi cancellare o spostare una prenotazione prima dell\'orario previsto, senza complicazioni.'],
