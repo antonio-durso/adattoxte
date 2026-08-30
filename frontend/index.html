@@ -27,9 +27,15 @@
     <link rel="preload" as="image" href="/images/hero.webp" />
 
     <!-- Canonical dinamico: ogni pagina dichiara se stessa come versione canonica (SEO).
-         Usa l'URL base del sito (mai location.origin: durante il prerender statico
-         l'origin sarebbe localhost:4173 e il canonical finirebbe rotto in produzione). -->
-    <link rel="canonical" href="%VITE_SITE_URL%/" />
+         Nessun canonical statico nell'HTML: tutte le rotte servono lo stesso index.html,
+         quindi un canonical fisso punterebbe alla home anche per landing, articoli blog
+         e pagine interne (Google le tratterebbe come duplicati della home e non le
+         indicizzerebbe come pagine proprie). Il canonical viene impostato qui via JS
+         (subito, prima del mount React) e dal componente Seo dopo il mount. Usa l'URL
+         base del sito (mai location.origin: durante il prerender statico l'origin
+         sarebbe localhost:4173 e il canonical finirebbe rotto in produzione). Senza JS
+         il crawler usa la URL stessa come canonica (self-referential), corretto per
+         ogni rotta. -->
     <script>
       (function () {
         try {
@@ -37,7 +43,12 @@
           base = base.replace(/\/+$/, '');
           var url = base + location.pathname;
           var canon = document.querySelector('link[rel="canonical"]');
-          if (canon) canon.setAttribute('href', url);
+          if (!canon) {
+            canon = document.createElement('link');
+            canon.setAttribute('rel', 'canonical');
+            document.head.appendChild(canon);
+          }
+          canon.setAttribute('href', url);
           var og = document.querySelector('meta[property="og:url"]');
           if (og) og.setAttribute('content', url);
         } catch (e) {}
