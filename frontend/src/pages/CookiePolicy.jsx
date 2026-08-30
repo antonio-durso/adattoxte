@@ -40,7 +40,7 @@ export default function CookiePolicy() {
       </p>
 
       <h2>5. Contatti</h2>
-      <p>Per domande sui cookie: ant.durso1@gmail.com</p>
+      <p>Per domande sui cookie: antonio.durso.749@psypec.it</p>
     </div>
   );
 }

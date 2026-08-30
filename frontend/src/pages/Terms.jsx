@@ -105,7 +105,7 @@ export default function Terms() {
 
       <h2>11. Contatti</h2>
       <p>
-        Per qualsiasi domanda su servizio, prenotazioni o dati personali: <strong>ant.durso1@gmail.com</strong>.
+        Per qualsiasi domanda su servizio, prenotazioni o dati personali: <strong>antonio.durso.749@psypec.it</strong>.
       </p>
     </div>
   );
