@@ -387,6 +387,31 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {/* Disclaimer emergenze — responsabilità clinica e fiducia */}
+      <section className="container section" style={{ paddingTop: 0, paddingBottom: 8 }}>
+        <Reveal>
+          <div
+            style={{
+              background: '#fef9e7',
+              border: '1px solid #f5e6b8',
+              borderRadius: 12,
+              padding: '12px 16px',
+              fontSize: 13,
+              lineHeight: 1.55,
+              color: '#6b5b1e',
+              maxWidth: 760,
+              margin: '0 auto',
+              textAlign: 'center',
+            }}
+          >
+            ⚠️ <strong>Emergenze:</strong> questa piattaforma non è un servizio di emergenza. In caso di
+            pericolo immediato chiama il <strong>112</strong> (Numero Unico di Emergenza) o il{' '}
+            <strong>118</strong>. Se stai vivendo un momento di crisi e hai bisogno di parlare,{' '}
+            <strong>Telefono Amico</strong> è disponibile al <strong>199 284 284</strong> (10:00-24:00).
+          </div>
+        </Reveal>
+      </section>
       </Deferred>
 
     </>
