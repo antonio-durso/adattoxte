@@ -1,7 +1,9 @@
 // Service worker Adatto x Te — app shell PWA
 // Cache: index/manifest all'install; navigazioni network-first con fallback cache;
 // asset statici cache-first. Le chiamate API (backend) non vengono mai cacheate.
-const CACHE = 'adt-cache-v1';
+// IMPORTANTE: a ogni deploy con modifiche visibili alla home, incrementare la versione
+// (v1 -> v2 -> ...) per forzare l'aggiornamento della shell su tutti i dispositivi.
+const CACHE = 'adt-cache-v2';
 
 self.addEventListener('install', (e) => {
   self.skipWaiting();
