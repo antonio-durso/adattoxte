@@ -1,9 +1,11 @@
 /**
- * Seed dati di esempio per la piattaforma Adatto x Te.
- * Crea: 1 admin, 1 paziente demo, 5 terapeuti fittizi
- * con le specializzazioni individuate nel business plan (cap. 3):
- * psicologia dello sport, concorsi pubblici, psicologia giuridica,
- * terapia di coppia, ansia e depressione.
+ * Seed dati per la piattaforma Adatto x Te.
+ * Crea: 1 admin, 1 paziente demo.
+ * In produzione (NODE_ENV=production) NON crea terapeuti fittizi né recensioni
+ * demo: il catalogo e le recensioni devono essere reali.
+ * Per i dati demo (5 terapeuti fittizi + 500 recensioni) in ambiente di sviluppo:
+ * - default: solo se NODE_ENV non è production (locale)
+ * - oppure esplicitamente con SEED_DEMO_DATA=1
  *
  * Avvio: npm run seed
  */
@@ -270,6 +272,10 @@ function run() {
     // SICUREZZA: in produzione gli account demo vengono creati con password
     // CASUALI (stampate nei log), mai con quelle pubbliche documentate.
     const isProd = process.env.NODE_ENV === 'production';
+    // Dati demo (terapeuti fittizi + recensioni): SOLO in sviluppo locale o con
+    // SEED_DEMO_DATA=1 esplicito. Mai in produzione: il catalogo e le recensioni
+    // devono essere reali.
+    const demoData = process.env.SEED_DEMO_DATA === '1' || !isProd;
     const demoPw = (label, fallback) => {
       if (!isProd) return fallback;
       const pw = crypto.randomBytes(9).toString('base64url') + '!A';
@@ -287,27 +293,32 @@ function run() {
     const patientId = crypto.randomUUID();
     insertUser.run(patientId, 'Antonio Demo', 'antonio@adattoxte.it', hash(demoPw('paziente demo', 'Demo1234!')), 'patient', 'Utente di prova per testare la piattaforma.', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
 
-    // Terapeuti (idempotente: riusa l'ID esistente per email, così il profilo
-    // non viola la foreign key al secondo run)
-    for (const t of THERAPISTS) {
-      let id = db.prepare('SELECT id FROM users WHERE email = ?').get(t.email)?.id;
-      if (!id) {
-        id = crypto.randomUUID();
-        insertUser.run(id, t.name, t.email, hash(demoPw(t.email, t.password)), 'therapist', t.bio, new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
+    // Terapeuti fittizi + recensioni demo: SOLO con dati demo abilitati
+    if (demoData) {
+      // Terapeuti (idempotente: riusa l'ID esistente per email, così il profilo
+      // non viola la foreign key al secondo run)
+      for (const t of THERAPISTS) {
+        let id = db.prepare('SELECT id FROM users WHERE email = ?').get(t.email)?.id;
+        if (!id) {
+          id = crypto.randomUUID();
+          insertUser.run(id, t.name, t.email, hash(demoPw(t.email, t.password)), 'therapist', t.bio, new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
+        }
+        insertProfile.run(id, JSON.stringify(t.specialties), t.license, t.experienceYears, JSON.stringify(t.languages), '', t.verified ? 1 : 0);
       }
-      insertProfile.run(id, JSON.stringify(t.specialties), t.license, t.experienceYears, JSON.stringify(t.languages), '', t.verified ? 1 : 0);
-    }
 
-    // Recensioni demo (500) — dopo terapeuti e pazienti
-    seedReviews();
+      // Recensioni demo (500) — dopo terapeuti e pazienti
+      seedReviews();
+    }
 
     console.log('✅ Seed completato');
     if (!isProd) {
       console.log('   Admin:    admin@adattoxte.it / Admin123!');
       console.log('   Paziente: antonio@adattoxte.it / Demo1234!');
     }
-    console.log('   Terapeuti demo (email / password):');
-    for (const t of THERAPISTS) console.log(`   - ${t.email} / ${t.password}`);
+    if (demoData) {
+      console.log('   Terapeuti demo (email / password):');
+      for (const t of THERAPISTS) console.log(`   - ${t.email} / ${t.password}`);
+    }
   });
 }
 

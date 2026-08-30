@@ -81,7 +81,10 @@ function buildSitemap() {
     priority: r.priority,
   }));
   for (const a of readArticles()) {
-    urls.push({ loc: `${BASE}/blog/${a.slug}`, lastmod: a.date, freq: 'monthly', priority: '0.7' });
+    // Articoli con data FUTURA (programmati ma non ancora pubblicati): fuori dalla
+    // sitemap fino alla data di pubblicazione (lastmod futura = antipattern SEO).
+    if (a.date && a.date > today) continue;
+    urls.push({ loc: `${BASE}/blog/${a.slug}`, lastmod: a.date || today, freq: 'monthly', priority: '0.7' });
   }
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
     .map(
