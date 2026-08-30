@@ -160,8 +160,8 @@ export default function Footer() {
               style={{ height: 120, width: 'auto', display: 'block' }}
               loading="lazy"
             />
+            <span className="tbiz-hint">Scopri il programma ↓</span>
           </Link>
-          <span className="tbiz-hint">Scopri il programma ↓</span>
           <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, color: '#334155' }}>{t('footer.tbizText')}</p>
         </div>
       </div>

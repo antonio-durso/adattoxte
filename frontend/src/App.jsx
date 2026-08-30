@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { lazy, Suspense, useEffect } from 'react';
 import { AuthProvider } from './context/AuthContext';
 import { I18nProvider } from './i18n';
 import Navbar from './components/Navbar';
@@ -43,11 +43,22 @@ function PageLoader() {
   );
 }
 
+// Scroll in cima a ogni cambio rotta: evita di atterrare a metà/fondo pagina
+// quando si naviga da link in fondo (es. logo TBIZ nel footer)
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+  return null;
+}
+
 export default function App() {
   return (
     <I18nProvider>
       <AuthProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <div className="portal-bg" aria-hidden="true">
             <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
               <defs>
