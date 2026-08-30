@@ -45,25 +45,25 @@ export const extraArticles19 = [
 <p>Se i sintomi persistono oltre 3-4 settimane o il rifiuto scolastico si cronicizza, un percorso con uno <a href="/psicologo-adolescenti">psicologo per adolescenti</a> può fare la differenza, aiutando il ragazzo a riconoscere e gestire l'ansia e la famiglia a trovare le parole giuste. <a href="/terapeuti">Scopri i nostri professionisti</a> — la prima seduta è gratuita e può essere un primo colloquio conoscitivo in videochiamata, senza impegno.</p>`,
   },
   {
-    slug: 'ansia-da-esame-universitario',
-    title: "Ansia da esame all'università: 6 tecniche per prepararti con serenità",
-    keyword: "ansia da esame università",
-    metaDescription: "Blocco da studio, paura di non farcela, agitazione prima dell'esame? Strategie pratiche per gestire l'ansia da esame e arrivare preparato senza farti travolgere.",
+    slug: 'ansia-da-aereo',
+    title: "Paura di volare: come gestire l'ansia da aereo",
+    keyword: 'ansia da aereo',
+    metaDescription: "Sudorazione, tachicardia, pensieri catastrofici in volo: la paura di volare si supera. Strategie pratiche per gestire l'ansia da aereo prima e durante il viaggio.",
     date: '2026-10-09',
-    body: `<h1>Ansia da esame all'università: 6 tecniche per prepararti con serenità</h1>
-<p>L'ansia da esame è un'esperienza diffusissima tra gli studenti: nervosismo, insonnia nelle settimane prima, mente che si svuota davanti al foglio. Una certa attivazione è fisiologica e aiuta la performance; il problema nasce quando l'ansia diventa blocca-studio o blocca-esame.</p>
-<h2>Sei tecniche che funzionano davvero</h2>
+    body: `<h1>Paura di volare: come gestire l'ansia da aereo</h1>
+<p>Per molte persone salire su un aereo è un'esperienza che scatena ansia intensa: tachicardia, sudorazione, sensazione di mancanza d'aria, pensieri catastrofici ("e se succedesse qualcosa?"). La paura di volare (o aviofobia) può portare a evitare viaggi, lavoro e occasioni importanti: una limitazione che si può superare con il lavoro giusto.</p>
+<h2>Da dove nasce la paura di volare</h2>
+<p>Spesso non è il volo in sé a spaventare, ma la sensazione di non avere controllo: ci si affida completamente a qualcosa che non si può gestire. A questo si aggiungono i sintomi fisici dell'ansia (cuore che accelera, respiro corto) che vengono interpretati come pericolo imminente, alimentando il circolo: più paura, più sintomi, più paura.</p>
+<h2>Strategie pratiche prima del volo</h2>
 <ul>
-<li><strong>Studio distribuito, non maratone:</strong> sessioni brevi e regolari (45-60 minuti con pause) consolidano la memoria molto meglio dello studio intensivo dell'ultima settimana.</li>
-<li><strong>Simula l'esame:</strong> ripeti il programma ad alta voce o con domande a tempo: l'esposizione ripetuta alla situazione riduce la paura dell'ignoto.</li>
-<li><strong>Respirazione 4-6:</strong> inspira dal naso per 4 secondi, espira dalla bocca per 6, per 2-3 minuti. Attiva il sistema parasimpatico e abbassa l'attivazione fisiologica.</li>
-<li><strong>Riformula i pensieri:</strong> sostituisci "devo prendere 30 o sono un fallito" con "faccio del mio meglio e ogni esame è un'informazione". I pensieri catastrofici alimentano l'ansia più del carico reale.</li>
-<li><strong>Proteggi il sonno:</strong> la memoria si consolida durante il riposo: la notte prima dell'esame conta più dell'ultima ripetizione.</li>
-<li><strong>Pianifica il giorno dell'esame:</strong> orari, percorso, materiali pronti. Ridurre le variabili impreviste abbassa l'attivazione.</li>
+<li><strong>Prepara il viaggio:</strong> conosci orari, aeroporto, numero di volo: ridurre l'incognita abbassa l'attivazione;</li>
+<li><strong>Informazioni reali, non catastrofi:</strong> la turbolenza è normale e non pericolosa: saperlo aiuta a non interpretare ogni movimento come un segnale d'allarme;</li>
+<li><strong>Respirazione 4-6:</strong> inspira dal naso per 4 secondi, espira dalla bocca per 6: l'espirazione lunga abbassa la frequenza cardiaca;</li>
+<li><strong>Distrazione attiva:</strong> film, musica, podcast, un libro: un'attività coinvolgente interrompe i pensieri catastrofici;</li>
+<li><strong>Parla con l'equipaggio:</strong> comunicare la propria ansia all'hostess o allo steward è legittimo e spesso rassicurante.</li>
 </ul>
-<h2>Quando l'ansia da esame va affrontata con un professionista</h2>
-<p>Se l'ansia ti porta a rimandare, a blocchi di fronte al foglio o ad attacchi di panico durante lo studio, non è questione di volontà: è un meccanismo ansioso che si impara a gestire. Un percorso breve di psicoterapia cognitivo-comportamentale è particolarmente efficace su questo tipo di problema.</p>
-<p>Fai il <a href="/test">test ansia gratuito (GAD-7)</a> per un orientamento immediato, oppure <a href="/terapeuti">trova il terapeuta giusto per te</a> e inizia con il primo colloquio gratuito di 15 minuti.</p>`,
+<h2>Quando affrontarla con un percorso</h2>
+<p>Se la paura ti fa evitare voli o viaggi, o ti fa vivere il viaggio con angoscia anticipatoria da giorni, un percorso psicologico con approccio cognitivo-comportamentale è molto efficace: si lavora sui pensieri catastrofici, sull'esposizione graduale e sulle tecniche di gestione dei sintomi, spesso con risultati già in poche sedute. <a href="/terapeuti">Trova il tuo terapeuta</a> e inizia con il primo colloquio gratuito di 15 minuti, oppure fai il <a href="/test">test ansia gratuito</a> per capire da dove partire.</p>`,
   },
   {
     slug: 'ansia-e-stress-differenze',
