@@ -197,6 +197,7 @@ function CittaView({ c }) {
         ['Posso scegliere lo psicologo che preferisco?', `Sì: la piattaforma ti mostra i profili dei terapeuti (specializzazioni, recensioni, lingue) e prenoti direttamente l\'orario che vuoi.`],
         ['Come funziona il pagamento?', `Il pagamento avviene online con carta di credito, in modo sicuro: 45€ la seduta individuale, 50€ quella di coppia.`],
         ...(c.faqExtra || []),
+        ...(c.faqLocal || []),
       ]} />
 
       <section className="container section">
