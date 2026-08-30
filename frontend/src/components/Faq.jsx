@@ -17,7 +17,7 @@ const FAQS = [
   },
   {
     q: 'I terapeuti sono qualificati?',
-    a: 'Sì: tutti i professionisti della piattaforma sono verificati, con specializzazione indicata, esperienza e recensioni reali lasciate dai pazienti dopo le sedute completate.',
+    a: 'Sì: tutti i professionisti della piattaforma hanno specializzazione indicata, esperienza e recensioni lasciate dai pazienti dopo le sedute completate.',
   },
   {
     q: 'Come funziona la videochiamata?',

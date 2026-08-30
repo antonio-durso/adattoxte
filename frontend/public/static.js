@@ -172,7 +172,7 @@
       strip.innerHTML =
         '<div class="card" style="padding:28px 20px;border:1px solid #f59e0b55;background:linear-gradient(135deg,#fff8ef,#fff)">' +
         '<div style="font-size:42px;color:#f59e0b" aria-hidden="true">★★★★★</div>' +
-        '<h2 style="margin:10px 0 4px">Recensioni verificate</h2>' +
+        '<h2 style="margin:10px 0 4px">Recensioni dei pazienti</h2>' +
         '<p class="muted" style="max-width:520px;margin:0 auto">Ogni valutazione arriva da una seduta completata sulla piattaforma. I nostri pazienti raccontano la loro esperienza.</p>' +
         '<a href="/recensioni" class="btn btn-outline" style="margin-top:14px">Leggi le recensioni</a>' +
         '</div>';
@@ -185,7 +185,7 @@
       .then(function (d) {
         if (!d || !d.total || d.total <= 0) return;
         var h2 = strip.querySelector('h2');
-        if (h2) h2.textContent = d.avg + ' su 5 · ' + d.total + ' recensioni verificate';
+        if (h2) h2.textContent = d.avg + ' su 5 · ' + d.total + ' recensioni dei pazienti';
       })
       .catch(function () { /* i numeri restano generici */ });
   }

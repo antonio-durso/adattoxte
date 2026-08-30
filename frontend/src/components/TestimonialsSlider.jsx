@@ -44,7 +44,7 @@ export default function TestimonialsSlider() {
     <section className="container section">
       <Reveal>
         <h2>Chi ci ha già scelto</h2>
-        <p className="section-sub">Recensioni verificate di chi ha completato un percorso con Adatto x Te.</p>
+        <p className="section-sub">Le valutazioni lasciate dai pazienti dopo le sedute completate.</p>
       </Reveal>
       <Reveal delay={100}>
         <div className="testimonial-slider">
