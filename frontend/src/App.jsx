@@ -31,6 +31,7 @@ const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const Terms = lazy(() => import('./pages/Terms'));
 const Prezzi = lazy(() => import('./pages/Prezzi'));
 const Aziende = lazy(() => import('./pages/Aziende'));
+const Tibiz = lazy(() => import('./pages/Tibiz'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 import PortalInteractive from './components/PortalInteractive';
 
@@ -92,6 +93,7 @@ export default function App() {
                 <Route path="/termini" element={<Terms />} />
                 <Route path="/prezzi" element={<Prezzi />} />
                 <Route path="/aziende" element={<Aziende />} />
+                <Route path="/tibiz" element={<Tibiz />} />
                 <Route
                   path="/area-paziente"
                   element={

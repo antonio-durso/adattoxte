@@ -152,12 +152,14 @@ export default function Footer() {
             padding: '18px 22px',
           }}
         >
-          <img
-            src="/images/tbiz-logo.png"
-            alt="TBIZ – Research & Ideas for Business (TechnologyBIZ)"
-            style={{ height: 120, width: 'auto', display: 'block' }}
-            loading="lazy"
-          />
+          <Link to="/tibiz" aria-label="TBIZ – Research & Ideas for Business — scopri il programma">
+            <img
+              src="/images/tbiz-logo.png"
+              alt="TBIZ – Research & Ideas for Business (TechnologyBIZ)"
+              style={{ height: 120, width: 'auto', display: 'block' }}
+              loading="lazy"
+            />
+          </Link>
           <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, color: '#334155' }}>{t('footer.tbizText')}</p>
         </div>
       </div>

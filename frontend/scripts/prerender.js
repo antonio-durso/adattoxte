@@ -36,6 +36,7 @@ const STATIC_CORE = [
   '/privacy',
   '/cookie',
   '/termini',
+  '/tibiz',
   '/',
 ];
 const ROUTES = FAST
@@ -58,6 +59,7 @@ const ROUTES = FAST
       '/privacy',
       '/cookie',
       '/termini',
+      '/tibiz',
       '/',
     ];
 
@@ -74,6 +76,7 @@ const STATIC_NO_MOUNT = new Set([
   '/privacy',
   '/cookie',
   '/termini',
+  '/tibiz',
   ...articles.map((a) => `/blog/${a.slug}`),
 ]);
 

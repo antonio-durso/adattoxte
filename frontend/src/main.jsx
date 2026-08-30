@@ -30,6 +30,7 @@ const STATIC_ROUTES = new Set([
   '/privacy',
   '/cookie',
   '/termini',
+  '/tibiz',
 ]);
 
 const path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
