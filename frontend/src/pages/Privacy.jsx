@@ -122,6 +122,11 @@ export default function Privacy() {
         2016/679 (GDPR) e la normativa di settore. La validazione finale da parte di un legale è in corso di
         definizione e verrà registrata in questa pagina.
       </p>
+
+      <p className="muted small">
+        Il presente documento è stato sottoposto ad auto-invio PEC ai sensi dell'art. 48 D.Lgs. 82/2005 in data
+        30/08/2026 (data certa), con riferimento anche alla cookie policy della piattaforma.
+      </p>
     </div>
   );
 }
