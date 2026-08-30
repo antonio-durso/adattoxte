@@ -20,14 +20,17 @@ export default function CookiePolicy() {
       <h2>2. Cookie utilizzati</h2>
       <ul>
         <li><strong>Cookie tecnici (necessari):</strong> gestione della sessione di autenticazione, preferenze lingua e consenso cookie. Non richiedono consenso (art. 122 D.Lgs. 196/2003).</li>
-        <li><strong>Cookie di analisi (solo con consenso):</strong> statistiche aggregate di utilizzo, per migliorare il servizio.</li>
+        <li><strong>Cookie di analisi — Google Analytics 4 (solo con consenso):</strong> statistiche aggregate di utilizzo (pagine visitate, durata, provenienza) con indirizzi IP anonimizzati, per migliorare il servizio.</li>
+        <li><strong>Cookie di marketing — Meta Pixel (solo con consenso):</strong> misurazione delle conversioni delle campagne pubblicitarie su Facebook/Instagram, senza profilazione incrociata dei dati sanitari.</li>
         <li><strong>Cookie di terze parti:</strong> la videochiamata (Jitsi Meet) e i pagamenti (PayPal) possono impostare cookie propri secondo le rispettive informative.</li>
       </ul>
 
       <h2>3. Come gestire le preferenze</h2>
       <p>
         Al primo accesso puoi accettare o rifiutare i cookie non tecnici tramite il banner. Puoi sempre modificare
-        la scelta cancellando i cookie del browser o svuotando la memoria locale.
+        la scelta cancellando i cookie del browser o svuotando la memoria locale. Per disattivare la pubblicità
+        personalizzata puoi inoltre usare le impostazioni di Google (adssettings.google.com) e di Meta
+        (facebook.com/ads/preferences).
       </p>
 
       <h2>4. Durata</h2>

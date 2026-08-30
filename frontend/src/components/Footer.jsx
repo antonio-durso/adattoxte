@@ -164,6 +164,42 @@ export default function Footer() {
             <span className="tbiz-hint">Scopri il programma ↓</span>
           </Link>
           <p style={{ margin: 0, fontSize: 12.5, lineHeight: 1.55, color: '#334155' }}>{t('footer.tbizText')}</p>
+          {/* Timbro legale (conformità GDPR) — stile notaio, valore di attestazione */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 14, marginTop: 6 }}>
+            <Link to="/privacy" aria-label="Informativa privacy conforme al GDPR" title="Informativa privacy e cookie conforme al Regolamento UE 2016/679 (GDPR)">
+              <span
+                style={{
+                  display: 'inline-flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 108,
+                  height: 108,
+                  borderRadius: '50%',
+                  border: '3px double #475569',
+                  color: '#475569',
+                  transform: 'rotate(-6deg)',
+                  opacity: 0.92,
+                  textAlign: 'center',
+                  padding: 8,
+                  lineHeight: 1.25,
+                  userSelect: 'none',
+                }}
+              >
+                <span style={{ fontSize: 15, fontWeight: 800, letterSpacing: '0.5px' }}>✦</span>
+                <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.5px' }}>CONFORME AL</span>
+                <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.5px' }}>GDPR</span>
+                <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: '0.3px' }}>UE 2016/679</span>
+                <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: '0.3px' }}>AGG. 30/08/2026</span>
+              </span>
+            </Link>
+            <span style={{ maxWidth: 300, fontSize: 11.5, lineHeight: 1.5, color: '#475569', textAlign: 'left' }}>
+              Informativa privacy e cookie redatte in conformità al Regolamento UE 2016/679 (GDPR) e alla
+              normativa di settore. <Link to="/privacy" style={{ color: '#286a8f', textDecoration: 'underline', fontWeight: 600 }}>Leggi la privacy policy</Link> ·{' '}
+              <Link to="/cookie" style={{ color: '#286a8f', textDecoration: 'underline', fontWeight: 600 }}>cookie policy</Link> ·{' '}
+              <Link to="/termini" style={{ color: '#286a8f', textDecoration: 'underline', fontWeight: 600 }}>termini</Link>.
+            </span>
+          </div>
         </div>
       </div>
     </footer>

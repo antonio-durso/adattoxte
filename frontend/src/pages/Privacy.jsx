@@ -59,10 +59,21 @@ export default function Privacy() {
       <ul>
         <li><strong>Videochiamate:</strong> Jitsi Meet (infrastruttura crittografata; le sessioni non vengono registrate dalla piattaforma).</li>
         <li><strong>Email transazionali:</strong> Brevo (invio di conferme, promemoria e notifiche).</li>
-        <li><strong>Pagamenti (quando attivi):</strong> PayPal — i dati di pagamento (carta di credito) sono gestiti esclusivamente da PayPal, che non condivide con noi i dati completi della carta.</li>
+        <li><strong>Pagamenti:</strong> PayPal — i dati di pagamento (carta di credito) sono gestiti esclusivamente da PayPal, che non condivide con noi i dati completi della carta.</li>
         <li><strong>Hosting:</strong> Vercel (frontend) e Render (backend), con server in area UE.</li>
         <li><strong>Statistiche e marketing:</strong> Google Analytics 4 e Meta Pixel, attivati solo con il tuo consenso (banner cookie), con misure di anonimizzazione.</li>
+        <li><strong>Monitoraggio tecnico:</strong> Sentry (rilevamento e correzione di errori tecnici; nessun dato di contenuto delle sedute).</li>
+        <li><strong>Recensioni:</strong> Trustpilot (profilo business della piattaforma; le recensioni sono pubbliche su it.trustpilot.com).</li>
       </ul>
+
+      <h2>5bis. Trasferimenti di dati al di fuori dell'UE</h2>
+      <p>
+        Alcuni fornitori (Google, Meta, PayPal, Sentry) possono trasferire dati verso gli Stati Uniti. Tali
+        trasferimenti avvengono nel rispetto del <strong>quadro UE-USA per la protezione dei dati personali</strong>
+        (Data Privacy Framework, decisione di adeguatezza della Commissione UE) o di altre garanzie previste dagli
+        artt. 44-49 GDPR. I dati sanitari trattati dalla piattaforma non vengono condivisi con questi fornitori:
+        la loro operatività riguarda esclusivamente dati di utilizzo, statistiche aggregate e pagamenti.
+      </p>
 
       <h2>6. Conservazione dei dati</h2>
       <p>
