@@ -66,25 +66,30 @@ export const extraArticles19 = [
 <p>Fai il <a href="/test">test ansia gratuito (GAD-7)</a> per un orientamento immediato, oppure <a href="/terapeuti">trova il terapeuta giusto per te</a> e inizia con il primo colloquio gratuito di 15 minuti.</p>`,
   },
   {
-    slug: 'ansia-parlare-in-pubblico',
-    title: "Paura di parlare in pubblico: come gestire l'ansia",
-    keyword: 'paura di parlare in pubblico',
-    metaDescription: "Mani sudate, voce che trema, mente che si svuota: la paura di parlare in pubblico è comune ma si supera. Strategie pratiche per gestire l'ansia e performance migliori.",
+    slug: 'ansia-e-stress-differenze',
+    title: 'Ansia e stress: differenze e come distinguerli',
+    keyword: 'differenza tra ansia e stress',
+    metaDescription: "Stress e ansia non sono la stessa cosa: capire la differenza aiuta a gestirli. Segnali, cause e strategie pratiche per riconoscerli e affrontarli.",
     date: '2026-10-13',
-    body: `<h1>Paura di parlare in pubblico: come gestire l'ansia</h1>
-<p>Parlare davanti a un gruppo è una delle paure più diffuse: la "glossophobia" colpisce persone di ogni età e professione. Il cuore accelera, le mani sudano, la voce trema, la mente si svuota proprio quando serve chiarezza. La buona notizia: si tratta di un'ansia gestibile con la preparazione e le tecniche giuste.</p>
-<h2>Preparazione: riduci l'ignoto prima di salire sul palco</h2>
+    body: `<h1>Ansia e stress: differenze e come distinguerli</h1>
+<p>Stress e ansia vengono spesso usati come sinonimi, ma sono due esperienze diverse, che richiedono risposte diverse. Riuscire a distinguerli è il primo passo per gestirli: lo stress è una reazione a una richiesta esterna, l'ansia è una preoccupazione che continua anche quando la richiesta è finita.</p>
+<h2>Le differenze essenziali</h2>
 <ul>
-<li><strong>Prova ad alta voce</strong> almeno 2-3 volte, anche da solo: l'esposizione ripetuta riduce l'attivazione fisiologica.</li>
-<li><strong>Struttura chiara:</strong> inizio, 3 punti, conclusione. Una struttura semplice è un'ancora a cui aggrapparsi quando l'ansia sale.</li>
-<li><strong>Non puntare alla perfezione:</strong> l'obiettivo è comunicare, non recitare. Il pubblico perdona le piccole incertezze, non la rigidità.</li>
-<li><strong>Arriva presto e familiarizza</strong> con lo spazio: la familiarità abbassa l'allarme.</li>
+<li><strong>Lo stress ha una causa concreta:</strong> una scadenza, un esame, un conflitto. Quando la causa sparisce, lo stress tende a ridursi.</li>
+<li><strong>L'ansia può restare senza causa apparente:</strong> la preoccupazione riguarda il futuro, i "e se?", e continua anche a problema risolto.</li>
+<li><strong>Lo stress è legato al presente:</strong> "ho troppo da fare"; l'ansia è anticipatoria: "e se non ce la faccio?";</li>
+<li><strong>Stress e ansia si alimentano a vicenda:</strong> uno stress prolungato può trasformarsi in ansia generalizzata, e l'ansia rende più vulnerabili allo stress.</li>
 </ul>
-<h2>Durante: gestisci il corpo, la mente segue</h2>
-<p>Quando sale l'attivazione, usa la <strong>respirazione 4-6</strong> (inspira 4, espira 6) prima di iniziare e tra le sezioni: l'espirazione lunga abbassa la frequenza cardiaca. Guarda le persone (o un punto dietro di loro se l'ansia è forte), parla più lentamente di quanto ti sembri naturale e tieni una bottiglia d'acqua: le pause sono accettate e ti danno respiro.</p>
-<h2>Quando è ansia sociale e serve un percorso</h2>
-<p>Se la paura ti fa evitare presentazioni, riunioni, esami orali o situazioni sociali in generale, e questo limita studio, lavoro o relazioni, potrebbe esserci un'ansia sociale sottostante che merita un lavoro mirato. La terapia cognitivo-comportamentale è tra gli approcci più efficaci.</p>
-<p><a href="/terapeuti">Trova il tuo terapeuta</a> e inizia con il primo colloquio gratuito di 15 minuti, oppure fai il <a href="/test">test ansia gratuito</a> per capire dove ti trovi oggi.</p>`,
+<h2>Come riconoscerli in pratica</h2>
+<p>Chiediti: questa attivazione è legata a un evento specifico e recente? Se sì, probabilmente è stress. Se la tensione, i pensieri negativi o i sintomi fisici (tensione muscolare, tachicardia, disturbi del sonno) continuano anche nei momenti "tranquilli", può esserci dell'ansia di fondo.</p>
+<h2>Strategie per entrambi</h2>
+<ul>
+<li><strong>Per lo stress:</strong> riduci o riorganizza le richieste, impara a dire no, pianifica pause e recupero reale;</li>
+<li><strong>Per l'ansia:</strong> lavora sui pensieri (identifica le previsioni catastrofiche e mettile alla prova), usa la respirazione lenta e la rie esposizione graduale alle situazioni evitate;</li>
+<li><strong>Per entrambi:</strong> sonno regolare, attività fisica, momenti di piacere e relazioni in cui si può parlare davvero.</li>
+</ul>
+<h2>Quando un percorso psicologico aiuta</h2>
+<p>Se stress e ansia si cronicizzano — insonnia, irritabilità costante, sensazione di non farcela, evitamenti che crescono — un percorso con uno psicologo aiuta a capire cosa sta alimentando il disagio e a costruire strategie su misura. Fai il <a href="/test">test ansia gratuito (GAD-7)</a> per un orientamento, oppure <a href="/terapeuti">trova il tuo terapeuta</a> e inizia con il primo colloquio gratuito di 15 minuti.</p>`,
   },
   {
     slug: 'psicologo-online-in-inglese',
