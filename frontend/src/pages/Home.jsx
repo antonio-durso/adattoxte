@@ -126,15 +126,7 @@ export default function Home() {
               telephone: '+39 392 2380843',
               privacyPolicy: 'https://www.adattoxte.com/privacy',
               termsOfService: 'https://www.adattoxte.com/termini',
-              logo: 'https://www.adattoxte.com/images/hero.jpg',
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: 'Av. des Champs-Élysées',
-                postalCode: '75008',
-                addressLocality: 'Paris',
-                addressCountry: 'FR',
-              },
-              areaServed: ['IT', 'FR'],
+              areaServed: 'IT',
               sameAs: [
                 'https://www.instagram.com/adattoxte',
                 'https://www.facebook.com/people/Adatto-x-Te/61593750877130/',
