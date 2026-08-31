@@ -121,7 +121,6 @@ export default function Home() {
               '@type': 'Organization',
               '@id': 'https://www.adattoxte.com/#organization',
               name: 'Adatto x Te',
-              legalName: 'Studio D\'Urso',
               url: 'https://www.adattoxte.com/',
               email: 'antonio.durso.749@psypec.it',
               telephone: '+39 392 2380843',
