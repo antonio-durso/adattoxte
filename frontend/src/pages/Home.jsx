@@ -291,6 +291,10 @@ export default function Home() {
                 <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
                   ★ 3,8/5 su Trustpilot · 2 recensioni
                 </a>
+                <span> · </span>
+                <a href="https://share.google/U98x9MWWluFoa91xy" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
+                  ★ 5,0 su Google
+                </a>
               </p>
             </div>
           </Reveal>
