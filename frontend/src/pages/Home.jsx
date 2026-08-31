@@ -161,6 +161,19 @@ export default function Home() {
                 ],
               },
             },
+            {
+              '@type': 'OfferCatalog',
+              '@id': 'https://www.adattoxte.com/#catalog',
+              name: 'Servizi di psicologia online',
+              url: 'https://www.adattoxte.com/',
+              itemListElement: [
+                { '@type': 'Service', name: 'Seduta di psicologia individuale (50 minuti)', url: 'https://www.adattoxte.com/terapeuti', offers: { '@type': 'Offer', price: '45', priceCurrency: 'EUR' } },
+                { '@type': 'Service', name: 'Terapia di coppia online (50 minuti)', url: 'https://www.adattoxte.com/terapeuti', offers: { '@type': 'Offer', price: '50', priceCurrency: 'EUR' } },
+                { '@type': 'Service', name: 'Psicologia dello sport online', url: 'https://www.adattoxte.com/psicologo-sport', offers: { '@type': 'Offer', price: '45', priceCurrency: 'EUR' } },
+                { '@type': 'Service', name: 'Preparazione psicologica ai concorsi pubblici', url: 'https://www.adattoxte.com/psicologo-concorsi-pubblici', offers: { '@type': 'Offer', price: '45', priceCurrency: 'EUR' } },
+                { '@type': 'Service', name: 'Psicologia giuridica e consulenza tecnica', url: 'https://www.adattoxte.com/psicologia-giuridica', offers: { '@type': 'Offer', price: '45', priceCurrency: 'EUR' } },
+              ],
+            },
           ],
         }}
       />
