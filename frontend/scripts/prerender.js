@@ -104,27 +104,43 @@ function chromePath() {
 
 // Best-effort: installa Chrome per il prerender (se fallisce -> prerender saltato,
 // come prima: la build resta valida e il sito funziona via rendering JS).
-// Tentativo 1: npx @puppeteer/browsers. Tentativo 2: download diretto
-// "Chrome for Testing" via curl (aggira le restrizioni npm della build).
+// Tentativo 1: npx @puppeteer/browsers (con retry).
+// Tentativo 2: download diretto "Chrome for Testing" via curl (con retry e
+// versione fissa di fallback quando l'API LATEST_RELEASE_STABLE non risponde).
 async function ensureChrome() {
   const found = chromePath();
   if (found) return found;
   console.log('⚠️  Chrome non trovato: tentativo di installazione (best-effort)...');
-  try {
-    execSync('npx --yes @puppeteer/browsers install chrome@stable --path /tmp/chrome', {
-      stdio: 'ignore',
-      timeout: 240000,
-    });
-    if (existsSync('/tmp/chrome/chrome-linux64/chrome')) return '/tmp/chrome/chrome-linux64/chrome';
-  } catch {}
-  try {
-    const ver = execSync('curl -sL https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE', { encoding: 'utf8', timeout: 30000 }).trim();
-    execSync(`curl -sL -o /tmp/chrome.zip https://storage.googleapis.com/chrome-for-testing-public/${ver}/linux64/chrome-linux64.zip`, { stdio: 'ignore', timeout: 300000 });
-    execSync('unzip -o -q /tmp/chrome.zip -d /tmp/', { stdio: 'ignore', timeout: 60000 });
-    if (existsSync('/tmp/chrome-linux64/chrome')) return '/tmp/chrome-linux64/chrome';
-  } catch {
-    console.log('   installazione Chrome non riuscita');
+  for (let i = 1; i <= 2; i++) {
+    try {
+      execSync('npx --yes @puppeteer/browsers install chrome@stable --path /tmp/chrome', {
+        stdio: 'ignore',
+        timeout: 240000,
+      });
+      if (existsSync('/tmp/chrome/chrome-linux64/chrome')) return '/tmp/chrome/chrome-linux64/chrome';
+    } catch (e) {
+      console.log(`   npx install tentativo ${i}/2 fallito`);
+    }
   }
+  const fallbackVersions = ['131.0.6778.204', '130.0.6723.116'];
+  for (let i = 1; i <= 2; i++) {
+    try {
+      let ver = '';
+      try {
+        ver = execSync('curl -sL https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE', { encoding: 'utf8', timeout: 30000 }).trim();
+      } catch {}
+      if (!ver || !/^\d+\.\d+\.\d+\.\d+$/.test(ver)) {
+        ver = fallbackVersions[i - 1] || '131.0.6778.204';
+        console.log(`   API versione non raggiungibile: uso versione fissa ${ver}`);
+      }
+      execSync(`curl -sL -o /tmp/chrome.zip https://storage.googleapis.com/chrome-for-testing-public/${ver}/linux64/chrome-linux64.zip`, { stdio: 'ignore', timeout: 300000 });
+      execSync('unzip -o -q /tmp/chrome.zip -d /tmp/', { stdio: 'ignore', timeout: 60000 });
+      if (existsSync('/tmp/chrome-linux64/chrome')) return '/tmp/chrome-linux64/chrome';
+    } catch (e) {
+      console.log(`   download diretto tentativo ${i}/2 fallito`);
+    }
+  }
+  console.log('   installazione Chrome non riuscita');
   return '';
 }
 
