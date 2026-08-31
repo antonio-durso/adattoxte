@@ -248,12 +248,26 @@ async function main() {
         console.log(`  [diag] ${route} servita con modulo React: ${hasModule}`);
       } catch {}
       try {
-        // Budget ampio solo per la home (carica dati API); 8s per le altre
+        // Budget ampio solo per la home (carica dati API); 8s per le altre.
+        // Per la home: se il primo dump è vuoto/corrotto, RETRY con budget maggiore
+        // (il timeout di Chrome può restituire un DOM vuoto che non va mai scritto).
         const budget = route === '/' ? 20000 : 8000;
-        let dom = execSync(
-          `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=${budget} --timeout=25000 --dump-dom "${url}"`,
-          { encoding: 'utf8', timeout: 90000, maxBuffer: 32 * 1024 * 1024 }
-        );
+        let dom = '';
+        for (let attempt = 1; attempt <= (route === '/' ? 2 : 1); attempt++) {
+          const b = attempt === 1 ? budget : 40000;
+          dom = execSync(
+            `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=${b} --timeout=45000 --dump-dom "${url}"`,
+            { encoding: 'utf8', timeout: 120000, maxBuffer: 32 * 1024 * 1024 }
+          );
+          if (dom.length > 500 && dom.includes('<body')) break;
+          console.log(`  ⚠️ ${route}: DOM vuoto (${dom.length} byte), retry ${attempt + 1}…`);
+        }
+        // Guardia finale: un DOM vuoto/corrotto NON deve mai sovrascrivere
+        // un HTML valido già presente (es. la home statica di vite build).
+        if (dom.length < 500 || !dom.includes('<body')) {
+          console.log(`  ❌ ${route}: DOM non valido (${dom.length} byte) — HTML esistente mantenuto`);
+          continue;
+        }
         // Rotte statiche: rimuovi i moduli React (entry + preload) → zero JS framework
         if (STATIC_NO_MOUNT.has(route)) {
           dom = dom
