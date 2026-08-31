@@ -82,6 +82,7 @@ export default function Footer() {
           <Link to="/psicologo-concorsi-pubblici">Psicologo concorsi</Link>
           <Link to="/psicologo-sport">Psicologo sport</Link>
           <Link to="/psicologia-giuridica">Psicologia giuridica</Link>
+          <Link to="/italiani-all-estero">Italiani all'estero</Link>
           <Link to="/psicologo-online/depressione">Psicologo online depressione</Link>
           <Link to="/psicologo-online/ansia">Psicologo online ansia</Link>
           <Link to="/psicologo-online/attacchi-di-panico">Psicologo online attacchi di panico</Link>

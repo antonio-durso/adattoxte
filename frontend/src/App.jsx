@@ -23,6 +23,7 @@ const Risorse = lazy(() => import('./pages/Risorse'));
 const Recensioni = lazy(() => import('./pages/Recensioni'));
 const CheckIn = lazy(() => import('./pages/CheckIn'));
 const NicheLanding = lazy(() => import('./pages/NicheLanding'));
+const Estero = lazy(() => import('./pages/Estero'));
 const DisturboLanding = lazy(() => import('./pages/DisturboLanding'));
 const Settings = lazy(() => import('./pages/Settings'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -105,6 +106,7 @@ export default function App() {
                 <Route path="/termini" element={<Terms />} />
                 <Route path="/prezzi" element={<Prezzi />} />
                 <Route path="/aziende" element={<Aziende />} />
+                <Route path="/italiani-all-estero" element={<Estero />} />
                 <Route path="/tibiz" element={<Tibiz />} />
                 <Route path="/equipe" element={<Equipe />} />
                 <Route

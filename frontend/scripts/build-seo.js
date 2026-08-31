@@ -53,6 +53,7 @@ const STATIC_ROUTES = [
   { path: '/psicologo-concorsi-pubblici', priority: '0.8', freq: 'weekly' },
   { path: '/psicologo-sport', priority: '0.8', freq: 'weekly' },
   { path: '/psicologia-giuridica', priority: '0.8', freq: 'weekly' },
+  { path: '/italiani-all-estero', priority: '0.8', freq: 'weekly' },
   { path: '/registrazione', priority: '0.5', freq: 'monthly' },
   { path: '/accedi', priority: '0.4', freq: 'monthly' },
   { path: '/privacy', priority: '0.2', freq: 'yearly' },
