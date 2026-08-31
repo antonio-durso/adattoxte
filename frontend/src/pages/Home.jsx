@@ -140,6 +140,27 @@ export default function Home() {
               publisher: { '@id': 'https://www.adattoxte.com/#organization' },
               inLanguage: 'it-IT',
             },
+            {
+              '@type': 'Service',
+              '@id': 'https://www.adattoxte.com/#service',
+              serviceType: 'Psicologia online',
+              name: 'Psicologo online — sedute in videochiamata',
+              provider: { '@id': 'https://www.adattoxte.com/#organization' },
+              areaServed: 'IT',
+              availableLanguage: ['it', 'en'],
+              offers: {
+                '@type': 'AggregateOffer',
+                lowPrice: '38.25',
+                highPrice: '50',
+                priceCurrency: 'EUR',
+                offers: [
+                  { '@type': 'Offer', name: 'Seduta individuale 50 minuti', price: '45', priceCurrency: 'EUR' },
+                  { '@type': 'Offer', name: 'Seduta di coppia 50 minuti', price: '50', priceCurrency: 'EUR' },
+                  { '@type': 'Offer', name: 'Pacchetto 3 sedute (sconto 15%)', price: '38.25', priceCurrency: 'EUR' },
+                  { '@type': 'Offer', name: 'Prima seduta conoscitiva', price: '0', priceCurrency: 'EUR' },
+                ],
+              },
+            },
           ],
         }}
       />
