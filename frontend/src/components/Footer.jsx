@@ -60,6 +60,17 @@ export default function Footer() {
               </svg>
               TikTok
             </a>
+            <a
+              href="https://share.google/U98x9MWWluFoa91xy"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#286a8f', fontWeight: 600, textDecoration: 'none' }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#4285F4" d="M12 0C7.58 0 4 3.58 4 8c0 5.25 8 16 8 16s8-10.75 8-16c0-4.42-3.58-8-8-8zm0 11.5A3.5 3.5 0 1 1 12 4.5a3.5 3.5 0 0 1 0 7z" />
+              </svg>
+              Google Maps
+            </a>
           </p>
         </div>
         <div className="footer-links">
