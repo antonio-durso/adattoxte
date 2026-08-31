@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
+import { paesi } from '../content/paesi';
 
 const WHY = [
   { icon: '🗣️', title: 'La tua lingua, la tua cultura', desc: 'Sedute in italiano con professionisti che conoscono il contesto culturale italiano: certe emozioni si esprimono meglio nella propria lingua.' },
@@ -134,6 +135,32 @@ export default function Estero() {
               <h3 style={{ margin: '0 0 6px', fontSize: 16 }}>{f.q}</h3>
               <p className="muted" style={{ margin: 0 }}>{f.a}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section">
+        <h2 style={{ textAlign: 'center' }}>I paesi coperti</h2>
+        <p className="muted" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 20px' }}>
+          Una pagina dedicata per ogni paese e per la sua capitale: scegli la tua destinazione.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 12 }}>
+          {paesi.map((p) => (
+            <Link
+              key={p.slug}
+              to={`/italiani-all-estero/${p.slug}`}
+              className="card"
+              style={{ display: 'block', padding: 14, textDecoration: 'none', color: 'inherit' }}
+            >
+              <h3 style={{ margin: 0, fontSize: 15 }}>
+                {p.bandiera} Italiani in {p.nome}
+              </h3>
+              <p className="muted small" style={{ margin: '4px 0 0' }}>
+                <Link to={`/italiani-all-estero/${p.slug}/${p.capitale.slug}`} style={{ textDecoration: 'underline' }} onClick={(e) => e.stopPropagation()}>
+                  {p.capitale.nome} →
+                </Link>
+              </p>
+            </Link>
           ))}
         </div>
       </section>

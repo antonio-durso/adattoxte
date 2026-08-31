@@ -39,7 +39,7 @@ const SERVICES = [
   { icon: '⚖️', title: 'Psicologia giuridica', desc: 'Consulenza in ambito forense e supporto ai professionisti legali.' },
   { icon: '💑', title: 'Terapia di coppia', desc: 'Comunicazione, crisi di relazione e supporto alle decisioni, anche da remoto.' },
   { icon: '🧠', title: 'Ansia e depressione', desc: 'Percorsi individuali con approccio cognitivo-comportamentale.' },
-  { icon: '🌍', title: 'Consulenza multilingue', desc: 'Sedute in italiano e inglese: la terapia parla la tua lingua.' },
+  { icon: '🌍', title: 'Consulenza multilingue', desc: 'Sedute in italiano e inglese: la terapia parla la tua lingua.', to: '/italiani-all-estero' },
 ];
 
 const STEPS = [
@@ -227,11 +227,19 @@ export default function Home() {
         <div className="grid cards">
           {SERVICES.map((s, i) => (
             <Reveal key={s.title} delay={(i % 3) * 90}>
-              <div className="card">
-                <div className="card-icon">{s.icon}</div>
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
-              </div>
+              {s.to ? (
+                <Link to={s.to} className="card" style={{ display: 'block', height: '100%', textDecoration: 'none', color: 'inherit' }}>
+                  <div className="card-icon">{s.icon}</div>
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                </Link>
+              ) : (
+                <div className="card">
+                  <div className="card-icon">{s.icon}</div>
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                </div>
+              )}
             </Reveal>
           ))}
         </div>
