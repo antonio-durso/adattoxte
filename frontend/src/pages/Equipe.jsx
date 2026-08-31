@@ -29,8 +29,18 @@ export default function Equipe() {
     <>
       <Seo
         title="L'équipe clinica di Adatto x Te | Direzione: Dott. Antonio D'Urso"
-        description="Un'équipe di psicologi e psicoterapeuti specializzati in ansia, depressione, terapia di coppia, psicologia dello sport e concorsi. Direzione clinica: Dott. Antonio D'Urso. Prima seduta gratuita."
+        description="Un'équipe di psicologi e psicoterapeuti specializzati in ansia, depressione, terapia di coppia, psicologia dello sport e concorsi. Direzione clinica: Dott. Antonio D'Urso, psicologo iscritto all'Albo. Prima seduta gratuita."
         path="/equipe"
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Antonio D\'Urso',
+            jobTitle: 'Psicologo, Direzione clinica di Adatto x Te',
+            worksFor: { '@type': 'Organization', name: 'Adatto x Te', url: 'https://www.adattoxte.com/' },
+            description: 'Psicologo iscritto all\'Albo degli Psicologi, fondatore e direttore clinico della piattaforma di psicologia online Adatto x Te.',
+          },
+        ]}
       />
       <div className="container section">
         <p className="muted small" style={{ marginBottom: 4 }}>
@@ -52,6 +62,9 @@ export default function Equipe() {
             <h2 style={{ margin: '0 0 6px' }}>Direzione clinica</h2>
             <p style={{ fontSize: 19, fontWeight: 700, margin: '0 0 10px', color: 'var(--primary, #4f46e5)' }}>
               Dott. Antonio D'Urso
+            </p>
+            <p style={{ fontSize: 14, fontWeight: 600, margin: '0 0 10px' }}>
+              Psicologo · iscritto all'Albo degli Psicologi
             </p>
             <p className="muted" style={{ maxWidth: 560, margin: '0 auto' }}>
               Fondatore di Adatto x Te e direttore clinico della piattaforma: coordina
