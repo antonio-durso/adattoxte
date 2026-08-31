@@ -7,6 +7,7 @@ export default function CookiePolicy() {
         title="Informativa cookie"
         description="Informativa cookie di Adatto x Te: cookie tecnici e di analisi, consenso, durata e come gestire le preferenze."
         path="/cookie"
+        noindex
       />
       <h1>Informativa cookie</h1>
       <p className="muted">Ultimo aggiornamento: {new Date().toLocaleDateString('it-IT')}</p>

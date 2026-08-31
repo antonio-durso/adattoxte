@@ -21,7 +21,9 @@ export const disturbi = [
       ['La depressione si può curare online?', 'Sì: la psicoterapia online ha un\'efficacia paragonabile a quella in presenza per la depressione lieve e moderata.'],
       ['Quando devo rivolgermi a uno psicologo?', 'Se il disagio persiste da settimane e limita la tua vita quotidiana, prima inizi il percorso e prima si vede il cambiamento.'],
     ],
-  },
+  
+    desc: 'psicologo online depressione: La depressione è uno dei disturbi più comuni. Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'disturbo-depressivo-persistente',
     nome: 'Disturbo depressivo persistente (distimia)',
@@ -40,7 +42,9 @@ export const disturbi = [
       ['La distimia è meno grave della depressione?', 'È diversa: meno acuta ma più duratura. Anche la distimia merita un trattamento.'],
       ['Serve la terapia a lungo termine?', 'Dipende dalla persona: molti percorsi online durano da pochi mesi a un anno, con benefici già nelle prime settimane.'],
     ],
-  },
+  
+    desc: 'psicologo online distimia: La distimia (disturbo depressivo persistente) è una forma di depressione meno intensa ma più lunga. Prima seduta gratuita, sedute da ',
+},
   {
     slug: 'disturbo-bipolare',
     nome: 'Disturbo bipolare',
@@ -59,7 +63,9 @@ export const disturbi = [
       ['La terapia online va bene per il bipolare?', 'Sì, come supporto al percorso: regolarità e continuità contano molto, e la videochiamata le facilita.'],
       ['Lo psicologo sostituisce lo psichiatra?', 'No: i due interventi sono complementari. Lo psicologo lavora su abitudini e gestione emotiva, lo psichiatra sulla terapia farmacologica.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo bipolare: Il disturbo bipolare alterna fasi depressive a fasi di euforia o irritabilità (mania/ipomania). Prima seduta gratuita, sedut',
+},
   {
     slug: 'ansia',
     nome: 'Ansia',
@@ -78,7 +84,9 @@ export const disturbi = [
       ['Quanto dura un percorso per l\'ansia?', 'Molti percorsi brevi (8-16 sedute) danno risultati concreti. La durata dipende dalla persona.'],
       ['La prima seduta come funziona?', 'Ti conosciamo, capiamo il problema e definiamo un piano. Nessun impegno: la prima prenotazione è semplice e flessibile.'],
     ],
-  },
+  
+    desc: 'psicologo online ansia: L\'ansia è la risposta del corpo a una minaccia percepita. Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'attacchi-di-panico',
     nome: 'Attacchi di panico',
@@ -97,7 +105,9 @@ export const disturbi = [
       ['Posso avere un attacco durante la videochiamata?', 'Se accade, il terapeuta è lì con te e ti guida: è un\'occasione preziosa per imparare a gestirlo.'],
       ['Quanto dura il percorso?', 'Percorsi brevi e strutturati (8-20 sedute) sono tipicamente sufficienti per ridurre molto gli attacchi.'],
     ],
-  },
+  
+    desc: 'psicologo online attacchi di panico: Un attacco di panico è un\'improvvisa ondata di paura intensa con sintomi fisici forti (cuore che b…. Prima seduta gratuita,',
+},
   {
     slug: 'agorafobia',
     nome: 'Agorafobia',
@@ -116,7 +126,9 @@ export const disturbi = [
       ['Posso fare la terapia senza uscire di casa?', 'Sì, è uno dei grandi vantaggi dell\'online per chi ha agorafobia.'],
       ['La paura passerà del tutto?', 'Con il lavoro graduale, la maggior parte delle persone torna a vivere le situazioni evitate con serenità.'],
     ],
-  },
+  
+    desc: 'psicologo online agorafobia: L\'agorafobia è la paura di trovarsi in luoghi o situazioni da cui sarebbe difficile scappare (mezz…. Prima seduta gratuita, sedute ',
+},
   {
     slug: 'ansia-sociale',
     nome: 'Fobia sociale (ansia sociale)',
@@ -135,7 +147,9 @@ export const disturbi = [
       ['La videochiamata non mi metterà ansia?', 'All\'inizio può, ma è un\'esposizione graduale perfetta: si lavora proprio lì.'],
       ['Funziona senza "faccia a faccia" fisico?', 'Sì: i risultati della terapia online per l\'ansia sociale sono documentati e paragonabili a quelli in presenza.'],
     ],
-  },
+  
+    desc: 'psicologo online ansia sociale: L\'ansia sociale è la paura intensa del giudizio degli altri. Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'fobie-specifiche',
     nome: 'Fobie specifiche',
@@ -154,7 +168,9 @@ export const disturbi = [
       ['Come si lavora su una fobia online?', 'Con esposizione graduale guidata: si costruisce una gerarchia di situazioni e si procede per piccoli passi, anche a distanza.'],
       ['In quanto tempo miglioro?', 'Molte fobie specifiche migliorano significativamente in 4-10 sedute.'],
     ],
-  },
+  
+    desc: 'psicologo online fobie: Le fobie specifiche sono paure intense e sproporzionate di oggetti o situazioni precise. Prima seduta gratuita, sedute da 45€ in videoch',
+},
   {
     slug: 'ansia-da-separazione',
     nome: 'Ansia da separazione',
@@ -173,7 +189,9 @@ export const disturbi = [
       ['È un problema solo dei bambini?', 'No: anche molti adulti vivono un\'ansia da separazione non riconosciuta.'],
       ['Come aiuta la terapia online?', 'Dà spazio e continuità al lavoro emotivo, senza barriere geografiche o di orario.'],
     ],
-  },
+  
+    desc: 'psicologo online ansia da separazione: L\'ansia da separazione è la paura eccessiva di allontanarsi dalle figure di attaccamento. Prima seduta gratuita, sedute d',
+},
   {
     slug: 'disturbo-ossessivo-compulsivo',
     nome: 'Disturbo ossessivo-compulsivo (DOC)',
@@ -192,7 +210,9 @@ export const disturbi = [
       ['La terapia online funziona per il DOC?', 'Sì: gli studi confermano l\'efficacia della CBT online per il DOC, con risultati paragonabili all\'in presenza.'],
       ['Quanto dura il trattamento?', 'Dipende dalla gravità: percorsi strutturati di 12-24 sedute sono comuni, con miglioramenti già nelle prime settimane.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo ossessivo compulsivo: Il DOC è caratterizzato da pensieri ossessivi intrusivi (contaminazione, controllo, ordine, pensie…. Prima sedut',
+},
   {
     slug: 'tricotillomania',
     nome: 'Tricotillomania',
@@ -211,7 +231,9 @@ export const disturbi = [
       ['È un vizio o un disturbo?', 'È un disturbo riconosciuto: non è una questione di forza di volontà.'],
       ['Si risolve con la terapia?', 'Con la terapia comportamentale la maggior parte delle persone riduce molto o elimina il gesto.'],
     ],
-  },
+  
+    desc: 'psicologo online tricotillomania: La tricotillomania è il bisogno ricorrente e irresistibile di strapparsi capelli, sopracciglia o c…. Prima seduta gratuita, se',
+},
   {
     slug: 'disturbo-da-accumulo',
     nome: 'Disturbo da accumulo',
@@ -230,7 +252,9 @@ export const disturbi = [
       ['La terapia online è adatta?', 'Sì: il lavoro sulle convinzioni e le micro-azioni quotidiane si adatta benissimo alla modalità a distanza.'],
       ['Serve una pulizia forzata della casa?', 'No, mai: il cambiamento nasce da un lavoro emotivo e comportamentale graduale.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo da accumulo: Il disturbo da accumulo è la difficoltà persistente a separarsi dagli oggetti, con accumulo che ri…. Prima seduta gratuit',
+},
   {
     slug: 'dimorfismo-corporeo',
     nome: 'Disturbo da dismorfismo corporeo',
@@ -249,7 +273,9 @@ export const disturbi = [
       ['Lo specchio è il nemico?', 'Non è lo specchio: è il rapporto con esso. In terapia si lavora proprio sui rituali di controllo.'],
       ['La chirurgia estetica risolve?', 'Spesso no, perché il problema è percettivo: la terapia lavora alla radice.'],
     ],
-  },
+  
+    desc: 'psicologo online dismorfismo corporeo: Il disturbo da dismorfismo corporeo è la preoccupazione ossessiva per difetti fisici percepiti com…. Prima seduta gratuit',
+},
   {
     slug: 'disturbo-post-traumatico-da-stress',
     nome: 'Disturbo post-traumatico da stress (PTSD)',
@@ -268,7 +294,9 @@ export const disturbi = [
       ['L\'EMDR funziona online?', 'Sì, è una pratica consolidata anche a distanza, con protocolli validati.'],
       ['Parlerò subito dell\'evento?', 'Mai subito e mai senza strumenti: il terapeuta costruisce prima sicurezza e risorse.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo post traumatico da stress: Il PTSD può manifestarsi dopo eventi traumatici (incidenti, violenze, lutti improvvisi, esperienze…. Prima ',
+},
   {
     slug: 'disturbo-dell-adattamento',
     nome: 'Disturbo dell\'adattamento',
@@ -287,7 +315,9 @@ export const disturbi = [
       ['Quanto dura?', 'I percorsi di supporto per l\'adattamento sono spesso brevi (6-12 sedute).'],
       ['È una cosa grave?', 'Non è una diagnosi "grave": è un campanello d\'allarme che merita ascolto, e va gestito prima che si cronicizzi.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo dell adattamento: Il disturbo dell\'adattamento compare dopo un evento stressante (separazione, licenziamento, lutto…. Prima seduta gra',
+},
   {
     slug: 'depersonalizzazione',
     nome: 'Depersonalizzazione e derealizzazione',
@@ -306,7 +336,9 @@ export const disturbi = [
       ['È pericoloso?', 'No: è spiacevole ma benigno. Capirlo è già metà del lavoro.'],
       ['Come si cura?', 'Con la terapia si riduce l\'auto-osservazione ansiosa e si trattano le cause (spesso ansia o stress).'],
     ],
-  },
+  
+    desc: 'psicologo online depersonalizzazione: La depersonalizzazione è la sensazione di essere distaccati da sé ("mi osservo dall\'esterno"), la…. Prima seduta gratuita,',
+},
   {
     slug: 'anoressia',
     nome: 'Anoressia nervosa',
@@ -325,7 +357,9 @@ export const disturbi = [
       ['La terapia online è adatta?', 'Può esserlo come parte del percorso, in integrazione con la cura medica e nutrizionale.'],
       ['Quando chiedere aiuto?', 'Appena noti segnali: nei disturbi alimentari l\'intervento precoce cambia la prognosi.'],
     ],
-  },
+  
+    desc: 'psicologo online anoressia: L\'anoressia nervosa è un disturbo alimentare grave caratterizzato da restrizione estrema del cibo…. Prima seduta gratuita, sedute da',
+},
   {
     slug: 'bulimia',
     nome: 'Bulimia nervosa',
@@ -344,7 +378,9 @@ export const disturbi = [
       ['Posso superarla senza dirlo a nessuno?', 'La terapia è confidenziale e online la rende ancora più accessibile: puoi iniziare in totale privacy.'],
       ['Quanto dura?', 'I protocolli per la bulimia sono spesso strutturati (16-20 sedute) con ottimi risultati.'],
     ],
-  },
+  
+    desc: 'psicologo online bulimia: La bulimia nervosa alterna abbuffate compulsive a comportamenti compensatori (vomito, lassativi, d…. Prima seduta gratuita, sedute da ',
+},
   {
     slug: 'binge-eating',
     nome: 'Disturbo da binge-eating',
@@ -363,7 +399,9 @@ export const disturbi = [
       ['Serve una dieta?', 'Il lavoro è più emotivo che nutrizionale: le diete rigide spesso peggiorano il problema.'],
       ['La terapia online funziona?', 'Sì: il binge-eating risponde molto bene alla CBT anche a distanza.'],
     ],
-  },
+  
+    desc: 'psicologo online binge eating: Il disturbo da binge-eating (alimentazione incontrollata) è caratterizzato da abbuffate ricorrenti…. Prima seduta gratuita, sedut',
+},
   {
     slug: 'insonnia',
     nome: 'Insonnia',
@@ -382,7 +420,9 @@ export const disturbi = [
       ['Devo prendere sonniferi?', 'I farmaci aiutano nel breve termine; la CBT-I lavora sulla causa e i risultati durano.'],
       ['Quanto dura?', 'Percorsi brevi e strutturati: miglioramenti spesso già in 4-6 settimane.'],
     ],
-  },
+  
+    desc: 'psicologo online insonnia: L\'insonnia è la difficoltà ad addormentarsi, a mantenere il sonno o a svegliarsi riposati, almeno…. Prima seduta gratuita, sedute da ',
+},
   {
     slug: 'burnout',
     nome: 'Burnout',
@@ -401,7 +441,9 @@ export const disturbi = [
       ['È solo "stress da lavoro"?', 'Il burnout è più profondo: è esaurimento cronico. Merita un intervento specifico.'],
       ['Come si fa la terapia con gli orari di lavoro?', 'Proprio per questo l\'online è ideale: sedute in orari flessibili, anche sera e weekend.'],
     ],
-  },
+  
+    desc: 'psicologo online burnout: Il burnout è l\'esaurimento emotivo legato al lavoro. Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'lutto',
     nome: 'Elaborazione del lutto',
@@ -420,7 +462,9 @@ export const disturbi = [
       ['Quanto dura un lutto?', 'Non c\'è un tempo giusto: la terapia accompagna il processo, non lo accelera forzatamente.'],
       ['Quando serve un aiuto?', 'Quando il dolore blocca la vita quotidiana da molti mesi, un supporto professionale è consigliato.'],
     ],
-  },
+  
+    desc: 'psicologo online lutto: Il lutto è un processo naturale, ma a volte il dolore si blocca o diventa paralizzante (lutto comp…. Prima seduta gratuita, sedute da 45',
+},
   {
     slug: 'ansia-da-malattia',
     nome: 'Ansia da malattia (ipocondria)',
@@ -439,7 +483,9 @@ export const disturbi = [
       ['Le visite mediche servono?', 'Dopo le rassicurazioni mediche, l\'ansia va lavorata con la psicoterapia: è lì il problema.'],
       ['Riuscirò a smettere di controllarmi?', 'Sì, gradualmente: i rituali si riducono con strategie specifiche.'],
     ],
-  },
+  
+    desc: 'psicologo online ansia da malattia: L\'ansia da malattia (disturbo d\'ansia da malattia, un tempo ipocondria) è la paura persistente di…. Prima seduta gratuita, s',
+},
   {
     slug: 'autostima',
     nome: 'Bassa autostima',
@@ -458,7 +504,9 @@ export const disturbi = [
       ['Si può davvero cambiare l\'autostima?', 'Sì: si impara a trattarsi come si tratterebbe un amico, con allenamento costante.'],
       ['Quanto dura?', 'Dipende: percorsi di 10-20 sedute sono comuni, con cambiamenti già visibili presto.'],
     ],
-  },
+  
+    desc: 'psicologo online autostima: La bassa autostima è la tendenza a svalutarsi, a sentirsi inadeguati e a temere il giudizio. Prima seduta gratuita, sedute da 45€ in',
+},
   {
     slug: 'gelosia-ossessiva',
     nome: 'Gelosia ossessiva',
@@ -477,7 +525,9 @@ export const disturbi = [
       ['La terapia si fa da soli o in coppia?', 'Entrambe le modalità esistono: spesso si inizia individualmente e, se serve, si coinvolge il partner.'],
       ['È possibile stare meglio?', 'Sì: la gelosia ossessiva risponde bene alla terapia cognitivo-comportamentale.'],
     ],
-  },
+  
+    desc: 'psicologo online gelosia: La gelosia ossessiva è la paura insistente dell\'infedeltà del partner, con controlli, sospetti e s…. Prima seduta gratuita, sedute da ',
+},
   {
     slug: 'dipendenza-affettiva',
     nome: 'Dipendenza affettiva',
@@ -496,7 +546,9 @@ export const disturbi = [
       ['Devo lasciare il partner?', 'Non è una decisione da prendere da soli in fretta: la terapia aiuta a chiarire i bisogni veri.'],
       ['Si può guarire?', 'Sì: si impara a stare bene anche da soli e a scegliere relazioni sane.'],
     ],
-  },
+  
+    desc: 'psicologo online dipendenza affettiva: La dipendenza affettiva è il bisogno eccessivo di un\'altra persona per sentirsi completi. Prima seduta gratuita, sedute d',
+},
   {
     slug: 'dipendenza-da-internet',
     nome: 'Dipendenza da internet e gaming',
@@ -515,7 +567,9 @@ export const disturbi = [
       ['Serve una "disintossicazione"?', 'Il vero lavoro è capire cosa alimenta l\'uso eccessivo: la terapia va alla radice.'],
       ['Funziona anche per i ragazzi?', 'Sì, anche con adolescenti e giovani adulti, con modalità adatte all\'età.'],
     ],
-  },
+  
+    desc: 'psicologo online dipendenza da internet: L\'uso eccessivo di internet, social e videogiochi può diventare una dipendenza comportamentale. Prima seduta gratuita, ',
+},
   {
     slug: 'dipendenza-da-gioco-d-azzardo',
     nome: 'Dipendenza da gioco d\'azzardo',
@@ -534,7 +588,9 @@ export const disturbi = [
       ['Devo parlare con la mia famiglia?', 'La terapia può aiutarti a decidere come e quando, e a costruire una rete di sostegno.'],
       ['È una dipendenza vera?', 'Sì: è riconosciuta e ha un trattamento specifico ed efficace.'],
     ],
-  },
+  
+    desc: 'psicologo online gioco d azzardo: Il disturbo da gioco d\'azzardo è la perdita di controllo sul gioco nonostante le conseguenze negat…. Prima seduta gratuita, se',
+},
   {
     slug: 'disturbo-borderline',
     nome: 'Disturbo borderline di personalità',
@@ -553,7 +609,9 @@ export const disturbi = [
       ['La DBT funziona online?', 'Sì: molti percorsi DBT includono sedute a distanza con risultati documentati.'],
       ['C\'è speranza?', 'Assolutamente sì: con il trattamento giusto, la maggior parte delle persone stabilizza la propria vita.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo borderline: Il disturbo borderline di personalità è caratterizzato da instabilità emotiva, relazioni intense e…. Prima seduta gratuita',
+},
   {
     slug: 'disturbo-narcisistico',
     nome: 'Disturbo narcisistico di personalità',
@@ -572,7 +630,9 @@ export const disturbi = [
       ['Chi ha questo disturbo chiede davvero aiuto?', 'Spesso arriva per altri problemi (ansia, depressione, crisi): è comunque un\'opportunità di cambiamento.'],
       ['Funziona la terapia online?', 'Sì, se c\'è motivazione: la continuità della videochiamata favorisce il lavoro.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo narcisistico: Il disturbo narcisistico di personalità si manifesta con un senso grandioso di sé, bisogno di ammi…. Prima seduta gratui',
+},
   {
     slug: 'disturbo-evitante',
     nome: 'Disturbo evitante di personalità',
@@ -591,7 +651,9 @@ export const disturbi = [
       ['L\'online non alimenta l\'evitamento?', 'No: è un punto di partenza protetto, con esercizi graduali verso la vita reale.'],
       ['Quanto dura?', 'Percorsi medio-lunghi ma progressivi: già nelle prime fasi si riduce la sofferenza.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo evitante: Il disturbo evitante di personalità è caratterizzato da inibizione sociale, sensibilità estrema al…. Prima seduta gratuita, ',
+},
   {
     slug: 'disturbo-ossessivo-compulsivo-di-personalita',
     nome: 'Disturbo ossessivo-compulsivo di personalità',
@@ -610,7 +672,9 @@ export const disturbi = [
       ['È uguale al DOC?', 'No: sono disturbi diversi. Qui non ci sono ossessioni e compulsioni tipiche, ma tratti di personalità rigidi.'],
       ['Perché cambiare se sono "efficiente"?', 'Perché la rigidità costa cara: relazioni, benessere e anche efficienza reale.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo ossessivo compulsivo di personalita: Il disturbo ossessivo-compulsivo di personalità (diverso dal DOC) riguarda il perfezionismo rigid',
+},
   {
     slug: 'adhd-adulti',
     nome: 'ADHD negli adulti',
@@ -629,7 +693,9 @@ export const disturbi = [
       ['Come si fa la diagnosi da adulti?', 'Con una valutazione specialistica dedicata: la terapia poi costruisce le strategie di gestione.'],
       ['La terapia aiuta senza farmaci?', 'Sì: le strategie comportamentali sono una componente fondamentale, con o senza supporto farmacologico.'],
     ],
-  },
+  
+    desc: 'psicologo online adhd adulti: L\'ADHD nell\'adulto si manifesta con difficoltà di attenzione, impulsività e disorganizzazione. Prima seduta gratuita, sedute da 45',
+},
   {
     slug: 'disturbo-da-stress-post-traumatico-complesso',
     nome: 'Disturbo da stress post-traumatico complesso (C-PTSD)',
@@ -648,7 +714,9 @@ export const disturbi = [
       ['Quanto dura un percorso per C-PTSD?', 'È un lavoro più lungo (mesi/anni), ma i progressi sono reali e duraturi.'],
       ['Dovrò rivivere i traumi?', 'Mai senza strumenti: prima si stabilizza, poi si elabora con tecniche sicure.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo post traumatico complesso: Il C-PTSD deriva da traumi ripetuti e prolungati (abusi, violenza domestica, trascuratezza). Prima seduta g',
+},
   {
     slug: 'ipersonnia',
     nome: 'Ipersonnia',
@@ -667,7 +735,9 @@ export const disturbi = [
       ['Devo fare prima un esame del sonno?', 'La valutazione medica è utile; la psicoterapia lavora sulle cause emotive e comportamentali.'],
       ['La terapia può ridurre la sonnolenza?', 'Migliorando umore, ansia e ritmi, spesso anche la sonnolenza diurna migliora.'],
     ],
-  },
+  
+    desc: 'psicologo online ipersonnia: L\'ipersonnia è l\'eccessiva sonnolenza diurna o il bisogno di dormire molto più del normale (oltre…. Prima seduta gratuita, sedute d',
+},
   {
     slug: 'disturbo-del-ritmo-circadiano',
     nome: 'Disturbo del ritmo circadiano del sonno',
@@ -686,7 +756,9 @@ export const disturbi = [
       ['È un problema serio?', 'Sì: incide su salute e umore. Ma è trattabile con tecniche comportamentali.'],
       ['Quanto ci vuole?', 'Il riallineamento avviene gradualmente, in settimane, con costanza.'],
     ],
-  },
+  
+    desc: 'psicologo online ritmo circadiano: Il disturbo del ritmo circadiano è il disallineamento tra l\'orologio interno e gli orari sociali. Prima seduta gratuita, sedu',
+},
   {
     slug: 'disturbo-bipolare-di-tipo-2',
     nome: 'Disturbo bipolare di tipo 2',
@@ -705,7 +777,9 @@ export const disturbi = [
       ['Come si distingue dalla depressione?', 'La presenza di fasi ipomaniacali distingue i due quadri: la valutazione specialistica è fondamentale.'],
       ['La terapia aiuta davvero?', 'Sì: la psicoeducazione e la regolazione delle abitudini riducono le ricadute.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo bipolare tipo 2: Il disturbo bipolare di tipo 2 alterna episodi depressivi a fasi ipomaniacali (meno intense della…. Prima seduta grat',
+},
   {
     slug: 'disturbo-esplosivo-intermittente',
     nome: 'Disturbo esplosivo intermittente',
@@ -724,7 +798,9 @@ export const disturbi = [
       ['Si può imparare a controllare la rabbia?', 'Sì: la rabbia è un\'emozione gestibile con tecniche specifiche e allenamento.'],
       ['Serve urgente?', 'Se gli scatti mettono a rischio te o altri, cerca subito un aiuto professionale.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo esplosivo intermittente: Il disturbo esplosivo intermittente è caratterizzato da scatti d\'ira improvvisi e sproporzionati…. Prima sedu',
+},
   {
     slug: 'disturbo-paranoide',
     nome: 'Disturbo paranoide di personalità',
@@ -743,7 +819,9 @@ export const disturbi = [
       ['Chi ne soffre accetta la terapia?', 'Spesso arriva per stress o ansia: è un\'occasione per costruire fiducia in un ambiente sicuro.'],
       ['È possibile migliorare?', 'Sì: la riduzione della sospettosità migliora molto la qualità della vita.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo paranoide: Il disturbo paranoide di personalità è caratterizzato da sospettosità pervasiva verso gli altri, i…. Prima seduta gratuita,',
+},
   {
     slug: 'disturbo-schizoide',
     nome: 'Disturbo schizoide di personalità',
@@ -762,7 +840,9 @@ export const disturbi = [
       ['Si può "curare" la solitudine preferita?', 'Non si forza il cambiamento: si lavora sul benessere personale e sulle relazioni che contano.'],
       ['Perché chiedere aiuto?', 'Per ansia, depressione o difficoltà pratiche: la terapia parte da lì.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo schizoide: Il disturbo schizoide di personalità è caratterizzato dal distacco dalle relazioni sociali e da un…. Prima seduta gratuita,',
+},
   {
     slug: 'disturbo-schizotipico',
     nome: 'Disturbo schizotipico di personalità',
@@ -781,7 +861,9 @@ export const disturbi = [
       ['È la stessa cosa della schizofrenia?', 'No: sono disturbi diversi. Qui non c\'è perdita del contatto con la realtà.'],
       ['La terapia può aiutare?', 'Sì, soprattutto su ansia sociale e qualità di vita.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo schizotipico: Il disturbo schizotipico di personalità combina disagio nelle relazioni, eccentricità e credenze o…. Prima seduta gratui',
+},
   {
     slug: 'disturbo-istrionico',
     nome: 'Disturbo istrionico di personalità',
@@ -800,7 +882,9 @@ export const disturbi = [
       ['Perché cerco sempre attenzione?', 'Spesso nasconde una fragilità dell\'autostima: la terapia lavora proprio lì.'],
       ['Si può cambiare?', 'Sì: con la consapevolezza e il lavoro emotivo, il bisogno di conferma si riduce.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo istrionico: Il disturbo istrionico di personalità è caratterizzato da emotività eccessiva e ricerca costante d…. Prima seduta gratuita',
+},
   {
     slug: 'disturbo-antisociale',
     nome: 'Disturbo antisociale di personalità',
@@ -819,7 +903,9 @@ export const disturbi = [
       ['È possibile cambiare?', 'Il cambiamento è difficile ma non impossibile, soprattutto con motivazione e trattamento prolungato.'],
       ['Serve uno psichiatra?', 'Spesso è consigliata una valutazione specialistica integrata.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo antisociale: Il disturbo antisociale di personalità è caratterizzato da inosservanza e violazione dei diritti d…. Prima seduta gratuit',
+},
   {
     slug: 'schizofrenia',
     nome: 'Schizofrenia',
@@ -838,7 +924,9 @@ export const disturbi = [
       ['La terapia online sostituisce le cure?', 'No: si aggiunge al trattamento psichiatrico, aiutando su quotidianità e benessere.'],
       ['Può aiutare i familiari?', 'Sì: esiste anche un supporto psicologico per i caregiver.'],
     ],
-  },
+  
+    desc: 'psicologo online schizofrenia: La schizofrenia è un disturbo psicotico grave che altera pensiero, percezioni ed emozioni. Prima seduta gratuita, sedute da 45€ i',
+},
   {
     slug: 'disturbo-delirante',
     nome: 'Disturbo delirante',
@@ -857,7 +945,9 @@ export const disturbi = [
       ['Si può discutere il delirio in terapia?', 'Con delicatezza e senza scontri: si lavora prima sulla fiducia e sulla sofferenza.'],
       ['Serve il ricovero?', 'Non sempre: dipende dalla gravità. La cura avviene per lo più sul territorio.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo delirante: Il disturbo delirante è caratterizzato da uno o più deliri persistenti (persecuzione, gelosia, gra…. Prima seduta gratuita,',
+},
   {
     slug: 'disturbo-schizoaffettivo',
     nome: 'Disturbo schizoaffettivo',
@@ -876,7 +966,9 @@ export const disturbi = [
       ['Qual è la differenza dal bipolare?', 'Nel disturbo schizoaffettivo ci sono anche sintomi psicotici al di fuori delle fasi dell\'umore.'],
       ['La terapia serve?', 'Sì: come parte del trattamento integrato, migliora l\'esito a lungo termine.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo schizoaffettivo: Il disturbo schizoaffettivo combina sintomi psicotici e disturbi dell\'umore (depressione o mania). Prima seduta gratu',
+},
   {
     slug: 'disturbo-dissociativo-dell-identita',
     nome: 'Disturbo dissociativo dell\'identità',
@@ -895,7 +987,9 @@ export const disturbi = [
       ['Dove trovo un terapeuta formato?', 'Chiedi al professionista scelto la sua formazione specifica sui disturbi dissociativi prima di iniziare.'],
       ['Si guarisce?', 'La terapia porta a una maggiore integrazione e a una qualità di vita migliore, con tempi lunghi.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo dissociativo dell identita: Il disturbo dissociativo dell\'identità (un tempo "personalità multipla") è una condizione compless…. Prima',
+},
   {
     slug: 'disturbo-da-escoriazione',
     nome: 'Disturbo da escoriazione (skin picking)',
@@ -914,7 +1008,9 @@ export const disturbi = [
       ['È un vizio?', 'No: è un disturbo riconosciuto, non dipende dalla forza di volontà.'],
       ['La terapia online funziona?', 'Sì: le tecniche di consapevolezza e sostituzione si allenano benissimo a distanza.'],
     ],
-  },
+  
+    desc: 'psicologo online skin picking: Il disturbo da escoriazione è il ricorrente stuzzicarsi la pelle fino a provocare lesioni, con ten…. Prima seduta gratuita, sedut',
+},
   {
     slug: 'disturbo-evitante-restrittivo-del-cibo',
     nome: 'Disturbo evitante/restrittivo dell\'assunzione di cibo (ARFID)',
@@ -933,7 +1029,9 @@ export const disturbi = [
       ['È un disturbo alimentare?', 'Sì, ma diverso da anoressia e bulimia: qui non c\'è ossessione per il peso.'],
       ['Come si aiuta un bambino con ARFID?', 'Con un approccio graduale e senza forzature: la terapia guida la famiglia.'],
     ],
-  },
+  
+    desc: 'psicologo online arfid: L\'ARFID è la limitazione dell\'alimentazione non legata all\'immagine corporea. Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'ortoressia',
     nome: 'Ortoressia',
@@ -952,7 +1050,9 @@ export const disturbi = [
       ['Mangiare sano è un problema?', 'No: lo diventa quando il "sano" diventa ossessivo e limita la vita.'],
       ['Come si cura?', 'Con la terapia cognitivo-comportamentale si lavora su pensieri, ansia e comportamenti alimentari.'],
     ],
-  },
+  
+    desc: 'psicologo online ortoressia: L\'ortoressia è l\'ossessione per il cibo "sano". Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'disturbo-disforico-premestruale',
     nome: 'Disturbo disforico premestruale',
@@ -971,7 +1071,9 @@ export const disturbi = [
       ['È solo "il ciclo"?', 'No: il PMDD è un disturbo riconosciuto, più grave della normale sindrome premestruale.'],
       ['La terapia aiuta?', 'Sì: riduce l\'impatto emotivo dei sintomi e migliora la qualità di vita.'],
     ],
-  },
+  
+    desc: 'psicologo online disturbo disforico premestruale: Il disturbo disforico premestruale (PMDD) è una forma grave della sindrome premestruale. Prima seduta gratuita',
+},
   {
     slug: 'mutismo-selettivo',
     nome: 'Mutismo selettivo',
@@ -990,7 +1092,9 @@ export const disturbi = [
       ['A che età si interviene?', 'Prima si interviene meglio: il percorso è adatto già in età prescolare e scolare.'],
       ['I genitori vengono coinvolti?', 'Sì: il loro ruolo è fondamentale nel trattamento.'],
     ],
-  },
+  
+    desc: 'psicologo online mutismo selettivo: Il mutismo selettivo è l\'incapacità di parlare in determinate situazioni (scuola, sociali) nonosta…. Prima seduta gratuita, ',
+},
   {
     slug: 'disturbo-da-ansia-sociale-adolescenti',
     nome: 'Ansia sociale negli adolescenti',
@@ -1009,7 +1113,9 @@ export const disturbi = [
       ['Mio figlio rifiuta la terapia?', 'La modalità online è spesso più accettata dagli adolescenti: si inizia con modalità meno "impegnative".'],
       ['I genitori partecipano?', 'Sì: il coinvolgimento familiare migliora molto i risultati.'],
     ],
-  },
+  
+    desc: 'psicologo online ansia sociale adolescenti: L\'ansia sociale negli adolescenti è la paura intensa del giudizio dei coetanei. Prima seduta gratuita, sedute da 45€',
+},
   {
     slug: 'disturbo-del-sonno-incubi',
     nome: 'Disturbi del sonno: incubi ricorrenti',
@@ -1028,7 +1134,9 @@ export const disturbi = [
       ['Gli incubi sono un disturbo?', 'Quando sono ricorrenti e disturbano la vita sì: meritano un intervento.'],
       ['Come funziona la terapia?', 'Si impara a "riscrivere" il sogno e a praticare la nuova versione: riduce l\'angoscia e gli episodi.'],
     ],
-  },
+  
+    desc: 'psicologo online incubi: Gli incubi ricorrenti disturbano il sonno e la giornata, spesso legati a stress o eventi traumatici. Prima seduta gratuita, sedute da 4',
+},
   {
     slug: 'disturbo-ossessivo-relazionale',
     nome: 'Disturbo ossessivo-relazionale (ROCD)',
@@ -1047,7 +1155,9 @@ export const disturbi = [
       ['I dubbi significano che non amo?', 'No: nel ROCD i dubbi sono il sintomo, non la verità sulla relazione.'],
       ['Si può stare meglio?', 'Sì: con il trattamento giusto, la relazione smette di essere una fonte di ansia.'],
     ],
-  },
+  
+    desc: 'psicologo online rocd: Il disturbo ossessivo-relazionale è una forma di DOC focalizzata sulla relazione. Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'paura-di-volare',
     nome: 'Paura di volare',
@@ -1066,7 +1176,9 @@ export const disturbi = [
       ['Quanto tempo prima del volo iniziare?', 'Ideale 4-8 settimane prima, ma anche percorsi più brevi aiutano.'],
       ['Serve volare durante la terapia?', 'Si procede per gradi: prima con tecniche e simulazioni, poi, se serve, con voli brevi guidati.'],
     ],
-  },
+  
+    desc: 'psicologo online paura di volare: La paura di volare (aerofobia) blocca viaggi e opportunità personali e lavorative. Prima seduta gratuita, sedute da 45€ in vid',
+},
   {
     slug: 'paura-di-guidare',
     nome: 'Paura di guidare',
@@ -1085,7 +1197,9 @@ export const disturbi = [
       ['Quanto dura?', 'Percorsi brevi e strutturati (8-16 sedute) danno risultati concreti.'],
       ['Dopo un incidente funziona?', 'Sì: anche la paura post-incidente si affronta con tecniche specifiche.'],
     ],
-  },
+  
+    desc: 'psicologo online paura di guidare: La paura di guidare (amaxofobia) limita autonomia e lavoro. Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'stress-lavoro-correlato',
     nome: 'Stress lavoro-correlato',
@@ -1104,7 +1218,9 @@ export const disturbi = [
       ['Serve cambiare lavoro?', 'Non necessariamente: spesso si cambia il rapporto con il lavoro.'],
       ['Come trovo tempo per la terapia?', 'Proprio per questo l\'online è ideale: sedute anche la sera o nel weekend.'],
     ],
-  },
+  
+    desc: 'psicologo online stress lavoro: Lo stress lavoro-correlato è la risposta prolungata a richieste lavorative eccessive. Prima seduta gratuita, sedute da 45€ in vi',
+},
   {
     slug: 'ansia-da-prestazione',
     nome: 'Ansia da prestazione',
@@ -1123,7 +1239,9 @@ export const disturbi = [
       ['Quanto dura un percorso?', 'Percorsi brevi e mirati (6-12 sedute) sono spesso sufficienti.'],
       ['Funziona prima di un esame o colloquio importante?', 'Sì: anche percorsi molto brevi pre-evento danno strumenti concreti.'],
     ],
-  },
+  
+    desc: 'psicologo online ansia da prestazione: L\'ansia da prestazione colpisce chi deve "rendere" sotto pressione. Prima seduta gratuita, sedute da 45€ in videochiamata',
+},
   {
     slug: 'paura-del-colloquio',
     nome: 'Paura del colloquio di lavoro',
@@ -1142,7 +1260,9 @@ export const disturbi = [
       ['La terapia può simulare il colloquio?', 'Sì: le simulazioni guidate in videochiamata sono molto utili.'],
       ['Quanto serve?', 'Percorsi brevi e intensivi pre-colloquio possono bastare.'],
     ],
-  },
+  
+    desc: 'psicologo online paura del colloquio: La paura del colloquio di lavoro blocca carriere e opportunità. Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'depressione-post-partum',
     nome: 'Depressione post-partum',
@@ -1161,7 +1281,9 @@ export const disturbi = [
       ['Quanto è comune?', 'Molto più di quanto si creda: colpisce circa 1 madre su 10.'],
       ['Quando chiedere aiuto?', 'Se i sintomi durano oltre le 2 settimane dal parto o peggiorano, parla subito con un professionista.'],
     ],
-  },
+  
+    desc: 'psicologo online depressione post partum: La depressione post-partum colpisce molte neomamme (e neopapà). Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'disfunzione-erettile-psicologica',
     nome: 'Disfunzione erettile di origine psicologica',
@@ -1180,7 +1302,9 @@ export const disturbi = [
       ['È un problema fisico o mentale?', 'Può essere entrambi: la valutazione medica esclude cause organiche, poi si lavora sugli aspetti psicologici.'],
       ['La terapia di coppia è obbligatoria?', 'No: si può iniziare individualmente e coinvolgere la partner se serve.'],
     ],
-  },
+  
+    desc: 'psicologo online disfunzione erettile: La disfunzione erettile di origine psicologica è spesso alimentata da ansia da prestazione, stress…. Prima seduta gratuit',
+},
   {
     slug: 'dipendenza-da-sostanze',
     nome: 'Dipendenza da sostanze',
@@ -1199,7 +1323,9 @@ export const disturbi = [
       ['La terapia online basta?', 'È parte del percorso: per le dipendenze è consigliato un intervento integrato con i servizi specialistici.'],
       ['È confidenziale?', 'Totalmente: la modalità online offre discrezione completa.'],
     ],
-  },
+  
+    desc: 'psicologo online dipendenza da sostanze: La dipendenza da sostanze (alcol, cocaina, cannabinoidi) è un disturbo complesso che coinvolge cor…. Prima seduta gratu',
+},
   {
     slug: 'dipendenza-da-alcol',
     nome: 'Dipendenza da alcol',
@@ -1218,7 +1344,9 @@ export const disturbi = [
       ['Devo smettere subito?', 'La sospensione va gestita con cautela (in alcuni casi con supporto medico): la terapia ti accompagna.'],
       ['La famiglia può aiutare?', 'Sì: il coinvolgimento dei familiari migliora gli esiti del percorso.'],
     ],
-  },
+  
+    desc: 'psicologo online dipendenza da alcol: La dipendenza da alcol è spesso minimizzata perché l\'alcol è "socialmente accettato". Prima seduta gratuita, sedute da 45€',
+},
   {
     slug: 'disturbo-del-comportamento-alimentare-selettivo',
     nome: 'Alimentazione selettiva nell\'adulto',
@@ -1237,7 +1365,9 @@ export const disturbi = [
       ['È solo "pignoleria"?', 'No: è un comportamento radicato che crea disagio reale: merita un intervento.'],
       ['Si può cambiare da adulti?', 'Sì: con tecniche graduali, la varietà alimentare può aumentare.'],
     ],
-  },
+  
+    desc: 'psicologo online alimentazione selettiva: L\'alimentazione selettiva nell\'adulto è la difficoltà persistente ad accettare molti cibi, con die…. Prima seduta grat',
+},
   {
     slug: 'disturbo-narcisistico-abusante',
     nome: 'Convivere con un partner narcisista',
@@ -1256,7 +1386,9 @@ export const disturbi = [
       ['È possibile cambiare il partner?', 'Il cambiamento dell\'altro non è sotto il tuo controllo: la terapia lavora su di te e sui tuoi confini.'],
       ['La terapia di coppia aiuta?', 'Con partner abusanti può peggiorare la situazione: è preferibile un percorso individuale.'],
     ],
-  },
+  
+    desc: 'psicologo online partner narcisista: Convivere con un partner con tratti narcisistici (o abusanti) logora autostima e salute. Prima seduta gratuita, sedute da 4',
+},
   {
     slug: 'lutto-per-animale',
     nome: 'Lutto per la perdita di un animale',
@@ -1275,7 +1407,9 @@ export const disturbi = [
       ['È normale soffrire così tanto?', 'Sì: il legame con un animale è reale, e il lutto è reale.'],
       ['Quando ne prenderò un altro?', 'Quando lo sentirai: la terapia aiuta a elaborare, non a dimenticare.'],
     ],
-  },
+  
+    desc: 'psicologo online lutto animale: La perdita di un animale domestico è un lutto vero e profondo, spesso non riconosciuto dagli altri. Prima seduta gratuita, sedut',
+},
   {
     slug: 'preparazione-mentale-concorsi',
     nome: 'Preparazione mentale per concorsi pubblici',
@@ -1294,7 +1428,9 @@ export const disturbi = [
       ['Quanto tempo prima iniziare?', 'Ideale 2-3 mesi prima della prova, ma anche percorsi intensivi brevi aiutano.'],
       ['Funziona davvero?', 'Sì: la gestione dell\'ansia da esame è tra gli interventi più efficaci della psicologia.'],
     ],
-  },
+  
+    desc: 'psicologo online concorsi pubblici: I concorsi pubblici sono maratone emotive. Prima seduta gratuita, sedute da 45€ in videochiamata.',
+},
   {
     slug: 'psicologia-dello-sport',
     nome: 'Psicologia dello sport',
@@ -1313,6 +1449,8 @@ export const disturbi = [
       ['Serve solo ai professionisti?', 'No: amatori e giovani atleti ne traggono grandi benefici.'],
       ['Come funziona online?', 'Le tecniche si allenano tra le sedute (in allenamento e in gara) e si rivedono insieme in videochiamata.'],
     ],
-  },
+  
+    desc: 'psicologo online sport: La psicologia dello sport aiuta atleti di ogni livello a gestire pressione, ansia da prestazione…. Prima seduta gratuita, sedute da 45€ ',
+},
 ];
 

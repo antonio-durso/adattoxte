@@ -7,6 +7,7 @@ export default function Terms() {
         title="Termini di servizio"
         description="Termini di servizio di Adatto x Te: prenotazioni, prezzi (45€/50€), pagamenti PayPal, rimborsi e numeri di emergenza."
         path="/termini"
+        noindex
       />
       <h1>Termini di servizio</h1>
       <p className="muted">Ultimo aggiornamento: {new Date().toLocaleDateString('it-IT')}</p>

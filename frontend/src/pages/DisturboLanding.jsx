@@ -54,7 +54,7 @@ function DisturboView({ d }) {
     <>
       <Seo
         title={`Psicologo online per ${d.nome}`}
-        description={`${d.nome}: sintomi, quando chiedere aiuto e come funziona la terapia online con uno psicologo qualificato. Prima seduta gratuita, sedute da 45€, videochiamata sicura.`}
+        description={d.desc || `${d.nome}: sintomi, quando chiedere aiuto e come funziona la terapia online con uno psicologo qualificato. Prima seduta gratuita, sedute da 45€, videochiamata sicura.`}
         path={`/psicologo-online/${d.slug}`}
         jsonLd={jsonLd}
       />
