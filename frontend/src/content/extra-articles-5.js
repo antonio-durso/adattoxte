@@ -101,10 +101,11 @@ export const extraArticles5 = [
   },
   {
     slug: 'ansia-da-prestazione',
-    title: 'Ansia da prestazione: sport, lavoro e vita quotidiana',
+    title: 'Ansia da prestazione: cause, sintomi e come superarla',
     keyword: 'ansia da prestazione',
-    metaDescription: "Il timore di fallire può bloccare le tue potenzialità. Scopri come gestire l'ansia da prestazione in ambito lavorativo, sportivo e relazionale con consigli pratici.",
+    metaDescription: 'Ansia da prestazione nel lavoro, nello studio e nello sport: sintomi, cause e tecniche per superarla. Quando uno psicologo online può aiutarti.',
     date: '2026-08-24',
+    faq: [ { q: 'Come gestisco l\'ansia prima di una prova?', a: 'Tecniche pratiche nell\'articolo (respirazione, visualizzazione, routine).' }, { q: 'Quando serve uno psicologo?', a: 'Quando l\'ansia blocca le prestazioni in modo ricorrente.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
     body: `<h1>Ansia da prestazione: sport, lavoro e vita quotidiana</h1>
 <p>L'ansia da prestazione è quella sensazione di apprensione e paura che insorge quando ci si sente giudicati o si deve affrontare un compito importante. Sebbene una piccola dose di stress possa migliorare la performance (eustress), quando l'ansia diventa eccessiva può portare al blocco e al peggioramento dei risultati, alimentando un senso di frustrazione.</p>
 

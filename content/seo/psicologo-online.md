@@ -1,9 +1,10 @@
 ---
-title: "Psicologo online: come funziona, quanto costa e come scegliere"
+title: "Psicologo online nel 2026: come funziona, quanto costa e come scegliere"
 slug: psicologo-online
 keyword: "psicologo online"
-meta_description: "Psicologo online: come funziona una seduta da remoto, quanto costa in Italia nel 2026 (45-60 €), come scegliere il professionista giusto e i vantaggi della terapia a distanza."
+meta_description: "Come funziona una seduta di psicologia online, quanto costa (45€, prima gratuita) e come scegliere il terapeuta giusto. Guida completa aggiornata."
 date: 2026-08-24
+faq: [["Come funziona una seduta online?", "Prenoti, paghi e clicchi 'Entra nella videochiamata': si apre nel browser senza installare nulla."], ["Quanto costa?", "45€ individuale, 50€ di coppia, prima seduta gratuita."], ["Come scelgo il terapeuta?", "Confronti profili con specializzazione, esperienza e recensioni verificate."]]
 ---
 
 # Psicologo online: come funziona, quanto costa e come scegliere

@@ -146,7 +146,7 @@ function CittaView({ c }) {
     <>
       <Seo
         title={`Psicologo online a ${c.nome}`}
-        description={`Psicologo online a ${c.nome} e in tutta Italia: sedute in videochiamata da 45€, terapeuti qualificati, orari flessibili. Prenota in 2 minuti.`}
+        description={c.desc || `Psicologo online a ${c.nome} e in tutta Italia: sedute in videochiamata da 45€, terapeuti qualificati, orari flessibili. Prenota in 2 minuti.`}
         path={`/psicologo-online/${c.slug}`}
         jsonLd={jsonLd}
         noindex={!c.intro || !CITTA_TOP.includes(c.slug)}

@@ -47,8 +47,9 @@ export const extraArticles = [
     slug: 'burnout-lavoro',
     title: 'Burnout da lavoro: sintomi, cause e come uscirne',
     keyword: 'burnout stress lavoro',
-    metaDescription: 'Burnout da lavoro: i segnali da riconoscere, le cause più comuni, i consigli pratici e quando è il momento di chiedere aiuto a uno psicologo.',
+    metaDescription: 'Burnout da lavoro: i 12 segnali, le cause e il percorso per uscirne. Supporto psicologico online, anche per le aziende.',
     date: '2026-08-24',
+    faq: [ { q: 'Come capisco se sono in burnout?', a: 'I 12 segnali nell\'articolo.' }, { q: 'Il burnout si può prevenire?', a: 'Sì: prevenzione e percorsi aziendali.' }, { q: 'Quanto costa?', a: '45€ a seduta; percorsi aziendali dedicati.' } ],
     body: `<h1>Burnout da lavoro: sintomi, cause e come uscirne</h1>
 <p>Il burnout è più di una semplice stanchezza: è un esaurimento profondo di energie fisiche ed emotive legato al lavoro. Riconoscerlo in tempo è il primo passo per uscirne prima che comprometta salute e carriera.</p>
 <h2>I segnali da non sottovalutare</h2>
@@ -65,8 +66,9 @@ export const extraArticles = [
     slug: 'insonnia-e-stress',
     title: 'Insonnia e stress: i rimedi psicologici che funzionano',
     keyword: 'insonnia stress rimedi',
-    metaDescription: 'Insonnia e stress: perché non riesci a dormire, l\'igiene del sonno che funziona, le tecniche di rilassamento e quando rivolgersi a uno psicologo.',
+    metaDescription: 'Insonnia e stress: igiene del sonno, tecniche di rilassamento e quando uno psicologo online può aiutarti a dormire meglio.',
     date: '2026-08-24',
+    faq: [ { q: 'Come riprendo a dormire?', a: 'Regole pratiche di igiene del sonno nell\'articolo.' }, { q: 'Lo stress si cura con la terapia?', a: 'Sì, con tecniche specifiche: il percorso è spiegato nell\'articolo.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
     body: `<h1>Insonnia e stress: i rimedi psicologici che funzionano</h1>
 <p>Il sonno è il primo a soffrire quando la mente è in tensione: ci si corica stanchi, ma la testa non si ferma. L'insonnia legata allo stress è il disturbo del sonno più comune, e la buona notizia è che le tecniche psicologiche hanno un'efficacia documentata.</p>
 <h2>Perché lo stress ruba il sonno</h2>

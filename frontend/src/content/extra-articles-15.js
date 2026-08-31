@@ -22,10 +22,11 @@ export const extraArticles15 = [
   },
   {
     slug: 'la-terapia-online-funziona',
-    title: 'La terapia online funziona? Cosa dice la ricerca scientifica',
+    title: 'La terapia online funziona? Cosa dice la ricerca (2026)',
     keyword: 'la terapia online funziona',
-    metaDescription: 'La terapia online funziona davvero? Efficacia della psicoterapia a distanza secondo la ricerca: dati, ambiti di applicazione e limiti. Guida basata sulle evidenze.',
+    metaDescription: 'La terapia online è efficace quanto quella in presenza? Ecco cosa dice la ricerca scientifica, i vantaggi e i limiti della psicologia a distanza.',
     date: '2026-08-30',
+    faq: [ { q: 'La terapia online è efficace come quella in presenza?', a: 'Gli studi indicano risultati comparabili per ansia e depressione: i dettagli nell\'articolo.' }, { q: 'Per chi non è adatta?', a: 'In alcuni casi (emergenze, disturbi gravi) serve il percorso in presenza: lo valuta il terapeuta nel primo colloquio.' }, { q: 'Quanto dura un percorso?', a: 'Dipende dall\'obiettivo: le stime nell\'articolo dedicato.' } ],
     body: `<h1>La terapia online funziona? Cosa dice la ricerca scientifica</h1>
 <p>Se ti stai chiedendo se "parlare con uno psicologo attraverso uno schermo" possa funzionare, sei in buona compagnia: è la domanda più frequente di chi valuta la terapia online. La risposta, supportata da anni di studi, è <strong>sì</strong> — con alcune precisazioni.</p>
 <h2>I dati principali della ricerca</h2>

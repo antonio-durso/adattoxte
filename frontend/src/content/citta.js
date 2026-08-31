@@ -5,9 +5,37 @@
 // Città con contenuto differenziato: le uniche indicizzate (le altre sono noindex
 // per evitare doorway pages / thin content). Lista basata sui volumi di ricerca.
 export const CITTA_TOP = [
-  'milano', 'roma', 'napoli', 'torino', 'bari', 'bologna', 'firenze',
-  'verona', 'palermo', 'genova', 'padova', 'catania', 'bergamo', 'brescia', 'cagliari',
-];
+  'milano',
+  'roma',
+  'napoli',
+  'torino',
+  'bari',
+  'bologna',
+  'firenze',
+  'verona',
+  'palermo',
+  'genova',
+  'padova',
+  'catania',
+  'bergamo',
+  'brescia',
+  'cagliari',
+  'venezia',
+  'parma',
+  'modena',
+  'reggio-emilia',
+  'perugia',
+  'pescara',
+  'rimini',
+  'lecce',
+  'trento',
+  'trieste',
+  'ancona',
+  'pisa',
+  'lucca',
+  'como',
+  'salerno',
+];;
 
 export const citta = [
     {
@@ -42,7 +70,11 @@ export const citta = [
       ['Quali percorsi sono disponibili a Ancona?', 'Ansia e depressione, terapia di coppia, psicologia dello sport, preparazione ai concorsi e psicologia giuridica: scegli la specializzazione più adatta.'],
       ['La terapia online è efficace quanto quella in presenza?', 'Sì: gli studi mostrano efficacia paragonabile per ansia, depressione e molti altri disturbi, con il vantaggio di non spostarti.'],
     ],
-  },
+  
+    desc: 'Psicologo online ad Ancona: sedute in videochiamata da 45€, prima gratuita. Supporto per ansia, coppia e concorsi.',
+    local: `<h3>Psicologo online ad Ancona: capoluogo, provincia e dintorni</h3><p>Tra porto, colline e pendolarismo, la terapia online si adatta ai tuoi orari: nessuno spostamento, nessuna sala d'attesa, solo la videochiamata al momento giusto.</p><p>45€ a seduta individuale, 50€ di coppia, pacchetto 3 sedute con il 15% di sconto: inizia con il primo colloquio gratuito.</p>`,
+    faqLocal: [["Quanto costa una seduta ad Ancona?", "45€ individuale, 50€ di coppia; pacchetto 3 sedute con il 15% di sconto."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Aosta',
     slug: 'aosta',
@@ -110,7 +142,9 @@ export const citta = [
       ['Quali specialisti sono disponibili per chi vive a Bari?', 'Trovi psicologi per ansia e depressione, terapia di coppia, psicologia dello sport, preparazione ai concorsi e psicologia giuridica: confronta i profili e scegli.'],
       ['Posso scrivere al terapeuta tra una seduta e l\'altra?', 'Sì, su Adatto x Te i messaggi con il terapeuta sono illimitati: puoi restare in contatto tra una seduta e l\'altra.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Bari: sedute in videochiamata da 45€, prima gratuita. Terapeuti qualificati per ansia, coppia, sport e concorsi.',
+},
     {
     nome: 'Barletta',
     slug: 'barletta',
@@ -156,7 +190,9 @@ export const citta = [
       ['Vivo tra Bergamo e Milano: posso prenotare da entrambe le città?', 'Sì, il servizio è completamente online: ti colleghi da dove ti trovi, ti serve solo una connessione stabile e un dispositivo.'],
       ['Come funziona la prima prenotazione?', 'Ti registri, confronti i profili dei terapeuti, scegli l\'orario e paghi online: 45€ la seduta individuale, 50€ quella di coppia, con sconto del 15% sul pacchetto di 3 sedute.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Bergamo: sedute video da 50 min a 45€, prima gratuita. Supporto per ansia, lavoro e relazioni.',
+},
     {
     nome: 'Biella',
     slug: 'biella',
@@ -180,7 +216,9 @@ export const citta = [
       ['Sono uno studente universitario a Bologna: posso prenotare sedute tra un esame e l\'altro?', 'Certo: prenoti online l\'orario che preferisci, anche con pochi giorni di anticipo, e annulli o sposti la seduta senza complicazioni.'],
       ['Esistono sconti per i pacchetti?', 'Sì: il pacchetto di 3 sedute ha uno sconto del 15%, così il percorso continuativo costa meno della singola seduta.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Bologna: sedute in videochiamata da 45€, prima gratuita. Per studenti, lavoratori e professionisti.',
+},
     {
     nome: 'Bolzano',
     slug: 'bolzano',
@@ -204,7 +242,9 @@ export const citta = [
       ['Faccio orari di lavoro intensi: trovo slot anche la sera?', 'Sì, su Adatto x Te gli orari sono flessibili e puoi prenotare la seduta nell\'orario che preferisci, anche la sera o nel weekend.'],
       ['Quali problemi posso affrontare online?', 'Ansia, stress, depressione, terapia di coppia, psicologia dello sport e preparazione ai concorsi: confronta i profili e scegli lo specialista più adatto.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Brescia: sedute video da 50 min a 45€, prima gratuita. Supporto per stress lavorativo, ansia e relazioni.',
+},
     {
     nome: 'Brindisi',
     slug: 'brindisi',
@@ -228,7 +268,9 @@ export const citta = [
       ['Vivo in un paese dell\'interno della Sardegna: posso accedere?', 'Certo: il servizio è online da tutta la Sardegna, ti serve solo una connessione stabile. Nessuno spostamento necessario.'],
       ['Quali sono i prezzi?', 'Prezzi nazionali trasparenti: 45€ a seduta individuale, 50€ di coppia, sconto 15% sul pacchetto di 3 sedute, pagamento sicuro online.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Cagliari: sedute in videochiamata da 45€, prima gratuita. La terapia che supera la distanza dell\'isola.',
+},
     {
     nome: 'Caltanissetta',
     slug: 'caltanissetta',
@@ -285,7 +327,9 @@ export const citta = [
       ['Sono uno studente universitario a Catania: posso prenotare tra gli esami?', 'Sì, prenoti online l\'orario che preferisci e puoi annullare o spostare la seduta senza complicazioni prima dell\'orario previsto.'],
       ['Posso fare terapia di coppia online?', 'Sì, la seduta di coppia costa 50€ e si svolge in videochiamata, comoda anche se i partner vivono in città diverse.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Catania: sedute video da 50 min a 45€, prima gratuita. Supporto psicologico per ansia, depressione e relazioni.',
+},
     {
     nome: 'Catanzaro',
     slug: 'catanzaro',
@@ -318,7 +362,11 @@ export const citta = [
       ['Devo vivere a Como per prenotare?', 'No: il servizio è online da tutta Italia. Se vivi a Como o in provincia, scegli giorno e ora e ti colleghi in videochiamata sicura.'],
       ['Che orari ci sono?', 'Prenoti direttamente online tra gli slot disponibili, anche di sera e nel weekend: niente attese in sala d\'attesa.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Como: sedute video da 50 min a 45€, prima gratuita. Supporto per stress da lavoro e ansia.',
+    local: `<h3>Psicologo online a Como: per i pendolari tra lago e Milano</h3><p>Chi vive a Como e fa il pendolare verso Milano conosce bene il costo del tempo. La seduta online evita di aggiungere un altro spostamento alla giornata: ti colleghi da casa o dall'ufficio.</p><p>Ansia, stress da lavoro e relazioni: terapeuti qualificati, orari flessibili, prima conoscitiva gratuita.</p>`,
+    faqLocal: [["Posso prenotare la sera dopo il lavoro?", "Sì, gli slot sono flessibili, anche di sera e nel weekend."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Cosenza',
     slug: 'cosenza',
@@ -408,7 +456,9 @@ export const citta = [
       ['Come scelgo lo psicologo giusto per me a Firenze?', 'Confronti i profili verificati dei terapeuti (specializzazioni, recensioni, lingue) e prenoti in autonomia l\'orario che preferisci.'],
       ['Le sedute sono disponibili anche in inglese?', 'Sì: Adatto x Te offre sedute anche in inglese, francese e spagnolo, utili per chi vive a Firenze o lavora in contesti internazionali.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Firenze: sedute video da 50 min a 45€, prima gratuita. Supporto psicologico per ansia, coppia e concorsi.',
+},
     {
     nome: 'Foggia',
     slug: 'foggia',
@@ -454,7 +504,9 @@ export const citta = [
       ['Come funziona la prenotazione a Genova?', 'Registrati gratuitamente, scegli il terapeuta e l\'orario tra gli slot disponibili e paga online: la prenotazione richiede pochi minuti.'],
       ['Posso cancellare o spostare una seduta?', 'Sì, dall\'area personale puoi cancellare o spostare una prenotazione prima dell\'orario previsto, senza complicazioni.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Genova: sedute video da 50 min a 45€, prima gratuita. Niente spostamenti in una città dove si viaggia in salita.',
+},
     {
     nome: 'Gorizia',
     slug: 'gorizia',
@@ -542,7 +594,11 @@ export const citta = [
       ['Vivo in provincia di Lecce: il servizio è disponibile?', 'Sì, il servizio è completamente online e copre tutto il territorio: non devi spostarti per raggiungere uno studio.'],
       ['Come scelgo lo psicologo giusto?', 'Confronti i profili verificati dei terapeuti, con specializzazione, esperienza e recensioni, e prenoti in autonomia l\'orario che preferisci.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Lecce: sedute video da 50 min a 45€, prima gratuita. Supporto psicologico per ansia e relazioni.',
+    local: `<h3>Psicologo online a Lecce: il Salento senza distanze</h3><p>Vivere nel Salento, tra Lecce e i comuni della provincia, non deve limitare l'accesso alla terapia: online scegli tra terapeuti qualificati di tutta Italia, senza viaggi.</p><p>Sedute da 45€ (50€ di coppia), videochiamata sicura e prima conoscitiva gratuita: registrati e inizia quando vuoi.</p>`,
+    faqLocal: [["Posso scegliere terapeuti fuori dal Salento?", "Sì, la piattaforma è nazionale: scegli il professionista più adatto a te."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Lecco',
     slug: 'lecco',
@@ -586,7 +642,11 @@ export const citta = [
       ['Posso scrivere al terapeuta tra le sedute?', 'Sì: i messaggi con il terapeuta sono illimitati, per restare in contatto tra una seduta e l\'altra.'],
       ['Come funziona la prima seduta?', 'La prima seduta individuale è gratuita (15 minuti conoscitivi): conosci il terapeuta e capisci se fa per te, senza pagare.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Lucca: sedute in videochiamata da 45€, prima gratuita. Terapeuti qualificati, orari flessibili.',
+    local: `<h3>Psicologo online a Lucca: riservatezza e comodità</h3><p>In una città d'arte come Lucca, la riservatezza conta: la terapia online ti garantisce discrezione totale, con il catalogo anonimo e la videochiamata sicura.</p><p>Supporto per ansia, depressione, coppia e concorsi a 45€ a seduta: confronta i profili e inizia con la seduta gratuita.</p>`,
+    faqLocal: [["La riservatezza è garantita?", "Sì: catalogo anonimo, dati protetti secondo GDPR e videochiamate sicure."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Macerata',
     slug: 'macerata',
@@ -654,7 +714,9 @@ export const citta = [
       ['Posso prenotare la sera o nel weekend, dopo il lavoro a Milano?', 'Sì: su Adatto x Te trovi orari flessibili, con sedute anche la sera e nel weekend, pensate per chi vive a Milano e ha una giornata piena.'],
       ['Devo andare in uno studio a Milano per la prima seduta?', 'No: tutto avviene in videochiamata sicura, da casa o dall\'ufficio. Il servizio copre Milano e tutta la provincia, senza spostamenti.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Milano: sedute video da 50 min a 45€, prima gratuita. Ritmi serrati e stress da lavoro? Parla con un terapeuta da casa.',
+},
   {
     nome: 'Modena',
     slug: 'modena',
@@ -665,7 +727,11 @@ export const citta = [
       ['Posso prenotare nella pausa pranzo o dopo il lavoro?', 'Sì, gli orari sono flessibili: scegli lo slot che preferisci tra quelli disponibili, anche in orari serali.'],
       ['La terapia online è efficace come quella in presenza?', 'Sì: la psicoterapia online ha dimostrato la stessa efficacia di quella in presenza per la maggior parte dei disturbi, e ha il vantaggio di eliminare gli spostamenti.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Modena: sedute video da 50 min a 45€, prima gratuita. Supporto per ansia, stress lavorativo e relazioni.',
+    local: `<h3>Psicologo online a Modena: flessibilità per chi lavora nella Motor Valley</h3><p>Un territorio con ritmi di lavoro intensi, tra industria e artigianato: lo stress lavoro-correlato è tra i motivi più frequenti di richiesta. Le sedute online di Adatto x Te si inseriscono nella tua giornata senza spostamenti.</p><p>Ansia, stress, relazioni e preparazione ai concorsi: confronta i profili dei terapeuti, leggi le recensioni verificate e prenota quando sei libero.</p>`,
+    faqLocal: [["Ci sono percorsi per le aziende di Modena?", "Sì: supporto psicologico per i dipendenti a partire da 45€ a seduta, in totale riservatezza."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Monza',
     slug: 'monza',
@@ -689,7 +755,9 @@ export const citta = [
       ['È possibile parlare con uno psicologo online restando anonimi?', 'Sì: il catalogo è anonimo e il nome del terapeuta viene mostrato solo dopo la prenotazione, per garantire la massima riservatezza.'],
       ['Posso fare terapia di coppia online da Napoli?', 'Sì: la seduta di coppia costa 50€ e si svolge in videochiamata, comoda anche quando i partner vivono in città diverse.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Napoli: sedute in videochiamata da 45€, prima gratuita. Terapeuti qualificati per ansia, depressione, coppia e concorsi.',
+},
     {
     nome: 'Novara',
     slug: 'novara',
@@ -735,7 +803,9 @@ export const citta = [
       ['Sono uno studente fuori sede a Padova: posso accedere?', 'Sì, il servizio è online da tutta Italia: ti colleghi da Padova come da casa, con la stessa qualità di una seduta in studio.'],
       ['Esistono pacchetti per un percorso continuativo?', 'Sì, il pacchetto di 3 sedute prevede uno sconto del 15%: un percorso regolare costa meno delle singole sedute.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Padova: sedute in videochiamata da 45€, prima gratuita. Per studenti, lavoratori e famiglie.',
+},
   {
     nome: 'Palermo',
     slug: 'palermo',
@@ -748,7 +818,9 @@ export const citta = [
       ['Vivo in provincia di Palermo: posso accedere al servizio?', 'Sì, il servizio è completamente online e copre tutta la provincia e la regione: non serve recarsi in uno studio.'],
       ['Quali sono i prezzi a Palermo?', 'I prezzi sono nazionali e trasparenti: 45€ la seduta individuale, 50€ quella di coppia, pagamento sicuro online.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Palermo: sedute in videochiamata da 45€, prima gratuita. Supporto per ansia, coppia, sport e preparazione ai concorsi.',
+},
   {
     nome: 'Parma',
     slug: 'parma',
@@ -759,7 +831,11 @@ export const citta = [
       ['Come funziona la videochiamata?', 'Ti colleghi al link della seduta direttamente dal browser, senza installare nulla: bastano un dispositivo e una connessione stabile.'],
       ['Quali specialisti sono disponibili?', 'Trovi psicologi per ansia e depressione, terapia di coppia, psicologia dello sport, preparazione ai concorsi e psicologia giuridica.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Parma: sedute in videochiamata da 45€, prima gratuita. Terapeuti qualificati per ansia, coppia e concorsi.',
+    local: `<h3>Psicologo online a Parma: la qualità di uno studio, senza spostamenti</h3><p>Tra lavoro, famiglia e impegni quotidiani, trovare il tempo per uno psicologo in studio non è sempre semplice. La terapia online di Adatto x Te ti permette di iniziare un percorso da casa, in totale riservatezza.</p><p>Le sedute costano 45€ (50€ di coppia) e la prima conoscitiva è gratuita: registrati, scegli la specializzazione più adatta e prenota in 2 minuti.</p>`,
+    faqLocal: [["Quanto costa la prima seduta a Parma?", "Gratuita: 15 minuti conoscitivi per capire se il terapeuta fa per te."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Pavia',
     slug: 'pavia',
@@ -781,7 +857,11 @@ export const citta = [
       ['Sono uno studente internazionale a Perugia: ci sono sedute in inglese?', 'Sì, la consulenza multilingue è uno dei servizi di Adatto x Te: sedute anche in inglese, francese e spagnolo.'],
       ['Come prenoto una seduta?', 'Ti registri gratuitamente, scegli il terapeuta e l\'orario, paghi online in modo sicuro e ricevi il link per la videochiamata.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Perugia: sedute video da 50 min a 45€, prima gratuita. Supporto per studenti e lavoratori umbri.',
+    local: `<h3>Psicologo online a Perugia: pensato per studenti e lavoratori umbri</h3><p>Perugia è una città universitaria: ansia da esame, pressione e cambi di vita sono temi frequenti tra gli studenti, anche fuori sede. La terapia online ti segue ovunque tu sia, senza vincoli di spostamento.</p><p>Registrati, fai il test gratuito GAD-7 o PHQ-9 e scegli il terapeuta giusto: la prima seduta conoscitiva è gratuita.</p>`,
+    faqLocal: [["Funziona per gli studenti fuori sede?", "Sì: le sedute ti seguono ovunque tu sia durante l'anno."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Pesaro',
     slug: 'pesaro',
@@ -803,7 +883,11 @@ export const citta = [
       ['Vivo in provincia di Pescara: devo raggiungere la città?', 'No: il servizio è completamente online e funziona ovunque, ti serve solo una connessione stabile.'],
       ['Quanto costa una seduta?', '45€ la seduta individuale, 50€ quella di coppia, con sconto del 15% sul pacchetto di 3 sedute. Paghi online con PayPal o carta.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Pescara: sedute video da 50 min a 45€, prima gratuita. Supporto per ansia, coppia e concorsi.',
+    local: `<h3>Psicologo online a Pescara: disponibile in ogni stagione</h3><p>Tra lavoro, stagionalità e ritmi costieri, la terapia online garantisce continuità: le sedute in videochiamata funzionano da casa, dall'ufficio o anche in trasferta.</p><p>45€ a seduta, 50€ di coppia, prima conoscitiva gratuita: prenoti in 2 minuti e scegli gli orari più comodi, anche di sera.</p>`,
+    faqLocal: [["Posso seguire le sedute anche d'estate o in trasferta?", "Sì, online da qualsiasi luogo, in ogni stagione."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Piacenza',
     slug: 'piacenza',
@@ -825,7 +909,11 @@ export const citta = [
       ['Posso annullare o spostare una seduta?', 'Sì, dall\'area personale puoi cancellare o spostare una prenotazione prima dell\'orario previsto.'],
       ['Come scelgo il terapeuta a Pisa?', 'Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione e, dopo la prenotazione, conosci il professionista.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Pisa: sedute video da 50 min a 45€, prima gratuita. Per studenti, lavoratori e famiglie.',
+    local: `<h3>Psicologo online a Pisa: studenti, lavoratori e famiglie</h3><p>Città universitaria per eccellenza: ansia da esame, fuori sede e pressione sono tra i motivi più frequenti di richiesta. La terapia online segue gli studenti ovunque si trovino.</p><p>Registrati, scegli il terapeuta tra le specializzazioni disponibili e prenota: la prima seduta individuale è gratuita.</p>`,
+    faqLocal: [["Come funziona la prima seduta?", "È gratuita (15 minuti conoscitivi): conosci il terapeuta senza pagare."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Pistoia',
     slug: 'pistoia',
@@ -913,7 +1001,11 @@ export const citta = [
       ['Quanto costa una seduta?', '45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita.'],
       ['I dati sanitari sono protetti?', 'Sì: trattamento conforme al GDPR (art. 9 dati sanitari), videochiamate sicure e nessuna condivisione senza consenso.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Reggio Emilia: sedute in videochiamata da 45€, prima gratuita. Terapeuti qualificati, orari flessibili.',
+    local: `<h3>Psicologo online a Reggio Emilia: la provincia che non si sposta, ti aspetta online</h3><p>Vivere tra Reggio Emilia e la sua provincia significa spesso orari pieni tra lavoro e famiglia. Con le sedute in videochiamata il supporto psicologico arriva a casa tua, senza code né spostamenti.</p><p>Percorsi per ansia e depressione, terapia di coppia, psicologia dello sport e preparazione ai concorsi: scegli il terapeuta più adatto e inizia con la prima seduta gratuita.</p>`,
+    faqLocal: [["Funziona anche nei comuni della provincia?", "Sì, la videochiamata funziona ovunque ci sia una connessione stabile."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Rieti',
     slug: 'rieti',
@@ -935,7 +1027,11 @@ export const citta = [
       ['Posso annullare o spostare una seduta?', 'Sì, dall\'area personale puoi cancellare o spostare una prenotazione prima dell\'orario previsto.'],
       ['Come scelgo il terapeuta a Rimini?', 'Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione e, dopo la prenotazione, conosci il professionista.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Rimini: sedute in videochiamata da 45€, prima gratuita. Terapeuti qualificati, orari flessibili.',
+    local: `<h3>Psicologo online a Rimini: la continuità che serve in ogni stagione</h3><p>La stagionalità turistica rende gli orari imprevedibili: la terapia online c'è sempre, a prescindere da dove ti trovi. Un percorso non deve interrompersi per lavoro o trasferte.</p><p>Confronta i profili dei terapeuti per ansia, coppia, sport e concorsi, leggi le recensioni verificate e prenota la prima seduta gratuita.</p>`,
+    faqLocal: [["La terapia si interrompe nei periodi di lavoro intenso?", "No: scegli tu gli orari, anche di sera e nel weekend, e sposti le sedute quando serve."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
   {
     nome: 'Roma',
     slug: 'roma',
@@ -948,7 +1044,9 @@ export const citta = [
       ['Preparo un concorso pubblico a Roma: mi potete aiutare?', 'Sì: su Adatto x Te trovi psicologi specializzati in preparazione ai concorsi, con supporto per ansia da prestazione e gestione dello stress.'],
       ['Le sedute online a Roma funzionano bene?', 'Sì: la terapia online ha la stessa efficacia di quella in presenza ed eviti i tempi di spostamento nella città. Ti colleghi da dove preferisci.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Roma: sedute in videochiamata da 50 minuti a 45€, prima seduta gratuita. Terapeuti qualificati per ansia, coppia, sport e concorsi.',
+},
     {
     nome: 'Rovigo',
     slug: 'rovigo',
@@ -970,7 +1068,11 @@ export const citta = [
       ['Faccio il pendolare verso Napoli: posso prenotare in trasferta?', 'Sì, il servizio è online e ti colleghi da dove sei: a Salerno, in treno verso Napoli o a casa, con una connessione stabile.'],
       ['Quali sono i costi?', 'Prezzi trasparenti: 45€ la seduta individuale, 50€ di coppia, sconto 15% sul pacchetto di 3 sedute.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Salerno: sedute in videochiamata da 45€, prima gratuita. Supporto per ansia, coppia e concorsi.',
+    local: `<h3>Psicologo online a Salerno: dalla città alla costiera</h3><p>Tra Salerno e la costiera, la distanza non deve essere un limite: la terapia online funziona ovunque, basta una connessione stabile. Prenoti e ti colleghi in videochiamata.</p><p>Percorsi per ansia, coppia, sport e concorsi a partire da 45€: la prima seduta individuale è gratuita.</p>`,
+    faqLocal: [["Posso seguire le sedute dalla costiera?", "Sì, basta una connessione stabile: la seduta si apre nel browser."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Sassari',
     slug: 'sassari',
@@ -1071,7 +1173,9 @@ export const citta = [
       ['Quanto costa una seduta di psicologia online a Torino?', 'La seduta individuale costa 45€, quella di coppia 50€, con sconto del 15% sul pacchetto di 3 sedute. Paghi online in modo sicuro.'],
       ['Come funziona la videochiamata?', 'Ti colleghi al link della seduta direttamente dal browser, con Jitsi: nessuna installazione, bastano un dispositivo e una connessione stabile.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Torino: sedute video da 50 min a 45€, prima gratuita. Per chi lavora, studia o affronta un concorso. Prenota online.',
+},
     {
     nome: 'Trani',
     slug: 'trani',
@@ -1104,7 +1208,11 @@ export const citta = [
       ['Vivo in una valle del Trentino: posso accedere?', 'Certo, il servizio è completamente online e funziona ovunque: non serve recarsi in città per una seduta.'],
       ['Come pago la seduta?', 'Pagamento online sicuro con PayPal o carta: 45€ individuale, 50€ di coppia, sconto 15% sul pacchetto di 3 sedute.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Trento: sedute in videochiamata da 45€, prima gratuita. Supporto per ansia, lavoro e relazioni.',
+    local: `<h3>Psicologo online a Trento: la montagna non è un ostacolo</h3><p>Tra città e valli, raggiungere uno studio può significare chilometri e orari complicati. Con Adatto x Te la seduta ti raggiunge ovunque, anche nei comuni della provincia.</p><p>Ansia, stress, relazioni e lavoro: scegli la specializzazione, prenota online e collega la videochiamata dal tuo dispositivo.</p>`,
+    faqLocal: [["Posso prenotare da un comune della provincia?", "Sì, online funziona da qualsiasi luogo, anche nelle valli."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Treviso',
     slug: 'treviso',
@@ -1126,7 +1234,11 @@ export const citta = [
       ['Ci sono sedute in altre lingue a Trieste?', 'Sì, Adatto x Te offre consulenza multilingue: sedute anche in inglese, francese e spagnolo.'],
       ['Come funziona la prenotazione?', 'Ti registri, scegli il terapeuta e l\'orario, paghi online e ricevi il link per la videochiamata sicura.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Trieste: sedute video da 50 min a 45€, prima gratuita. Terapeuti qualificati, anche in inglese.',
+    local: `<h3>Psicologo online a Trieste: supporto in italiano e in inglese</h3><p>Città di confine e multiculturale: la consulenza multilingue di Adatto x Te offre sedute in italiano e in inglese, per italiani e stranieri che vivono a Trieste e dintorni.</p><p>Percorsi per ansia, coppia, sport e concorsi con terapeuti qualificati: prima seduta conoscitiva gratuita, prenotazione online in 2 minuti.</p>`,
+    faqLocal: [["Ci sono terapeuti che parlano inglese?", "Sì, le sedute sono disponibili in italiano e in inglese."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Udine',
     slug: 'udine',
@@ -1170,7 +1282,11 @@ export const citta = [
       ['Posso fare terapia online vivendo in un\'isola o nella terraferma di Venezia?', 'Sì, il servizio è online e funziona ovunque: ti serve solo una connessione stabile, senza spostamenti in vaporetto o in auto.'],
       ['Come pago la seduta?', 'Il pagamento è online e sicuro con PayPal o carta: 45€ individuale, 50€ di coppia, sconto 15% sul pacchetto di 3 sedute.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Venezia: sedute video da 50 min a 45€, prima gratuita. Niente vaporetto: la terapia arriva a casa tua.',
+    local: `<h3>Psicologo online a Venezia: niente vaporetto, niente attese</h3><p>Vivere a Venezia, in laguna o in terraferma significa che ogni spostamento richiede tempo e pianificazione. Con Adatto x Te la seduta si svolge in videochiamata: bastano un dispositivo e una connessione stabile, da casa o dall'ufficio.</p><p>Un aiuto concreto per chi lavora nel centro storico, per i pendolari di Mestre e Marghera e per chi vive nei comuni della laguna: prenoti in 2 minuti e scegli l'orario più comodo.</p>`,
+    faqLocal: [["Devo vivere a Venezia per prenotare?", "No: il servizio è online da tutta Italia. Se vivi a Venezia, in laguna o in terraferma, ti colleghi in videochiamata sicura."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+},
     {
     nome: 'Verbania',
     slug: 'verbania',
@@ -1205,7 +1321,9 @@ export const citta = [
       ['Vivo in provincia di Verona: devo spostarmi in città?', 'No, il servizio è online e funziona ovunque: ti colleghi da casa, dall\'ufficio o ovunque tu sia.'],
       ['Posso cancellare o spostare una seduta?', 'Sì, dall\'area personale puoi cancellare o spostare una prenotazione prima dell\'orario previsto, senza complicazioni.'],
     ],
-  },
+  
+    desc: 'Psicologo online a Verona: sedute in videochiamata da 45€, prima gratuita. Supporto per ansia, coppia, lavoro e concorsi.',
+},
     {
     nome: 'Vibo Valentia',
     slug: 'vibo-valentia',

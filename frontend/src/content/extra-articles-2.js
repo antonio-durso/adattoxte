@@ -111,8 +111,9 @@ export const extraArticles2 = [
     slug: 'ansia-generalizzata',
     title: 'Ansia generalizzata: sintomi, cause e come gestirla',
     keyword: 'ansia generalizzata',
-    metaDescription: 'Vivi in uno stato di preoccupazione costante? Scopri i sintomi del disturbo d\'ansia generalizzata e le strategie efficaci per ritrovare la calma.',
+    metaDescription: 'Ansia generalizzata (GAD): sintomi, cause e strategie per gestirla. Quando uno psicologo online può aiutarti. Test GAD-7 gratuito.',
     date: '2026-08-24',
+    faq: [ { q: 'Come capisco se ho ansia generalizzata?', a: 'Il test GAD-7 gratuito è un primo indicatore (non una diagnosi).' }, { q: 'Come si cura?', a: 'Con un percorso cognitivo-comportamentale, anche online.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
     body: `<h1>Ansia generalizzata: sintomi, cause e come gestirla</h1>
 <p>Ti capita spesso di sentirti in allerta per motivi futili o di preoccuparti eccessivamente per il futuro? Se questa sensazione persiste per mesi, potresti soffrire di disturbo d'ansia generalizzata (DAG). A differenza di una normale preoccupazione passeggera, l'ansia generalizzata è pervasiva e può interferire pesantemente con la vita lavorativa e relazionale.</p>
 
@@ -138,8 +139,9 @@ export const extraArticles2 = [
     slug: 'attacchi-di-panico',
     title: 'Attacchi di panico: cosa fare e come superarli',
     keyword: 'attacchi di panico',
-    metaDescription: 'L\'attacco di panico è un\'esperienza terrificante ma trattabile. Scopri le tecniche di gestione immediata e come la terapia può aiutarti a guarire.',
+    metaDescription: 'Attacchi di panico: cosa fare durante l\'attacco, le cause e come superarli con un percorso di psicoterapia online. Guida completa.',
     date: '2026-08-24',
+    faq: [ { q: 'Cosa faccio durante un attacco di panico?', a: 'Passi pratici nell\'articolo: respirazione, ancoraggio, ricontestualizzare.' }, { q: 'Come si cura?', a: 'L\'approccio cognitivo-comportamentale è tra i più efficaci: disponibile online.' }, { q: 'Quanto costa un percorso?', a: '45€ a seduta, prima gratuita.' } ],
     body: `<h1>Attacchi di panico: cosa fare e come superarli</h1>
 <p>Un attacco di panico è un'ondata improvvisa di paura intensa che raggiunge il picco in pochi minuti. Chi lo prova spesso teme di avere un infarto o di impazzire. Nonostante la gravità dei sintomi, è importante sapere che il panico non è pericoloso per la vita ed è una condizione assolutamente trattabile con il giusto supporto professionale.</p>
 

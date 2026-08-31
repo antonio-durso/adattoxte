@@ -1,9 +1,10 @@
 ---
-title: "Psicologia dello sport: cos'è, quando serve e come funziona online"
+title: "Psicologia dello sport online: cos'è e come funziona"
 slug: psicologia-dello-sport
 keyword: "psicologia dello sport"
-meta_description: "Psicologia dello sport: cos'è, quando serve davvero a un atleta, i benefici per la prestazione e come funziona il supporto psicologico online per sportivi."
+meta_description: "Psicologia dello sport online: gestione della pressione, ansia da prestazione e motivazione per atleti. Sedute video con professionisti."
 date: 2026-08-24
+faq: [["Serve solo ai professionisti?", "No, è utile a ogni livello: amatori, agonisti e giovani atleti."], ["Quanto costa?", "45€ a seduta, prima gratuita."], ["Come funziona una seduta online?", "Videochiamata, con esercizi pratici tra una seduta e l'altra."]]
 ---
 
 # Psicologia dello sport: cos'è, quando serve e come funziona online

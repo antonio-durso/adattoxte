@@ -2,10 +2,11 @@
 export const extraArticles12 = [
   {
     slug: 'unobravo-serenis-o-adatto-x-te-confronto',
-    title: 'Unobravo, Serenis o Adatto x Te: confronto prezzi e servizi',
+    title: 'Unobravo, Serenis o Adatto x Te: confronto prezzi e servizi 2026',
     keyword: 'unobravo vs serenis confronto',
-    metaDescription: 'Confronto tra le principali piattaforme di psicologia online in Italia: prezzi, primo colloquio, recensioni. Unobravo vs Serenis vs Adatto x Te, con i numeri aggiornati.',
+    metaDescription: 'Confronto 2026 tra Unobravo, Serenis e Adatto x Te: prezzi, prima seduta, terapeuti e servizi. Scopri qual è la scelta giusta per te.',
     date: '2026-08-27',
+    faq: [ { q: 'Qual è il servizio più economico?', a: 'Dati aggiornati nell\'articolo: Adatto x Te parte da 45€ con prima seduta gratuita.' }, { q: 'I prezzi sono aggiornati?', a: 'Sì, tabella verificata al 2026.' }, { q: 'Posso cambiare servizio se non mi trovo?', a: 'Sì, non ci sono abbonamenti: paghi solo quando prenoti.' } ],
     body: `<h2>Unobravo, Serenis o Adatto x Te: confronto prezzi e servizi</h2>
 <p>Se stai cercando uno psicologo online in Italia, i nomi che compaiono più spesso sono <strong>Unobravo</strong> e <strong>Serenis</strong>, le due piattaforme più grandi del settore. Ma "più grande" non significa "più adatto a te": prezzi, modalità e servizi cambiano. In questa guida confrontiamo i numeri reali delle tre piattaforme — inclusa <strong>Adatto x Te</strong> — aggiornati ad agosto 2026.</p>
 <h2>Prezzi a confronto</h2>

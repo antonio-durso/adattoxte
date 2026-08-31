@@ -4,8 +4,9 @@ export const extraArticles16 = [
     slug: 'recensioni-psicologo-online',
     title: 'Recensioni psicologo online: come riconoscere quelle vere',
     keyword: 'recensioni psicologo online',
-    metaDescription: 'Come riconoscere recensioni vere di uno psicologo online: segnali di affidabilità, cosa guardare e come funzionano le recensioni su una piattaforma di terapia online.',
+    metaDescription: 'Recensioni psicologo online: come riconoscere quelle autentiche, i segnali delle finte e come le raccoglie Adatto x Te (solo dopo sedute reali).',
     date: '2026-08-30',
+    faq: [ { q: 'Come vengono verificate le recensioni?', a: 'Arrivano solo da sedute completate, con il pulsante \'Valuta\'.' }, { q: 'Posso fidarmi delle recensioni?', a: 'I criteri per valutarle sono nell\'articolo.' }, { q: 'Dove le trovo?', a: 'Nella pagina recensioni della piattaforma.' } ],
     body: `<h1>Recensioni psicologo online: come riconoscere quelle vere</h1>
 <p>Scegliere uno psicologo online significa affidarsi a un professionista che non vedi di persona: le recensioni diventano quindi uno strumento importante. Ma come si fa a distinguere una recensione vera da una falsa o pilotata? Ecco i segnali da conoscere.</p>
 <h2>I segnali di una recensione affidabile</h2>

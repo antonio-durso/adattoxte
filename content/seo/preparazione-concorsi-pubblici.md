@@ -1,7 +1,7 @@
 ---
 title: "Preparazione mentale ai concorsi pubblici: le tecniche degli psicologi"
 slug: preparazione-concorsi-pubblici
-keyword: "preparazione mentale concorsi pubblici"
+keyword: "come prepararsi ai concorsi pubblici"
 meta_description: "Preparazione mentale ai concorsi pubblici: come gestire ansia, memoria e concentrazione durante lo studio e le prove. Le tecniche degli psicologi per vincere l'esame."
 date: 2026-08-24
 ---

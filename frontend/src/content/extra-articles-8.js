@@ -59,13 +59,9 @@ export const extraArticles8 = [
     slug: 'psicologia-giuridica-cosa-fa',
     title: 'Psicologia giuridica: quando serve lo psicologo forense',
     keyword: 'psicologia giuridica consulenza tecnica',
-    metaDescription: "Cos'è la psicologia giuridica e quando serve: separazioni, affidamenti, CTU, sostegno alle vittime. Guida ai ruoli dello psicologo forense e ai limiti delle consulenze online.",
+    metaDescription: 'Psicologia giuridica: consulenza tecnica (CTU/CTP), ascolto del minore e supporto nelle cause. Quando serve lo psicologo forense online.',
     date: '2026-09-02',
-    faq: [
-      { q: 'Che differenza c\'è tra CTU e CTP?', a: "Il CTU è il consulente tecnico nominato dal giudice, il CTP quello di parte: entrambi sono psicologi iscritti all'albo che svolgono valutazioni, ma con ruoli e prospettive diverse nel processo." },
-      { q: 'Lo psicologo giuridico si occupa anche di sostegno?', a: 'Sì: oltre alle valutazioni peritale, offre sostegno psicologico alle persone coinvolte in vicende giudiziarie (separazioni, vittime, minori) per affrontare il disagio legato al conflitto.' },
-      { q: 'Le valutazioni possono svolgersi online?', a: 'Il sostegno psicologico può avvalersi di colloqui online; le valutazioni tecniche ufficiali seguono invece le regole del tribunale competente.' },
-    ],
+    faq: [ { q: 'Cos\'è una CTU psicologica?', a: 'La consulenza tecnica d\'ufficio disposta dal giudice: spiegata nell\'articolo.' }, { q: 'La consulenza può essere online?', a: 'Sì, per la preparazione e il supporto; le modalità sono concordate col professionista.' }, { q: 'Quanto costa?', a: 'Dipende dall\'incarico: la prima conoscitiva è gratuita.' } ],
     body: `<p>La psicologia giuridica applica le conoscenze psicologiche al mondo della giustizia: valutazioni peritali, consulenze tecniche, sostegno alle persone coinvolte in conflitti legali. Serve soprattutto in separazioni e divorzi, per l'affidamento dei figli, nelle consulenze tecniche d'ufficio (CTU), nel sostegno alle vittime e nei percorsi di mediazione. È un ambito in cui competenza clinica e rigore metodologico devono andare di pari passo.</p>
 
 <h2>I ruoli dello psicologo forense</h2>

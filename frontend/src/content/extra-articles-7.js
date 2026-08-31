@@ -61,15 +61,11 @@ export const extraArticles7 = [
   },
   {
     slug: 'gestire-ansia-concorsi-pubblici',
-    title: 'Ansia da concorso: come gestirla con la psicologia',
+    title: 'Ansia da concorso: come gestirla con uno psicologo online',
     keyword: 'ansia da concorso preparazione mentale',
-    metaDescription: "L'ansia da concorso pubblico è normale ma gestibile. Tecniche di preparazione mentale, gestione dello stress da studio e quando chiedere aiuto a uno psicologo.",
+    metaDescription: 'Ansia da concorso: come gestire lo studio, la pressione e il giorno della prova con la psicologia. Percorsi online per i concorsi pubblici.',
     date: '2026-08-28',
-    faq: [
-      { q: 'Uno psicologo può davvero aiutare con l\'ansia da concorso?', a: 'Sì: insegna tecniche di gestione dell\'ansia, concentrazione e simulazione mentale, e accompagna nei mesi di preparazione mantenendo costanza e lucidità il giorno della prova.' },
-      { q: 'Le tecniche funzionano anche per i quiz e le prove a risposta multipla?', a: 'Sì: gestione del tempo, respirazione e autoistruzioni aiutano sia nelle prove scritte sia nei quiz, dove l\'ansia può indurre errori evitabili.' },
-      { q: 'Quanto dura un percorso per l\'ansia da concorso?', a: 'Solitamente 4-8 incontri, concordati con lo psicologo in base al punto di partenza e alla data della prova.' },
-    ],
+    faq: [ { q: 'Come gestisco l\'ansia durante lo studio?', a: 'Tecniche di organizzazione e gestione dello stress nell\'articolo.' }, { q: 'Il giorno della prova cosa faccio?', a: 'Routine e tecniche specifiche.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
     body: `<p>L'ansia da concorso pubblico è una delle più comuni e anche una delle più gestibili: mesi di studio, pressione sociale e paura di sbagliare possono attivare il sistema di allarme del cervello. La buona notizia è che la preparazione mentale si allena come quella tecnica, e la psicologia offre strumenti concreti per arrivare al giorno della prova lucidi e sicuri.</p>
 
 <h2>Perché il concorso mette così tanta ansia</h2>
@@ -90,15 +86,11 @@ export const extraArticles7 = [
   },
   {
     slug: 'ansia-da-prestazione-sportiva',
-    title: 'Ansia da prestazione sportiva: quando la mente frena',
+    title: 'Ansia da prestazione sportiva: come gestirla e rendere al meglio',
     keyword: 'ansia da prestazione sportiva psicologia',
-    metaDescription: "L'ansia da prestazione può bloccare anche gli atleti più preparati. Scopri le tecniche di psicologia dello sport per gestirla in gara e in allenamento.",
+    metaDescription: 'Ansia da prestazione sportiva: sintomi, cause e tecniche per gestirla. Come uno psicologo dello sport online può aiutarti a rendere al meglio.',
     date: '2026-08-29',
-    faq: [
-      { q: 'L\'ansia da prestazione riguarda solo i professionisti?', a: 'No: anche gli amatori e chi fa sport per benessere possono bloccarsi in gara o in momenti importanti. Il supporto psicologico è utile a ogni livello.' },
-      { q: 'Come si gestisce l\'ansia pochi minuti prima della gara?', a: 'Respirazione lenta (4-6 atti al minuto), routine pre-gara costante, focus su ciò che dipende da te e visualizzazione del gesto tecnico.' },
-      { q: 'Quanto dura un percorso di psicologia dello sport?', a: 'Spesso bastano 4-8 incontri mirati per acquisire tecniche di gestione dell\'attivazione e della concentrazione.' },
-    ],
+    faq: [ { q: 'Come si supera l\'ansia da prestazione?', a: 'Con tecniche specifiche (respirazione, visualizzazione) e un percorso mirato.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' }, { q: 'Funziona anche per gli amatori?', a: 'Sì, a ogni livello.' } ],
     body: `<p>L'ansia da prestazione è la paura di non riuscire nel momento in cui conta: può far tremare le mani, accelerare il cuore e "spegnere" le capacità che in allenamento funzionano perfettamente. È uno dei motivi principali per cui gli atleti si rivolgono alla psicologia dello sport: non per debolezza, ma perché la mente è parte della prestazione quanto il corpo.</p>
 
 <h2>Come riconoscerla</h2>

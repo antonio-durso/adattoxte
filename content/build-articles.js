@@ -36,6 +36,7 @@ function parseFrontmatter(file) {
   const m = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!m) return null;
   for (const kv of m[1].split('\n')) {
+    if (kv.startsWith('faq:')) { try { meta.faq = JSON.parse(kv.slice(4).trim()); } catch(e) {} continue; }
     const mm = kv.match(/^([a-z_]+):\s*"?(.+?)"?$/);
     if (mm) meta[mm[1]] = mm[2].replace(/"$/, '');
   }
@@ -55,6 +56,7 @@ const articles = files
     metaDescription: a.meta_description,
     date: a.date || '2026-08-24',
     body: mdToHtml(a.body),
+    faq: (a.faq || []).map(([q, a]) => ({ q, a })),
   }));
 
 const output = `// Generato da content/seo (script content/build-articles.js) — NON modificare a mano.

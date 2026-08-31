@@ -2,10 +2,11 @@
 export const extraArticles13 = [
   {
     slug: 'quanto-costa-la-terapia',
-    title: 'Quanto costa la terapia psicologica: prezzi medi e come risparmiare',
+    title: 'Quanto costa uno psicologo online nel 2026: prezzi e come risparmiare',
     keyword: 'quanto costa la terapia',
-    metaDescription: 'Quanto costa la terapia psicologica in Italia: prezzi medi online e in studio, differenze tra psicologo e psicoterapeuta e strategie per risparmiare.',
+    metaDescription: 'Quanto costa uno psicologo online in Italia: sedute da 45€, prima gratuita, differenze tra psicologo e psicoterapeuta. Guida aggiornata 2026.',
     date: '2026-08-28',
+    faq: [ { q: 'La prima seduta dallo psicologo è davvero gratuita?', a: 'Sì: 15 minuti conoscitivi, senza impegno.' }, { q: 'Quanto costa una seduta online da 50 minuti?', a: '45€ individuale, 50€ di coppia; il pacchetto di 3 sedute ha il 15% di sconto.' }, { q: 'La terapia online costa meno di quella in studio?', a: 'In genere sì, perché non ci sono costi di struttura: il confronto completo è nell\'articolo.' } ],
     body: `<h1>Quanto costa la terapia psicologica: prezzi medi e come risparmiare</h1>
 <p>Il costo è una delle prime domande quando si pensa di iniziare un percorso psicologico — e anche uno dei motivi per cui tante persone rimandano. Ecco i prezzi medi in Italia, cosa li influenza e le strategie concrete per rendere la terapia sostenibile.</p>
 <h2>I prezzi medi di una seduta</h2>
