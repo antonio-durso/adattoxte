@@ -115,6 +115,16 @@ function initDb() {
       comment      TEXT DEFAULT '',
       created_at   TEXT NOT NULL DEFAULT (datetime('now'))
     );
+
+    CREATE TABLE IF NOT EXISTS diary_entries (
+      id         TEXT PRIMARY KEY,
+      user_id    TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      title      TEXT DEFAULT '',
+      content    TEXT NOT NULL,
+      mood       TEXT DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT (datetime('now')),
+      updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+    );
   `);
 
   // Migrazioni per database esistenti (colonne aggiunte in seguito)

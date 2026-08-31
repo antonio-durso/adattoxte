@@ -51,6 +51,15 @@ export default function PatientDashboard() {
   const [error, setError] = useState('');
   const [room, setRoom] = useState(null);
   const [chatPeer, setChatPeer] = useState(null);
+  const [diaryEntries, setDiaryEntries] = useState([]);
+  const [diaryLoading, setDiaryLoading] = useState(true);
+  const [diaryFormOpen, setDiaryFormOpen] = useState(false);
+  const [diaryEdit, setDiaryEdit] = useState(null);
+  const [diaryTitle, setDiaryTitle] = useState('');
+  const [diaryContent, setDiaryContent] = useState('');
+  const [diaryMood, setDiaryMood] = useState('');
+  const [diaryBusy, setDiaryBusy] = useState(false);
+  const [diaryMsg, setDiaryMsg] = useState('');
   const [busyId, setBusyId] = useState(null);
   const [ratingFor, setRatingFor] = useState(null);
   const [ratingScore, setRatingScore] = useState(0);
@@ -110,6 +119,51 @@ export default function PatientDashboard() {
     } finally {
       setRatingBusy(false);
     }
+  }
+
+  // Diario personale
+  useEffect(() => {
+    api
+      .get('/diary')
+      .then((r) => setDiaryEntries(r.data.entries || []))
+      .catch(() => {})
+      .finally(() => setDiaryLoading(false));
+  }, []);
+
+  function saveDiary() {
+    setDiaryBusy(true);
+    setDiaryMsg('');
+    const payload = { title: diaryTitle, content: diaryContent, mood: diaryMood };
+    const req = diaryEdit ? api.patch('/diary/' + diaryEdit, payload) : api.post('/diary', payload);
+    req
+      .then((r) => {
+        const saved = r.data.entry;
+        setDiaryEntries((prev) => (diaryEdit ? prev.map((x) => (x.id === saved.id ? saved : x)) : [saved, ...prev]));
+        setDiaryFormOpen(false);
+        setDiaryEdit(null);
+        setDiaryTitle('');
+        setDiaryContent('');
+        setDiaryMood('');
+      })
+      .catch(() => setDiaryMsg('Errore durante il salvataggio'))
+      .finally(() => setDiaryBusy(false));
+  }
+
+  function startEditDiary(e) {
+    setDiaryEdit(e.id);
+    setDiaryTitle(e.title || '');
+    setDiaryContent(e.content);
+    setDiaryMood(e.mood || '');
+    setDiaryFormOpen(true);
+    setDiaryMsg('');
+  }
+
+  function deleteDiary(id) {
+    if (!window.confirm('Eliminare questa voce del diario?')) return;
+    api
+      .delete('/diary/' + id)
+      .then(() => setDiaryEntries((prev) => prev.filter((x) => x.id !== id)))
+      .catch(() => setDiaryMsg('Errore durante l\'eliminazione'));
   }
 
   const upcoming = bookings
@@ -317,6 +371,76 @@ export default function PatientDashboard() {
         ) : (
           <p className="muted">Seleziona “Messaggi” su una prenotazione per scrivere al terapeuta.</p>
         )}
+      </div>
+
+      <h2>Diario</h2>
+      <div className="card" style={{ marginBottom: 12 }}>
+        <p className="muted small" style={{ marginBottom: 10 }}>
+          Il tuo diario personale — privato, solo tu puoi leggerlo. Traccia pensieri, emozioni e progressi tra una seduta e l'altra.
+        </p>
+        {!diaryFormOpen ? (
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={() => { setDiaryFormOpen(true); setDiaryEdit(null); setDiaryTitle(''); setDiaryContent(''); setDiaryMood(''); setDiaryMsg(''); }}
+          >
+            + Nuova voce
+          </button>
+        ) : (
+          <div>
+            <input
+              value={diaryTitle}
+              onChange={(e) => setDiaryTitle(e.target.value)}
+              placeholder="Titolo (facoltativo)"
+              style={{ width: '100%', padding: 8, borderRadius: 8, border: '1px solid #e5e7eb', marginBottom: 8 }}
+            />
+            <textarea
+              rows={4}
+              value={diaryContent}
+              onChange={(e) => setDiaryContent(e.target.value)}
+              placeholder="Come ti senti oggi?…"
+              style={{ width: '100%', padding: 8, borderRadius: 8, border: '1px solid #e5e7eb', marginBottom: 8 }}
+            />
+            <select
+              value={diaryMood}
+              onChange={(e) => setDiaryMood(e.target.value)}
+              style={{ padding: 8, borderRadius: 8, border: '1px solid #e5e7eb' }}
+            >
+              <option value="">Come ti senti?</option>
+              <option value="🟢">🟢 Bene</option>
+              <option value="🟡">🟡 Così così</option>
+              <option value="🟠">🟠 Ansioso/a</option>
+              <option value="🔴">🔴 Giù</option>
+            </select>
+            <div style={{ display: 'flex', gap: 10, marginTop: 8 }}>
+              <button className="btn btn-primary btn-sm" disabled={diaryBusy || !diaryContent.trim()} onClick={saveDiary}>
+                {diaryBusy ? 'Salvataggio…' : diaryEdit ? 'Salva modifiche' : 'Salva'}
+              </button>
+              <button className="btn btn-outline btn-sm" onClick={() => { setDiaryFormOpen(false); setDiaryEdit(null); }}>Annulla</button>
+            </div>
+            {diaryMsg && <p className={diaryMsg.startsWith('Errore') ? 'error-text' : 'muted small'} style={{ marginTop: 8 }}>{diaryMsg}</p>}
+          </div>
+        )}
+      </div>
+      <div className="booking-list">
+        {diaryLoading && <p className="muted">Caricamento…</p>}
+        {!diaryLoading && diaryEntries.length === 0 && (
+          <p className="muted">Il diario è vuoto: scrivi la tua prima voce.</p>
+        )}
+        {diaryEntries.map((e) => (
+          <div key={e.id} className="card booking-item" style={{ marginBottom: 10 }}>
+            <div className="booking-main">
+              <h3 style={{ margin: 0 }}>{e.mood ? e.mood + ' ' : ''}{e.title || 'Senza titolo'}</h3>
+              <p className="muted small" style={{ margin: '4px 0 8px' }}>
+                {new Date(e.created_at.replace(' ', 'T') + 'Z').toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </p>
+              <p style={{ whiteSpace: 'pre-wrap', margin: 0 }}>{e.content}</p>
+            </div>
+            <div className="booking-actions">
+              <button className="btn btn-outline btn-sm" onClick={() => startEditDiary(e)}>Modifica</button>
+              <button className="btn btn-outline btn-sm" onClick={() => deleteDiary(e.id)} aria-label="Elimina voce">🗑</button>
+            </div>
+          </div>
+        ))}
       </div>
 
       {room && <VideoRoom roomName={room} onClose={() => setRoom(null)} />}

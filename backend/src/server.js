@@ -59,6 +59,7 @@ app.use('/api/therapists', require('./routes/therapists'));
 app.use('/api/bookings', require('./routes/bookings'));
 app.use('/api/ratings', require('./routes/ratings'));
 app.use('/api/messages', require('./routes/messages'));
+app.use('/api/diary', require('./routes/diary'));
 app.use('/api/payments', require('./routes/payments'));
 app.use('/api/referral', require('./routes/referral'));
 app.use('/api/admin', require('./routes/admin'));
