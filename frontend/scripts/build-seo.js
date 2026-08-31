@@ -77,6 +77,21 @@ function readArticles() {
   return found;
 }
 
+
+function readCountries() {
+  const src = fs.readFileSync(path.join(contentDir, 'paesi.js'), 'utf8');
+  const out = [];
+  const slugRe = /slug: '([a-z0-9-]+)', nome: '[^']*', bandiera:/g;
+  const capRe = /capitale: \{ slug: '([a-z0-9-]+)'/g;
+  const slugs = [...src.matchAll(slugRe)].map((m) => m[1]);
+  const caps = [...src.matchAll(capRe)].map((m) => m[1]);
+  slugs.forEach((s, i) => {
+    out.push(`/italiani-all-estero/${s}`);
+    if (caps[i]) out.push(`/italiani-all-estero/${s}/${caps[i]}`);
+  });
+  return out;
+}
+
 function buildSitemap() {
   const urls = STATIC_ROUTES.map((r) => ({
     loc: BASE + r.path,
@@ -90,6 +105,9 @@ function buildSitemap() {
     // lastmod = data dell'articolo se già passata, altrimenti oggi (mai date future).
     const lastmod = a.date && a.date <= today ? a.date : today;
     urls.push({ loc: `${BASE}/blog/${a.slug}`, lastmod, freq: 'monthly', priority: '0.7' });
+  }
+  for (const c of readCountries()) {
+    urls.push({ loc: BASE + c, lastmod: today, freq: 'monthly', priority: '0.7' });
   }
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
     .map(
