@@ -171,6 +171,17 @@ export const extraArticles6 = [
 
 <h2>Orientamento professionale su Adatto x Te</h2>
 <p>I nostri terapeuti verificati e iscritti all'albo possono supportarti nel gestire l'ansia da cambiamento e nel definire il tuo percorso. Offriamo sedute individuali a 45 euro e di coppia a 50 euro via videochiamate sicure e conformi GDPR. La tua carriera merita una scelta serena.</p>
+<h2>Le destinazioni più scelte dagli italiani all'estero</h2>
+<p>Se vivi in una di queste destinazioni, trovi una pagina dedicata con informazioni su fusi orari, modalità di pagamento e come prenotare le sedute:</p>
+<ul>
+  <li><a href="/italiani-all-estero/regno-unito/londra">Psicologo online per italiani a Londra</a> — la prima destinazione europea dei giovani italiani.</li>
+  <li><a href="/italiani-all-estero/germania/berlino">Psicologo online per italiani a Berlino</a> — capitale creativa con molti italiani giovani e professionisti.</li>
+  <li><a href="/italiani-all-estero/svizzera">Psicologo online per italiani in Svizzera</a> — migliaia di italiani tra frontalieri e residenti.</li>
+  <li><a href="/italiani-all-estero/stati-uniti">Psicologo online per italiani negli Stati Uniti</a> — da New York alla California.</li>
+  <li><a href="/italiani-all-estero/spagna/madrid">Psicologo online per italiani a Madrid</a> — comunità in forte crescita.</li>
+  <li><a href="/italiani-all-estero/francia/parigi">Psicologo online per italiani a Parigi</a> — comunità storica e vivace.</li>
+</ul>
+<p>Non trovi la tua città? Visita la pagina <a href="/italiani-all-estero">Italiani all'estero</a> per vedere tutte le destinazioni coperte.</p>
 <p>Fai la tua scelta su <a href="/terapeuti">Adatto x Te</a> e <a href="/registrazione">registrati gratuitamente</a> per iniziare il cambiamento.</p>`
   }
 ];

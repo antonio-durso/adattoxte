@@ -1,8 +1,9 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import { disturbi } from '../content/disturbi';
 import { citta, CITTA_TOP } from '../content/citta';
+import { paesi } from '../content/paesi';
 
 /**
  * Pagina dinamica "psicologo online + disturbo" e "psicologo online + città".
@@ -225,8 +226,16 @@ export default function DisturboLanding() {
   if (d) return <DisturboView d={d} />;
   const c = citta.find((x) => x.slug === slug);
   if (c) return <CittaView c={c} />;
+  // Redirect delle pagine "psicologo online + paese/capitale estero" verso le landing
+  // dedicate /italiani-all-estero/... (prima rispondevano 200 con "Pagina non trovata":
+  // soft-404 che danneggiava l'indicizzazione). Il 301 statico è anche in vercel.json.
+  const paeseMatch = paesi.find((p) => p.slug === slug);
+  if (paeseMatch) return <Navigate to={`/italiani-all-estero/${paeseMatch.slug}`} replace />;
+  const capitaleMatch = paesi.find((p) => p.capitale && p.capitale.slug === slug);
+  if (capitaleMatch) return <Navigate to={`/italiani-all-estero/${capitaleMatch.slug}/${capitaleMatch.capitale.slug}`} replace />;
   return (
     <div className="container section">
+      <Seo title="Pagina non trovata" description="La pagina che cerchi non esiste." noindex />
       <h1>Pagina non trovata</h1>
       <p className="muted">La pagina che cerchi non esiste.</p>
       <Link to="/terapeuti" className="btn btn-primary">Vai ai terapeuti</Link>

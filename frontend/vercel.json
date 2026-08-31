@@ -1,4 +1,436 @@
 {
+  "redirects": [
+    {
+      "source": "/psicologo-online/stati-uniti",
+      "destination": "/italiani-all-estero/stati-uniti",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/washington",
+      "destination": "/italiani-all-estero/stati-uniti/washington",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/canada",
+      "destination": "/italiani-all-estero/canada",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/ottawa",
+      "destination": "/italiani-all-estero/canada/ottawa",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/regno-unito",
+      "destination": "/italiani-all-estero/regno-unito",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/londra",
+      "destination": "/italiani-all-estero/regno-unito/londra",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/francia",
+      "destination": "/italiani-all-estero/francia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/parigi",
+      "destination": "/italiani-all-estero/francia/parigi",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/germania",
+      "destination": "/italiani-all-estero/germania",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/berlino",
+      "destination": "/italiani-all-estero/germania/berlino",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/svizzera",
+      "destination": "/italiani-all-estero/svizzera",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/berna",
+      "destination": "/italiani-all-estero/svizzera/berna",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/belgio",
+      "destination": "/italiani-all-estero/belgio",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/bruxelles",
+      "destination": "/italiani-all-estero/belgio/bruxelles",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/spagna",
+      "destination": "/italiani-all-estero/spagna",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/madrid",
+      "destination": "/italiani-all-estero/spagna/madrid",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/paesi-bassi",
+      "destination": "/italiani-all-estero/paesi-bassi",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/amsterdam",
+      "destination": "/italiani-all-estero/paesi-bassi/amsterdam",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/irlanda",
+      "destination": "/italiani-all-estero/irlanda",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/dublino",
+      "destination": "/italiani-all-estero/irlanda/dublino",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/austria",
+      "destination": "/italiani-all-estero/austria",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/vienna",
+      "destination": "/italiani-all-estero/austria/vienna",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/lussemburgo",
+      "destination": "/italiani-all-estero/lussemburgo",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/lussemburgo",
+      "destination": "/italiani-all-estero/lussemburgo/lussemburgo",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/portogallo",
+      "destination": "/italiani-all-estero/portogallo",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/lisbona",
+      "destination": "/italiani-all-estero/portogallo/lisbona",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/australia",
+      "destination": "/italiani-all-estero/australia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/canberra",
+      "destination": "/italiani-all-estero/australia/canberra",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/argentina",
+      "destination": "/italiani-all-estero/argentina",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/buenos-aires",
+      "destination": "/italiani-all-estero/argentina/buenos-aires",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/brasile",
+      "destination": "/italiani-all-estero/brasile",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/brasilia",
+      "destination": "/italiani-all-estero/brasile/brasilia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/uruguay",
+      "destination": "/italiani-all-estero/uruguay",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/montevideo",
+      "destination": "/italiani-all-estero/uruguay/montevideo",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/venezuela",
+      "destination": "/italiani-all-estero/venezuela",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/caracas",
+      "destination": "/italiani-all-estero/venezuela/caracas",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/cile",
+      "destination": "/italiani-all-estero/cile",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/santiago",
+      "destination": "/italiani-all-estero/cile/santiago",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/messico",
+      "destination": "/italiani-all-estero/messico",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/citta-del-messico",
+      "destination": "/italiani-all-estero/messico/citta-del-messico",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/emirati-arabi",
+      "destination": "/italiani-all-estero/emirati-arabi",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/abu-dhabi",
+      "destination": "/italiani-all-estero/emirati-arabi/abu-dhabi",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/singapore",
+      "destination": "/italiani-all-estero/singapore",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/singapore",
+      "destination": "/italiani-all-estero/singapore/singapore",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/cina",
+      "destination": "/italiani-all-estero/cina",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/pechino",
+      "destination": "/italiani-all-estero/cina/pechino",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/giappone",
+      "destination": "/italiani-all-estero/giappone",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/tokyo",
+      "destination": "/italiani-all-estero/giappone/tokyo",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/sudafrica",
+      "destination": "/italiani-all-estero/sudafrica",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/pretoria",
+      "destination": "/italiani-all-estero/sudafrica/pretoria",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/nuova-zelanda",
+      "destination": "/italiani-all-estero/nuova-zelanda",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/wellington",
+      "destination": "/italiani-all-estero/nuova-zelanda/wellington",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/malta",
+      "destination": "/italiani-all-estero/malta",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/la-valletta",
+      "destination": "/italiani-all-estero/malta/la-valletta",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/svezia",
+      "destination": "/italiani-all-estero/svezia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/stoccolma",
+      "destination": "/italiani-all-estero/svezia/stoccolma",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/danimarca",
+      "destination": "/italiani-all-estero/danimarca",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/copenaghen",
+      "destination": "/italiani-all-estero/danimarca/copenaghen",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/norvegia",
+      "destination": "/italiani-all-estero/norvegia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/oslo",
+      "destination": "/italiani-all-estero/norvegia/oslo",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/finlandia",
+      "destination": "/italiani-all-estero/finlandia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/helsinki",
+      "destination": "/italiani-all-estero/finlandia/helsinki",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/polonia",
+      "destination": "/italiani-all-estero/polonia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/varsavia",
+      "destination": "/italiani-all-estero/polonia/varsavia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/romania",
+      "destination": "/italiani-all-estero/romania",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/bucarest",
+      "destination": "/italiani-all-estero/romania/bucarest",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/ungheria",
+      "destination": "/italiani-all-estero/ungheria",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/budapest",
+      "destination": "/italiani-all-estero/ungheria/budapest",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/repubblica-ceca",
+      "destination": "/italiani-all-estero/repubblica-ceca",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/praga",
+      "destination": "/italiani-all-estero/repubblica-ceca/praga",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/grecia",
+      "destination": "/italiani-all-estero/grecia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/atene",
+      "destination": "/italiani-all-estero/grecia/atene",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/croazia",
+      "destination": "/italiani-all-estero/croazia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/zagabria",
+      "destination": "/italiani-all-estero/croazia/zagabria",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/slovenia",
+      "destination": "/italiani-all-estero/slovenia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/lubiana",
+      "destination": "/italiani-all-estero/slovenia/lubiana",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/israele",
+      "destination": "/italiani-all-estero/israele",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/gerusalemme",
+      "destination": "/italiani-all-estero/israele/gerusalemme",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/qatar",
+      "destination": "/italiani-all-estero/qatar",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/doha",
+      "destination": "/italiani-all-estero/qatar/doha",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/corea-del-sud",
+      "destination": "/italiani-all-estero/corea-del-sud",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/seul",
+      "destination": "/italiani-all-estero/corea-del-sud/seul",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/india",
+      "destination": "/italiani-all-estero/india",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/nuova-delhi",
+      "destination": "/italiani-all-estero/india/nuova-delhi",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/thailandia",
+      "destination": "/italiani-all-estero/thailandia",
+      "permanent": true
+    },
+    {
+      "source": "/psicologo-online/bangkok",
+      "destination": "/italiani-all-estero/thailandia/bangkok",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

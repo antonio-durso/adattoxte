@@ -245,6 +245,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Italiani all'estero: link diretti alle landing paese (SEO: pagine indicizzate
+          che puntano alle destinazioni, oggi scoperte ma mai scansionate da Google) */}
+      <section className="container section">
+        <div className="portal-glow" aria-hidden="true" />
+        <Reveal>
+          <h2 style={{ textAlign: 'center' }}>Psicologo online per italiani all'estero</h2>
+          <p className="section-sub" style={{ textAlign: 'center' }}>
+            Vivi fuori dall'Italia? Le sedute in videochiamata in italiano ti seguono ovunque. Scopri le pagine dedicate alle principali destinazioni.
+          </p>
+        </Reveal>
+        <div className="grid cards" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
+          {[
+            { to: '/italiani-all-estero/regno-unito/londra', label: 'Londra' },
+            { to: '/italiani-all-estero/germania/berlino', label: 'Berlino' },
+            { to: '/italiani-all-estero/svizzera', label: 'Svizzera' },
+            { to: '/italiani-all-estero/stati-uniti', label: 'Stati Uniti' },
+            { to: '/italiani-all-estero/spagna/madrid', label: 'Madrid' },
+            { to: '/italiani-all-estero/francia/parigi', label: 'Parigi' },
+          ].map((d) => (
+            <Link key={d.to} to={d.to} className="card" style={{ display: 'block', height: '100%', textDecoration: 'none', color: 'inherit' }}>
+              <div className="card-icon">🌍</div>
+              <h3>{d.label}</h3>
+              <p className="muted">Psicologo online in italiano · prima seduta gratuita</p>
+            </Link>
+          ))}
+        </div>
+        <p style={{ textAlign: 'center', marginTop: 16 }}>
+          <Link to="/italiani-all-estero">Tutte le destinazioni per italiani all'estero →</Link>
+        </p>
+      </section>
+
       <section className="container section section-deep" id="come-funziona">
         <div className="portal-glow" aria-hidden="true" />
         <Reveal>

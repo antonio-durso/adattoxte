@@ -83,6 +83,12 @@ export default function Footer() {
           <Link to="/psicologo-sport">Psicologo sport</Link>
           <Link to="/psicologia-giuridica">Psicologia giuridica</Link>
           <Link to="/italiani-all-estero">Italiani all'estero</Link>
+          <Link to="/italiani-all-estero/regno-unito/londra">Psicologo online a Londra</Link>
+          <Link to="/italiani-all-estero/germania/berlino">Psicologo online a Berlino</Link>
+          <Link to="/italiani-all-estero/svizzera">Psicologo online in Svizzera</Link>
+          <Link to="/italiani-all-estero/stati-uniti">Psicologo online negli Stati Uniti</Link>
+          <Link to="/italiani-all-estero/spagna/madrid">Psicologo online a Madrid</Link>
+          <Link to="/italiani-all-estero/francia/parigi">Psicologo online a Parigi</Link>
           <Link to="/psicologo-online/depressione">Psicologo online depressione</Link>
           <Link to="/psicologo-online/ansia">Psicologo online ansia</Link>
           <Link to="/psicologo-online/attacchi-di-panico">Psicologo online attacchi di panico</Link>

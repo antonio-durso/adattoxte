@@ -144,6 +144,26 @@ export default function PaeseLanding() {
         </div>
       </section>
 
+      {/* Cross-link SEO: paesi della stessa area (maglia interna verso le altre destinazioni) */}
+      <section className="container section section-deep">
+        <h2 style={{ textAlign: 'center' }}>{isCapitale ? `Altre destinazioni vicine per chi vive a ${nome}` : `Altre destinazioni per italiani nella stessa area`}</h2>
+        <p style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 18px' }}>
+          {(() => {
+            const vicini = paesi.filter((p) => p.slug !== paese.slug && p.regione === paese.regione);
+            const altri = vicini.length > 0 ? vicini : paesi.filter((p) => p.slug !== paese.slug).slice(0, 6);
+            return altri.map((p, i, arr) => (
+              <span key={p.slug}>
+                <Link to={`/italiani-all-estero/${p.slug}`} style={{ fontWeight: 600 }}>{p.nome}</Link>
+                {i < arr.length - 1 ? ' · ' : ''}
+              </span>
+            ));
+          })()}
+        </p>
+        <p style={{ textAlign: 'center' }}>
+          <Link to="/italiani-all-estero">Tutte le destinazioni per italiani all'estero →</Link>
+        </p>
+      </section>
+
       <section className="container section" style={{ textAlign: 'center' }}>
         <h2>Inizia il tuo percorso da {isCapitale ? nome : paese.nome}</h2>
         <p className="muted" style={{ maxWidth: 560, margin: '0 auto 20px' }}>
