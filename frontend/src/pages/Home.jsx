@@ -174,6 +174,16 @@ export default function Home() {
                 { '@type': 'Service', name: 'Psicologia giuridica e consulenza tecnica', url: 'https://www.adattoxte.com/psicologia-giuridica', offers: { '@type': 'Offer', price: '45', priceCurrency: 'EUR' } },
               ],
             },
+            {
+              '@type': 'AggregateRating',
+              ratingValue: '3.8',
+              ratingCount: '2',
+              reviewCount: '2',
+              bestRating: '5',
+              worstRating: '1',
+              itemReviewed: { '@type': 'Organization', '@id': 'https://www.adattoxte.com/#organization' },
+              url: 'https://it.trustpilot.com/review/adattoxte.com',
+            },
           ],
         }}
       />
@@ -274,6 +284,11 @@ export default function Home() {
               <div style={{ fontSize: 34 }}>⭐</div>
               <h3>Recensioni verificate</h3>
               <p className="muted">Ogni valutazione arriva da una seduta completata. <Link to="/recensioni">Leggile →</Link></p>
+              <p className="muted" style={{ fontSize: 13, marginTop: 8 }}>
+                <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
+                  ★ 3,8/5 su Trustpilot · 2 recensioni
+                </a>
+              </p>
             </div>
           </Reveal>
         </div>
