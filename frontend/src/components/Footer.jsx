@@ -78,7 +78,6 @@ export default function Footer() {
           <Link to="/prezzi">Prezzi</Link>
           <Link to="/aziende">Per le aziende</Link>
           <Link to="/chi-siamo">Chi siamo</Link>
-          <Link to="/ufficio-stampa">Ufficio stampa</Link>
           <Link to="/equipe">Équipe clinica</Link>
           <Link to="/psicologo-concorsi-pubblici">Psicologo concorsi</Link>
           <Link to="/psicologo-sport">Psicologo sport</Link>
@@ -216,7 +215,8 @@ export default function Footer() {
               Informativa privacy e cookie redatte in conformità al Regolamento UE 2016/679 (GDPR) e alla
               normativa di settore. <Link to="/privacy" style={{ color: '#286a8f', textDecoration: 'underline', fontWeight: 600 }}>Leggi la privacy policy</Link> ·{' '}
               <Link to="/cookie" style={{ color: '#286a8f', textDecoration: 'underline', fontWeight: 600 }}>cookie policy</Link> ·{' '}
-              <Link to="/termini" style={{ color: '#286a8f', textDecoration: 'underline', fontWeight: 600 }}>termini</Link>.
+              <Link to="/termini" style={{ color: '#286a8f', textDecoration: 'underline', fontWeight: 600 }}>termini</Link> ·{' '}
+              <Link to="/ufficio-stampa" style={{ color: '#286a8f', textDecoration: 'underline', fontWeight: 600 }}>ufficio stampa</Link>.
             </span>
           </div>
         </div>
