@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import Logo from '../components/Logo';
-import ProtectedEmail from '../components/ProtectedEmail';
 import ContactForm from '../components/ContactForm';
 
 /**
@@ -37,7 +36,9 @@ export default function Press() {
           con un servizio dedicato agli italiani all’estero in 43 paesi.
         </p>
         <p className="muted small" style={{ marginTop: 12 }}>
-          <ProtectedEmail label="Contatto stampa: scrivici" />
+          <p className="muted small" style={{ marginTop: 12 }}>
+            Per la stampa: usare il modulo di contatto in fondo alla pagina.
+          </p>
         </p>
       </div>
 
@@ -128,7 +129,9 @@ export default function Press() {
             </li>
           </ul>
           <p className="muted small">
-            <ProtectedEmail label="Richiedi i comunicati stampa" />
+            <p className="muted small">
+              Per ricevere i comunicati stampa integrali, usare il modulo di contatto qui sotto.
+            </p>
           </p>
         </Reveal>
       </section>
@@ -148,12 +151,9 @@ export default function Press() {
           <h2>Contatti stampa</h2>
           <p className="muted" style={{ maxWidth: 560, margin: '0 auto 14px' }}>
             Per richieste di interviste, materiali o comunicazioni con la redazione,
-            compila il modulo (seleziona "Giornalista") oppure usa il contatto protetto.
+            compila il modulo: seleziona "Giornalista", inserisci la tua email e i tuoi dati.
           </p>
           <ContactForm />
-          <div style={{ marginTop: 18 }}>
-            <ProtectedEmail subject="Richiesta media - Adatto x Te" />
-          </div>
           <p className="muted small">
             Sito: <a href="https://www.adattoxte.com">www.adattoxte.com</a> · Social: @adattoxte
           </p>
