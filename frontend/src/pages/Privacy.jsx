@@ -16,8 +16,8 @@ export default function Privacy() {
       <p>
         Il titolare del trattamento dei dati è <strong>Dott. Antonio D'Urso</strong>, psicologo iscritto all'Albo
         degli Psicologi della Campania , che gestisce la piattaforma <strong>Adatto x Te</strong>.
-        Per qualunque questione relativa al trattamento dei dati puoi scrivere a{' '}
-        <strong>antonio.durso.749@psypec.it</strong>.
+        Per qualunque questione relativa al trattamento dei dati puoi scriverci tramite{' '}
+        <strong>il modulo di contatto</strong> (in fondo alle pagine del sito).
       </p>
 
       <h2>2. Dati personali trattati</h2>
@@ -54,7 +54,7 @@ export default function Privacy() {
         <li><strong>Obblighi legali (art. 6.1.c GDPR):</strong> adempimenti fiscali e di legge (es. ricevute, fatturazione).</li>
         <li><strong>Legittimo interesse (art. 6.1.f GDPR):</strong> sicurezza della piattaforma e prevenzione degli abusi.</li>
       </ul>
-      <p>Il consenso al trattamento dei dati sanitari può essere <strong>revocato in ogni momento</strong> scrivendo a antonio.durso.749@psypec.it; la revoca non pregiudica la liceità del trattamento già effettuato.</p>
+      <p>Il consenso al trattamento dei dati sanitari può essere <strong>revocato in ogni momento</strong> tramite il modulo di contatto; la revoca non pregiudica la liceità del trattamento già effettuato.</p>
 
       <h2>5. Strumenti e fornitori terzi</h2>
       <ul>
@@ -96,7 +96,7 @@ export default function Privacy() {
       </ul>
       <p>
         Puoi esercitare i tuoi diritti dalla pagina <strong>Impostazioni</strong> (esportazione e cancellazione
-        disponibili direttamente) o scrivendo a <strong>antonio.durso.749@psypec.it</strong>. Hai inoltre il diritto di
+        disponibili direttamente) o tramite <strong>il modulo di contatto</strong>. Hai inoltre il diritto di
         proporre reclamo al <strong>Garante per la protezione dei dati personali</strong> (www.garanteprivacy.it).
       </p>
 

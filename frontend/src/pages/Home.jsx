@@ -122,7 +122,6 @@ export default function Home() {
               '@id': 'https://www.adattoxte.com/#organization',
               name: 'Adatto x Te',
               url: 'https://www.adattoxte.com/',
-              email: 'antonio.durso.749@psypec.it',
               telephone: '+39 392 2380843',
               privacyPolicy: 'https://www.adattoxte.com/privacy',
               termsOfService: 'https://www.adattoxte.com/termini',

@@ -41,7 +41,7 @@ export default function CookiePolicy() {
       </p>
 
       <h2>5. Contatti</h2>
-      <p>Per domande sui cookie: antonio.durso.749@psypec.it</p>
+      <p>Per domande sui cookie: utilizzare il modulo di contatto del sito.</p>
     </div>
   );
 }
