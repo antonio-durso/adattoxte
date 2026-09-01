@@ -57,6 +57,90 @@ function ScrollToTop() {
   return null;
 }
 
+// Gestisce il prefisso lingua /en (versione inglese indicizzabile):
+// le rotte /en/... vengono renderizzate come le equivalenti italiane,
+// ma con la lingua inglese attiva (il prefisso viene rimosso per il router).
+function LangRoutes() {
+  const location = useLocation();
+  const pathname = location.pathname;
+  const isEn = pathname === '/en' || pathname.startsWith('/en/');
+  const stripped = isEn ? (pathname.replace(/^\/en/, '') || '/') : pathname;
+  const loc = isEn ? { ...location, pathname: stripped } : location;
+
+  return (
+    <Routes location={loc}>
+      <Route path="/" element={<Home />} />
+      <Route path="/terapeuti" element={<Therapists />} />
+      <Route path="/chi-siamo" element={<ChiSiamo />} />
+      <Route path="/terapeuti/:id" element={<TherapistDetail />} />
+      <Route path="/blog" element={<BlogList />} />
+      <Route path="/blog/:slug" element={<BlogArticle />} />
+      <Route path="/ricevuta/:id" element={<Receipt />} />
+      <Route path="/risorse" element={<Risorse />} />
+      <Route path="/recensioni" element={<Recensioni />} />
+      <Route path="/test" element={<CheckIn />} />
+      <Route path="/psicologo-concorsi-pubblici" element={<NicheLanding niche="concorsi" />} />
+      <Route path="/psicologo-sport" element={<NicheLanding niche="sport" />} />
+      <Route path="/psicologia-giuridica" element={<NicheLanding niche="giuridica" />} />
+      <Route path="/psicologo-online/:slug" element={<DisturboLanding />} />
+      <Route path="/registrazione" element={<Register />} />
+      <Route path="/accedi" element={<Login />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/cookie" element={<CookiePolicy />} />
+      <Route path="/termini" element={<Terms />} />
+      <Route path="/prezzi" element={<Prezzi />} />
+      <Route path="/aziende" element={<Aziende />} />
+      <Route path="/italiani-all-estero" element={<Estero />} />
+      <Route path="/italiani-all-estero/:paese" element={<PaeseLanding />} />
+      <Route path="/italiani-all-estero/:paese/:capitale" element={<PaeseLanding />} />
+      <Route path="/tibiz" element={<Tibiz />} />
+      <Route path="/equipe" element={<Equipe />} />
+      <Route path="/ufficio-stampa" element={<Press />} />
+      <Route
+        path="/area-paziente"
+        element={
+          <ProtectedRoute role="patient">
+            <PatientDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/pagamento/:bookingId"
+        element={
+          <ProtectedRoute role="patient">
+            <Checkout />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/area-terapeuta"
+        element={
+          <ProtectedRoute role="therapist">
+            <TherapistDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/area-admin"
+        element={
+          <ProtectedRoute role="admin">
+            <AdminDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/impostazioni"
+        element={
+          <ProtectedRoute>
+            <Settings />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
+
 export default function App() {
   return (
     <I18nProvider>
@@ -86,76 +170,7 @@ export default function App() {
           <Navbar />
           <main>
             <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/terapeuti" element={<Therapists />} />
-                <Route path="/chi-siamo" element={<ChiSiamo />} />
-                <Route path="/terapeuti/:id" element={<TherapistDetail />} />
-                <Route path="/blog" element={<BlogList />} />
-                <Route path="/blog/:slug" element={<BlogArticle />} />
-                <Route path="/ricevuta/:id" element={<Receipt />} />
-                <Route path="/risorse" element={<Risorse />} />
-                <Route path="/recensioni" element={<Recensioni />} />
-                <Route path="/test" element={<CheckIn />} />
-                <Route path="/psicologo-concorsi-pubblici" element={<NicheLanding niche="concorsi" />} />
-                <Route path="/psicologo-sport" element={<NicheLanding niche="sport" />} />
-                <Route path="/psicologia-giuridica" element={<NicheLanding niche="giuridica" />} />
-                <Route path="/psicologo-online/:slug" element={<DisturboLanding />} />
-                <Route path="/registrazione" element={<Register />} />
-                <Route path="/accedi" element={<Login />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/cookie" element={<CookiePolicy />} />
-                <Route path="/termini" element={<Terms />} />
-                <Route path="/prezzi" element={<Prezzi />} />
-                <Route path="/aziende" element={<Aziende />} />
-                <Route path="/italiani-all-estero" element={<Estero />} />
-                <Route path="/italiani-all-estero/:paese" element={<PaeseLanding />} />
-                <Route path="/italiani-all-estero/:paese/:capitale" element={<PaeseLanding />} />
-                <Route path="/tibiz" element={<Tibiz />} />
-                <Route path="/equipe" element={<Equipe />} />
-                <Route path="/ufficio-stampa" element={<Press />} />
-                <Route
-                  path="/area-paziente"
-                  element={
-                    <ProtectedRoute role="patient">
-                      <PatientDashboard />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/pagamento/:bookingId"
-                  element={
-                    <ProtectedRoute role="patient">
-                      <Checkout />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/area-terapeuta"
-                  element={
-                    <ProtectedRoute role="therapist">
-                      <TherapistDashboard />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/area-admin"
-                  element={
-                    <ProtectedRoute role="admin">
-                      <AdminDashboard />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/impostazioni"
-                  element={
-                    <ProtectedRoute>
-                      <Settings />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <LangRoutes />
             </Suspense>
           </main>
           <Footer />

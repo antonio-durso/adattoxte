@@ -40,6 +40,9 @@ const LANDING_ROUTES = [
 const STATIC_ROUTES = [
   ...LANDING_ROUTES,
   { path: '/', priority: '1.0', freq: 'daily' },
+  // Versione inglese della home (indicizzabile): il resto delle pagine /en
+  // verrà aggiunto man mano che i contenuti verranno tradotti
+  { path: '/en', priority: '0.9', freq: 'daily' },
   { path: '/terapeuti', priority: '0.9', freq: 'daily' },
   { path: '/chi-siamo', priority: '0.6', freq: 'monthly' },
   { path: '/blog', priority: '0.9', freq: 'daily' },

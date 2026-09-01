@@ -187,8 +187,16 @@ const translations = {
   },
 };
 
+// Lingua iniziale: se l'URL ha il prefisso /en (versione inglese indicizzabile),
+// parte in inglese; altrimenti usa la preferenza salvata (default italiano).
+function langFromPath() {
+  const p = window.location.pathname;
+  if (p === '/en' || p.startsWith('/en/')) return 'en';
+  return null;
+}
+
 export function I18nProvider({ children }) {
-  const [lang, setLang] = useState(() => localStorage.getItem('adt_lang') || 'it');
+  const [lang, setLang] = useState(() => langFromPath() || localStorage.getItem('adt_lang') || 'it');
 
   useEffect(() => {
     localStorage.setItem('adt_lang', lang);

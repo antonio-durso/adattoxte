@@ -104,14 +104,16 @@ function Deferred({ children }) {
 }
 
 export default function Home() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [openFaq, setOpenFaq] = useState(0);
 
   return (
     <>
       <Seo
-        title="Psicologo online da 45€ – Terapia in videochiamata"
-        description="Psicologi e psicoterapeuti qualificati online: prima seduta gratuita, sedute da 50 minuti a 45€ (coppia 50€). Scegli il tuo terapeuta e inizia oggi."
+        title={lang === 'en' ? 'Online psychologist from €45 – Video therapy' : 'Psicologo online da 45€ – Terapia in videochiamata'}
+        description={lang === 'en'
+          ? 'Qualified psychologists and psychotherapists online: free first session, 50-minute sessions from €45 (couples €50). Choose your therapist and start today.'
+          : 'Psicologi e psicoterapeuti qualificati online: prima seduta gratuita, sedute da 50 minuti a 45€ (coppia 50€). Scegli il tuo terapeuta e inizia oggi.'}
         path="/"
         image="https://www.adattoxte.com/images/hero.jpg"
         jsonLd={{

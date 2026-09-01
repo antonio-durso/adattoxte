@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/psicologo-online",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/psicologo-online/stati-uniti",
       "destination": "/italiani-all-estero/stati-uniti",
       "permanent": true
@@ -435,6 +440,14 @@
     {
       "source": "/api/(.*)",
       "destination": "https://adattoxte-backend.onrender.com/api/$1"
+    },
+    {
+      "source": "/en",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/:path*",
+      "destination": "/app.html"
     },
     { "source": "/terapeuti", "destination": "/app.html" },
     { "source": "/chi-siamo", "destination": "/app.html" },

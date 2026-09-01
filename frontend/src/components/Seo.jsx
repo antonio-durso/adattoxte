@@ -31,8 +31,16 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
     setMeta('name', 'description', description || 'Adatto x Te - Piattaforma di consulenza psicologica online. Terapisti qualificati, sedute video da casa.');
     setMeta('property', 'og:title', fullTitle);
     setMeta('property', 'og:description', description || 'Adatto x Te - Piattaforma di consulenza psicologica online.');
-    setMeta('property', 'og:url', BASE + path);
     if (image) setMeta('property', 'og:image', image);
+
+    // Percorso reale dell'URL (gestisce anche il prefisso /en): canonical e og:url
+    // devono riflettere l'indirizzo effettivo, non il path interno della rotta.
+    const actualPath = window.location.pathname.replace(/\/+$/, '') || '/';
+    const isEn = actualPath === '/en' || actualPath.startsWith('/en/');
+    const itPath = isEn ? (actualPath.replace(/^\/en/, '') || '/') : actualPath;
+    const enPath = isEn ? actualPath : (actualPath === '/' ? '/en' : '/en' + actualPath);
+
+    setMeta('property', 'og:url', BASE + actualPath);
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -41,7 +49,20 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', BASE + path);
+    canonical.setAttribute('href', BASE + actualPath);
+
+    // hreflang alternates (IT/EN + x-default): collegano le versioni linguistiche
+    const prevHreflang = document.querySelectorAll('link[data-seo-hreflang]');
+    prevHreflang.forEach((el) => el.remove());
+    ['it', 'x-default', 'en'].forEach((h) => {
+      const href = h === 'en' ? BASE + enPath : BASE + itPath;
+      const link = document.createElement('link');
+      link.setAttribute('rel', 'alternate');
+      link.setAttribute('hreflang', h);
+      link.setAttribute('href', href);
+      link.setAttribute('data-seo-hreflang', '1');
+      document.head.appendChild(link);
+    });
 
     // JSON-LD per pagina: accetta un oggetto singolo o un ARRAY di oggetti
     // (es. FAQPage + BreadcrumbList + Article), sostituisce i precedenti

@@ -63,10 +63,24 @@ export default function Navbar() {
     : user?.role === 'admin' ? '/area-admin'
     : null;
 
+  // Prefisso lingua: in modalità inglese i link di navigazione puntano a /en/...
+  const enPrefix = lang === 'en' ? '/en' : '';
+
+  const toggleLang = () => {
+    const next = lang === 'it' ? 'en' : 'it';
+    const path = window.location.pathname;
+    const isEnPath = path === '/en' || path.startsWith('/en/');
+    const target = next === 'en'
+      ? (isEnPath ? path : path === '/' ? '/en' : '/en' + path)
+      : (isEnPath ? (path.replace(/^\/en/, '') || '/') : path);
+    setLang(next);
+    navigate(target);
+  };
+
   return (
     <header className="navbar">
       <div className="container navbar-inner">
-        <Link to="/" className="brand">
+        <Link to={enPrefix || '/'} className="brand">
           <Logo />
         </Link>
         {/* Pulsante "Installa app" (PWA), sempre visibile, accanto al menu */}
@@ -94,14 +108,14 @@ export default function Navbar() {
           <span aria-hidden="true" className={`nav-toggle-icon${menuOpen ? ' open' : ''}`}>▾</span>
         </button>
         <nav id="main-menu" className={menuOpen ? 'nav-links open' : 'nav-links'} onClick={() => setMenuOpen(false)}>
-          <Link to="/terapeuti">{t('nav.therapists')}</Link>
-          <Link to="/equipe">{t('nav.equipe')}</Link>
-          <Link to="/blog">{t('nav.blog')}</Link>
-          <Link to="/risorse">{t('nav.risorse')}</Link>
-          <Link to="/recensioni">{t('nav.reviews')}</Link>
-          <Link to="/ufficio-stampa">Ufficio stampa</Link>
-          <Link to="/prezzi">Prezzi</Link>
-          <Link to="/test">🧠 Test</Link>
+          <Link to={enPrefix + '/terapeuti'}>{t('nav.therapists')}</Link>
+          <Link to={enPrefix + '/equipe'}>{t('nav.equipe')}</Link>
+          <Link to={enPrefix + '/blog'}>{t('nav.blog')}</Link>
+          <Link to={enPrefix + '/risorse'}>{t('nav.risorse')}</Link>
+          <Link to={enPrefix + '/recensioni'}>{t('nav.reviews')}</Link>
+          <Link to={enPrefix + '/ufficio-stampa'}>Ufficio stampa</Link>
+          <Link to={enPrefix + '/prezzi'}>Prezzi</Link>
+          <Link to={enPrefix + '/test'}>🧠 Test</Link>
           {areaLink && (
             <Link to={areaLink}>
               {user.role === 'therapist' ? t('nav.therapistArea') : user.role === 'patient' ? t('nav.patientArea') : t('nav.adminArea')}
@@ -110,7 +124,7 @@ export default function Navbar() {
           <Link to="/impostazioni">{t('nav.settings')}</Link>
           <button
             className="lang-toggle"
-            onClick={() => setLang(lang === 'it' ? 'en' : 'it')}
+            onClick={toggleLang}
             aria-label={`${t('common.language')}: ${lang === 'it' ? 'EN' : 'IT'}`}
             title={`${t('common.language')}: ${lang === 'it' ? 'EN' : 'IT'}`}
           >
