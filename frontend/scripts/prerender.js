@@ -3,7 +3,7 @@
 // così il contenuto arriva al browser senza eseguire JavaScript (FCP/LCP/TBT migliori).
 // Uso: node scripts/prerender.js  (eseguito automaticamente da `npm run build`)
 import { execSync, spawn } from 'node:child_process';
-import { mkdirSync, writeFileSync, existsSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { disturbi } from '../src/content/disturbi.js';
@@ -217,6 +217,34 @@ async function main() {
     console.log('  📄 app.html (fallback SPA con React) creato');
   } catch (e) {
     console.log('⚠️  app.html non creato:', e.message);
+  }
+
+  // La home viene servita da dist/index.html (filesystem precede i rewrite).
+  // Se il capture Chrome della home fallisce (timeout frequenti nel sandbox Vercel),
+  // title/description resterebbero quelli generici della shell: li impostiamo qui,
+  // subito e in modo deterministico (indipendente da Chrome). Se il capture riesce,
+  // il DOM renderizzato sovrascriverà comunque questi valori con quelli del <Seo>.
+  // Mantieni queste stringhe allineate con il <Seo> di Home.jsx.
+  try {
+    const homeIdx = join(DIST, 'index.html');
+    if (existsSync(homeIdx)) {
+      const homeHtml = readFileSync(homeIdx, 'utf8');
+      const patched = homeHtml
+        .replace(
+          /<title>[^<]*<\/title>/,
+          '<title>Psicologo online da 45€ – Terapia in videochiamata | Adatto x Te</title>'
+        )
+        .replace(
+          /<meta name="description" content="[^"]*" \/>/,
+          '<meta name="description" content="Psicologi e psicoterapeuti qualificati online: prima seduta gratuita, sedute da 50 minuti a 45€ (coppia 50€). Scegli il tuo terapeuta e inizia oggi." />'
+        );
+      if (patched !== homeHtml) {
+        writeFileSync(homeIdx, patched);
+        console.log('  🏠 home: title/description corretti impostati nell\'HTML statico');
+      }
+    }
+  } catch (e) {
+    console.log('⚠️  patch home metadata:', String(e.message || e).slice(0, 80));
   }
 
   freePort();
