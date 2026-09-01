@@ -29,6 +29,7 @@ const today = new Date().toISOString().slice(0, 10);
 // Landing programmatiche "psicologo online + disturbo/città" (dagli archivi)
 const { disturbi } = await import('../src/content/disturbi.js');
 const { citta, CITTA_TOP } = await import('../src/content/citta.js');
+const { EN_ACTIVE } = await import('../src/config.js');
 const LANDING_ROUTES = [
   ...disturbi.map((d) => ({ path: `/psicologo-online/${d.slug}`, priority: '0.7', freq: 'weekly' })),
   // Solo le città TOP con contenuto differenziato: le altre restano noindex e fuori sitemap
@@ -98,10 +99,15 @@ function buildSitemap() {
     freq: r.freq,
     priority: r.priority,
   }));
-  // NOTE: le versioni /en (landing disturbi/città tradotte) NON entrano in sitemap:
-  // al momento non ci sono terapeuti anglofoni, quindi la versione inglese resta
-  // non indicizzata (noindex in Seo.jsx). Riattivare qui quando ci saranno
-  // terapeuti che parlano inglese (aggiungere le URL /en/... alla sitemap).
+  // Versioni inglesi (/en) delle landing disturbi e città top: entrano in sitemap
+  // SOLO quando EN_ACTIVE è true (src/config.js). Con EN_ACTIVE=false la versione
+  // inglese resta non indicizzata (noindex in Seo.jsx) e fuori dalla sitemap.
+  if (EN_ACTIVE) {
+    const enLandings = [...urls].filter((u) => u.loc.includes('/psicologo-online/') && !u.loc.includes('/en/'));
+    for (const u of enLandings) {
+      urls.push({ loc: u.loc.replace(`${BASE}/psicologo-online/`, `${BASE}/en/psicologo-online/`), lastmod: today, freq: 'weekly', priority: '0.7' });
+    }
+  }
   for (const a of readArticles()) {
     // TUTTI gli articoli entrano subito in sitemap (scelta operativa del founder,
     // anche quelli con data futura: il contenuto è già pubblicato sul blog).

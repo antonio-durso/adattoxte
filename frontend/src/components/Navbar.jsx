@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
+import { EN_ACTIVE } from '../config';
 import Logo from './Logo';
 
 const IS_IOS = typeof navigator !== 'undefined' && /iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -122,6 +123,9 @@ export default function Navbar() {
             </Link>
           )}
           <Link to="/impostazioni">{t('nav.settings')}</Link>
+          {/* Bottone lingua: visibile solo se EN attiva oppure se si è già su una
+              pagina /en (in quel caso serve per tornare alla versione italiana) */}
+          {(EN_ACTIVE || lang === 'en') && (
           <button
             className="lang-toggle"
             onClick={toggleLang}
@@ -130,6 +134,7 @@ export default function Navbar() {
           >
             {lang === 'it' ? 'EN' : 'IT'} <span aria-hidden="true">▾</span>
           </button>
+          )}
           {user ? (
             <button className="btn btn-outline btn-sm" onClick={handleLogout}>
               {t('nav.logout')}

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { EN_ACTIVE } from '../config';
 
 /**
  * Seo — imposta title, description, canonical, Open Graph e JSON-LD per pagina.
@@ -22,10 +23,9 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
   useEffect(() => {
     const fullTitle = title ? `${title} | Adatto x Te` : 'Adatto x Te - Psicologia online';
     document.title = fullTitle;
-    // Versione EN: al momento NON indicizzata (nessun terapeuta anglofono disponibile).
-    // Le pagine /en restano funzionanti per i visitatori, ma Google non le indicizza.
-    // Riattivare quando ci saranno terapeuti che parlano inglese (rimuovere il flag).
-    const enNotIndexed = window.location.pathname === '/en' || window.location.pathname.startsWith('/en/');
+    // Versione EN: non indicizzata finché EN_ACTIVE è false (vedi src/config.js).
+    // Quando EN_ACTIVE diventa true, le pagine /en vengono indicizzate da sole.
+    const enNotIndexed = !EN_ACTIVE && (window.location.pathname === '/en' || window.location.pathname.startsWith('/en/'));
     if (noindex || enNotIndexed) {
       setMeta('name', 'robots', 'noindex');
     } else {
