@@ -35,6 +35,7 @@ const Prezzi = lazy(() => import('./pages/Prezzi'));
 const Aziende = lazy(() => import('./pages/Aziende'));
 const Tibiz = lazy(() => import('./pages/Tibiz'));
 const Equipe = lazy(() => import('./pages/Equipe'));
+const Press = lazy(() => import('./pages/Press'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 import PortalInteractive from './components/PortalInteractive';
 
@@ -112,6 +113,7 @@ export default function App() {
                 <Route path="/italiani-all-estero/:paese/:capitale" element={<PaeseLanding />} />
                 <Route path="/tibiz" element={<Tibiz />} />
                 <Route path="/equipe" element={<Equipe />} />
+                <Route path="/ufficio-stampa" element={<Press />} />
                 <Route
                   path="/area-paziente"
                   element={
