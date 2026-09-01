@@ -106,6 +106,34 @@ export default function Press() {
 
       <section className="container section">
         <Reveal>
+          <h2>Comunicati stampa</h2>
+          <ul>
+            <li>
+              <strong>28/08/2026 — Lancio di Adatto x Te</strong>: la piattaforma di psicologia online
+              debutta sul dominio adattoxte.com con sedute a 45€ e prima seduta conoscitiva gratuita.
+            </li>
+            <li>
+              <strong>31/08/2026 — Recensioni verificate</strong>: la piattaforma raggiunge la valutazione
+              Trustpilot 4,3/5 ("Eccellente") e Google 5,0/5, con recensioni da sedute completate.
+            </li>
+            <li>
+              <strong>01/09/2026 — Psicologia online in 43 paesi</strong>: sedute in italiano e inglese
+              per gli italiani all'estero, con continuità del percorso anche in caso di rientro.
+            </li>
+            <li>
+              <strong>02/09/2026 — Apertura dell'Ufficio Stampa</strong>: attivata la sala stampa con
+              kit media e contatti dedicati per giornalisti e media.
+            </li>
+          </ul>
+          <p className="muted small">
+            Per ricevere i comunicati stampa integrali, scrivere a{' '}
+            <a href="mailto:ant.durso1@gmail.com">ant.durso1@gmail.com</a>.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="container section">
+        <Reveal>
           <h2>Kit media</h2>
           <p>
             Il kit media completo (dati, materiali, domande frequenti) è disponibile su richiesta via email.
