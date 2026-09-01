@@ -99,6 +99,12 @@ function buildSitemap() {
     freq: r.freq,
     priority: r.priority,
   }));
+  // Versioni inglesi (/en) delle landing disturbi e città top: contenuti tradotti,
+  // solo per le voci realmente disponibili in inglese (disturbiEn e cittaEn).
+  const enDisturbi = [...urls].filter((u) => u.loc.includes('/psicologo-online/') && !u.loc.includes('/en/'));
+  for (const u of enDisturbi) {
+    urls.push({ loc: u.loc.replace(`${BASE}/psicologo-online/`, `${BASE}/en/psicologo-online/`), lastmod: today, freq: 'weekly', priority: '0.7' });
+  }
   for (const a of readArticles()) {
     // TUTTI gli articoli entrano subito in sitemap (scelta operativa del founder,
     // anche quelli con data futura: il contenuto è già pubblicato sul blog).
