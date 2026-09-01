@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 import Reveal from '../components/Reveal';
 import HeroComic from '../components/HeroComic';
+import TrustStrip from '../components/TrustStrip';
 import Seo from '../components/Seo';
 // Sezioni sotto la piega: chunk separati, caricati solo quando servono
 // (render differito via <Deferred>) -> TBT più basso, niente lavoro in avvio
@@ -219,6 +220,8 @@ export default function Home() {
           <HeroComic />
         </div>
       </section>
+
+      <TrustStrip />
 
       <section className="container section section-deep">
         <div className="portal-glow" aria-hidden="true" />
