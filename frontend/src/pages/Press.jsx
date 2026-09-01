@@ -3,6 +3,7 @@ import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import Logo from '../components/Logo';
 import ProtectedEmail from '../components/ProtectedEmail';
+import ContactForm from '../components/ContactForm';
 
 /**
  * Pagina /ufficio-stampa — press room corporate.
@@ -145,9 +146,14 @@ export default function Press() {
       <section className="container section" style={{ textAlign: 'center' }}>
         <Reveal>
           <h2>Contatti stampa</h2>
-          <p>
-            <ProtectedEmail subject="Richiesta media - Adatto x Te" />
+          <p className="muted" style={{ maxWidth: 560, margin: '0 auto 14px' }}>
+            Per richieste di interviste, materiali o comunicazioni con la redazione,
+            compila il modulo (seleziona "Giornalista") oppure usa il contatto protetto.
           </p>
+          <ContactForm />
+          <div style={{ marginTop: 18 }}>
+            <ProtectedEmail subject="Richiesta media - Adatto x Te" />
+          </div>
           <p className="muted small">
             Sito: <a href="https://www.adattoxte.com">www.adattoxte.com</a> · Social: @adattoxte
           </p>
