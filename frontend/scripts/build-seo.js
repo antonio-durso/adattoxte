@@ -40,9 +40,8 @@ const LANDING_ROUTES = [
 const STATIC_ROUTES = [
   ...LANDING_ROUTES,
   { path: '/', priority: '1.0', freq: 'daily' },
-  // Versione inglese della home (indicizzabile): il resto delle pagine /en
-  // verrà aggiunto man mano che i contenuti verranno tradotti
-  { path: '/en', priority: '0.9', freq: 'daily' },
+  // NOTA: /en NON è in sitemap — versione inglese non indicizzata fino all'arrivo
+  // di terapeuti anglofoni (vedi Seo.jsx: noindex sulle rotte /en).
   { path: '/terapeuti', priority: '0.9', freq: 'daily' },
   { path: '/chi-siamo', priority: '0.6', freq: 'monthly' },
   { path: '/blog', priority: '0.9', freq: 'daily' },
@@ -99,12 +98,10 @@ function buildSitemap() {
     freq: r.freq,
     priority: r.priority,
   }));
-  // Versioni inglesi (/en) delle landing disturbi e città top: contenuti tradotti,
-  // solo per le voci realmente disponibili in inglese (disturbiEn e cittaEn).
-  const enDisturbi = [...urls].filter((u) => u.loc.includes('/psicologo-online/') && !u.loc.includes('/en/'));
-  for (const u of enDisturbi) {
-    urls.push({ loc: u.loc.replace(`${BASE}/psicologo-online/`, `${BASE}/en/psicologo-online/`), lastmod: today, freq: 'weekly', priority: '0.7' });
-  }
+  // NOTE: le versioni /en (landing disturbi/città tradotte) NON entrano in sitemap:
+  // al momento non ci sono terapeuti anglofoni, quindi la versione inglese resta
+  // non indicizzata (noindex in Seo.jsx). Riattivare qui quando ci saranno
+  // terapeuti che parlano inglese (aggiungere le URL /en/... alla sitemap).
   for (const a of readArticles()) {
     // TUTTI gli articoli entrano subito in sitemap (scelta operativa del founder,
     // anche quelli con data futura: il contenuto è già pubblicato sul blog).

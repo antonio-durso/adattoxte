@@ -22,7 +22,11 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
   useEffect(() => {
     const fullTitle = title ? `${title} | Adatto x Te` : 'Adatto x Te - Psicologia online';
     document.title = fullTitle;
-    if (noindex) {
+    // Versione EN: al momento NON indicizzata (nessun terapeuta anglofono disponibile).
+    // Le pagine /en restano funzionanti per i visitatori, ma Google non le indicizza.
+    // Riattivare quando ci saranno terapeuti che parlano inglese (rimuovere il flag).
+    const enNotIndexed = window.location.pathname === '/en' || window.location.pathname.startsWith('/en/');
+    if (noindex || enNotIndexed) {
       setMeta('name', 'robots', 'noindex');
     } else {
       const robotsMeta = document.querySelector('meta[name="robots"]');
