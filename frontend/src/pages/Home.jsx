@@ -328,7 +328,7 @@ export default function Home() {
               <p className="muted">Ogni valutazione arriva da una seduta completata. <Link to="/recensioni">Leggile →</Link></p>
               <p className="muted" style={{ fontSize: 13, marginTop: 8 }}>
                 <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
-                  ★ 3,8/5 su Trustpilot · 2 recensioni
+                  ★ 4,3/5 su Trustpilot · 8 recensioni
                 </a>
                 <span> · </span>
                 <a href="https://share.google/U98x9MWWluFoa91xy" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>

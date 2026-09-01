@@ -52,9 +52,9 @@ export default function Recensioni() {
         <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener noreferrer" className="card" style={{ display: 'block', padding: 20, textDecoration: 'none', color: 'inherit' }}>
           <div style={{ fontSize: 22 }}>⭐</div>
           <h3 style={{ margin: '8px 0 4px' }}>Trustpilot</h3>
-          <div style={{ fontSize: 26, fontWeight: 800 }}>3,8<span style={{ fontSize: 14, fontWeight: 400, color: '#59636E' }}>/5</span></div>
+          <div style={{ fontSize: 26, fontWeight: 800 }}>4,3<span style={{ fontSize: 14, fontWeight: 400, color: '#59636E' }}>/5</span></div>
           <Stars score={4} size={16} />
-          <p className="muted small" style={{ margin: '6px 0 0' }}>2 recensioni verificate · Vedi su Trustpilot →</p>
+          <p className="muted small" style={{ margin: '6px 0 0' }}>8 recensioni verificate · Vedi su Trustpilot →</p>
         </a>
         <a href="https://share.google/U98x9MWWluFoa91xy" target="_blank" rel="noopener noreferrer" className="card" style={{ display: 'block', padding: 20, textDecoration: 'none', color: 'inherit' }}>
           <div style={{ fontSize: 22 }}>📍</div>
