@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import Logo from '../components/Logo';
+import ProtectedEmail from '../components/ProtectedEmail';
 
 /**
  * Pagina /ufficio-stampa — press room corporate.
@@ -35,7 +36,7 @@ export default function Press() {
           con un servizio dedicato agli italiani all’estero in 43 paesi.
         </p>
         <p className="muted small" style={{ marginTop: 12 }}>
-          Contatto stampa: <a href="mailto:ant.durso1@gmail.com">ant.durso1@gmail.com</a>
+          <ProtectedEmail label="Contatto stampa: scrivici" />
         </p>
       </div>
 
@@ -126,8 +127,7 @@ export default function Press() {
             </li>
           </ul>
           <p className="muted small">
-            Per ricevere i comunicati stampa integrali, scrivere a{' '}
-            <a href="mailto:ant.durso1@gmail.com">ant.durso1@gmail.com</a>.
+            <ProtectedEmail label="Richiedi i comunicati stampa" />
           </p>
         </Reveal>
       </section>
@@ -146,7 +146,7 @@ export default function Press() {
         <Reveal>
           <h2>Contatti stampa</h2>
           <p>
-            <a href="mailto:ant.durso1@gmail.com" className="btn">ant.durso1@gmail.com</a>
+            <ProtectedEmail subject="Richiesta media - Adatto x Te" />
           </p>
           <p className="muted small">
             Sito: <a href="https://www.adattoxte.com">www.adattoxte.com</a> · Social: @adattoxte
