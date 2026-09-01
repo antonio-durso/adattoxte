@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import api from '../api';
 
 const GUIDE = [
   {
@@ -63,6 +64,70 @@ const GUIDE = [
   },
 ];
 
+// Download guida lead magnet: email + consenso -> POST /api/newsletter (source=guide)
+function GuideDownloadCard() {
+  const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | ok | error
+  const [errMsg, setErrMsg] = useState('');
+
+  const submit = async (e) => {
+    e.preventDefault();
+    if (!consent) {
+      setErrMsg('Serve il consenso al trattamento dei dati per ricevere la guida.');
+      setStatus('error');
+      return;
+    }
+    setStatus('sending');
+    try {
+      await api.post('/newsletter', { email, source: 'guide', consent: true });
+      setStatus('ok');
+    } catch (err) {
+      setErrMsg((err.response && err.response.data && err.response.data.error) || 'Errore di invio, riprova.');
+      setStatus('error');
+    }
+  };
+
+  return (
+    <div
+      className="card"
+      style={{
+        padding: '22px 20px',
+        marginBottom: 18,
+        border: '1px solid #f59e0b55',
+        background: 'linear-gradient(135deg,#fff8ef,#fff)',
+      }}
+    >
+      <h2 style={{ margin: '0 0 6px', fontSize: 18 }}>📘 Guida gratuita: "Come scegliere lo psicologo giusto"</h2>
+      <p className="muted" style={{ margin: '0 0 14px' }}>
+        I 7 criteri che contano davvero, le domande da fare e la checklist finale. Lascia la tua email e te la inviamo subito (PDF).
+      </p>
+      {status === 'ok' ? (
+        <p style={{ color: '#15803d', fontWeight: 700, margin: 0 }}>✅ Controlla la tua casella: la guida è in arrivo!</p>
+      ) : (
+        <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <input
+            type="email"
+            required
+            placeholder="La tua email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            style={{ padding: '10px 12px', borderRadius: 8, border: '1px solid #cbd5e1', fontSize: 14 }}
+          />
+          <label style={{ fontSize: 12, color: '#475569', display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+            <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
+            <span>Acconsento al trattamento dei miei dati per ricevere la guida via email (GDPR, art. 9). Informativa: /privacy.</span>
+          </label>
+          {status === 'error' && <p style={{ color: '#b91c1c', fontSize: 13, margin: 0 }}>{errMsg}</p>}
+          <button type="submit" className="btn btn-primary" disabled={status === 'sending'}>
+            {status === 'sending' ? 'Invio...' : 'Scarica la guida gratuita'}
+          </button>
+        </form>
+      )}
+    </div>
+  );
+}
+
 export default function Risorse() {
   const [open, setOpen] = useState(0);
 
@@ -78,6 +143,8 @@ export default function Risorse() {
         Guide pratiche scritte dai nostri terapeuti per iniziare il tuo percorso con più consapevolezza.
         In aggiornamento continuo.
       </p>
+
+      <GuideDownloadCard />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {GUIDE.map((g, i) => (

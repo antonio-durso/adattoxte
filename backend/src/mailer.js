@@ -161,6 +161,15 @@ const TEMPLATES = {
       ${btn(SITE_URL + '/terapeuti', 'Parla con uno psicologo')}
       <p style="font-size:12px;color:#94a3b8">Ricevi questa email perché hai richiesto il risultato del test su Adatto x Te. Puoi chiedere la cancellazione dei tuoi dati in qualsiasi momento scrivendo a ${esc(process.env.EMAIL_FROM || 'ant.durso1@gmail.com')}.</p>
     `),
+  guideDownload: () =>
+    base(`
+      <h2 style="margin-top:0">Ecco la tua guida gratuita 🎁</h2>
+      <p>Grazie per il tuo interesse. Come promesso, ecco la guida <strong>"Come scegliere lo psicologo giusto"</strong>: i 7 criteri che contano davvero, le domande da fare nella prima seduta e la checklist finale.</p>
+      ${btn(SITE_URL + '/guide/come-scegliere-psicologo.pdf', 'Scarica la guida (PDF)')}
+      <p>E se vuoi iniziare subito a capire se la terapia online fa per te, la <strong>prima seduta individuale è gratuita</strong> (15 minuti conoscitivi, senza impegno):</p>
+      ${btn(SITE_URL + '/registrazione', 'Prenota la prima seduta gratuita')}
+      <p style="font-size:12px;color:#94a3b8">Ricevi questa email perché hai richiesto la guida su Adatto x Te. Puoi chiedere la cancellazione dei tuoi dati in qualsiasi momento scrivendo a ${esc(process.env.EMAIL_FROM || 'ant.durso1@gmail.com')}.</p>
+    `),
 };
 
 // Escape HTML per contenuti inseriti dagli utenti (sicurezza email)

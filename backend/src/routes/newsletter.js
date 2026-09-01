@@ -24,15 +24,16 @@ function rateLimit(ip) {
   return true;
 }
 
-// POST /api/newsletter — salva il lead del test e invia il risultato
+// POST /api/newsletter — salva il lead (test di benessere O guida gratuita) e invia via email
 router.post('/', (req, res) => {
-  const { email, test, score, level, consent } = req.body || {};
+  const { email, test, score, level, consent, source } = req.body || {};
 
   const cleanEmail = String(email || '').trim().toLowerCase();
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(cleanEmail)) {
     return res.status(400).json({ error: 'Email non valida' });
   }
-  if (!VALID_TESTS.includes(test)) {
+  const isGuide = String(source || '') === 'guide';
+  if (!isGuide && !VALID_TESTS.includes(test)) {
     return res.status(400).json({ error: 'Test non valido' });
   }
   if (!consent) {
@@ -46,8 +47,17 @@ router.post('/', (req, res) => {
   const cleanLevel = String(level || '').slice(0, 40);
 
   const id = crypto.randomUUID();
+  const testValue = isGuide ? 'guide' : test;
   db.prepare('INSERT INTO newsletter_leads (id, email, test, score, level, consent) VALUES (?, ?, ?, ?, ?, ?)')
-    .run(id, cleanEmail, test, numericScore, cleanLevel, 1);
+    .run(id, cleanEmail, testValue, numericScore, cleanLevel, 1);
+
+  if (isGuide) {
+    sendEmail(cleanEmail, 'La tua guida gratuita — Adatto x Te', 'guideDownload', {}).catch((e) =>
+      console.error('newsletter: errore invio email guida:', e.message)
+    );
+    console.log(`📧 newsletter: nuovo lead ${cleanEmail} (guida gratuita)`);
+    return res.status(201).json({ ok: true, message: 'Guida inviata via email' });
+  }
 
   const testLabel = test === 'ansia' ? 'ansia (GAD-7)' : 'umore (PHQ-9)';
   sendEmail(cleanEmail, 'Il tuo risultato del test di benessere — Adatto x Te', 'testResult', {
