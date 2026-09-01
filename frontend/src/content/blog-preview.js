@@ -13,8 +13,8 @@ export const blogPreview = [
     date: '2026-08-27',
   },
   {
-    slug: 'ansia-da-esame',
-    title: 'Ansia da esame: come gestirla e trasformarla in energia',
-    date: '2026-07-02',
+    slug: 'lutto-per-animale-domestico',
+    title: 'Lutto per un animale domestico: come elaborarlo senza colpevolizzarsi',
+    date: '2026-09-01',
   },
 ];
