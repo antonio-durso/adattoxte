@@ -110,7 +110,7 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Psicologo online da 45€ | Adatto x Te – terapia in videochiamata"
+        title="Psicologo online da 45€ – Terapia in videochiamata"
         description="Psicologi e psicoterapeuti qualificati online: prima seduta gratuita, sedute da 50 minuti a 45€ (coppia 50€). Scegli il tuo terapeuta e inizia oggi."
         path="/"
         image="https://www.adattoxte.com/images/hero.jpg"

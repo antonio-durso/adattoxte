@@ -436,10 +436,37 @@
       "source": "/api/(.*)",
       "destination": "https://adattoxte-backend.onrender.com/api/$1"
     },
-    {
-      "source": "/(.*)",
-      "destination": "/app.html"
-    }
+    { "source": "/terapeuti", "destination": "/app.html" },
+    { "source": "/chi-siamo", "destination": "/app.html" },
+    { "source": "/terapeuti/:id", "destination": "/app.html" },
+    { "source": "/blog", "destination": "/app.html" },
+    { "source": "/blog/:slug", "destination": "/app.html" },
+    { "source": "/ricevuta/:id", "destination": "/app.html" },
+    { "source": "/risorse", "destination": "/app.html" },
+    { "source": "/recensioni", "destination": "/app.html" },
+    { "source": "/test", "destination": "/app.html" },
+    { "source": "/psicologo-concorsi-pubblici", "destination": "/app.html" },
+    { "source": "/psicologo-sport", "destination": "/app.html" },
+    { "source": "/psicologia-giuridica", "destination": "/app.html" },
+    { "source": "/psicologo-online/:slug", "destination": "/app.html" },
+    { "source": "/registrazione", "destination": "/app.html" },
+    { "source": "/accedi", "destination": "/app.html" },
+    { "source": "/privacy", "destination": "/app.html" },
+    { "source": "/cookie", "destination": "/app.html" },
+    { "source": "/termini", "destination": "/app.html" },
+    { "source": "/prezzi", "destination": "/app.html" },
+    { "source": "/aziende", "destination": "/app.html" },
+    { "source": "/italiani-all-estero", "destination": "/app.html" },
+    { "source": "/italiani-all-estero/:paese", "destination": "/app.html" },
+    { "source": "/italiani-all-estero/:paese/:capitale", "destination": "/app.html" },
+    { "source": "/tibiz", "destination": "/app.html" },
+    { "source": "/equipe", "destination": "/app.html" },
+    { "source": "/ufficio-stampa", "destination": "/app.html" },
+    { "source": "/area-paziente", "destination": "/app.html" },
+    { "source": "/pagamento/:bookingId", "destination": "/app.html" },
+    { "source": "/area-terapeuta", "destination": "/app.html" },
+    { "source": "/area-admin", "destination": "/app.html" },
+    { "source": "/impostazioni", "destination": "/app.html" }
   ],
   "headers": [
     {

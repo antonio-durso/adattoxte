@@ -48,18 +48,14 @@ const STATIC_ROUTES = [
   { path: '/prezzi', priority: '0.7', freq: 'weekly' },
   { path: '/aziende', priority: '0.6', freq: 'weekly' },
   { path: '/tibiz', priority: '0.5', freq: 'monthly' },
-  { path: '/ufficio-stampa', priority: '0.6', freq: 'monthly' },
   { path: '/equipe', priority: '0.6', freq: 'monthly' },
   { path: '/test', priority: '0.5', freq: 'weekly' },
   { path: '/psicologo-concorsi-pubblici', priority: '0.8', freq: 'weekly' },
   { path: '/psicologo-sport', priority: '0.8', freq: 'weekly' },
   { path: '/psicologia-giuridica', priority: '0.8', freq: 'weekly' },
   { path: '/italiani-all-estero', priority: '0.8', freq: 'weekly' },
-  { path: '/registrazione', priority: '0.5', freq: 'monthly' },
-  { path: '/accedi', priority: '0.4', freq: 'monthly' },
-  { path: '/privacy', priority: '0.2', freq: 'yearly' },
-  { path: '/cookie', priority: '0.2', freq: 'yearly' },
-  { path: '/termini', priority: '0.2', freq: 'yearly' },
+  // Pagine utility (noindex, fuori sitemap): /accedi, /registrazione, /privacy,
+  // /cookie, /termini, /ufficio-stampa. /test resta in sitemap (intento di ricerca reale).
 ];
 
 // Estrae slug e date dagli articoli (file generati con formato stabile: "slug": "...", "date": "YYYY-MM-DD")

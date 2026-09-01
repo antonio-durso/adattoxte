@@ -46,7 +46,7 @@ export default function Login() {
 
   return (
     <div className="container section auth-page">
-      <Seo title="Accedi" description="Accedi alla tua area personale Adatto x Te." path="/accedi" />
+      <Seo title="Accedi" description="Accedi alla tua area personale Adatto x Te." path="/accedi" noindex />
       <div className="card form-card">
         <h1>Accedi</h1>
         <p className="muted">Bentornato! Inserisci le tue credenziali.</p>
