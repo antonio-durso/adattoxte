@@ -47,8 +47,10 @@ export default function Therapists() {
   return (
     <div className="container section">
       <Seo
-        title="Trova il tuo terapeuta"
-        description="Trova lo psicologo giusto per te: ansia, depressione, terapia di coppia, psicologia dello sport, preparazione ai concorsi. Sedute online da 45€."
+        title={lang === 'en' ? 'Find your therapist' : 'Trova il tuo terapeuta'}
+        description={lang === 'en'
+          ? 'Find the right psychologist for you: anxiety, depression, couples therapy, sports psychology, exam preparation. Online sessions from €45.'
+          : 'Trova lo psicologo giusto per te: ansia, depressione, terapia di coppia, psicologia dello sport, preparazione ai concorsi. Sedute online da 45€.'}
         path="/terapeuti"
       />
       <h1>{t('nav.therapists')}</h1>
