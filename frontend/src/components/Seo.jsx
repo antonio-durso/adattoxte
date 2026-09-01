@@ -51,8 +51,10 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
     }
     canonical.setAttribute('href', BASE + actualPath);
 
-    // hreflang alternates (IT/EN + x-default): collegano le versioni linguistiche
-    const prevHreflang = document.querySelectorAll('link[data-seo-hreflang]');
+    // hreflang alternates (IT/EN + x-default): collegano le versioni linguistiche.
+    // Rimuove TUTTI i link hreflang esistenti (anche quelli statici del template)
+    // per evitare duplicati/confitti quando la lingua cambia.
+    const prevHreflang = document.querySelectorAll('link[rel="alternate"][hreflang]');
     prevHreflang.forEach((el) => el.remove());
     ['it', 'x-default', 'en'].forEach((h) => {
       const href = h === 'en' ? BASE + enPath : BASE + itPath;
