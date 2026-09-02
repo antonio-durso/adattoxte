@@ -19,9 +19,9 @@ function setMeta(attr, key, content) {
   el.setAttribute('content', content);
 }
 
-export default function Seo({ title, description, path = '/', image, jsonLd, noindex, noBrand }) {
+export default function Seo({ title, description, path = '/', image, jsonLd, noindex }) {
   useEffect(() => {
-    const fullTitle = title ? (noBrand ? title : `${title} | Adatto x Te`) : 'Adatto x Te - Psicologia online';
+    const fullTitle = title ? `${title} | Adatto x Te` : 'Adatto x Te - Psicologia online';
     document.title = fullTitle;
     // Versione EN: non indicizzata finché EN_ACTIVE è false (vedi src/config.js).
     // Quando EN_ACTIVE diventa true, le pagine /en vengono indicizzate da sole.
@@ -92,7 +92,7 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
       const robotsMeta = document.querySelector('meta[name="robots"]');
       if (robotsMeta && robotsMeta.getAttribute('content') === 'noindex') robotsMeta.remove();
     };
-  }, [title, description, path, image, jsonLd, noindex, noBrand]);
+  }, [title, description, path, image, jsonLd, noindex]);
 
   return null;
 }
