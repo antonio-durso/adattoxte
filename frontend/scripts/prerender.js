@@ -266,6 +266,15 @@ async function main() {
       console.log('⚠️  Server preview non raggiungibile: prerender saltato');
       return;
     }
+    // Riscaldamento: la prima apertura di Chrome nel sandbox è lenta e può
+    // andare in timeout sulle prime rotte → apriamo una volta e scartiamo.
+    try {
+      console.log('  🔥 Riscaldamento Chrome (prima apertura, risultato scartato)…');
+      execSync(
+        `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=6000 --timeout=30000 --dump-dom "${BASE_URL}/?__prerender=1" > /dev/null 2>&1`,
+        { encoding: 'utf8', timeout: 60000 }
+      );
+    } catch {}
     for (const route of ROUTES) {
       // Il flag __prerender forza il render React anche sulle rotte statiche
       const url = `${BASE_URL}${route}?__prerender=1`;
@@ -276,16 +285,16 @@ async function main() {
         console.log(`  [diag] ${route} servita con modulo React: ${hasModule}`);
       } catch {}
       try {
-        // Budget ampio solo per la home (carica dati API); 8s per le altre.
-        // Per la home: se il primo dump è vuoto/corrotto, RETRY con budget maggiore
-        // (il timeout di Chrome può restituire un DOM vuoto che non va mai scritto).
-        const budget = route === '/' ? 20000 : 8000;
+        // Budget ampio per la home (carica dati API); 15s per le altre.
+        // Ogni rotta ha fino a 2 tentativi: se il dump è vuoto/corrotto,
+        // retry con budget maggiore (il timeout di Chrome può restituire DOM vuoto).
+        const budget = route === '/' ? 25000 : 15000;
         let dom = '';
-        for (let attempt = 1; attempt <= (route === '/' ? 2 : 1); attempt++) {
-          const b = attempt === 1 ? budget : 40000;
+        for (let attempt = 1; attempt <= 2; attempt++) {
+          const b = attempt === 1 ? budget : 50000;
           dom = execSync(
-            `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=${b} --timeout=45000 --dump-dom "${url}"`,
-            { encoding: 'utf8', timeout: 120000, maxBuffer: 32 * 1024 * 1024 }
+            `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=${b} --timeout=60000 --dump-dom "${url}"`,
+            { encoding: 'utf8', timeout: 180000, maxBuffer: 32 * 1024 * 1024 }
           );
           if (dom.length > 500 && dom.includes('<body')) break;
           console.log(`  ⚠️ ${route}: DOM vuoto (${dom.length} byte), retry ${attempt + 1}…`);
