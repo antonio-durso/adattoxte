@@ -18,7 +18,7 @@ export default function Press() {
   return (
     <>
       <Seo
-        title="Ufficio Stampa — Adatto x Te"
+        title="Ufficio Stampa"
         description="Materiali e contatti per la stampa: dati verificabili, angoli editoriali e interviste a titolo gratuito con il fondatore di Adatto x Te."
         path="/ufficio-stampa"
         noindex
