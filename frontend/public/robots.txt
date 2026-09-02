@@ -1,3 +1,17 @@
 User-agent: *
 Allow: /
+# Aree private e percorsi non pubblici: non sprecare crawl budget
+Disallow: /area-paziente
+Disallow: /area-terapeuta
+Disallow: /area-admin
+Disallow: /area-personale
+Disallow: /pagamento/
+Disallow: /ricevuta/
+Disallow: /impostazioni
+Disallow: /dashboard
+Disallow: /prenota
+Disallow: /chat
+Disallow: /app
+Disallow: /accedi
+Disallow: /registrazione
 Sitemap: https://www.adattoxte.com/sitemap.xml

@@ -131,6 +131,20 @@ function buildSitemap() {
 function buildRobots() {
   const robots = `User-agent: *
 Allow: /
+# Aree private e percorsi non pubblici: non sprecare crawl budget
+Disallow: /area-paziente
+Disallow: /area-terapeuta
+Disallow: /area-admin
+Disallow: /area-personale
+Disallow: /pagamento/
+Disallow: /ricevuta/
+Disallow: /impostazioni
+Disallow: /dashboard
+Disallow: /prenota
+Disallow: /chat
+Disallow: /app
+Disallow: /accedi
+Disallow: /registrazione
 Sitemap: ${BASE}/sitemap.xml
 `;
   fs.writeFileSync(path.join(publicDir, 'robots.txt'), robots);

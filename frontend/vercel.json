@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/(.*)/", "destination": "/$1", "permanent": true },
     {
       "source": "/psicologo-online/stati-uniti",
       "destination": "/italiani-all-estero/stati-uniti",
