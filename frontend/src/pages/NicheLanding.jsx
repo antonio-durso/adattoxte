@@ -6,6 +6,56 @@ import { useI18n } from '../i18n';
 // Landing page per nicchia: contenuti dedicati + CTA + articoli correlati
 // Le nicchie (concorsi, sport, giuridica) sono il nostro vantaggio sui concorrenti.
 const NICHES = {
+  online: {
+    path: '/psicologo-online',
+    emoji: '💬',
+    h1: 'Psicologo online: la terapia in videochiamata da casa tua',
+    title: 'Psicologo online da 45€: sedute in videochiamata | Adatto x Te',
+    desc: 'Percorsi di psicologia online con psicologi e psicoterapeuti iscritti all\'albo: ansia, depressione, coppia, stress e molto altro. Prima seduta gratuita, sedute da 50 minuti a 45€ (coppia 50€).',
+    specialty: null,
+    ctaTo: '/terapeuti',
+    benefits: [
+      { icon: '🏠', title: 'Da casa, senza spostamenti', text: 'Sedute in videochiamata sicura nel browser: risparmi tempo e scegli orari comodi, anche conciliandole con il lavoro.' },
+      { icon: '✅', title: 'Efficacia dimostrata', text: 'La ricerca mostra che la terapia online è efficace quanto quella in presenza per ansia, depressione e molti altri problemi.' },
+      { icon: '🤫', title: 'Riservatezza totale', text: 'Nessuno ti vede entrare in uno studio: parli da uno spazio privato, con dati protetti e piattaforma GDPR compliant.' },
+      { icon: '🎯', title: 'Scegli per competenza', text: 'Confronta profili, specializzazioni e recensioni verificate: il terapeuta giusto per te, non solo quello più vicino.' },
+    ],
+    articleKws: ['psicologo online', 'terapia online', 'online'],
+    faq: [
+      { q: 'La terapia online è efficace come quella in presenza?', a: 'Sì: gli studi clinici mostrano un\'efficacia paragonabile per ansia, depressione, attacchi di panico e molti altri disturbi. I fattori che contano sono gli stessi: la relazione con il terapeuta, la costanza e il lavoro tra una seduta e l\'altra.' },
+      { q: 'Come si svolge una seduta di psicologia online?', a: 'Prenoti giorno e ora dal profilo del terapeuta, paghi online in modo sicuro (45€ individuale, 50€ coppia) e al momento della seduta clicchi "Entra nella videochiamata": la sala video si apre nel browser, senza installare nulla.' },
+      { q: 'C\'è una prima seduta gratuita?', a: 'Sì: la prima seduta individuale è gratuita e dura 15 minuti — un colloquio conoscitivo per capire se il terapeuta fa per te, senza impegno.' },
+      { q: 'I terapeuti sono qualificati?', a: 'Tutti i professionisti della piattaforma sono iscritti all\'albo (psicologi o psicoterapeuti), con specializzazione indicata, esperienza e recensioni verificate lasciate dopo sedute completate.' },
+    ],
+    areas: [
+      { label: 'Ansia', to: '/psicologo-online/ansia' },
+      { label: 'Depressione', to: '/psicologo-online/depressione' },
+      { label: 'Attacchi di panico', to: '/psicologo-online/attacchi-di-panico' },
+      { label: 'Ansia sociale', to: '/psicologo-online/ansia-sociale' },
+      { label: 'Disturbo ossessivo-compulsivo', to: '/psicologo-online/disturbo-ossessivo-compulsivo' },
+      { label: 'Autostima', to: '/psicologo-online/autostima' },
+      { label: 'Burnout', to: '/psicologo-online/burnout' },
+      { label: 'Insonnia', to: '/psicologo-online/insonnia' },
+      { label: 'Lutto', to: '/psicologo-online/lutto' },
+      { label: 'Dipendenza affettiva', to: '/psicologo-online/dipendenza-affettiva' },
+      { label: 'Stress lavoro-correlato', to: '/psicologo-online/stress-lavoro-correlato' },
+      { label: 'Ansia da prestazione', to: '/psicologo-online/ansia-da-prestazione' },
+      { label: 'Disturbo post-traumatico', to: '/psicologo-online/disturbo-post-traumatico-da-stress' },
+      { label: 'Disturbo bipolare', to: '/psicologo-online/disturbo-bipolare' },
+    ],
+    areasCities: [
+      { label: 'Milano', to: '/psicologo-online/milano' },
+      { label: 'Roma', to: '/psicologo-online/roma' },
+      { label: 'Torino', to: '/psicologo-online/torino' },
+      { label: 'Napoli', to: '/psicologo-online/napoli' },
+      { label: 'Bologna', to: '/psicologo-online/bologna' },
+      { label: 'Firenze', to: '/psicologo-online/firenze' },
+      { label: 'Verona', to: '/psicologo-online/verona' },
+      { label: 'Padova', to: '/psicologo-online/padova' },
+      { label: 'Bari', to: '/psicologo-online/bari' },
+      { label: 'Catania', to: '/psicologo-online/catania' },
+    ],
+  },
   concorsi: {
     path: '/psicologo-concorsi-pubblici',
     emoji: '📚',
@@ -77,6 +127,8 @@ export default function NicheLanding({ niche }) {
     .filter((a) => n.articleKws.some((k) => `${a.keyword || ''} ${a.title || ''}`.toLowerCase().includes(k)))
     .slice(0, 3);
 
+  const ctaTo = n.ctaTo || (n.specialty ? `/terapeuti?specialty=${encodeURIComponent(n.specialty)}` : '/terapeuti');
+
   return (
     <div className="container section">
       <Seo
@@ -124,7 +176,7 @@ export default function NicheLanding({ niche }) {
         <div style={{ fontSize: 56 }}>{n.emoji}</div>
         <h1 style={{ maxWidth: 640, margin: '10px auto' }}>{n.h1}</h1>
         <p className="muted" style={{ maxWidth: 560, margin: '0 auto' }}>{n.desc}</p>
-        <Link to={`/terapeuti?specialty=${encodeURIComponent(n.specialty)}`} className="btn btn-primary btn-lg" style={{ marginTop: 20 }}>
+        <Link to={ctaTo} className="btn btn-primary btn-lg" style={{ marginTop: 20 }}>
           Trova il tuo psicologo →
         </Link>
       </div>
@@ -142,6 +194,45 @@ export default function NicheLanding({ niche }) {
           ))}
         </div>
       </div>
+
+      {/* Aree di intervento (hub: link interni alle landing disturbi) */}
+      {n.areas && (
+        <div style={{ marginTop: 34 }}>
+          <h2 style={{ textAlign: 'center' }}>Le aree che trattiamo</h2>
+          <p className="muted" style={{ textAlign: 'center', maxWidth: 560, margin: '0 auto 16px' }}>
+            Un percorso online dedicato al tuo problema, con uno psicologo specializzato nell'area giusta.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
+            {n.areas.map((a) => (
+              <Link
+                key={a.to}
+                to={a.to}
+                className="card"
+                style={{ textDecoration: 'none', padding: '10px 16px', margin: 0, borderRadius: 999, fontSize: 14, fontWeight: 600 }}
+              >
+                {a.label}
+              </Link>
+            ))}
+          </div>
+          {n.areasCities && (
+            <>
+              <h3 style={{ textAlign: 'center', marginTop: 26, fontSize: 15 }}>Psicologo online nella tua città</h3>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
+                {n.areasCities.map((c) => (
+                  <Link
+                    key={c.to}
+                    to={c.to}
+                    className="muted"
+                    style={{ textDecoration: 'none', fontSize: 13.5, padding: '6px 12px', border: '1px solid #e2e8f0', borderRadius: 999, background: '#fff' }}
+                  >
+                    {c.label}
+                  </Link>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      )}
 
       {/* Come funziona */}
       <div className="card" style={{ marginTop: 34, padding: 22 }}>
@@ -193,7 +284,7 @@ export default function NicheLanding({ niche }) {
         <p className="muted">Non sai da dove iniziare? Fai il test gratuito in 5 minuti.</p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link to="/test" className="btn btn-outline btn-lg">Fai il test clinico →</Link>
-          <Link to={`/terapeuti?specialty=${encodeURIComponent(n.specialty)}`} className="btn btn-primary btn-lg">
+          <Link to={ctaTo} className="btn btn-primary btn-lg">
             Trova il tuo psicologo →
           </Link>
         </div>

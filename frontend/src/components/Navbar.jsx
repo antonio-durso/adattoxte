@@ -110,6 +110,7 @@ export default function Navbar() {
         </button>
         <nav id="main-menu" className={menuOpen ? 'nav-links open' : 'nav-links'} onClick={() => setMenuOpen(false)}>
           <Link to={enPrefix + '/terapeuti'}>{t('nav.therapists')}</Link>
+          <Link to={enPrefix + '/psicologo-online'}>{t('nav.online')}</Link>
           <Link to={enPrefix + '/equipe'}>{t('nav.equipe')}</Link>
           <Link to={enPrefix + '/blog'}>{t('nav.blog')}</Link>
           <Link to={enPrefix + '/risorse'}>{t('nav.risorse')}</Link>

@@ -82,6 +82,7 @@ function LangRoutes() {
       <Route path="/psicologo-concorsi-pubblici" element={<NicheLanding niche="concorsi" />} />
       <Route path="/psicologo-sport" element={<NicheLanding niche="sport" />} />
       <Route path="/psicologia-giuridica" element={<NicheLanding niche="giuridica" />} />
+      <Route path="/psicologo-online" element={<NicheLanding niche="online" />} />
       <Route path="/psicologo-online/:slug" element={<DisturboLanding />} />
       <Route path="/registrazione" element={<Register />} />
       <Route path="/accedi" element={<Login />} />
