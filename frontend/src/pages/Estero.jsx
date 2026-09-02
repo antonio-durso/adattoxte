@@ -26,7 +26,7 @@ export default function Estero() {
   return (
     <>
       <Seo
-        title="Psicologo online per italiani all'estero | Adatto x Te"
+        title="Psicologo online per italiani all'estero"
         description="Psicologo online per italiani all'estero: sedute in videochiamata in italiano, da qualsiasi paese. Prima seduta gratuita, sedute da 45€, terapeuti qualificati."
         path="/italiani-all-estero"
         jsonLd={[

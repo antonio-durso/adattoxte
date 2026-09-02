@@ -22,8 +22,8 @@ export default function PaeseLanding() {
 
   const nome = isCapitale ? eff.nome : paese.nome;
   const titolo = isCapitale
-    ? `Psicologo online per italiani a ${nome} | Adatto x Te`
-    : `Psicologo online per italiani in ${nome} | Adatto x Te`;
+    ? `Psicologo online per italiani a ${nome}`
+    : `Psicologo online per italiani in ${nome}`;
   const desc = isCapitale
     ? `Psicologo online per italiani a ${nome} (${paese.nome}): sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, sedute da 45€.`
     : `Psicologo online per italiani in ${nome}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, sedute da 45€, terapeuti qualificati.`;
@@ -169,7 +169,10 @@ export default function PaeseLanding() {
         <p className="muted" style={{ maxWidth: 560, margin: '0 auto 20px' }}>
           {!isCapitale && (
             <>
-              Vivi nella capitale? <Link to={`/italiani-all-estero/${paese.slug}/${capitale.slug}`}>Scopri le sedute per italiani a {capitale.nome} →</Link>
+              Vivi nella capitale?{' '}
+              {paese.capitale && (
+                <Link to={`/italiani-all-estero/${paese.slug}/${paese.capitale.slug}`}>Scopri le sedute per italiani a {paese.capitale.nome} →</Link>
+              )}
             </>
           )}
           {isCapitale && (
