@@ -456,6 +456,7 @@
     { "source": "/psicologo-concorsi-pubblici", "destination": "/app.html" },
     { "source": "/psicologo-sport", "destination": "/app.html" },
     { "source": "/psicologia-giuridica", "destination": "/app.html" },
+    { "source": "/psicologo-online", "destination": "/app.html" },
     { "source": "/psicologo-online/:slug", "destination": "/app.html" },
     { "source": "/registrazione", "destination": "/app.html" },
     { "source": "/accedi", "destination": "/app.html" },
