@@ -55,6 +55,12 @@ const NICHES = {
       { label: 'Bari', to: '/psicologo-online/bari' },
       { label: 'Catania', to: '/psicologo-online/catania' },
     ],
+    relatedServices: [
+      { emoji: '📚', title: 'Preparazione ai concorsi', text: 'Ansia da esame, strategie di studio e simulazioni per concorsi pubblici e forze dell\'ordine.', to: '/psicologo-concorsi-pubblici' },
+      { emoji: '🏃', title: 'Psicologia dello sport', text: 'Pressione, ansia da prestazione e mentalità vincente per atleti di ogni livello.', to: '/psicologo-sport' },
+      { emoji: '⚖️', title: 'Psicologia giuridica', text: 'CTU/CTP, separazioni e affidamento: supporto psicologico nei momenti delicati.', to: '/psicologia-giuridica' },
+      { emoji: '🌍', title: 'Italiani all\'estero', text: 'La terapia in italiano, ovunque tu sia: da Londra a New York, da Berlino a Sydney.', to: '/italiani-all-estero' },
+    ],
   },
   concorsi: {
     path: '/psicologo-concorsi-pubblici',
@@ -231,6 +237,23 @@ export default function NicheLanding({ niche }) {
               </div>
             </>
           )}
+        </div>
+      )}
+
+      {/* Altre specializzazioni (cross-link hub) */}
+      {n.relatedServices && (
+        <div style={{ marginTop: 34 }}>
+          <h2 style={{ textAlign: 'center' }}>Le altre specializzazioni di Adatto x Te</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12, marginTop: 6 }}>
+            {n.relatedServices.map((s) => (
+              <Link key={s.to} to={s.to} className="card" style={{ textDecoration: 'none', color: 'inherit', padding: 16 }}>
+                <div style={{ fontSize: 28 }}>{s.emoji}</div>
+                <h3 style={{ margin: '6px 0 4px', fontSize: 15.5 }}>{s.title}</h3>
+                <p className="muted small" style={{ margin: 0 }}>{s.text}</p>
+                <p className="small" style={{ margin: '10px 0 0', color: '#b45309', fontWeight: 600 }}>Scopri di più →</p>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
 
