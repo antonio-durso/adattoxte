@@ -10,7 +10,8 @@ const NICHES = {
     path: '/psicologo-online',
     emoji: '💬',
     h1: 'Psicologo online: la terapia in videochiamata da casa tua',
-    title: 'Psicologo online da 45€: sedute in videochiamata',
+    title: 'Psicologo online',
+    noBrand: true,
     desc: 'Percorsi di psicologia online con psicologi e psicoterapeuti iscritti all\'albo: ansia, depressione, coppia, stress e molto altro. Prima seduta gratuita, sedute da 50 minuti a 45€ (coppia 50€).',
     specialty: null,
     ctaTo: '/terapeuti',
@@ -139,6 +140,7 @@ export default function NicheLanding({ niche }) {
     <div className="container section">
       <Seo
         title={n.title}
+        noBrand={n.noBrand}
         description={n.desc}
         path={n.path}
         jsonLd={[
