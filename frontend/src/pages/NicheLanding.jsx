@@ -9,7 +9,7 @@ const NICHES = {
   online: {
     path: '/psicologo-online',
     emoji: '💬',
-    h1: 'Psicologo online: la terapia in videochiamata da casa tua',
+    h1: 'Psicologo online',
     title: 'Psicologo online',
     noBrand: true,
     desc: 'Percorsi di psicologia online con psicologi e psicoterapeuti iscritti all\'albo: ansia, depressione, coppia, stress e molto altro. Prima seduta gratuita, sedute da 50 minuti a 45€ (coppia 50€).',
@@ -27,6 +27,8 @@ const NICHES = {
       { q: 'Come si svolge una seduta di psicologia online?', a: 'Prenoti giorno e ora dal profilo del terapeuta, paghi online in modo sicuro (45€ individuale, 50€ coppia) e al momento della seduta clicchi "Entra nella videochiamata": la sala video si apre nel browser, senza installare nulla.' },
       { q: 'C\'è una prima seduta gratuita?', a: 'Sì: la prima seduta individuale è gratuita e dura 15 minuti — un colloquio conoscitivo per capire se il terapeuta fa per te, senza impegno.' },
       { q: 'I terapeuti sono qualificati?', a: 'Tutti i professionisti della piattaforma sono iscritti all\'albo (psicologi o psicoterapeuti), con specializzazione indicata, esperienza e recensioni verificate lasciate dopo sedute completate.' },
+      { q: 'Come scelgo lo psicologo se il catalogo è anonimo?', a: 'Il catalogo mostra specializzazioni, esperienza e recensioni verificate di ogni professionista. Prenoti l\'area che ti interessa e l\'orario che preferisci: il nome del terapeuta viene mostrato al momento della prenotazione, così nessun dato personale è esposto prima che tu decida di iniziare.' },
+      { q: 'I miei dati sanitari sono al sicuro?', a: 'Sì: i dati di salute sono trattati nel rispetto del GDPR (art. 9), le videochiamate sono crittografate e i messaggi con il terapeuta restano nella tua area personale protetta. Puoi richiedere l\'export o la cancellazione dei tuoi dati in qualsiasi momento.' },
     ],
     areas: [
       { label: 'Ansia', to: '/psicologo-online/ansia' },
@@ -62,6 +64,48 @@ const NICHES = {
       { emoji: '⚖️', title: 'Psicologia giuridica', text: 'CTU/CTP, separazioni e affidamento: supporto psicologico nei momenti delicati.', to: '/psicologia-giuridica' },
       { emoji: '🌍', title: 'Italiani all\'estero', text: 'La terapia in italiano, ovunque tu sia: da Londra a New York, da Berlino a Sydney.', to: '/italiani-all-estero' },
     ],
+    // Sezioni informative estese (renderizzate solo se presenti; le altre nicchie
+    // non le definiscono e restano invariate).
+    longIntro: [
+      'La terapia psicologica online è un percorso di cura e supporto che si svolge interamente in videochiamata con uno psicologo o psicoterapeuta iscritto all\'Albo. Non è un ripiego: è una modalità di cura riconosciuta e ormai diffusissima, che elimina spostamenti e attese mantenendo la stessa qualità del colloquio in studio.',
+      'Per molti problemi — ansia, attacchi di panico, depressione lieve e moderata, fobia sociale, insonnia, difficoltà di coppia — la ricerca internazionale ha mostrato ripetutamente che la psicoterapia online ha un\'efficacia paragonabile a quella in presenza. Ciò che fa la differenza, in entrambi i casi, è la relazione con il professionista, la costanza degli incontri e il lavoro che fai tra una seduta e l\'altra.',
+      'Su Adatto x Te puoi iniziare senza impegno: la prima seduta individuale è gratuita (15 minuti, colloquio conoscitivo). Scegli tu giorno e ora, paghi online in modo sicuro e ti colleghi alla videochiamata dal browser, senza installare nulla. Il catalogo resta anonimo fino alla prenotazione, per proteggere la tua riservatezza.',
+    ],
+    segnali: [
+      'Ansia, preoccupazione costante o attacchi di panico che limitano la vita quotidiana',
+      'Umore basso o "vuoto" che dura da settimane, con perdita di interesse ed energie',
+      'Difficoltà di coppia: crisi, problemi di comunicazione o decisioni importanti',
+      'Stress lavoro-correlato, burnout, insonnia o difficoltà a staccare',
+      'Pressione e ansia da prestazione: sport, concorsi, esami, colloqui',
+      'Lutti, separazioni, grandi cambiamenti o un momento di crisi personale',
+    ],
+    prezzi: [
+      { label: 'Primo colloquio conoscitivo', detail: 'Gratuito · 15 minuti · senza impegno' },
+      { label: 'Seduta individuale', detail: '45€ · 50 minuti · videochiamata sicura' },
+      { label: 'Seduta di coppia', detail: '50€ · 50 minuti' },
+      { label: 'Pacchetto 3 sedute', detail: '−15% sul totale' },
+      { label: 'Messaggi con il terapeuta', detail: 'Illimitati, tra una seduta e l\'altra' },
+    ],
+    requisiti: [
+      'Un computer, tablet o smartphone con fotocamera e microfono',
+      'Una connessione internet stabile',
+      'Uno spazio tranquillo e privato in cui parlare',
+      'Nessuna installazione: la videochiamata si apre direttamente nel browser',
+    ],
+    nota: 'Le informazioni in questa pagina hanno scopo informativo e non sostituiscono una valutazione clinica o una diagnosi. Se stai vivendo una situazione di emergenza o hai pensieri di farti del male, chiama subito il 112 o il 118, oppure recati al pronto soccorso più vicino.',
+    firma: {
+      nome: 'Dott. Antonio D\'Urso',
+      qualifica: 'Psicologo, iscritto all\'Albo degli Psicologi · Direttore clinico di Adatto x Te',
+      to: '/equipe',
+    },
+    riferimenti: {
+      intro: 'I contenuti di questa pagina si basano su evidenze scientifiche pubblicate su riviste internazionali indicizzate in PubMed (U.S. National Library of Medicine). Ecco i riferimenti principali:',
+      items: [
+        { label: 'Terapia cognitivo-comportamentale via internet vs. in presenza per disturbi psichiatrici e somatici — revisione sistematica e meta-analisi (PubMed)', url: 'https://pubmed.ncbi.nlm.nih.gov/29215315/' },
+        { label: 'Terapia cognitivo-comportamentale via internet per la depressione — revisione sistematica e network meta-analisi con dati dei singoli pazienti, JAMA Psychiatry (PubMed)', url: 'https://pubmed.ncbi.nlm.nih.gov/33471111/' },
+        { label: 'La terapia computerizzata per ansia e depressione è efficace, accettabile e pratica — meta-analisi aggiornata (PubMed)', url: 'https://pubmed.ncbi.nlm.nih.gov/29422409/' },
+      ],
+    },
   },
   concorsi: {
     path: '/psicologo-concorsi-pubblici',
@@ -189,6 +233,71 @@ export default function NicheLanding({ niche }) {
         </Link>
       </div>
 
+      {/* Firma clinica (E-E-A-T): autore della pagina */}
+      {n.firma && (
+        <div className="card" style={{ maxWidth: 720, margin: '26px auto 0', padding: '14px 18px', display: 'flex', gap: 14, alignItems: 'center', borderLeft: '4px solid #48A8D8', textAlign: 'left' }}>
+          <div style={{ fontSize: 30, flexShrink: 0 }} aria-hidden="true">👤</div>
+          <div>
+            <div className="muted small" style={{ marginBottom: 2 }}>Contenuto redatto e verificato da</div>
+            <div style={{ fontWeight: 700 }}>{n.firma.nome}</div>
+            <div className="muted small">{n.firma.qualifica} · <Link to={n.firma.to}>Scopri l'équipe clinica →</Link></div>
+          </div>
+        </div>
+      )}
+
+      {/* Sezioni estese (definite solo dalla nicchia "online": nessun effetto sulle altre) */}
+      {n.longIntro && (
+        <div style={{ maxWidth: 720, margin: '34px auto 0', textAlign: 'left' }}>
+          {n.longIntro.map((p, i) => (
+            <p key={i} style={{ lineHeight: 1.75, margin: '0 0 14px' }}>{p}</p>
+          ))}
+        </div>
+      )}
+
+      {n.segnali && (
+        <div style={{ marginTop: 34 }}>
+          <h2 style={{ textAlign: 'center' }}>Quando la terapia online può aiutarti</h2>
+          <p className="muted" style={{ textAlign: 'center', maxWidth: 560, margin: '0 auto 16px' }}>
+            Se ti riconosci in uno o più di questi punti, un percorso con uno psicologo online può fare la differenza.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 10, maxWidth: 860, margin: '0 auto' }}>
+            {n.segnali.map((s) => (
+              <div key={s} className="card" style={{ padding: '12px 16px', fontSize: 14.5, lineHeight: 1.5 }}>
+                ✓ {s}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {n.prezzi && (
+        <div style={{ marginTop: 34 }}>
+          <h2 style={{ textAlign: 'center' }}>Quanto costa la terapia online</h2>
+          <p className="muted" style={{ textAlign: 'center', maxWidth: 560, margin: '0 auto 16px' }}>
+            Prezzi chiari, senza abbonamenti: paghi solo le sedute che prenoti.
+          </p>
+          <div className="card" style={{ padding: '6px 20px', maxWidth: 640, margin: '0 auto' }}>
+            {n.prezzi.map((r) => (
+              <div key={r.label} style={{ display: 'flex', justifyContent: 'space-between', gap: 16, padding: '11px 0', borderBottom: '1px solid #f1f5f9' }}>
+                <span style={{ fontWeight: 600, fontSize: 14.5 }}>{r.label}</span>
+                <span className="muted small" style={{ textAlign: 'right' }}>{r.detail}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {n.requisiti && (
+        <div style={{ marginTop: 34 }}>
+          <h2 style={{ textAlign: 'center' }}>Cosa serve per iniziare</h2>
+          <ul className="check-list" style={{ maxWidth: 560, margin: '16px auto 0' }}>
+            {n.requisiti.map((r) => (
+              <li key={r}>{r}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {/* Benefici */}
       <div style={{ marginTop: 34 }}>
         <h2 style={{ textAlign: 'center' }}>I benefici di questo percorso</h2>
@@ -302,6 +411,31 @@ export default function NicheLanding({ niche }) {
             ))}
           </div>
         </>
+      )}
+
+      {n.riferimenti && (
+        <div style={{ marginTop: 34, textAlign: 'left' }}>
+          <h2 style={{ textAlign: 'center' }}>Riferimenti scientifici</h2>
+          <p className="muted small" style={{ maxWidth: 720, margin: '0 auto 14px' }}>{n.riferimenti.intro}</p>
+          <ul style={{ maxWidth: 720, margin: '0 auto', paddingLeft: 18, lineHeight: 1.7 }}>
+            {n.riferimenti.items.map((r) => (
+              <li key={r.url} className="small">
+                <a href={r.url} target="_blank" rel="noopener noreferrer" style={{ color: '#b45309', textDecoration: 'underline' }}>
+                  {r.label} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="muted small" style={{ maxWidth: 720, margin: '10px auto 0' }}>
+            Verifica dell'iscrizione all'Albo: <a href="https://www.psy.it" target="_blank" rel="noopener noreferrer" style={{ color: '#b45309' }}>Consiglio Nazionale Ordine degli Psicologi ↗</a>
+          </p>
+        </div>
+      )}
+
+      {n.nota && (
+        <p className="muted small" style={{ maxWidth: 720, margin: '30px auto 0', fontSize: 12.5, lineHeight: 1.65, textAlign: 'center' }}>
+          {n.nota}
+        </p>
       )}
 
       {/* CTA finale */}
