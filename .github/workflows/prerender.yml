@@ -2,6 +2,7 @@
 # prebuilt su Vercel. Il prerender completo non entra nei 45 min del build cloud
 # Vercel: gira qui su un runner Ubuntu (Chrome + rete affidabili) e il risultato
 # viene caricato come deployment "prebuilt" su produzione.
+# v1.1 test end-to-end: auto-deploy Vercel disattivato, unica sorgente = questo workflow.
 # NOTA: i comandi Vercel girano dalla RADICE del repo: il progetto ha
 # rootDirectory=frontend, quindi il CLI entra da solo in frontend/ (se si girasse
 # da frontend/ il percorso diventerebbe frontend/frontend).
