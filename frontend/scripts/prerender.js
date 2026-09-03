@@ -86,6 +86,19 @@ const STATIC_NO_MOUNT = new Set([
   ...articles.map((a) => `/blog/${a.slug}`),
 ]);
 
+// Test parziale: `node scripts/prerender.js --only=/psicologo-online/depressione,/blog/ansia-sociale`
+// cattura solo le rotte che iniziano con uno dei prefissi indicati (utile per debug locale).
+const ONLY = (() => {
+  const arg = process.argv.find((a) => a.startsWith('--only='));
+  return arg ? arg.slice(7).split(',').map((s) => s.trim()).filter(Boolean) : null;
+})();
+const ROUTES_FINAL = ONLY ? ROUTES.filter((r) => ONLY.some((o) => r.startsWith(o))) : ROUTES;
+
+// puppeteer-core (opzionale ma consigliato): cattura con `domcontentloaded` + timeout
+// espliciti → non resta appesa su risorse esterne lente (a differenza del dump CLI
+// con virtual-time-budget, che si blocca se una rete non si stabilizza mai).
+let puppeteerMod = null;
+
 function chromePath() {
   const candidates = [
     process.env.CHROME_PATH,
@@ -225,11 +238,60 @@ async function warmBackend() {
   return false;
 }
 
+// Cattura una pagina con puppeteer-core: aspetta DOMContentLoaded (non la rete
+// completa) con timeout espliciti e retry → niente hang su risorse esterne.
+async function capturePage(browser, url) {
+  const page = await browser.newPage();
+  try {
+    let dom = '';
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        const resp = await page.goto(url, {
+          waitUntil: 'domcontentloaded',
+          timeout: attempt === 1 ? 35000 : 70000,
+        });
+        if (!resp) throw new Error('nessuna risposta');
+        // Piccolo margine post-render per gli effetti client-side (Seo, fetch rapidi)
+        await new Promise((r) => setTimeout(r, attempt === 1 ? 2500 : 6000));
+        dom = await page.content();
+        if (dom.length > 500 && dom.includes('<body')) break;
+        console.log(`  ⚠️ DOM piccolo (${dom.length} byte), retry ${attempt + 1}…`);
+      } catch (e) {
+        if (attempt === 2) throw e;
+      }
+    }
+    return dom;
+  } finally {
+    await page.close().catch(() => {});
+  }
+}
+
+async function launchBrowser(chrome) {
+  return puppeteerMod.launch({
+    executablePath: chrome,
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-gpu',
+      '--disable-dev-shm-usage',
+      '--no-first-run',
+      '--disable-setuid-sandbox',
+      '--disable-extensions',
+    ],
+  });
+}
+
 async function main() {
   const chrome = await ensureChrome();
   if (!chrome) {
     console.log('⚠️  Chrome non trovato: prerender saltato (build statica valida comunque)');
     return;
+  }
+  try {
+    puppeteerMod = (await import('puppeteer-core')).default;
+    console.log('  ℹ️ puppeteer-core disponibile: capture via API (più robuste)');
+  } catch {
+    console.log('  ℹ️ puppeteer-core non installato: uso il dump CLI di Chrome');
   }
   if (!existsSync(join(DIST, 'index.html'))) {
     console.log('⚠️  dist/ non trovata: esegui prima vite build');
@@ -292,6 +354,7 @@ async function main() {
   console.log(backendOk ? '  ✅ backend attivo' : '  ⚠️ backend non raggiungibile: pagine dati senza contenuto');
 
   let ok = 0;
+  let browser = null;
   try {
     if (!(await waitForServer(BASE_URL))) {
       console.log('⚠️  Server preview non raggiungibile: prerender saltato');
@@ -300,14 +363,25 @@ async function main() {
     await warmBackend();
     // Riscaldamento: la prima apertura di Chrome nel sandbox è lenta e può
     // andare in timeout sulle prime rotte → apriamo una volta e scartiamo.
-    try {
-      console.log('  🔥 Riscaldamento Chrome (prima apertura, risultato scartato)…');
-      execSync(
-        `"${chrome}" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --no-first-run --disable-setuid-sandbox --disable-extensions --user-data-dir=/tmp/chrome-prof-${Date.now()}-${Math.random().toString(36).slice(2, 8)} --virtual-time-budget=6000 --timeout=30000 --dump-dom "${BASE_URL}/?__prerender=1" > /dev/null 2>&1`,
-        { encoding: 'utf8', timeout: 60000 }
-      );
-    } catch {}
-    for (const route of ROUTES) {
+    // Con puppeteer-core il launch stesso fa da riscaldamento.
+    if (puppeteerMod) {
+      try {
+        browser = await launchBrowser(chrome);
+        console.log('  ✅ Browser Chrome avviato (puppeteer-core)');
+      } catch (e) {
+        console.log('  ⚠️ launch puppeteer fallito, uso dump CLI:', String(e.message || e).slice(0, 80));
+      }
+    }
+    if (!browser) {
+      try {
+        console.log('  🔥 Riscaldamento Chrome (prima apertura, risultato scartato)…');
+        execSync(
+          `"${chrome}" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --no-first-run --disable-setuid-sandbox --disable-extensions --user-data-dir=/tmp/chrome-prof-${Date.now()}-${Math.random().toString(36).slice(2, 8)} --virtual-time-budget=6000 --dump-dom "${BASE_URL}/?__prerender=1" > /dev/null 2>&1`,
+          { encoding: 'utf8', timeout: 60000 }
+        );
+      } catch {}
+    }
+    for (const route of ROUTES_FINAL) {
       // Il flag __prerender forza il render React anche sulle rotte statiche
       const url = `${BASE_URL}${route}?__prerender=1`;
       // Log diagnostico: il servito contiene il modulo React?
@@ -317,19 +391,25 @@ async function main() {
         console.log(`  [diag] ${route} servita con modulo React: ${hasModule}`);
       } catch {}
       try {
-        // Budget ampio per la home (carica dati API); 15s per le altre.
-        // Ogni rotta ha fino a 2 tentativi: se il dump è vuoto/corrotto,
-        // retry con budget maggiore (il timeout di Chrome può restituire DOM vuoto).
-        const budget = route === '/' ? 25000 : 15000;
         let dom = '';
-        for (let attempt = 1; attempt <= 2; attempt++) {
-          const b = attempt === 1 ? budget : 50000;
-          dom = execSync(
-            `"${chrome}" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --no-first-run --disable-setuid-sandbox --disable-extensions --user-data-dir=/tmp/chrome-prof-${Date.now()}-${Math.random().toString(36).slice(2, 8)} --virtual-time-budget=${b} --timeout=60000 --dump-dom "${url}"`,
-            { encoding: 'utf8', timeout: 180000, maxBuffer: 32 * 1024 * 1024 }
-          );
-          if (dom.length > 500 && dom.includes('<body')) break;
-          console.log(`  ⚠️ ${route}: DOM vuoto (${dom.length} byte), retry ${attempt + 1}…`);
+        if (browser) {
+          try {
+            dom = await capturePage(browser, url);
+          } catch (e) {
+            console.log(`  ⚠️ ${route}: puppeteer: ${String(e.message || e).slice(0, 100)}`);
+          }
+        } else {
+          // Fallback: dump CLI con virtual-time-budget (meno robusto)
+          const budget = route === '/' ? 25000 : 15000;
+          for (let attempt = 1; attempt <= 2; attempt++) {
+            const b = attempt === 1 ? budget : 50000;
+            dom = execSync(
+              `"${chrome}" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --no-first-run --disable-setuid-sandbox --disable-extensions --user-data-dir=/tmp/chrome-prof-${Date.now()}-${Math.random().toString(36).slice(2, 8)} --virtual-time-budget=${b} --dump-dom "${url}"`,
+              { encoding: 'utf8', timeout: 180000, maxBuffer: 32 * 1024 * 1024 }
+            );
+            if (dom.length > 500 && dom.includes('<body')) break;
+            console.log(`  ⚠️ ${route}: DOM vuoto (${dom.length} byte), retry ${attempt + 1}…`);
+          }
         }
         // Guardia finale: un DOM vuoto/corrotto NON deve mai sovrascrivere
         // un HTML valido già presente (es. la home statica di vite build).
@@ -364,8 +444,9 @@ async function main() {
         console.log(`  ❌ ${route}: ${String(e.message || e).slice(0, 120)}`);
       }
     }
-    console.log(`Prerender completato: ${ok}/${ROUTES.length} rotte`);
+    console.log(`Prerender completato: ${ok}/${ROUTES_FINAL.length} rotte`);
   } finally {
+    if (browser) await browser.close().catch(() => {});
     server.kill('SIGTERM');
     backend.kill('SIGTERM');
   }
