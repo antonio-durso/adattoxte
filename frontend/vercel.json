@@ -1,6 +1,10 @@
 {
   "redirects": [
-    { "source": "/(.*)/", "destination": "/$1", "permanent": true },
+    {
+      "source": "/(.*)/",
+      "destination": "/$1",
+      "permanent": true
+    },
     {
       "source": "/psicologo-online/stati-uniti",
       "destination": "/italiani-all-estero/stati-uniti",
@@ -445,38 +449,134 @@
       "source": "/en/:path*",
       "destination": "/app.html"
     },
-    { "source": "/terapeuti", "destination": "/app.html" },
-    { "source": "/chi-siamo", "destination": "/app.html" },
-    { "source": "/terapeuti/:id", "destination": "/app.html" },
-    { "source": "/blog", "destination": "/app.html" },
-    { "source": "/blog/:slug", "destination": "/app.html" },
-    { "source": "/ricevuta/:id", "destination": "/app.html" },
-    { "source": "/risorse", "destination": "/app.html" },
-    { "source": "/recensioni", "destination": "/app.html" },
-    { "source": "/test", "destination": "/app.html" },
-    { "source": "/psicologo-concorsi-pubblici", "destination": "/app.html" },
-    { "source": "/psicologo-sport", "destination": "/app.html" },
-    { "source": "/psicologia-giuridica", "destination": "/app.html" },
-    { "source": "/psicologo-online", "destination": "/app.html" },
-    { "source": "/psicologo-online/:slug", "destination": "/app.html" },
-    { "source": "/registrazione", "destination": "/app.html" },
-    { "source": "/accedi", "destination": "/app.html" },
-    { "source": "/privacy", "destination": "/app.html" },
-    { "source": "/cookie", "destination": "/app.html" },
-    { "source": "/termini", "destination": "/app.html" },
-    { "source": "/prezzi", "destination": "/app.html" },
-    { "source": "/aziende", "destination": "/app.html" },
-    { "source": "/italiani-all-estero", "destination": "/app.html" },
-    { "source": "/italiani-all-estero/:paese", "destination": "/app.html" },
-    { "source": "/italiani-all-estero/:paese/:capitale", "destination": "/app.html" },
-    { "source": "/tibiz", "destination": "/app.html" },
-    { "source": "/equipe", "destination": "/app.html" },
-    { "source": "/ufficio-stampa", "destination": "/app.html" },
-    { "source": "/area-paziente", "destination": "/app.html" },
-    { "source": "/pagamento/:bookingId", "destination": "/app.html" },
-    { "source": "/area-terapeuta", "destination": "/app.html" },
-    { "source": "/area-admin", "destination": "/app.html" },
-    { "source": "/impostazioni", "destination": "/app.html" }
+    {
+      "source": "/terapeuti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/chi-siamo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/terapeuti/:id",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/ricevuta/:id",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/risorse",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/recensioni",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/test",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-concorsi-pubblici",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-sport",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologia-giuridica",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/:slug",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/registrazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/accedi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/cookie",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/termini",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/prezzi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/aziende",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/:paese",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/:paese/:capitale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/tibiz",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/equipe",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/ufficio-stampa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/area-paziente",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/pagamento/:bookingId",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/area-terapeuta",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/area-admin",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/impostazioni",
+      "destination": "/app.html"
+    }
   ],
   "headers": [
     {
@@ -533,6 +633,717 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/agrigento",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/alessandria",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/aosta",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/arezzo",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/ascoli-piceno",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/asti",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/avellino",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/barletta",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/belluno",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/benevento",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/biella",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/bolzano",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/brindisi",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/caltanissetta",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/campobasso",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/carbonia",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/caserta",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/catanzaro",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/chieti",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/cosenza",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/cremona",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/crotone",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/cuneo",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/enna",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/fermo",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/ferrara",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/foggia",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/forli",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/frosinone",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/gorizia",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/grosseto",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/imperia",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/isernia",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/l-aquila",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/la-spezia",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/latina",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/lecco",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/livorno",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/lodi",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/macerata",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/mantova",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/massa",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/matera",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/messina",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/monza",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/novara",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/nuoro",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/oristano",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/pavia",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/pesaro",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/piacenza",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/pistoia",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/pordenone",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/potenza",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/prato",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/ragusa",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/ravenna",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/reggio-calabria",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/rieti",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/rovigo",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/sassari",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/savona",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/siena",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/siracusa",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/sondrio",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/taranto",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/teramo",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/terni",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/trani",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/trapani",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/treviso",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/udine",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/urbino",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/varese",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/verbania",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/vercelli",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/vibo-valentia",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/vicenza",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/psicologo-online/viterbo",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
         }
       ]
     }

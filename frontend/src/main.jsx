@@ -10,7 +10,17 @@ if (import.meta.env.VITE_SENTRY_DSN) {
     dsn: import.meta.env.VITE_SENTRY_DSN,
     environment: import.meta.env.PROD ? 'production' : 'development',
     tracesSampleRate: 0.1,
-    ignoreErrors: ['ResizeObserver loop', 'Non-Error promise rejection captured'],
+    ignoreErrors: [
+      'ResizeObserver loop',
+      'Non-Error promise rejection captured',
+      // Errori transitori post-deploy: il browser chiede un chunk vecchio appena
+      // rinominato. L'app si ricarica da sola (handleBoundaryError); nessun bisogno
+      // di allertare via email a ogni deploy.
+      'Failed to fetch dynamically imported module',
+      'Importing a module script failed',
+      'error loading dynamically imported module',
+      'dynamically imported module',
+    ],
   });
 }
 
