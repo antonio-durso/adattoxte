@@ -9,6 +9,14 @@ import { fileURLToPath } from 'node:url';
 import { disturbi } from '../src/content/disturbi.js';
 import { citta } from '../src/content/citta.js';
 import { articles } from '../src/content/articles.js';
+import { paesi } from '../src/content/paesi.js';
+
+// Rotte "italiani all'estero": hub + ogni paese e la sua capitale (come in sitemap)
+const ESTERO_ROUTES = paesi.flatMap((p) =>
+  p.capitale && p.capitale.slug
+    ? [`/italiani-all-estero/${p.slug}`, `/italiani-all-estero/${p.slug}/${p.capitale.slug}`]
+    : [`/italiani-all-estero/${p.slug}`]
+);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -64,6 +72,10 @@ const ROUTES = FAST
       '/termini',
       '/tibiz',
       '/equipe',
+      '/prezzi',
+      '/aziende',
+      '/italiani-all-estero',
+      ...ESTERO_ROUTES,
       '/',
     ];
 
