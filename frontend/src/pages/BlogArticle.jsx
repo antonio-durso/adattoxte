@@ -180,6 +180,30 @@ export default function BlogArticle() {
         <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
       </article>
 
+      {/* Link interni verso le landing principali (SEO: hub & spoke blog -> landing) */}
+      <div style={{ maxWidth: 760, margin: '22px auto 0', background: '#f0f7fb', border: '1px solid #cfe6f2', borderRadius: 12, padding: '16px 20px' }}>
+        <h2 style={{ fontSize: 16, margin: '0 0 10px' }}>
+          {lang === 'it' ? 'Approfondisci: percorsi di supporto' : 'Learn more: support paths'}
+        </h2>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          {[
+            { to: '/psicologo-online', label: lang === 'it' ? 'Psicologo online' : 'Online psychologist' },
+            { to: '/psicologo-online/ansia', label: lang === 'it' ? 'Psicologo per l\u2019ansia' : 'Anxiety' },
+            { to: '/psicologo-online/depressione', label: lang === 'it' ? 'Psicologo per la depressione' : 'Depression' },
+            { to: '/psicologo-online/attacchi-di-panico', label: lang === 'it' ? 'Attacchi di panico' : 'Panic attacks' },
+            { to: '/psicologo-online/insonnia', label: lang === 'it' ? 'Insonnia' : 'Insomnia' },
+          ].map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              style={{ textDecoration: 'none', background: '#fff', border: '1px solid #cfe6f2', color: '#2f7ba6', borderRadius: 999, padding: '6px 14px', fontSize: 13.5, fontWeight: 600 }}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {/* Bio autore a fine articolo (E-E-A-T: firma del professionista) */}
       <div style={{ maxWidth: 760, margin: '26px auto 0', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 12, padding: '18px 20px', display: 'flex', gap: 14, alignItems: 'flex-start' }}>
         <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#2f7ba6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 18, flexShrink: 0 }}>
