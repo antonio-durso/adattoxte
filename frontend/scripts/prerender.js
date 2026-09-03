@@ -161,7 +161,13 @@ function startBackend() {
   } catch (e) {
     console.log('⚠️  seed backend:', String(e.message || e).slice(0, 80));
   }
-  return spawn('node', ['src/server.js'], { cwd: backendDir, stdio: 'ignore' });
+  const child = spawn('node', ['src/server.js'], { cwd: backendDir, stdio: 'ignore' });
+  // Su Vercel il backend NON è installato (rootDirectory frontend): un spawn fallito
+  // NON deve far crashare il prerender (evento 'error' senza listener = crash).
+  child.on('error', (err) => {
+    console.log('⚠️  backend non avviabile (dipendenze assenti?):', String(err.message || err).slice(0, 80));
+  });
+  return child;
 }
 
 function waitFor(url, tries = 40) {
@@ -257,6 +263,9 @@ async function main() {
     stdio: 'ignore',
     detached: false,
   });
+  server.on('error', (err) => {
+    console.log('⚠️  server preview non avviabile:', String(err.message || err).slice(0, 100));
+  });
   // Backend locale: le pagine vengono catturate CON i dati reali
   console.log('Avvio backend locale (seed + server)…');
   const backend = startBackend();
@@ -274,7 +283,7 @@ async function main() {
     try {
       console.log('  🔥 Riscaldamento Chrome (prima apertura, risultato scartato)…');
       execSync(
-        `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=6000 --timeout=30000 --dump-dom "${BASE_URL}/?__prerender=1" > /dev/null 2>&1`,
+        `"${chrome}" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --no-first-run --disable-setuid-sandbox --disable-extensions --user-data-dir=/tmp/chrome-profile --virtual-time-budget=6000 --timeout=30000 --dump-dom "${BASE_URL}/?__prerender=1" > /dev/null 2>&1`,
         { encoding: 'utf8', timeout: 60000 }
       );
     } catch {}
@@ -296,7 +305,7 @@ async function main() {
         for (let attempt = 1; attempt <= 2; attempt++) {
           const b = attempt === 1 ? budget : 50000;
           dom = execSync(
-            `"${chrome}" --headless --no-sandbox --disable-gpu --virtual-time-budget=${b} --timeout=60000 --dump-dom "${url}"`,
+            `"${chrome}" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --no-first-run --disable-setuid-sandbox --disable-extensions --user-data-dir=/tmp/chrome-profile --virtual-time-budget=${b} --timeout=60000 --dump-dom "${url}"`,
             { encoding: 'utf8', timeout: 180000, maxBuffer: 32 * 1024 * 1024 }
           );
           if (dom.length > 500 && dom.includes('<body')) break;
