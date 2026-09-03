@@ -206,6 +206,25 @@ function waitForServer(url, tries = 40) {
   });
 }
 
+// Riscalda il backend LIVE prima delle catture: su Render free tier il servizio
+// dorme dopo ~15 min di inattività e il primo cold start dura 30-60s, facendo
+// andare in timeout le prime rotte che chiamano /api. Un health check qui evita
+// che il capture Chrome scada mentre il backend si sveglia.
+async function warmBackend() {
+  const backendHealth = 'https://adattoxte-backend.onrender.com/api/health';
+  for (let i = 1; i <= 3; i++) {
+    try {
+      execSync(`curl -s -o /dev/null -w "%{http_code}" --max-time 110 ${backendHealth}`, { timeout: 120000 });
+      console.log(`  ✅ backend live raggiungibile (tentativo ${i})`);
+      return true;
+    } catch {
+      console.log(`  ⏳ backend live in riscaldamento… (tentativo ${i}/3)`);
+    }
+  }
+  console.log('  ⚠️ backend live non raggiungibile: le pagine con dati API saranno incomplete');
+  return false;
+}
+
 async function main() {
   const chrome = await ensureChrome();
   if (!chrome) {
@@ -278,12 +297,13 @@ async function main() {
       console.log('⚠️  Server preview non raggiungibile: prerender saltato');
       return;
     }
+    await warmBackend();
     // Riscaldamento: la prima apertura di Chrome nel sandbox è lenta e può
     // andare in timeout sulle prime rotte → apriamo una volta e scartiamo.
     try {
       console.log('  🔥 Riscaldamento Chrome (prima apertura, risultato scartato)…');
       execSync(
-        `"${chrome}" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --no-first-run --disable-setuid-sandbox --disable-extensions --user-data-dir=/tmp/chrome-profile --virtual-time-budget=6000 --timeout=30000 --dump-dom "${BASE_URL}/?__prerender=1" > /dev/null 2>&1`,
+        `"${chrome}" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --no-first-run --disable-setuid-sandbox --disable-extensions --user-data-dir=/tmp/chrome-prof-${Date.now()}-${Math.random().toString(36).slice(2, 8)} --virtual-time-budget=6000 --timeout=30000 --dump-dom "${BASE_URL}/?__prerender=1" > /dev/null 2>&1`,
         { encoding: 'utf8', timeout: 60000 }
       );
     } catch {}
@@ -305,7 +325,7 @@ async function main() {
         for (let attempt = 1; attempt <= 2; attempt++) {
           const b = attempt === 1 ? budget : 50000;
           dom = execSync(
-            `"${chrome}" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --no-first-run --disable-setuid-sandbox --disable-extensions --user-data-dir=/tmp/chrome-profile --virtual-time-budget=${b} --timeout=60000 --dump-dom "${url}"`,
+            `"${chrome}" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --no-first-run --disable-setuid-sandbox --disable-extensions --user-data-dir=/tmp/chrome-prof-${Date.now()}-${Math.random().toString(36).slice(2, 8)} --virtual-time-budget=${b} --timeout=60000 --dump-dom "${url}"`,
             { encoding: 'utf8', timeout: 180000, maxBuffer: 32 * 1024 * 1024 }
           );
           if (dom.length > 500 && dom.includes('<body')) break;
