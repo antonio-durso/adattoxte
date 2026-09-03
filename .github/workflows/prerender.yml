@@ -2,6 +2,9 @@
 # prebuilt su Vercel. Il prerender completo non entra nei 45 min del build cloud
 # Vercel: gira qui su un runner Ubuntu (Chrome + rete affidabili) e il risultato
 # viene caricato come deployment "prebuilt" su produzione.
+# NOTA: i comandi Vercel girano dalla RADICE del repo: il progetto ha
+# rootDirectory=frontend, quindi il CLI entra da solo in frontend/ (se si girasse
+# da frontend/ il percorso diventerebbe frontend/frontend).
 name: prerender-full
 
 on:
@@ -28,19 +31,15 @@ jobs:
         working-directory: frontend
         run: npm ci
 
-      # Crea il link progetto Vercel (senza .vercel/project.json il CLI non sa
-      # a quale progetto appartiene il deploy).
-      - name: Link progetto Vercel
-        working-directory: frontend
+      - name: Link progetto Vercel (radice repo)
         run: |
           mkdir -p .vercel
           printf '{"projectId":"%s","orgId":"%s"}' "$VERCEL_PROJECT_ID" "$VERCEL_ORG_ID" > .vercel/project.json
           cat .vercel/project.json
 
       # PRERENDER_FAST=0 forza il prerender completo anche quando il CLI Vercel
-      # imposta VERCEL=1 (vedi package.json: if [ "$VERCEL" = "1" ] && [ "${PRERENDER_FAST:-1}" != "0" ]).
+      # imposta VERCEL=1 (vedi frontend/package.json).
       - name: Build SSG + deploy prebuilt su Vercel (produzione)
-        working-directory: frontend
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
