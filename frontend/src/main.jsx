@@ -49,6 +49,7 @@ const STATIC_ROUTES = new Set([
   '/',
   '/blog',
   '/risorse',
+  '/psicologo-online',
   '/psicologo-concorsi-pubblici',
   '/psicologo-sport',
   '/psicologia-giuridica',

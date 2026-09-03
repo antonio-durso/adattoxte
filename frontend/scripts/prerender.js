@@ -30,6 +30,7 @@ const FAST = process.env.PRERENDER_FAST === '1';
 const STATIC_CORE = [
   '/blog',
   '/risorse',
+  '/psicologo-online',
   '/psicologo-concorsi-pubblici',
   '/psicologo-sport',
   '/psicologia-giuridica',
@@ -52,6 +53,7 @@ const ROUTES = FAST
       '/risorse',
       '/recensioni',
       '/test',
+      '/psicologo-online',
       '/psicologo-concorsi-pubblici',
       '/psicologo-sport',
       '/psicologia-giuridica',
@@ -72,6 +74,7 @@ const STATIC_NO_MOUNT = new Set([
   '/',
   '/blog',
   '/risorse',
+  '/psicologo-online',
   '/psicologo-concorsi-pubblici',
   '/psicologo-sport',
   '/psicologia-giuridica',
