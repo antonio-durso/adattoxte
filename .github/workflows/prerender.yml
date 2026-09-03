@@ -29,10 +29,8 @@ jobs:
         run: npm ci
 
       # PRERENDER_FAST=0 forza il prerender completo anche quando il CLI Vercel
-      # imposta VERCEL=1 (vedi package.json). Se il secret VERCEL_TOKEN non è
-      # ancora configurato lo step viene saltato senza errori.
+      # imposta VERCEL=1 (vedi package.json: if [ "$VERCEL" = "1" ] && [ "${PRERENDER_FAST:-1}" != "0" ]).
       - name: Build SSG + deploy prebuilt su Vercel (produzione)
-        if: ${{ secrets.VERCEL_TOKEN != '' }}
         working-directory: frontend
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -40,7 +38,3 @@ jobs:
           npx vercel pull --yes --environment=production --token=$VERCEL_TOKEN
           PRERENDER_FAST=0 npx vercel build --prod --token=$VERCEL_TOKEN
           npx vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
-
-      - name: Secret VERCEL_TOKEN mancante - deploy saltato
-        if: ${{ secrets.VERCEL_TOKEN == '' }}
-        run: echo "::warning::Aggiungi il secret VERCEL_TOKEN (Settings -> Secrets -> Actions) e rilancia il workflow."
