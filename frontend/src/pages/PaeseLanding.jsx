@@ -20,6 +20,12 @@ export default function PaeseLanding() {
   const isCapitale = !!(capitale && capitale.slug === capitaleSlug);
   const eff = isCapitale ? capitale : paese;
 
+  // Elenco città principali per il paese (campo opzionale `citta` in paesi.js).
+  // Alimenta la sezione "da ogni città" e la FAQ dedicata (solo vista paese, non capitale).
+  const elenca = (arr) => (arr.length > 1 ? `${arr.slice(0, -1).join(', ')} e ${arr[arr.length - 1]}` : arr[0] || '');
+  const cittaPrincipali = (paese.citta || []).slice(0, 6);
+  const cittaAltre = (paese.citta || []).slice(6);
+
   const nome = isCapitale ? eff.nome : paese.nome;
   const titolo = isCapitale
     ? `Psicologo online per italiani a ${nome}`
@@ -46,6 +52,16 @@ export default function PaeseLanding() {
       q: 'Quanto costa una seduta?',
       a: '45€ la seduta individuale (50 minuti), 50€ quella di coppia, prima seduta conoscitiva gratuita e pacchetto 3 sedute con il 15% di sconto.',
     },
+    ...(!isCapitale && cittaPrincipali.length > 0
+      ? [
+          {
+            q: `Fate sedute con italiani che vivono a ${elenca(cittaPrincipali.slice(0, 4))}${
+              cittaAltre.length > 0 ? ` o in centri come ${elenca(cittaAltre.slice(0, 4))}` : ''
+            }?`,
+            a: `Sì: la videochiamata raggiunge ogni città del ${paese.nome}. Scegli tu l'orario (${paese.fuso}) e la prima seduta conoscitiva è gratuita: il servizio funziona esattamente come se fossi in Italia.`,
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -131,6 +147,27 @@ export default function PaeseLanding() {
           ))}
         </div>
       </section>
+
+      {/* Sezione città (solo vista paese): testo ricco con i nomi delle città per intercettare
+          le ricerche "psicologo italiano online [città]" — dati dal campo `citta` in paesi.js */}
+      {!isCapitale && cittaPrincipali.length > 0 && (
+        <section className="container section section-deep">
+          <h2 style={{ textAlign: 'center' }}>La terapia in italiano, da qualsiasi città in {paese.nome}</h2>
+          <div style={{ maxWidth: 760, margin: '0 auto' }}>
+            <p>
+              Che tu sia a {elenca(cittaPrincipali)}
+              {cittaAltre.length > 0 ? `, o in un centro più piccolo come ${elenca(cittaAltre)}` : ''}:
+              le sedute si svolgono in videochiamata in italiano, senza spostamenti e nello stesso fuso
+              orario dell'Italia ({paese.fuso}).
+            </p>
+            <p>
+              La prima seduta conoscitiva è gratuita, le sedute da 50 minuti costano 45€ e, se ti sposti
+              per lavoro o per un trasferimento tra città del {paese.nome},
+              il tuo percorso ti segue senza interruzioni.
+            </p>
+          </div>
+        </section>
+      )}
 
       <section className="container section section-deep">
         <h2 style={{ textAlign: 'center' }}>Domande frequenti</h2>
