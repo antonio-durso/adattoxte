@@ -628,12 +628,13 @@ body:not(.react-mounted) .reveal { opacity: 1; transform: none; }
   }
   /* "Installa app" resta a fianco del pulsante rotondo del menu */
   .install-app-btn { margin-left: auto; }
-  /* Schermi molto stretti: compatto per lasciare spazio a logo e menu */
+  /* Schermi molto stretti: la scritta "Installa app" resta SEMPRE visibile,
+     si compatta il pulsante per lasciare spazio a logo e menu */
   @media (max-width: 480px) {
     .install-app-btn { padding: 7px 11px; font-size: 12px; }
   }
-  @media (max-width: 380px) {
-    .install-label { display: none; }
+  @media (max-width: 400px) {
+    .install-app-btn { padding: 6px 9px; font-size: 11.5px; gap: 5px; }
   }
   /* Menu a tendina che si abbassa */
   .nav-links {
