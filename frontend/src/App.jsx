@@ -33,6 +33,8 @@ const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const Terms = lazy(() => import('./pages/Terms'));
 const Prezzi = lazy(() => import('./pages/Prezzi'));
 const Aziende = lazy(() => import('./pages/Aziende'));
+const LavoraConNoi = lazy(() => import('./pages/LavoraConNoi'));
+const Struttura = lazy(() => import('./pages/Struttura'));
 const Tibiz = lazy(() => import('./pages/Tibiz'));
 const Equipe = lazy(() => import('./pages/Equipe'));
 const Press = lazy(() => import('./pages/Press'));
@@ -91,6 +93,8 @@ function LangRoutes() {
       <Route path="/termini" element={<Terms />} />
       <Route path="/prezzi" element={<Prezzi />} />
       <Route path="/aziende" element={<Aziende />} />
+      <Route path="/lavora-con-noi" element={<LavoraConNoi />} />
+      <Route path="/struttura" element={<Struttura />} />
       <Route path="/italiani-all-estero" element={<Estero />} />
       <Route path="/italiani-all-estero/:paese" element={<PaeseLanding />} />
       <Route path="/italiani-all-estero/:paese/:capitale" element={<PaeseLanding />} />

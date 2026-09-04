@@ -80,6 +80,8 @@ export default function Footer() {
           <Link to="/chi-siamo">Chi siamo</Link>
           <Link to="/ufficio-stampa">Ufficio stampa</Link>
           <Link to="/equipe">Équipe clinica</Link>
+          <Link to="/lavora-con-noi">Lavora con noi</Link>
+          <Link to="/struttura">La struttura</Link>
           <Link to="/psicologo-concorsi-pubblici">Psicologo concorsi</Link>
           <Link to="/psicologo-sport">Psicologo sport</Link>
           <Link to="/psicologia-giuridica">Psicologia giuridica</Link>
