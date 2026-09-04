@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/build-seo.js",
+    "prebuild": "node scripts/build-seo.js && node scripts/sync-vercel.mjs",
     "build": "vite build && cp dist/index.html dist/app.html && if [ \"$VERCEL\" = \"1\" ] && [ \"${PRERENDER_FAST:-1}\" != \"0\" ]; then sh scripts/ensure-chrome-deps.sh && PRERENDER_FAST=1 node scripts/prerender.js; else sh scripts/ensure-chrome-deps.sh && (node scripts/prerender.js || true); fi && node scripts/inline-css.cjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node --test tests/"
   },
   "dependencies": {
     "@sentry/react": "^10.72.0",

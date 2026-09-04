@@ -193,6 +193,19 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
   }
 });
 
+/**
+ * Regola d'oro dei pagamenti (predicato puro, testabile):
+ * la seduta viene marcata pagata SOLO se PayPal conferma status COMPLETED —
+ * direttamente sull'ordine (retry/doppio click) oppure sulla risposta di capture.
+ * Ritorna { paid: true, via } oppure { error }.
+ */
+function captureOutcome(orderStatus, captureStatus) {
+  if (orderStatus === 'COMPLETED') return { paid: true, via: 'order-completed' };
+  if (orderStatus !== 'APPROVED') return { error: 'Pagamento non approvato. Riprova.' };
+  if (captureStatus === 'COMPLETED') return { paid: true, via: 'capture' };
+  return { error: 'Pagamento non completato. Riprova.' };
+}
+
 // POST /api/payments/capture - conferma e cattura l'addebito dopo l'approvazione della carta
 router.post('/capture', authRequired, requireRole('patient'), async (req, res) => {
   const { orderId } = req.body || {};
@@ -215,15 +228,15 @@ router.post('/capture', authRequired, requireRole('patient'), async (req, res) =
     if (!booking) return res.status(404).json({ error: 'Prenotazione non trovata' });
     if (booking.paid) return res.json({ paid: true, alreadyPaid: true, bookingId: booking.id });
 
-    // Se l'ordine risulta già COMPLETED (doppio click / retry) lo accettiamo
-    if (order.status === 'COMPLETED') {
+    // Regola d'oro: si marca pagato SOLO con status COMPLETED (ordine già completato = retry)
+    const outcome = captureOutcome(order.status, null);
+    if (outcome.paid) {
       db.prepare('UPDATE bookings SET paid = 1 WHERE id = ?').run(booking.id);
       rewardReferralIfFirstPaid(req.user.id);
       return res.json({ paid: true, bookingId: booking.id });
     }
-
     if (order.status !== 'APPROVED') {
-      return res.status(400).json({ error: 'Pagamento non approvato. Riprova.' });
+      return res.status(400).json({ error: outcome.error });
     }
 
     const capture = await paypalFetch(
@@ -232,12 +245,13 @@ router.post('/capture', authRequired, requireRole('patient'), async (req, res) =
       token
     );
 
-    if (capture.status === 'COMPLETED') {
+    const finalOutcome = captureOutcome(order.status, capture.status);
+    if (finalOutcome.paid) {
       db.prepare('UPDATE bookings SET paid = 1 WHERE id = ?').run(booking.id);
       rewardReferralIfFirstPaid(req.user.id);
       return res.json({ paid: true, bookingId: booking.id });
     }
-    return res.status(400).json({ error: 'Pagamento non completato. Riprova.' });
+    return res.status(400).json({ error: finalOutcome.error });
   } catch (err) {
     console.error(
       'PayPal capture error:',
@@ -248,3 +262,4 @@ router.post('/capture', authRequired, requireRole('patient'), async (req, res) =
 });
 
 module.exports = router;
+module.exports.captureOutcome = captureOutcome;

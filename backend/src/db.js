@@ -12,9 +12,11 @@ const fs = require('fs');
 const crypto = require('crypto');
 
 const dataDir = path.join(__dirname, '..', 'data');
-if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+// DB_PATH permette ai test (e a deploy con disco dedicato) di usare un file diverso.
+const dbFile = process.env.DB_PATH || path.join(dataDir, 'adattoxte.db');
+if (!fs.existsSync(path.dirname(dbFile))) fs.mkdirSync(path.dirname(dbFile), { recursive: true });
 
-const db = new Database(path.join(dataDir, 'adattoxte.db'));
+const db = new Database(dbFile);
 db.pragma('journal_mode = WAL');
 db.pragma('foreign_keys = ON');
 

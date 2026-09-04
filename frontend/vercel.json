@@ -121,11 +121,6 @@
       "permanent": true
     },
     {
-      "source": "/psicologo-online/lussemburgo",
-      "destination": "/italiani-all-estero/lussemburgo/lussemburgo",
-      "permanent": true
-    },
-    {
       "source": "/psicologo-online/portogallo",
       "destination": "/italiani-all-estero/portogallo",
       "permanent": true
@@ -218,11 +213,6 @@
     {
       "source": "/psicologo-online/singapore",
       "destination": "/italiani-all-estero/singapore",
-      "permanent": true
-    },
-    {
-      "source": "/psicologo-online/singapore",
-      "destination": "/italiani-all-estero/singapore/singapore",
       "permanent": true
     },
     {

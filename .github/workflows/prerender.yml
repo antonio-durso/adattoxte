@@ -38,6 +38,12 @@ jobs:
           printf '{"projectId":"%s","orgId":"%s"}' "$VERCEL_PROJECT_ID" "$VERCEL_ORG_ID" > .vercel/project.json
           cat .vercel/project.json
 
+      # Rigenera i blocchi dinamici di frontend/vercel.json (redirect paesi +
+      # noindex città) dai contenuti, PRIMA che il CLI Vercel legga la config.
+      - name: Sincronizza vercel.json dai contenuti
+        working-directory: frontend
+        run: node scripts/sync-vercel.mjs
+
       # PRERENDER_FAST=0 forza il prerender completo anche quando il CLI Vercel
       # imposta VERCEL=1 (vedi frontend/package.json).
       - name: Build SSG + deploy prebuilt su Vercel (produzione)
