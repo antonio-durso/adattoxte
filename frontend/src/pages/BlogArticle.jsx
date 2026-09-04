@@ -1,8 +1,56 @@
 import { Link, useParams } from 'react-router-dom';
 import { getArticle, articles } from '../content/articles';
+import { citta, CITTA_TOP } from '../content/citta';
+import { paesi } from '../content/paesi';
 import Seo from '../components/Seo';
 import TestCta from '../components/TestCta';
 import { useI18n } from '../i18n';
+
+// ── Blocco "La terapia online, ovunque tu sia" ──────────────────────────────
+// Link interni automatici in coda a ogni articolo (SEO hub & spoke):
+// articoli sui disturbi → città italiane TOP; articoli generali → hub paese estero.
+// Nessun testo degli articoli viene modificato: il blocco è generato dal codice.
+const CITTA_MAP = Object.fromEntries(citta.map((c) => [c.slug, c.nome]));
+const PAESE_POOL = [
+  'regno-unito', 'germania', 'francia', 'spagna', 'svizzera', 'belgio',
+  'paesi-bassi', 'austria', 'irlanda', 'stati-uniti', 'canada', 'lussemburgo',
+];
+const PAESE_MAP = Object.fromEntries(paesi.map((p) => [p.slug, p.nome]));
+const ABROAD_RE = /estero|espatri|emigraz|londra|berlino|parigi|madrid|dublino|svizzera|germania|francia|spagna|regno unito|belgio|austria|paesi bassi|irlanda|stati uniti|america|canada|new york|lussemburgo|all'estero/i;
+const CLINICAL_RE = /ansia|depress|panic|fobi|ossess|disturbo|insonn|autostim|burnout|lutto|trauma|stress|rabbia|gelosi|dipendenz|adhd|cybercondri|assertiv|timidezz|bipolare|sonno|umore|alimentar|anoressi|bulimi|tristez|attacco|autolesion|pensieri negativ|mindfulness|meditaz|homesickness|nostalgia/i;
+
+function hashStr(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  return h;
+}
+
+// Selezione deterministica (stabile per slug) da CITTA_TOP: 4 città diverse per articolo.
+function cityBlockLinks(slug) {
+  const h = hashStr(slug);
+  const step = 7; // coprimo con 30 → distribuzione uniforme
+  const picks = [];
+  for (let i = 0; i < 4; i++) {
+    const s = CITTA_TOP[(h + i * step) % CITTA_TOP.length];
+    if (!picks.includes(s)) picks.push(s);
+  }
+  return picks.map((s) => ({ to: `/psicologo-online/${s}`, label: CITTA_MAP[s] }));
+}
+
+// Selezione deterministica dagli hub paese; se l'articolo cita un paese del pool,
+// quello viene messo in prima posizione.
+function countryBlockLinks(slug, hay) {
+  const h = hashStr(slug);
+  const step = 5; // coprimo con 12
+  const picks = [];
+  for (let i = 0; i < 4; i++) {
+    const s = PAESE_POOL[(h + i * step) % PAESE_POOL.length];
+    if (!picks.includes(s)) picks.push(s);
+  }
+  const hit = PAESE_POOL.find((s) => PAESE_MAP[s] && hay.includes(PAESE_MAP[s].toLowerCase()));
+  if (hit && !picks.includes(hit)) picks.unshift(hit);
+  return picks.slice(0, 5).map((s) => ({ to: `/italiani-all-estero/${s}`, label: PAESE_MAP[s] }));
+}
 
 function formatDate(iso) {
   try {
@@ -115,6 +163,14 @@ export default function BlogArticle() {
     })
     .slice(0, 3);
 
+  // Classificazione per il blocco città/paese: estero o articoli generali → hub paese;
+  // disturbi e temi clinici → città italiane TOP (regola approvata).
+  const hay = `${keyword} ${(article.title || '').toLowerCase()} ${article.slug}`;
+  const abroad = ABROAD_RE.test(hay);
+  const clinical = CLINICAL_RE.test(hay);
+  const geoLinks = abroad || !clinical ? countryBlockLinks(article.slug, hay) : cityBlockLinks(article.slug);
+  const geoIsCity = !(abroad || !clinical);
+
   return (
     <div className="container section">
       <Seo
@@ -179,6 +235,33 @@ export default function BlogArticle() {
         </div>
         <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
       </article>
+
+      {/* Blocco "La terapia online, ovunque tu sia": link a città TOP o hub paese (SEO hub & spoke) */}
+      <div style={{ maxWidth: 760, margin: '18px auto 0', background: '#f0faf7', border: '1px solid #bcd9cf', borderRadius: 12, padding: '16px 20px' }}>
+        <h2 style={{ fontSize: 16, margin: '0 0 6px' }}>
+          {lang === 'it' ? 'La terapia online, ovunque tu sia' : 'Online therapy, wherever you are'}
+        </h2>
+        <p className="muted small" style={{ margin: '0 0 12px' }}>
+          {lang === 'it'
+            ? geoIsCity
+              ? 'Il percorso psicologico in italiano parte anche dalla tua città: sedute in videochiamata con professionisti qualificati.'
+              : 'Vivi all\u2019estero o sei in trasferta? La terapia in italiano ti segue in ogni paese, nello stesso fuso orario dell\u2019Italia.'
+            : geoIsCity
+              ? 'Your therapy journey starts from your city too: video sessions with qualified professionals.'
+              : 'Living abroad or travelling? Therapy in Italian follows you to every country.'}
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          {geoLinks.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              style={{ textDecoration: 'none', background: '#fff', border: '1px solid #bcd9cf', color: '#166b52', borderRadius: 999, padding: '6px 14px', fontSize: 13.5, fontWeight: 600 }}
+            >
+              {geoIsCity ? `Psicologo online a ${l.label}` : `Italiani in ${l.label}`}
+            </Link>
+          ))}
+        </div>
+      </div>
 
       {/* Link interni verso le landing principali (SEO: hub & spoke blog -> landing) */}
       <div style={{ maxWidth: 760, margin: '22px auto 0', background: '#f0f7fb', border: '1px solid #cfe6f2', borderRadius: 12, padding: '16px 20px' }}>
