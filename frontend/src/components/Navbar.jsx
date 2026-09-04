@@ -96,9 +96,9 @@ export default function Navbar() {
             <path d="M7 10l5 5 5-5" />
             <path d="M4 21h16" />
           </svg>
-          {t('nav.install')}
+          <span className="install-label">{t('nav.install')}</span>
         </button>
-        {/* Tasto menu interattivo (mobile): rotondo, a freccia, apre/chiude il menu a tendina */}
+        {/* Tasto menu interattivo (mobile): cerchio con freccia e scritta "Menù" piccola dentro */}
         <button
           className="nav-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -107,6 +107,7 @@ export default function Navbar() {
           aria-label={menuOpen ? 'Chiudi menu' : 'Apri menu'}
         >
           <span aria-hidden="true" className={`nav-toggle-icon${menuOpen ? ' open' : ''}`}>▾</span>
+          <span aria-hidden="true" className="nav-toggle-text">{lang === 'it' ? 'Menù' : 'Menu'}</span>
         </button>
         <nav id="main-menu" className={menuOpen ? 'nav-links open' : 'nav-links'} onClick={() => setMenuOpen(false)}>
           <Link to={enPrefix + '/terapeuti'}>{t('nav.therapists')}</Link>
