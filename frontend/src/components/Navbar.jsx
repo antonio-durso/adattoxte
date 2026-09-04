@@ -113,11 +113,13 @@ export default function Navbar() {
           <Link to={enPrefix + '/terapeuti'}>{t('nav.therapists')}</Link>
           <Link to={enPrefix + '/psicologo-online'}>{t('nav.online')}</Link>
           <Link to={enPrefix + '/equipe'}>{t('nav.equipe')}</Link>
+          <Link to={enPrefix + '/struttura'}>La struttura</Link>
           <Link to={enPrefix + '/blog'}>{t('nav.blog')}</Link>
           <Link to={enPrefix + '/risorse'}>{t('nav.risorse')}</Link>
           <Link to={enPrefix + '/recensioni'}>{t('nav.reviews')}</Link>
           <Link to={enPrefix + '/ufficio-stampa'}>Ufficio stampa</Link>
           <Link to={enPrefix + '/prezzi'}>Prezzi</Link>
+          <Link to={enPrefix + '/lavora-con-noi'}>Lavora con noi</Link>
           <Link to={enPrefix + '/test'}>🧠 Test</Link>
           {areaLink && (
             <Link to={areaLink}>
