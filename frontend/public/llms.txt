@@ -5,7 +5,7 @@
 ## Pagine principali
 
 - [Home](https://www.adattoxte.com/): presentazione della piattaforma, come funziona il percorso di supporto psicologico online e accesso ai servizi.
-- [Test di benessere](https://www.adattoxte.com/check-in): test gratuito sull'ansia (GAD-7, 7 domande) e sull'umore (PHQ-9, 9 domande) con risultato immediato e orientamento.
+- [Test di benessere](https://www.adattoxte.com/test): test gratuito sull'ansia (GAD-7, 7 domande) e sull'umore (PHQ-9, 9 domande) con risultato immediato e orientamento.
 - [Terapeuti](https://www.adattoxte.com/terapeuti): elenco dei professionisti disponibili, specializzazioni e prenotazione di una videochiamata.
 - [Blog](https://www.adattoxte.com/blog): articoli divulgativi su ansia, depressione, relazioni e benessere, con fonti scientifiche (PubMed, APA, OMS).
 
