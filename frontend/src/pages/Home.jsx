@@ -40,7 +40,7 @@ const SERVICES = [
   { icon: '⚖️', title: 'Psicologia giuridica', desc: 'Consulenza in ambito forense e supporto ai professionisti legali.' },
   { icon: '💑', title: 'Terapia di coppia', desc: 'Comunicazione, crisi di relazione e supporto alle decisioni, anche da remoto.' },
   { icon: '🧠', title: 'Ansia e depressione', desc: 'Percorsi individuali con approccio cognitivo-comportamentale.' },
-  { icon: '🌍', title: 'Consulenza multilingue', desc: 'Sedute in italiano e inglese: la terapia parla la tua lingua.', to: '/italiani-all-estero' },
+  { icon: '🌍', title: 'Italiano, ovunque', desc: 'Sedute in italiano, anche dall’estero: la terapia parla la tua lingua.', to: '/italiani-all-estero' },
 ];
 
 const STEPS = [
@@ -79,7 +79,7 @@ const FAQS = [
   },
   {
     q: 'Le sedute sono disponibili in altre lingue?',
-    a: 'Sì: la piattaforma è disponibile in italiano e inglese e la lingua delle sedute è concordata con il terapeuta, come indicato nel suo profilo.',
+    a: 'Sì: la piattaforma è disponibile in italiano e la lingua di lavoro è indicata nel profilo del terapeuta.',
   },
 ];
 
@@ -152,7 +152,7 @@ export default function Home() {
               name: 'Psicologo online — sedute in videochiamata',
               provider: { '@id': 'https://www.adattoxte.com/#organization' },
               areaServed: 'IT',
-              availableLanguage: ['it', 'en'],
+              availableLanguage: ['it'],
               offers: {
                 '@type': 'AggregateOffer',
                 lowPrice: '38.25',

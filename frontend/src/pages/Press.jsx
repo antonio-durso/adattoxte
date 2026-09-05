@@ -64,7 +64,7 @@ export default function Press() {
             Adatto x Te collega pazienti e terapeuti qualificati in videochiamata, senza abbonamenti:
             seduta individuale a <strong>45€</strong> (50 minuti), seduta di coppia a <strong>50€</strong>,
             prima seduta individuale <strong>gratuita</strong> (15 minuti conoscitivi) e pacchetto di 3 sedute
-            con <strong>-15%</strong>. Le sedute sono disponibili in <strong>italiano e inglese</strong>,
+            con <strong>-15%</strong>. Le sedute si svolgono in <strong>italiano</strong>,
             da qualsiasi dispositivo, in qualsiasi paese.
           </p>
           <p>
@@ -103,7 +103,7 @@ export default function Press() {
           <p>
             Il fondatore è disponibile per interviste in <strong>videochiamata o via email</strong>, a titolo
             <strong> completamente gratuito</strong>: nessun compenso, nessun contenuto sponsorizzato.
-            Le interviste si svolgono in italiano o in inglese.
+            Le interviste si svolgono in italiano.
           </p>
         </Reveal>
       </section>
@@ -121,7 +121,7 @@ export default function Press() {
               Trustpilot 4,3/5 ("Eccellente") e Google 5,0/5, con recensioni da sedute completate.
             </li>
             <li>
-              <strong>01/09/2026 — Psicologia online in 43 paesi</strong>: sedute in italiano e inglese
+              <strong>01/09/2026 — Psicologia online in 43 paesi</strong>: sedute in italiano, ovunque tu sia
               per gli italiani all'estero, con continuità del percorso anche in caso di rientro.
             </li>
             <li>

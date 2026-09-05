@@ -224,7 +224,7 @@ export const citta = [
     slug: 'bolzano',
     provincia: 'Bolzano',
     regione: 'Trentino-Alto Adige',
-    intro: 'A Bolzano, tra lingua italiana e tedesca, la piattaforma è disponibile anche in inglese: il supporto psicologico online supera le distanze della valle e della provincia.',
+    intro: 'A Bolzano, tra lingua italiana e tedesca, le sedute sono in italiano: il supporto psicologico online supera le distanze della valle e della provincia.',
     faqExtra: [
       ['Quali percorsi sono disponibili a Bolzano?', 'Ansia e depressione, terapia di coppia, psicologia dello sport, preparazione ai concorsi e psicologia giuridica: scegli la specializzazione più adatta.'],
       ['La terapia online è efficace quanto quella in presenza?', 'Sì: gli studi mostrano efficacia paragonabile per ansia, depressione e molti altri disturbi, con il vantaggio di non spostarti.'],
@@ -454,7 +454,7 @@ export const citta = [
     faqLocal: [["Quanto costa uno psicologo a Firenze?","In centro a Firenze le sedute vanno dai 60 ai 90 euro. Online 45 euro, prima seduta gratuita."],["Il problema è arrivare in centro (ztl, parcheggi): online come funziona?","Esattamente per questo: niente ztl, niente parcheggio. Ti colleghi da casa e la seduta comincia all'orario previsto."],["Lavoro nel turismo o nella ristorazione con orari serali: è possibile?","Sì, prenoti negli orari che ti servono, anche la sera: la terapia si adatta a te, non il contrario."]],
     faqExtra: [
       ['Come scelgo lo psicologo giusto per me a Firenze?', 'Confronti i profili verificati dei terapeuti (specializzazioni, recensioni, lingue) e prenoti in autonomia l\'orario che preferisci.'],
-      ['Le sedute sono disponibili anche in inglese?', 'Sì: Adatto x Te offre sedute anche in inglese, francese e spagnolo, utili per chi vive a Firenze o lavora in contesti internazionali.'],
+      ['Le sedute sono disponibili in altre lingue?', 'Al momento le sedute si svolgono in italiano: la lingua è indicata nel profilo del terapeuta.'],
     ],
   
     desc: 'Psicologo online a Firenze: sedute video da 50 min a 45€, prima gratuita. Supporto psicologico per ansia, coppia e concorsi.',
@@ -852,9 +852,9 @@ export const citta = [
     slug: 'perugia',
     provincia: 'Perugia',
     regione: 'Umbria',
-    intro: 'A Perugia, con la sua grande comunità di studenti italiani e stranieri, la terapia online offre un supporto accessibile e flessibile: sedute in italiano, inglese, francese e spagnolo, quando ne hai bisogno.',
+    intro: 'A Perugia, con la sua grande comunità di studenti italiani e stranieri, la terapia online offre un supporto accessibile e flessibile: sedute in italiano, quando ne hai bisogno.',
     faqExtra: [
-      ['Sono uno studente internazionale a Perugia: ci sono sedute in inglese?', 'Sì, la consulenza multilingue è uno dei servizi di Adatto x Te: sedute anche in inglese, francese e spagnolo.'],
+      ['Sono uno studente internazionale a Perugia: come funzionano le sedute?', 'Le sedute si svolgono in italiano, in videochiamata.'],
       ['Come prenoto una seduta?', 'Ti registri gratuitamente, scegli il terapeuta e l\'orario, paghi online in modo sicuro e ricevi il link per la videochiamata.'],
     ],
   
@@ -1229,15 +1229,15 @@ export const citta = [
     slug: 'trieste',
     provincia: 'Trieste',
     regione: 'Friuli-Venezia Giulia',
-    intro: 'A Trieste, città di confine e crocevia di culture, la terapia online offre flessibilità e riservatezza: sedute in videochiamata anche in inglese, francese e spagnolo, per una città internazionale.',
+    intro: 'A Trieste, città di confine e crocevia di culture, la terapia online offre flessibilità e riservatezza: sedute in videochiamata in italiano, anche in una città internazionale.',
     faqExtra: [
-      ['Ci sono sedute in altre lingue a Trieste?', 'Sì, Adatto x Te offre consulenza multilingue: sedute anche in inglese, francese e spagnolo.'],
+      ['Ci sono sedute in altre lingue a Trieste?', 'Al momento le sedute si svolgono in italiano.'],
       ['Come funziona la prenotazione?', 'Ti registri, scegli il terapeuta e l\'orario, paghi online e ricevi il link per la videochiamata sicura.'],
     ],
   
-    desc: 'Psicologo online a Trieste: sedute video da 50 min a 45€, prima gratuita. Terapeuti qualificati, anche in inglese.',
-    local: `<h3>Psicologo online a Trieste: supporto in italiano e in inglese</h3><p>Città di confine e multiculturale: la consulenza multilingue di Adatto x Te offre sedute in italiano e in inglese, per italiani e stranieri che vivono a Trieste e dintorni.</p><p>Percorsi per ansia, coppia, sport e concorsi con terapeuti qualificati: prima seduta conoscitiva gratuita, prenotazione online in 2 minuti.</p>`,
-    faqLocal: [["Ci sono terapeuti che parlano inglese?", "Sì, le sedute sono disponibili in italiano e in inglese."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
+    desc: 'Psicologo online a Trieste: sedute video da 50 min a 45€, prima gratuita. Terapeuti qualificati, sedute in italiano.',
+    local: `<h3>Psicologo online a Trieste: supporto in italiano</h3><p>Città di confine e multiculturale: le sedute di Adatto x Te si svolgono in italiano, per italiani e stranieri che vivono a Trieste e dintorni.</p><p>Percorsi per ansia, coppia, sport e concorsi con terapeuti qualificati: prima seduta conoscitiva gratuita, prenotazione online in 2 minuti.</p>`,
+    faqLocal: [["Ci sono terapeuti che parlano inglese?", "Al momento le sedute si svolgono in italiano."], ["Quanto costa una seduta?", "45€ la seduta individuale, 50€ quella di coppia, pacchetto 3 sedute con il 15% di sconto. Prima seduta conoscitiva gratuita."], ["Come scelgo il terapeuta?", "Il catalogo è anonimo per tutelare la privacy: scegli per specializzazione, esperienza e recensioni verificate."]],
 },
     {
     nome: 'Udine',

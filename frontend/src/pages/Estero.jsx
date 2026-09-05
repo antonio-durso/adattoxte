@@ -168,7 +168,7 @@ export default function Estero() {
       <section className="container section" style={{ textAlign: 'center' }}>
         <h2>Inizia il tuo percorso, ovunque tu sia</h2>
         <p className="muted" style={{ maxWidth: 560, margin: '0 auto 20px' }}>
-          Approfondisci su <Link to="/blog/psicologo-online-all-estero">come funziona la psicologia online dall'estero</Link> o sulle <Link to="/blog/psicologo-online-in-inglese">sedute in inglese</Link>.
+          Approfondisci su <Link to="/blog/psicologo-online-all-estero">come funziona la psicologia online dall'estero</Link>.
         </p>
         <Link to="/registrazione" className="btn btn-primary">Registrati gratis</Link>
       </section>

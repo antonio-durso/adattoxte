@@ -27,11 +27,11 @@ export const extraArticles12 = [
 <li><strong>Scelta del terapeuta</strong>: tutte e tre propongono un matching, ma su Adatto x Te puoi confrontare i profili e scegliere in autonomia, con il nome del terapeuta che viene mostrato dopo la prenotazione per garantire la riservatezza.</li>
 <li><strong>Modalità</strong>: le sedute si svolgono in videochiamata su tutte le piattaforme; su Adatto x Te la videochiamata è Jitsi, direttamente nel browser, senza installare nulla.</li>
 <li><strong>Messaggi</strong>: Adatto x Te include messaggi illimitati con il terapeuta tra una seduta e l'altra.</li>
-<li><strong>Lingue</strong>: sedute anche in inglese, francese e spagnolo su Adatto x Te.</li>
+<li><strong>Lingua</strong>: le sedute si svolgono in italiano.</li>
 </ul>
 <h2>Chi scegliere, in sintesi</h2>
 <p><strong>Scegli Unobravo o Serenis</strong> se per te è fondamentale la dimensione della piattaforma e la possibilità di scegliere tra migliaia di profili.</p>
-<p><strong>Scegli Adatto x Te</strong> se vuoi il prezzo più basso del mercato (45€/50€, pacchetto -15%), un servizio che valorizza la riservatezza e percorsi specializzati — dalla preparazione ai concorsi pubblici alla psicologia dello sport e alla terapia di coppia — con la comodità di sedute anche in inglese.</p>
+<p><strong>Scegli Adatto x Te</strong> se vuoi il prezzo più basso del mercato (45€/50€, pacchetto -15%), un servizio che valorizza la riservatezza e percorsi specializzati — dalla preparazione ai concorsi pubblici alla psicologia dello sport e alla terapia di coppia — con sedute sempre in italiano.</p>
 <h2>Domande frequenti sul confronto</h2>
 <p><strong>Quanto costa la prima seduta?</strong> Su tutte e tre le piattaforme il primo colloquio è gratuito: su Adatto x Te la prima seduta individuale è gratuita (15 minuti conoscitivi) e le sedute successive partono da 45€, senza abbonamenti né vincoli.</p>
 <p><strong>Le recensioni sono affidabili?</strong> Su tutte le piattaforme le recensioni sono di utenti verificati. Su Adatto x Te ogni recensione arriva da una seduta completata sulla piattaforma.</p>
