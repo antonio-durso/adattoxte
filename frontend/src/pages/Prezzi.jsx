@@ -73,6 +73,14 @@ export default function Prezzi() {
           sempre gratuita.
         </p>
 
+        <div style={{ maxWidth: 760, margin: '0 0 18px', background: '#f0f7fb', border: '1px solid #cfe6f2', borderRadius: 12, padding: '14px 18px' }}>
+          <strong>Vivi in Svizzera?</strong>{' '}
+          <span className="muted">Il prezzo è sempre 45€ a seduta, senza prescrizione e senza passare dal medico — nessuna diagnosi nel dossier assicurativo. </span>
+          <Link to="/italiani-all-estero/svizzera#senza-prescrizione" style={{ color: '#286a8f', fontWeight: 600, whiteSpace: 'nowrap' }}>
+            Come funziona per chi vive in Svizzera →
+          </Link>
+        </div>
+
         <div className="grid pricing" style={{ marginTop: 22 }}>
           {PRICES.map((p) => (
             <Reveal key={p.title}>

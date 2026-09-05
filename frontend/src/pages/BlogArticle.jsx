@@ -170,6 +170,9 @@ export default function BlogArticle() {
   const clinical = CLINICAL_RE.test(hay);
   const geoLinks = abroad || !clinical ? countryBlockLinks(article.slug, hay) : cityBlockLinks(article.slug);
   const geoIsCity = !(abroad || !clinical);
+  // Articoli che parlano di costi/assicurazioni/Svizzera: link mirato alla sezione "senza prescrizione"
+  const COSTS_RE = /costo|costa|prezzo|prezzi|seduta|tariff|rimbors|assicurazion|cassa malati|lamal|svizzera/i;
+  const swissAnchor = COSTS_RE.test(hay) ? { to: '/italiani-all-estero/svizzera#senza-prescrizione', label: 'Svizzera · senza prescrizione' } : null;
 
   return (
     <div className="container section">
@@ -260,6 +263,14 @@ export default function BlogArticle() {
               {geoIsCity ? `Psicologo online a ${l.label}` : `Italiani in ${l.label}`}
             </Link>
           ))}
+          {swissAnchor && (
+            <Link
+              to={swissAnchor.to}
+              style={{ textDecoration: 'none', background: '#fff', border: '1px solid #bcd9cf', color: '#166b52', borderRadius: 999, padding: '6px 14px', fontSize: 13.5, fontWeight: 600 }}
+            >
+              {swissAnchor.label}
+            </Link>
+          )}
         </div>
       </div>
 

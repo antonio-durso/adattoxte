@@ -62,6 +62,14 @@ export default function PaeseLanding() {
           },
         ]
       : []),
+    ...(!isCapitale && paese.slug === 'svizzera'
+      ? [
+          {
+            q: 'La seduta è rimborsata dalla cassa malati (LAMal)?',
+            a: 'No, se scegli il percorso diretto: paghi la seduta privatamente (45€), senza prescrizione e senza diagnosi nel dossier assicurativo. Se hai una prescrizione LAMal per psicoterapia con terapeuti PsiReg, il rimborso avviene solo tramite terapeuti riconosciuti in Svizzera. Puoi sempre parlarne con noi prima di iniziare.',
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -180,6 +188,43 @@ export default function PaeseLanding() {
           ))}
         </div>
       </section>
+
+      {/* Solo Svizzera: sezione "senza prescrizione vs LAMal" (percorso diretto vs assicurativo) */}
+      {!isCapitale && paese.slug === 'svizzera' && (
+        <section id="senza-prescrizione" className="container section section-deep">
+          <h2 style={{ textAlign: 'center' }}>Pagamenti e assicurazione: come funziona in Svizzera</h2>
+          <div style={{ maxWidth: 760, margin: '0 auto' }}>
+            <p>
+              In Svizzera la psicoterapia è rimborsata dall'assicurazione di base (LAMal) dal 1° luglio 2022,
+              ma <strong>solo con prescrizione medica</strong> e quando il trattamento è svolto da terapeuti
+              riconosciuti (registro PsiReg). In quel caso paghi franchigia più il 10% di compartecipazione.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14, margin: '18px 0' }}>
+              <div className="card" style={{ margin: 0 }}>
+                <h3 style={{ margin: '0 0 6px', fontSize: 15.5 }}>Percorso LAMal (con prescrizione)</h3>
+                <p className="muted" style={{ margin: 0, fontSize: 14.5 }}>
+                  Serve un appuntamento dal medico per la prescrizione · la diagnosi e il percorso finiscono
+                  nel dossier assicurativo · i tempi dipendono da medico e disponibilità dei terapeuti riconosciuti.
+                </p>
+              </div>
+              <div className="card" style={{ margin: 0, border: '2px solid #bcd9cf' }}>
+                <h3 style={{ margin: '0 0 6px', fontSize: 15.5 }}>Percorso diretto con Adatto x Te (senza prescrizione)</h3>
+                <p className="muted" style={{ margin: 0, fontSize: 14.5 }}>
+                  Inizi subito, senza passare dal medico · nessuna diagnosi nel dossier sanitario o assicurativo ·
+                  costi chiari: 45€ a seduta individuale, prima seduta gratuita · paghi direttamente, in piena riservatezza.
+                </p>
+              </div>
+            </div>
+            <p>
+              <strong>Quale scegliere?</strong> Se hai già una prescrizione e vuoi il rimborso LAMal, il percorso
+              assicurativo può convenire. Se preferisci iniziare in modo semplice, rapido e riservato — o se la lista
+              d'attesa è lunga — il percorso diretto è la soluzione. Le informazioni qui sopra sono generali:
+              verifica sempre il tuo caso con la tua cassa malati. Il Dott. D'Urso è iscritto all'Albo italiano;
+              per il rimborso LAMal servono terapeuti riconosciuti in Svizzera (PsiReg).
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Cross-link SEO: paesi della stessa area (maglia interna verso le altre destinazioni) */}
       <section className="container section section-deep">
