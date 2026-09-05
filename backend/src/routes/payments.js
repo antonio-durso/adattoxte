@@ -229,6 +229,13 @@ router.post('/capture', authRequired, requireRole('patient'), async (req, res) =
       .get(bookingId, req.user.id);
     if (!booking) return res.status(404).json({ error: 'Prenotazione non trovata' });
     if (booking.paid) return res.json({ paid: true, alreadyPaid: true, bookingId: booking.id });
+    // Guardia anti-race con l'auto-annullo: una prenotazione già annullata
+    // per mancato pagamento non può essere pagata (nessun addebito PayPal).
+    if (booking.status === 'cancelled') {
+      return res
+        .status(409)
+        .json({ error: 'Prenotazione annullata per mancato pagamento. Effettua una nuova prenotazione.' });
+    }
 
     // Regola d'oro: si marca pagato SOLO con status COMPLETED (ordine già completato = retry)
     const outcome = captureOutcome(order.status, null);

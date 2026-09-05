@@ -22,6 +22,7 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { initDb } = require('./db');
 const { startReminders } = require('./reminders');
+const { startAutoCancelSweep } = require('./autoCancel');
 
 const app = express();
 // Render sta dietro un proxy: serve per avere req.ip = IP reale del client
@@ -97,6 +98,14 @@ initDb()
         console.error('⚠️  reminders: avvio non riuscito:', e.message);
       }
     });
+
+    // Auto-annullo prenotazioni non pagate: subito all'avvio (copre il cold
+    // start di Render) e poi ogni 5 minuti mentre il processo è attivo.
+    try {
+      startAutoCancelSweep();
+    } catch (e) {
+      console.error('⚠️  auto-cancel: avvio non riuscito:', e.message);
+    }
   })
   .catch((err) => {
     console.error('Errore inizializzazione database:', err);
