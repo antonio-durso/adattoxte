@@ -3,7 +3,7 @@
 // asset statici cache-first. Le chiamate API (backend) non vengono mai cacheate.
 // IMPORTANTE: a ogni deploy con modifiche visibili alla home, incrementare la versione
 // (v1 -> v2 -> ...) per forzare l'aggiornamento della shell su tutti i dispositivi.
-const CACHE = 'adt-cache-v2';
+const CACHE = 'adt-cache-v3';
 
 self.addEventListener('install', (e) => {
   self.skipWaiting();
