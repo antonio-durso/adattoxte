@@ -19,6 +19,9 @@ export default function PaeseLanding() {
   const capitale = capitaleSlug ? paese.capitale : null;
   const isCapitale = !!(capitale && capitale.slug === capitaleSlug);
   const eff = isCapitale ? capitale : paese;
+  // Listino paese: per la Svizzera i prezzi sono esposti in CHF (pagamento in EUR, equivalente fisso).
+  const isCH = paese.slug === 'svizzera';
+  const seduteTxt = isCH ? 'sedute da CHF 130' : 'sedute da 45€';
 
   // Elenco città principali per il paese (campo opzionale `citta` in paesi.js).
   // Alimenta la sezione "da ogni città" e la FAQ dedicata (solo vista paese, non capitale).
@@ -31,8 +34,8 @@ export default function PaeseLanding() {
     ? `Psicologo online per italiani a ${nome}`
     : `Psicologo online per italiani in ${nome}`;
   const desc = isCapitale
-    ? `Psicologo online per italiani a ${nome} (${paese.nome}): sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, sedute da 45€.`
-    : `Psicologo online per italiani in ${nome}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, sedute da 45€, terapeuti qualificati.`;
+    ? `Psicologo online per italiani a ${nome} (${paese.nome}): sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}.`
+    : `Psicologo online per italiani in ${nome}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}, terapeuti qualificati.`;
   const path = isCapitale ? `/italiani-all-estero/${paese.slug}/${capitale.slug}` : `/italiani-all-estero/${paese.slug}`;
 
   const faqs = [
@@ -50,7 +53,9 @@ export default function PaeseLanding() {
     },
     {
       q: 'Quanto costa una seduta?',
-      a: '45€ la seduta individuale (50 minuti), 50€ quella di coppia, prima seduta conoscitiva gratuita e pacchetto 3 sedute con il 15% di sconto.',
+      a: isCH
+        ? 'CHF 130 la seduta individuale (50 minuti), CHF 145 quella di coppia, prima seduta conoscitiva gratuita e pacchetto 3 sedute con il 15% di sconto. Il pagamento avviene online in EUR all\'equivalente fisso (CHF 130 = 138 €).'
+        : '45€ la seduta individuale (50 minuti), 50€ quella di coppia, prima seduta conoscitiva gratuita e pacchetto 3 sedute con il 15% di sconto.',
     },
     ...(!isCapitale && cittaPrincipali.length > 0
       ? [
@@ -66,11 +71,36 @@ export default function PaeseLanding() {
       ? [
           {
             q: 'La seduta è rimborsata dalla cassa malati (LAMal)?',
-            a: 'No, se scegli il percorso diretto: paghi la seduta privatamente (45€), senza prescrizione e senza diagnosi nel dossier assicurativo. Se hai una prescrizione LAMal per psicoterapia con terapeuti PsiReg, il rimborso avviene solo tramite terapeuti riconosciuti in Svizzera. Puoi sempre parlarne con noi prima di iniziare.',
+            a: 'No, se scegli il percorso diretto: paghi la seduta privatamente (CHF 130), senza prescrizione e senza diagnosi nel dossier assicurativo. Se hai una prescrizione LAMal per psicoterapia con terapeuti PsiReg, il rimborso avviene solo tramite terapeuti riconosciuti in Svizzera. Puoi sempre parlarne con noi prima di iniziare.',
           },
         ]
       : []),
   ];
+
+  // Schema.org Offer: valuta e prezzi coerenti con il listino del paese mostrato
+  const offerAgg = isCH
+    ? {
+        '@type': 'AggregateOffer',
+        lowPrice: '110',
+        highPrice: '145',
+        priceCurrency: 'CHF',
+        offers: [
+          { '@type': 'Offer', name: 'Seduta individuale 50 minuti', price: '130', priceCurrency: 'CHF' },
+          { '@type': 'Offer', name: 'Terapia di coppia 50 minuti', price: '145', priceCurrency: 'CHF' },
+          { '@type': 'Offer', name: 'Prima seduta conoscitiva', price: '0', priceCurrency: 'CHF' },
+        ],
+      }
+    : {
+        '@type': 'AggregateOffer',
+        lowPrice: '38.25',
+        highPrice: '50',
+        priceCurrency: 'EUR',
+        offers: [
+          { '@type': 'Offer', name: 'Seduta individuale 50 minuti', price: '45', priceCurrency: 'EUR' },
+          { '@type': 'Offer', name: 'Terapia di coppia 50 minuti', price: '50', priceCurrency: 'EUR' },
+          { '@type': 'Offer', name: 'Prima seduta conoscitiva', price: '0', priceCurrency: 'EUR' },
+        ],
+      };
 
   return (
     <>
@@ -87,17 +117,7 @@ export default function PaeseLanding() {
             provider: { '@id': `${BASE}/#organization` },
             areaServed: isCapitale ? nome : paese.nome,
             inLanguage: 'it',
-            offers: {
-              '@type': 'AggregateOffer',
-              lowPrice: '38.25',
-              highPrice: '50',
-              priceCurrency: 'EUR',
-              offers: [
-                { '@type': 'Offer', name: 'Seduta individuale 50 minuti', price: '45', priceCurrency: 'EUR' },
-                { '@type': 'Offer', name: 'Terapia di coppia 50 minuti', price: '50', priceCurrency: 'EUR' },
-                { '@type': 'Offer', name: 'Prima seduta conoscitiva', price: '0', priceCurrency: 'EUR' },
-              ],
-            },
+            offers: offerAgg,
           },
           {
             '@context': 'https://schema.org',
@@ -123,7 +143,7 @@ export default function PaeseLanding() {
           </p>
           <h1>{isCapitale ? `Psicologo online per italiani a ${nome}` : `Psicologo online per italiani in ${paese.nome}`}</h1>
           <p className="lead">
-            {paese.comunita}. Sedute in videochiamata in italiano da qualsiasi città del {paese.nome}, {paese.fuso}. Prima seduta conoscitiva gratuita, sedute da 45€.
+            {paese.comunita}. Sedute in videochiamata in italiano da qualsiasi città del {paese.nome}, {paese.fuso}. Prima seduta conoscitiva gratuita, {seduteTxt}.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 20 }}>
             <Link to="/terapeuti" className="btn btn-primary">Scegli il tuo terapeuta</Link>
@@ -169,7 +189,7 @@ export default function PaeseLanding() {
               orario dell'Italia ({paese.fuso}).
             </p>
             <p>
-              La prima seduta conoscitiva è gratuita, le sedute da 50 minuti costano 45€ e, se ti sposti
+              La prima seduta conoscitiva è gratuita, le sedute da 50 minuti costano {isCH ? 'CHF 130' : '45€'} e, se ti sposti
               per lavoro o per un trasferimento tra città del {paese.nome},
               il tuo percorso ti segue senza interruzioni.
             </p>
@@ -211,7 +231,7 @@ export default function PaeseLanding() {
                 <h3 style={{ margin: '0 0 6px', fontSize: 15.5 }}>Percorso diretto con Adatto x Te (senza prescrizione)</h3>
                 <p className="muted" style={{ margin: 0, fontSize: 14.5 }}>
                   Inizi subito, senza passare dal medico · nessuna diagnosi nel dossier sanitario o assicurativo ·
-                  costi chiari: 45€ a seduta individuale, prima seduta gratuita · paghi direttamente, in piena riservatezza.
+                  costi chiari: CHF 130 a seduta individuale (paghi in EUR all'equivalente fisso), prima seduta gratuita · paghi direttamente, in piena riservatezza.
                 </p>
               </div>
             </div>

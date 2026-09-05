@@ -43,7 +43,7 @@ const PRICES = [
 ];
 
 const FAQS = [
-  ['La prima seduta è davvero gratuita?', 'Sì: la prima seduta individuale è gratuita e dura 15 minuti — un colloquio conoscitivo per capire se il terapeuta fa per te. Se poi vuoi continuare, paghi solo le sedute successive (45€ individuale, 50€ di coppia).'],
+  ['La prima seduta è davvero gratuita?', 'Sì: la prima seduta individuale è gratuita e dura 15 minuti — un colloquio conoscitivo per capire se il terapeuta fa per te. Se poi vuoi continuare, paghi solo le sedute successive (45€ individuale, 50€ di coppia; per chi risiede in Svizzera: CHF 130 / CHF 145).'],
   ['Come funziona il pagamento?', 'Il pagamento avviene online, prima della seduta, tramite circuito sicuro (PayPal): puoi pagare con carta di credito o con il tuo account PayPal. I dati della carta non passano mai dai nostri server.'],
   ['Posso cancellare o spostare una seduta?', 'Sì, dalla tua area personale. Le cancellazioni con almeno 24 ore di preavviso vengono rimborsate; oltre tale termine il rimborso è a discrezione del professionista.'],
   ['Dove trovo la ricevuta?', 'Dopo ogni seduta pagata trovi la ricevuta nella tua area personale (pagina Ricevuta), con tutti i dettagli della prenotazione.'],
@@ -75,7 +75,12 @@ export default function Prezzi() {
 
         <div style={{ maxWidth: 760, margin: '0 0 18px', background: '#f0f7fb', border: '1px solid #cfe6f2', borderRadius: 12, padding: '14px 18px' }}>
           <strong>Vivi in Svizzera?</strong>{' '}
-          <span className="muted">Il prezzo è sempre 45€ a seduta, senza prescrizione e senza passare dal medico — nessuna diagnosi nel dossier assicurativo. </span>
+          <span className="muted">
+            Per chi risiede in Svizzera si applica il listino dedicato: <strong>CHF 130</strong> la
+            seduta individuale, <strong>CHF 145</strong> quella di coppia, pacchetto 3 sedute con il
+            15% di sconto. Paghi online in EUR all'equivalente fisso (CHF 130 = 138 €), sempre senza
+            prescrizione e senza passare dal medico — nessuna diagnosi nel dossier assicurativo.{' '}
+          </span>
           <Link to="/italiani-all-estero/svizzera#senza-prescrizione" style={{ color: '#286a8f', fontWeight: 600, whiteSpace: 'nowrap' }}>
             Come funziona per chi vive in Svizzera →
           </Link>

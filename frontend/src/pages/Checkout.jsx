@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import api from '../api';
 import { track } from '../analytics';
+import { chfDisplay } from '../pricing';
 
 /**
  * Pagina di pagamento con popup PayPal (Smart Buttons): il paziente rimane
@@ -126,7 +127,12 @@ export default function Checkout() {
                 {booking.type === 'couple' ? 'Seduta di coppia' : 'Seduta individuale'}
               </strong>{' '}
               · {new Date(booking.date + 'T00:00:00').toLocaleDateString('it-IT')} alle{' '}
-              {booking.startTime} · {success.free ? 'Gratuita' : `${booking.price} €`}
+              {booking.startTime} ·{' '}
+              {success.free
+                ? 'Gratuita'
+                : booking.country === 'CH'
+                  ? `${booking.price} € (≈ CHF ${chfDisplay(Number(booking.price))})`
+                  : `${booking.price} €`}
             </p>
           )}
           <p className="ok-text">
@@ -178,7 +184,10 @@ export default function Checkout() {
           <p className="muted" style={{ marginBottom: 16 }}>
             {booking.type === 'couple' ? 'Seduta di coppia' : 'Seduta individuale'} ·{' '}
             {new Date(booking.date + 'T00:00:00').toLocaleDateString('it-IT')} alle {booking.startTime} ·{' '}
-            <strong>{booking.price} €</strong>
+            <strong>
+              {booking.price} €
+              {booking.country === 'CH' ? ` (≈ CHF ${chfDisplay(Number(booking.price))})` : ''}
+            </strong>
           </p>
         )}
 
@@ -198,6 +207,12 @@ export default function Checkout() {
           account PayPal. I dati della carta non passano mai dai nostri server e i fondi vengono
           accreditati sul conto PayPal della piattaforma.
         </p>
+        {booking?.country === 'CH' && (
+          <p className="muted small" style={{ marginTop: 8 }}>
+            Listino Svizzera: paghi in EUR all'equivalente fisso (CHF 130 = 138 €) — nessuna
+            conversione applicata da PayPal.
+          </p>
+        )}
       </div>
     </div>
   );

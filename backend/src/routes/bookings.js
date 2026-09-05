@@ -37,6 +37,7 @@ publicRouter.post('/cron/reminders', (req, res) => {
   res.json({ ok: true, sent });
 });
 const { authRequired, requireRole } = require('../middleware/auth');
+const { SUPPORTED_COUNTRIES, countryCharge } = require('../pricing');
 
 const router = express.Router();
 router.use(authRequired);
@@ -93,6 +94,7 @@ function bookingView(row) {
     startTime: row.start_time,
     endTime: row.end_time,
     type: row.type,
+    country: row.country || 'IT',
     price: row.price,
     creditUsed: row.credit_used || 0,
     free: row.is_free === 1,
@@ -109,7 +111,7 @@ function bookingView(row) {
 
 // POST /api/bookings - il paziente prenota una seduta (o un pacchetto 3 sedute)
 router.post('/', requireRole('patient'), (req, res) => {
-  const { therapistId, date, startTime, type, packageSessions } = req.body || {};
+  const { therapistId, date, startTime, type, packageSessions, country } = req.body || {};
   if (!therapistId || !date || !startTime) {
     return res.status(400).json({ error: 'terapeuta, data e ora sono obbligatori' });
   }
@@ -117,6 +119,8 @@ router.post('/', requireRole('patient'), (req, res) => {
     return res.status(400).json({ error: 'Tipo seduta non valido (individual o couple)' });
   }
   const pkg = Number(packageSessions) === 3 ? 3 : 1;
+  // Paese di listino: solo valori whitelisted; il prezzo resta calcolato lato server.
+  const pricingCountry = SUPPORTED_COUNTRIES.includes(country) ? country : 'IT';
 
   // Prima seduta individuale gratuita (15 minuti conoscitivi): vale solo per la
   // prima prenotazione del paziente; le sedute successive sono sempre a pagamento.
@@ -150,7 +154,10 @@ router.post('/', requireRole('patient'), (req, res) => {
 
   const profile = db.prepare('SELECT price_individual, price_couple FROM therapist_profiles WHERE user_id = ?').get(therapistId);
   const basePrice = type === 'couple' ? profile.price_couple : profile.price_individual;
-  const packageTotal = pkg === 3 ? Math.round(basePrice * 3 * 0.85) : basePrice; // pacchetto 3 sedute: -15%
+  // Listino paese: per la Svizzera si applica il moltiplicatore (addebito in EUR,
+  // l'equivalente CHF viene mostrato solo in UI). Mai fidarsi di importi dal client.
+  const listPrice = countryCharge(basePrice, pricingCountry, type);
+  const packageTotal = pkg === 3 ? Math.round(listPrice * 3 * 0.85) : listPrice; // pacchetto 3 sedute: -15%
 
   let price;
   let creditUsed = 0;
@@ -170,9 +177,9 @@ router.post('/', requireRole('patient'), (req, res) => {
   const roomName = 'AdattoXTe-' + bookingId.slice(0, 8).toUpperCase();
 
   db.prepare(`
-    INSERT INTO bookings (id, patient_id, therapist_id, availability_id, date, start_time, end_time, type, price, credit_used, is_free, room_name, package_sessions)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-  `).run(bookingId, req.user.id, therapistId, slot.id, date, startTime, endTime, type, price, creditUsed, isFree ? 1 : 0, roomName, pkg);
+    INSERT INTO bookings (id, patient_id, therapist_id, availability_id, date, start_time, end_time, type, country, price, credit_used, is_free, room_name, package_sessions)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(bookingId, req.user.id, therapistId, slot.id, date, startTime, endTime, type, pricingCountry, price, creditUsed, isFree ? 1 : 0, roomName, pkg);
 
   db.prepare('UPDATE availabilities SET booked = 1 WHERE id = ?').run(slot.id);
 

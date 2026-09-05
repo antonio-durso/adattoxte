@@ -45,6 +45,7 @@ export default function Terms() {
       <h2>4. Prenotazioni, prezzi e pagamenti</h2>
       <ul>
         <li>Seduta individuale: 45 € · Seduta di coppia: 50 € (prezzi base, come indicato nella scheda del professionista).</li>
+        <li>Per i residenti in Svizzera si applica il listino dedicato: seduta individuale CHF 130 · seduta di coppia CHF 145 · pacchetto 3 sedute con sconto del 15%. Il pagamento avviene online in EUR all'equivalente fisso (CHF 130 = 138 €).</li>
         <li>Il pagamento avviene online, prima della seduta, tramite circuito sicuro (PayPal).</li>
         <li>Le cancellazioni con almeno <strong>24 ore di preavviso</strong> sono rimborsate; oltre tale termine il rimborso è a discrezione del professionista.</li>
         <li>La ricevuta della seduta è disponibile nell'area personale.</li>

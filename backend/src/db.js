@@ -89,6 +89,7 @@ function initDb() {
       start_time     TEXT NOT NULL,
       end_time       TEXT NOT NULL,
       type           TEXT NOT NULL CHECK (type IN ('individual','couple')),
+      country        TEXT NOT NULL DEFAULT 'IT' CHECK (country IN ('IT','CH')),
       price          INTEGER NOT NULL,
       credit_used    INTEGER NOT NULL DEFAULT 0,
       is_free        INTEGER NOT NULL DEFAULT 0,
@@ -171,6 +172,9 @@ function initDb() {
   }
   if (!bookingCols.includes('is_free')) {
     db.exec('ALTER TABLE bookings ADD COLUMN is_free INTEGER NOT NULL DEFAULT 0');
+  }
+  if (!bookingCols.includes('country')) {
+    db.exec("ALTER TABLE bookings ADD COLUMN country TEXT NOT NULL DEFAULT 'IT'");
   }
 
   // Codici invito per gli utenti esistenti che non ne hanno uno

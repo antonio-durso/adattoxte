@@ -119,6 +119,7 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
       booking: {
         id: booking.id,
         type: booking.type,
+        country: booking.country || 'IT',
         date: booking.date,
         startTime: booking.start_time,
         price: 0,
@@ -180,6 +181,7 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
         id: booking.id,
         price: booking.price,
         type: booking.type,
+        country: booking.country || 'IT',
         date: booking.date,
         startTime: booking.start_time,
       },
