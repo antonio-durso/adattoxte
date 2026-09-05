@@ -37,7 +37,8 @@ publicRouter.post('/cron/reminders', (req, res) => {
   res.json({ ok: true, sent });
 });
 const { authRequired, requireRole } = require('../middleware/auth');
-const { SUPPORTED_COUNTRIES, countryCharge } = require('../pricing');
+const { countryCharge } = require('../pricing');
+const { pricingCountryFromReq } = require('../geo');
 
 const router = express.Router();
 router.use(authRequired);
@@ -111,7 +112,7 @@ function bookingView(row) {
 
 // POST /api/bookings - il paziente prenota una seduta (o un pacchetto 3 sedute)
 router.post('/', requireRole('patient'), (req, res) => {
-  const { therapistId, date, startTime, type, packageSessions, country } = req.body || {};
+  const { therapistId, date, startTime, type, packageSessions } = req.body || {};
   if (!therapistId || !date || !startTime) {
     return res.status(400).json({ error: 'terapeuta, data e ora sono obbligatori' });
   }
@@ -119,8 +120,9 @@ router.post('/', requireRole('patient'), (req, res) => {
     return res.status(400).json({ error: 'Tipo seduta non valido (individual o couple)' });
   }
   const pkg = Number(packageSessions) === 3 ? 3 : 1;
-  // Paese di listino: solo valori whitelisted; il prezzo resta calcolato lato server.
-  const pricingCountry = SUPPORTED_COUNTRIES.includes(country) ? country : 'IT';
+  // Paese di listino BLOCCATO: rilevato dall'IP della richiesta, mai dal client.
+  // Il prezzo è calcolato lato server (countryCharge sotto).
+  const pricingCountry = pricingCountryFromReq(req);
 
   // Prima seduta individuale gratuita (15 minuti conoscitivi): vale solo per la
   // prima prenotazione del paziente; le sedute successive sono sempre a pagamento.

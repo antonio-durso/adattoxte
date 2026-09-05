@@ -4,7 +4,7 @@ import api from '../api';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
 import Seo from '../components/Seo';
-import { eurCharge, chfDisplay, getCountry, saveCountry } from '../pricing';
+import { eurCharge, chfDisplay, tzDefaultCountry } from '../pricing';
 
 function nextDays(count = 7) {
   const days = [];
@@ -38,7 +38,9 @@ export default function TherapistDetail() {
   const [booking, setBooking] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [pkg, setPkg] = useState(1);
-  const [country, setCountry] = useState(getCountry);
+  // Paese di listino: deciso dal SERVER (IP). Fallback visivo dal fuso orario
+  // finché non arriva la risposta di /api/pricing/country. Mai scelto dal paziente.
+  const [country, setCountry] = useState(tzDefaultCountry);
 
   const days = useMemo(nextDays, []);
 
@@ -65,6 +67,21 @@ export default function TherapistDetail() {
       .finally(() => setLoadingSlots(false));
   }, [id, date]);
 
+  // Paese di listino dal server (geolocalizzazione IP): allinea i prezzi mostrati
+  // a quelli che verranno applicati al booking. Il paziente non può cambiarlo.
+  useEffect(() => {
+    let cancelled = false;
+    api
+      .get('/pricing/country')
+      .then((r) => {
+        if (!cancelled) setCountry(r.data && r.data.country === 'CH' ? 'CH' : 'IT');
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const price = therapist ? (type === 'couple' ? therapist.priceCouple : therapist.priceIndividual) : 0;
   const isCH = country === 'CH';
   // Listino per paese: in Svizzera l'addebito (EUR) usa il moltiplicatore dedicato
@@ -74,11 +91,6 @@ export default function TherapistDetail() {
   const fmtPrice = (eur) => (isCH ? `CHF ${chfDisplay(eur)}` : `${eur} €`);
   const fmtFor = (baseEur, typeOf) => (isCH ? `CHF ${chfDisplay(eurCharge(baseEur, 'CH', typeOf))}` : `${baseEur} €`);
   const availableSlots = slots.filter((s) => s.available);
-
-  function changeCountry(c) {
-    setCountry(c);
-    saveCountry(c);
-  }
 
   async function handleBook() {
     if (!user) {
@@ -94,7 +106,7 @@ export default function TherapistDetail() {
     setError('');
     try {
       const startTime = slots.find((s) => s.id === selectedSlot)?.startTime;
-      const r = await api.post('/bookings', { therapistId: id, date, startTime, type, packageSessions: pkg, country });
+      const r = await api.post('/bookings', { therapistId: id, date, startTime, type, packageSessions: pkg });
       const created = r.data.booking;
       // Vai alla pagina di pagamento: il paziente inserisce la carta (PayPal Advanced Card Processing)
       navigate(`/pagamento/${created.id}`);
@@ -159,22 +171,14 @@ export default function TherapistDetail() {
 
           <div className="card booking-card">
             <h2>{t('common.book')} una seduta</h2>
-            <p className="label">Dove vivi?</p>
-            <div className="type-toggle">
-              <button className={country === 'IT' ? 'chip active' : 'chip'} onClick={() => changeCountry('IT')}>
-                🇮🇹 Italia / UE
-              </button>
-              <button className={country === 'CH' ? 'chip active' : 'chip'} onClick={() => changeCountry('CH')}>
-                🇨🇭 Svizzera
-              </button>
-            </div>
             {isCH && (
-              <p className="muted small" style={{ marginTop: 6 }}>
-                Listino Svizzera in CHF: il pagamento PayPal avviene in EUR all'equivalente fisso (CHF 130 = 138 €).
+              <p className="muted small" style={{ margin: '0 0 8px' }}>
+                🇨🇭 Listino Svizzera applicato automaticamente: CHF 130 = 138 € (paghi in EUR
+                all'equivalente fisso).
               </p>
             )}
 
-            <div className="type-toggle" style={{ marginTop: 10 }}>
+            <div className="type-toggle">
               <button className={type === 'individual' ? 'chip active' : 'chip'} onClick={() => setType('individual')}>
                 {t('common.individual')} · {fmtFor(therapist.priceIndividual, 'individual')}
               </button>

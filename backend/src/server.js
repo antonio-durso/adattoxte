@@ -24,6 +24,9 @@ const { initDb } = require('./db');
 const { startReminders } = require('./reminders');
 
 const app = express();
+// Render sta dietro un proxy: serve per avere req.ip = IP reale del client
+// (usato da rate limiting e dalla geolocalizzazione del listino paese).
+app.set('trust proxy', 1);
 
 // Sicurezza header HTTP (CSP, X-Frame-Options, nosniff, ...)
 app.use(helmet());
@@ -61,6 +64,7 @@ app.use('/api/ratings', require('./routes/ratings'));
 app.use('/api/messages', require('./routes/messages'));
 app.use('/api/diary', require('./routes/diary'));
 app.use('/api/payments', require('./routes/payments'));
+app.use('/api/pricing', require('./routes/pricing'));
 app.use('/api/referral', require('./routes/referral'));
 app.use('/api/admin', require('./routes/admin'));
 
