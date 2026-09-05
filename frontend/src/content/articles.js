@@ -55,6 +55,12 @@ export const articles = [
   (a, b) => (a.date < b.date ? 1 : -1)
 );
 
+// Articoli 'in attesa': restano nel codice con URL vivo ma sono nascosti ai
+// visitatori (elenchi) e ai motori (noindex + fuori sitemap) finché non verranno
+// riattivati rimuovendo lo slug da questo set (es. quando ci saranno terapeuti anglofoni).
+export const HIDDEN_ARTICLE_SLUGS = new Set(['psicologo-online-in-inglese']);
+export const visibleArticles = articles.filter((a) => !HIDDEN_ARTICLE_SLUGS.has(a.slug));
+
 export const getArticle = (slug) => articles.find((a) => a.slug === slug) || null;
 
 export const totalArticles = articles.length;

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { articles, totalArticles } from '../content/articles';
+import { visibleArticles as articles } from '../content/articles';
 import Seo from '../components/Seo';
 import { useI18n } from '../i18n';
 
@@ -86,7 +86,7 @@ export default function BlogList() {
       />
       <h1>{L.title}</h1>
       <p className="muted">
-        {L.desc} {totalArticles} {lang === 'it' ? 'articoli disponibili.' : 'articles available.'}
+        {L.desc} {articles.length} {lang === 'it' ? 'articoli disponibili.' : 'articles available.'}
       </p>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, margin: '16px 0' }}>

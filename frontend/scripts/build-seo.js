@@ -112,6 +112,7 @@ function buildSitemap() {
     }
   }
   for (const a of readArticles()) {
+    if (a.slug === 'psicologo-online-in-inglese') continue; // articolo 'in attesa': nascosto finche' non riattivato
     // TUTTI gli articoli entrano subito in sitemap (scelta operativa del founder,
     // anche quelli con data futura: il contenuto è già pubblicato sul blog).
     // lastmod = data dell'articolo se già passata, altrimenti oggi (mai date future).

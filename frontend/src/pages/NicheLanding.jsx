@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { articles } from '../content/articles';
+import { visibleArticles as articles } from '../content/articles';;
 import Seo from '../components/Seo';
 import { useI18n } from '../i18n';
 

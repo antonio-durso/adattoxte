@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { getArticle, articles } from '../content/articles';
+import { getArticle, visibleArticles as articles, HIDDEN_ARTICLE_SLUGS } from '../content/articles';
 import { citta, CITTA_TOP } from '../content/citta';
 import { paesi } from '../content/paesi';
 import Seo from '../components/Seo';
@@ -176,7 +176,7 @@ export default function BlogArticle() {
 
   return (
     <div className="container section">
-      <Seo
+      <Seo noindex={HIDDEN_ARTICLE_SLUGS.has(article.slug)}
         title={article.title}
         description={article.metaDescription}
         path={`/blog/${article.slug}`}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { articles, totalArticles } from '../content/articles';
+import { visibleArticles as articles, totalArticles } from '../content/articles';;
 import Reveal from './Reveal';
 
 // Anteprima blog in home — importata in lazy (il contenuto dei 69 articoli
