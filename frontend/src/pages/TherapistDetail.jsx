@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams, Link } from 'react-router-dom';
 import api from '../api';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
@@ -26,6 +26,12 @@ export default function TherapistDetail() {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { t } = useI18n();
+  const [searchParams] = useSearchParams();
+
+  // ANTEPRIMA RISERVATA (solo admin): /terapeuti/:id?preview=CH mostra il listino
+  // svizzero da qualsiasi paese — SOLO visualizzazione: l'addebito reale segue
+  // sempre il paese dell'IP al booking (il backend ignora il parametro).
+  const isAdminPreview = !!(user && user.role === 'admin' && searchParams.get('preview') === 'CH');
 
   const [therapist, setTherapist] = useState(null);
   const [slots, setSlots] = useState([]);
@@ -41,7 +47,7 @@ export default function TherapistDetail() {
   const [pkg, setPkg] = useState(1);
   // Paese di listino: deciso dal SERVER (IP). Fallback visivo dal fuso orario
   // finché non arriva la risposta di /api/pricing/country. Mai scelto dal paziente.
-  const [country, setCountry] = useState(tzDefaultCountry);
+  const [country, setCountry] = useState(isAdminPreview ? 'CH' : tzDefaultCountry);
 
   const days = useMemo(nextDays, []);
 
@@ -79,6 +85,7 @@ export default function TherapistDetail() {
   // Paese di listino dal server (geolocalizzazione IP): allinea i prezzi mostrati
   // a quelli che verranno applicati al booking. Il paziente non può cambiarlo.
   useEffect(() => {
+    if (isAdminPreview) return; // anteprima riservata admin: niente override dall'IP
     let cancelled = false;
     api
       .get('/pricing/country')
@@ -89,7 +96,7 @@ export default function TherapistDetail() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [isAdminPreview]);
 
   const price = therapist ? (type === 'couple' ? therapist.priceCouple : therapist.priceIndividual) : 0;
   const isCH = country === 'CH';
@@ -198,6 +205,13 @@ export default function TherapistDetail() {
               <p className="muted small" style={{ margin: '0 0 8px' }}>
                 🇨🇭 Listino Svizzera applicato automaticamente: CHF 130 = 138 € (paghi in EUR
                 all'equivalente fisso).
+                {isAdminPreview && (
+                  <>
+                    <br />
+                    Anteprima riservata (solo visualizzazione): l'addebito reale segue il paese
+                    dell'IP al momento del pagamento.
+                  </>
+                )}
               </p>
             )}
 
