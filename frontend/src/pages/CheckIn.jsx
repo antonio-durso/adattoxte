@@ -61,6 +61,24 @@ const SCALE = {
   en: ['Never', 'Several days', 'More than half the days', 'Nearly every day'],
 };
 
+// FAQ sul test: visibili in pagina e replicate nello schema FAQPage (i testi devono coincidere)
+const TEST_FAQS = {
+  it: [
+    { q: 'Cos\'è il test di benessere di Adatto x Te?', a: 'È un test gratuito basato sulle scale cliniche GAD-7 (ansia, 7 domande) e PHQ-9 (umore, 9 domande), pensato per darti un orientamento rapido sul tuo stato emotivo.' },
+    { q: 'Quanto tempo richiede il test?', a: 'Pochi minuti: si risponde con quale frequenza, nelle ultime 2 settimane, si sono vissuti i sintomi descritti. Il risultato è immediato.' },
+    { q: 'Il risultato del test è una diagnosi?', a: 'No. Il test è uno strumento di consapevolezza e orientamento: non è una diagnosi medica e non sostituisce una valutazione professionale. In caso di emergenza in Italia chiama il 112 o il 1522.' },
+    { q: 'Cosa succede dopo aver completato il test?', a: 'Ricevi un punteggio e un livello del tuo stato emotivo, con il suggerimento del terapeuta più adatto. Se vuoi, puoi prenotare una videochiamata con uno psicologo iscritto all\'albo: la prima seduta è gratuita (15 minuti), le successive a 45€.' },
+    { q: 'I dati del test sono al sicuro?', a: 'Prima di vedere il risultato ti viene chiesto il consenso al trattamento dei dati relativi alla salute (art. 9 GDPR). Puoi ricevere il risultato via email solo con un consenso esplicito e separato.' },
+  ],
+  en: [
+    { q: 'What is the Adatto x Te wellbeing test?', a: 'It is a free test based on the clinical GAD-7 (anxiety, 7 questions) and PHQ-9 (mood, 9 questions) scales, designed to give you a quick guide to your emotional state.' },
+    { q: 'How long does the test take?', a: 'A few minutes: you answer how often, over the last 2 weeks, you have experienced the symptoms described. The result is immediate.' },
+    { q: 'Is the test result a diagnosis?', a: 'No. The test is a self-awareness and orientation tool: it is not a medical diagnosis and does not replace a professional evaluation. In an emergency in Italy call 112 or 1522.' },
+    { q: 'What happens after completing the test?', a: 'You get a score and a level of your emotional state, with the most suitable therapist match. If you want, you can book a video session with a licensed psychologist: the first session is free (15 minutes), the following ones cost €45.' },
+    { q: 'Is my test data safe?', a: 'Before seeing your result you are asked for consent to the processing of health-related data (Art. 9 GDPR). You can receive the result by email only with explicit, separate consent.' },
+  ],
+};
+
 function interpret(test, score, lang) {
   const en = lang !== 'it';
   if (test === 'ansia') {
@@ -97,7 +115,7 @@ export default function CheckIn() {
   const L =
     lang === 'it'
       ? {
-          title: '🧠 Test di benessere gratuito',
+          title: 'Test di benessere gratuito',
           sub: 'Rispondi con sincerità a 7-9 domande e ricevi subito un orientamento sul tuo stato emotivo. Come nelle grandi piattaforme internazionali. Il test non è una diagnosi: è uno strumento di consapevolezza.',
           ansiaChip: "😰 Test sull'ansia (7 domande)",
           umoreChip: "🌧️ Test sull'umore (9 domande)",
@@ -128,7 +146,7 @@ export default function CheckIn() {
           sourcesIntro: 'I test si basano sulle scale cliniche internazionali GAD-7 e PHQ-9, validate dalla ricerca:',
         }
       : {
-          title: '🧠 Free wellbeing test',
+          title: 'Free wellbeing test',
           sub: 'Answer 7-9 questions honestly and get an immediate guide to your emotional state. Like the biggest international platforms. The test is not a diagnosis: it is a self-awareness tool.',
           ansiaChip: '😰 Anxiety test (7 questions)',
           umoreChip: '🌧️ Mood test (9 questions)',
@@ -159,14 +177,26 @@ export default function CheckIn() {
           sourcesIntro: 'The tests are based on the international clinical scales GAD-7 and PHQ-9, validated by research:',
         };
 
+  const faqs = TEST_FAQS[lang] || TEST_FAQS.it;
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
   return (
     <div className="container section" style={{ maxWidth: 680, margin: '0 auto' }}>
       <Seo
         title="Test ansia GAD-7 e umore PHQ-9 gratuiti"
         description="Test di benessere gratuiti basati sulle scale cliniche GAD-7 e PHQ-9: risultato immediato e suggerimento del terapeuta giusto per te. Non è una diagnosi."
         path="/test"
-        jsonLd={{
-          '@context': 'https://schema.org',
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
           '@type': 'MedicalWebPage',
           name: 'Test ansia GAD-7 e umore PHQ-9',
           description: 'Test di screening gratuiti per ansia (GAD-7) e umore (PHQ-9) con risultato immediato e suggerimento terapeuta.',
@@ -184,10 +214,30 @@ export default function CheckIn() {
           },
           isPartOf: { '@type': 'WebSite', name: 'Adatto x Te', url: 'https://www.adattoxte.com' },
           mainEntityOfPage: 'https://www.adattoxte.com/test',
-        }}
+          },
+          faqJsonLd,
+        ]}
       />
       <h1>{L.title}</h1>
       <p className="muted" dangerouslySetInnerHTML={{ __html: L.sub.replace('Il test non è una diagnosi', '<strong>Il test non è una diagnosi</strong>').replace('The test is not a diagnosis', '<strong>The test is not a diagnosis</strong>') }} />
+
+      {/* Intro strutturata: cosa misura il test (contenuto statico, visibile anche ai bot senza JS) */}
+      <h2 style={{ fontSize: 19, margin: '22px 0 6px' }}>{lang === 'it' ? 'Come funziona il test' : 'How the test works'}</h2>
+      <ul className="muted" style={{ paddingLeft: 20, lineHeight: 1.8, marginTop: 0 }}>
+        {lang === 'it' ? (
+          <>
+            <li>Due scale cliniche validate e gratuite: <strong>GAD-7</strong> per l'ansia (7 domande) e <strong>PHQ-9</strong> per l'umore (9 domande), le stesse usate dai professionisti della salute mentale.</li>
+            <li>Risultato immediato: punteggio, livello del tuo stato emotivo e suggerimento del terapeuta più adatto.</li>
+            <li>Uno strumento di consapevolezza, <strong>non una diagnosi</strong>: in caso di dubbi o malessere, parla con un professionista (la prima seduta è gratuita, 15 minuti).</li>
+          </>
+        ) : (
+          <>
+            <li>Two free, validated clinical scales: <strong>GAD-7</strong> for anxiety (7 questions) and <strong>PHQ-9</strong> for mood (9 questions) — the same tools used by mental health professionals.</li>
+            <li>Immediate result: score, level of your emotional state and the best therapist match for you.</li>
+            <li>A self-awareness tool, <strong>not a diagnosis</strong>: if in doubt or distress, talk to a professional (the first session is free, 15 minutes).</li>
+          </>
+        )}
+      </ul>
 
       {!done && (
         <div className="type-toggle" style={{ margin: '18px 0' }}>
@@ -335,6 +385,19 @@ export default function CheckIn() {
           </p>
         </>
       )}
+
+      {/* FAQ sul test: blocco visibile, testi identici allo schema FAQPage */}
+      <section id="faq-test" style={{ marginTop: 26 }}>
+        <h2 style={{ fontSize: 19, margin: '0 0 10px' }}>{lang === 'it' ? 'Domande frequenti sul test' : 'Frequently asked questions about the test'}</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {faqs.map((f) => (
+            <details key={f.q} className="card" style={{ padding: '12px 16px' }}>
+              <summary style={{ fontWeight: 600, cursor: 'pointer' }}>{f.q}</summary>
+              <p className="muted" style={{ margin: '8px 0 0' }}>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
 
       {/* Fonti scientifiche (E-E-A-T: settore YMYL salute) */}
       <div className="card" style={{ padding: 18, marginTop: 22, background: '#f8fafc' }}>
