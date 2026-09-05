@@ -14,6 +14,16 @@ const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const { db, initDb } = require('./db');
 
+// ID STABILI per gli account demo: su Render free il DB si azzera a ogni deploy
+// (nessun disco persistente) e il seed rigenera gli utenti. Derivando l'ID
+// dall'email (SHA-1 -> UUID v4-like), gli ID NON cambiano tra un deploy e
+// l'altro: i link pubblici /terapeuti/:id restano validi e niente "errore"
+// su card/pagine salvate prima di un redeploy.
+function stableId(seed) {
+  const h = crypto.createHash('sha1').update('adattoxte-demo:' + seed).digest('hex');
+  return `${h.slice(0, 8)}-${h.slice(8, 12)}-4${h.slice(13, 16)}-a${h.slice(17, 20)}-${h.slice(20, 32)}`;
+}
+
 const THERAPISTS = [
   {
     name: 'Dott.ssa Elena Bianchi',
@@ -284,13 +294,13 @@ function run() {
     };
 
     // Admin
-    const adminId = crypto.randomUUID();
+    const adminId = stableId('admin@adattoxte.it');
     const adminPw = process.env.SEED_ADMIN_PASSWORD || demoPw('admin', 'Admin123!');
     if (process.env.SEED_ADMIN_PASSWORD) console.log(`[SEED] admin: password da variabile d'ambiente SEED_ADMIN_PASSWORD`);
     insertUser.run(adminId, 'Amministratore Adatto x Te', 'admin@adattoxte.it', hash(adminPw), 'admin', '', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
 
     // Paziente demo
-    const patientId = crypto.randomUUID();
+    const patientId = stableId('antonio@adattoxte.it');
     insertUser.run(patientId, 'Antonio Demo', 'antonio@adattoxte.it', hash(demoPw('paziente demo', 'Demo1234!')), 'patient', 'Utente di prova per testare la piattaforma.', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
 
     // Terapeuti fittizi + recensioni demo: SOLO con dati demo abilitati
@@ -300,7 +310,7 @@ function run() {
       for (const t of THERAPISTS) {
         let id = db.prepare('SELECT id FROM users WHERE email = ?').get(t.email)?.id;
         if (!id) {
-          id = crypto.randomUUID();
+          id = stableId(t.email); // ID stabile tra i deploy (link /terapeuti/:id validi)
           insertUser.run(id, t.name, t.email, hash(demoPw(t.email, t.password)), 'therapist', t.bio, new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
         }
         insertProfile.run(id, JSON.stringify(t.specialties), t.license, t.experienceYears, JSON.stringify(t.languages), '', t.verified ? 1 : 0);

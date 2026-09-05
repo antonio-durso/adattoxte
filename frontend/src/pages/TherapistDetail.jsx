@@ -35,6 +35,7 @@ export default function TherapistDetail() {
   const [loading, setLoading] = useState(true);
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [error, setError] = useState('');
+  const [notFound, setNotFound] = useState(false);
   const [booking, setBooking] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [pkg, setPkg] = useState(1);
@@ -48,7 +49,15 @@ export default function TherapistDetail() {
     api
       .get(`/therapists/${id}`)
       .then((r) => setTherapist(r.data.therapist))
-      .catch(() => setError(t('common.error')))
+      .catch((e) => {
+        // 404 = terapeuta non più in catalogo (es. link datato prima di un
+        // deploy che ha rigenerato il DB): messaggio dedicato con ritorno.
+        if (e.response && e.response.status === 404) {
+          setNotFound(true);
+        } else {
+          setError(t('common.error'));
+        }
+      })
       .finally(() => setLoading(false));
     api
       .get(`/ratings/therapist/${id}`)
@@ -118,6 +127,20 @@ export default function TherapistDetail() {
   }
 
   if (loading) return <div className="container section"><p className="muted">{t('common.loading')}</p></div>;
+  if (notFound) {
+    return (
+      <div className="container section" style={{ textAlign: 'center', padding: '60px 20px' }}>
+        <h1>Terapeuta non trovato</h1>
+        <p className="muted" style={{ maxWidth: 480, margin: '0 auto 20px' }}>
+          Questo profilo non è più nel catalogo (l'elenco è stato aggiornato di recente).
+          Scegli un altro professionista: la prima seduta conoscitiva è sempre gratuita.
+        </p>
+        <Link to="/terapeuti" className="btn btn-primary">
+          ← Torna all'elenco terapeuti
+        </Link>
+      </div>
+    );
+  }
   if (!therapist) return <div className="container section"><p className="error-text">{error || 'Terapeuta non trovato'}</p></div>;
 
   return (
