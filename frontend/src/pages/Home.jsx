@@ -52,7 +52,7 @@ const STEPS = [
 const STATS = [
   { value: 5, suffix: '', label: 'Specializzazioni dedicate' },
   { value: 50, suffix: ' min', label: 'Per ogni seduta' },
-  { value: 45, prefix: '€', suffix: '', label: 'A partire da una seduta' },
+  { value: 45, prefix: '€', suffix: '', label: 'Seduta base · Italia/UE*' },
   { value: 100, suffix: '%', label: 'Online, da dove vuoi' },
 ];
 
@@ -113,8 +113,8 @@ export default function Home() {
       <Seo
         title={lang === 'en' ? 'Online psychologist from €45 – Video therapy' : 'Psicologo online da 45€ – Terapia in videochiamata'}
         description={lang === 'en'
-          ? 'Qualified psychologists and psychotherapists online: free first session, 50-minute sessions from €45 (couples €50). Choose your therapist and start today.'
-          : 'Psicologi e psicoterapeuti qualificati online: prima seduta gratuita, sedute da 50 minuti a 45€ (coppia 50€). Scegli il tuo terapeuta e inizia oggi.'}
+          ? 'Qualified psychologists online: free first session, 50-minute sessions from €45 for Italy/EU — prices vary by country of residence (Switzerland: CHF 130/145). Choose your therapist and start today.'
+          : 'Psicologi qualificati online: prima seduta gratuita, sedute da 50 minuti da 45€ per Italia/UE — i prezzi variano in base al paese di residenza (Svizzera: CHF 130/145). Scegli il tuo terapeuta e inizia oggi.'}
         path="/"
         image="https://www.adattoxte.com/images/hero.jpg"
         jsonLd={{
@@ -217,6 +217,11 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+          <p className="muted small" style={{ margin: '10px auto 0', maxWidth: 620, textAlign: 'center' }}>
+            {lang === 'en'
+              ? '*Base price for Italy/EU (EUR). Prices vary by country of residence — Switzerland: CHF 130 / CHF 145.'
+              : '*Prezzo base per Italia/UE (EUR). I prezzi variano in base al paese di residenza — Svizzera: CHF 130 / CHF 145.'}
+          </p>
           <HeroComic />
         </div>
       </section>
