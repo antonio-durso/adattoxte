@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 import Reveal from '../components/Reveal';
@@ -56,35 +56,6 @@ const STATS = [
   { value: 100, suffix: '%', label: 'Online, da dove vuoi' },
 ];
 
-const FAQS = [
-  {
-    q: 'Come funziona una seduta online?',
-    a: 'Prenoti giorno e ora dal profilo del terapeuta, paghi online e al momento della seduta clicchi su “Entra nella videochiamata”: la sala video si apre nel browser, senza scaricare nulla.',
-  },
-  {
-    q: 'Come scelgo il terapeuta giusto?',
-    a: 'Ogni professionista ha un profilo con specializzazione, esperienza, iscrizione all’albo e lingue parlate. Puoi filtrare per area (sport, concorsi, giuridica, coppia, ansia) e scrivergli prima di prenotare.',
-  },
-  {
-    q: 'I pagamenti sono sicuri?',
-    a: 'Sì. I pagamenti con carta sono processati in modo sicuro da PayPal: i dati della carta non passano mai dai nostri server e i fondi vengono accreditati sul conto PayPal della piattaforma.',
-  },
-  {
-    q: 'I miei dati sono protetti?',
-    a: 'La piattaforma rispetta il GDPR (Reg. UE 2016/679): password cifrate, consenso esplicito, possibilità di esportare o cancellare i propri dati in qualsiasi momento dalla pagina Impostazioni.',
-  },
-  {
-    q: 'Posso annullare una seduta?',
-    a: 'Sì, dalla tua area personale. Gli annullamenti con almeno 24 ore di preavviso vengono rimborsati; per i casi particolari puoi scrivere direttamente al terapeuta.',
-  },
-  {
-    q: 'Le sedute sono disponibili in altre lingue?',
-    a: 'Sì: la piattaforma è disponibile in italiano e la lingua di lavoro è indicata nel profilo del terapeuta.',
-  },
-];
-
-
-
 function CountUp({ target, prefix = '', suffix = '' }) {
   // Statico: nessuna animazione JS (riduce TBT -> migliore performance Lighthouse)
   return (
@@ -106,7 +77,6 @@ function Deferred({ children }) {
 
 export default function Home() {
   const { t, lang } = useI18n();
-  const [openFaq, setOpenFaq] = useState(0);
 
   return (
     <>
@@ -395,28 +365,6 @@ export default function Home() {
           (la crea davanti alla sezione FAQ e riempie i numeri dal backend) */}
 
       <DeferredBlogPreview />
-
-      <section className="container section" style={{ background: 'var(--bg-soft)', borderRadius: 20 }}>
-        <Reveal>
-          <h2>Domande frequenti</h2>
-          <p className="section-sub">Tutto quello che vuoi sapere prima di iniziare.</p>
-        </Reveal>
-        <div className="faq-list">
-          {FAQS.map((f, i) => (
-            <Reveal key={f.q} delay={i * 60}>
-              <div className={`faq-item ${openFaq === i ? 'open' : ''}`}>
-                <button className="faq-q" onClick={() => setOpenFaq(openFaq === i ? -1 : i)}>
-                  {f.q}
-                  <span className="faq-icon">+</span>
-                </button>
-                <div className="faq-a" style={{ maxHeight: openFaq === i ? 200 : 0 }}>
-                  <div className="faq-a-inner">{f.a}</div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       <Suspense fallback={null}><TestimonialsSlider /></Suspense>
 

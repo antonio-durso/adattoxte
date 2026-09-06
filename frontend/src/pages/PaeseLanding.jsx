@@ -41,6 +41,9 @@ export default function PaeseLanding() {
     'australia': { in: "in Australia", dal: "dall'Australia", di: "dell'Australia" },
     'argentina': { in: "in Argentina", dal: "dall'Argentina", di: "dell'Argentina" },
     'brasile': { in: "in Brasile", dal: "dal Brasile", di: "del Brasile" },
+    'india': { in: "in India", dal: "dall'India", di: "dell'India" },
+    'thailandia': { in: "in Thailandia", dal: "dalla Thailandia", di: "della Thailandia" },
+    'corea-del-sud': { in: "in Corea del Sud", dal: "dalla Corea del Sud", di: "della Corea del Sud" },
     'uruguay': { in: "in Uruguay", dal: "dall'Uruguay", di: "dell'Uruguay" },
     'venezuela': { in: "in Venezuela", dal: "dal Venezuela", di: "del Venezuela" },
     'cile': { in: "in Cile", dal: "dal Cile", di: "del Cile" },
@@ -89,7 +92,7 @@ export default function PaeseLanding() {
       a: `Sì: la videochiamata si apre nel browser e funziona ovunque. I fusi orari non sono un problema (${paese.fuso}): scegli tu lo slot più comodo.`,
     },
     {
-      q: `Posso seguire le sedute in italiano da ${isCapitale ? nome : paese.nome}?`,
+      q: isCapitale ? `Posso seguire le sedute in italiano da ${nome}?` : `Posso seguire le sedute in italiano ${art.dal}?`,
       a: 'Certamente: tutte le sedute si svolgono in italiano con psicologi e psicoterapeuti qualificati, per mantenere il legame con la tua lingua e la tua cultura.',
     },
     {
@@ -157,7 +160,7 @@ export default function PaeseLanding() {
           {
             '@context': 'https://schema.org',
             '@type': 'Service',
-            name: isCapitale ? `Psicologo online per italiani a ${nome}` : `Psicologo online per italiani in ${paese.nome}`,
+            name: isCapitale ? `Psicologo online per italiani a ${nome}` : `Psicologo online per italiani ${art.in}`,
             serviceType: 'Psicologia online',
             provider: { '@id': `${BASE}/#organization` },
             areaServed: isCapitale ? nome : paese.nome,
@@ -184,7 +187,7 @@ export default function PaeseLanding() {
       <section className="hero" style={{ textAlign: 'center', padding: '60px 20px' }}>
         <div className="container" style={{ maxWidth: 780 }}>
           <p className="badge" style={{ display: 'inline-block', background: 'var(--secondary, #eef2ff)', color: 'var(--primary, #4f46e5)', padding: '6px 14px', borderRadius: 999, fontSize: 13, fontWeight: 600 }}>
-            {paese.bandiera} {isCapitale ? `Italiani a ${nome}` : `Italiani in ${paese.nome}`}
+            {paese.bandiera} {isCapitale ? `Italiani a ${nome}` : art.in}
           </p>
           <h1>{isCapitale ? `Psicologo online per italiani a ${nome}` : `Psicologo online per italiani ${art.in}`}</h1>
           <p className="lead">
@@ -198,7 +201,7 @@ export default function PaeseLanding() {
       </section>
 
       <section className="container section">
-        <h2 style={{ textAlign: 'center' }}>Perché uno psicologo online per chi vive {isCapitale ? `a ${nome}` : `in ${paese.nome}`}</h2>
+        <h2 style={{ textAlign: 'center' }}>Perché uno psicologo online per chi vive {isCapitale ? `a ${nome}` : art.in}</h2>
         <div className="cards-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginTop: 24 }}>
           <Reveal delay={0}><div className="card" style={{ height: '100%' }}><div className="card-icon">🗣️</div><h3>In italiano</h3><p>Sedute nella tua lingua con professionisti che conoscono il contesto culturale italiano.</p></div></Reveal>
           <Reveal delay={90}><div className="card" style={{ height: '100%' }}><div className="card-icon">🕒</div><h3>Fusi orari gestiti</h3><p>{paese.fuso}: prenoti quando vuoi, anche sera e weekend, e sposti le sedute se cambi città.</p></div></Reveal>
@@ -225,13 +228,13 @@ export default function PaeseLanding() {
           le ricerche "psicologo italiano online [città]" — dati dal campo `citta` in paesi.js */}
       {!isCapitale && cittaPrincipali.length > 0 && (
         <section className="container section section-deep">
-          <h2 style={{ textAlign: 'center' }}>La terapia in italiano, da qualsiasi città in {paese.nome}</h2>
+          <h2 style={{ textAlign: 'center' }}>La terapia in italiano, da qualsiasi città {art.in}</h2>
           <div style={{ maxWidth: 760, margin: '0 auto' }}>
             <p>
               Che tu sia a {elenca(cittaPrincipali)}
               {cittaAltre.length > 0 ? `, o in un centro più piccolo come ${elenca(cittaAltre)}` : ''}:
-              le sedute si svolgono in videochiamata in italiano, senza spostamenti e nello stesso fuso
-              orario dell'Italia ({paese.fuso}).
+              le sedute si svolgono in videochiamata in italiano, senza spostamenti e senza problemi
+              di fuso orario ({paese.fuso}).
             </p>
             <p>
               La prima seduta conoscitiva è gratuita, le sedute da 50 minuti costano {isCH ? 'CHF 130' : '45€'} e, se ti sposti
@@ -312,7 +315,7 @@ export default function PaeseLanding() {
       </section>
 
       <section className="container section" style={{ textAlign: 'center' }}>
-        <h2>Inizia il tuo percorso da {isCapitale ? nome : paese.nome}</h2>
+        <h2>Inizia il tuo percorso {isCapitale ? `da ${nome}` : art.dal}</h2>
         <p className="muted" style={{ maxWidth: 560, margin: '0 auto 20px' }}>
           {!isCapitale && (
             <>
@@ -324,7 +327,7 @@ export default function PaeseLanding() {
           )}
           {isCapitale && (
             <>
-              Altre città? <Link to={`/italiani-all-estero/${paese.slug}`}>Torna alla pagina per italiani in {paese.nome} →</Link>
+              Altre città? <Link to={`/italiani-all-estero/${paese.slug}`}>Torna alla pagina per italiani {art.in} →</Link>
             </>
           )}
         </p>
