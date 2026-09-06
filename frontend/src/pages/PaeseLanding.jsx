@@ -187,7 +187,7 @@ export default function PaeseLanding() {
       <section className="hero" style={{ textAlign: 'center', padding: '60px 20px' }}>
         <div className="container" style={{ maxWidth: 780 }}>
           <p className="badge" style={{ display: 'inline-block', background: 'var(--secondary, #eef2ff)', color: 'var(--primary, #4f46e5)', padding: '6px 14px', borderRadius: 999, fontSize: 13, fontWeight: 600 }}>
-            {paese.bandiera} {isCapitale ? `Italiani a ${nome}` : art.in}
+            {paese.bandiera} {isCapitale ? `Italiani a ${nome}` : `Italiani ${art.in}`}
           </p>
           <h1>{isCapitale ? `Psicologo online per italiani a ${nome}` : `Psicologo online per italiani ${art.in}`}</h1>
           <p className="lead">
