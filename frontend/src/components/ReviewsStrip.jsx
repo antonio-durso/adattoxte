@@ -37,16 +37,7 @@ export default function ReviewsStrip() {
       >
         <div style={{ fontSize: 42, color: '#f59e0b' }}>★★★★★</div>
         <h2 style={{ margin: '10px 0 4px' }}>
-          {data ? (
-            <>
-              {data.avg} su 5 · {data.total} recensioni{' '}
-              <span className="muted" style={{ fontSize: '0.58em', fontWeight: 400 }}>
-                (valutazioni interne alla piattaforma)
-              </span>
-            </>
-          ) : (
-            'Recensioni verificate'
-          )}
+          {data ? `${data.avg} su 5 · ${data.total} recensioni verificate` : 'Recensioni verificate'}
         </h2>
         <p className="muted" style={{ maxWidth: 520, margin: '0 auto' }}>
           Ogni valutazione arriva da una seduta completata sulla piattaforma. I nostri pazienti raccontano la loro esperienza.
