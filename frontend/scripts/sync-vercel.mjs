@@ -72,7 +72,9 @@ cfg.headers = [...staticHeaders, ...generatedNoindex];
 //    senza file prerenderizzato; le regole "param → __404__" continuano a valere
 //    solo per gli slug realmente inesistenti (l'ordine delle rewrite conta: prima
 //    le corrispondenze esatte, poi i pattern con :param).
-const allowlistRewrites = [
+//    Idempotenza: prima di rigenerare si rimuovono eventuali entry allowlist già
+//    presenti (da esecuzioni/deploy precedenti), così non si accumulano duplicati.
+const allowlistSources = [
   ...articles
     .filter((a) => !HIDDEN_ARTICLE_SLUGS.has(a.slug))
     .map((a) => ({ source: `/blog/${a.slug}`, destination: '/app.html' })),
@@ -86,10 +88,14 @@ const allowlistRewrites = [
     return entries;
   }),
 ];
-cfg.rewrites = [...allowlistRewrites, ...cfg.rewrites];
+const allowSet = new Set(allowlistSources.map((r) => `${r.source}|${r.destination}`));
+cfg.rewrites = [
+  ...allowlistSources,
+  ...cfg.rewrites.filter((r) => !allowSet.has(`${r.source}|${r.destination}`)),
+];
 
 writeFileSync(vercelPath, JSON.stringify(cfg, null, 2) + '\n');
 
 const redTotal = cfg.redirects.length;
 const noindexTotal = generatedNoindex.length;
-console.log(`[sync-vercel] ok: ${redTotal} redirect (${generatedRedirects.length} paesi/capitali generati), ${noindexTotal} header noindex città generati, ${staticHeaders.length} header statici preservati, ${allowlistRewrites.length} rewrite allowlist contenuti generate.`);
+console.log(`[sync-vercel] ok: ${redTotal} redirect (${generatedRedirects.length} paesi/capitali generati), ${noindexTotal} header noindex città generati, ${staticHeaders.length} header statici preservati, ${allowlistSources.length} rewrite allowlist contenuti generate.`);
