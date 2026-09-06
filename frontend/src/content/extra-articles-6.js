@@ -1,7 +1,7 @@
 export const extraArticles6 = [
   {
     slug: 'psicologo-online-all-estero',
-    title: 'Psicologo online all\'estero: come funziona e quando serve',
+    title: 'Psicologo online all’estero: come funziona',
     keyword: 'psicologo online estero',
     metaDescription: 'Vivere all\'estero può essere difficile. Scopri come un supporto psicologico online in italiano può aiutarti a gestire il malessere e l\'adattamento.',
     date: '2026-08-24',
@@ -50,11 +50,11 @@ export const extraArticles6 = [
   },
   {
     slug: 'riposo-e-pausa-mentale',
-    title: 'Riposo e pausa mentale: perché fermarsi rende più produttivi',
+    title: 'Riposo e pausa mentale: perché fermarsi aiuta',
     keyword: 'pausa mentale',
     metaDescription: 'Il riposo non è tempo perso, ma un investimento nella tua salute. Scopri l\'importanza della pausa mentale per il benessere e la produttività.',
     date: '2026-08-24',
-    body: `<h1>Riposo e pausa mentale: perché fermarsi rende più produttivi</h1>
+    body: `<h1>Riposo e pausa mentale: perché fermarsi aiuta</h1>
 <p>Nella società moderna, spesso si cade nell'errore di pensare che essere costantemente occupati sia sinonimo di successo. Tuttavia, la ricerca psicologica dimostra il contrario: il cervello ha bisogno di momenti di pausa mentale per elaborare informazioni, consolidare la memoria e rigenerare le energie creative. Senza un adeguato riposo, la produttività cala drasticamente e il rischio di burnout aumenta.</p>
 
 <h2>Che cos'è davvero la pausa mentale?</h2>
@@ -101,7 +101,7 @@ export const extraArticles6 = [
     slug: 'dipendenza-da-gioco',
     title: 'Dipendenza da gioco: riconoscerla e chiedere aiuto',
     keyword: 'dipendenza da gioco',
-    metaDescription: 'Le dipendenze comportamentali sono un rischio reale. Scopri come identificare i segnali della dipendenza da gioco e internet e come uscirne con il giusto supporto.',
+    metaDescription: 'Le dipendenze comportamentali sono un rischio reale. Scopri come identificare i segnali della dipendenza da gioco e internet e come uscirne con il giusto…',
     date: '2026-08-24',
     body: `<h1>Dipendenza da gioco e internet: riconoscerla e chiedere aiuto</h1>
 <p>Negli ultimi anni, le dipendenze comportamentali legate al gioco d'azzardo online e all'uso eccessivo di internet sono diventate una sfida crescente per la salute mentale. Queste forme di dipendenza, pur non coinvolgendo sostanze, attivano gli stessi circuiti cerebrali del piacere e della ricompensa, portando a una perdita di controllo che può devastare la vita personale, economica e sociale dell'individuo.</p>
@@ -121,11 +121,11 @@ export const extraArticles6 = [
   },
   {
     slug: 'perdita-del-lavoro',
-    title: 'Perdita del lavoro: gestire la crisi e ritrovare energia',
+    title: 'Perdita del lavoro: gestire la crisi',
     keyword: 'perdita del lavoro',
     metaDescription: 'Perdere il lavoro è un trauma. Scopri strategie psicologiche per affrontare il cambiamento, gestire l\'ansia e ripartire con nuove energie e fiducia.',
     date: '2026-08-24',
-    body: `<h1>Perdita del lavoro: gestire la crisi e ritrovare energia</h1>
+    body: `<h1>Perdita del lavoro: gestire la crisi</h1>
 <p>La perdita del lavoro rappresenta molto più di una semplice interruzione del reddito; per molti, è una vera e propria crisi di identità. Il lavoro non è solo un mezzo di sussistenza, ma una fonte di scopo, relazioni sociali e stabilità quotidiana. Affrontare questa transizione richiede tempo, pazienza e una solida strategia psicologica per evitare di cadere nello sconforto cronico.</p>
 
 <h2>Le fasi dell'elaborazione della perdita</h2>

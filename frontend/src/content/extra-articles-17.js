@@ -2,7 +2,7 @@
 export const extraArticles17 = [
   {
     slug: 'quanto-costa-la-terapia-di-coppia',
-    title: 'Quanto costa la terapia di coppia online: prezzi e come funziona',
+    title: 'Quanto costa la terapia di coppia online',
     keyword: 'quanto costa la terapia di coppia',
     metaDescription: 'Quanto costa la terapia di coppia online: 50€ a seduta, pacchetti scontati e prima conoscitiva gratuita. Guida prezzi 2026.',
     date: '2026-08-30',

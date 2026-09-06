@@ -2,7 +2,7 @@
 export const extraArticles22 = [
   {
     slug: 'terapia-di-coppia-quando-uno-non-vuole',
-    title: 'Terapia di coppia quando uno dei due non vuole: come iniziare',
+    title: 'Terapia di coppia quando uno non vuole',
     keyword: 'terapia di coppia quando uno dei due non vuole',
     metaDescription: 'Il tuo partner non vuole la terapia di coppia? Come parlarne senza conflitti, fare il primo passo da soli e capire quando è il momento di insistere.',
     date: '2026-09-01',
@@ -29,7 +29,7 @@ export const extraArticles22 = [
   },
   {
     slug: 'disturbo-bipolare-come-conviverci',
-    title: 'Disturbo bipolare: come conviverci e quando chiedere aiuto',
+    title: 'Disturbo bipolare: come conviverci',
     keyword: 'disturbo bipolare',
     metaDescription: 'Vivere con il disturbo bipolare: sintomi delle fasi, il ruolo di psicologo e psichiatra, come aiutare un familiare e quando chiedere supporto.',
     date: '2026-09-01',
@@ -54,7 +54,7 @@ export const extraArticles22 = [
   },
   {
     slug: 'limiti-digitali-per-figli',
-    title: 'Regole digitali per i figli: la guida pratica per genitori',
+    title: 'Regole digitali per i figli: guida per genitori',
     keyword: 'limiti digitali figli',
     metaDescription: 'Smartphone, social e videogiochi: come fissare regole digitali efficaci per i figli senza litigi. Guida pratica con esempi per età e segnali d\'allarme.',
     date: '2026-09-01',

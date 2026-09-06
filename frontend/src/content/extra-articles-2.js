@@ -1,11 +1,11 @@
 export const extraArticles2 = [
   {
     slug: 'autostima-bassa',
-    title: 'Autostima bassa: come migliorarla e vivere con più fiducia',
+    title: 'Autostima bassa: come migliorarla',
     keyword: 'autostima bassa',
     metaDescription: 'Scopri come migliorare l\'autostima bassa con consigli pratici e il supporto della psicoterapia online per ritrovare fiducia in te stesso ogni giorno.',
     date: '2026-08-24',
-    body: `<h1>Autostima bassa: come migliorarla e vivere con più fiducia</h1>
+    body: `<h1>Autostima bassa: come migliorarla</h1>
 <p>L'autostima non è un tratto immutabile del carattere, ma una percezione di sé che può variare nel tempo. Soffrire di autostima bassa significa spesso sentirsi inadeguati, temere il giudizio altrui e svalutare i propri successi. Tuttavia, è possibile intraprendere un percorso di cambiamento per ritrovare il proprio valore.</p>
 
 <h2>Riconoscere i segnali della scarsa autostima</h2>
@@ -165,11 +165,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'depressione-chiedere-aiuto',
-    title: 'Depressione: come chiedere aiuto e ritrovare la speranza',
+    title: 'Depressione: come chiedere aiuto',
     keyword: 'depressione chiedere aiuto',
     metaDescription: 'La depressione non è una semplice tristezza. Scopri come riconoscere i segnali e l\'importanza di chiedere aiuto a un professionista qualificato.',
     date: '2026-08-24',
-    body: `<h1>Depressione: come chiedere aiuto e ritrovare la speranza</h1>
+    body: `<h1>Depressione: come chiedere aiuto</h1>
 <p>La depressione è molto più di una giornata storta o di una tristezza passeggera. È una condizione clinica che influenza il modo in cui pensi, senti e affronti le attività quotidiane. Spesso chi ne soffre prova un profondo senso di vuoto, perdita di interesse per ogni attività e una stanchezza che non passa con il riposo.</p>
 
 <h2>Riconoscere le maschere della depressione</h2>
@@ -219,11 +219,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'mindfulness',
-    title: 'Mindfulness: cos\'è, benefici e come iniziare a praticarla',
+    title: 'Mindfulness: cos’è e come iniziare',
     keyword: 'mindfulness',
     metaDescription: 'La mindfulness è la chiave per ridurre lo stress e vivere nel presente. Scopri cos\'è, quali sono i benefici e come iniziare a praticarla oggi.',
     date: '2026-08-24',
-    body: `<h1>Mindfulness: cos'è, benefici e come iniziare a praticarla</h1>
+    body: `<h1>Mindfulness: cos’è e come iniziare</h1>
 <p>Negli ultimi anni si sente parlare sempre più spesso di mindfulness, ma di cosa si tratta esattamente? La mindfulness è la pratica di prestare attenzione al momento presente in modo intenzionale e non giudicante. È uno strumento potente per contrastare il pilota automatico con cui spesso affrontiamo le nostre giornate frenetiche.</p>
 
 <h2>I benefici scientificamente provati</h2>

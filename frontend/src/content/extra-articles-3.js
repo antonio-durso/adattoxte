@@ -68,7 +68,7 @@ export const extraArticles3 = [
     slug: "psicologo-adolescenti",
     title: "Psicologo per adolescenti: come funziona",
     keyword: "psicologo adolescenti",
-    metaDescription: "Il supporto psicologico per gli adolescenti: come funziona la terapia per i giovani, il ruolo dei genitori, la privacy e come scegliere lo psicologo giusto.",
+    metaDescription: "Il supporto psicologico per gli adolescenti: come funziona la terapia per i giovani, il ruolo dei genitori, la privacy e come scegliere lo psicologo…",
     date: "2026-08-24",
     body: `<h1>Psicologo per adolescenti: come funziona il supporto</h1>
 <p>L'adolescenza è una fase di grandi trasformazioni fisiche, emotive e sociali. È un periodo delicato in cui possono emergere insicurezze, conflitti con i genitori, difficoltà scolastiche o problemi legati all'identità. Rivolgersi a uno psicologo per adolescenti può offrire ai ragazzi uno spazio neutro e protetto dove esprimere se stessi senza timore di essere giudicati dai familiari o dai coetanei.</p>

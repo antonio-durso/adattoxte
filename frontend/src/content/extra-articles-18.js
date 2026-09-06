@@ -4,7 +4,7 @@ export const extraArticles18 = [
     slug: 'come-si-svolge-una-seduta-di-coppia',
     title: 'Come si svolge una seduta di terapia di coppia',
     keyword: 'seduta terapia di coppia',
-    metaDescription: 'Come funziona una seduta di terapia di coppia: durata, domande, come si lavora in coppia e come prepararsi. Guida pratica per il primo incontro, online o in studio.',
+    metaDescription: 'Come funziona una seduta di terapia di coppia: durata, domande, come si lavora in coppia e come prepararsi. Guida pratica per il primo incontro, online o…',
     date: '2026-08-30',
     body: `<h1>Come si svolge una seduta di terapia di coppia</h1>
 <p>Se state pensando alla terapia di coppia, la prima domanda è quasi sempre: "ma come si svolge una seduta?". È una modalità particolare: non si viene "giudicati" e non serve prepararsi un discorso. Ecco cosa succede, passo dopo passo.</p>

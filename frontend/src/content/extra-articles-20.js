@@ -2,11 +2,11 @@
 export const extraArticles20 = [
   {
     slug: 'disturbo-affettivo-stagionale',
-    title: "Disturbo affettivo stagionale: quando l'autunno pesa sull'umore",
+    title: "Disturbo affettivo stagionale: l’umore in autunno",
     keyword: 'disturbo affettivo stagionale',
     metaDescription: "Con l'autunno cala l'umore, aumenta la stanchezza e il bisogno di dormire? Può essere il disturbo affettivo stagionale: sintomi, cause e come affrontarlo.",
     date: '2026-10-20',
-    body: `<h1>Disturbo affettivo stagionale: quando l'autunno pesa sull'umore</h1>
+    body: `<h1>Disturbo affettivo stagionale: l’umore in autunno</h1>
 <p>Con la fine dell'estate e il calo della luce, molte persone notano un peggioramento dell'umore: stanchezza che non passa, aumento del bisogno di dormire, voglia di carboidrati, meno energia e motivazione. Quando questi cambiamenti si ripetono ogni anno nella stessa stagione, si parla di disturbo affettivo stagionale (SAD).</p>
 <h2>I sintomi tipici</h2>
 <ul>
@@ -32,7 +32,7 @@ export const extraArticles20 = [
     slug: 'come-sostenere-un-familiare-con-ansia',
     title: "Come sostenere un familiare con ansia o depressione",
     keyword: 'come aiutare chi ha ansia e depressione',
-    metaDescription: "Cosa dire e cosa evitare con chi soffre di ansia o depressione: ascolto, validazione, supporto pratico e quando consigliare un percorso con un professionista.",
+    metaDescription: "Cosa dire e cosa evitare con chi soffre di ansia o depressione: ascolto, validazione, supporto pratico e quando consigliare un percorso con un…",
     date: '2026-10-23',
     body: `<h1>Come sostenere un familiare con ansia o depressione</h1>
 <p>Quando una persona cara soffre di ansia o depressione, chi le sta accanto vive spesso un senso di impotenza: si vorrebbe aiutare ma non si trovano le parole, si teme di dire la cosa sbagliata, si fatica a capire cosa serve davvero. Eppure il supporto della famiglia è uno dei fattori più importanti nel percorso di recupero.</p>
@@ -56,11 +56,11 @@ export const extraArticles20 = [
   },
   {
     slug: 'relazione-a-distanza',
-    title: 'Relazione a distanza: quando funziona e quando chiedere aiuto',
+    title: 'Relazione a distanza: quando chiedere aiuto',
     keyword: 'relazione a distanza',
-    metaDescription: "La distanza mette alla prova la coppia: gelosia, comunicazione, progetti. Come far funzionare una relazione a distanza e quando la terapia di coppia online può aiutare.",
+    metaDescription: "La distanza mette alla prova la coppia: gelosia, comunicazione, progetti. Come far funzionare una relazione a distanza e quando la terapia di coppia…",
     date: '2026-10-27',
-    body: `<h1>Relazione a distanza: quando funziona e quando chiedere aiuto</h1>
+    body: `<h1>Relazione a distanza: quando chiedere aiuto</h1>
 <p>Le relazioni a distanza sono sempre più comuni: lavoro, studio o scelte di vita separano temporaneamente molte coppie. Possono funzionare molto bene, ma richiedono abilità di comunicazione e gestione delle emozioni più sviluppate rispetto a una convivenza: la distanza amplifica incomprensioni, gelosie e insicurezze.</p>
 <h2>I fattori che fanno funzionare una relazione a distanza</h2>
 <ul>
@@ -79,7 +79,7 @@ export const extraArticles20 = [
     slug: 'uomini-e-psicologo',
     title: "Uomini e psicologo: perché chiedere aiuto è una forza",
     keyword: 'uomini e psicologo',
-    metaDescription: "Perché gli uomini faticano a iniziare un percorso psicologico, come superare i pregiudizi e quanto può cambiare la vita: la prima seduta gratuita è il primo passo.",
+    metaDescription: "Perché gli uomini faticano a iniziare un percorso psicologico, come superare i pregiudizi e quanto può cambiare la vita: la prima seduta gratuita è il…",
     date: '2026-10-29',
     body: `<h1>Uomini e psicologo: perché chiedere aiuto è una forza</h1>
 <p>Ancora oggi molti uomini vivono il disagio in silenzio. Il messaggio sociale — spesso implicito — è che un uomo debba farcela da solo, gestire le emozioni senza mostrarsi vulnerabile e risolvere i problemi in autonomia. Il risultato è che l'aiuto psicologico arriva tardi, quando il malessere si è già cronicizzato.</p>
@@ -97,11 +97,11 @@ export const extraArticles20 = [
   },
   {
     slug: 'cybercondria-ansia-da-malattia',
-    title: 'Cybercondria: quando la paura di essere malati diventa ossessione',
+    title: 'Cybercondria: la paura di essere malati',
     keyword: 'cybercondria ansia da malattia',
-    metaDescription: "Cercare sintomi online e convincersi di essere gravemente malati: la cybercondria (o ansia da malattia) si supera. Riconoscerla e affrontarla con strategie concrete.",
+    metaDescription: "Cercare sintomi online e convincersi di essere gravemente malati: la cybercondria (o ansia da malattia) si supera. Riconoscerla e affrontarla con…",
     date: '2026-10-30',
-    body: `<h1>Cybercondria: quando la paura di essere malati diventa ossessione</h1>
+    body: `<h1>Cybercondria: la paura di essere malati</h1>
 <p>Un dolore, un fastidio, un sintomo strano: e in pochi minuti si è passati da un mal di testa a scenari inquietanti letti su internet. La ricerca ossessiva di sintomi online — la "cybercondria" — è la forma moderna dell'ansia per la propria salute: più si cerca, più l'ansia cresce, e più l'ansia spinge a cercare. Un circolo che può avvelenare le giornate.</p>
 <h2>Come riconoscerla</h2>
 <ul>

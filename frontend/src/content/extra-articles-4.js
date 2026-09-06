@@ -1,9 +1,9 @@
 export const extraArticles4 = [
   {
     slug: 'gestione-della-rabbia',
-    title: 'Gestione della rabbia: tecniche per riprendere il controllo',
+    title: 'Gestione della rabbia: riprendere il controllo',
     keyword: 'gestione della rabbia',
-    metaDescription: 'Scopri tecniche pratiche per la gestione della rabbia. Impara a riconoscere i segnali e a trasformare questa emozione in energia costruttiva con Adatto x Te.',
+    metaDescription: 'Scopri tecniche pratiche per la gestione della rabbia. Impara a riconoscere i segnali e a trasformare questa emozione in energia costruttiva con Adatto x…',
     date: '2026-08-24',
     body: `<h1>Gestione della rabbia: tecniche pratiche per riprendere il controllo</h1>
 <p>La rabbia è un'emozione primaria, potente e spesso fraintesa. Non è intrinsecamente negativa; è un segnale che il nostro corpo invia quando percepiamo un'ingiustizia, una minaccia o una frustrazione. Tuttavia, quando la gestione della rabbia diventa difficile, questa emozione può danneggiare le relazioni, la carriera e la salute fisica. Imparare a canalizzarla correttamente è fondamentale per il benessere psicologico.</p>
@@ -64,11 +64,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'autostima-lavoro',
-    title: 'Autostima sul lavoro: come costruirla e mantenerla nel tempo',
+    title: 'Autostima sul lavoro: come costruirla',
     keyword: 'autostima lavoro',
     metaDescription: 'Migliora la tua autostima sul lavoro per una carriera più soddisfacente. Scopri i consigli pratici per valorizzare le tue competenze con Adatto x Te.',
     date: '2026-08-24',
-    body: `<h1>Autostima sul lavoro: come costruirla e mantenerla nel tempo</h1>
+    body: `<h1>Autostima sul lavoro: come costruirla</h1>
 <p>L'autostima lavoro è un pilastro fondamentale non solo per il successo professionale, ma per il benessere complessivo dell'individuo. Passiamo gran parte della nostra giornata lavorando, e sentirsi inadeguati o non valorizzati in questo contesto può portare a stress cronico, sindrome dell'impostore e demotivazione. Costruire una solida fiducia nelle proprie capacità professionali è un processo che richiede consapevolezza e pratica.</p>
 <h2>Riconoscere la sindrome dell'impostore</h2>
 <p>Molti professionisti competenti soffrono della "sindrome dell'impostore", la sensazione costante di non meritare i propri successi e il timore di essere "smascherati" come incompetenti. Riconoscere che questa è una distorsione cognitiva è il primo passo. L'autostima lavoro non significa essere infallibili, ma riconoscere oggettivamente i propri punti di forza e le aree di miglioramento.</p>
@@ -85,11 +85,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'maternita-benessere-psicologico',
-    title: 'Maternità e benessere psicologico: affrontare il cambiamento',
+    title: 'Maternità e benessere psicologico',
     keyword: 'maternità benessere psicologico',
     metaDescription: 'La maternità è una fase di grande trasformazione. Scopri come preservare il tuo benessere psicologico durante questo viaggio con i consigli di Adatto x Te.',
     date: '2026-08-24',
-    body: `<h1>Maternità e benessere psicologico: affrontare il cambiamento</h1>
+    body: `<h1>Maternità e benessere psicologico</h1>
 <p>Il viaggio verso la maternità è una delle transizioni più profonde nella vita di una donna. Oltre ai cambiamenti fisici evidenti, avviene una vera e propria ristrutturazione dell'identità. In questo contesto, la maternità e il benessere psicologico sono strettamente legati: prendersi cura della propria mente è tanto importante quanto prendersi cura del neonato.</p>
 <h2>Le sfide emotive del post-parto</h2>
 <p>Dopo il parto, è comune attraversare fasi di fragilità. Il "baby blues", caratterizzato da sbalzi d'umore e pianto facile nei primi giorni, è fisiologico. Tuttavia, quando la tristezza persiste o diventa invalidante, è fondamentale monitorare la situazione per prevenire o gestire la depressione post-partum. La pressione sociale del dover essere una "madre perfetta" può aggravare il senso di inadeguatezza.</p>
@@ -127,11 +127,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'paura-del-futuro',
-    title: 'Paura del futuro: come gestirla e vivere meglio il presente',
+    title: 'Paura del futuro: come gestirla',
     keyword: 'paura del futuro',
     metaDescription: 'L\'incertezza del domani può generare ansia. Impara a gestire la paura del futuro e a ritrovare la calma nel momento presente con Adatto x Te.',
     date: '2026-08-24',
-    body: `<h1>Paura del futuro: come gestirla e vivere meglio il presente</h1>
+    body: `<h1>Paura del futuro: come gestirla</h1>
 <p>Viviamo in un'epoca di rapido cambiamento e incertezza globale, il che rende la paura del futuro un sentimento comune a molte persone. Questa forma di ansia, spesso chiamata "ansia anticipatoria", ci spinge a focalizzarci costantemente su scenari ipotetici negativi, impedendoci di godere appieno della nostra vita attuale e di agire in modo efficace.</p>
 <h2>Perché temiamo ciò che deve ancora accadere</h2>
 <p>La mente umana è programmata per cercare sicurezza e prevedibilità. Quando il futuro appare nebbioso, il nostro cervello tenta di "colmare i vuoti" proiettando preoccupazioni. La paura del futuro non riguarda tanto ciò che accadrà, quanto la nostra percezione di non avere le risorse necessarie per affrontare eventuali avversità. È una sfida alla nostra resilienza.</p>
@@ -254,7 +254,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'digital-detox',
-    title: 'Digital detox: riprendere il controllo della vita digitale',
+    title: 'Digital detox: riprendere il controllo',
     keyword: 'digital detox',
     metaDescription: 'Troppo tempo sugli schermi? Scopri i benefici del digital detox e come ristabilire un rapporto sano con la tecnologia, senza rinunce drastiche.',
     date: '2026-08-24',

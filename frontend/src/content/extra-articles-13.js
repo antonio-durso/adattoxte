@@ -2,7 +2,7 @@
 export const extraArticles13 = [
   {
     slug: 'quanto-costa-la-terapia',
-    title: 'Quanto costa uno psicologo online nel 2026: prezzi e come risparmiare',
+    title: 'Quanto costa la terapia psicologica online',
     keyword: 'quanto costa la terapia',
     metaDescription: 'Quanto costa uno psicologo online in Italia: sedute da 45€, prima gratuita, differenze tra psicologo e psicoterapeuta. Guida aggiornata 2026.',
     date: '2026-08-28',

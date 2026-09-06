@@ -2,7 +2,7 @@
 export const extraArticles9 = [
   {
     slug: 'quando-andare-dallo-psicologo',
-    title: 'Quando andare dallo psicologo: 7 segnali da non ignorare',
+    title: 'Quando andare dallo psicologo: 7 segnali',
     keyword: 'quando andare dallo psicologo',
     metaDescription:
       'Quando andare dallo psicologo? 7 segnali concreti che indicano che è il momento di chiedere aiuto, e come funziona un percorso online con sedute da 45€.',

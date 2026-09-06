@@ -12,7 +12,7 @@ export const extraArticles10 = [
   },
   {
     slug: 'preparazione-mentale-concorsi-pubblici',
-    title: 'Preparazione mentale ai concorsi pubblici: il metodo in 5 punti',
+    title: 'Preparazione ai concorsi: metodo in 5 punti',
     keyword: 'preparazione mentale concorsi pubblici',
     metaDescription: 'Il metodo in 5 punti per la preparazione mentale ai concorsi pubblici: ansia da esame, concentrazione, gestione del tempo e del colloquio.',
     date: '2026-08-29',

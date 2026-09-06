@@ -2,12 +2,12 @@
 export const extraArticles16 = [
   {
     slug: 'recensioni-psicologo-online',
-    title: 'Recensioni psicologo online: come riconoscere quelle vere',
+    title: 'Recensioni psicologo online: riconoscere le vere',
     keyword: 'recensioni psicologo online',
     metaDescription: 'Recensioni psicologo online: come riconoscere quelle autentiche, i segnali delle finte e come le raccoglie Adatto x Te (solo dopo sedute reali).',
     date: '2026-08-30',
     faq: [ { q: 'Come vengono verificate le recensioni?', a: 'Arrivano solo da sedute completate, con il pulsante \'Valuta\'.' }, { q: 'Posso fidarmi delle recensioni?', a: 'I criteri per valutarle sono nell\'articolo.' }, { q: 'Dove le trovo?', a: 'Nella pagina recensioni della piattaforma.' } ],
-    body: `<h1>Recensioni psicologo online: come riconoscere quelle vere</h1>
+    body: `<h1>Recensioni psicologo online: riconoscere le vere</h1>
 <p>Scegliere uno psicologo online significa affidarsi a un professionista che non vedi di persona: le recensioni diventano quindi uno strumento importante. Ma come si fa a distinguere una recensione vera da una falsa o pilotata? Ecco i segnali da conoscere.</p>
 <h2>I segnali di una recensione affidabile</h2>
 <ul><li><strong>Specificità</strong>: le recensioni vere raccontano dettagli (il motivo della richiesta, come si è svolto il percorso, cosa è cambiato). Le recensioni vaghe ("ottimo professionista, consigliatissimo") dicono poco.</li><li><strong>Equilibrio</strong>: le recensioni autentiche riconoscono anche i limiti (tempi, modalità, percorso più lungo del previsto). Recensioni tutte a 5 stelle senza sfumature sono sospette.</li><li><strong>Tempistica</strong>: le recensioni di una piattaforma sono legate a sedute completate: se l'arrivo coincide con i completamenti delle sedute, è un buon segnale.</li><li><strong>Verificabilità</strong>: su piattaforme strutturate le recensioni arrivano dopo un percorso reale, non da account creati ad hoc.</li></ul>

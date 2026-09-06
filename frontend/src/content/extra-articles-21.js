@@ -2,9 +2,9 @@
 export const extraArticles21 = [
   {
     slug: 'disfunzione-erettile-psicologica-cause',
-    title: 'Disfunzione erettile psicologica: cause e quando serve lo psicologo',
+    title: 'Disfunzione erettile psicologica: cause e aiuto',
     keyword: 'disfunzione erettile psicologica',
-    metaDescription: 'Disfunzione erettile psicologica: cause, come distinguerla da quella organica e quando un percorso psicologico può risolvere il problema. Sintomi e percorsi.',
+    metaDescription: 'Disfunzione erettile psicologica: cause, come distinguerla da quella organica e quando un percorso psicologico può risolvere il problema. Sintomi e…',
     date: '2026-09-01',
     body: `<p>La disfunzione erettile psicologica è una difficoltà di erezione che non ha una causa organica, ma nasce da fattori emotivi, cognitivi e relazionali: ansia da prestazione, stress, pressioni sul lavoro, vissuti legati all'immagine di sé o dinamiche di coppia. È il tipo più frequente e, soprattutto, è quello che risponde meglio a un percorso psicologico: in molti casi si risolve completamente.</p>
     <h2>Come capire se la causa è psicologica</h2>
@@ -30,7 +30,7 @@ export const extraArticles21 = [
   },
   {
     slug: 'paura-di-guidare-amaxofobia',
-    title: 'Paura di guidare: come superare l\'amaxofobia con l\'aiuto dello psicologo',
+    title: 'Paura di guidare (amaxofobia): come superarla',
     keyword: 'paura di guidare',
     metaDescription: 'Paura di guidare (amaxofobia): sintomi, cause e percorso psicologico per superarla. Tecniche per ricominciare a guidare senza ansia, anche online.',
     date: '2026-09-01',
@@ -56,9 +56,9 @@ export const extraArticles21 = [
   },
   {
     slug: 'lutto-per-animale-domestico',
-    title: 'Lutto per un animale domestico: come elaborarlo senza colpevolizzarsi',
+    title: 'Lutto per un animale domestico: come elaborarlo',
     keyword: 'lutto animale domestico',
-    metaDescription: 'Il dolore per la perdita di un animale domestico è un lutto vero. Come elaborarlo, aiutare i bambini e quando un supporto psicologico può fare la differenza.',
+    metaDescription: 'Il dolore per la perdita di un animale domestico è un lutto vero. Come elaborarlo, aiutare i bambini e quando un supporto psicologico può fare la…',
     date: '2026-09-01',
     body: `<p>Perdere un cane, un gatto o un altro animale domestico può essere un dolore devastante, spesso più forte di quanto ci si aspetti. Eppure, per anni questo lutto è stato considerato "minore" rispetto a quello per una persona: chi lo vive si sente incompreso, giudicato ("era solo un animale") e a volte si vergogna di soffrire così tanto. Invece è un lutto vero: l'animale è stato un compagno di vita quotidiano, una presenza costante, spesso una fonte di amore incondizionato.</p>
     <h2>Perché fa così male</h2>
@@ -78,9 +78,9 @@ export const extraArticles21 = [
   },
   {
     slug: 'rientro-sportivo-dopo-infortunio',
-    title: 'Rientro sportivo dopo un infortunio: la preparazione mentale che fa la differenza',
+    title: 'Rientro sportivo dopo un infortunio',
     keyword: 'rientro sportivo dopo infortunio',
-    metaDescription: 'Il rientro dopo un infortunio non è solo fisico: la paura di farsi male di nuovo è reale. Preparazione mentale, psicologia dello sport e percorso di ritorno sicuro.',
+    metaDescription: 'Il rientro dopo un infortunio non è solo fisico: la paura di farsi male di nuovo è reale. Preparazione mentale, psicologia dello sport e percorso di…',
     date: '2026-09-01',
     body: `<p>Dopo un infortunio, il corpo guarisce ma la mente no: la paura di farsi male di nuovo, la diffidenza verso il movimento, i pensieri intrusivi sul momento dell'infortunio. È un'esperienza così comune tra gli sportivi — dilettanti e professionisti — da avere un nome: "paura di ricaduta" (fear of re-injury). Ignorarla è il rischio più grande: è la prima causa di rientri prematuri, nuovi infortuni e, nei casi peggiori, di abbandono dello sport.</p>
     <h2>Perché la paura di ricaduta è così importante</h2>

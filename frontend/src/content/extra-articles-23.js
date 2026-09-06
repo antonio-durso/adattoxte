@@ -27,9 +27,9 @@ export const extraArticles23 = [
   },
   {
     slug: 'nostalgia-homesickness-estero',
-    title: 'Vivere all\'estero e sentirsi soli: la nostalgia di casa non è una debolezza',
+    title: 'Nostalgia di casa all’estero: come gestirla',
     keyword: 'nostalgia vivere all\'estero',
-    metaDescription: 'La nostalgia di casa (homesickness) è una fase normale per chi vive all\'estero. Come riconoscerla, gestirla e quando un supporto psicologico in italiano può fare la differenza.',
+    metaDescription: 'La nostalgia di casa (homesickness) è una fase normale per chi vive all’estero. Come riconoscerla, gestirla e quando un supporto psicologico in italiano…',
     date: '2026-09-02',
     body: `<p>Sei partito/a per lavoro o per studio, in una nuova città, magari con un lavoro che desideravi da tempo. Eppure, dopo l'entusiasmo iniziale, arriva un senso di vuoto: la mancanza della famiglia, degli amici, della lingua, dei sapori, di una battuta capita al volo. Ti chiedi se hai sbagliato tutto, se "non sei fatto/a per l'estero". La risposta è no: quello che stai vivendo ha un nome — homesickness, nostalgia di casa — ed è una fase normale e superabile, non una debolezza.</p>
     <h2>Perché succede proprio a chi ce l'ha fatta</h2>

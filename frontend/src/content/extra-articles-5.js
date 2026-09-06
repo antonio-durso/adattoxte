@@ -1,11 +1,11 @@
 export const extraArticles5 = [
   {
     slug: 'sindrome-dell-impostore',
-    title: "Sindrome dell'impostore: quando non ti senti mai all'altezza",
+    title: "Sindrome dell’impostore: come riconoscerla",
     keyword: "sindrome dell'impostore",
     metaDescription: "Hai mai la sensazione che i tuoi successi siano solo fortuna? Scopri cos'è la sindrome dell'impostore e come superarla con il supporto psicologico online.",
     date: '2026-08-24',
-    body: `<h1>Sindrome dell'impostore: quando non ti senti mai all'altezza</h1>
+    body: `<h1>Sindrome dell’impostore: come riconoscerla</h1>
 <p>La sindrome dell'impostore è un fenomeno psicologico caratterizzato dall'incapacità di interiorizzare i propri successi e dal timore persistente di essere smascherati come "frodi". Nonostante le prove evidenti di competenza, chi ne soffre è convinto di non meritare i traguardi raggiunti, attribuendoli alla fortuna, al tempismo o alla capacità di ingannare gli altri.</p>
 
 <h2>Riconoscere i segnali tipici</h2>
@@ -21,11 +21,11 @@ export const extraArticles5 = [
   },
   {
     slug: 'adhd-negli-adulti',
-    title: 'ADHD negli adulti: riconoscere i segnali e chiedere aiuto',
+    title: 'ADHD negli adulti: segnali e aiuto',
     keyword: 'ADHD adulti',
     metaDescription: "L'ADHD non riguarda solo i bambini. Scopri come si manifesta il disturbo da deficit di attenzione negli adulti e l'importanza di una diagnosi corretta.",
     date: '2026-08-24',
-    body: `<h1>ADHD negli adulti: riconoscere i segnali e chiedere aiuto</h1>
+    body: `<h1>ADHD negli adulti: segnali e aiuto</h1>
 <p>Il Disturbo da Deficit di Attenzione e Iperattività (ADHD) è spesso associato all'infanzia, ma è ormai ampiamente dimostrato che i sintomi possono persistere nell'età adulta. Negli adulti, l'ADHD si manifesta in modo diverso: l'iperattività fisica spesso si trasforma in un'irrequietezza interiore, mentre le difficoltà di organizzazione diventano ostacoli significativi nella gestione del lavoro e della vita quotidiana.</p>
 
 <h2>Come si manifesta l'ADHD in età adulta</h2>
@@ -41,11 +41,11 @@ export const extraArticles5 = [
   },
   {
     slug: 'burnout-genitoriale',
-    title: 'Burnout genitoriale: quando crescere i figli stanca troppo',
+    title: 'Burnout genitoriale: quando i figli stancano',
     keyword: 'burnout genitoriale',
     metaDescription: 'Essere genitori è meraviglioso ma estenuante. Scopri i segnali del burnout genitoriale e come recuperare le energie per te e per la tua famiglia.',
     date: '2026-08-24',
-    body: `<h1>Burnout genitoriale: quando crescere i figli stanca troppo</h1>
+    body: `<h1>Burnout genitoriale: quando i figli stancano</h1>
 <p>Il termine "burnout" è solitamente associato al contesto lavorativo, ma negli ultimi anni si parla sempre più di burnout genitoriale. Si tratta di uno stato di esaurimento fisico ed emotivo profondo legato alle responsabilità croniche della cura dei figli. Quando le richieste superano le risorse a disposizione per troppo tempo, il genitore può sentirsi svuotato e incapace di svolgere il proprio ruolo con serenità.</p>
 
 <h2>Sintomi da non sottovalutare</h2>
@@ -61,11 +61,11 @@ export const extraArticles5 = [
   },
   {
     slug: 'adolescenti-e-social-media',
-    title: 'Adolescenti e social media: come proteggere il benessere',
+    title: 'Adolescenti e social media: benessere digitale',
     keyword: 'adolescenti social media',
-    metaDescription: "L'impatto dei social network sulla salute mentale degli adolescenti è un tema centrale. Consigli pratici per genitori e ragazzi per un uso consapevole della rete.",
+    metaDescription: "L'impatto dei social network sulla salute mentale degli adolescenti è un tema centrale. Consigli pratici per genitori e ragazzi per un uso consapevole…",
     date: '2026-08-24',
-    body: `<h1>Adolescenti e social media: come proteggere il benessere</h1>
+    body: `<h1>Adolescenti e social media: benessere digitale</h1>
 <p>L'adolescenza è una fase delicata di costruzione dell'identità e oggi questo processo avviene in gran parte online. Se da un lato i social media offrono opportunità di connessione e creatività, dall'altro presentano rischi per la salute mentale dei più giovani, come il confronto sociale costante, il cyberbullismo e la dipendenza da approvazione digitale.</p>
 
 <h2>L'impatto sull'autostima</h2>
@@ -124,7 +124,7 @@ export const extraArticles5 = [
     slug: 'autostima-dei-bambini',
     title: 'Autostima nei bambini: come coltivarla ogni giorno',
     keyword: 'autostima bambini',
-    metaDescription: "L'autostima si costruisce fin da piccoli. Scopri consigli pratici per genitori ed educatori per aiutare i bambini a crescere sicuri e consapevoli del proprio valore.",
+    metaDescription: "L'autostima si costruisce fin da piccoli. Scopri consigli pratici per genitori ed educatori per aiutare i bambini a crescere sicuri e consapevoli del…",
     date: '2026-08-24',
     body: `<h1>Autostima nei bambini: come coltivarla ogni giorno</h1>
 <p>L'autostima non è un dono innato, ma una qualità che si sviluppa e si nutre durante la crescita, specialmente attraverso le interazioni con le figure di riferimento. Un bambino con una buona autostima si sente amato, capace e pronto ad affrontare le sfide, mentre una bassa autostima può portare a timidezza eccessiva o paura di provare cose nuove.</p>
@@ -144,7 +144,7 @@ export const extraArticles5 = [
     slug: 'dialogo-interno',
     title: 'Dialogo interiore: come trasformare l\'autocritica',
     keyword: 'dialogo interiore',
-    metaDescription: 'La voce nella tua testa è amica o nemica? Scopri come identificare il dialogo interiore negativo e trasformarlo in un supporto per il tuo benessere mentale.',
+    metaDescription: 'La voce nella tua testa è amica o nemica? Scopri come identificare il dialogo interiore negativo e trasformarlo in un supporto per il tuo benessere…',
     date: '2026-08-24',
     body: `<h1>Dialogo interiore: come trasformare l'autocritica</h1>
 <p>Il dialogo interiore è quel flusso costante di pensieri e commenti che rivolgiamo a noi stessi durante il giorno. Spesso questa voce è molto più severa e critica di quanto lo saremmo mai con un amico. Un dialogo interiore negativo può alimentare ansia, depressione e insicurezza, diventando un vero e proprio ostacolo alla nostra felicità.</p>

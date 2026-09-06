@@ -28,7 +28,7 @@ export const extraArticles14 = [
   },
   {
     slug: 'prima-seduta-psicologo',
-    title: 'Prima seduta dallo psicologo: cosa aspettarsi e come prepararsi',
+    title: 'Prima seduta dallo psicologo: come prepararsi',
     keyword: 'prima seduta psicologo',
     metaDescription: 'Prima seduta dallo psicologo: cosa succede, cosa dire, quanto dura e come prepararsi senza ansia. Guida pratica con i consigli del terapeuta.',
     date: '2026-08-30',

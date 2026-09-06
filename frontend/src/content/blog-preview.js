@@ -14,7 +14,7 @@ export const blogPreview = [
   },
   {
     slug: 'lutto-per-animale-domestico',
-    title: 'Lutto per un animale domestico: come elaborarlo senza colpevolizzarsi',
+    title: 'Lutto per un animale domestico: come elaborarlo',
     date: '2026-09-01',
   },
 ];

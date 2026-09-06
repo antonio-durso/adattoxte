@@ -61,7 +61,7 @@ export const extraArticles7 = [
   },
   {
     slug: 'gestire-ansia-concorsi-pubblici',
-    title: 'Ansia da concorso: come gestirla con uno psicologo online',
+    title: 'Ansia da concorso: come gestirla',
     keyword: 'ansia da concorso preparazione mentale',
     metaDescription: 'Ansia da concorso: come gestire lo studio, la pressione e il giorno della prova con la psicologia. Percorsi online per i concorsi pubblici.',
     date: '2026-08-28',
@@ -86,7 +86,7 @@ export const extraArticles7 = [
   },
   {
     slug: 'ansia-da-prestazione-sportiva',
-    title: 'Ansia da prestazione sportiva: come gestirla e rendere al meglio',
+    title: 'Ansia da prestazione sportiva: gestirla al meglio',
     keyword: 'ansia da prestazione sportiva psicologia',
     metaDescription: 'Ansia da prestazione sportiva: sintomi, cause e tecniche per gestirla. Come uno psicologo dello sport online può aiutarti a rendere al meglio.',
     date: '2026-08-29',
@@ -113,7 +113,7 @@ export const extraArticles7 = [
         slug: 'tradimento-ricostruire-fiducia',
         title: 'Tradimento: come ricostruire la fiducia nella coppia',
         keyword: 'tradimento ricostruire fiducia',
-        metaDescription: 'Dopo un tradimento si può ricostruire la fiducia? Le fasi della crisi, gli errori da evitare, il ruolo della terapia di coppia e come decidere se ripartire.',
+        metaDescription: 'Dopo un tradimento si può ricostruire la fiducia? Le fasi della crisi, gli errori da evitare, il ruolo della terapia di coppia e come decidere se…',
         date: '2026-08-31',
         faq: [
           { q: 'Si può ricostruire la fiducia dopo un tradimento?', a: 'Sì, ma richiede tempo, impegno e la volontà di entrambi di lavorare sulla relazione: la fiducia non torna da sola, si costruisce con gesti coerenti nel tempo.' },

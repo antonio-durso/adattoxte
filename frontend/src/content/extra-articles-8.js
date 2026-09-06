@@ -4,7 +4,7 @@ export const extraArticles8 = [
     slug: 'attacchi-di-panico-guida-completa',
     title: 'Attacchi di panico: riconoscerli e gestirli',
     keyword: 'attacchi di panico cosa fare',
-    metaDescription: "Attacchi di panico: sintomi, cosa fare durante una crisi e quando chiedere aiuto. Una guida pratica per riconoscere e gestire la paura di perdere il controllo.",
+    metaDescription: "Attacchi di panico: sintomi, cosa fare durante una crisi e quando chiedere aiuto. Una guida pratica per riconoscere e gestire la paura di perdere il…",
     date: '2026-08-31',
     faq: [
       { q: 'Un attacco di panico può essere pericoloso?', a: "No, non è pericoloso dal punto di vista medico: i sintomi fisici sono intensi ma temporanei. È però importante parlarne con un professionista se si ripetono." },
@@ -33,7 +33,7 @@ export const extraArticles8 = [
     slug: 'insonnia-e-stress-dormire-meglio',
     title: 'Insonnia da stress: il collegamento mente e corpo',
     keyword: 'insonnia da stress dormire meglio',
-    metaDescription: "Lo stress è la prima causa di insonnia: la mente non si spegne e il sonno scappa. Scopri come funziona il collegamento mente-corpo e come ritrovare un sonno profondo.",
+    metaDescription: "Lo stress è la prima causa di insonnia: la mente non si spegne e il sonno scappa. Scopri come funziona il collegamento mente-corpo e come ritrovare un…",
     date: '2026-09-01',
     faq: [
       { q: 'Perché lo stress mi tiene sveglio la notte?', a: "Lo stress mantiene attivo il sistema d'allarme del cervello: la mente resta in vigilanza e il corpo non entra nella fase di rilassamento necessaria al sonno." },
@@ -81,7 +81,7 @@ export const extraArticles8 = [
     slug: 'burnout-lavoro-prevenzione',
     title: 'Burnout: riconoscerlo e prevenirlo nel lavoro',
     keyword: 'burnout stress lavoro prevenzione',
-    metaDescription: "Il burnout è un esaurimento emotivo legato al lavoro: riconoscerne i segnali è il primo passo. Sintomi, cause, prevenzione e quando chiedere aiuto a uno psicologo.",
+    metaDescription: "Il burnout è un esaurimento emotivo legato al lavoro: riconoscerne i segnali è il primo passo. Sintomi, cause, prevenzione e quando chiedere aiuto a uno…",
     date: '2026-09-03',
     faq: [
       { q: 'Quali sono i primi segnali del burnout?', a: 'Esaurimento costante, distacco emotivo dal lavoro, sensazione di inefficacia, irritabilità e disturbi del sonno che persistono nonostante le pause.' },
@@ -107,7 +107,7 @@ export const extraArticles8 = [
     slug: 'aumentare-autostima-pratica',
     title: 'Autostima: come aumentarla con piccoli passi',
     keyword: 'autostima bassa aumentare fiducia',
-    metaDescription: "L'autostima si costruisce con azioni concrete, non con i pensieri positivi forzati. Scopri esercizi pratici per aumentare la fiducia in te stesso e quando chiedere aiuto.",
+    metaDescription: "L'autostima si costruisce con azioni concrete, non con i pensieri positivi forzati. Scopri esercizi pratici per aumentare la fiducia in te stesso e…",
     date: '2026-09-04',
     faq: [
       { q: 'L\'autostima bassa è un problema psicologico?', a: 'Non è una diagnosi, ma un modo di sentire che può limitare lavoro, relazioni e benessere. Se è persistente, un percorso psicologico aiuta a ristrutturarla alla radice.' },

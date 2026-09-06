@@ -24,11 +24,11 @@ export const extraArticles19 = [
   },
   {
     slug: 'ansia-rientro-scuola-adolescenti',
-    title: 'Ansia da rientro a scuola negli adolescenti: come aiutare tuo figlio',
+    title: 'Ansia da rientro a scuola negli adolescenti',
     keyword: 'ansia da rientro a scuola adolescenti',
-    metaDescription: "Rifiuto di andare a scuola, mal di pancia, irritabilità al rientro? Come riconoscere l'ansia da rientro scolastico negli adolescenti e supportarli senza pressioni.",
+    metaDescription: "Rifiuto di andare a scuola, mal di pancia, irritabilità al rientro? Come riconoscere l'ansia da rientro scolastico negli adolescenti e supportarli senza…",
     date: '2026-10-06',
-    body: `<h1>Ansia da rientro a scuola negli adolescenti: come aiutare tuo figlio</h1>
+    body: `<h1>Ansia da rientro a scuola negli adolescenti</h1>
 <p>Il rientro a scuola è una tappa carica di attese e timori: nuovi insegnanti, nuove classi, il peso dei voti e dei confronti. In molti adolescenti questa fase produce ansia: mal di pancia e mal di testa al mattino, irritabilità, insonnia, difficoltà a riprendere la concentrazione o un esplicito rifiuto di andare a scuola.</p>
 <h2>I segnali da non sottovalutare</h2>
 <ul>
@@ -48,7 +48,7 @@ export const extraArticles19 = [
     slug: 'ansia-da-aereo',
     title: "Paura di volare: come gestire l'ansia da aereo",
     keyword: 'ansia da aereo',
-    metaDescription: "Sudorazione, tachicardia, pensieri catastrofici in volo: la paura di volare si supera. Strategie pratiche per gestire l'ansia da aereo prima e durante il viaggio.",
+    metaDescription: "Sudorazione, tachicardia, pensieri catastrofici in volo: la paura di volare si supera. Strategie pratiche per gestire l'ansia da aereo prima e durante il…",
     date: '2026-10-09',
     body: `<h1>Paura di volare: come gestire l'ansia da aereo</h1>
 <p>Per molte persone salire su un aereo è un'esperienza che scatena ansia intensa: tachicardia, sudorazione, sensazione di mancanza d'aria, pensieri catastrofici ("e se succedesse qualcosa?"). La paura di volare (o aviofobia) può portare a evitare viaggi, lavoro e occasioni importanti: una limitazione che si può superare con il lavoro giusto.</p>
@@ -93,9 +93,9 @@ export const extraArticles19 = [
   },
   {
     slug: 'psicologo-online-in-inglese',
-    title: 'Psicologo online in inglese per expat e stranieri in Italia',
+    title: 'Psicologo online in inglese per expat',
     keyword: 'psicologo online in inglese',
-    metaDescription: 'Psicologo online in inglese per expat e stranieri in Italia: sedute in videochiamata con terapeuti qualificati. English-speaking therapy online.',
+    metaDescription: 'Psicologo online in inglese per expat: sedute in videochiamata con terapeuti qualificati. English-speaking therapy online.',
     date: '2026-10-16',
     faq: [ { q: 'Posso fare la terapia in inglese?', a: 'Sì, la piattaforma offre sedute in italiano e inglese.' }, { q: 'Posso iniziare dall\'estero?', a: 'Sì, la videochiamata funziona ovunque.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
     body: `<h1>Psicologo online in inglese: terapia per expat e stranieri in Italia</h1>

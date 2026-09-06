@@ -2,7 +2,7 @@
 export const extraArticles = [
   {
         slug: 'gaslighting-riconoscerlo',
-        title: 'Gaslighting: riconoscerlo e difendersi dalla manipolazione',
+        title: 'Gaslighting: riconoscerlo e difendersi',
         keyword: 'gaslighting',
         metaDescription: 'Gaslighting: cos\'è, come riconoscerlo e come difendersi dalla manipolazione psicologica in coppia, in famiglia e sul lavoro. Segnali, esempi e strategie.',
         date: '2026-08-31',
@@ -47,7 +47,7 @@ export const extraArticles = [
     slug: 'burnout-lavoro',
     title: 'Burnout da lavoro: sintomi, cause e come uscirne',
     keyword: 'burnout stress lavoro',
-    metaDescription: 'Burnout da lavoro: i 12 segnali, le cause e il percorso per uscirne. Supporto psicologico online, anche per le aziende.',
+    metaDescription: 'Burnout da lavoro: i 12 segnali, le cause e il percorso per uscirne, anche con supporto psicologico online per te o per la tua azienda.',
     date: '2026-08-24',
     faq: [ { q: 'Come capisco se sono in burnout?', a: 'I 12 segnali nell\'articolo.' }, { q: 'Il burnout si può prevenire?', a: 'Sì: prevenzione e percorsi aziendali.' }, { q: 'Quanto costa?', a: '45€ a seduta; percorsi aziendali dedicati.' } ],
     body: `<h1>Burnout da lavoro: sintomi, cause e come uscirne</h1>

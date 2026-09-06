@@ -2,19 +2,19 @@
 export const extraArticles11 = [
   {
     slug: 'allenamento-mentale-atleti',
-    title: 'Allenamento mentale per atleti: le tecniche della psicologia dello sport',
+    title: 'Allenamento mentale per atleti',
     keyword: 'allenamento mentale atleti',
     metaDescription:
-      'Allenamento mentale per atleti: visualizzazione, gestione dell\'attivazione, routine pre-gara e le altre tecniche della psicologia dello sport, anche online.',
+      'Allenamento mentale per atleti: visualizzazione, gestione dell’attivazione, routine pre-gara e le altre tecniche della psicologia dello sport, anche…',
     date: '2026-08-30',
     body:
       '<p>Gli atleti professionisti non vincono solo con il fisico: dietro ogni grande prestazione c\'è un <strong>allenamento mentale</strong> sistematico, fatto di tecniche precise e ripetute quanto gli esercizi in campo. Ecco le più efficaci, utilizzabili da atleti di ogni livello.</p>\n<h2>1. Visualizzazione (imagery)</h2>\n<p>Rivedere mentalmente la prestazione — partenza, gesti tecnici, momenti chiave, recupero dagli errori — attiva le stesse aree cerebrali del movimento reale. Allenare la gara "nella testa" prima di viverla crea familiarità e riduce l\'imprevisto. Si pratica 5-10 minuti al giorno, in un luogo tranquillo, con il maggior numero di sensi possibile (non solo le immagini: anche le sensazioni, i suoni, le emozioni).</p>\n<h2>2. Gestione dell\'attivazione</h2>\n<p>Ogni atleta ha un livello ottimale di attivazione: troppo basso e non rende, troppo alto e l\'ansia sabota. Le tecniche: respirazione diaframmatica (4-6) per abbassare l\'attivazione, esercizi di "attivazione rapida" (movimenti, ritmo, parole chiave) per alzarla. Imparare a modulare il proprio livello è una delle competenze più preziose dello sportivo.</p>\n<h2>3. Routine pre-gara</h2>\n<p>Un protocollo fisso nei 30-60 minuti prima della gara (riscaldamento, attivazione mentale, self-talk positivo, musica) toglie incertezza e dà controllo. La routine è un\'ancora: quando tutto è definito, la mente non si perde in "e se...".</p>\n<h2>4. Self-talk e ristrutturazione dei pensieri</h2>\n<p>Il dialogo interno dell\'atleta è il suo allenatore invisibile. Sostituire le frasi catastrofiche ("non ce la farò", "sto perdendo") con istruzioni operative ("palla, piede, controllo", "respiro e ritmo") riporta l\'attenzione sul compito invece che sulla paura.</p>\n<h2>5. Gestione della pressione e degli errori</h2>\n<p>L\'errore fa parte della gara: gli atleti mentalmente forti hanno un protocollo per gli errori (una parola chiave, un gesto, un respiro) che chiude l\'episodio e riporta l\'attenzione al punto successivo. Il perfezionismo è il nemico numero uno della prestazione.</p>\n<h2>Quando serve lo psicologo dello sport</h2>\n<p>Blocchi inspiegabili, ansia da prestazione ricorrente, calo di motivazione, gestione degli infortuni o della pressione nei momenti decisivi: sono i casi in cui la psicologia dello sport fa la differenza. Le sedute online sono ideali per gli atleti: orari flessibili, lavoro anche a distanza dalle trasferte, e tecniche verificabili in gara. <a href="/terapeuti">Trova il tuo psicologo dello sport</a>.</p>',
   },
   {
     slug: 'concorsi-forze-dell-ordine',
-    title: 'Preparazione mentale per i concorsi delle forze dell\'ordine',
+    title: 'Concorsi forze dell’ordine: preparazione mentale',
     keyword: 'concorsi forze dell ordine',
-    metaDescription: 'Preparazione mentale per i concorsi delle forze dell\'ordine: gestire ansia, pressione e colloquio psicologico con un professionista online.',
+    metaDescription: 'Concorsi forze dell’ordine: preparazione mentale: gestire ansia, pressione e colloquio psicologico con un professionista online.',
     date: '2026-08-31',
     faq: [ { q: 'Come preparo il colloquio psicologico?', a: 'Con esercizi mirati e simulazioni: il percorso è spiegato nell\'articolo.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima conoscitiva gratuita.' }, { q: 'Quando iniziare?', a: 'Meglio 2-3 mesi prima del concorso.' } ],
     body:
@@ -22,7 +22,7 @@ export const extraArticles11 = [
   },
   {
     slug: 'come-funziona-una-seduta-di-psicologia-online',
-    title: 'Come funziona una seduta di psicologia online: step by step',
+    title: 'Seduta di psicologia online: come funziona',
     keyword: 'seduta psicologia online',
     metaDescription:
       'Come funziona una seduta di psicologia online: prenotazione, pagamento, videochiamata, privacy e differenze con la terapia in presenza. Guida completa.',

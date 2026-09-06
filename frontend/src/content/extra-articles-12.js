@@ -2,7 +2,7 @@
 export const extraArticles12 = [
   {
     slug: 'unobravo-serenis-o-adatto-x-te-confronto',
-    title: 'Unobravo, Serenis o Adatto x Te: confronto prezzi e servizi 2026',
+    title: 'Unobravo, Serenis o Adatto x Te: confronto',
     keyword: 'unobravo vs serenis confronto',
     metaDescription: 'Confronto 2026 tra Unobravo, Serenis e Adatto x Te: prezzi, prima seduta, terapeuti e servizi. Scopri qual è la scelta giusta per te.',
     date: '2026-08-27',
