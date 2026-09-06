@@ -1,7 +1,7 @@
 export const extraArticles6 = [
   {
     slug: 'psicologo-online-all-estero',
-    title: 'Psicologo online per italiani all\'estero',
+    title: 'Psicologo online all\'estero: come funziona e quando serve',
     keyword: 'psicologo online estero',
     metaDescription: 'Vivere all\'estero può essere difficile. Scopri come un supporto psicologico online in italiano può aiutarti a gestire il malessere e l\'adattamento.',
     date: '2026-08-24',

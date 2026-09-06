@@ -11,6 +11,7 @@ export default function PaeseLanding() {
   if (!paese) {
     return (
       <div className="container section" style={{ textAlign: 'center', padding: '80px 20px' }}>
+        <Seo title="Pagina non trovata" description="La pagina che cerchi non esiste o è stata spostata." path="/" noindex />
         <h1>Pagina non trovata</h1>
         <p className="muted">Questa destinazione non è disponibile. <Link to="/italiani-all-estero">Torna alla pagina Italiani all'estero →</Link></p>
       </div>
