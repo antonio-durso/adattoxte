@@ -22,6 +22,51 @@ export default function PaeseLanding() {
   // Listino paese: per la Svizzera i prezzi sono esposti in CHF (pagamento in EUR, equivalente fisso).
   const isCH = paese.slug === 'svizzera';
   const seduteTxt = isCH ? 'sedute da CHF 130' : 'sedute da 45€';
+  // Articoli/preposizioni corretti per paese (evita errori come "del Svizzera",
+  // "dall'Stati Uniti"): in = stato in luogo, dal = moto da luogo, di = specificazione.
+  const ARTICOLI = {
+    'stati-uniti': { in: "negli Stati Uniti", dal: "dagli Stati Uniti", di: "degli Stati Uniti" },
+    'canada': { in: "in Canada", dal: "dal Canada", di: "del Canada" },
+    'regno-unito': { in: "nel Regno Unito", dal: "dal Regno Unito", di: "del Regno Unito" },
+    'francia': { in: "in Francia", dal: "dalla Francia", di: "della Francia" },
+    'germania': { in: "in Germania", dal: "dalla Germania", di: "della Germania" },
+    'svizzera': { in: "in Svizzera", dal: "dalla Svizzera", di: "della Svizzera" },
+    'belgio': { in: "in Belgio", dal: "dal Belgio", di: "del Belgio" },
+    'spagna': { in: "in Spagna", dal: "dalla Spagna", di: "della Spagna" },
+    'paesi-bassi': { in: "nei Paesi Bassi", dal: "dai Paesi Bassi", di: "dei Paesi Bassi" },
+    'irlanda': { in: "in Irlanda", dal: "dall'Irlanda", di: "dell'Irlanda" },
+    'austria': { in: "in Austria", dal: "dall'Austria", di: "dell'Austria" },
+    'lussemburgo': { in: "in Lussemburgo", dal: "dal Lussemburgo", di: "del Lussemburgo" },
+    'portogallo': { in: "in Portogallo", dal: "dal Portogallo", di: "del Portogallo" },
+    'australia': { in: "in Australia", dal: "dall'Australia", di: "dell'Australia" },
+    'argentina': { in: "in Argentina", dal: "dall'Argentina", di: "dell'Argentina" },
+    'brasile': { in: "in Brasile", dal: "dal Brasile", di: "del Brasile" },
+    'uruguay': { in: "in Uruguay", dal: "dall'Uruguay", di: "dell'Uruguay" },
+    'venezuela': { in: "in Venezuela", dal: "dal Venezuela", di: "del Venezuela" },
+    'cile': { in: "in Cile", dal: "dal Cile", di: "del Cile" },
+    'messico': { in: "in Messico", dal: "dal Messico", di: "del Messico" },
+    'emirati-arabi': { in: "negli Emirati Arabi", dal: "dagli Emirati Arabi", di: "degli Emirati Arabi" },
+    'singapore': { in: "a Singapore", dal: "da Singapore", di: "di Singapore" },
+    'cina': { in: "in Cina", dal: "dalla Cina", di: "della Cina" },
+    'giappone': { in: "in Giappone", dal: "dal Giappone", di: "del Giappone" },
+    'sudafrica': { in: "in Sudafrica", dal: "dal Sudafrica", di: "del Sudafrica" },
+    'nuova-zelanda': { in: "in Nuova Zelanda", dal: "dalla Nuova Zelanda", di: "della Nuova Zelanda" },
+    'malta': { in: "a Malta", dal: "da Malta", di: "di Malta" },
+    'svezia': { in: "in Svezia", dal: "dalla Svezia", di: "della Svezia" },
+    'danimarca': { in: "in Danimarca", dal: "dalla Danimarca", di: "della Danimarca" },
+    'norvegia': { in: "in Norvegia", dal: "dalla Norvegia", di: "della Norvegia" },
+    'finlandia': { in: "in Finlandia", dal: "dalla Finlandia", di: "della Finlandia" },
+    'polonia': { in: "in Polonia", dal: "dalla Polonia", di: "della Polonia" },
+    'romania': { in: "in Romania", dal: "dalla Romania", di: "della Romania" },
+    'ungheria': { in: "in Ungheria", dal: "dall'Ungheria", di: "dell'Ungheria" },
+    'repubblica-ceca': { in: "nella Repubblica Ceca", dal: "dalla Repubblica Ceca", di: "della Repubblica Ceca" },
+    'grecia': { in: "in Grecia", dal: "dalla Grecia", di: "della Grecia" },
+    'croazia': { in: "in Croazia", dal: "dalla Croazia", di: "della Croazia" },
+    'slovenia': { in: "in Slovenia", dal: "dalla Slovenia", di: "della Slovenia" },
+    'israele': { in: "in Israele", dal: "da Israele", di: "di Israele" },
+    'qatar': { in: "in Qatar", dal: "dal Qatar", di: "del Qatar" },
+  };
+  const art = ARTICOLI[paese.slug] || { in: `in ${paese.nome}`, dal: `dall'${paese.nome}`, di: `del ${paese.nome}` };
 
   // Elenco città principali per il paese (campo opzionale `citta` in paesi.js).
   // Alimenta la sezione "da ogni città" e la FAQ dedicata (solo vista paese, non capitale).
@@ -32,15 +77,15 @@ export default function PaeseLanding() {
   const nome = isCapitale ? eff.nome : paese.nome;
   const titolo = isCapitale
     ? `Psicologo online per italiani a ${nome}`
-    : `Psicologo online per italiani in ${nome}`;
+    : `Psicologo online per italiani ${art.in}`;
   const desc = isCapitale
     ? `Psicologo online per italiani a ${nome} (${paese.nome}): sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}.`
-    : `Psicologo online per italiani in ${nome}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}, terapeuti qualificati.`;
+    : `Psicologo online per italiani ${art.in}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}, terapeuti qualificati.`;
   const path = isCapitale ? `/italiani-all-estero/${paese.slug}/${capitale.slug}` : `/italiani-all-estero/${paese.slug}`;
 
   const faqs = [
     {
-      q: `La terapia online funziona dall'${paese.nome}?`,
+      q: `La terapia online funziona ${art.dal}?`,
       a: `Sì: la videochiamata si apre nel browser e funziona ovunque. I fusi orari non sono un problema (${paese.fuso}): scegli tu lo slot più comodo.`,
     },
     {
@@ -63,7 +108,7 @@ export default function PaeseLanding() {
             q: `Fate sedute con italiani che vivono a ${elenca(cittaPrincipali.slice(0, 4))}${
               cittaAltre.length > 0 ? ` o in centri come ${elenca(cittaAltre.slice(0, 4))}` : ''
             }?`,
-            a: `Sì: la videochiamata raggiunge ogni città del ${paese.nome}. Scegli tu l'orario (${paese.fuso}) e la prima seduta conoscitiva è gratuita: il servizio funziona esattamente come se fossi in Italia.`,
+            a: `Sì: la videochiamata raggiunge ogni città ${art.di}. Scegli tu l'orario (${paese.fuso}) e la prima seduta conoscitiva è gratuita: il servizio funziona esattamente come se fossi in Italia.`,
           },
         ]
       : []),
@@ -141,9 +186,9 @@ export default function PaeseLanding() {
           <p className="badge" style={{ display: 'inline-block', background: 'var(--secondary, #eef2ff)', color: 'var(--primary, #4f46e5)', padding: '6px 14px', borderRadius: 999, fontSize: 13, fontWeight: 600 }}>
             {paese.bandiera} {isCapitale ? `Italiani a ${nome}` : `Italiani in ${paese.nome}`}
           </p>
-          <h1>{isCapitale ? `Psicologo online per italiani a ${nome}` : `Psicologo online per italiani in ${paese.nome}`}</h1>
+          <h1>{isCapitale ? `Psicologo online per italiani a ${nome}` : `Psicologo online per italiani ${art.in}`}</h1>
           <p className="lead">
-            {paese.comunita}. Sedute in videochiamata in italiano da qualsiasi città del {paese.nome}, {paese.fuso}. Prima seduta conoscitiva gratuita, {seduteTxt}.
+            {paese.comunita}. Sedute in videochiamata in italiano da qualsiasi città {art.di}, {paese.fuso}. Prima seduta conoscitiva gratuita, {seduteTxt}.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 20 }}>
             <Link to="/terapeuti" className="btn btn-primary">Scegli il tuo terapeuta</Link>
@@ -190,7 +235,7 @@ export default function PaeseLanding() {
             </p>
             <p>
               La prima seduta conoscitiva è gratuita, le sedute da 50 minuti costano {isCH ? 'CHF 130' : '45€'} e, se ti sposti
-              per lavoro o per un trasferimento tra città del {paese.nome},
+              per lavoro o per un trasferimento tra le città {art.di},
               il tuo percorso ti segue senza interruzioni.
             </p>
           </div>
@@ -271,7 +316,7 @@ export default function PaeseLanding() {
         <p className="muted" style={{ maxWidth: 560, margin: '0 auto 20px' }}>
           {!isCapitale && (
             <>
-              Vivi nella capitale?{' '}
+              {paese.capitale ? `Ti trovi a ${paese.capitale.nome} o nei dintorni?` : 'Vivi nella capitale?'}{' '}
               {paese.capitale && (
                 <Link to={`/italiani-all-estero/${paese.slug}/${paese.capitale.slug}`}>Scopri le sedute per italiani a {paese.capitale.nome} →</Link>
               )}
