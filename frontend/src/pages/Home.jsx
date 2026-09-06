@@ -151,9 +151,9 @@ export default function Home() {
             },
             {
               '@type': 'AggregateRating',
-              ratingValue: '3.8',
-              ratingCount: '2',
-              reviewCount: '2',
+              ratingValue: '4.3',
+              ratingCount: '8',
+              reviewCount: '8',
               bestRating: '5',
               worstRating: '1',
               itemReviewed: { '@type': 'Organization', '@id': 'https://www.adattoxte.com/#organization' },

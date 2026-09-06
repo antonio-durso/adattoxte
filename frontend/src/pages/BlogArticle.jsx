@@ -83,7 +83,7 @@ export default function BlogArticle() {
   if (!article) {
     return (
       <div className="container section">
-        <Seo title="Articolo non trovato" description="L'articolo richiesto non esiste." path="/blog" />
+        <Seo title="Articolo non trovato" description="L'articolo richiesto non esiste." path="/blog" noindex />
         <h1>Articolo non trovato</h1>
         <p className="muted">L'articolo che cerchi non esiste o è stato spostato.</p>
         <Link to="/blog" className="btn btn-outline">
