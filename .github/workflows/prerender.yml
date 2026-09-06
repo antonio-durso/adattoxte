@@ -6,12 +6,19 @@
 # NOTA: i comandi Vercel girano dalla RADICE del repo: il progetto ha
 # rootDirectory=frontend, quindi il CLI entra da solo in frontend/ (se si girasse
 # da frontend/ il percorso diventerebbe frontend/frontend).
+# v1.2 blindatura: concurrency (un solo run, sempre l'ultimo commit) + prerender che
+# fallisce = build fallita + smoke test SSR dopo il deploy (niente più 404 di massa
+# o shell JS in produzione senza che nessuno se ne accorga).
 name: prerender-full
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
+concurrency:
+  group: prerender-production
+  cancel-in-progress: true
 
 jobs:
   build-deploy:
@@ -53,3 +60,28 @@ jobs:
           npx vercel pull --yes --environment=production --token=$VERCEL_TOKEN
           PRERENDER_FAST=0 npx vercel build --prod --token=$VERCEL_TOKEN
           npx vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+
+      # Smoke test: verifica che in produzione ci sia davvero l'SSR puro
+      # (HTML grande con contenuto reale) e che gli slug inesistenti diano 404.
+      # Se fallisce, il workflow risulta rosso: niente più "deploy ok ma sito rotto".
+      - name: Smoke test post-deploy (SSR puro attivo)
+        run: |
+          check() {
+            url="$1"; marker="$2"
+            body=$(curl -sL -m 40 "$url")
+            size=${#body}
+            echo "[smoke] $url -> ${size} bytes"
+            if [ "$size" -lt 20000 ]; then
+              echo "FAIL: HTML troppo piccolo (${size} B): probabile shell JS, SSR non attivo"; exit 1
+            fi
+            case "$body" in
+              *"$marker"*) echo "[smoke] marker '$marker' presente";;
+              *) echo "FAIL: marker '$marker' non trovato in $url"; exit 1;;
+            esac
+          }
+          check "https://www.adattoxte.com/blog/aumentare-autostima-pratica" "come aumentarla con piccoli passi"
+          check "https://www.adattoxte.com/italiani-all-estero/india" "L'India conta professionisti"
+          check "https://www.adattoxte.com/psicologo-online/depressione" "sintomi"
+          code=$(curl -s -o /dev/null -w '%{http_code}' -m 20 "https://www.adattoxte.com/blog/slug-inesistente-smoke-test")
+          if [ "$code" != "404" ]; then echo "FAIL: atteso 404 per slug inesistente, ottenuto $code"; exit 1; fi
+          echo "SMOKE TEST OK: SSR completo attivo in produzione."

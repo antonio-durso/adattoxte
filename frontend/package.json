@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/build-seo.js && node scripts/check-links.mjs && node scripts/sync-vercel.mjs",
-    "build": "vite build && cp dist/index.html dist/app.html && if [ \"$VERCEL\" = \"1\" ] && [ \"${PRERENDER_FAST:-1}\" != \"0\" ]; then sh scripts/ensure-chrome-deps.sh && PRERENDER_FAST=1 node scripts/prerender.js; else sh scripts/ensure-chrome-deps.sh && (node scripts/prerender.js || echo 'WARN: prerender non eseguito/fallito: le pagine contenuto saranno servite via SPA fallback'); fi && node scripts/inline-css.cjs",
+    "build": "vite build && cp dist/index.html dist/app.html && if [ \"$VERCEL\" = \"1\" ] && [ \"${PRERENDER_FAST:-1}\" != \"0\" ]; then sh scripts/ensure-chrome-deps.sh && PRERENDER_FAST=1 node scripts/prerender.js; else sh scripts/ensure-chrome-deps.sh && node scripts/prerender.js; fi && node scripts/inline-css.cjs",
     "preview": "vite preview",
     "test": "node --test tests/"
   },
