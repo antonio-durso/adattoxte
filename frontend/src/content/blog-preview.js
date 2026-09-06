@@ -3,9 +3,9 @@
 // NIENTE import del bundle articoli (244KB): la home resta leggera.
 export const blogPreview = [
   {
-    slug: 'come-scegliere-uno-psicologo',
-    title: 'Come scegliere uno psicologo: la guida pratica',
-    date: '2026-07-20',
+    slug: 'aumentare-autostima-pratica',
+    title: 'Autostima: come aumentarla con piccoli passi',
+    date: '2026-09-04',
   },
   {
     slug: 'unobravo-serenis-o-adatto-x-te-confronto',
