@@ -2,9 +2,9 @@
 export const extraArticles23 = [
   {
     slug: 'concentrazione-studio-concorsi',
-    title: 'Studiare per un concorso senza esaurirsi: come allenare concentrazione e memoria',
+    title: 'Concorsi: allenare concentrazione e memoria',
     keyword: 'concentrazione studio concorsi',
-    metaDescription: 'Come mantenere concentrazione e memoria durante la preparazione a un concorso pubblico: tecniche di studio, gestione dello stress e prevenzione del burnout da studio.',
+    metaDescription: 'Come mantenere concentrazione e memoria durante la preparazione a un concorso pubblico: tecniche di studio, gestione dello stress e prevenzione del…',
     date: '2026-09-02',
     body: `<p>Prepararsi a un concorso pubblico è una maratona: mesi di studio intenso, migliaia di pagine, simulazioni e una data d'esame che incombe. Non è solo una questione di memoria: è una questione di energia mentale. Chi studia 10 ore al giorno senza strategia arriva al traguardo esausto, con il cervello che "si spegne" proprio quando serve. La buona notizia: concentrazione e memoria si allenano come un muscolo, e la preparazione mentale è la differenza tra arrivare stanchi e arrivare pronti.</p>
     <h2>Perché la mente "si rifiuta" di studiare</h2>
