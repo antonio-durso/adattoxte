@@ -457,7 +457,7 @@
     },
     {
       "source": "/blog/:slug",
-      "destination": "/app.html"
+      "destination": "/__404__"
     },
     {
       "source": "/ricevuta/:id",
@@ -493,7 +493,7 @@
     },
     {
       "source": "/psicologo-online/:slug",
-      "destination": "/app.html"
+      "destination": "/__404__"
     },
     {
       "source": "/registrazione",
@@ -529,11 +529,11 @@
     },
     {
       "source": "/italiani-all-estero/:paese",
-      "destination": "/app.html"
+      "destination": "/__404__"
     },
     {
       "source": "/italiani-all-estero/:paese/:capitale",
-      "destination": "/app.html"
+      "destination": "/__404__"
     },
     {
       "source": "/tibiz",
@@ -1345,5 +1345,8 @@
         }
       ]
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": false
+  }
 }

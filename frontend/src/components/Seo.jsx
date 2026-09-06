@@ -60,7 +60,10 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
     // per evitare duplicati/confitti quando la lingua cambia.
     const prevHreflang = document.querySelectorAll('link[rel="alternate"][hreflang]');
     prevHreflang.forEach((el) => el.remove());
-    ['it', 'x-default', 'en'].forEach((h) => {
+    // hreflang EN solo quando la versione inglese è attiva e indicizzabile
+    // (le /en noindex non devono ricevere segnalazioni hreflang dalle pagine IT)
+    const langs = EN_ACTIVE ? ['it', 'x-default', 'en'] : ['it', 'x-default'];
+    langs.forEach((h) => {
       const href = h === 'en' ? BASE + enPath : BASE + itPath;
       const link = document.createElement('link');
       link.setAttribute('rel', 'alternate');
