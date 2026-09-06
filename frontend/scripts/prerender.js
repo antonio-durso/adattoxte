@@ -76,6 +76,7 @@ const ROUTES = FAST
       '/aziende',
       '/lavora-con-noi',
       '/struttura',
+      '/ufficio-stampa',
       '/italiani-all-estero',
       ...ESTERO_ROUTES,
       '/',
