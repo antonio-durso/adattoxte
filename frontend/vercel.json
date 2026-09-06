@@ -587,6 +587,10 @@
         {
           "key": "Permissions-Policy",
           "value": "camera=(self), microphone=(self)"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://*.paypal.com https://www.paypalobjects.com https://*.googletagmanager.com https://*.google-analytics.com https://connect.facebook.net https://widget.trustpilot.com https://*.sentry.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://adattoxte-backend.onrender.com https://*.paypal.com https://api.paypal.com https://*.google-analytics.com https://*.googletagmanager.com https://ingest.de.sentry.io https://widget.trustpilot.com wss: blob:; frame-src 'self' https://*.paypal.com https://meet.jit.si https://www.youtube.com https://*.trustpilot.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; worker-src 'self' blob:"
         }
       ]
     },
