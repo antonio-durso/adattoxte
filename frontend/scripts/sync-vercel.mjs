@@ -22,6 +22,8 @@ const cfg = JSON.parse(readFileSync(vercelPath, 'utf8'));
 
 const { paesi } = await import(pathToFileURL(path.join(root, 'src/content/paesi.js')));
 const { citta, CITTA_TOP } = await import(pathToFileURL(path.join(root, 'src/content/citta.js')));
+const { disturbi } = await import(pathToFileURL(path.join(root, 'src/content/disturbi.js')));
+const { articles, HIDDEN_ARTICLE_SLUGS } = await import(pathToFileURL(path.join(root, 'src/content/articles.js')));
 
 const paeseSlugs = new Set(paesi.map((p) => p.slug));
 const capitaleSlugs = new Set(paesi.map((p) => p.capitale.slug).filter(Boolean));
@@ -65,8 +67,29 @@ const generatedNoindex = noindexCities.map((slug) => ({
 }));
 cfg.headers = [...staticHeaders, ...generatedNoindex];
 
+// 3) Rewrite allowlist: gli slug validi dei contenuti vengono sempre serviti via
+//    /app.html (CSR). Così una pagina valida NON può mai dare 404 all'edge, con o
+//    senza file prerenderizzato; le regole "param → __404__" continuano a valere
+//    solo per gli slug realmente inesistenti (l'ordine delle rewrite conta: prima
+//    le corrispondenze esatte, poi i pattern con :param).
+const allowlistRewrites = [
+  ...articles
+    .filter((a) => !HIDDEN_ARTICLE_SLUGS.has(a.slug))
+    .map((a) => ({ source: `/blog/${a.slug}`, destination: '/app.html' })),
+  ...disturbi.map((d) => ({ source: `/psicologo-online/${d.slug}`, destination: '/app.html' })),
+  ...citta.map((c) => ({ source: `/psicologo-online/${c.slug}`, destination: '/app.html' })),
+  ...paesi.flatMap((p) => {
+    const entries = [{ source: `/italiani-all-estero/${p.slug}`, destination: '/app.html' }];
+    if (p.capitale && p.capitale.slug) {
+      entries.push({ source: `/italiani-all-estero/${p.slug}/${p.capitale.slug}`, destination: '/app.html' });
+    }
+    return entries;
+  }),
+];
+cfg.rewrites = [...allowlistRewrites, ...cfg.rewrites];
+
 writeFileSync(vercelPath, JSON.stringify(cfg, null, 2) + '\n');
 
 const redTotal = cfg.redirects.length;
 const noindexTotal = generatedNoindex.length;
-console.log(`[sync-vercel] ok: ${redTotal} redirect (${generatedRedirects.length} paesi/capitali generati), ${noindexTotal} header noindex città generati, ${staticHeaders.length} header statici preservati.`);
+console.log(`[sync-vercel] ok: ${redTotal} redirect (${generatedRedirects.length} paesi/capitali generati), ${noindexTotal} header noindex città generati, ${staticHeaders.length} header statici preservati, ${allowlistRewrites.length} rewrite allowlist contenuti generate.`);

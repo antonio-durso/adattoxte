@@ -428,6 +428,1510 @@
   ],
   "rewrites": [
     {
+      "source": "/blog/cybercondria-ansia-da-malattia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/uomini-e-psicologo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/relazione-a-distanza",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/come-sostenere-un-familiare-con-ansia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/disturbo-affettivo-stagionale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/ansia-e-stress-differenze",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/ansia-da-aereo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/ansia-rientro-scuola-adolescenti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/ansia-rientro-lavoro-post-ferie",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/aumentare-autostima-pratica",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/burnout-lavoro-prevenzione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/nostalgia-homesickness-estero",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/concentrazione-studio-concorsi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologia-giuridica-cosa-fa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/limiti-digitali-per-figli",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/disturbo-bipolare-come-conviverci",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/terapia-di-coppia-quando-uno-non-vuole",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/rientro-sportivo-dopo-infortunio",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/lutto-per-animale-domestico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/paura-di-guidare-amaxofobia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/disfunzione-erettile-psicologica-cause",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/come-funziona-una-seduta-di-psicologia-online",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/insonnia-e-stress-dormire-meglio",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/concorsi-forze-dell-ordine",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/attacchi-di-panico-guida-completa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/tradimento-ricostruire-fiducia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/gaslighting-riconoscerlo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/come-si-svolge-una-seduta-di-coppia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/quanto-costa-la-terapia-di-coppia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/recensioni-psicologo-online",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/la-terapia-online-funziona",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologo-online-o-in-presenza",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/prima-seduta-psicologo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/come-scegliere-lo-psicologo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/allenamento-mentale-atleti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/preparazione-mentale-concorsi-pubblici",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/ansia-da-prestazione-sportiva",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/quanto-costa-la-terapia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/paura-del-colloquio-di-lavoro",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/gestire-ansia-concorsi-pubblici",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/unobravo-serenis-o-adatto-x-te-confronto",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/quando-andare-dallo-psicologo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/test-phq-9-umore",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/test-ansia-gad-7",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/cambiare-lavoro",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/perdita-del-lavoro",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/dipendenza-da-gioco",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/supporto-per-caregivers",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/riposo-e-pausa-mentale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/timidezza",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologo-online-all-estero",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/dialogo-interno",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/autostima-dei-bambini",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/ansia-da-prestazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/agorafobia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/adolescenti-e-social-media",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/burnout-genitoriale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/adhd-negli-adulti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/sindrome-dell-impostore",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/digital-detox",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/solitudine",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/equilibrio-lavoro-vita-privata",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/motivazione-allenamento",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/supporto-psicologico-separazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/resilienza",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/paura-del-futuro",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/menopausa-benessere",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/maternita-benessere-psicologico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/autostima-lavoro",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/procrastinazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/perfezionismo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/gestione-della-rabbia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/meditazione-ansia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/benessere-mentale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/stress-post-traumatico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/dipendenza-affettiva",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/alimentazione-emozioni",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/disturbo-ossessivo-compulsivo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/fobie",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/ansia-sociale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologo-adolescenti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologo-psicoterapeuta-differenze",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/quanto-dura-percorso-psicologico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/primo-colloquio-psicologo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicoterapia-online-privacy",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/crisi-di-coppia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/comunicazione-di-coppia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/gelosia-in-coppia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/relazioni-tossiche",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/assertivita",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/mindfulness",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/stress-lavoro-correlato",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/depressione-chiedere-aiuto",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/attacchi-di-panico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/ansia-generalizzata",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/separazione-e-figli",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/dipendenza-da-smartphone",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/elaborazione-del-lutto",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/autostima-bassa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/insonnia-e-stress",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/burnout-lavoro",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/ansia-da-esame",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/terapia-di-coppia-online",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologo-online",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologo-online-o-studio",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologia-giuridica-consulenza-tecnica",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologia-dello-sport",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologia-comunicazione-politica",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/preparazione-concorsi-pubblici",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/paura-di-parlare-in-pubblico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/benessere-mentale-in-azienda",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/ansia-e-depressione-segnali",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/depressione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-depressivo-persistente",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-bipolare",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ansia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/attacchi-di-panico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/agorafobia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ansia-sociale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/fobie-specifiche",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ansia-da-separazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-ossessivo-compulsivo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/tricotillomania",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-da-accumulo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/dimorfismo-corporeo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-post-traumatico-da-stress",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-dell-adattamento",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/depersonalizzazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/anoressia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/bulimia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/binge-eating",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/insonnia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/burnout",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/lutto",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ansia-da-malattia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/autostima",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/gelosia-ossessiva",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/dipendenza-affettiva",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/dipendenza-da-internet",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/dipendenza-da-gioco-d-azzardo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-borderline",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-narcisistico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-evitante",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-ossessivo-compulsivo-di-personalita",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/adhd-adulti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-da-stress-post-traumatico-complesso",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ipersonnia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-del-ritmo-circadiano",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-bipolare-di-tipo-2",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-esplosivo-intermittente",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-paranoide",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-schizoide",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-schizotipico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-istrionico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-antisociale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/schizofrenia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-delirante",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-schizoaffettivo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-dissociativo-dell-identita",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-da-escoriazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-evitante-restrittivo-del-cibo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ortoressia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-disforico-premestruale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/mutismo-selettivo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-da-ansia-sociale-adolescenti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-del-sonno-incubi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-ossessivo-relazionale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/paura-di-volare",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/paura-di-guidare",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/stress-lavoro-correlato",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ansia-da-prestazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/paura-del-colloquio",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/depressione-post-partum",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disfunzione-erettile-psicologica",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/dipendenza-da-sostanze",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/dipendenza-da-alcol",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-del-comportamento-alimentare-selettivo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/disturbo-narcisistico-abusante",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/lutto-per-animale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/preparazione-mentale-concorsi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/psicologia-dello-sport",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/agrigento",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/alessandria",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ancona",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/aosta",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/arezzo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ascoli-piceno",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/asti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/avellino",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/bari",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/barletta",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/belluno",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/benevento",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/bergamo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/biella",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/bologna",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/bolzano",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/brescia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/brindisi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/cagliari",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/caltanissetta",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/campobasso",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/carbonia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/caserta",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/catania",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/catanzaro",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/chieti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/como",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/cosenza",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/cremona",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/crotone",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/cuneo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/enna",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/fermo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ferrara",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/firenze",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/foggia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/forli",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/frosinone",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/genova",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/gorizia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/grosseto",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/imperia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/isernia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/l-aquila",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/la-spezia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/latina",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/lecce",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/lecco",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/livorno",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/lodi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/lucca",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/macerata",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/mantova",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/massa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/matera",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/messina",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/milano",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/modena",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/monza",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/napoli",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/novara",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/nuoro",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/oristano",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/padova",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/palermo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/parma",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/pavia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/perugia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/pesaro",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/pescara",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/piacenza",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/pisa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/pistoia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/pordenone",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/potenza",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/prato",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ragusa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/ravenna",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/reggio-calabria",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/reggio-emilia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/rieti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/rimini",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/roma",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/rovigo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/salerno",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/sassari",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/savona",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/siena",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/siracusa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/sondrio",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/taranto",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/teramo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/terni",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/torino",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/trani",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/trapani",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/trento",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/treviso",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/trieste",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/udine",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/urbino",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/varese",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/venezia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/verbania",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/vercelli",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/verona",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/vibo-valentia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/vicenza",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/psicologo-online/viterbo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/stati-uniti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/stati-uniti/washington",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/canada",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/canada/ottawa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/regno-unito",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/regno-unito/londra",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/francia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/francia/parigi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/germania",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/germania/berlino",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/berna",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/belgio",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/belgio/bruxelles",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/spagna",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/spagna/madrid",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/paesi-bassi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/paesi-bassi/amsterdam",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/irlanda",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/irlanda/dublino",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/austria",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/austria/vienna",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/lussemburgo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/lussemburgo/lussemburgo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/portogallo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/portogallo/lisbona",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/australia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/australia/canberra",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/argentina",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/argentina/buenos-aires",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/brasile",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/brasile/brasilia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/uruguay",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/uruguay/montevideo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/venezuela",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/venezuela/caracas",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/cile",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/cile/santiago",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/messico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/messico/citta-del-messico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/emirati-arabi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/emirati-arabi/abu-dhabi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/singapore",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/singapore/singapore",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/cina",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/cina/pechino",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/giappone",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/giappone/tokyo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/sudafrica",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/sudafrica/pretoria",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/nuova-zelanda",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/nuova-zelanda/wellington",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/malta",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/malta/la-valletta",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svezia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svezia/stoccolma",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/danimarca",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/danimarca/copenaghen",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/norvegia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/norvegia/oslo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/finlandia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/finlandia/helsinki",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/polonia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/polonia/varsavia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/romania",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/romania/bucarest",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/ungheria",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/ungheria/budapest",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/repubblica-ceca",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/repubblica-ceca/praga",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/grecia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/grecia/atene",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/croazia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/croazia/zagabria",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/slovenia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/slovenia/lubiana",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/israele",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/israele/gerusalemme",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/qatar",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/qatar/doha",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/corea-del-sud",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/corea-del-sud/seul",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/india",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/india/nuova-delhi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/thailandia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/thailandia/bangkok",
+      "destination": "/app.html"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "https://adattoxte-backend.onrender.com/api/$1"
     },
