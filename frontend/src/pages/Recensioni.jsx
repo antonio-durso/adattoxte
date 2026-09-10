@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api';
 import Seo from '../components/Seo';
@@ -34,6 +34,18 @@ export default function Recensioni() {
 
   const maxDist = data?.distribution?.length ? Math.max(...data.distribution.map((d) => d.count)) : 1;
 
+  // TrustBox: il bootstrap carica i widget presenti nell'HTML al caricamento della
+  // pagina (caso delle pagine prerenderizzate). Nella navigazione SPA il widget
+  // viene montato dopo, quindi lo inizializziamo con l'API ufficiale, saltando il
+  // caricamento se è già stato reso (presenza dell'iframe).
+  const tpWidgetRef = useRef(null);
+  useEffect(() => {
+    const el = tpWidgetRef.current;
+    if (!el || el.querySelector('iframe')) return;
+    const tp = typeof window !== 'undefined' ? window.Trustpilot : null;
+    if (tp && typeof tp.loadFromElement === 'function') tp.loadFromElement(el);
+  }, []);
+
   return (
     <div className="container section">
       <Seo
@@ -58,6 +70,24 @@ export default function Recensioni() {
           <div style={{ fontSize: 22 }}>📍</div>
           <h3 style={{ margin: '8px 0 4px' }}>Google</h3>
           <p className="muted small" style={{ margin: '6px 0 0' }}>Leggi le recensioni sulla nostra scheda Google →</p>
+        </a>
+      </div>
+
+      <h2 style={{ marginTop: 28 }}>Lascia una recensione su Trustpilot</h2>
+      {/* Widget ufficiale Trustpilot (TrustBox) — codice copiato dalla sezione
+          "Condividi e promuovi" dell'account Business. Non modificare gli attributi. */}
+      <div
+        ref={tpWidgetRef}
+        className="trustpilot-widget"
+        data-locale="it-IT"
+        data-template-id="56278e9abfbbba0bdcd568bc"
+        data-businessunit-id="6a8f57971ac50b6b4903b45a"
+        data-style-height="52px"
+        data-style-width="100%"
+        data-token="0649d446-33c5-4f0b-8f17-c81f96f552bd"
+      >
+        <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener noreferrer">
+          Trustpilot
         </a>
       </div>
 
