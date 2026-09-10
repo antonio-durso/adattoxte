@@ -22,6 +22,18 @@ const TRUSTPILOT_URL =
 // URL base del sito (www è il dominio canonico; vercel.app reindirizza comunque)
 const SITE_URL = 'https://www.adattoxte.com';
 
+// Servizio di Feedback Automatico (SFA) di Trustpilot: indirizzo email univoco
+// dell'account Business (Trustpilot Business → Inviti → Metodi d'invito → SFA).
+// Se impostato, viene aggiunto in Ccn SOLO all'email di invito alla recensione:
+// è Trustpilot a leggere il destinatario e ad accodare l'invito verificato.
+const TRUSTPILOT_BCC = process.env.TRUSTPILOT_BCC || '';
+
+// Unico trigger ammesso: l'email transazionale di fine seduta ('reviewInvite').
+// Le altre email (benvenuto, promemoria, contatti) NON devono generare inviti.
+function isTrustpilotTrigger(key) {
+  return key === 'reviewInvite' && !!TRUSTPILOT_BCC;
+}
+
 let smtpTransporter = null;
 let configured = false;
 
@@ -188,6 +200,9 @@ function esc(s) {
  */
 async function sendEmail(to, subject, key, data) {
   const html = TEMPLATES[key] ? TEMPLATES[key](data) : '';
+  if (isTrustpilotTrigger(key)) {
+    console.log(`✉️  invito recensione: in Ccn l'indirizzo Trustpilot (SFA) per ${to}`);
+  }
   if (!configured) {
     console.log(`✉️  [DEMO email a ${to}] ${subject}`);
     return { demo: true, to, subject };
@@ -207,6 +222,7 @@ async function sendEmail(to, subject, key, data) {
           to: [{ email: to }],
           subject,
           htmlContent: html,
+          ...(isTrustpilotTrigger(key) ? { bcc: [{ email: TRUSTPILOT_BCC }] } : {}),
         }),
         signal: AbortSignal.timeout(15000),
       });
@@ -217,7 +233,13 @@ async function sendEmail(to, subject, key, data) {
       console.log(`✉️  email inviata a ${to} (API Brevo): ${subject}`);
       return { ok: true, to, subject };
     }
-    await smtpTransporter.sendMail({ from: FROM(), to, subject, html });
+    await smtpTransporter.sendMail({
+      from: FROM(),
+      to,
+      subject,
+      html,
+      ...(isTrustpilotTrigger(key) ? { bcc: TRUSTPILOT_BCC } : {}),
+    });
     console.log(`✉️  email inviata a ${to}: ${subject}`);
     return { ok: true, to, subject };
   } catch (e) {
