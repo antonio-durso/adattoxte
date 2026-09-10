@@ -12,8 +12,6 @@ export default function Press() {
   const facts = [
     { value: '45€', label: 'a seduta, prima seduta conoscitiva gratuita' },
     { value: '43', label: 'paesi raggiunti per gli italiani all’estero' },
-    { value: '4,3/5', label: 'Trustpilot · 8 recensioni verificate' },
-    { value: '5,0/5', label: 'recensioni Google' },
   ];
   return (
     <>
@@ -117,8 +115,9 @@ export default function Press() {
               debutta sul dominio adattoxte.com con sedute a 45€ e prima seduta conoscitiva gratuita.
             </li>
             <li>
-              <strong>31/08/2026 — Recensioni verificate</strong>: la piattaforma raggiunge la valutazione
-              Trustpilot 4,3/5 ("Eccellente") e Google 5,0/5, con recensioni da sedute completate.
+              <strong>31/08/2026 — Recensioni dei pazienti</strong>: la piattaforma avvia la raccolta di
+              recensioni da sedute completate; le valutazioni pubbliche sono consultabili sul profilo
+              Trustpilot e sulla scheda Google.
             </li>
             <li>
               <strong>01/09/2026 — Psicologia online in 43 paesi</strong>: sedute in italiano, ovunque tu sia

@@ -35,9 +35,18 @@ export default function ReviewsStrip() {
         className="card"
         style={{ padding: '28px 20px', border: '1px solid #f59e0b55', background: 'linear-gradient(135deg, #fff8ef, #fff)' }}
       >
-        <div style={{ fontSize: 42, color: '#f59e0b' }}>★★★★★</div>
+        <div style={{ fontSize: 42, color: '#f59e0b', letterSpacing: 2 }} aria-hidden="true">
+          {data
+            ? <>
+                {'★'.repeat(Math.max(0, Math.min(5, Math.round(data.avg || 0))))}
+                <span style={{ color: '#e5e7eb' }}>
+                  {'★'.repeat(5 - Math.max(0, Math.min(5, Math.round(data.avg || 0))))}
+                </span>
+              </>
+            : null}
+        </div>
         <h2 style={{ margin: '10px 0 4px' }}>
-          {data ? `${data.avg} su 5 · ${data.total} recensioni verificate` : 'Recensioni verificate'}
+          {data ? `${data.avg} su 5 · ${data.total} recensioni dei pazienti` : 'Recensioni dei pazienti'}
         </h2>
         <p className="muted" style={{ maxWidth: 520, margin: '0 auto' }}>
           Ogni valutazione arriva da una seduta completata sulla piattaforma. I nostri pazienti raccontano la loro esperienza.

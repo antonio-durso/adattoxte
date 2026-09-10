@@ -149,16 +149,9 @@ export default function Home() {
                 { '@type': 'Service', name: 'Psicologia giuridica e consulenza tecnica', url: 'https://www.adattoxte.com/psicologia-giuridica', offers: { '@type': 'Offer', price: '45', priceCurrency: 'EUR' } },
               ],
             },
-            {
-              '@type': 'AggregateRating',
-              ratingValue: '4.3',
-              ratingCount: '8',
-              reviewCount: '8',
-              bestRating: '5',
-              worstRating: '1',
-              itemReviewed: { '@type': 'Organization', '@id': 'https://www.adattoxte.com/#organization' },
-              url: 'https://it.trustpilot.com/review/adattoxte.com',
-            },
+            // AggregateRating rimosso: il punteggio Trustpilot non può essere presentato
+            // come valutazione propria del sito (linee guida brand Trustpilot + requisiti
+            // Google: l'aggregateRating deve derivare da recensioni del sito stesso).
           ],
         }}
       />
@@ -303,15 +296,15 @@ export default function Home() {
           <Reveal delay={180}>
             <div className="card" style={{ height: '100%' }}>
               <div style={{ fontSize: 34 }}>⭐</div>
-              <h3>Recensioni verificate</h3>
+              <h3>Recensioni dei pazienti</h3>
               <p className="muted">Ogni valutazione arriva da una seduta completata. <Link to="/recensioni">Leggile →</Link></p>
               <p className="muted" style={{ fontSize: 13, marginTop: 8 }}>
                 <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
-                  ★ 4,3/5 su Trustpilot · 8 recensioni
+                  Leggi le recensioni su Trustpilot
                 </a>
                 <span> · </span>
                 <a href="https://share.google/U98x9MWWluFoa91xy" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
-                  ★ 5,0 su Google
+                  Leggi le recensioni su Google
                 </a>
               </p>
             </div>

@@ -30,8 +30,10 @@ const COPY = {
   it: {
     label: 'Scelto con fiducia',
     badges: [
-      { icon: '★', title: 'Trustpilot 4,3/5', sub: 'Recensioni verificate', href: TRUSTPILOT_URL, external: true },
-      { icon: '★', title: 'Google 5,0/5', sub: 'Valutazione dei pazienti', href: GOOGLE_URL, external: true },
+      // NOTA (linee guida brand): nessun punteggio Trustpilot/Google scritto a mano.
+      // Il punteggio ufficiale va mostrato solo con un TrustBox incluso nel piano.
+      { icon: '💬', title: 'Recensioni su Trustpilot', sub: 'Leggi le opinioni dei pazienti', href: TRUSTPILOT_URL, external: true },
+      { icon: '📍', title: 'Recensioni su Google', sub: 'Leggi le opinioni dei pazienti', href: GOOGLE_URL, external: true },
       { icon: '🛡️', title: 'GDPR compliant', sub: 'Dati protetti, export e delete', href: '/privacy', external: false },
       { icon: '🎓', title: 'Iscritti all\'albo', sub: 'Psicologi e psicoterapeuti qualificati', href: '/terapeuti', external: false },
       { icon: '💻', title: '100% online', sub: 'Videochiamata sicura nel browser', href: '/#come-funziona', external: false },
@@ -41,8 +43,8 @@ const COPY = {
   en: {
     label: 'Trusted by our community',
     badges: [
-      { icon: '★', title: 'Trustpilot 4.3/5', sub: 'Verified reviews', href: TRUSTPILOT_URL, external: true },
-      { icon: '★', title: 'Google 5.0/5', sub: 'Patient ratings', href: GOOGLE_URL, external: true },
+      { icon: '💬', title: 'Reviews on Trustpilot', sub: 'Read what patients say', href: TRUSTPILOT_URL, external: true },
+      { icon: '📍', title: 'Reviews on Google', sub: 'Read what patients say', href: GOOGLE_URL, external: true },
       { icon: '🛡️', title: 'GDPR compliant', sub: 'Protected data, export & delete', href: '/privacy', external: false },
       { icon: '🎓', title: 'Licensed', sub: 'Qualified psychologists & psychotherapists', href: '/terapeuti', external: false },
       { icon: '💻', title: '100% online', sub: 'Secure video call in your browser', href: '/#come-funziona', external: false },
