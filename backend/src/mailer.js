@@ -28,10 +28,15 @@ const SITE_URL = 'https://www.adattoxte.com';
 // è Trustpilot a leggere il destinatario e ad accodare l'invito verificato.
 const TRUSTPILOT_BCC = process.env.TRUSTPILOT_BCC || '';
 
-// Unico trigger ammesso: l'email transazionale di fine seduta ('reviewInvite').
+// Trigger ammessi per l'invito Trustpilot:
+//  - 'reviewInvite'       → invito automatico a fine seduta (prenotazione completata)
+//  - 'reviewInviteManual' → invito inviato a mano dall'area riservata (es. pazienti
+//                           che hanno contattato solo per telefono)
 // Le altre email (benvenuto, promemoria, contatti) NON devono generare inviti.
+const TRUSTPILOT_TRIGGER_KEYS = ['reviewInvite', 'reviewInviteManual'];
+
 function isTrustpilotTrigger(key) {
-  return key === 'reviewInvite' && !!TRUSTPILOT_BCC;
+  return TRUSTPILOT_TRIGGER_KEYS.includes(key) && !!TRUSTPILOT_BCC;
 }
 
 let smtpTransporter = null;
@@ -133,6 +138,19 @@ const TEMPLATES = {
       ${btn(SITE_URL + '/area-paziente', 'Valuta la tua seduta')}
       <p style="font-size:13px;color:#64748b">Oppure racconta la tua esperienza in modo pubblico su <strong>Trustpilot</strong>: è il modo migliore per aiutare chi cerca uno psicologo online a scegliere con fiducia.</p>
       ${btn(TRUSTPILOT_URL, 'Recensisci su Trustpilot')}
+    `),
+  // Invito inviato manualmente dall'area riservata (pulsante "Invia invito recensione").
+  // Il testo è volutamente neutro: non suggerisce un esito positivo e non promette
+  // vantaggi (linee guida Trustpilot per le aziende: inviti equi, imparziali, senza incentivi).
+  reviewInviteManual: (d) =>
+    base(`
+      <h2 style="margin-top:0">Ti va di raccontare la tua esperienza? ⭐</h2>
+      <p>${d && d.name ? 'Ciao ' + esc(d.name) + ',' : 'Ciao,'}</p>
+      <p>grazie per esserti affidato ad <strong>Adatto x Te</strong>. Se ti fa piacere, puoi raccontare la tua esperienza su <strong>Trustpilot</strong>.</p>
+      <p>Ci vogliono circa 30 secondi e il tuo contributo aiuta le persone che stanno cercando un supporto psicologico a orientarsi con più consapevolezza.</p>
+      ${btn(TRUSTPILOT_URL, 'Lascia una recensione su Trustpilot')}
+      <p style="font-size:13px;color:#64748b">Puoi scrivere liberamente quello che pensi. Per pubblicare la recensione Trustpilot ti chiederà di creare un account gratuito.</p>
+      <p style="font-size:12px;color:#94a3b8">Ricevi questa email perché hai usufruito di un servizio su Adatto x Te. Se preferisci non ricevere inviti a recensire, rispondi a questa email e ti rimuoveremo dall'elenco.</p>
     `),
   reviewReminder: (booking) =>
     base(`
@@ -248,4 +266,10 @@ async function sendEmail(to, subject, key, data) {
   }
 }
 
-module.exports = { sendEmail, configured };
+module.exports = {
+  sendEmail,
+  configured,
+  // true quando l'indirizzo SFA di Trustpilot è configurato: senza di esso gli
+  // inviti non possono essere accodati su Trustpilot (nessuna recensione "Su invito").
+  trustpilotConfigured: !!TRUSTPILOT_BCC,
+};

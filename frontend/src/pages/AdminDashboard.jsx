@@ -42,6 +42,11 @@ export default function AdminDashboard() {
   const [form, setForm] = useState(emptyForm());
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
+  const [inviteEmail, setInviteEmail] = useState('');
+  const [inviteName, setInviteName] = useState('');
+  const [inviteBusy, setInviteBusy] = useState(false);
+  const [inviteMsg, setInviteMsg] = useState(null); // null | { type: 'ok' | 'error', text }
+  const [tpStatus, setTpStatus] = useState(null); // null | { trustpilotConfigured, mailerConfigured }
 
   async function loadAll() {
     try {
@@ -92,6 +97,10 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     loadAll();
+    api
+      .get('/admin/review-invite/status')
+      .then((r) => setTpStatus(r.data))
+      .catch(() => setTpStatus(null));
   }, []);
 
   function startNew() {
@@ -165,6 +174,31 @@ export default function AdminDashboard() {
     }
   }
 
+  async function sendReviewInvite(e) {
+    e.preventDefault();
+    setInviteBusy(true);
+    setInviteMsg(null);
+    try {
+      const r = await api.post('/admin/review-invite', {
+        email: inviteEmail.trim(),
+        name: inviteName.trim(),
+      });
+      setInviteMsg({
+        type: 'ok',
+        text: `Invito inviato a ${r.data.to}. Trustpilot accoderà la richiesta di recensione.`,
+      });
+      setInviteEmail('');
+      setInviteName('');
+    } catch (err) {
+      setInviteMsg({
+        type: 'error',
+        text: err.response?.data?.error || "Errore durante l'invio dell'invito",
+      });
+    } finally {
+      setInviteBusy(false);
+    }
+  }
+
   const statCards = overview
     ? [
         { label: 'Pazienti', value: overview.patients, target: 'bookings' },
@@ -210,6 +244,67 @@ export default function AdminDashboard() {
           ))}
         </div>
       )}
+
+      <h2 id="sezione-inviti" style={{ margin: '28px 0 12px', scrollMarginTop: 16 }}>
+        Invita un paziente a recensire
+      </h2>
+
+      <div className="card" style={{ padding: '14px 16px', marginBottom: 28 }}>
+        <p className="muted small" style={{ marginTop: 0 }}>
+          Inserisci l&apos;email del paziente: riceverà l&apos;invito a lasciare una recensione su
+          Trustpilot. Vale anche per chi ti ha contattato solo per telefono e non ha un account in
+          piattaforma.
+        </p>
+
+        {tpStatus && !tpStatus.trustpilotConfigured && (
+          <p className="error-text" style={{ marginTop: 0 }}>
+            Collegamento Trustpilot (SFA) non configurato sul server: manca la variabile{' '}
+            <code>TRUSTPILOT_BCC</code>. Finché non è impostata, nessun invito può essere accodato.
+          </p>
+        )}
+
+        <form onSubmit={sendReviewInvite} style={{ display: 'grid', gap: 4, maxWidth: 520 }}>
+          <div style={fieldRow}>
+            <label className="label" htmlFor="inv-email">Email del paziente *</label>
+            <input
+              id="inv-email"
+              type="email"
+              required
+              value={inviteEmail}
+              onChange={(e) => setInviteEmail(e.target.value)}
+              placeholder="paziente@esempio.it"
+            />
+          </div>
+
+          <div style={fieldRow}>
+            <label className="label" htmlFor="inv-name">Nome (opzionale)</label>
+            <input
+              id="inv-name"
+              value={inviteName}
+              onChange={(e) => setInviteName(e.target.value)}
+              placeholder="Es. Marco"
+            />
+          </div>
+
+          <div style={{ marginBottom: 8 }}>
+            <button className="btn btn-primary" type="submit" disabled={inviteBusy}>
+              {inviteBusy ? 'Invio…' : 'Invia invito recensione'}
+            </button>
+          </div>
+        </form>
+
+        {inviteMsg && (
+          <p
+            style={{
+              marginBottom: 0,
+              fontWeight: 500,
+              color: inviteMsg.type === 'ok' ? '#166534' : 'var(--danger, #b91c1c)',
+            }}
+          >
+            {inviteMsg.text}
+          </p>
+        )}
+      </div>
 
       {editing && (
         <form className="card form-card" onSubmit={save} style={{ maxWidth: 720, marginBottom: 28 }}>

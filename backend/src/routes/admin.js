@@ -5,6 +5,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+const rateLimit = require('express-rate-limit');
 const { db } = require('../db');
 const { authRequired, requireRole } = require('../middleware/auth');
 
@@ -212,6 +213,68 @@ router.patch('/bookings/:id/status', (req, res) => {
   if (!booking) return res.status(404).json({ error: 'Prenotazione non trovata' });
   db.prepare('UPDATE bookings SET status = ? WHERE id = ?').run(status, booking.id);
   res.json({ ok: true, status });
+});
+
+// ---------------------------------------------------------------------------
+// Inviti manuali alla recensione (Trustpilot)
+// ---------------------------------------------------------------------------
+// L'area riservata può invitare a mano un paziente a recensire: serve per chi ha
+// prenotato solo per telefono e quindi non passa dal flusso automatico di fine
+// seduta. L'invio riusa la stessa pipeline dell'invito automatico: l'email parte
+// dal nostro mittente e viene messo in Ccn l'indirizzo univoco SFA di Trustpilot,
+// che legge il destinatario e accoda l'invito tracciato.
+const reviewInviteLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 ora
+  max: 30,                  // massimo 30 inviti manuali per IP ogni ora
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Troppi inviti inviati in poco tempo. Riprova più tardi.' },
+});
+
+// GET /api/admin/review-invite/status — stato del collegamento Trustpilot (SFA)
+router.get('/review-invite/status', (req, res) => {
+  const mailer = require('../mailer');
+  res.json({
+    trustpilotConfigured: !!mailer.trustpilotConfigured,
+    mailerConfigured: !!mailer.configured,
+  });
+});
+
+// POST /api/admin/review-invite — invia l'invito a recensire a un indirizzo email
+router.post('/review-invite', reviewInviteLimiter, async (req, res) => {
+  const b = req.body || {};
+  const email = String(b.email || '').trim().toLowerCase();
+  const name = String(b.name || '').trim().slice(0, 60);
+
+  if (!isValidEmail(email)) {
+    return res.status(400).json({ error: 'Email non valida' });
+  }
+
+  const mailer = require('../mailer');
+
+  if (!mailer.trustpilotConfigured) {
+    return res.status(503).json({
+      error: 'Invito Trustpilot non configurato sul server: manca la variabile TRUSTPILOT_BCC.',
+      trustpilotConfigured: false,
+    });
+  }
+
+  const result = await mailer.sendEmail(
+    email,
+    'Ti va di raccontare la tua esperienza su Trustpilot?',
+    'reviewInviteManual',
+    { name }
+  );
+
+  if (result && result.ok) {
+    return res.json({ ok: true, to: email });
+  }
+  if (result && result.demo) {
+    return res.status(503).json({
+      error: 'Email non configurata sul server (modalità demo): nessun invito è stato spedito.',
+    });
+  }
+  return res.status(502).json({ error: (result && result.error) || 'Invio non riuscito' });
 });
 
 module.exports = router;
