@@ -4,6 +4,9 @@
  * Sostituisce le sezioni scritte a mano con quelle calcolate dai contenuti:
  *   1) redirect legacy  /psicologo-online/{paese|capitale}  →  /italiani-all-estero/...
  *   2) header X-Robots-Tag: noindex per le città NON in CITTA_TOP (79 pagine sottili)
+ *   2b) header X-Robots-Tag: noindex su /en e /en/** finché EN_ACTIVE === false
+ *       (versione inglese volutamente in pausa: si riattiva cambiando EN_ACTIVE
+ *        in src/config.js, senza toccare vercel.json a mano)
  *
  * Tutto il resto di vercel.json (rewrite SPA, header sicurezza/cache, redirect
  * trailing slash, ...) viene preservato. Lo script è idempotente.
@@ -24,11 +27,33 @@ const { paesi } = await import(pathToFileURL(path.join(root, 'src/content/paesi.
 const { citta, CITTA_TOP } = await import(pathToFileURL(path.join(root, 'src/content/citta.js')));
 const { disturbi } = await import(pathToFileURL(path.join(root, 'src/content/disturbi.js')));
 const { articles, HIDDEN_ARTICLE_SLUGS } = await import(pathToFileURL(path.join(root, 'src/content/articles.js')));
+const { EN_ACTIVE } = await import(pathToFileURL(path.join(root, 'src/config.js')));
 
 const paeseSlugs = new Set(paesi.map((p) => p.slug));
 const capitaleSlugs = new Set(paesi.map((p) => p.capitale.slug).filter(Boolean));
 const cittaTop = new Set(CITTA_TOP);
 const noindexCities = citta.filter((c) => !cittaTop.has(c.slug)).map((c) => c.slug);
+
+// Versione inglese volutamente in pausa: /en e /en/** restano noindex finché
+// EN_ACTIVE === false in src/config.js. La riattivazione è una sola riga lì:
+// qui non va toccato niente a mano.
+const EN_HEADER_SOURCES = ['/en', '/en/:path*'];
+const isEnNoindex = (h) => EN_HEADER_SOURCES.includes(h.source || '');
+
+// Guardia: attivare EN senza prerenderizzare /en servirebbe shell SPA (senza
+// contenuto, senza canonical né hreflang) su URL che build-seo.js metterebbe
+// comunque in sitemap. Meglio bloccare la build che pubblicare shell indicizzabili.
+if (EN_ACTIVE) {
+  const prerenderSrc = readFileSync(path.join(root, 'scripts/prerender.js'), 'utf8');
+  const prerendersEn = /(['"`])\/en(\/|\1)/.test(prerenderSrc);
+  if (!prerendersEn) {
+    console.error('[sync-vercel] ERRORE: EN_ACTIVE = true ma scripts/prerender.js non prerenderizza le rotte /en.');
+    console.error('  Senza quelle rotte le URL /en verrebbero servite come shell SPA (contenuto assente)');
+    console.error('  mentre build-seo.js le inserirebbe in sitemap.');
+    console.error('  Aggiungi le rotte /en a ROUTES in scripts/prerender.js, oppure rimetti EN_ACTIVE = false.');
+    process.exit(1);
+  }
+}
 
 const isCountryRedirect = (r) => {
   const m = /^\/psicologo-online\/([a-z0-9-]+)$/.exec(r.source || '');
@@ -60,12 +85,18 @@ for (const p of paesi) {
 cfg.redirects = [...staticRedirects, ...generatedRedirects];
 
 // 2) Headers: si tengono quelli non-città e si rigenerano i noindex città
-const staticHeaders = (cfg.headers || []).filter((h) => !isCityNoindex(h));
+const staticHeaders = (cfg.headers || []).filter((h) => !isCityNoindex(h) && !isEnNoindex(h));
 const generatedNoindex = noindexCities.map((slug) => ({
   source: `/psicologo-online/${slug}`,
   headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
 }));
-cfg.headers = [...staticHeaders, ...generatedNoindex];
+const generatedEnNoindex = EN_ACTIVE
+  ? []
+  : EN_HEADER_SOURCES.map((source) => ({
+      source,
+      headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+    }));
+cfg.headers = [...staticHeaders, ...generatedNoindex, ...generatedEnNoindex];
 
 // 3) Rewrite allowlist: gli slug validi dei contenuti vengono sempre serviti via
 //    /app.html (CSR). Così una pagina valida NON può mai dare 404 all'edge, con o
@@ -98,4 +129,4 @@ writeFileSync(vercelPath, JSON.stringify(cfg, null, 2) + '\n');
 
 const redTotal = cfg.redirects.length;
 const noindexTotal = generatedNoindex.length;
-console.log(`[sync-vercel] ok: ${redTotal} redirect (${generatedRedirects.length} paesi/capitali generati), ${noindexTotal} header noindex città generati, ${staticHeaders.length} header statici preservati, ${allowlistSources.length} rewrite allowlist contenuti generate.`);
+console.log(`[sync-vercel] ok: ${redTotal} redirect (${generatedRedirects.length} paesi/capitali generati), ${noindexTotal} header noindex città generati, ${generatedEnNoindex.length} header noindex EN (EN_ACTIVE=${EN_ACTIVE}), ${staticHeaders.length} header statici preservati, ${allowlistSources.length} rewrite allowlist contenuti generate.`);
