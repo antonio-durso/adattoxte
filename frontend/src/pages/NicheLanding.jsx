@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { visibleArticles as articles } from '../content/articles';;
+import { disturbi } from '../content/disturbi';
+import { citta, CITTA_TOP } from '../content/citta';
 import Seo from '../components/Seo';
 import { useI18n } from '../i18n';
 
@@ -168,6 +170,31 @@ const NICHES = {
     ],
   },
 };
+
+// L'hub /psicologo-online deve linkare TUTTE le sue landing figlie. Le liste
+// curate restano in testa (priorità visiva), il resto viene completato dai
+// contenuti: senza questo completamento 46 pagine disturbo restavano orfane —
+// nessun link interno da nessuna pagina della sitemap — e Google le scopriva
+// solo dalla sitemap, con giorni di ritardo rispetto alle sorelle già linkate.
+function completeOnlineHub() {
+  const o = NICHES.online;
+  const haveArea = new Set((o.areas || []).map((a) => a.to));
+  o.areas = [
+    ...(o.areas || []),
+    ...disturbi
+      .map((d) => ({ label: d.nome, to: `/psicologo-online/${d.slug}` }))
+      .filter((a) => !haveArea.has(a.to)),
+  ];
+  const haveCity = new Set((o.areasCities || []).map((c) => c.to));
+  o.areasCities = [
+    ...(o.areasCities || []),
+    ...CITTA_TOP.map((slug) => ({
+      label: (citta.find((c) => c.slug === slug) || {}).nome || slug,
+      to: `/psicologo-online/${slug}`,
+    })).filter((c) => !haveCity.has(c.to)),
+  ];
+}
+completeOnlineHub();
 
 export default function NicheLanding({ niche }) {
   const { lang } = useI18n();
