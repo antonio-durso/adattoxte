@@ -99,9 +99,13 @@ function readCountries() {
 }
 
 function buildSitemap() {
+  // NOTA sui lastmod: vengono emessi SOLO quando esiste una data reale (es. la
+  // data dell'articolo). Prima ogni build riscriveva la data di oggi su tutte le
+  // pagine templatate: dopo pochi giorni Google impara che il lastmod non è
+  // affidabile e lo ignora — anche quello vero. Meglio ometterlo dove non
+  // sappiamo quando il contenuto è cambiato davvero.
   const urls = STATIC_ROUTES.map((r) => ({
     loc: BASE + r.path,
-    lastmod: today,
     freq: r.freq,
     priority: r.priority,
   }));
@@ -111,7 +115,7 @@ function buildSitemap() {
   if (EN_ACTIVE) {
     const enLandings = [...urls].filter((u) => u.loc.includes('/psicologo-online/') && !u.loc.includes('/en/'));
     for (const u of enLandings) {
-      urls.push({ loc: u.loc.replace(`${BASE}/psicologo-online/`, `${BASE}/en/psicologo-online/`), lastmod: today, freq: 'weekly', priority: '0.7' });
+      urls.push({ loc: u.loc.replace(`${BASE}/psicologo-online/`, `${BASE}/en/psicologo-online/`), freq: 'weekly', priority: '0.7' });
     }
   }
   for (const a of readArticles()) {
@@ -123,11 +127,12 @@ function buildSitemap() {
     urls.push({ loc: `${BASE}/blog/${a.slug}`, lastmod, freq: 'monthly', priority: '0.7' });
   }
   for (const c of readCountries()) {
-    urls.push({ loc: BASE + c, lastmod: today, freq: 'monthly', priority: '0.7' });
+    urls.push({ loc: BASE + c, freq: 'monthly', priority: '0.7' });
   }
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
     .map(
-      (u) => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <changefreq>${u.freq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
+      (u) =>
+        `  <url>\n    <loc>${u.loc}</loc>\n${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ''}    <changefreq>${u.freq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
     )
     .join('\n')}\n</urlset>\n`;
   fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), xml);
