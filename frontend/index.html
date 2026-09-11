@@ -6,14 +6,17 @@
     <meta name="description" content="Adatto x Te - Piattaforma di consulenza psicologica online. Terapisti qualificati, sedute video da casa, in qualsiasi momento." />
     <meta name="google-site-verification" content="LaLxpY_r91NfbWwxBuKEBsiR_cykBocaGhyAnF4nrn8" />
     <meta name="trustpilot-one-time-domain-verification-id" content="d97e8d25-594c-46a3-b952-99f1c07a7808" />
-    <!-- NIENTE <meta name="robots"> statico qui.
+    <!-- Nessun tag robots statico qui, di proposito.
          Questo file è anche la sorgente di dist/app.html, cioè la shell servita come
          fallback SPA (e oggi alle URL /en/**). Un "index, follow" statico finirebbe
          dentro quella shell e contraddirebbe l'header X-Robots-Tag: noindex applicato
          dall'edge su /en (vedi frontend/vercel.json, generato da scripts/sync-vercel.mjs).
          Regola: le pagine indicizzabili non dichiarano nulla (assenza = indicizzabile);
-         solo le pagine da escludere dichiarano <meta name="robots" content="noindex">
-         tramite il componente Seo (src/components/Seo.jsx). -->
+         solo le pagine da escludere dichiarano noindex, tramite il componente Seo
+         (src/components/Seo.jsx).
+         Non reintrodurre qui il markup di un meta per i robots: gli strumenti che
+         leggono l'HTML con espressioni regolari (la sentinella SSR compresa) lo
+         interpreterebbero come direttiva reale. -->
     <meta name="theme-color" content="#48A8D8" />
 
     <!-- Filtro errori noti degli script Meta (bug interni di fbevents.js in ambienti

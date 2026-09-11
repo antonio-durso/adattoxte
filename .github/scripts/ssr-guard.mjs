@@ -79,8 +79,15 @@ async function getWithRetry(path) {
   return first;
 }
 
+// I commenti HTML vanno tolti PRIMA di ogni parsing: un commento che cita il markup
+// di un meta robots verrebbe letto come direttiva reale (è successo davvero: un
+// commento in index.html ha prodotto 315 falsi positivi "noindex su URL in sitemap").
+function stripComments(html) {
+  return String(html).replace(/<!--[\s\S]*?-->/g, ' ');
+}
+
 function textStats(html) {
-  const cleaned = html
+  const cleaned = stripComments(html)
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<noscript[\s\S]*?<\/noscript>/gi, ' ')
@@ -93,9 +100,10 @@ function textStats(html) {
 }
 
 function pageStats(html) {
-  const { words, h1 } = textStats(html);
+  const clean = stripComments(html);
+  const { words, h1 } = textStats(clean);
   const pick = (re) => {
-    const m = html.match(re);
+    const m = clean.match(re);
     return m ? String(m[1]).replace(/\s+/g, ' ').trim() : '';
   };
   return {
