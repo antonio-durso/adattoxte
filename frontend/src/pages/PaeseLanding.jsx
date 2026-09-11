@@ -86,6 +86,14 @@ export default function PaeseLanding() {
     ? `Psicologo online per italiani a ${nome} (${paese.nome}): sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}.`
     : `Psicologo online per italiani ${art.in}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}, terapeuti qualificati.`;
   const path = isCapitale ? `/italiani-all-estero/${paese.slug}/${capitale.slug}` : `/italiani-all-estero/${paese.slug}`;
+  // Città-stato (es. Singapore, Lussemburgo): capitale e paese coincidono, quindi
+  // questa pagina duplica /italiani-all-estero/{paese} (title e H1 identici).
+  // Invece di avere due URL in competizione sulla stessa query, il canonical viene
+  // DELEGATO alla pagina paese: i segnali si consolidano su una sola URL. Il
+  // contenuto resta invariato e la pagina resta raggiungibile; esce dalla sitemap
+  // (vedi scripts/build-seo.js).
+  const isCittaStato = isCapitale && capitale.slug === paese.slug;
+  const canonicalPath = isCittaStato ? `/italiani-all-estero/${paese.slug}` : undefined;
 
   const faqs = [
     {
@@ -157,6 +165,7 @@ export default function PaeseLanding() {
         title={titolo}
         description={desc}
         path={path}
+        canonicalPath={canonicalPath}
         jsonLd={[
           {
             '@context': 'https://schema.org',

@@ -38,6 +38,15 @@ const KNOWN_MIN_WORDS = {
 // Pagine controllate anche se non sono in sitemap (qui il noindex è ammesso).
 const EXTRA_PAGES = ['/ufficio-stampa'];
 
+// Pagine che DELEGANO il canonical a un'altra URL, per consolidare i duplicati:
+// sono le capitali dei città-stato, dove capitale e paese coincidono. Per queste
+// il canonical deve essere esattamente quello indicato, il noindex è vietato
+// (sarebbe un segnale in conflitto) e la URL NON deve stare in sitemap.
+const CANONICAL_DELEGATES = {
+  '/italiani-all-estero/singapore/singapore': '/italiani-all-estero/singapore',
+  '/italiani-all-estero/lussemburgo/lussemburgo': '/italiani-all-estero/lussemburgo',
+};
+
 // Rotte che DEVONO rispondere 404 oppure avere header X-Robots-Tag: noindex.
 const NOINDEX_PATHS = [
   '/en',
@@ -129,6 +138,7 @@ async function checkOne(path, inSitemap) {
   const { code, header, html, error } = await getWithRetry(path);
   const st = pageStats(html);
   const min = KNOWN_MIN_WORDS[path] ?? MIN_WORDS_DEFAULT;
+  const delegate = CANONICAL_DELEGATES[path];
   const problems = [];
   if (code !== 200) {
     problems.push(`code=${code}${error ? ` ${String(error).slice(0, 60)}` : ''}`);
@@ -137,8 +147,11 @@ async function checkOne(path, inSitemap) {
     if (st.words < min) problems.push(`${st.words} parole (min ${min})`);
     if (st.title === SHELL_TITLE) problems.push('title della shell SPA');
     if (inSitemap && /noindex/i.test(st.robots || header)) problems.push('noindex su URL presente in sitemap');
+    if (delegate && inSitemap) problems.push(`URL con canonical delegato presente in sitemap (delega a ${delegate})`);
+    if (delegate && /noindex/i.test(st.robots || header)) problems.push('noindex su pagina con canonical delegato (segnali in conflitto)');
+    const atteso = delegate ? BASE + delegate : BASE + path;
     if (!st.canonical) problems.push('canonical assente');
-    else if (normUrl(st.canonical) !== normUrl(BASE + path)) problems.push(`canonical=${st.canonical}`);
+    else if (normUrl(st.canonical) !== normUrl(atteso)) problems.push(`canonical=${st.canonical} (atteso ${atteso})`);
   }
   return { path, inSitemap, code, words: st.words, h1: st.h1, ok: problems.length === 0, problems };
 }
@@ -174,6 +187,11 @@ async function main() {
   const queue = [
     ...sitemapPaths.map((p) => ({ path: p, inSitemap: true })),
     ...EXTRA_PAGES.filter((p) => !sitemapPaths.includes(p)).map((p) => ({ path: p, inSitemap: false })),
+    // Le URL con canonical delegato vanno verificate anche fuori sitemap: è lì che
+    // ci si accorge se qualcuno le rimette nell'elenco o se il canonical sparisce.
+    ...Object.keys(CANONICAL_DELEGATES)
+      .filter((p) => !sitemapPaths.includes(p) && !EXTRA_PAGES.includes(p))
+      .map((p) => ({ path: p, inSitemap: false })),
   ];
   const results = [];
   let cursor = 0;
