@@ -90,7 +90,10 @@ function readCountries() {
   const caps = [...src.matchAll(capRe)].map((m) => m[1]);
   slugs.forEach((s, i) => {
     out.push(`/italiani-all-estero/${s}`);
-    if (caps[i]) out.push(`/italiani-all-estero/${s}/${caps[i]}`);
+    // Città-stato (capitale.slug === paese.slug, es. singapore e lussemburgo): la
+    // pagina capitale ha il canonical DELEGATO alla pagina paese, quindi non va
+    // elencata in sitemap — una URL canonicalizzata altrove non si dichiara.
+    if (caps[i] && caps[i] !== s) out.push(`/italiani-all-estero/${s}/${caps[i]}`);
   });
   return out;
 }

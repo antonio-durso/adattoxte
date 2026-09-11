@@ -19,7 +19,7 @@ function setMeta(attr, key, content) {
   el.setAttribute('content', content);
 }
 
-export default function Seo({ title, description, path = '/', image, jsonLd, noindex, noBrand }) {
+export default function Seo({ title, description, path = '/', image, jsonLd, noindex, noBrand, canonicalPath }) {
   useEffect(() => {
     const fullTitle = title ? (noBrand ? title : `${title} | Adatto x Te`) : 'Adatto x Te - Psicologia online';
     document.title = fullTitle;
@@ -44,7 +44,13 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
     const itPath = isEn ? (actualPath.replace(/^\/en/, '') || '/') : actualPath;
     const enPath = isEn ? actualPath : (actualPath === '/' ? '/en' : '/en' + actualPath);
 
-    setMeta('property', 'og:url', BASE + actualPath);
+    // Canonical: normalmente self-referential sull'URL effettivo. canonicalPath
+    // permette di DELEGARLO a un'altra URL, per consolidare i duplicati (es. le
+    // pagine capitale dei città-stato, dove capitale e paese coincidono): in quel
+    // caso la pagina non è più self-canonical e non va messa in sitemap.
+    // og:url segue lo stesso target, per non inviare segnali contrastanti.
+    const canonicalHref = canonicalPath ? BASE + canonicalPath : BASE + actualPath;
+    setMeta('property', 'og:url', canonicalHref);
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -53,7 +59,7 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', BASE + actualPath);
+    canonical.setAttribute('href', canonicalHref);
 
     // hreflang alternates (IT/EN + x-default): collegano le versioni linguistiche.
     // Rimuove TUTTI i link hreflang esistenti (anche quelli statici del template)
@@ -95,7 +101,7 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
       const robotsMeta = document.querySelector('meta[name="robots"]');
       if (robotsMeta && robotsMeta.getAttribute('content') === 'noindex') robotsMeta.remove();
     };
-  }, [title, description, path, image, jsonLd, noindex, noBrand]);
+  }, [title, description, path, image, jsonLd, noindex, noBrand, canonicalPath]);
 
   return null;
 }
