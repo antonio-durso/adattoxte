@@ -2,6 +2,13 @@
 // Dopo `vite build` genera gli HTML già renderizzati per le rotte principali,
 // così il contenuto arriva al browser senza eseguire JavaScript (FCP/LCP/TBT migliori).
 // Uso: node scripts/prerender.js  (eseguito automaticamente da `npm run build`)
+//
+// GATE DI BUILD: a fine cattura lo script verifica di aver generato TUTTE le rotte
+// di ROUTES_FINAL e, se ne manca anche una, esce con codice 1 (vedi assertComplete).
+// Senza il gate, una rotta non catturata resterebbe senza dist/<rotta>/index.html:
+// la rewrite allowlist di vercel.json servirebbe /app.html (shell SPA con title
+// generico) al posto della pagina, che però resterebbe in sitemap.
+// Bypass di emergenza: PRERENDER_ALLOW_INCOMPLETE=1 (sconsigliato).
 import { execSync, spawn } from 'node:child_process';
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -296,10 +303,38 @@ async function launchBrowser(chrome) {
   });
 }
 
+// Gate di build: o TUTTE le rotte di ROUTES_FINAL, o build rossa.
+// Vale sul run COMPLETO, cioè sul percorso che pubblica in produzione (workflow
+// prerender-full, PRERENDER_FAST=0). Non si applica ai run parziali per progetto:
+// modalità veloce Vercel (PRERENDER_FAST=1) e debug con --only=<prefissi>.
+// Il confronto è su ROUTES_FINAL, che in modalità veloce è già il sottoinsieme.
+const PARTIAL_BY_DESIGN = Boolean(ONLY) || process.env.PRERENDER_FAST === '1';
+const ALLOW_INCOMPLETE = process.env.PRERENDER_ALLOW_INCOMPLETE === '1';
+function assertComplete(captured, why) {
+  const total = ROUTES_FINAL.length;
+  if (captured === total) return;
+  const mancanti = total - captured;
+  const msg = `GATE: ${captured}/${total} rotte catturate${why ? ` — ${why}` : ''} (${mancanti} ${mancanti === 1 ? 'pagina resterebbe' : 'pagine resterebbero'} shell SPA)`;
+  if (PARTIAL_BY_DESIGN || ALLOW_INCOMPLETE) {
+    const motivo = ALLOW_INCOMPLETE
+      ? 'bypass attivo (PRERENDER_ALLOW_INCOMPLETE=1)'
+      : `run parziale per progetto (${ONLY ? '--only' : 'PRERENDER_FAST=1'})`;
+    console.log(`⚠️  ${msg} — ${motivo}: la build prosegue.`);
+    return;
+  }
+  console.log(`❌ ${msg}`);
+  console.log('   Le righe "❌ <rotta>" qui sopra elencano le pagine non catturate.');
+  console.log("   Build interrotta: la produzione resta sull'ultima versione buona.");
+  process.exitCode = 1;
+}
+
 async function main() {
   const chrome = await ensureChrome();
   if (!chrome) {
-    console.log('⚠️  Chrome non trovato: prerender saltato (build statica valida comunque)');
+    console.log('⚠️  Chrome non trovato: nessuna rotta catturabile');
+    // Senza Chrome non si prerenderizza nulla: in produzione sarebbe un sito di
+    // sole shell SPA, quindi il gate deve intervenire (non è un "salto innocuo").
+    assertComplete(0, 'Chrome non trovato');
     return;
   }
   try {
@@ -310,6 +345,7 @@ async function main() {
   }
   if (!existsSync(join(DIST, 'index.html'))) {
     console.log('⚠️  dist/ non trovata: esegui prima vite build');
+    assertComplete(0, 'dist/ assente');
     return;
   }
 
@@ -370,9 +406,11 @@ async function main() {
 
   let ok = 0;
   let browser = null;
+
   try {
     if (!(await waitForServer(BASE_URL))) {
-      console.log('⚠️  Server preview non raggiungibile: prerender saltato');
+      console.log('❌ Server preview non raggiungibile: nessuna rotta catturata');
+      assertComplete(0);
       return;
     }
     await warmBackend();
@@ -465,9 +503,12 @@ async function main() {
     server.kill('SIGTERM');
     backend.kill('SIGTERM');
   }
+
+  // Gate di build: se manca anche una sola rotta la build non passa.
+  assertComplete(ok);
 }
 
 main().catch((e) => {
-  console.log('Errore prerender:', e.message);
-  process.exit(0); // il prerender è best-effort: non blocca mai il deploy
+  console.log('❌ Errore prerender:', e.message);
+  process.exit(1); // prerender rotto = build rossa (non c'è più il "best-effort")
 });
