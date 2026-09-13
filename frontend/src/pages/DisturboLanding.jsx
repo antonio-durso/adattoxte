@@ -168,6 +168,27 @@ function DisturboView({ d, isEn }) {
           <Link to={isEn ? '/en/terapeuti' : '/terapeuti'} className="btn btn-primary btn-lg">{L.cta}</Link>
           <span className="muted">{L.meta}</span>
         </div>
+
+        {/* Firma dell'autore (E-E-A-T): le pagine sui disturbi sono contenuto
+            sanitario e Google chiede che siano firmate da un professionista
+            identificabile. Solo in italiano: le pagine /en restano invariate.
+            NOTA: le stesse credenziali sono in BlogArticle.jsx (ARTICLE_AUTHOR). */}
+        {!isEn && (
+          <div style={{ maxWidth: 640, marginTop: 18, display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+            <div
+              aria-hidden="true"
+              style={{ width: 40, height: 40, borderRadius: '50%', background: '#2f7ba6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 17, flexShrink: 0 }}
+            >
+              A
+            </div>
+            <p className="muted small" style={{ margin: 0, lineHeight: 1.5 }}>
+              <strong style={{ color: '#0f172a' }}>Contenuto a cura di Dott. Antonio D&apos;Urso</strong>
+              <br />
+              Iscritto all&apos;Albo degli Psicologi della Campania n. 5408, fondatore di Adatto x Te. Informazioni a scopo informativo: non sostituiscono un consulto professionale.{' '}
+              <Link to="/chi-siamo">Scopri chi siamo</Link>
+            </p>
+          </div>
+        )}
       </div>
 
       <section className="container section">

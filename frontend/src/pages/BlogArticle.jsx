@@ -61,9 +61,11 @@ function formatDate(iso) {
 }
 
 // Autore reale con credenziali (E-E-A-T / YMYL: Google premia gli articoli firmati da professionisti)
+// NOTA: le stesse credenziali compaiono anche nella firma delle pagine sui
+// disturbi (DisturboLanding.jsx). Se cambiano, vanno aggiornate in entrambi i posti.
 const ARTICLE_AUTHOR = {
   name: "Dott. Antonio D'Urso",
-  role: "Iscritto all'albo degli psicologi della Campania n. 5408",
+  role: "Iscritto all'Albo degli Psicologi della Campania n. 5408",
   initial: 'A',
 };
 
@@ -308,7 +310,7 @@ export default function BlogArticle() {
             {lang === 'it' ? 'Chi ha scritto questo articolo' : 'About the author'}
           </strong>
           {lang === 'it'
-            ? `Questo articolo è stato scritto da ${ARTICLE_AUTHOR.name}, ${ARTICLE_AUTHOR.role.toLowerCase()} e fondatore di Adatto x Te, con 13 anni di esperienza nel settore. I contenuti sono revisionati dall'équipe e non sostituiscono un consulto professionale.`
+            ? `Questo articolo è stato scritto da ${ARTICLE_AUTHOR.name} — ${ARTICLE_AUTHOR.role} — fondatore di Adatto x Te, con 13 anni di esperienza nel settore. I contenuti sono revisionati dall'équipe e non sostituiscono un consulto professionale.`
             : `This article was written by ${ARTICLE_AUTHOR.name}, ${ARTICLE_AUTHOR.role} and founder of Adatto x Te, with 13 years of experience in the field. Content is reviewed by the team and does not replace professional advice.`}
           {' '}
           <Link to="/chi-siamo" className="muted small" style={{ textDecoration: 'underline' }}>
