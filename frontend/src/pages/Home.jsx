@@ -80,11 +80,16 @@ export default function Home() {
 
   return (
     <>
+      {/* Titolo volutamente senza il suffisso " | Adatto x Te": con il marchio
+          si arriverebbe a 61 caratteri, oltre i ~60 che Google mostra, e la
+          coda verrebbe tagliata. Il marchio resta visibile nella pagina, in
+          og:site_name e nei dati strutturati. */}
       <Seo
-        title={lang === 'en' ? 'Online psychologist from €45 – Video therapy' : 'Psicologo online da 45€ – Terapia in videochiamata'}
+        noBrand
+        title={lang === 'en' ? 'Online psychologist from €45 – Video therapy' : 'Psicologo online da 45€ | Prima seduta gratuita'}
         description={lang === 'en'
           ? 'Qualified psychologists online: free first session, 50-minute sessions from €45 for Italy/EU — prices vary by country of residence (Switzerland: CHF 130/145). Choose your therapist and start today.'
-          : 'Psicologi qualificati online: prima seduta gratuita, sedute da 50 minuti da 45€ per Italia/UE — i prezzi variano in base al paese di residenza (Svizzera: CHF 130/145). Scegli il tuo terapeuta e inizia oggi.'}
+          : 'Psicologi qualificati online: prima seduta gratuita, poi 45€ per 50 minuti. Scegli il terapeuta e inizia oggi.'}
         path="/"
         image="https://www.adattoxte.com/images/hero.jpg"
         jsonLd={{
