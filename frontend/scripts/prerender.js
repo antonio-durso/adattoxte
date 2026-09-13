@@ -373,11 +373,11 @@ async function main() {
       const patched = homeHtml
         .replace(
           /<title>[^<]*<\/title>/,
-          '<title>Psicologo online da 45€ – Terapia in videochiamata | Adatto x Te</title>'
+          '<title>Psicologo online da 45€ | Prima seduta gratuita</title>'
         )
         .replace(
           /<meta name="description" content="[^"]*" \/>/,
-          '<meta name="description" content="Psicologi e psicoterapeuti qualificati online: prima seduta gratuita, sedute da 50 minuti a 45€ (coppia 50€). Scegli il tuo terapeuta e inizia oggi." />'
+          '<meta name="description" content="Psicologi qualificati online: prima seduta gratuita, poi 45€ per 50 minuti. Scegli il terapeuta e inizia oggi." />'
         );
       if (patched !== homeHtml) {
         writeFileSync(homeIdx, patched);
