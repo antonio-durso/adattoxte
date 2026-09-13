@@ -37,6 +37,14 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
     setMeta('property', 'og:description', description || 'Adatto x Te - Piattaforma di consulenza psicologica online.');
     if (image) setMeta('property', 'og:image', image);
 
+    // Twitter/X: senza queste righe la scheda social userebbe i valori generici
+    // scritti nel guscio (index.html) su TUTTE le pagine, anche quando il titolo
+    // della pagina e' un altro. Vanno tenute allineate a Open Graph.
+    setMeta('name', 'twitter:card', 'summary_large_image');
+    setMeta('name', 'twitter:title', fullTitle);
+    setMeta('name', 'twitter:description', description || 'Adatto x Te - Piattaforma di consulenza psicologica online.');
+    if (image) setMeta('name', 'twitter:image', image);
+
     // Percorso reale dell'URL (gestisce anche il prefisso /en): canonical e og:url
     // devono riflettere l'indirizzo effettivo, non il path interno della rotta.
     const actualPath = window.location.pathname.replace(/\/+$/, '') || '/';
