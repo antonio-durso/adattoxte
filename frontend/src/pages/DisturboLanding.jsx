@@ -223,6 +223,9 @@ function DisturboView({ d, isEn }) {
                 {r.nome}
               </Link>
             ))}
+            {!isEn && (
+              <Link to="/disturbi" className="chip">Tutti i disturbi</Link>
+            )}
           </div>
         </Reveal>
       </section>

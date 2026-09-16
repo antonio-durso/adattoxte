@@ -21,6 +21,7 @@ const BlogArticle = lazy(() => import('./pages/BlogArticle'));
 const Receipt = lazy(() => import('./pages/Receipt'));
 const Risorse = lazy(() => import('./pages/Risorse'));
 const Recensioni = lazy(() => import('./pages/Recensioni'));
+const DisturbiIndex = lazy(() => import('./pages/DisturbiIndex'));
 const CheckIn = lazy(() => import('./pages/CheckIn'));
 const NicheLanding = lazy(() => import('./pages/NicheLanding'));
 const Estero = lazy(() => import('./pages/Estero'));
@@ -85,6 +86,7 @@ function LangRoutes() {
       <Route path="/psicologo-sport" element={<NicheLanding niche="sport" />} />
       <Route path="/psicologia-giuridica" element={<NicheLanding niche="giuridica" />} />
       <Route path="/psicologo-online" element={<NicheLanding niche="online" />} />
+      <Route path="/disturbi" element={<DisturbiIndex />} />
       <Route path="/psicologo-online/:slug" element={<DisturboLanding />} />
       <Route path="/registrazione" element={<Register />} />
       <Route path="/accedi" element={<Login />} />

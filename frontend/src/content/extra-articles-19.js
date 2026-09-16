@@ -42,7 +42,7 @@ export const extraArticles19 = [
 <p>La prima regola è <strong>non minimizzare</strong>: frasi come "dai, non è niente" o "sei grande, superalo" fanno sentire il ragazzo incompreso. Meglio dare un nome a ciò che prova: "vedo che questo rientro ti sta pesando, ne parliamo?". L'ascolto senza giudizio è il supporto più efficace.</p>
 <p>Aiuta anche ripristinare <strong>routine prevedibili</strong> (orari di sonno, pasti, tempo per amici e sport), parlare dei timori prima che si accumulino e non caricare la giornata di impegni extra nelle prime settimane. Se il disagio diventa paura di andare a scuola, la <strong>ri-esposizione graduale</strong> con il supporto degli adulti funziona meglio del forzare il salto.</p>
 <h2>Quando chiedere aiuto a un professionista</h2>
-<p>Se i sintomi persistono oltre 3-4 settimane o il rifiuto scolastico si cronicizza, un percorso con uno <a href="/psicologo-adolescenti">psicologo per adolescenti</a> può fare la differenza, aiutando il ragazzo a riconoscere e gestire l'ansia e la famiglia a trovare le parole giuste. <a href="/terapeuti">Scopri i nostri professionisti</a> — la prima seduta è gratuita e può essere un primo colloquio conoscitivo in videochiamata, senza impegno.</p>`,
+<p>Se i sintomi persistono oltre 3-4 settimane o il rifiuto scolastico si cronicizza, un percorso con uno <a href="/blog/psicologo-adolescenti">psicologo per adolescenti</a> può fare la differenza, aiutando il ragazzo a riconoscere e gestire l'ansia e la famiglia a trovare le parole giuste. <a href="/terapeuti">Scopri i nostri professionisti</a> — la prima seduta è gratuita e può essere un primo colloquio conoscitivo in videochiamata, senza impegno.</p>`,
   },
   {
     slug: 'ansia-da-aereo',

@@ -60,6 +60,8 @@ const STATIC_ROUTES = [
   { path: '/psicologo-sport', priority: '0.8', freq: 'weekly' },
   { path: '/psicologia-giuridica', priority: '0.8', freq: 'weekly' },
   { path: '/italiani-all-estero', priority: '0.8', freq: 'weekly' },
+  // Indice dei disturbi: collega fra loro le pagine /psicologo-online/<disturbo>
+  { path: '/disturbi', priority: '0.8', freq: 'weekly' },
   // Pagine utility (noindex, fuori sitemap): /accedi, /registrazione, /privacy,
   // /cookie, /termini, /ufficio-stampa. /test resta in sitemap (intento di ricerca reale).
 ];
@@ -137,20 +139,19 @@ function buildSitemap() {
 function buildRobots() {
   const robots = `User-agent: *
 Allow: /
-# Aree private e percorsi non pubblici: non sprecare crawl budget
+# Aree private e percorsi non pubblici: non sprecare crawl budget.
+# /accedi, /impostazioni e /registrazione NON sono qui: quelle pagine dichiarano
+# il noindex nel meta tag e un Disallow impedirebbe a Google di leggerlo.
 Disallow: /area-paziente
 Disallow: /area-terapeuta
 Disallow: /area-admin
 Disallow: /area-personale
 Disallow: /pagamento/
 Disallow: /ricevuta/
-Disallow: /impostazioni
 Disallow: /dashboard
 Disallow: /prenota
 Disallow: /chat
 Disallow: /app
-Disallow: /accedi
-Disallow: /registrazione
 Sitemap: ${BASE}/sitemap.xml
 `;
   fs.writeFileSync(path.join(publicDir, 'robots.txt'), robots);

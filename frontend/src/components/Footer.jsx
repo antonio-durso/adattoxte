@@ -92,6 +92,7 @@ export default function Footer() {
           <Link to="/italiani-all-estero/stati-uniti">Psicologo online negli Stati Uniti</Link>
           <Link to="/italiani-all-estero/spagna/madrid">Psicologo online a Madrid</Link>
           <Link to="/italiani-all-estero/francia/parigi">Psicologo online a Parigi</Link>
+          <Link to="/disturbi">Disturbi trattati</Link>
           <Link to="/psicologo-online/depressione">Psicologo online depressione</Link>
           <Link to="/psicologo-online/ansia">Psicologo online ansia</Link>
           <Link to="/psicologo-online/attacchi-di-panico">Psicologo online attacchi di panico</Link>

@@ -1,17 +1,16 @@
 User-agent: *
 Allow: /
-# Aree private e percorsi non pubblici: non sprecare crawl budget
+# Aree private e percorsi non pubblici: non sprecare crawl budget.
+# /accedi, /impostazioni e /registrazione NON sono qui: quelle pagine dichiarano
+# il noindex nel meta tag e un Disallow impedirebbe a Google di leggerlo.
 Disallow: /area-paziente
 Disallow: /area-terapeuta
 Disallow: /area-admin
 Disallow: /area-personale
 Disallow: /pagamento/
 Disallow: /ricevuta/
-Disallow: /impostazioni
 Disallow: /dashboard
 Disallow: /prenota
 Disallow: /chat
 Disallow: /app
-Disallow: /accedi
-Disallow: /registrazione
 Sitemap: https://www.adattoxte.com/sitemap.xml

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api';
 import { useAuth } from '../context/AuthContext';
+import Seo from '../components/Seo';
 
 const ALL_SPECIALTIES = [
   'psicologia dello sport',
@@ -100,6 +101,12 @@ export default function Settings() {
 
   return (
     <div className="container section">
+      <Seo
+        title="Impostazioni"
+        description="Gestisci il tuo profilo, le tue specializzazioni e le tue preferenze su Adatto x Te."
+        path="/impostazioni"
+        noindex
+      />
       <h1>Impostazioni</h1>
 
       {message && <p className="ok-text">{message}</p>}
