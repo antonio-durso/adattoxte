@@ -59,9 +59,15 @@ const isCountryRedirect = (r) => {
   const m = /^\/psicologo-online\/([a-z0-9-]+)$/.exec(r.source || '');
   return !!m && (paeseSlugs.has(m[1]) || capitaleSlugs.has(m[1]));
 };
+// Guardia: si rigenerano SEMPRE gli header delle pagine città, non solo quelli
+// delle città attualmente noindex. Se una città viene promossa in CITTA_TOP, la
+// sua vecchia regola X-Robots-Tag: noindex non deve sopravvivere come "statica":
+// l'header all'edge ha la precedenza sul meta robots e la pagina resterebbe
+// esclusa da Google nonostante la promozione.
+const citySlugs = new Set(citta.map((c) => c.slug));
 const isCityNoindex = (h) => {
   const m = /^\/psicologo-online\/([a-z0-9-]+)$/.exec(h.source || '');
-  return !!m && noindexCities.includes(m[1]);
+  return !!m && citySlugs.has(m[1]) && !paeseSlugs.has(m[1]) && !capitaleSlugs.has(m[1]);
 };
 
 // 1) Redirect: si tengono quelli non-paese (es. trailing slash) e si rigenerano quelli paese

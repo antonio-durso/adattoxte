@@ -26,13 +26,13 @@ test('citta: 100+ città, slug univoci, tutte con nome', () => {
   citta.forEach((c) => assert.ok(c.nome, `città senza nome: ${c.slug}`));
 });
 
-test('CITTA_TOP: esattamente 30, tutte esistenti in citta, slug univoci', () => {
-  assert.equal(CITTA_TOP.length, 30);
+test('CITTA_TOP: 83 città con contenuto differenziato, tutte esistenti in citta, slug univoci', () => {
+  assert.equal(CITTA_TOP.length, 83);
   assert.ok(uniq(CITTA_TOP), 'CITTA_TOP con duplicati');
   const slugs = new Set(citta.map((c) => c.slug));
   CITTA_TOP.forEach((s) => assert.ok(slugs.has(s), `CITTA_TOP non in citta: ${s}`));
   // Le non-TOP devono essere esattamente quelle che ricevono noindex in vercel.json
-  assert.equal(citta.length - CITTA_TOP.length, 79, 'attese 79 città noindex');
+  assert.equal(citta.length - CITTA_TOP.length, 26, 'attese 26 città noindex');
 });
 
 test('paesi: 43 voci, ogni paese ha campo citta non vuoto con elementi unici', () => {
