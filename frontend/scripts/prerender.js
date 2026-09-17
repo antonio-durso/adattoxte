@@ -64,7 +64,6 @@ const STATIC_CORE = [
   '/risorse',
   '/psicologo-online',
   '/disturbi',
-  ...EN_ROUTES,
   '/psicologo-concorsi-pubblici',
   '/psicologo-sport',
   '/psicologia-giuridica',
@@ -74,6 +73,9 @@ const STATIC_CORE = [
   '/tibiz',
   '/equipe',
   '/',
+  // Le rotte /en stanno in FONDO: anche se il contesto isolato le rende innocue,
+  // tenerle ultime evita che un futuro riordino della lista cambi la lingua di altre pagine.
+  ...EN_ROUTES,
 ];
 const ROUTES = FAST
   ? STATIC_CORE
@@ -89,7 +91,6 @@ const ROUTES = FAST
       '/test',
       '/psicologo-online',
       '/disturbi',
-      ...EN_ROUTES,
       '/psicologo-concorsi-pubblici',
       '/psicologo-sport',
       '/psicologia-giuridica',
@@ -108,6 +109,8 @@ const ROUTES = FAST
       '/italiani-all-estero',
       ...ESTERO_ROUTES,
       '/',
+      // In fondo, come in STATIC_CORE: vedi la nota sopra.
+      ...EN_ROUTES,
     ];
 
 // Rotte 100% statiche: HTML puro, nessun modulo React (vedi src/main.jsx).
@@ -284,7 +287,16 @@ async function warmBackend() {
 // Cattura una pagina con puppeteer-core: aspetta DOMContentLoaded (non la rete
 // completa) con timeout espliciti e retry → niente hang su risorse esterne.
 async function capturePage(browser, url) {
-  const page = await browser.newPage();
+  // Contesto ISOLATO per ogni rotta. La lingua iniziale dell'interfaccia si legge da
+  // localStorage (vedi src/i18n.jsx: langFromPath() || localStorage.adt_lang || 'it').
+  // Riusando lo stesso contesto, ogni rotta EREDITA la lingua della precedente: e' cosi'
+  // che la home italiana finiva resa in inglese, perche' le rotte /en venivano prima.
+  // Con un contesto nuovo ogni rotta parte da storage vuoto, come un primo accesso.
+  const context =
+    typeof browser.createBrowserContext === 'function'
+      ? await browser.createBrowserContext()
+      : await browser.createIncognitoBrowserContext();
+  const page = await context.newPage();
   try {
     let dom = '';
     for (let attempt = 1; attempt <= 2; attempt++) {
@@ -306,6 +318,7 @@ async function capturePage(browser, url) {
     return dom;
   } finally {
     await page.close().catch(() => {});
+    await context.close().catch(() => {});
   }
 }
 
