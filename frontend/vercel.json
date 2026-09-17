@@ -424,6 +424,11 @@
       "source": "/psicologo-online/bangkok",
       "destination": "/italiani-all-estero/thailandia/bangkok",
       "permanent": true
+    },
+    {
+      "source": "/psicologo-adolescenti",
+      "destination": "/blog/psicologo-adolescenti",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -2230,6 +2235,15 @@
     },
     {
       "source": "/en/recensioni",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/impostazioni",
       "headers": [
         {
           "key": "X-Robots-Tag",

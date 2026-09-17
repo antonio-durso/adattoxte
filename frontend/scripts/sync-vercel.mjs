@@ -46,6 +46,19 @@ const EN_BLOCKED_SOURCES = EN_ACTIVE
   : EN_HEADER_SOURCES;
 const isEnNoindex = (h) => EN_HEADER_SOURCES.includes(h.source || '') || EN_BLOCKED_SOURCES.includes(h.source || '');
 
+// Rotte private che NON stanno in sitemap e non devono finire nell'indice.
+// /impostazioni non è prerenderizzata: l'HTML servito è la shell SPA, quindi il
+// meta robots impostato dal componente Seo non c'è. L'header all'edge sì, e vale
+// anche se il crawler non esegue il JavaScript.
+const PRIVATE_NOINDEX_SOURCES = ['/impostazioni'];
+const isPrivateNoindex = (h) => PRIVATE_NOINDEX_SOURCES.includes(h.source || '');
+
+// Redirect 301 degli indirizzi storici che rispondono 404 (recupera i link
+// esterni che ci puntano, senza ricreare la pagina).
+const EXTRA_REDIRECTS = [
+  { source: '/psicologo-adolescenti', destination: '/blog/psicologo-adolescenti', permanent: true },
+];
+
 // Guardia: attivare EN senza prerenderizzare /en servirebbe shell SPA (senza
 // contenuto, senza canonical né hreflang) su URL che build-seo.js metterebbe
 // comunque in sitemap. Meglio bloccare la build che pubblicare shell indicizzabili.
@@ -77,7 +90,10 @@ const isCityNoindex = (h) => {
 };
 
 // 1) Redirect: si tengono quelli non-paese (es. trailing slash) e si rigenerano quelli paese
-const staticRedirects = (cfg.redirects || []).filter((r) => !isCountryRedirect(r));
+const extraSources = new Set(EXTRA_REDIRECTS.map((r) => r.source));
+const staticRedirects = (cfg.redirects || []).filter(
+  (r) => !isCountryRedirect(r) && !extraSources.has(r.source),
+);
 const generatedRedirects = [];
 for (const p of paesi) {
   generatedRedirects.push({
@@ -94,10 +110,12 @@ for (const p of paesi) {
     });
   }
 }
-cfg.redirects = [...staticRedirects, ...generatedRedirects];
+cfg.redirects = [...staticRedirects, ...generatedRedirects, ...EXTRA_REDIRECTS];
 
 // 2) Headers: si tengono quelli non-città e si rigenerano i noindex città
-const staticHeaders = (cfg.headers || []).filter((h) => !isCityNoindex(h) && !isEnNoindex(h));
+const staticHeaders = (cfg.headers || []).filter(
+  (h) => !isCityNoindex(h) && !isEnNoindex(h) && !isPrivateNoindex(h),
+);
 const generatedNoindex = noindexCities.map((slug) => ({
   source: `/psicologo-online/${slug}`,
   headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
@@ -106,7 +124,11 @@ const generatedEnNoindex = EN_BLOCKED_SOURCES.map((source) => ({
       source,
       headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
     }));
-cfg.headers = [...staticHeaders, ...generatedNoindex, ...generatedEnNoindex];
+const generatedPrivateNoindex = PRIVATE_NOINDEX_SOURCES.map((source) => ({
+      source,
+      headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+    }));
+cfg.headers = [...staticHeaders, ...generatedNoindex, ...generatedEnNoindex, ...generatedPrivateNoindex];
 
 // 3) Rewrite allowlist: gli slug validi dei contenuti vengono sempre serviti via
 //    /app.html (CSR). Così una pagina valida NON può mai dare 404 all'edge, con o
@@ -139,4 +161,4 @@ writeFileSync(vercelPath, JSON.stringify(cfg, null, 2) + '\n');
 
 const redTotal = cfg.redirects.length;
 const noindexTotal = generatedNoindex.length;
-console.log(`[sync-vercel] ok: ${redTotal} redirect (${generatedRedirects.length} paesi/capitali generati), ${noindexTotal} header noindex città generati, ${generatedEnNoindex.length} header noindex EN (EN_ACTIVE=${EN_ACTIVE}), ${staticHeaders.length} header statici preservati, ${allowlistSources.length} rewrite allowlist contenuti generate.`);
+console.log(`[sync-vercel] ok: ${generatedPrivateNoindex.length} header noindex privati (/impostazioni), ${EXTRA_REDIRECTS.length} redirect storici, ${redTotal} redirect (${generatedRedirects.length} paesi/capitali generati), ${noindexTotal} header noindex città generati, ${generatedEnNoindex.length} header noindex EN (EN_ACTIVE=${EN_ACTIVE}), ${staticHeaders.length} header statici preservati, ${allowlistSources.length} rewrite allowlist contenuti generate.`);

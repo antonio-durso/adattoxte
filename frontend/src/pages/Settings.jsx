@@ -97,7 +97,18 @@ export default function Settings() {
     }
   }
 
-  if (!user) return null;
+  // Il noindex va emesso anche senza utente: prima si usciva con "return null"
+  // prima di montare <Seo>, quindi la pagina restava senza alcuna direttiva.
+  if (!user) {
+    return (
+      <Seo
+        title="Impostazioni"
+        description="Area personale Adatto x Te."
+        path="/impostazioni"
+        noindex
+      />
+    );
+  }
 
   return (
     <div className="container section">
