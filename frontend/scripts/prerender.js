@@ -64,6 +64,13 @@ const STATIC_CORE = [
   '/risorse',
   '/psicologo-online',
   '/disturbi',
+  // Le rotte /en vanno prerenderizzate PRIMA di '/'. Motivo verificato: finché
+  // dist/index.html non è stato sovrascritto dalla home prerenderizzata, il server di
+  // build risponde alle URL /en con il guscio che contiene il modulo React e la pagina
+  // viene resa in inglese. Se '/' viene prima, alle /en viene invece servita la home
+  // ITALIANA già prerenderizzata (che non monta React) e le pagine inglesi restano
+  // italiane. L'ordine conta: non spostare questo blocco in fondo.
+  ...EN_ROUTES,
   '/psicologo-concorsi-pubblici',
   '/psicologo-sport',
   '/psicologia-giuridica',
@@ -73,9 +80,6 @@ const STATIC_CORE = [
   '/tibiz',
   '/equipe',
   '/',
-  // Le rotte /en stanno in FONDO: anche se il contesto isolato le rende innocue,
-  // tenerle ultime evita che un futuro riordino della lista cambi la lingua di altre pagine.
-  ...EN_ROUTES,
 ];
 const ROUTES = FAST
   ? STATIC_CORE
@@ -91,6 +95,7 @@ const ROUTES = FAST
       '/test',
       '/psicologo-online',
       '/disturbi',
+      ...EN_ROUTES,
       '/psicologo-concorsi-pubblici',
       '/psicologo-sport',
       '/psicologia-giuridica',
@@ -109,8 +114,6 @@ const ROUTES = FAST
       '/italiani-all-estero',
       ...ESTERO_ROUTES,
       '/',
-      // In fondo, come in STATIC_CORE: vedi la nota sopra.
-      ...EN_ROUTES,
     ];
 
 // Rotte 100% statiche: HTML puro, nessun modulo React (vedi src/main.jsx).
