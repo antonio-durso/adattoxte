@@ -26,13 +26,24 @@ test('citta: 100+ città, slug univoci, tutte con nome', () => {
   citta.forEach((c) => assert.ok(c.nome, `città senza nome: ${c.slug}`));
 });
 
-test('CITTA_TOP: 83 città con contenuto differenziato, tutte esistenti in citta, slug univoci', () => {
-  assert.equal(CITTA_TOP.length, 83);
+test('CITTA_TOP: città con contenuto differenziato, tutte esistenti in citta, slug univoci', () => {
+  // Dal 17/09/2026 tutte le 109 città hanno un testo scritto su misura, quindi sono
+  // tutte indicizzabili. La regola vera non è il numero: è che "sta in CITTA_TOP" e
+  // "ha un contenuto proprio (desc + local)" devono coincidere sempre, nei due sensi.
+  // Se un domani si aggiunge una città senza scriverne il testo, questo test fallisce
+  // invece di far finire in sitemap una pagina che poi riceve noindex.
+  assert.equal(CITTA_TOP.length, 109);
+  assert.equal(citta.length - CITTA_TOP.length, 0, 'nessuna città deve restare noindex');
   assert.ok(uniq(CITTA_TOP), 'CITTA_TOP con duplicati');
   const slugs = new Set(citta.map((c) => c.slug));
   CITTA_TOP.forEach((s) => assert.ok(slugs.has(s), `CITTA_TOP non in citta: ${s}`));
-  // Le non-TOP devono essere esattamente quelle che ricevono noindex in vercel.json
-  assert.equal(citta.length - CITTA_TOP.length, 26, 'attese 26 città noindex');
+
+  const conTesto = new Set(citta.filter((c) => c.desc && c.local).map((c) => c.slug));
+  const senzaTesto = citta.filter((c) => !c.desc || !c.local).map((c) => c.slug);
+  CITTA_TOP.forEach((s) => assert.ok(conTesto.has(s), `in CITTA_TOP ma senza desc/local: ${s}`));
+  senzaTesto.forEach((s) => assert.ok(!CITTA_TOP.includes(s), `ha desc/local ma non è in CITTA_TOP: ${s}`));
+  // faqLocal vive e muore con gli altri due.
+  assert.equal(citta.filter((c) => c.faqLocal).length, conTesto.size, 'faqLocal disallineato da desc/local');
 });
 
 test('paesi: 43 voci, ogni paese ha campo citta non vuoto con elementi unici', () => {
