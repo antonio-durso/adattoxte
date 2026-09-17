@@ -64,8 +64,16 @@ const STATIC_ROUTES = [
   { path: '/italiani-all-estero', priority: '0.8', freq: 'weekly' },
   // Indice dei disturbi: collega fra loro le pagine /psicologo-online/<disturbo>
   { path: '/disturbi', priority: '0.8', freq: 'weekly' },
-  // Pagine utility (noindex, fuori sitemap): /accedi, /registrazione, /privacy,
-  // /cookie, /termini, /ufficio-stampa. /test resta in sitemap (intento di ricerca reale).
+  // Pagine informative e legali: indicizzabili e in sitemap dal 17/09/2026 (prima
+  // avevano il noindex). Priorità bassa: non competono con le pagine di servizio.
+  { path: '/privacy', priority: '0.3', freq: 'yearly' },
+  { path: '/cookie', priority: '0.3', freq: 'yearly' },
+  { path: '/termini', priority: '0.3', freq: 'yearly' },
+  { path: '/ufficio-stampa', priority: '0.5', freq: 'monthly' },
+  // Restano FUORI dalla sitemap, con noindex: /accedi, /registrazione, /impostazioni.
+  // Sono pagine private, non hanno intento di ricerca. Regola: una URL in sitemap non
+  // deve mai avere noindex, e viceversa.
+  // /test resta in sitemap (intento di ricerca reale).
 ];
 
 // Estrae slug e date dagli articoli (file generati con formato stabile: "slug": "...", "date": "YYYY-MM-DD")

@@ -19,7 +19,6 @@ export default function Press() {
         title="Ufficio Stampa"
         description="Materiali e contatti per la stampa: dati verificabili, angoli editoriali e interviste a titolo gratuito con il fondatore di Adatto x Te."
         path="/ufficio-stampa"
-        noindex
       />
       <div className="container section" style={{ textAlign: 'center' }}>
         <p className="muted small" style={{ marginBottom: 4 }}>

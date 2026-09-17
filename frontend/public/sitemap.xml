@@ -1183,6 +1183,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.adattoxte.com/privacy</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/cookie</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/termini</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/ufficio-stampa</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.adattoxte.com/en/psicologo-online/depressione</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>

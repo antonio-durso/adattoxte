@@ -7,7 +7,6 @@ export default function Privacy() {
         title="Informativa privacy"
         description="Informativa privacy di Adatto x Te (Reg. UE 2016/679 — GDPR): dati trattati, dati di salute (art. 9), diritti dell'interessato e contatti."
         path="/privacy"
-        noindex
       />
       <h1>Informativa privacy</h1>
       <p className="muted">Ultimo aggiornamento: {new Date().toLocaleDateString('it-IT')}</p>
