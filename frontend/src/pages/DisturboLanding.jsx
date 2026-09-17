@@ -163,6 +163,12 @@ function DisturboView({ d, isEn }) {
           <Link to={isEn ? '/en' : '/'}>{L.home}</Link> · <Link to={isEn ? '/en/terapeuti' : '/terapeuti'}>{L.therapists}</Link> · {L.forLabel} {data.nome}
         </p>
         <h1>{L.forLabel} {data.nome}</h1>
+        {isEn && (
+          <p style={{ maxWidth: 640, marginTop: 8, fontWeight: 600 }}>
+            Please note: our sessions are held in Italian only.
+          </p>
+        )}
+
         <p className="section-sub" style={{ maxWidth: 640 }}>{data.intro}</p>
         <div className="row-gap" style={{ margin: '18px 0' }}>
           <Link to={isEn ? '/en/terapeuti' : '/terapeuti'} className="btn btn-primary btn-lg">{L.cta}</Link>
@@ -283,6 +289,12 @@ function CittaView({ c, isEn }) {
           <Link to={isEn ? '/en' : '/'}>{L.home}</Link> · <Link to={isEn ? '/en/terapeuti' : '/terapeuti'}>{L.therapists}</Link> · {L.inLabel} {data.nome}
         </p>
         <h1>{L.inLabel} {data.nome}</h1>
+        {isEn && (
+          <p style={{ maxWidth: 640, marginTop: 8, fontWeight: 600 }}>
+            Please note: our sessions are held in Italian only.
+          </p>
+        )}
+
         <p className="section-sub" style={{ maxWidth: 640 }}>
           {L.cityIntro} {data.nome} {L.cityIntro2} {data.provincia}).
         </p>

@@ -1,5 +1,27 @@
 import { useEffect } from 'react';
 import { EN_ACTIVE } from '../config';
+import { cittaEn } from '../content/citta-en';
+import { disturbiEn } from '../content/disturbi-en';
+
+// Rotte /en con contenuto inglese REALE: solo queste possono essere indicizzate.
+// Blog, "italiani all'estero" e le landing città senza traduzione restano noindex:
+// sarebbero testo italiano servito sotto un URL inglese (contenuto duplicato).
+const EN_LANDING_SLUGS = new Set([
+  ...cittaEn.map((c) => c.slug),
+  ...disturbiEn.map((d) => d.slug),
+]);
+
+// Elenco BIANCO: solo le pagine con interfaccia davvero tradotta (usano t()).
+// /prezzi, /chi-siamo, /risorse e /recensioni hanno testo italiano fisso: restando
+// fuori da qui non vengono indicizzate sotto URL inglese.
+const EN_STATIC_INDEXABLE = new Set(['/', '/terapeuti']);
+
+export function enIndexable(itPath) {
+  if (!EN_ACTIVE) return false;
+  const m = /^\/psicologo-online\/([a-z0-9-]+)$/.exec(itPath);
+  if (m) return EN_LANDING_SLUGS.has(m[1]);
+  return EN_STATIC_INDEXABLE.has(itPath);
+}
 
 /**
  * Seo — imposta title, description, canonical, Open Graph e JSON-LD per pagina.
@@ -23,9 +45,12 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
   useEffect(() => {
     const fullTitle = title ? (noBrand ? title : `${title} | Adatto x Te`) : 'Adatto x Te - Psicologia online';
     document.title = fullTitle;
-    // Versione EN: non indicizzata finché EN_ACTIVE è false (vedi src/config.js).
-    // Quando EN_ACTIVE diventa true, le pagine /en vengono indicizzate da sole.
-    const enNotIndexed = !EN_ACTIVE && (window.location.pathname === '/en' || window.location.pathname.startsWith('/en/'));
+    // Versione EN: indicizzabile solo dove il contenuto inglese esiste davvero
+    // (vedi enIndexable). Le pagine /en non tradotte restano noindex.
+    const pathNow = window.location.pathname.replace(/\/+$/, '') || '/';
+    const isEnNow = pathNow === '/en' || pathNow.startsWith('/en/');
+    const itPathNow = isEnNow ? (pathNow.replace(/^\/en/, '') || '/') : pathNow;
+    const enNotIndexed = isEnNow && !enIndexable(itPathNow);
     if (noindex || enNotIndexed) {
       setMeta('name', 'robots', 'noindex');
     } else {
@@ -76,7 +101,7 @@ export default function Seo({ title, description, path = '/', image, jsonLd, noi
     prevHreflang.forEach((el) => el.remove());
     // hreflang EN solo quando la versione inglese è attiva e indicizzabile
     // (le /en noindex non devono ricevere segnalazioni hreflang dalle pagine IT)
-    const langs = EN_ACTIVE ? ['it', 'x-default', 'en'] : ['it', 'x-default'];
+    const langs = EN_ACTIVE && enIndexable(itPath) ? ['it', 'x-default', 'en'] : ['it', 'x-default'];
     langs.forEach((h) => {
       const href = h === 'en' ? BASE + enPath : BASE + itPath;
       const link = document.createElement('link');

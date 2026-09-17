@@ -2418,7 +2418,7 @@
       ]
     },
     {
-      "source": "/en",
+      "source": "/en/blog",
       "headers": [
         {
           "key": "X-Robots-Tag",
@@ -2427,7 +2427,43 @@
       ]
     },
     {
-      "source": "/en/:path*",
+      "source": "/en/blog/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/en/prezzi",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/en/chi-siamo",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/en/risorse",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/en/recensioni",
       "headers": [
         {
           "key": "X-Robots-Tag",

@@ -4,7 +4,7 @@ import Logo from './Logo';
 import ContactForm from './ContactForm';
 
 export default function Footer() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   return (
     <footer className="footer">
       <div className="container footer-inner">
@@ -15,6 +15,11 @@ export default function Footer() {
             </span>
           </Link>
           <p>{t('footer.tagline')}</p>
+          {lang === 'en' && (
+            <p style={{ marginTop: 8, fontWeight: 600 }}>
+              Please note: our sessions are held in Italian only.
+            </p>
+          )}
           <p style={{ marginTop: 10, display: 'flex', gap: 16, alignItems: 'center' }}>
             <a
               href="https://www.facebook.com/people/Adatto-x-Te/61593750877130/"

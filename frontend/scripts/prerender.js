@@ -17,6 +17,9 @@ import { disturbi } from '../src/content/disturbi.js';
 import { citta } from '../src/content/citta.js';
 import { articles } from '../src/content/articles.js';
 import { paesi } from '../src/content/paesi.js';
+import { cittaEn } from '../src/content/citta-en.js';
+import { disturbiEn } from '../src/content/disturbi-en.js';
+import { EN_ACTIVE } from '../src/config.js';
 
 // Rotte "italiani all'estero": hub + ogni paese e la sua capitale (come in sitemap)
 const ESTERO_ROUTES = paesi.flatMap((p) =>
@@ -24,6 +27,20 @@ const ESTERO_ROUTES = paesi.flatMap((p) =>
     ? [`/italiani-all-estero/${p.slug}`, `/italiani-all-estero/${p.slug}/${p.capitale.slug}`]
     : [`/italiani-all-estero/${p.slug}`]
 );
+
+// Versione inglese: si prerenderizzano SOLO le rotte con contenuto inglese reale
+// (interfaccia tradotta + landing presenti in citta-en / disturbi-en). Con
+// EN_ACTIVE=false l'elenco è vuoto e nessuna pagina /en viene generata.
+// Il gate di build (sync-vercel.mjs) blocca la pubblicazione se EN_ACTIVE è true
+// e questa lista è vuota: senza prerender, le /en sarebbero gusci vuoti indicizzabili.
+const EN_ROUTES = EN_ACTIVE
+  ? [
+      '/en',
+      '/en/terapeuti',
+      ...disturbiEn.map((d) => `/en/psicologo-online/${d.slug}`),
+      ...cittaEn.map((c) => `/en/psicologo-online/${c.slug}`),
+    ]
+  : [];
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -47,6 +64,7 @@ const STATIC_CORE = [
   '/risorse',
   '/psicologo-online',
   '/disturbi',
+  ...EN_ROUTES,
   '/psicologo-concorsi-pubblici',
   '/psicologo-sport',
   '/psicologia-giuridica',
@@ -71,6 +89,7 @@ const ROUTES = FAST
       '/test',
       '/psicologo-online',
       '/disturbi',
+      ...EN_ROUTES,
       '/psicologo-concorsi-pubblici',
       '/psicologo-sport',
       '/psicologia-giuridica',

@@ -30,6 +30,8 @@ const today = new Date().toISOString().slice(0, 10);
 const { disturbi } = await import('../src/content/disturbi.js');
 const { citta, CITTA_TOP } = await import('../src/content/citta.js');
 const { EN_ACTIVE } = await import('../src/config.js');
+const { cittaEn } = await import('../src/content/citta-en.js');
+const { disturbiEn } = await import('../src/content/disturbi-en.js');
 const LANDING_ROUTES = [
   ...disturbi.map((d) => ({ path: `/psicologo-online/${d.slug}`, priority: '0.7', freq: 'weekly' })),
   // Solo le città TOP con contenuto differenziato: le altre restano noindex e fuori sitemap
@@ -111,9 +113,19 @@ function buildSitemap() {
   // SOLO quando EN_ACTIVE è true (src/config.js). Con EN_ACTIVE=false la versione
   // inglese resta non indicizzata (noindex in Seo.jsx) e fuori dalla sitemap.
   if (EN_ACTIVE) {
-    const enLandings = [...urls].filter((u) => u.loc.includes('/psicologo-online/') && !u.loc.includes('/en/'));
+    // Solo le landing con contenuto inglese reale (citta-en + disturbi-en).
+    // Tutte le altre /en restano noindex e fuori dalla sitemap.
+    const enSlugs = new Set([...cittaEn.map((c) => c.slug), ...disturbiEn.map((d) => d.slug)]);
+    const enLandings = [...urls].filter((u) => {
+      const m = /\/psicologo-online\/([a-z0-9-]+)$/.exec(u.loc);
+      return !!m && enSlugs.has(m[1]) && !u.loc.includes('/en/');
+    });
     for (const u of enLandings) {
       urls.push({ loc: u.loc.replace(`${BASE}/psicologo-online/`, `${BASE}/en/psicologo-online/`), lastmod: today, freq: 'weekly', priority: '0.7' });
+    }
+    // Pagine inglesi con interfaccia tradotta (le stesse prerenderizzate)
+    for (const p of ['/en', '/en/terapeuti']) {
+      urls.push({ loc: `${BASE}${p}`, lastmod: today, freq: 'weekly', priority: p === '/en' ? '0.9' : '0.6' });
     }
   }
   for (const a of readArticles()) {

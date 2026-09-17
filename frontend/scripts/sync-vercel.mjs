@@ -38,7 +38,13 @@ const noindexCities = citta.filter((c) => !cittaTop.has(c.slug)).map((c) => c.sl
 // EN_ACTIVE === false in src/config.js. La riattivazione è una sola riga lì:
 // qui non va toccato niente a mano.
 const EN_HEADER_SOURCES = ['/en', '/en/:path*'];
-const isEnNoindex = (h) => EN_HEADER_SOURCES.includes(h.source || '');
+// Quando la versione inglese è attiva l'header all'edge resta SOLO sulle rotte /en
+// senza traduzione: le altre sono governate dal meta robots della pagina
+// (elenco bianco in components/Seo.jsx), che è più preciso dell'edge.
+const EN_BLOCKED_SOURCES = EN_ACTIVE
+  ? ['/en/blog', '/en/blog/:path*', '/en/prezzi', '/en/chi-siamo', '/en/risorse', '/en/recensioni']
+  : EN_HEADER_SOURCES;
+const isEnNoindex = (h) => EN_HEADER_SOURCES.includes(h.source || '') || EN_BLOCKED_SOURCES.includes(h.source || '');
 
 // Guardia: attivare EN senza prerenderizzare /en servirebbe shell SPA (senza
 // contenuto, senza canonical né hreflang) su URL che build-seo.js metterebbe
@@ -96,9 +102,7 @@ const generatedNoindex = noindexCities.map((slug) => ({
   source: `/psicologo-online/${slug}`,
   headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
 }));
-const generatedEnNoindex = EN_ACTIVE
-  ? []
-  : EN_HEADER_SOURCES.map((source) => ({
+const generatedEnNoindex = EN_BLOCKED_SOURCES.map((source) => ({
       source,
       headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
     }));
