@@ -165,7 +165,7 @@ export const citta = [
     nome: 'Aosta',
     slug: 'aosta',
     provincia: 'Aosta',
-    regione: 'Valle d\\\'Aosta',
+    regione: 'Valle d\'Aosta',
     desc: 'Sport e pressione da prestazione ad Aosta: psicologo online in videochiamata da 45€, prima seduta gratuita, orari anche serali e nel weekend.',
     local: `<h3>La testa si allena come il resto</h3><p>Nello sport si prepara tutto con metodo: forza, resistenza, tecnica. La parte mentale si lascia spesso al caso, e poi si scopre che è lì che si decide la prestazione. In seduta si lavora su attivazione, attenzione, dialogo interno e rapporto con l'errore.</p><p>- Se ti blocchi nei minuti prima della partenza, si costruisce una routine che ti riporta al presente.
 - Se dopo un infortunio rimandi il rientro perché temi di non reggere, si affronta la paura di fidarti di nuovo del corpo.
@@ -755,9 +755,9 @@ export const citta = [
     ],
   },
     {
-    nome: 'L\\\'Aquila',
+    nome: 'L\'Aquila',
     slug: 'l-aquila',
-    provincia: 'L\\\'Aquila',
+    provincia: 'L\'Aquila',
     regione: 'Abruzzo',
     desc: 'Psicologo online a L\'Aquila: primo colloquio gratuito e sedute in videochiamata da 45€. Come scegliere il terapeuta giusto per te.',
     local: `<h3>Come si sceglie il terapeuta: cosa aspettarsi dal primo incontro</h3><p>Se non hai mai fatto terapia, la domanda più frequente è semplice: da dove comincio? Il consiglio è partire da ciò che ti pesa, non dalla tecnica. Prova a mettere per iscritto cosa vorresti cambiare — l'ansia che ti blocca, un rapporto che non funziona, un sonno che non arriva — e cerca chi lavora su quel tema.</p><p>Nel primo incontro non devi raccontare tutto né avere le idee chiare. Serve a conoscervi: il terapeuta ti farà qualche domanda, ti spiegherà come lavora e insieme capirete se il modo di procedere vi somiglia. Se ti senti ascoltato senza essere giudicato, sei sulla strada giusta.</p><p>Se dopo il primo incontro hai dubbi, prova un altro professionista: cambiare non è un fallimento, fa parte della scelta. Quello che conta è che il rapporto ti sembri affidabile, perché è su questo che si costruisce il percorso.</p><p>L'Aquila è in Abruzzo, capoluogo della provincia omonima. In un contesto dove i riferimenti sono pochi e le persone si conoscono, parlare con un professionista che non fa parte del tuo giro è un vantaggio: la videochiamata tutela la riservatezza e ti lascia scegliere in base alla competenza.</p><p>Puoi confrontarli con calma, senza decidere al primo clic. Per iniziare non si paga: il primo incontro serve a valutare se il professionista fa per te.</p><p><strong>Perché scegliere la terapia online qui</strong></p><ul><li><strong>Scegli con calma, da casa.</strong> Confronti profili e competenze senza dover decidere subito.</li><li><strong>Solo terapeuti dell'albo.</strong> Professionisti selezionati e verificati, non contatti raccolti a caso.</li><li><strong>Costi chiari prima di iniziare.</strong> 45 € a seduta individuale, 50 € quella di coppia, entrambe da 50 minuti; si paga online con transazione protetta e la prima seduta è offerta.</li><li><strong>Riservatezza.</strong> Nessuno in città deve sapere che hai iniziato un percorso.</li><li><strong>Efficacia equivalente.</strong> Anche sui temi dell'ansia e della depressione, il percorso a distanza offre gli stessi risultati che in studio.</li></ul><p><strong>Come funziona</strong></p><ol><li><strong>Confronta profilo, formazione e aree di competenza</strong> dei terapeuti in elenco.</li><li><strong>Prenoti e paghi online</strong> , con transazione sicura: non si paga il primo incontro.</li><li><strong>Ti colleghi in videochiamata</strong> all'ora concordata e valutate insieme se proseguire.</li></ol>`,
