@@ -2089,6 +2089,22 @@
       "destination": "/app.html"
     },
     {
+      "source": "/italiani-all-estero/svizzera/lugano",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/zurigo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/ginevra",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/basilea",
+      "destination": "/app.html"
+    },
+    {
       "source": "/italiani-all-estero/belgio",
       "destination": "/app.html"
     },

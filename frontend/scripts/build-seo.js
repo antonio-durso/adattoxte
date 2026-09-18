@@ -32,6 +32,7 @@ const { citta, CITTA_TOP } = await import('../src/content/citta.js');
 const { EN_ACTIVE } = await import('../src/config.js');
 const { cittaEn } = await import('../src/content/citta-en.js');
 const { disturbiEn } = await import('../src/content/disturbi-en.js');
+const { paesi } = await import('../src/content/paesi.js');
 const LANDING_ROUTES = [
   ...disturbi.map((d) => ({ path: `/psicologo-online/${d.slug}`, priority: '0.7', freq: 'weekly' })),
   // Solo le città TOP con contenuto differenziato: le altre restano noindex e fuori sitemap
@@ -93,20 +94,27 @@ function readArticles() {
 }
 
 
+// Rotte "italiani all'estero": la pagina del paese, quella della capitale e le eventuali
+// pagine locali (`cittaPagine`, es. Lugano / Zurigo / Ginevra / Basilea per la Svizzera).
+//
+// Prima si leggeva il file con due espressioni regolari e si accoppiavano gli elenchi per
+// posizione: funzionava, ma bastava una formattazione diversa di una riga per far sparire
+// una pagina dalla sitemap senza che nessuno se ne accorgesse. Ora il modulo si importa
+// come tutti gli altri archivi: la fonte è il dato, non il testo del file.
 function readCountries() {
-  const src = fs.readFileSync(path.join(contentDir, 'paesi.js'), 'utf8');
   const out = [];
-  const slugRe = /slug: '([a-z0-9-]+)', nome: '[^']*', bandiera:/g;
-  const capRe = /capitale: \{ slug: '([a-z0-9-]+)'/g;
-  const slugs = [...src.matchAll(slugRe)].map((m) => m[1]);
-  const caps = [...src.matchAll(capRe)].map((m) => m[1]);
-  slugs.forEach((s, i) => {
-    out.push(`/italiani-all-estero/${s}`);
+  for (const p of paesi) {
+    out.push(`/italiani-all-estero/${p.slug}`);
     // Città-stato (capitale.slug === paese.slug, es. singapore e lussemburgo): la
     // pagina capitale ha il canonical DELEGATO alla pagina paese, quindi non va
     // elencata in sitemap — una URL canonicalizzata altrove non si dichiara.
-    if (caps[i] && caps[i] !== s) out.push(`/italiani-all-estero/${s}/${caps[i]}`);
-  });
+    if (p.capitale && p.capitale.slug && p.capitale.slug !== p.slug) {
+      out.push(`/italiani-all-estero/${p.slug}/${p.capitale.slug}`);
+    }
+    for (const c of p.cittaPagine || []) {
+      if (c && c.slug) out.push(`/italiani-all-estero/${p.slug}/${c.slug}`);
+    }
+  }
   return out;
 }
 

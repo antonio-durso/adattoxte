@@ -183,8 +183,13 @@ const allowlistSources = [
   ...citta.map((c) => ({ source: `/psicologo-online/${c.slug}`, destination: '/app.html' })),
   ...paesi.flatMap((p) => {
     const entries = [{ source: `/italiani-all-estero/${p.slug}`, destination: '/app.html' }];
-    if (p.capitale && p.capitale.slug) {
-      entries.push({ source: `/italiani-all-estero/${p.slug}/${p.capitale.slug}`, destination: '/app.html' });
+    // Capitale + pagine locali (`cittaPagine`): senza la voce in allowlist la regola
+    // `/italiani-all-estero/:paese/:capitale -> /__404__` le mangerebbe, e una pagina
+    // pubblicata darebbe 404 all'edge pur essendo in sitemap.
+    for (const l of [p.capitale, ...(p.cittaPagine || [])]) {
+      if (l && l.slug) {
+        entries.push({ source: `/italiani-all-estero/${p.slug}/${l.slug}`, destination: '/app.html' });
+      }
     }
     return entries;
   }),

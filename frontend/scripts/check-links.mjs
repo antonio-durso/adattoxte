@@ -26,8 +26,15 @@ const { paesi } = await import(pathToFileURL(path.join(root, 'src/content/paesi.
 const blogSlugs = new Set(articles.filter((a) => !HIDDEN_ARTICLE_SLUGS.has(a.slug)).map((a) => a.slug));
 const psicoSlugs = new Set([...disturbi.map((d) => d.slug), ...citta.map((c) => c.slug)]);
 const paeseSlugs = new Set(paesi.map((p) => p.slug));
+// Coppie paese/località valide: la capitale di ogni paese PIÙ le pagine locali
+// (`cittaPagine`, es. lugano / zurigo / ginevra / basilea per la Svizzera). Se una
+// pagina locale non è qui, un link scritto a mano verso di essa fa fallire la build.
 const capitalePairs = new Set(
-  paesi.filter((p) => p.capitale && p.capitale.slug).map((p) => `${p.slug}/${p.capitale.slug}`)
+  paesi.flatMap((p) =>
+    [p.capitale, ...(p.cittaPagine || [])]
+      .filter((l) => l && l.slug)
+      .map((l) => `${p.slug}/${l.slug}`)
+  )
 );
 
 const isValid = (pref, slug, capo) => {

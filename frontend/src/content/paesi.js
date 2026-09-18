@@ -7,7 +7,79 @@ export const paesi = [
   { slug: 'regno-unito', nome: 'Regno Unito', bandiera: '🇬🇧', capitale: { slug: 'londra', nome: 'Londra', nota: 'prima destinazione europea dei giovani italiani' }, regione: 'Europa', fuso: '1 ora in meno rispetto all\'Italia', comunita: 'Il Regno Unito ospita una delle comunità italiane più numerose e giovani d\'Europa', citta: ['Londra', 'Manchester', 'Birmingham', 'Glasgow', 'Edimburgo', 'Leeds', 'Leicester', 'Milton Keynes'] },
   { slug: 'francia', nome: 'Francia', bandiera: '🇫🇷', capitale: { slug: 'parigi', nome: 'Parigi', nota: 'capitale con una comunità italiana storica e vivace' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'La comunità italiana in Francia è storica e numerosa, presente in tutto il territorio', citta: ['Parigi', 'Lione', 'Nizza', 'Marsiglia', 'Tolosa', 'Bordeaux', 'Lille', 'Grenoble'] },
   { slug: 'germania', nome: 'Germania', bandiera: '🇩🇪', capitale: { slug: 'berlino', nome: 'Berlino', nota: 'capitale creativa con molti italiani giovani e professionisti' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'La Germania ospita una delle comunità italiane più numerose d\'Europa', citta: ['Berlino', 'Monaco', 'Francoforte', 'Stoccarda', 'Colonia', 'Amburgo', 'Düsseldorf', 'Norimberga'] },
-  { slug: 'svizzera', nome: 'Svizzera', bandiera: '🇨🇭', capitale: { slug: 'berna', nome: 'Berna', nota: 'capitale federale, hub di aziende e istituzioni' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'La Svizzera conta una delle comunità italiane più grandi d\'Europa, tra frontalieri e residenti', citta: ['Zurigo', 'Ginevra', 'Lugano', 'Basilea', 'Berna', 'Losanna', 'San Gallo', 'Soletta', 'Glarona', 'Grenchen', 'Herisau', 'Küssnacht', 'Muttenz', 'Arosa', 'Emmen'] },
+  { slug: 'svizzera', nome: 'Svizzera', bandiera: '🇨🇭', capitale: { slug: 'berna', nome: 'Berna', nota: 'capitale federale, hub di aziende e istituzioni' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'La Svizzera conta una delle comunità italiane più grandi d\'Europa, tra frontalieri e residenti', citta: ['Zurigo', 'Ginevra', 'Lugano', 'Basilea', 'Berna', 'Losanna', 'San Gallo', 'Soletta', 'Glarona', 'Grenchen', 'Herisau', 'Küssnacht', 'Muttenz', 'Arosa', 'Emmen'],
+    // Località con una PAGINA PROPRIA, oltre alla capitale. Stessa forma di `capitale`
+    // (slug + nome) più i campi di contenuto differenziato: `desc` (meta description),
+    // `intro` (paragrafo sotto il titolo), `local` (scheda con i dettagli del posto),
+    // `faqLocal` (domande specifiche). È la stessa regola delle città italiane
+    // (src/content/citta.js): una pagina locale è indicizzabile SOLO se ha un testo suo.
+    // Una pagina templata con il nome cambiato è una pagina porta, e Google la tratta
+    // come tale.
+    //
+    // Perché queste quattro: sono le località per cui Search Console registra già query
+    // reali ("psicologo italiano online <luogo>") e per cui non esisteva alcuna pagina —
+    // la pagina Svizzera veniva servita come ripiego, a posizione media 34,4. La domanda
+    // è misurata, non stimata.
+    //
+    // Dati citati nei testi (generali, verificati): seduta privata in Svizzera 150-200
+    // CHF; riferimento LAMal 155 CHF/ora; dal 1/7/2022 la psicoterapia è a carico
+    // dell'assicurazione di base con prescrizione medica, max 15 sedute per ricetta, più
+    // franchigia e 10% di partecipazione. Il percorso del sito resta privato e senza
+    // prescrizione: non promettere rimborsi.
+    cittaPagine: [
+      {
+        slug: 'lugano',
+        nome: 'Lugano',
+        nota: 'il cuore della Svizzera italiana, a pochi minuti dal confine',
+        intro: "A Lugano la terapia in italiano non è una comodità: è la lingua in cui sei abituato a pensare. In Ticino gli studi privati lavorano già in italiano, ma con tariffe alte e tempi lunghi. Online inizi quando vuoi, a CHF 130 e senza prescrizione.",
+        local: `<h3>Terapia online a Lugano: in italiano, senza prescrizione e senza lista d'attesa</h3><p>In Ticino il problema non è trovare un terapeuta che parli italiano — è il <strong>prezzo</strong> e l'<strong>attesa</strong>. Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta (il riferimento LAMal è di 155 CHF l'ora) e per il rimborso serve la prescrizione del medico: al massimo <strong>15 sedute per ricetta</strong>, più franchigia e il 10% di partecipazione a tuo carico.</p><p>Con Adatto x Te la seduta individuale da 50 minuti costa <strong>CHF 130</strong> (145 CHF quella di coppia), si paga in euro all'equivalente fisso e la prima seduta conoscitiva è gratuita. Nessuna prescrizione, nessuna diagnosi nel dossier assicurativo, nessuna lista d'attesa: scegli il terapeuta e prenoti.</p><p>Funziona se vivi a Lugano, a Paradiso o in uno dei comuni del Luganese, se fai il frontaliere o se ti sposti spesso fra Ticino e Italia: il percorso non si interrompe quando cambi casa, ufficio o confine.</p>`,
+        faqLocal: [
+          ["Quanto costa uno psicologo a Lugano?", "In Ticino uno studio privato costa mediamente 150-200 CHF a seduta. Con Adatto x Te la seduta individuale da 50 minuti costa CHF 130, pagabili in euro all'equivalente fisso, e la prima è gratuita."],
+          ["Serve la prescrizione del medico per iniziare?", "No, se scegli il percorso diretto: inizi senza prescrizione e senza che nulla finisca nel dossier assicurativo. La prescrizione serve solo se vuoi il rimborso LAMal, e in quel caso il trattamento va svolto da terapeuti riconosciuti in Svizzera (PsiReg)."],
+          ["Sono frontaliere: posso seguire le sedute dall'Italia?", "Sì. La videochiamata funziona da qualsiasi luogo e il fuso è lo stesso dell'Italia: puoi fare la seduta da casa in Italia, dall'ufficio a Lugano o in pausa pranzo."]
+        ],
+        desc: "Psicologo online per italiani a Lugano: sedute video in italiano a CHF 130, prima gratuita, senza prescrizione né lista d'attesa."
+      },
+      {
+        slug: 'zurigo',
+        nome: 'Zurigo',
+        nota: 'la città più grande della Svizzera',
+        intro: "A Zurigo lavori in tedesco o in inglese tutto il giorno. Ma quando si parla di te, la lingua che ti viene naturale è un'altra. Le sedute si svolgono in italiano, con terapeuti italiani.",
+        local: `<h3>Terapia in italiano a Zurigo: parlare di sé nella propria lingua</h3><p>Zurigo è la città più grande della Svizzera e una delle mete europee con la maggiore presenza di professionisti italiani. Molti arrivano per lavoro e si trovano a vivere, negoziare, discutere e perfino scherzare in una lingua che non è la loro. In terapia questo pesa più che altrove: raccontare un disagio in tedesco o in inglese è uno sforzo che spesso fa rimandare la richiesta d'aiuto.</p><p>Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta, e i terapeuti che lavorano in italiano a Zurigo sono pochi. Online hai un elenco di psicologi e psicoterapeuti italiani a <strong>CHF 130</strong> la seduta da 50 minuti, con la prima conversazione gratuita.</p><p>Se lavori a Zurigo, a Winterthur o lungo la Limmat, oppure sei in smart working e ti sposti, prenoti quando hai un'ora libera: sera, pausa pranzo o weekend.</p>`,
+        faqLocal: [
+          ["Posso fare terapia in italiano a Zurigo?", "Sì: tutte le sedute si svolgono in italiano con psicologi e psicoterapeuti italiani. Non devi tradurre quello che provi e non perdi le sfumature proprio dove contano."],
+          ["Quanto costa rispetto a uno studio a Zurigo?", "In Svizzera una seduta privata costa mediamente 150-200 CHF. Online la seduta individuale da 50 minuti costa CHF 130, con la prima conversazione gratuita."],
+          ["Lavoro tutto il giorno: quali orari ci sono?", "Prenoti tu lo slot, anche la sera o nel weekend, con lo stesso fuso dell'Italia. E se ti trasferisci in un'altra città il percorso continua senza interruzioni."]
+        ],
+        desc: "Psicologo online per italiani a Zurigo: sedute in italiano a CHF 130, prima gratuita. Parla di te nella tua lingua, senza lista d'attesa."
+      },
+      {
+        slug: 'ginevra',
+        nome: 'Ginevra',
+        nota: 'città internazionale, sede di organizzazioni e grandi aziende',
+        intro: "A Ginevra si lavora in francese e in inglese, fra organizzazioni internazionali, missioni e contratti a termine. Le sedute online sono in italiano, con terapeuti italiani.",
+        local: `<h3>Terapia in italiano a Ginevra: per chi vive fra contratti e trasferimenti</h3><p>Ginevra è una città di passaggio per mestiere: organizzazioni internazionali, missioni, contratti a durata determinata, trasferimenti ogni pochi anni. È un contesto stimolante e faticoso insieme — e la lingua in cui ti racconti resta l'italiano.</p><p>Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta, e per il rimborso LAMal serve la prescrizione del medico (al massimo 15 sedute per ricetta, più franchigia e 10% a tuo carico). Con il percorso diretto paghi <strong>CHF 130</strong> a seduta individuale, in euro all'equivalente fisso, senza prescrizione e senza diagnosi nel dossier assicurativo.</p><p>Se vivi a Ginevra, a Carouge o sulla rive droite, o se il contratto ti porterà altrove fra sei mesi, il percorso online ti segue: stesso terapeuta, stessa lingua, stesso orario.</p>`,
+        faqLocal: [
+          ["Vivo a Ginevra per lavoro: posso iniziare subito?", "Sì: non serve alcuna prescrizione e non ci sono liste d'attesa. Scegli il terapeuta e prenoti la prima seduta conoscitiva, che è gratuita."],
+          ["E se il mio contratto mi porta in un'altra città?", "Il percorso è online: non cambia nulla. Puoi continuare con lo stesso terapeuta anche se ti trasferisci in un altro paese, con lo stesso fuso dell'Italia."],
+          ["Il rimborso LAMal è possibile?", "Solo con prescrizione medica e con terapeuti riconosciuti in Svizzera (PsiReg). Il percorso diretto con noi resta privato e riservato: paghi la seduta e niente finisce nel dossier assicurativo."]
+        ],
+        desc: "Psicologo online per italiani a Ginevra: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione, nessuna lista d'attesa."
+      },
+      {
+        slug: 'basilea',
+        nome: 'Basilea',
+        nota: 'sul Reno, al confine con Germania e Francia',
+        intro: "A Basilea vivi a pochi minuti da due paesi e lavori in un ambiente internazionale. Le sedute online si svolgono in italiano, senza spostamenti e senza coincidenze da prendere.",
+        local: `<h3>Terapia in italiano a Basilea: per chi vive fra tre paesi</h3><p>A Basilea la giornata attraversa tre paesi: casa in Svizzera, ufficio magari a Weil am Rhein o a Saint-Louis, tempo libero dove capita. È una vita comoda e complicata insieme, e incastrare uno studio di psicoterapia fra dogana, tram e turni non è banale.</p><p>Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta, e per il rimborso tramite LAMal serve una prescrizione medica. Online elimini il problema logistico: <strong>CHF 130</strong> la seduta individuale da 50 minuti, prima seduta conoscitiva gratuita, pagamento in euro all'equivalente fisso.</p><p>Funziona anche per chi lavora su turni o in laboratorio con orari che cambiano ogni settimana: sposti la seduta quando serve, senza perdere l'appuntamento.</p>`,
+        faqLocal: [
+          ["Basilea non è comoda da raggiungere: come funziona?", "È il motivo per cui molti scelgono l'online: nessuno spostamento, nessuna attesa, 50 minuti da casa o dall'ufficio. Scegli tu l'orario, anche la sera."],
+          ["Quanto costa rispetto a uno studio a Basilea?", "In Svizzera una seduta privata costa mediamente 150-200 CHF. Con Adatto x Te la seduta individuale costa CHF 130 e la prima è gratuita."],
+          ["Lavoro su turni: posso spostare le sedute?", "Sì: prenoti lo slot che ti serve ogni volta. Molti pazienti alternano settimane con orari diversi senza problemi."]
+        ],
+        desc: "Psicologo online per italiani a Basilea: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione, nessuno spostamento."
+      }
+    ] },
   { slug: 'belgio', nome: 'Belgio', bandiera: '🇧🇪', capitale: { slug: 'bruxelles', nome: 'Bruxelles', nota: 'capitale europea, sede delle istituzioni UE con molti italiani' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'Il Belgio ha una comunità italiana storica, rafforzata dalla presenza delle istituzioni europee', citta: ['Bruxelles', 'Anversa', 'Liegi', 'Gand', 'Charleroi'] },
   { slug: 'spagna', nome: 'Spagna', bandiera: '🇪🇸', capitale: { slug: 'madrid', nome: 'Madrid', nota: 'capitale con una comunità italiana in forte crescita' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'La comunità italiana in Spagna è in forte crescita, soprattutto tra i giovani', citta: ['Madrid', 'Barcellona', 'Valencia', 'Siviglia', 'Malaga', 'Alicante', 'Palma di Maiorca', 'Bilbao'] },
   { slug: 'paesi-bassi', nome: 'Paesi Bassi', bandiera: '🇳🇱', capitale: { slug: 'amsterdam', nome: 'Amsterdam', nota: 'capitale dinamica con molti italiani nel tech e nel design' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'La comunità italiana nei Paesi Bassi è giovane e in crescita, legata a lavoro e studio', citta: ['Amsterdam', 'Rotterdam', 'L\'Aia', 'Utrecht', 'Eindhoven'] },

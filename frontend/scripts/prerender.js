@@ -21,12 +21,16 @@ import { cittaEn } from '../src/content/citta-en.js';
 import { disturbiEn } from '../src/content/disturbi-en.js';
 import { EN_ACTIVE } from '../src/config.js';
 
-// Rotte "italiani all'estero": hub + ogni paese e la sua capitale (come in sitemap)
-const ESTERO_ROUTES = paesi.flatMap((p) =>
-  p.capitale && p.capitale.slug
-    ? [`/italiani-all-estero/${p.slug}`, `/italiani-all-estero/${p.slug}/${p.capitale.slug}`]
-    : [`/italiani-all-estero/${p.slug}`]
-);
+// Rotte "italiani all'estero": hub + ogni paese, la sua capitale e le eventuali pagine
+// locali (`cittaPagine`). Deve restare allineato a readCountries() di build-seo.js:
+// una URL in sitemap senza file prerenderizzato verrebbe servita come shell SPA, e il
+// gate di build (assertComplete) non se ne accorgerebbe perché la conta come catturata.
+const ESTERO_ROUTES = paesi.flatMap((p) => [
+  `/italiani-all-estero/${p.slug}`,
+  ...[p.capitale, ...(p.cittaPagine || [])]
+    .filter((l) => l && l.slug)
+    .map((l) => `/italiani-all-estero/${p.slug}/${l.slug}`),
+]);
 
 // Versione inglese: si prerenderizzano SOLO le rotte con contenuto inglese reale
 // (interfaccia tradotta + landing presenti in citta-en / disturbi-en). Con

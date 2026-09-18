@@ -17,9 +17,19 @@ export default function PaeseLanding() {
       </div>
     );
   }
-  const capitale = capitaleSlug ? paese.capitale : null;
-  const isCapitale = !!(capitale && capitale.slug === capitaleSlug);
-  const eff = isCapitale ? capitale : paese;
+  // Secondo livello dell'URL (/italiani-all-estero/<paese>/<localita>): può essere la
+  // capitale dichiarata del paese oppure una delle `cittaPagine` — le pagine locali con
+  // contenuto proprio (vedi src/content/paesi.js). `isCapitale` qui significa "siamo su
+  // una pagina locale, non sulla pagina del paese"; il nome resta perché lo usano una
+  // ventina di condizioni più sotto.
+  const localita = capitaleSlug
+    ? [paese.capitale, ...(paese.cittaPagine || [])].find((l) => l && l.slug === capitaleSlug) || null
+    : null;
+  const isCapitale = !!localita;
+  // Vero solo per le pagine locali diverse dalla capitale: sono quelle che portano
+  // `intro` / `local` / `faqLocal` e possono ricevere i blocchi della Svizzera.
+  const isCittaLocale = !!(localita && localita !== paese.capitale);
+  const eff = localita || paese;
   // Listino paese: per la Svizzera i prezzi sono esposti in CHF (pagamento in EUR, equivalente fisso).
   const isCH = paese.slug === 'svizzera';
   const seduteTxt = isCH ? 'sedute da CHF 130' : 'sedute da 45€';
@@ -82,17 +92,22 @@ export default function PaeseLanding() {
   const titolo = isCapitale
     ? `Psicologo online per italiani a ${nome}`
     : `Psicologo online per italiani ${art.in}`;
-  const desc = isCapitale
-    ? `Psicologo online per italiani a ${nome} (${paese.nome}): sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}.`
-    : `Psicologo online per italiani ${art.in}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}, terapeuti qualificati.`;
-  const path = isCapitale ? `/italiani-all-estero/${paese.slug}/${capitale.slug}` : `/italiani-all-estero/${paese.slug}`;
+  // Meta description: quella scritta su misura per la località (`desc` in paesi.js)
+  // vince sul testo generico. È il testo che Google mostra nel risultato, ed è scritto
+  // sulla domanda reale di quella città.
+  const desc = eff.desc
+    ? eff.desc
+    : isCapitale
+      ? `Psicologo online per italiani a ${nome} (${paese.nome}): sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}.`
+      : `Psicologo online per italiani ${art.in}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}, terapeuti qualificati.`;
+  const path = isCapitale ? `/italiani-all-estero/${paese.slug}/${localita.slug}` : `/italiani-all-estero/${paese.slug}`;
   // Città-stato (es. Singapore, Lussemburgo): capitale e paese coincidono, quindi
   // questa pagina duplica /italiani-all-estero/{paese} (title e H1 identici).
   // Invece di avere due URL in competizione sulla stessa query, il canonical viene
   // DELEGATO alla pagina paese: i segnali si consolidano su una sola URL. Il
   // contenuto resta invariato e la pagina resta raggiungibile; esce dalla sitemap
   // (vedi scripts/build-seo.js).
-  const isCittaStato = isCapitale && capitale.slug === paese.slug;
+  const isCittaStato = isCapitale && localita.slug === paese.slug;
   const canonicalPath = isCittaStato ? `/italiani-all-estero/${paese.slug}` : undefined;
 
   const faqs = [
@@ -124,7 +139,10 @@ export default function PaeseLanding() {
           },
         ]
       : []),
-    ...(!isCapitale && paese.slug === 'svizzera'
+    // Svizzera: il rimborso è l'obiezione numero uno di chi vive lì. Questa domanda
+    // sta sulla pagina del paese e su ogni pagina locale di città; non sulla pagina
+    // della capitale, che ha già il suo taglio.
+    ...(paese.slug === 'svizzera' && (!isCapitale || isCittaLocale)
       ? [
           {
             q: 'La seduta è rimborsata dalla cassa malati (LAMal)?',
@@ -132,6 +150,8 @@ export default function PaeseLanding() {
           },
         ]
       : []),
+    // Domande specifiche della località (`faqLocal` in paesi.js), come per le città italiane.
+    ...(isCittaLocale && eff.faqLocal ? eff.faqLocal.map(([q, a]) => ({ q, a })) : []),
   ];
 
   // Schema.org Offer: valuta e prezzi coerenti con il listino del paese mostrato
@@ -201,14 +221,30 @@ export default function PaeseLanding() {
           </p>
           <h1>{isCapitale ? `Psicologo online per italiani a ${nome}` : `Psicologo online per italiani ${art.in}`}</h1>
           <p className="lead">
-            {paese.comunita}. Sedute in videochiamata in italiano da qualsiasi città {art.di}, {paese.fuso}. Prima seduta conoscitiva gratuita, {seduteTxt}.
+            {paese.comunita}. Sedute in videochiamata in italiano {isCittaLocale ? `a ${nome} e da qualsiasi città ${art.di}` : `da qualsiasi città ${art.di}`}, {paese.fuso}. Prima seduta conoscitiva gratuita, {seduteTxt}.
           </p>
+          {isCittaLocale && eff.intro && (
+            <p style={{ maxWidth: 660, margin: '14px auto 0', fontSize: 17, lineHeight: 1.65 }}>{eff.intro}</p>
+          )}
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 20 }}>
             <Link to="/terapeuti" className="btn btn-primary">Scegli il tuo terapeuta</Link>
             <Link to="/registrazione" className="btn btn-outline">Inizia gratis</Link>
           </div>
         </div>
       </section>
+
+      {/* Pagine locali (città): testo scritto per quella città — prezzi locali, contesto,
+          obiezioni. È ciò che distingue una pagina locale da una pagina porta con il nome
+          cambiato: vedi il campo `local` in src/content/paesi.js. */}
+      {isCittaLocale && eff.local && (
+        <section className="container section">
+          <div
+            className="card"
+            style={{ maxWidth: 780, margin: '0 auto', padding: '22px 24px', lineHeight: 1.7 }}
+            dangerouslySetInnerHTML={{ __html: eff.local }}
+          />
+        </section>
+      )}
 
       <section className="container section">
         <h2 style={{ textAlign: 'center' }}>Perché uno psicologo online per chi vive {isCapitale ? `a ${nome}` : art.in}</h2>
@@ -251,6 +287,22 @@ export default function PaeseLanding() {
               per lavoro o per un trasferimento tra le città {art.di},
               il tuo percorso ti segue senza interruzioni.
             </p>
+            {/* Maglia interna: le località che hanno una pagina propria devono essere
+                raggiungibili dalla pagina del paese (senza questo link resterebbero
+                orfane, e Google le troverebbe solo dalla sitemap). */}
+            {(paese.cittaPagine || []).length > 0 && (
+              <p>
+                Pagine dedicate:{' '}
+                {(paese.cittaPagine || []).map((c, i, arr) => (
+                  <span key={c.slug}>
+                    <Link to={`/italiani-all-estero/${paese.slug}/${c.slug}`} style={{ fontWeight: 600 }}>
+                      Psicologo online per italiani a {c.nome}
+                    </Link>
+                    {i < arr.length - 1 ? ' · ' : ''}
+                  </span>
+                ))}
+              </p>
+            )}
           </div>
         </section>
       )}

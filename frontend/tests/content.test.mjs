@@ -63,6 +63,40 @@ test('paesi: capitale con slug valido e nome presente', () => {
   }
 });
 
+test('paesi: le pagine locali (cittaPagine) hanno un contenuto proprio e slug univoci', () => {
+  // È la stessa regola delle città italiane (CITTA_TOP + desc/local): una pagina locale
+  // esiste indicizzabile SOLO se ha un testo scritto per quella località. Il test serve
+  // a impedire che domani si aggiunga una pagina locale senza scriverne il contenuto —
+  // cioè una pagina porta: esiste, è in sitemap, ma è il templato con il nome cambiato.
+  const coppie = [];
+  for (const p of paesi) {
+    for (const c of p.cittaPagine || []) {
+      assert.ok(c.slug && /^[a-z0-9-]+$/.test(c.slug), `slug locale non valido in ${p.slug}: ${c.slug}`);
+      assert.ok(c.nome, `pagina locale senza nome: ${p.slug}/${c.slug}`);
+      assert.ok(typeof c.desc === 'string' && c.desc.length > 60, `pagina locale senza desc: ${p.slug}/${c.slug}`);
+      assert.ok(typeof c.intro === 'string' && c.intro.length > 80, `pagina locale senza intro: ${p.slug}/${c.slug}`);
+      assert.ok(typeof c.local === 'string' && c.local.length > 400, `pagina locale senza local: ${p.slug}/${c.slug}`);
+      assert.ok(Array.isArray(c.faqLocal) && c.faqLocal.length >= 2, `pagina locale senza faqLocal: ${p.slug}/${c.slug}`);
+      (c.faqLocal || []).forEach(([q, a]) => assert.ok(q && a, `faqLocal incompleta: ${p.slug}/${c.slug}`));
+      // Collidere con la capitale dello stesso paese significherebbe due pagine sullo
+      // stesso slug: la seconda vince e la prima sparisce senza avvisi.
+      assert.notEqual(c.slug, p.capitale.slug, `pagina locale che collide con la capitale: ${p.slug}/${c.slug}`);
+      coppie.push(`${p.slug}/${c.slug}`);
+    }
+  }
+  assert.ok(uniq(coppie), `coppie paese/località duplicate: ${coppie.join(', ')}`);
+
+  // Blocco Svizzera: queste quattro sono le località per cui Search Console registra
+  // query reali (18/09/2026) e per cui non esisteva alcuna pagina. Se spariscono, è una
+  // regressione voluta e va decisa, non subita.
+  const ch = paesi.find((p) => p.slug === 'svizzera');
+  assert.deepEqual(
+    (ch.cittaPagine || []).map((c) => c.slug),
+    ['lugano', 'zurigo', 'ginevra', 'basilea'],
+    'pagine locali svizzere cambiate'
+  );
+});
+
 test('articoli: 100+ articoli con slug univoci e campi essenziali', () => {
   assert.ok(articles.length >= 100, `articles=${articles.length}`);
   assert.ok(uniq(articles.map((a) => a.slug)), 'slug articoli duplicati');
