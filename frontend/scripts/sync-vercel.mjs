@@ -4,9 +4,11 @@
  * Sostituisce le sezioni scritte a mano con quelle calcolate dai contenuti:
  *   1) redirect legacy  /psicologo-online/{paese|capitale}  →  /italiani-all-estero/...
  *   2) header X-Robots-Tag: noindex per le città NON in CITTA_TOP (79 pagine sottili)
- *   2b) header X-Robots-Tag: noindex su /en e /en/** finché EN_ACTIVE === false
- *       (versione inglese volutamente in pausa: si riattiva cambiando EN_ACTIVE
- *        in src/config.js, senza toccare vercel.json a mano)
+ *   2b) spazio /en CHIUSO: elenco esplicito delle rotte /en esistenti. Quelle
+ *       tradotte (EN_ACTIVE) restano indicizzabili; quelle che l'interfaccia inglese
+ *       linka ma non hanno traduzione prendono l'header noindex; TUTTO IL RESTO
+ *       sotto /en risponde 404 (prima la wildcard /en/:path* serviva /app.html e
+ *       rendeva lo spazio infinito e indicizzabile)
  *
  * Tutto il resto di vercel.json (rewrite SPA, header sicurezza/cache, redirect
  * trailing slash, ...) viene preservato. Lo script è idempotente.
@@ -28,6 +30,8 @@ const { citta, CITTA_TOP } = await import(pathToFileURL(path.join(root, 'src/con
 const { disturbi } = await import(pathToFileURL(path.join(root, 'src/content/disturbi.js')));
 const { articles, HIDDEN_ARTICLE_SLUGS } = await import(pathToFileURL(path.join(root, 'src/content/articles.js')));
 const { EN_ACTIVE } = await import(pathToFileURL(path.join(root, 'src/config.js')));
+const { cittaEn } = await import(pathToFileURL(path.join(root, 'src/content/citta-en.js')));
+const { disturbiEn } = await import(pathToFileURL(path.join(root, 'src/content/disturbi-en.js')));
 
 const paeseSlugs = new Set(paesi.map((p) => p.slug));
 const capitaleSlugs = new Set(paesi.map((p) => p.capitale.slug).filter(Boolean));
@@ -38,13 +42,45 @@ const noindexCities = citta.filter((c) => !cittaTop.has(c.slug)).map((c) => c.sl
 // EN_ACTIVE === false in src/config.js. La riattivazione è una sola riga lì:
 // qui non va toccato niente a mano.
 const EN_HEADER_SOURCES = ['/en', '/en/:path*'];
-// Quando la versione inglese è attiva l'header all'edge resta SOLO sulle rotte /en
-// senza traduzione: le altre sono governate dal meta robots della pagina
-// (elenco bianco in components/Seo.jsx), che è più preciso dell'edge.
-const EN_BLOCKED_SOURCES = EN_ACTIVE
-  ? ['/en/blog', '/en/blog/:path*', '/en/prezzi', '/en/chi-siamo', '/en/risorse', '/en/recensioni']
-  : EN_HEADER_SOURCES;
-const isEnNoindex = (h) => EN_HEADER_SOURCES.includes(h.source || '') || EN_BLOCKED_SOURCES.includes(h.source || '');
+// Rotte /en con traduzione reale: hanno il file prerenderizzato e restano indicizzabili.
+// La stessa fonte di verità dell'elenco bianco in components/Seo.jsx (cittaEn/disturbiEn).
+const EN_TRANSLATED = EN_ACTIVE
+  ? [
+      '/en',
+      '/en/terapeuti',
+      ...disturbiEn.map((d) => `/en/psicologo-online/${d.slug}`),
+      ...cittaEn.map((c) => `/en/psicologo-online/${c.slug}`),
+    ]
+  : [];
+// Rotte che l'interfaccia inglese linka ma che NON hanno traduzione (verificate una
+// per una sui link reali delle pagine /en): restano raggiungibili, con noindex.
+// Per queste l'HTML servito è la shell SPA, quindi il meta robots del componente Seo
+// non c'è: l'header all'edge è l'unica protezione possibile, e vale anche senza JS.
+const EN_UNTRANSLATED = EN_ACTIVE
+  ? [
+      '/en/blog',
+      '/en/equipe',
+      '/en/impostazioni',
+      '/en/lavora-con-noi',
+      '/en/prezzi',
+      '/en/psicologo-online',
+      '/en/recensioni',
+      '/en/risorse',
+      '/en/struttura',
+      '/en/test',
+      '/en/ufficio-stampa',
+    ]
+  : [];
+const EN_KNOWN = [...EN_TRANSLATED, ...EN_UNTRANSLATED];
+const EN_BLOCKED_SOURCES = EN_ACTIVE ? EN_UNTRANSLATED : EN_HEADER_SOURCES;
+// Tutto lo spazio /en è governato qui: un eventuale header /en/** rimasto scritto a
+// mano in vercel.json (da una configurazione precedente) viene rimosso, così non
+// restano direttive noindex su URL che ora rispondono 404.
+const isEnNoindex = (h) => {
+  const src = h.source || '';
+  if (EN_HEADER_SOURCES.includes(src) || EN_BLOCKED_SOURCES.includes(src)) return true;
+  return EN_ACTIVE && /^\/en(\/|$)/.test(src);
+};
 
 // Rotte private che NON stanno in sitemap e non devono finire nell'indice.
 // /impostazioni non è prerenderizzata: l'HTML servito è la shell SPA, quindi il
@@ -137,7 +173,9 @@ cfg.headers = [...staticHeaders, ...generatedNoindex, ...generatedEnNoindex, ...
 //    le corrispondenze esatte, poi i pattern con :param).
 //    Idempotenza: prima di rigenerare si rimuovono eventuali entry allowlist già
 //    presenti (da esecuzioni/deploy precedenti), così non si accumulano duplicati.
+const enAllowlistSources = EN_KNOWN.map((source) => ({ source, destination: '/app.html' }));
 const allowlistSources = [
+  ...enAllowlistSources,
   ...articles
     .filter((a) => !HIDDEN_ARTICLE_SLUGS.has(a.slug))
     .map((a) => ({ source: `/blog/${a.slug}`, destination: '/app.html' })),
@@ -156,9 +194,15 @@ cfg.rewrites = [
   ...allowlistSources,
   ...cfg.rewrites.filter((r) => !allowSet.has(`${r.source}|${r.destination}`)),
 ];
+// Lo spazio /en è un elenco chiuso: una URL /en non prevista deve dare 404, non una
+// shell a 200 (soft 404 indicizzabile). Le regole esatte qui sopra vincono perché
+// l'ordine conta: prima le corrispondenze esatte, poi la wildcard.
+cfg.rewrites = cfg.rewrites.map((r) =>
+  r.source === '/en/:path*' ? { ...r, destination: '/__404__' } : r
+);
 
 writeFileSync(vercelPath, JSON.stringify(cfg, null, 2) + '\n');
 
 const redTotal = cfg.redirects.length;
 const noindexTotal = generatedNoindex.length;
-console.log(`[sync-vercel] ok: ${generatedPrivateNoindex.length} header noindex privati (/impostazioni), ${EXTRA_REDIRECTS.length} redirect storici, ${redTotal} redirect (${generatedRedirects.length} paesi/capitali generati), ${noindexTotal} header noindex città generati, ${generatedEnNoindex.length} header noindex EN (EN_ACTIVE=${EN_ACTIVE}), ${staticHeaders.length} header statici preservati, ${allowlistSources.length} rewrite allowlist contenuti generate.`);
+console.log(`[sync-vercel] ok: ${generatedPrivateNoindex.length} header noindex privati (/impostazioni), ${EXTRA_REDIRECTS.length} redirect storici, ${redTotal} redirect (${generatedRedirects.length} paesi/capitali generati), ${noindexTotal} header noindex città generati, ${generatedEnNoindex.length} header noindex EN (EN_ACTIVE=${EN_ACTIVE}, ${EN_KNOWN.length} rotte /en esistenti), ${staticHeaders.length} header statici preservati, ${allowlistSources.length} rewrite allowlist contenuti generate.`);

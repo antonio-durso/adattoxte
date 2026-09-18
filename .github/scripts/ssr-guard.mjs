@@ -48,8 +48,12 @@ const CANONICAL_DELEGATES = {
 };
 
 // Rotte che DEVONO rispondere 404 oppure avere header X-Robots-Tag: noindex.
+// NOTA: '/en' non è più in questo elenco. Con EN_ACTIVE === true la home inglese è
+// volutamente indicizzabile — è il senso dell'accensione della versione inglese; era
+// qui perché prima tutta l'area /en era in pausa. Resta invece il controllo sulla URL
+// INESISTENTE sotto /en, che è il rischio vero: lo spazio /en deve essere un elenco
+// chiuso, non un insieme infinito di pagine che rispondono 200.
 const NOINDEX_PATHS = [
-  '/en',
   '/en/nessuna-pagina-xyz',
   '/area-paziente',
   '/area-terapeuta',

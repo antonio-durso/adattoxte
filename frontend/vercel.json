@@ -433,6 +433,454 @@
   ],
   "rewrites": [
     {
+      "source": "/en",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/terapeuti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/depressione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-depressivo-persistente",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-bipolare",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/ansia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/attacchi-di-panico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/agorafobia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/ansia-sociale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/fobie-specifiche",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/ansia-da-separazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-ossessivo-compulsivo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/tricotillomania",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-da-accumulo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/dimorfismo-corporeo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-post-traumatico-da-stress",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-dell-adattamento",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/depersonalizzazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/anoressia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/bulimia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/binge-eating",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/insonnia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/burnout",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/lutto",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/ansia-da-malattia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/autostima",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/gelosia-ossessiva",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/dipendenza-affettiva",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/dipendenza-da-internet",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/dipendenza-da-gioco-d-azzardo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-borderline",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-narcisistico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-evitante",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-ossessivo-compulsivo-di-personalita",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/adhd-adulti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-da-stress-post-traumatico-complesso",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/ipersonnia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-del-ritmo-circadiano",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-bipolare-di-tipo-2",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-esplosivo-intermittente",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-paranoide",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-schizoide",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-schizotipico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-istrionico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-antisociale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/schizofrenia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-delirante",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-schizoaffettivo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-dissociativo-dell-identita",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-da-escoriazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-evitante-restrittivo-del-cibo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/ortoressia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-disforico-premestruale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/mutismo-selettivo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-da-ansia-sociale-adolescenti",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-del-sonno-incubi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-ossessivo-relazionale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/paura-di-volare",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/paura-di-guidare",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/stress-lavoro-correlato",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/ansia-da-prestazione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/paura-del-colloquio",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/depressione-post-partum",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disfunzione-erettile-psicologica",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/dipendenza-da-sostanze",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/dipendenza-da-alcol",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-del-comportamento-alimentare-selettivo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/disturbo-narcisistico-abusante",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/lutto-per-animale",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/preparazione-mentale-concorsi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/psicologia-dello-sport",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/milano",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/roma",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/napoli",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/torino",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/bari",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/bologna",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/firenze",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/verona",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/palermo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/genova",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/padova",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/catania",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/bergamo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/brescia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/cagliari",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/venezia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/parma",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/modena",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/reggio-emilia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/perugia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/pescara",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/rimini",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/lecce",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/trento",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/trieste",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/ancona",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/pisa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/lucca",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/como",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online/salerno",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/blog",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/equipe",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/impostazioni",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/lavora-con-noi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/prezzi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/psicologo-online",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/recensioni",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/risorse",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/struttura",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/test",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/en/ufficio-stampa",
+      "destination": "/app.html"
+    },
+    {
       "source": "/blog/cybercondria-ansia-da-malattia",
       "destination": "/app.html"
     },
@@ -1941,12 +2389,8 @@
       "destination": "https://adattoxte-backend.onrender.com/api/$1"
     },
     {
-      "source": "/en",
-      "destination": "/app.html"
-    },
-    {
       "source": "/en/:path*",
-      "destination": "/app.html"
+      "destination": "/__404__"
     },
     {
       "source": "/terapeuti",
@@ -2198,7 +2642,25 @@
       ]
     },
     {
-      "source": "/en/blog/:path*",
+      "source": "/en/equipe",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/en/impostazioni",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/en/lavora-con-noi",
       "headers": [
         {
           "key": "X-Robots-Tag",
@@ -2216,7 +2678,16 @@
       ]
     },
     {
-      "source": "/en/chi-siamo",
+      "source": "/en/psicologo-online",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/en/recensioni",
       "headers": [
         {
           "key": "X-Robots-Tag",
@@ -2234,7 +2705,25 @@
       ]
     },
     {
-      "source": "/en/recensioni",
+      "source": "/en/struttura",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/en/test",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/en/ufficio-stampa",
       "headers": [
         {
           "key": "X-Robots-Tag",
