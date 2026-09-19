@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api';
 import Seo from '../components/Seo';
@@ -34,18 +34,6 @@ export default function Recensioni() {
 
   const maxDist = data?.distribution?.length ? Math.max(...data.distribution.map((d) => d.count)) : 1;
 
-  // TrustBox: il bootstrap carica i widget presenti nell'HTML al caricamento della
-  // pagina (caso delle pagine prerenderizzate). Nella navigazione SPA il widget
-  // viene montato dopo, quindi lo inizializziamo con l'API ufficiale, saltando il
-  // caricamento se è già stato reso (presenza dell'iframe).
-  const tpWidgetRef = useRef(null);
-  useEffect(() => {
-    const el = tpWidgetRef.current;
-    if (!el || el.querySelector('iframe')) return;
-    const tp = typeof window !== 'undefined' ? window.Trustpilot : null;
-    if (tp && typeof tp.loadFromElement === 'function') tp.loadFromElement(el);
-  }, []);
-
   return (
     <div className="container section">
       <Seo
@@ -74,22 +62,25 @@ export default function Recensioni() {
       </div>
 
       <h2 style={{ marginTop: 28 }}>Lascia una recensione su Trustpilot</h2>
-      {/* Widget ufficiale Trustpilot (TrustBox) — codice copiato dalla sezione
-          "Condividi e promuovi" dell'account Business. Non modificare gli attributi. */}
-      <div
-        ref={tpWidgetRef}
-        className="trustpilot-widget"
-        data-locale="it-IT"
-        data-template-id="56278e9abfbbba0bdcd568bc"
-        data-businessunit-id="6a8f57971ac50b6b4903b45a"
-        data-style-height="52px"
-        data-style-width="100%"
-        data-token="0649d446-33c5-4f0b-8f17-c81f96f552bd"
-      >
+      {/* TrustBox RIMOSSO — 19/09/2026.
+          Trustpilot ha segnalato l'uso di "un widget non ufficiale che non è incluso nel
+          tuo piano" (primo avviso 10/09/2026, secondo avviso con allerta per i consumatori
+          sul profilo), chiedendo la rimozione entro 7 giorni e prevedendo escalation
+          (TrustScore nascosto). Il widget qui era scritto a mano e inizializzato con una
+          chiamata manuale a window.Trustpilot.loadFromElement, che NON fa parte dello
+          snippet ufficiale: è il profilo che Trustpilot contesta come "non ufficiale".
+          Al suo posto resta un semplice link di testo al profilo, che le linee guida sul
+          marchio consentono senza widget.
+          Per riavere il widget servono entrambe le cose: un piano che includa i TrustBox e
+          il codice generato da Trustpilot Business -> "Condividi e promuovi", incollato
+          senza modifiche. Non ricostruirlo a mano. */}
+      <p className="muted">
+        Le recensioni si leggono e si scrivono direttamente sul profilo Trustpilot:{' '}
         <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener noreferrer">
-          Trustpilot
+          leggi o lascia una recensione su Trustpilot
         </a>
-      </div>
+        .
+      </p>
 
       {loading && <p className="muted">Caricamento…</p>}
 
