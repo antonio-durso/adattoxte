@@ -1,8 +1,9 @@
 // ============================================================================
 // TrustStrip.jsx — Striscia di fiducia per la homepage di Adatto x Te
 // ----------------------------------------------------------------------------
-// Cosa fa: mostra sotto l'hero i badge di credibilità ESTERNI (Trustpilot,
-// Google, GDPR, albo, online, prima seduta gratuita). Complementa
+// Cosa fa: mostra sotto l'hero i badge di credibilità ESTERNI (Google, GDPR,
+// albo, online, prima seduta gratuita). Trustpilot è stato tolto il 20/09/2026.
+// Complementa
 // ReviewsStrip.jsx (che mostra le recensioni INTERNE della piattaforma).
 // Autonoma: nessuna modifica a i18n.jsx richiesta (dizionario locale IT/EN).
 //
@@ -23,7 +24,8 @@
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 
-const TRUSTPILOT_URL = 'https://it.trustpilot.com/review/adattoxte.com';
+// Nessuna costante Trustpilot: sul piano attuale il sito non può rimandare al profilo
+// Trustpilot fuori dal TrustBox ufficiale di Review Collector.
 const GOOGLE_URL = 'https://share.google/U98x9MWWluFoa91xy';
 
 const COPY = {
@@ -32,7 +34,12 @@ const COPY = {
     badges: [
       // NOTA (linee guida brand): nessun punteggio Trustpilot/Google scritto a mano.
       // Il punteggio ufficiale va mostrato solo con un TrustBox incluso nel piano.
-      { icon: '💬', title: 'Recensioni su Trustpilot', sub: 'Leggi le opinioni dei pazienti', href: TRUSTPILOT_URL, external: true },
+      //
+      // Badge "Recensioni su Trustpilot" RIMOSSO il 20/09/2026 su richiesta di Trustpilot:
+      // è un elemento grafico che rimanda al profilo Trustpilot e porta i visitatori lì.
+      // Sul piano attuale l'unico elemento Trustpilot ammesso sul sito è il TrustBox
+      // ufficiale di Review Collector: qualsiasi altro badge o link non lo è.
+      // Il badge Google resta: per Google non esiste una restrizione equivalente.
       { icon: '📍', title: 'Recensioni su Google', sub: 'Leggi le opinioni dei pazienti', href: GOOGLE_URL, external: true },
       { icon: '🛡️', title: 'GDPR compliant', sub: 'Dati protetti, export e delete', href: '/privacy', external: false },
       { icon: '🎓', title: 'Iscritti all\'albo', sub: 'Psicologi e psicoterapeuti qualificati', href: '/terapeuti', external: false },
@@ -43,7 +50,7 @@ const COPY = {
   en: {
     label: 'Trusted by our community',
     badges: [
-      { icon: '💬', title: 'Reviews on Trustpilot', sub: 'Read what patients say', href: TRUSTPILOT_URL, external: true },
+      // Badge Trustpilot rimosso anche in inglese: vedi la nota nella lista italiana.
       { icon: '📍', title: 'Reviews on Google', sub: 'Read what patients say', href: GOOGLE_URL, external: true },
       { icon: '🛡️', title: 'GDPR compliant', sub: 'Protected data, export & delete', href: '/privacy', external: false },
       { icon: '🎓', title: 'Licensed', sub: 'Qualified psychologists & psychotherapists', href: '/terapeuti', external: false },

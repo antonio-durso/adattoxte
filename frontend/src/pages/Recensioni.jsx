@@ -49,11 +49,11 @@ export default function Recensioni() {
 
       {/* Recensioni esterne verificate */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, margin: '24px 0' }}>
-        <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener noreferrer" className="card" style={{ display: 'block', padding: 20, textDecoration: 'none', color: 'inherit' }}>
-          <div style={{ fontSize: 22 }}>⭐</div>
-          <h3 style={{ margin: '8px 0 4px' }}>Trustpilot</h3>
-          <p className="muted small" style={{ margin: '6px 0 0' }}>Leggi le recensioni sul nostro profilo Trustpilot →</p>
-        </a>
+        {/* Scheda "Trustpilot" RIMOSSA il 20/09/2026: era un elemento grafico che rimanda al
+            profilo Trustpilot e porta i visitatori lì. Sul piano attuale l'unico elemento
+            Trustpilot ammesso sul sito è il TrustBox ufficiale di Review Collector, quindi
+            qui non va rimesso nessun badge né link finché il piano non cambia.
+            La scheda Google resta: per Google non esiste una restrizione equivalente. */}
         <a href="https://share.google/U98x9MWWluFoa91xy" target="_blank" rel="noopener noreferrer" className="card" style={{ display: 'block', padding: 20, textDecoration: 'none', color: 'inherit' }}>
           <div style={{ fontSize: 22 }}>📍</div>
           <h3 style={{ margin: '8px 0 4px' }}>Google</h3>
@@ -61,25 +61,23 @@ export default function Recensioni() {
         </a>
       </div>
 
-      <h2 style={{ marginTop: 28 }}>Lascia una recensione su Trustpilot</h2>
-      {/* TrustBox RIMOSSO — 19/09/2026.
-          Trustpilot ha segnalato l'uso di "un widget non ufficiale che non è incluso nel
-          tuo piano" (primo avviso 10/09/2026, secondo avviso con allerta per i consumatori
-          sul profilo), chiedendo la rimozione entro 7 giorni e prevedendo escalation
-          (TrustScore nascosto). Il widget qui era scritto a mano e inizializzato con una
-          chiamata manuale a window.Trustpilot.loadFromElement, che NON fa parte dello
-          snippet ufficiale: è il profilo che Trustpilot contesta come "non ufficiale".
-          Al suo posto resta un semplice link di testo al profilo, che le linee guida sul
-          marchio consentono senza widget.
-          Per riavere il widget servono entrambe le cose: un piano che includa i TrustBox e
-          il codice generato da Trustpilot Business -> "Condividi e promuovi", incollato
-          senza modifiche. Non ricostruirlo a mano. */}
-      <p className="muted">
-        Le recensioni si leggono e si scrivono direttamente sul profilo Trustpilot:{' '}
-        <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener noreferrer">
-          leggi o lascia una recensione su Trustpilot
-        </a>
-        .
+      {/* Blocco "Lascia una recensione su Trustpilot" RIMOSSO del tutto il 20/09/2026.
+          Storia, per non rifare gli stessi passi:
+          1) 10/09/2026 — Trustpilot segnala "un widget non ufficiale che non è incluso nel
+             tuo piano". Il widget era scritto a mano e inizializzato con una chiamata
+             manuale a window.Trustpilot.loadFromElement, che non fa parte dello snippet
+             ufficiale: rimosso il 19/09/2026 (commit 38d6263) insieme allo script di
+             bootstrap caricato su tutte le pagine e alle voci nella CSP.
+          2) 20/09/2026 — Trustpilot rileva un SECONDO elemento grafico che rimanda al
+             profilo: era il badge "Recensioni su Trustpilot" nella striscia della home e
+             questa scheda. Ci hanno detto che sul piano attuale qualunque branding o link
+             Trustpilot NON è consentito, a meno che non sia il TrustBox ufficiale di
+             Review Collector. Quindi via anche il link di testo che era rimasto qui.
+          Per riavere un elemento Trustpilot servono un piano che includa i TrustBox e il
+          codice generato da Trustpilot Business -> "Condividi e promuovi", incollato senza
+          modifiche. Non ricostruirlo a mano e non rimettere link al profilo. */}
+      <p className="muted" style={{ marginTop: 28 }}>
+        Questa pagina raccoglie le recensioni lasciate dai pazienti sulla piattaforma, dopo una seduta completata.
       </p>
 
       {loading && <p className="muted">Caricamento…</p>}

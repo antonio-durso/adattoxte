@@ -126,7 +126,9 @@ export default function BlogArticle() {
           '@type': 'Organization',
           name: 'Adatto x Te',
           url: 'https://www.adattoxte.com',
-          sameAs: ['https://it.trustpilot.com/review/adattoxte.com'],
+          // sameAs Trustpilot rimosso il 20/09/2026: era una URL al profilo Trustpilot
+          // nell'HTML. Sul piano attuale l'unico elemento ammesso è il TrustBox ufficiale
+          // di Review Collector, che si incolla generato dal proprio account.
         },
         about: { '@type': 'MedicalCondition', name: 'Salute mentale e benessere psicologico' },
         mainEntityOfPage: `https://www.adattoxte.com/blog/${article.slug}`,
@@ -150,7 +152,9 @@ export default function BlogArticle() {
           '@type': 'Organization',
           name: 'Adatto x Te',
           url: 'https://www.adattoxte.com',
-          sameAs: ['https://it.trustpilot.com/review/adattoxte.com'],
+          // sameAs Trustpilot rimosso il 20/09/2026: era una URL al profilo Trustpilot
+          // nell'HTML. Sul piano attuale l'unico elemento ammesso è il TrustBox ufficiale
+          // di Review Collector, che si incolla generato dal proprio account.
         },
         mainEntityOfPage: `https://www.adattoxte.com/blog/${article.slug}`,
       };

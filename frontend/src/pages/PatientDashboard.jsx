@@ -349,13 +349,12 @@ export default function PatientDashboard() {
                     </button>
                     <button className="btn btn-outline btn-sm" onClick={() => setRatingFor(null)}>Annulla</button>
                   </div>
-                  <p className="muted small" style={{ marginTop: 10, marginBottom: 0 }}>
-                    Vuoi aiutare altri pazienti a scegliere con fiducia?{' '}
-                    <a href="https://it.trustpilot.com/evaluate/adattoxte.com" target="_blank" rel="noopener noreferrer">
-                      Lascia una recensione pubblica su Trustpilot
-                    </a>
-                    .
-                  </p>
+                  {/* Invito "Lascia una recensione pubblica su Trustpilot" RIMOSSO il
+                      20/09/2026: è un link che porta i recensori su Trustpilot, e sul piano
+                      attuale non è consentito. Non rimetterlo.
+                      L'invito ufficiale a recensire continua ad arrivare via email, dal
+                      servizio di invito automatico di Trustpilot (SFA): quella è la via
+                      consentita, e resta attiva a prescindere da ciò che c'è nel sito. */}
                 </div>
               )}
               </Fragment>

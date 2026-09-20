@@ -109,7 +109,12 @@ export default function Home() {
                 'https://www.facebook.com/people/Adatto-x-Te/61593750877130/',
                 'https://www.linkedin.com/company/adattoxte',
                 'https://www.tiktok.com/@adattoxte',
-                'https://it.trustpilot.com/review/adattoxte.com',
+                // Profilo Trustpilot tolto dai sameAs il 20/09/2026: era l'ultima URL
+                // Trustpilot rimasta nell'HTML del sito. Non è un elemento visibile, ma sul
+                // piano attuale non è ammesso nessun riferimento al profilo fuori dal
+                // TrustBox ufficiale di Review Collector. Il profilo resta comunque
+                // raggiungibile: lo pubblica e lo indicizza Trustpilot, non serve dichiararlo
+                // nel nostro markup.
               ],
             },
             {
@@ -304,10 +309,10 @@ export default function Home() {
               <h3>Recensioni dei pazienti</h3>
               <p className="muted">Ogni valutazione arriva da una seduta completata. <Link to="/recensioni">Leggile →</Link></p>
               <p className="muted" style={{ fontSize: 13, marginTop: 8 }}>
-                <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
-                  Leggi le recensioni su Trustpilot
-                </a>
-                <span> · </span>
+                {/* Link "Leggi le recensioni su Trustpilot" RIMOSSO il 20/09/2026 su richiesta
+                    di Trustpilot (elemento che rimanda al profilo Trustpilot). Non rimetterlo:
+                    sul piano attuale l'unico elemento Trustpilot ammesso è il TrustBox
+                    ufficiale di Review Collector. Il link a Google resta. */}
                 <a href="https://share.google/U98x9MWWluFoa91xy" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
                   Leggi le recensioni su Google
                 </a>
