@@ -1,7 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api';
 import Seo from '../components/Seo';
+
+// Snippet UFFICIALE del TrustBox Review Collector, copiato parola per parola da
+// Trustpilot Business > Condividi e promuovi > Widget per il sito web > Review Collector,
+// il 20/09/2026. NON MODIFICARE: è codice di Trustpilot, non nostro.
+// Lo script di bootstrap che lo disegna sta in index.html (head).
+const REVIEW_COLLECTOR_HTML = `<!-- TrustBox widget - Review Collector --> <div class="trustpilot-widget" data-locale="it-IT" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6a8f57971ac50b6b4903b45a" data-style-height="52px" data-style-width="100%" data-token="3c3cc32d-2efe-4cd3-bac1-648bdf8bde1b"> <a href="https://it.trustpilot.com/review/adattoxte.com" target="_blank" rel="noopener">Trustpilot</a> </div> <!-- End TrustBox widget -->`;
 
 function Stars({ score, size = 20 }) {
   return (
@@ -30,6 +36,19 @@ export default function Recensioni() {
       .then((r) => setData(r.data))
       .catch(() => setData(null))
       .finally(() => setLoading(false));
+  }, []);
+
+  // Il bootstrap ufficiale (in index.html) disegna i TrustBox presenti nell'HTML quando la
+  // pagina si carica. Navigando dentro il sito con React la pagina non si ricarica, quindi il
+  // div del widget verrebbe montato DOPO il passaggio del bootstrap: in quel caso lo
+  // inizializziamo con l'API di Trustpilot. Se il widget è già stato disegnato (c'è l'iframe)
+  // non facciamo nulla. È l'unica riga che aggiungiamo al loro codice.
+  const tpWidgetRef = useRef(null);
+  useEffect(() => {
+    const el = tpWidgetRef.current && tpWidgetRef.current.querySelector('.trustpilot-widget');
+    if (!el || el.querySelector('iframe')) return;
+    const tp = typeof window !== 'undefined' ? window.Trustpilot : null;
+    if (tp && typeof tp.loadFromElement === 'function') tp.loadFromElement(el);
   }, []);
 
   const maxDist = data?.distribution?.length ? Math.max(...data.distribution.map((d) => d.count)) : 1;
@@ -61,22 +80,33 @@ export default function Recensioni() {
         </a>
       </div>
 
-      {/* Blocco "Lascia una recensione su Trustpilot" RIMOSSO del tutto il 20/09/2026.
-          Storia, per non rifare gli stessi passi:
-          1) 10/09/2026 — Trustpilot segnala "un widget non ufficiale che non è incluso nel
-             tuo piano". Il widget era scritto a mano e inizializzato con una chiamata
-             manuale a window.Trustpilot.loadFromElement, che non fa parte dello snippet
-             ufficiale: rimosso il 19/09/2026 (commit 38d6263) insieme allo script di
-             bootstrap caricato su tutte le pagine e alle voci nella CSP.
-          2) 20/09/2026 — Trustpilot rileva un SECONDO elemento grafico che rimanda al
-             profilo: era il badge "Recensioni su Trustpilot" nella striscia della home e
-             questa scheda. Ci hanno detto che sul piano attuale qualunque branding o link
-             Trustpilot NON è consentito, a meno che non sia il TrustBox ufficiale di
-             Review Collector. Quindi via anche il link di testo che era rimasto qui.
-          Per riavere un elemento Trustpilot servono un piano che includa i TrustBox e il
-          codice generato da Trustpilot Business -> "Condividi e promuovi", incollato senza
-          modifiche. Non ricostruirlo a mano e non rimettere link al profilo. */}
-      <p className="muted" style={{ marginTop: 28 }}>
+      {/* TrustBox Review Collector — RIMESSO il 20/09/2026, snippet ufficiale intatto.
+          Storia completa, per non rifare gli stessi passi:
+          1) 10/09/2026 — installato il TrustBox con gli attributi copiati dall'account
+             Business (commit 0df4332).
+          2) 10/09/2026 — Trustpilot scrive "un widget non ufficiale che non è incluso nel
+             tuo piano". Rimosso il 19/09/2026 (commit 38d6263).
+          3) 20/09/2026 — Trustpilot conferma la rimozione ma rileva un SECONDO elemento
+             grafico che rimanda al profilo (il badge nella home e la scheda che stava qui):
+             rimossi con il commit af824a1. Nella stessa email però chiariscono che il
+             TrustBox ufficiale di Review Collector È ammesso, ed è incluso anche nel piano
+             gratuito.
+          4) 20/09/2026 — snippet rigenerato dall'account e reinstallato qui sotto, IDENTICO
+             all'originale tranne il data-token (che nel frattempo è cambiato: 0649d446... ->
+             3c3cc32d...): è la spiegazione più probabile del "widget non riconosciuto".
+          REGOLE, da non violare:
+          - questo blocco non si modifica: è il codice di Trustpilot, parola per parola;
+          - fuori dal TrustBox non si rimettono badge, schede o link al profilo: quelli sì
+            che Trustpilot li contesta;
+          - se un giorno il widget non si vede, controllare per primo che il data-token sia
+            quello attuale dell'account. */}
+      <div
+        ref={tpWidgetRef}
+        style={{ margin: '28px 0' }}
+        dangerouslySetInnerHTML={{ __html: REVIEW_COLLECTOR_HTML }}
+      />
+
+      <p className="muted">
         Questa pagina raccoglie le recensioni lasciate dai pazienti sulla piattaforma, dopo una seduta completata.
       </p>
 
