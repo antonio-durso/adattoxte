@@ -101,8 +101,8 @@ export default function Struttura() {
     <>
       <Seo
         path="/struttura"
-        title="La struttura di Adatto x Te | Chi c'è dietro la piattaforma"
-        description="Ogni ruolo ha un compito: scopri la struttura che fa funzionare Adatto x Te, dalla privacy all'assistenza, dalla tecnologia ai contenuti. Vuoi entrare nel team? Lavora con noi."
+        title="La struttura: chi c'è dietro la piattaforma"
+        description="Ogni ruolo ha un compito: scopri chi fa funzionare Adatto x Te, dalla privacy all'assistenza, dalla tecnologia ai contenuti."
       />
       <div className="container section">
         <p style={{ color: '#286a8f', fontWeight: 700, marginBottom: 4 }}>Dietro la piattaforma</p>

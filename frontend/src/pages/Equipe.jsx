@@ -28,8 +28,8 @@ export default function Equipe() {
   return (
     <>
       <Seo
-        title="L'équipe clinica di Adatto x Te | Direzione: Dott. Antonio D'Urso"
-        description="Un'équipe di psicologi e psicoterapeuti specializzati in ansia, depressione, terapia di coppia, psicologia dello sport e concorsi. Direzione clinica: Dott. Antonio D'Urso, psicologo iscritto all'Albo. Prima seduta gratuita."
+        title="L'équipe clinica: psicologi e psicoterapeuti"
+        description="Un'équipe di psicologi e psicoterapeuti specializzati in ansia, depressione, coppia, sport e concorsi. Direzione: Dott. Antonio D'Urso, iscritto all'Albo."
         path="/equipe"
         jsonLd={[
           {

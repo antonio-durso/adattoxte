@@ -99,7 +99,7 @@ export default function PaeseLanding() {
     ? eff.desc
     : isCapitale
       ? `Psicologo online per italiani a ${nome} (${paese.nome}): sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}.`
-      : `Psicologo online per italiani ${art.in}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}, terapeuti qualificati.`;
+      : `Psicologo online per italiani ${art.in}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}.`;
   const path = isCapitale ? `/italiani-all-estero/${paese.slug}/${localita.slug}` : `/italiani-all-estero/${paese.slug}`;
   // Città-stato (es. Singapore, Lussemburgo): capitale e paese coincidono, quindi
   // questa pagina duplica /italiani-all-estero/{paese} (title e H1 identici).

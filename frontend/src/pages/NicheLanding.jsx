@@ -10,9 +10,9 @@ const NICHES = {
     path: '/psicologo-online',
     emoji: '💬',
     h1: 'Psicologo online',
-    title: 'Psicologo online',
+    title: 'Psicologo online: 45€ a seduta, prima gratis',
     noBrand: true,
-    desc: 'Percorsi di psicologia online con psicologi e psicoterapeuti iscritti all\'albo: ansia, depressione, coppia, stress e molto altro. Prima seduta gratuita, sedute da 50 minuti a 45€ (coppia 50€).',
+    desc: 'Psicologia online con psicologi e psicoterapeuti iscritti all\'albo: ansia, depressione, coppia, stress. Prima seduta gratuita, sedute da 45€.',
     specialty: null,
     ctaTo: '/terapeuti',
     benefits: [
