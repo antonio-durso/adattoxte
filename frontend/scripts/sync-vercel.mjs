@@ -93,6 +93,11 @@ const isPrivateNoindex = (h) => PRIVATE_NOINDEX_SOURCES.includes(h.source || '')
 // esterni che ci puntano, senza ricreare la pagina).
 const EXTRA_REDIRECTS = [
   { source: '/psicologo-adolescenti', destination: '/blog/psicologo-adolescenti', permanent: true },
+  // Articolo di confronto prezzi rimosso il 26/09/2026: nominava servizi
+  // concorrenti e conteneva un giudizio orientato alla scelta. I contenuti utili
+  // sono stati portati in /blog/quanto-costa-la-terapia, che copriva già
+  // l'intento "quanto costa".
+  { source: '/blog/unobravo-serenis-o-adatto-x-te-confronto', destination: '/blog/quanto-costa-la-terapia', permanent: true },
 ];
 
 // Guardia: attivare EN senza prerenderizzare /en servirebbe shell SPA (senza

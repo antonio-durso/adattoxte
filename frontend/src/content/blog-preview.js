@@ -8,9 +8,9 @@ export const blogPreview = [
     date: '2026-09-04',
   },
   {
-    slug: 'unobravo-serenis-o-adatto-x-te-confronto',
-    title: 'Unobravo, Serenis o Adatto x Te: confronto prezzi e servizi',
-    date: '2026-08-27',
+    slug: 'quanto-costa-la-terapia',
+    title: 'Quanto costa la terapia psicologica online',
+    date: '2026-08-28',
   },
   {
     slug: 'lutto-per-animale-domestico',

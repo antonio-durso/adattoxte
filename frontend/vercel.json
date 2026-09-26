@@ -429,6 +429,11 @@
       "source": "/psicologo-adolescenti",
       "destination": "/blog/psicologo-adolescenti",
       "permanent": true
+    },
+    {
+      "source": "/blog/unobravo-serenis-o-adatto-x-te-confronto",
+      "destination": "/blog/quanto-costa-la-terapia",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -1038,10 +1043,6 @@
     },
     {
       "source": "/blog/gestire-ansia-concorsi-pubblici",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/unobravo-serenis-o-adatto-x-te-confronto",
       "destination": "/app.html"
     },
     {
