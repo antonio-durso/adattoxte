@@ -6,6 +6,16 @@
       "permanent": true
     },
     {
+      "source": "/blog/hostalgia-homesickness-estero",
+      "destination": "/blog/nostalgia-homesickness-estero",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/hostalgia-homesickness-estero",
+      "destination": "/en/blog/nostalgia-homesickness-estero",
+      "permanent": true
+    },
+    {
       "source": "/psicologo-online/stati-uniti",
       "destination": "/italiani-all-estero/stati-uniti",
       "permanent": true

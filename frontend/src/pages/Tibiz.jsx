@@ -11,7 +11,7 @@ export default function Tibiz() {
   return (
     <>
       <Seo
-        title="Adatto x Te e il programma TBIZ – Research & Ideas for Business"
+        title="Il programma TBIZ e l'idea di Adatto x Te"
         description="L'idea di Adatto x Te, nata dal Dott. Antonio D'Urso, è stata selezionata nell'ambito della TBIZ Call for Ideas, programma della Regione Campania, con business plan a cura dell'Ing. Francesco Pio Langella (AGILAE srl)."
         path="/tibiz"
       />
