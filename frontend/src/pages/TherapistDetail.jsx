@@ -152,10 +152,21 @@ export default function TherapistDetail() {
 
   return (
     <div className="container section">
+      {/* Profilo del singolo professionista: URL con UUID, fuori dalla sitemap.
+          Title e H1 sono "Psicologo · <specializzazione>", identici per tutti i
+          profili che condividono la prima specializzazione, e il nome del
+          professionista non compare nella pagina: non esiste query che questa
+          pagina possa intercettare. Espone invece il numero di iscrizione all'albo.
+          Regola del progetto (build-seo.js): una URL in sitemap non deve mai avere
+          noindex, e viceversa. Questa pagina non e' in sitemap, quindi: noindex.
+          L'elenco /terapeuti resta indicizzabile e in sitemap, come prima.
+          Per la stessa ragione NON va messa in robots.txt: un Disallow
+          impedirebbe a Google di leggere il noindex. */}
       <Seo
         title={`Psicologo${therapist.specialties && therapist.specialties[0] ? ` · ${t('specialty.' + therapist.specialties[0]) || therapist.specialties[0]}` : ' · consulenza psicologica'}`}
         description={(therapist.bio || 'Psicologo online verificato su Adatto x Te.').slice(0, 155)}
         path={`/terapeuti/${therapist.id}`}
+        noindex
         jsonLd={
           therapist.ratingCount > 0
             ? {
