@@ -98,6 +98,10 @@ const EXTRA_REDIRECTS = [
   // sono stati portati in /blog/quanto-costa-la-terapia, che copriva già
   // l'intento "quanto costa".
   { source: '/blog/unobravo-serenis-o-adatto-x-te-confronto', destination: '/blog/quanto-costa-la-terapia', permanent: true },
+  // /index.html rispondeva 200 ed era un duplicato della home: due URL con lo
+  // stesso contenuto, segnali divisi. La regola "/(.*)/" già in vercel.json
+  // normalizza gli slash finali, non questo caso.
+  { source: '/index.html', destination: '/', permanent: true },
 ];
 
 // Guardia: attivare EN senza prerenderizzare /en servirebbe shell SPA (senza
@@ -200,9 +204,25 @@ const allowlistSources = [
   }),
 ];
 const allowSet = new Set(allowlistSources.map((r) => `${r.source}|${r.destination}`));
+// Le entry allowlist che non corrispondono più a un contenuto esistente vanno
+// RIMOSSE, non solo sostituite: la vecchia regola preservava tutto ciò che non
+// veniva rigenerato, quindi un articolo cancellato lasciava per sempre il suo
+// rewrite verso /app.html e la URL ritirata continuava a rispondere 200 invece
+// di 404 (è successo con l'articolo di confronto rimosso il 26/09/2026).
+// La pulizia tocca SOLO i percorsi di contenuto verso /app.html e senza
+// parametri: /ricevuta/:id e /pagamento/:bookingId restano intatti, così come
+// le regole "param -> /__404__" e il proxy /api/(.*).
+const CONTENT_ALLOWLIST_PREFIX = /^\/(blog|psicologo-online|italiani-all-estero|en)\//;
+const isStaleAllowlist = (r) =>
+  r.destination === '/app.html' &&
+  !String(r.source || '').includes(':') &&
+  CONTENT_ALLOWLIST_PREFIX.test(r.source || '') &&
+  !allowSet.has(`${r.source}|${r.destination}`);
 cfg.rewrites = [
   ...allowlistSources,
-  ...cfg.rewrites.filter((r) => !allowSet.has(`${r.source}|${r.destination}`)),
+  ...cfg.rewrites.filter(
+    (r) => !allowSet.has(`${r.source}|${r.destination}`) && !isStaleAllowlist(r),
+  ),
 ];
 // Lo spazio /en è un elenco chiuso: una URL /en non prevista deve dare 404, non una
 // shell a 200 (soft 404 indicizzabile). Le regole esatte qui sopra vincono perché

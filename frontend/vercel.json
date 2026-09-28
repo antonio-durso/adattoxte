@@ -434,6 +434,11 @@
       "source": "/blog/unobravo-serenis-o-adatto-x-te-confronto",
       "destination": "/blog/quanto-costa-la-terapia",
       "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
