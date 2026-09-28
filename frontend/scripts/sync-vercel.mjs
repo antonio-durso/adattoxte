@@ -102,6 +102,10 @@ const EXTRA_REDIRECTS = [
   // stesso contenuto, segnali divisi. La regola "/(.*)/" già in vercel.json
   // normalizza gli slash finali, non questo caso.
   { source: '/index.html', destination: '/', permanent: true },
+  // Slug con un refuso storico ("hostalgia" invece di "nostalgia"). La pagina
+  // esiste con lo slug corretto: cosi' il vecchio indirizzo non va 404.
+  { source: '/blog/hostalgia-homesickness-estero', destination: '/blog/nostalgia-homesickness-estero', permanent: true },
+  { source: '/en/blog/hostalgia-homesickness-estero', destination: '/en/blog/nostalgia-homesickness-estero', permanent: true },
 ];
 
 // Guardia: attivare EN senza prerenderizzare /en servirebbe shell SPA (senza

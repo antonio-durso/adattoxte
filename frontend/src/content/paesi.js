@@ -78,6 +78,110 @@ export const paesi = [
           ["Lavoro su turni: posso spostare le sedute?", "Sì: prenoti lo slot che ti serve ogni volta. Molti pazienti alternano settimane con orari diversi senza problemi."]
         ],
         desc: "Psicologo online per italiani a Basilea: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione, nessuno spostamento."
+      },
+      {
+        slug: 'san-gallo',
+        nome: 'San Gallo',
+        nota: 'la capitale della Svizzera orientale, vicino al lago di Costanza',
+        intro: "A San Gallo l'italiano si parla in casa, non in ufficio. In terapia questa differenza pesa: raccontare un disagio in una lingua che non è la tua richiede uno sforzo che spesso fa rimandare la richiesta d'aiuto.",
+        local: `<h3>Terapia in italiano a San Gallo: parlare di sé nella propria lingua</h3><p>San Gallo è il centro di riferimento della Svizzera orientale: ospedali, servizi, università, aziende con clienti in mezza Europa. Molti italiani arrivano qui per lavoro e si trovano a negoziare, discutere e perfino scherzare in tedesco. Nei momenti difficili, però, si torna alla lingua in cui si pensa.</p><p>Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta (il riferimento LAMal è di 155 CHF l'ora) e per il rimborso serve la prescrizione del medico: al massimo <strong>15 sedute per ricetta</strong>, più franchigia e il 10% di partecipazione a tuo carico. Con Adatto x Te la seduta individuale da 50 minuti costa <strong>CHF 130</strong> (145 CHF quella di coppia), la prima conversazione è gratuita e si paga in euro all'equivalente fisso.</p><p>Funziona anche se vivi fuori città, verso il lago o nell'Appenzellese: nessuno spostamento, nessuna attesa, il fuso è lo stesso dell'Italia.</p>`,
+        faqLocal: [
+          ["Quanto costa uno psicologo a San Gallo?", "In Svizzera uno studio privato costa mediamente 150-200 CHF a seduta. Con Adatto x Te la seduta individuale da 50 minuti costa CHF 130, pagabili in euro all'equivalente fisso, e la prima è gratuita."],
+          ["Serve la prescrizione del medico per iniziare?", "No, se scegli il percorso diretto: inizi senza prescrizione e senza che nulla finisca nel dossier assicurativo. La prescrizione serve solo se vuoi il rimborso LAMal, e in quel caso il trattamento va svolto da terapeuti riconosciuti in Svizzera (PsiReg)."],
+          ["Non parlo bene il tedesco: è un problema?", "Al contrario, è il motivo per cui molte persone scelgono l'online. Le sedute si svolgono in italiano e il terapeuta è italiano."]
+        ],
+        desc: "Psicologo online per italiani a San Gallo: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione, nessuna lista d'attesa."
+      },
+      {
+        slug: 'glarona',
+        nome: 'Glarona',
+        nota: 'cantone alpino della Svizzera orientale',
+        intro: "A Glarona l'italiano si sente poco. È un cantone di montagna dove si lavora e si vive in tedesco: proprio per questo, poter parlare con un terapeuta nella propria lingua fa la differenza.",
+        local: `<h3>Terapia in italiano a Glarona: quando la lingua è la prima distanza</h3><p>Il cantone di Glarona è fatto di valli, industria e turismo: una realtà dove la comunità italiana è piccola e dispersa sul territorio. Vivere in un luogo dove la tua lingua si parla solo a casa può pesare più di quanto si dica, soprattutto in un momento di difficoltà.</p><p>In Svizzera uno studio privato costa mediamente <strong>150-200 CHF</strong> a seduta, e per il rimborso tramite LAMal serve una prescrizione medica. Online il costo scende a <strong>CHF 130</strong> la seduta individuale da 50 minuti, con la prima seduta conoscitiva gratuita e pagamento in euro all'equivalente fisso.</p><p>Da Glarona, da Näfels o da uno dei comuni della valle non cambia nulla: la seduta è in videochiamata, in italiano, con lo stesso fuso dell'Italia.</p>`,
+        faqLocal: [
+          ["Vivo in un paese piccolo: posso fare terapia online?", "Sì, ed è spesso la soluzione migliore: nessuno spostamento, nessuna sala d'attesa e una riservatezza che in un centro piccolo viene apprezzata."],
+          ["Quanto costa rispetto a uno studio in Svizzera?", "In Svizzera una seduta privata costa mediamente 150-200 CHF. Con Adatto x Te la seduta individuale costa CHF 130 e la prima è gratuita."],
+          ["I terapeuti conoscono la realtà di chi vive all'estero?", "Sì: lavorano con italiani all'estero e conoscono i temi ricorrenti — distanza da casa, adattamento, solitudine, rientro."]
+        ],
+        desc: "Psicologo online per italiani a Glarona e Näfels: sedute in italiano a CHF 130, prima gratuita. Senza prescrizione e senza liste d'attesa."
+      },
+      {
+        slug: 'sciaffusa',
+        nome: 'Sciaffusa',
+        nota: 'sul Reno, al confine con la Germania',
+        intro: "A Sciaffusa vivi al confine: la Germania è a pochi minuti e la giornata si muove fra due paesi. Le sedute online si svolgono in italiano, senza spostamenti e senza incastrare un'altra trasferta.",
+        local: `<h3>Terapia in italiano a Sciaffusa: per chi vive al confine</h3><p>Sciaffusa sta sul Reno, con la Germania dall'altra parte del ponte: molti ci vivono e lavorano fra due paesi, con orari che cambiano e una buona dose di spostamenti. Aggiungere a questa agenda un appuntamento fisso in studio, fuori orario di ufficio, è spesso la ragione per cui si rimanda.</p><p>In Svizzera uno studio privato costa mediamente <strong>150-200 CHF</strong> a seduta e per il rimborso serve la prescrizione del medico. Online la seduta individuale da 50 minuti costa <strong>CHF 130</strong> (145 CHF quella di coppia), la prima è gratuita e paghi in euro all'equivalente fisso, senza prescrizione e senza che nulla finisca nel dossier assicurativo.</p><p>Funziona anche con orari irregolari: sposti la seduta quando serve, anche la sera, dall'ufficio o da casa.</p>`,
+        faqLocal: [
+          ["Lavoro fra Svizzera e Germania: come organizzo le sedute?", "Scegli tu lo slot, anche la sera o in pausa pranzo. La seduta è in videochiamata: funziona da casa, dall'ufficio o da qualsiasi luogo."],
+          ["Quanto costa uno psicologo a Sciaffusa?", "In Svizzera uno studio privato costa mediamente 150-200 CHF a seduta. Con Adatto x Te è CHF 130 la seduta individuale, prima gratuita."],
+          ["Devo scegliere sempre lo stesso terapeuta?", "Sì, il percorso è continuativo: il terapeuta resta lo stesso dall'inizio alla fine."]
+        ],
+        desc: "Psicologo online per italiani a Sciaffusa: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione, nessuno spostamento."
+      },
+      {
+        slug: 'svitto',
+        nome: 'Svitto',
+        nota: 'capitale della Svizzera centrale, sul lago di Lucerna',
+        intro: "A Svitto la vita scorre fra lago e montagna, in tedesco. Poter fare terapia in italiano significa non aggiungere un'altra fatica a un momento già faticoso.",
+        local: `<h3>Terapia in italiano a Svitto: la propria lingua anche in montagna</h3><p>Svitto è il capoluogo della Svizzera centrale, una città compatta sul lago di Lucerna, con comuni che salgono verso i monti. È un contesto tranquillo, dove però la comunità italiana è sottile e la lingua quotidiana è il tedesco svizzero.</p><p>In Svizzera uno studio privato costa mediamente <strong>150-200 CHF</strong> a seduta (riferimento LAMal 155 CHF l'ora) e per il rimborso serve una prescrizione medica, con un massimo di <strong>15 sedute per ricetta</strong> più franchigia e 10% a tuo carico. Online la seduta individuale da 50 minuti costa <strong>CHF 130</strong>, la prima è gratuita e il pagamento è in euro all'equivalente fisso.</p><p>Da Svitto, da Brunnen o da un comune della valle: nessuno spostamento, nessuna lista d'attesa, stesso fuso dell'Italia.</p>`,
+        faqLocal: [
+          ["Abito fuori città: come funziona la videochiamata?", "Serve solo una connessione stabile. Si usa il browser, senza installare programmi: apri il link, entri nella seduta."],
+          ["Quanto costa rispetto a uno studio a Svitto?", "Uno studio privato in Svizzera costa mediamente 150-200 CHF a seduta. Con Adatto x Te è CHF 130, prima seduta conoscitiva gratuita."],
+          ["Il rimborso LAMal è possibile?", "Solo con prescrizione medica e con terapeuti riconosciuti in Svizzera (PsiReg). Il percorso diretto resta privato: paghi la seduta e niente finisce nel dossier assicurativo."]
+        ],
+        desc: "Psicologo online per italiani a Svitto: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione, nessuna lista d'attesa."
+      },
+      {
+        slug: 'soletta',
+        nome: 'Soletta',
+        nota: 'città barocca sulla Aare, fra Berna e Basilea',
+        intro: "A Soletta si vive in tedesco, ma a pochi minuti da Berna e da Basilea. Le sedute online sono in italiano e non richiedono di incastrare un altro viaggio nella settimana.",
+        local: `<h3>Terapia in italiano a Soletta: fra Berna, Basilea e Zurigo</h3><p>Soletta è una città di medie dimensioni sulla Aare, con un centro storico barocco e un'economia legata ai servizi e all'industria. Molti italiani la scelgono come base perché sta in mezzo a tutto: si lavora a Berna, a Basilea o verso Zurigo, e si torna a casa la sera. Fra pendolarismo e lingua tedesca, un percorso di terapia in studio diventa difficile da sostenere.</p><p>In Svizzera uno studio privato costa mediamente <strong>150-200 CHF</strong> a seduta e per il rimborso serve la prescrizione del medico. Online la seduta individuale da 50 minuti costa <strong>CHF 130</strong> (145 CHF quella di coppia), la prima è gratuita e paghi in euro all'equivalente fisso: senza prescrizione, senza attese e senza diagnosi nel dossier assicurativo.</p><p>Puoi seguire le sedute da Soletta, da Olten o da Grenchen, anche la sera o in pausa pranzo, senza perdere tempo negli spostamenti.</p>`,
+        faqLocal: [
+          ["Faccio il pendolare: quando posso fare le sedute?", "Scegli tu l'orario, anche la sera. La seduta dura 50 minuti e si svolge in videochiamata, senza spostamenti."],
+          ["Quanto costa uno psicologo a Soletta?", "In Svizzera uno studio privato costa mediamente 150-200 CHF a seduta. Con Adatto x Te la seduta individuale costa CHF 130 e la prima è gratuita."],
+          ["Serve la prescrizione del medico per iniziare?", "No: se scegli il percorso diretto inizi senza prescrizione. La prescrizione serve solo per il rimborso LAMal, con terapeuti riconosciuti in Svizzera (PsiReg)."]
+        ],
+        desc: "Psicologo online per italiani a Soletta e Grenchen: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione."
+      },
+      {
+        slug: 'zugo',
+        nome: 'Zugo',
+        nota: 'piazza finanziaria e tecnologica fra Zurigo e Lucerna',
+        intro: "A Zugo si lavora a ritmi alti, in inglese o in tedesco. La terapia online in italiano è uno spazio in cui non devi tradurre quello che senti.",
+        local: `<h3>Terapia in italiano a Zugo: quando la pressione sale e la lingua non aiuta</h3><p>Zugo è una delle piazze più dinamiche d'Europa: finanza, tecnologia, aziende internazionali e stipendi alti, con un carico di lavoro e di aspettative che si porta dietro anche stanchezza, insonnia e ansia. Qui molti professionisti italiani vivono una vita che funziona sulla carta e che dentro pesa.</p><p>Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta (riferimento LAMal 155 CHF l'ora) e per il rimborso serve la prescrizione medica. Online la seduta individuale da 50 minuti costa <strong>CHF 130</strong>, la prima conversazione è gratuita e si paga in euro all'equivalente fisso: nessuna lista d'attesa, nessuna diagnosi nel dossier assicurativo.</p><p>Funziona con agende imprevedibili: prenoti lo slot che ti serve, anche la sera o prima dell'ufficio, da casa a Zugo o dai comuni del lago.</p>`,
+        faqLocal: [
+          ["Ho un'agenda molto piena: è gestibile?", "Sì. Scegli l'orario ogni volta, anche la sera: molti pazienti prenotano fuori dall'orario d'ufficio."],
+          ["Quanto costa uno psicologo a Zugo?", "Uno studio privato in Svizzera costa mediamente 150-200 CHF a seduta. Con Adatto x Te è CHF 130 la seduta individuale, con la prima gratuita."],
+          ["Le sedute sono riservate?", "Sì. Il percorso diretto non prevede prescrizioni né comunicazioni all'assicurazione: nulla finisce nel dossier assicurativo."]
+        ],
+        desc: "Psicologo online per italiani a Zugo: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione, nessuna lista d'attesa."
+      },
+      {
+        slug: 'lucerna',
+        nome: 'Lucerna',
+        nota: 'nel cuore della Svizzera centrale, sul lago dei Quattro Cantoni',
+        intro: "A Lucerna si vive di turismo, cultura e servizi, in tedesco. Le sedute in italiano ti permettono di raccontarti senza tradurre, quando serve davvero.",
+        local: `<h3>Terapia in italiano a Lucerna: la propria lingua in riva al lago</h3><p>Lucerna è una città di medie dimensioni nel cuore della Svizzera centrale: turismo, ospitalità, cultura e servizi, con molte persone che arrivano per lavoro stagionale o per un impiego stabile. È una città accogliente, ma il tedesco svizzero resta una barriera nei momenti in cui bisogna dire cose personali.</p><p>In Svizzera uno studio privato costa mediamente <strong>150-200 CHF</strong> a seduta e per il rimborso serve la prescrizione del medico, con un massimo di <strong>15 sedute per ricetta</strong> più franchigia e il 10% a tuo carico. Online la seduta individuale da 50 minuti costa <strong>CHF 130</strong> (145 CHF quella di coppia), con prima seduta conoscitiva gratuita e pagamento in euro all'equivalente fisso.</p><p>Funziona anche con turni stagionali o orari che cambiano: sposti la seduta quando serve, senza perdere l'appuntamento.</p>`,
+        faqLocal: [
+          ["Lavoro nel turismo con turni variabili: posso?", "Sì: prenoti lo slot che ti serve ogni volta, anche la sera o nei giorni liberi infrasettimanali."],
+          ["Quanto costa uno psicologo a Lucerna?", "In Svizzera uno studio privato costa mediamente 150-200 CHF a seduta. Con Adatto x Te la seduta individuale è CHF 130 e la prima è gratuita."],
+          ["I terapeuti sono italiani?", "Sono psicologi e psicoterapeuti iscritti all'albo che lavorano in italiano, con esperienza con chi vive all'estero."]
+        ],
+        desc: "Psicologo online per italiani a Lucerna: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione, nessuna lista d'attesa."
+      },
+      {
+        slug: 'bellinzona',
+        nome: 'Bellinzona',
+        nota: 'capoluogo del Canton Ticino, in italiano',
+        intro: "A Bellinzona la lingua non è il problema: è il prezzo e l'attesa. La terapia online in italiano costa meno di uno studio privato e inizia subito.",
+        local: `<h3>Terapia online a Bellinzona: in italiano, senza prescrizione e senza lista d'attesa</h3><p>In Ticino il problema non è trovare un terapeuta che parli italiano — è il <strong>prezzo</strong> e l'<strong>attesa</strong>. Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta (il riferimento LAMal è di 155 CHF l'ora) e per il rimborso serve la prescrizione del medico: al massimo <strong>15 sedute per ricetta</strong>, più franchigia e il 10% di partecipazione a tuo carico.</p><p>Con Adatto x Te la seduta individuale da 50 minuti costa <strong>CHF 130</strong> (145 CHF quella di coppia), si paga in euro all'equivalente fisso e la prima seduta conoscitiva è gratuita. Nessuna prescrizione, nessuna lista d'attesa, nessuna diagnosi nel dossier assicurativo: scegli il terapeuta e prenoti.</p><p>Funziona se vivi a Bellinzona, a Giubiasco o nelle valli del Bellinzonese, se lavori a Lugano o se passi spesso il confine verso Como e Milano: il percorso non si interrompe quando cambi casa, ufficio o confine.</p>`,
+        faqLocal: [
+          ["Quanto costa uno psicologo a Bellinzona?", "In Ticino uno studio privato costa mediamente 150-200 CHF a seduta. Con Adatto x Te la seduta individuale da 50 minuti costa CHF 130, pagabili in euro all'equivalente fisso, e la prima è gratuita."],
+          ["Serve la prescrizione del medico?", "No, se scegli il percorso diretto: inizi senza prescrizione e senza che nulla finisca nel dossier assicurativo. La prescrizione serve solo per il rimborso LAMal, con terapeuti riconosciuti in Svizzera (PsiReg)."],
+          ["Sono frontaliere: posso seguire le sedute dall'Italia?", "Sì. La videochiamata funziona da qualsiasi luogo e il fuso è lo stesso dell'Italia: puoi fare la seduta da casa in Italia o dall'ufficio a Bellinzona."]
+        ],
+        desc: "Psicologo online per italiani a Bellinzona: sedute in video in italiano a CHF 130, prima gratuita, senza prescrizione né lista d'attesa."
       }
     ] },
   { slug: 'belgio', nome: 'Belgio', bandiera: '🇧🇪', capitale: { slug: 'bruxelles', nome: 'Bruxelles', nota: 'capitale europea, sede delle istituzioni UE con molti italiani' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'Il Belgio ha una comunità italiana storica, rafforzata dalla presenza delle istituzioni europee', citta: ['Bruxelles', 'Anversa', 'Liegi', 'Gand', 'Charleroi'] },

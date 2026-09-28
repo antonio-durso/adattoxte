@@ -53,7 +53,7 @@ export default function Prezzi() {
   return (
     <>
       <Seo
-        title="Prezzi"
+        title="Prezzi: quanto costa uno psicologo online"
         description="Prezzi chiari e senza abbonamenti: prima seduta gratuita, seduta individuale 45€, di coppia 50€, pacchetto 3 sedute con -15%. Pagamento sicuro PayPal."
         path="/prezzi"
         jsonLd={{

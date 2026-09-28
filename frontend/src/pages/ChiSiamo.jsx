@@ -30,8 +30,8 @@ export default function ChiSiamo() {
   return (
     <main className="container" style={{ paddingTop: 40, paddingBottom: 48 }}>
       <Seo
-        title="Chi siamo"
-        description="Adatto x Te è la piattaforma di psicologia online che rende la terapia accessibile: sedute in videochiamata da 45€, terapeuti iscritti all'Albo, recensioni verificate."
+        title="Chi siamo: psicologia online in videochiamata"
+        description="Adatto x Te è la piattaforma di psicologia online: sedute in videochiamata da 45€, terapeuti iscritti all'Albo, recensioni verificate."
         path="/chi-siamo"
       />
       <h1 style={{ textAlign: 'center' }}>Chi siamo</h1>

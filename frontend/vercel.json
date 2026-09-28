@@ -439,6 +439,16 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/blog/hostalgia-homesickness-estero",
+      "destination": "/blog/nostalgia-homesickness-estero",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/hostalgia-homesickness-estero",
+      "destination": "/en/blog/nostalgia-homesickness-estero",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -2108,6 +2118,38 @@
     },
     {
       "source": "/italiani-all-estero/svizzera/basilea",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/san-gallo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/glarona",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/sciaffusa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/svitto",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/soletta",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/zugo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/lucerna",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/bellinzona",
       "destination": "/app.html"
     },
     {

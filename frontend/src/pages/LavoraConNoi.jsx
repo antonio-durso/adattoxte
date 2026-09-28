@@ -76,7 +76,7 @@ export default function LavoraConNoi() {
     <>
       <Seo
         path="/lavora-con-noi"
-        title="Lavora con noi | Entra nell'équipe di Adatto x Te"
+        title="Lavora con noi: entra nell'équipe"
         description="Psicologi e psicoterapeuti in Italia e all'estero: entra nell'équipe di Adatto x Te. Piattaforma pronta, 43 paesi raggiunti, autonomia piena. Candidati ora."
         jsonLd={{
           '@context': 'https://schema.org',
