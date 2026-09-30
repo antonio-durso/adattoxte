@@ -29,6 +29,10 @@ import { extraArticles23 } from './extra-articles-23.js';
 // Estensioni: contengono la versione lunga di articoli già esistenti (stesso slug).
 // Stanno in fondo e vincono sull'originale — vedi la deduplica per slug qui sotto.
 import { articoliEstesi1 } from './articoli-estesi-1.js';
+import { articoliEstesi2 } from './articoli-estesi-2.js';
+import { articoliEstesi3 } from './articoli-estesi-3.js';
+import { articoliEstesi4 } from './articoli-estesi-4.js';
+import { articoliEstesi5 } from './articoli-estesi-5.js';
 
 const rawArticles = [
   ...baseArticles,
@@ -56,6 +60,10 @@ const rawArticles = [
   ...extraArticles22,
   ...extraArticles23,
   ...articoliEstesi1,
+  ...articoliEstesi2,
+  ...articoliEstesi3,
+  ...articoliEstesi4,
+  ...articoliEstesi5,
 ];
 
 // Deduplica per slug: a parità di slug vince l'ULTIMA occorrenza, cioè la versione
