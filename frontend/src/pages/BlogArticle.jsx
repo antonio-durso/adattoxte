@@ -160,14 +160,31 @@ export default function BlogArticle() {
       };
   // Test consigliato in base al tema dell'articolo (Hub & Spoke)
   const testVariant = /umore|depress|tristez|burnout|sonno/i.test(keyword + ' ' + article.title) ? 'umore' : 'ansia';
+  // Articoli correlati per AFFINITA' TEMATICA (non per data).
+  // Prima questo blocco ordinava per data: ripeteva gli stessi 3 articoli piu' recenti
+  // su tutte le pagine, lasciando 90 articoli su 111 senza nessun link interno.
+  const RELATED_STOP = new Set(['blog','psicologo','psicologia','online','terapia','come','quando','cosa','perche','perché','senza','dentro','altri','altro','dopo','prima','essere','sono','anche','solo','tutti','tutte','degli','della','delle','dalla','nel','nella','sul','sulla','piu','più','quali','quale','quanto','chat','guida','stesso','stessa']);
+  const relatedTokens = (a) =>
+    new Set(
+      `${a.title || ''} ${a.slug || ''}`
+        .toLowerCase()
+        .replace(/[^a-zà-ù\s]/g, ' ')
+        .split(/\s+/)
+        .filter((w) => w.length >= 4 && !RELATED_STOP.has(w))
+    );
+  const myTokens = relatedTokens(article);
   const related = articles
     .filter((a) => a.slug !== article.slug)
-    .sort((a, b) => {
-      const sa = keyword && (a.keyword || '').toLowerCase().includes(keyword) ? 1 : 0;
-      const sb = keyword && (b.keyword || '').toLowerCase().includes(keyword) ? 1 : 0;
-      return sb - sa || (a.date < b.date ? 1 : -1);
+    .map((a) => {
+      const other = relatedTokens(a);
+      let shared = 0;
+      other.forEach((w) => { if (myTokens.has(w)) shared += 1; });
+      return { a, shared, score: shared / Math.sqrt((myTokens.size + 1) * (other.size + 1)) };
     })
-    .slice(0, 3);
+    .filter((x) => x.shared > 0)
+    .sort((x, y) => y.score - x.score || (x.a.date < y.a.date ? 1 : -1))
+    .slice(0, 4)
+    .map((x) => x.a);
 
   // Classificazione per il blocco città/paese: estero o articoli generali → hub paese;
   // disturbi e temi clinici → città italiane TOP (regola approvata).
