@@ -6,24 +6,76 @@ export const extraArticles23 = [
     keyword: 'concentrazione studio concorsi',
     metaDescription: 'Come mantenere concentrazione e memoria durante la preparazione a un concorso pubblico: tecniche di studio, gestione dello stress e prevenzione del…',
     date: '2026-09-02',
-    body: `<p>Prepararsi a un concorso pubblico è una maratona: mesi di studio intenso, migliaia di pagine, simulazioni e una data d'esame che incombe. Non è solo una questione di memoria: è una questione di energia mentale. Chi studia 10 ore al giorno senza strategia arriva al traguardo esausto, con il cervello che "si spegne" proprio quando serve. La buona notizia: concentrazione e memoria si allenano come un muscolo, e la preparazione mentale è la differenza tra arrivare stanchi e arrivare pronti.</p>
-    <h2>Perché la mente "si rifiuta" di studiare</h2>
-    <p>Non è pigrizia. La concentrazione è un sistema biologico: il cervello può sostenere attenzione profonda per periodi limitati (in media 45-90 minuti) prima di aver bisogno di recuperare. Studiare senza pause non aumenta la resa: la riduce. A questo si aggiunge lo stress: quando l'ansia da concorso sale, il sistema nervoso entra in allerta e la corteccia prefrontale — la zona del ragionamento e della memoria di lavoro — va in tilt. Risultato: si rilegge la stessa pagina tre volte senza ricordare nulla, e il senso di inefficienza alimenta l'ansia, in un circolo vizioso.</p>
-    <h2>Le tecniche che funzionano davvero</h2>
-    <ul><li><strong>Tecnica del pomodoro (25/5)</strong>: 25 minuti di studio focalizzato, 5 di pausa, ogni 4 cicli una pausa lunga. Semplice ma efficace: dà al cervello un orizzonte breve da gestire.</li>
-    <li><strong>Ripasso attivo, non rilettura</strong>: la rilettura passiva è la tecnica meno efficace. Ripeti a memoria, spiega ad alta voce, fai domande a te stesso: il recupero attivo consolida la memoria molto di più.</li>
-    <li><strong>Spaced repetition</strong>: ripassa a intervalli crescenti (dopo 1 giorno, 3, 7, 14). L'80% di ciò che si dimentica lo si dimentica nelle prime 24 ore: ripassare il giorno dopo è il momento che conta di più.</li>
-    <li><strong>Simulazioni in condizioni reali</strong>: allenati con i tempi e le modalità vere della prova. La familiarità con la situazione riduce l'ansia da prestazione il giorno dell'esame.</li>
-    <li><strong>Sonno non negoziabile</strong>: la memoria si consolida durante il sonno. Studiare fino alle 3 di notte prima di un esame è controproducente: le ultime ore vanno dedicate al riposo, non all'ultima ripetizione.</li>
-    </ul>
-    <h2>Gestire le giornate "da vuoto mentale"</h2>
-    <p>Ci saranno giorni in cui non riesci a concentrarti: è normale, non è una sconfitta. In quei giorni, abbassa l'asticella invece di forzare: obiettivo ridotto (una pagina, un argomento, 2 pomodori), movimento fisico per scaricare la tensione, e la regola del "sì, ma solo 10 minuti": iniziare è sempre più difficile che continuare.</p>
-    <h2>Quando la stanchezza diventa burnout da studio</h2>
-    <p>Se noti irritabilità costante, insonnia, perdita di motivazione, difficoltà a ricordare anche cose semplici o pensieri tipo "non ce la farò mai", non è più semplice stanchezza: è il segnale che la testa ha bisogno di un supporto. Non aspettare di essere allo stremo: uno psicologo specializzato in preparazione ai concorsi ti aiuta con tecniche di gestione dello stress, pianificazione sostenibile e lavoro sull'ansia da prestazione. Approfondisci la pagina dedicata alla <a href="/psicologo-online/preparazione-mentale-concorsi">preparazione mentale ai concorsi</a> o scopri i percorsi di <a href="/psicologo-concorsi-pubblici">psicologo per concorsi pubblici</a>.</p>
-    <p>Se l'ansia ti assale già prima di iniziare a studiare, leggi anche come <a href="/blog/gestire-ansia-concorsi-pubblici">gestire l'ansia da concorsi pubblici</a>: è il primo ostacolo da superare per studiare con lucidità.</p>
-    <h2>La regola d'oro</h2>
-    <p>Studiare meglio non significa studiare di più: significa studiare con strategia e rispettare i bisogni del tuo cervello. Chi arriva al concorso riposato, con un metodo collaudato e la mente allenata a gestire la pressione, ha un vantaggio enorme su chi ha accumulato ore senza metodo.</p>
-    <p>Su <a href="/terapeuti">Adatto x Te</a> trovi psicologi specializzati in preparazione mentale per concorsi, con la <a href="/registrazione">registrazione gratuita</a> e la prima seduta individuale senza costi: inizia a costruire la tua preparazione mentale oggi, prima che la maratona ti trovi impreparato.</p>`
+    body: `<h1>Come allenare la concentrazione per i concorsi?</h1>
+<p>Hai il manuale aperto da tre ore. Hai letto la stessa pagina quattro volte. Ricordi di cosa parlava, ma non sapresti ripeterlo. E domani la stessa cosa.</p>
+<p>Non è pigrizia, e non è un problema di carattere: la concentrazione sostenuta è una capacità con dei limiti fisiologici, e si allena. Questa pagina spiega come, in modo concreto.</p>
+<h2>Perché non riesci a concentrarti (non è pigrizia)</h2>
+<p>Nel lavoro intellettuale ci sono tre meccanismi che sabotano lo studio, e nessuno dei tre ha a che vedere con la volontà.</p>
+<ul>
+<li><strong>Il carico cognitivo.</strong> Se stai studiando una materia difficile e contemporaneamente pensando al concorso, al lavoro e a cosa mangerai, una parte della tua memoria di lavoro è occupata da altro. La memoria di lavoro ha capacità ridotta: si spartisce, non si moltiplica.</li>
+<li><strong>La fatica decisionale.</strong> Ogni scelta consuma risorse. Se ogni volta devi decidere cosa studiare, da dove iniziare, quale schema usare, arrivi al contenuto già stanco. Le routine servono esattamente a questo: togliere decisioni.</li>
+<li><strong>L'ansia.</strong> L'attivazione alta frammenta l'attenzione: ti accorgi di tutto, non riesci a stare su una cosa. Non è distrazione, è ipervigilanza.<br/></li>
+</ul>
+<h2>Attenzione selettiva e attenzione sostenuta: due cose diverse</h2>
+<p>Sono due capacità distinte, e allenarle richiede esercizi diversi.</p>
+<p><strong>L'attenzione selettiva</strong> è la capacità di stare su una cosa ignorando il resto. Si allena togliendo le fonti di distrazione: non con la forza di volontà, ma cambiando l'ambiente.</p>
+<p><strong>L'attenzione sostenuta</strong> è la capacità di mantenere il focus nel tempo. Si allena con blocchi progressivamente più lunghi, con pause vere in mezzo.</p>
+<p>Chi ha problemi di concentrazione quasi sempre ha il primo problema (l'ambiente), e crede di avere il secondo. Prima si sistema l'ambiente, poi si allena la durata — mai il contrario.</p>
+<h2>Il blocco di studio: la struttura che funziona</h2>
+<p>Il formato più solido è a blocchi, con una struttura fissa:</p>
+<ol>
+<li><strong>Un blocco = una materia sola.</strong> Alternare materie nello stesso blocco sembra variare lo stimolo e in realtà riduce l'apprendimento.</li>
+<li><strong>Durata: 45-50 minuti.</strong> Poi una pausa di 8-10 minuti. Quattro blocchi al giorno, fatti bene, valgono più di otto ore distratte.</li>
+<li><strong>Obiettivo scritto prima di iniziare.</strong> Non "studiare diritto", ma "sapere rispondere a dieci domande su questa parte". L'obiettivo scritto è ciò che permette di valutare, alla fine, se il blocco è servito.</li>
+<li><strong>Pausa vera.</strong> Alzarsi, bere, camminare, guardare fuori. <strong>Il telefono non è una pausa:</strong> cambia il compito e consuma la stessa energia — è uno dei motivi principali per cui "ho fatto pausa e sono più stanco di prima".</li>
+<li><strong>Stesso orario ogni giorno.</strong> La regolarità riduce l'attrito iniziale: prima si comincia, meno si consuma per cominciare.</li>
+</ol>
+<h2>Come si prendono appunti per ricordare davvero</h2>
+<p>La rilettura è la tecnica meno efficace e la più usata, perché dà la sensazione di sapere. Quello che funziona è il <strong>richiamo attivo</strong>: chiudere il materiale e provare a riprodurre.</p>
+<p>Due strumenti pratici:</p>
+<ul>
+<li><strong>Le domande.</strong> Mentre studi, trasforma ogni concetto in una domanda. Poi ripassi rispondendo alle domande, non leggendo il testo.</li>
+<li><strong>Ripetizione diluita.</strong> Ripassare a distanza di giorni (uno, tre, sette) fa memorizzare molto più che ripassare tutto lo stesso giorno. A parità di ore, la differenza è netta.</li>
+</ul>
+<p>Un test semplice per capire se stai studiando davvero: dopo un capitolo, prendi un foglio bianco e scrivi le cinque cose principali. Quello che non viene, è quello da rivedere.</p>
+<h2>Telefono e distrazioni: cosa fare, concretamente</h2>
+<ul>
+<li><strong>Il telefono fuori dalla stanza</strong>, non solo silenzioso: la sola presenza del dispositivo riduce le risorse attentive disponibili.</li>
+<li><strong>Notifiche disattivate per tutto il blocco</strong>, comprese quelle delle chat di lavoro.</li>
+<li><strong>Un foglio per le cose da fare.</strong> Quando arriva un pensiero — "devo pagare quella bolletta" — lo scrivi e torni al blocco. Non lo risolvi e non lo tieni in testa.</li>
+<li><strong>Un ambiente dedicato.</strong> Se possibile, un posto che usi solo per studiare. Il cervello associa i contesti: usare lo stesso tavolo per studio, serie TV e telefono indebolisce l'associazione.</li>
+</ul>
+<h2>Sonno, corpo e concentrazione</h2>
+<p>Questo è il punto che quasi tutti trascurano, ed è quello che pesa di più.</p>
+<ul>
+<li><strong>Il sonno è il momento in cui si consolida la memoria.</strong> Studiare sei ore dormendo cinque produce meno di studiare quattro ore dormendo sette.</li>
+<li><strong>Il movimento migliora l'attenzione</strong> nelle ore successive: mezz'ora al giorno fa una differenza misurabile.</li>
+<li><strong>Alimentazione e caffeina:</strong> non servono regimi particolari, ma pasti pesanti prima dello studio e caffeina nel pomeriggio tardo peggiorano sonno e concentrazione.</li>
+</ul>
+<h2>Quando il problema non è la tecnica</h2>
+<p>A volte la concentrazione è a posto e il blocco viene da altro. Alcuni segnali utili per distinguere:</p>
+<ul>
+<li><strong>La mente "vaga" sempre sulle stesse preoccupazioni.</strong> Non è distrazione: è ansia. Va trattata come tale, non con più disciplina.</li>
+<li><strong>Sei stanco anche dopo aver dormito.</strong> Può essere esaurimento, non mancanza di forza di volontà.</li>
+<li><strong>Non riesci a iniziare, non a mantenere.</strong> La procrastinazione ha meccanismi propri, e si lavora diversamente.</li>
+<li><strong>Ti senti vuoto o non provi interesse per niente.</strong> In questo caso il problema è più ampio della concentrazione, e vale la pena parlarne con un professionista.</li>
+</ul>
+<h2>Come funziona un percorso online</h2>
+<p>Quando il problema è tecnico, si risolve con struttura e abitudini — e molte delle cose in questa pagina bastano. Quando invece c'è ansia, rimandare o esaurimento dietro la difficoltà di concentrazione, un percorso breve aiuta più di qualsiasi metodo di studio: si identifica cosa occupa la memoria di lavoro, si riduce, e la concentrazione torna senza doverla "forzare".</p>
+<p>Le sedute si svolgono in videochiamata, si adattano a chi studia e lavora. Vedi <a href="/psicologo-online/preparazione-mentale-concorsi">il percorso per i concorsi</a>, <a href="/prezzi">quanto costa</a>, oppure <a href="/terapeuti">scegli un terapeuta</a> e prenota una prima seduta gratuita.</p>
+<p>Collegati anche <a href="/blog/preparazione-mentale-concorsi-pubblici">come prepararsi mentalmente ai concorsi</a> e <a href="/blog/gestire-ansia-concorsi-pubblici">ansia da concorso: come gestirla</a>.</p>
+<h2>Domande frequenti</h2>
+<h3>Quante ore al giorno bisogna studiare per un concorso?</h3>
+<p>Non esiste un numero valido per tutti. Quello che conta è la qualità dei blocchi: quattro blocchi da 45 minuti fatti bene battono otto ore con il telefono accanto. Meglio meno ore e verificate che molte ore e nessuna verifica.</p>
+<h3>La musica aiuta a concentrarsi?</h3>
+<p>Dipende dalla musica e dal compito. Musica con testo durante la lettura di testi complessi tende a interferire; musica strumentale o rumore costante può aiutare alcune persone a isolarsi dall'ambiente. Non è una regola universale: prova e misura.</p>
+<h3>Quanto dura un blocco di attenzione?</h3>
+<p>Per la maggior parte delle persone, un focus pieno su materiale complesso dura fra i 25 e i 50 minuti. Oltre, la qualità cala e si continua a leggere senza assorbire. Le pause non sono tempo perso: sono ciò che rende possibile il blocco successivo.</p>
+<h3>Riesco a concentrarmi solo sotto scadenza: è un problema?</h3>
+<p>È molto comune: la scadenza alza l'attivazione e facilita l'inizio. Il costo è che il lavoro si concentra nell'ultimo tratto, con più errori e più stress. Si può lavorare sull'anticipo, ma è un lavoro a sé — non basta decidersi.</p>
+<h3>Se mi distraggo sempre sulle stesse cose, cosa significa?</h3>
+<p>Che quelle cose occupano memoria di lavoro: sono preoccupazioni, non distrazioni. La soluzione non è più concentrazione, è ridurre il peso di quello che torna sempre. Spesso è il punto da cui conviene partire in un percorso.</p>
+<p>Se ti riconosci in questa pagina, puoi <a href="/terapeuti">scegliere un terapeuta</a> e prenotare una prima seduta gratuita.</p>`
   },
   {
     slug: 'nostalgia-homesickness-estero',

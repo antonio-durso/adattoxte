@@ -66,23 +66,77 @@ export const extraArticles7 = [
     metaDescription: 'Ansia da concorso: come gestire lo studio, la pressione e il giorno della prova con la psicologia. Percorsi online per i concorsi pubblici.',
     date: '2026-08-28',
     faq: [ { q: 'Come gestisco l\'ansia durante lo studio?', a: 'Tecniche di organizzazione e gestione dello stress nell\'articolo.' }, { q: 'Il giorno della prova cosa faccio?', a: 'Routine e tecniche specifiche.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
-    body: `<p>L'ansia da concorso pubblico è una delle più comuni e anche una delle più gestibili: mesi di studio, pressione sociale e paura di sbagliare possono attivare il sistema di allarme del cervello. La buona notizia è che la preparazione mentale si allena come quella tecnica, e la psicologia offre strumenti concreti per arrivare al giorno della prova lucidi e sicuri.</p>
-
-<h2>Perché il concorso mette così tanta ansia</h2>
-<p>Il concorso concentra in un'unica prova anni di investimento: la mente legge la situazione come una minaccia e risponde con attivazione fisiologica (tachicardia, tensione, pensieri negativi). Questo è normale: il problema nasce quando l'ansia supera la soglia utile e compromette memoria e concentrazione proprio quando servono.</p>
-
-<h2>Tecniche di preparazione mentale</h2>
-<p>Tra le strategie più efficaci: la respirazione diaframmatica lenta (4-6 respiri al minuto) per spegnere la risposta d'allarme; la simulazione realistica della prova (tempo cronometrato, ambiente silenzioso) per abituare il cervello alla situazione; le autoistruzioni positive ("ho studiato, so quello che serve"); e la gestione delle pause per recuperare attenzione. Approfondisci nel nostro approfondimento sull'ansia da concorso nella landing dedicata: <a href="/psicologo-concorsi-pubblici">psicologo per concorsi pubblici</a>.</p>
-
+    body: `<h1>Ansia da concorso: come gestirla?</h1>
+<p>Stai studiando da mesi. Sai le cose. E più la data si avvicina, più ti accorgi che qualcosa non funziona come dovrebbe: ti siedi e la testa va altrove, rileggi la stessa pagina tre volte, la notte ti svegli alle quattro con il cuore che batte forte.</p>
+<p>Non è mancanza di impegno. È ansia da prestazione, e in un concorso ha un terreno perfetto: una prova sola, una valutazione definitiva, e nessuna possibilità di recupero.</p>
+<p>Questa pagina spiega come funziona e cosa fare, concretamente.</p>
+<h2>Cos'è l'ansia da concorso (e perché è normale)</h2>
+<p>L'ansia non è un difetto: è una risposta fisiologica a una situazione che il corpo interpreta come importante. Aumenta l'attenzione, mobilita le energie, tiene alta la vigilanza. A livelli moderati <strong>migliora</strong> la prestazione.</p>
+<p>Il problema nasce quando l'attivazione supera la soglia utile: da lì in poi la memoria richiama meno, la concentrazione si frammenta, il ragionamento si irrigidisce. È una curva, non una linea: troppo poca attivazione rende lenti, troppa rende confusi.</p>
+<p>Nel concorso ci sono fattori che spingono l'attivazione molto in alto: la posta in gioco è alta, il giudizio è definitivo, e spesso ci sono mesi di investimento emotivo alle spalle. È normale che il corpo risponda così.</p>
+<h2>I segnali: come si manifesta</h2>
+<ul>
+<li><strong>Nel corpo:</strong> battito accelerato, nodo alla gola, mani sudate, stomaco chiuso, tensione alle spalle, difficoltà a respirare in modo profondo.</li>
+<li><strong>Nella testa:</strong> vuoto improvviso, pensieri che si accavallano, memoria che sembra cancellarsi, difficoltà a leggere e capire le domande.</li>
+<li><strong>Nel comportamento:</strong> evitare le simulazioni, rimandare lo studio, controllare i forum dei candidati in modo compulsivo, non dormire.</li>
+<li><strong>Nel tempo:</strong> aumenta con l'avvicinarsi della data e raggiunge il picco nella notte prima e nelle prime ore della prova.</li>
+</ul>
+<h2>Perché "non pensarci" peggiora le cose</h2>
+<p>Il tentativo di sopprimere un pensiero è uno dei meccanismi più studiati in psicologia: produce l'effetto opposto. Più ti dici di non pensare al risultato, più il risultato occupa la mente.</p>
+<p>Lo stesso vale per l'evitamento. Se smetti di fare le simulazioni perché ti fanno stare male, stai insegnando al tuo corpo che quella situazione è pericolosa e va evitata. La paura cresce, non si riduce.</p>
+<p>E c'è un terzo errore comune: <strong>cambiare metodo all'ultimo momento</strong>. Nelle settimane finali si cambiano materiali, si cercano nuovi schemi, si riscrive tutto. È quasi sempre un modo per gestire l'ansia, non per studiare meglio — e destabilizza quello che già funzionava.</p>
+<h2>Cosa funziona davvero</h2>
+<h3>Rendere l'ansia una cosa da allenare, non da cancellare</h3>
+<p>L'obiettivo non è non essere teso. È <strong>rendere bene anche essendo teso</strong>. È una competenza diversa, e si allena con simulazioni progressive: prove simulate, con condizioni via via più simili a quelle reali, in cui attraversi l'attivazione e scopri che la prestazione tiene.</p>
+<h3>Respirazione: due minuti, ma allenata prima</h3>
+<p>Una respirazione lenta — poche respirazioni al minuto, con l'espirazione più lunga dell'inspirazione — abbassa l'attivazione. Attenzione: funziona molto meglio se <strong>provata durante le simulazioni</strong> che imparata a tavolino. Il momento della prova non è il momento per impararla.</p>
+<h3>Lavorare sui pensieri, non contro di loro</h3>
+<p>Tre passaggi semplici e ripetibili:</p>
+<ol>
+<li><strong>Riconosci la previsione.</strong> "Non passerò", "farò scena muta", "tutti se ne accorgeranno": sono previsioni, non fatti. Il corpo le tratta come certezze, la testa può distinguerle.</li>
+<li><strong>Chiediti cosa serve.</strong> Di fronte a un pensiero, la domanda utile non è "è vero?", ma "questo pensiero mi aiuta a fare quello che devo fare adesso?".</li>
+<li><strong>Riduci la catastrofe.</strong> Se non passi, cosa succede esattamente, nel concreto, nei mesi successivi? Scritto per esteso, quasi sempre il quadro è gestibile — e smette di alimentare l'ansia.</li>
+</ol>
+<h3>Una routine stabile, non un piano perfetto</h3>
+<p>Il corpo si tranquillizza con la prevedibilità. Orari di sonno regolari, pasti regolari, attività fisica costante, un orario fisso di inizio studio. Non serve un'organizzazione ideale: serve una che si ripete.</p>
+<h3>Non isolarti</h3>
+<p>Chi si prepara a un concorso tende a chiudersi: niente uscite, niente sport, niente amici, "tanto devo studiare". Il risultato è che il concorso diventa l'intera vita, e questo moltiplica il peso di ogni prova. Un'ora al giorno di qualcosa che ti piace non è tempo tolto allo studio: è ciò che tiene in piedi la parte che studia.</p>
+<h2>La notte prima e il giorno della prova</h2>
+<ul>
+<li><strong>Il giorno prima: ripasso leggero, non materiale nuovo.</strong> Gli argomenti nuovi del giorno prima aumentano l'ansia e raramente si memorizzano. Rivedi quello che già sai.</li>
+<li><strong>Dormire è la priorità.</strong> Se non riesci a dormire, resta a letto senza schermi; il riposo vale comunque. Niente ripasso notturno.</li>
+<li><strong>Logistica pronta la sera prima:</strong> documenti, percorso, orario di partenza, vestiti, cibo. Ogni incognita in meno è energia risparmiata.</li>
+<li><strong>La mattina: niente "ripasso dell'ultimo minuto" sui punti deboli.</strong> Alza l'attivazione e non serve a niente. Se vuoi rivedere qualcosa, scegli un argomento che sai bene.</li>
+<li><strong>Nella prova:</strong> leggi tutto prima di iniziare, fissa dei checkpoint di tempo, e se ti blocchi su una domanda passa avanti — tornare dopo serve anche a calmarsi.</li>
+<li><strong>Se il vuoto arriva:</strong> fermati trenta secondi, respira con l'espirazione lunga, bevi un sorso, poi rileggi la prima riga della domanda. Il vuoto è temporaneo: la cosa che lo allunga è la lotta contro il vuoto.</li>
+</ul>
+<h2>Dopo la prova: se l'ansia non passa</h2>
+<p>Molti si aspettano che l'ansia sparisca finita la prova. In realtà per qualche giorno resta alta, poi scende. Se invece continua per settimane — con insonnia, umore basso, irritabilità, incapacità di riprendere qualsiasi attività — quello non è più ansia da prestazione: può essere un quadro ansioso o depressivo che merita attenzione.</p>
 <h2>Quando chiedere aiuto</h2>
-<p>Se l'ansia ti blocca nello studio, ti tiene sveglio la notte o hai già fallito prove per tensione, un percorso con uno psicologo specializzato in preparazione ai concorsi può cambiare l'esito. Sul <a href="/terapeuti">catalogo</a> trovi professionisti dedicati, anche in videochiamata.</p>
-
+<ul>
+<li>l'ansia ti impedisce di rendere quello che sai, e ti è già successo più di una volta;</li>
+<li>eviti le simulazioni perché ti fanno stare male;</li>
+<li>dormi male da settimane o ti svegli con l'ansia addosso;</li>
+<li>hai attacchi di panico, prima o durante le prove;</li>
+<li>l'umore è basso da più di due settimane, anche a prova finita;</li>
+<li>hai rinunciato a tutto il resto e la cosa ti sembra insostenibile.</li>
+</ul>
+<h2>Come funziona un percorso online</h2>
+<p>Un percorso mirato dura di norma alcune settimane e si costruisce su tre assi: abbassare l'attivazione, allenare l'esposizione alle situazioni valutative, e lavorare sui pensieri che alimentano l'allarme. Il progresso si misura con le simulazioni, non con le sensazioni.</p>
+<p>Le sedute si svolgono in videochiamata, con orari flessibili — un vantaggio concreto per chi studia e lavora. Puoi vedere <a href="/psicologo-online/preparazione-mentale-concorsi">il percorso dedicato ai concorsi</a>, <a href="/prezzi">quanto costa</a>, <a href="/terapeuti">scegliere un terapeuta</a> o prenotare una prima seduta gratuita.</p>
+<p>Utili anche <a href="/blog/preparazione-mentale-concorsi-pubblici">come prepararsi mentalmente ai concorsi</a> e <a href="/blog/ansia-da-esame">ansia da esame: come gestirla</a>.</p>
 <h2>Domande frequenti</h2>
-<details><summary>Uno psicologo può davvero aiutare con l'ansia da concorso?</summary><p>Sì: tecniche di gestione dell'ansia, concentrazione e simulazione mentale, con accompagnamento nei mesi di preparazione.</p></details>
-<details><summary>Le tecniche funzionano anche per i quiz?</summary><p>Sì: gestione del tempo, respirazione e autoistruzioni aiutano anche nelle prove a risposta multipla.</p></details>
-<details><summary>Quanto dura un percorso?</summary><p>Solitamente 4-8 incontri, in base al punto di partenza e alla data della prova.</p></details>
-
-<p class="muted small"><em>Disclaimer: questo articolo ha scopo informativo e non sostituisce una valutazione professionale.</em></p>`,
+<h3>L'ansia da concorso è diversa dall'ansia normale?</h3>
+<p>È la stessa risposta del corpo applicata a un evento specifico e molto valutato. La differenza è il contesto: qui c'è una prova unica, un esito definitivo e mesi di investimento, tre fattori che alzano molto l'attivazione.</p>
+<h3>I farmaci servono?</h3>
+<p>Non è una decisione che si prende in autonomia, e non è la prima strada per un'ansia legata a un evento. Se l'ansia è invalidante, la valutazione va fatta con un medico o uno psichiatra — mentre il lavoro psicologico resta utile in parallelo.</p>
+<h3>Quanto tempo prima conviene lavorarci?</h3>
+<p>Più margine c'è, meglio è: 2-3 mesi permettono un allenamento serio con le simulazioni. Anche poche settimane prima della prova possono servire, ma su un obiettivo più circoscritto: gestire il giorno della prova.</p>
+<h3>Funziona anche se non ho mai avuto problemi d'ansia?</h3>
+<p>Sì. Non serve avere un disturbo: si lavora sulla prestazione sotto pressione, che è una competenza. Molti arrivano senza storia d'ansia e con lo stesso problema: rendere meno di quanto valgono.</p>
+<h3>E se poi non passo comunque?</h3>
+<p>Può succedere, ed è importante dirlo: nessun percorso garantisce un risultato. Quello che cambia è come affronti la prova e come gestisci l'esito — che è la parte che puoi controllare.</p>
+<p>Se ti riconosci in questa pagina, prenota una <a href="/terapeuti">prima seduta gratuita</a>.</p>`,
   },
   {
     slug: 'ansia-da-prestazione-sportiva',
