@@ -296,7 +296,7 @@ function CittaView({ c, isEn }) {
   const NAZIONALI = [
     'milano', 'roma', 'napoli', 'torino', 'palermo', 'genova', 'bologna', 'firenze', 'bari',
     'catania', 'venezia', 'verona', 'messina', 'padova', 'trieste', 'brescia', 'taranto',
-    'modena', 'parma', 'reggio-calabria', 'reggio-emilia', 'perugia', 'ravenna', 'livorno',
+    'modena', 'reggio-calabria', 'parma', 'reggio-emilia', 'perugia', 'ravenna', 'livorno',
     'cagliari', 'foggia', 'rimini', 'salerno', 'ferrara', 'sassari', 'lecce',
   ];
   const vicine = (() => {
