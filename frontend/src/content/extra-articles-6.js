@@ -1,11 +1,11 @@
 export const extraArticles6 = [
   {
     slug: 'psicologo-online-all-estero',
-    title: 'Psicologo online all’estero: come funziona',
+    title: 'Psicologo online all'estero: come funziona?'estero: come funziona?',
     keyword: 'psicologo online estero',
     metaDescription: 'Vivere all\'estero può essere difficile. Scopri come un supporto psicologico online in italiano può aiutarti a gestire il malessere e l\'adattamento.',
     date: '2026-08-24',
-    body: `<h1>Psicologo online per italiani all'estero: la terapia che ti segue ovunque</h1>
+    body: `<h1>Psicologo online all'estero: come funziona?</h1>
 <p>Trasferirsi in un altro paese è un'esperienza entusiasmante, ma può anche portare con sé sfide emotive significative. Molti italiani che vivono all'estero si trovano ad affrontare sentimenti di solitudine, shock culturale e difficoltà di adattamento. In queste situazioni, poter contare su uno psicologo online che parli la propria lingua madre può fare una differenza sostanziale nel percorso di benessere.</p>
 
 <h2>I vantaggi della terapia in lingua italiana</h2>
@@ -23,11 +23,11 @@ export const extraArticles6 = [
   },
   {
     slug: 'timidezza',
-    title: 'Timidezza: quando diventa un limite e come superarla',
+    title: 'Timidezza: quando diventa un limite?',
     keyword: 'timidezza',
     metaDescription: 'La timidezza non deve essere un ostacolo. Impara a riconoscerla e a gestirla con il supporto professionale per vivere relazioni più serene e autentiche.',
     date: '2026-08-24',
-    body: `<h1>Timidezza: quando diventa un limite e come superarla</h1>
+    body: `<h1>Timidezza: quando diventa un limite?</h1>
 <p>La timidezza è un tratto del carattere comune a molte persone. Si manifesta spesso come una sensazione di disagio o apprensione in situazioni sociali nuove o con persone poco conosciute. Sebbene una moderata timidezza sia del tutto normale, quando questa inizia a interferire con la vita quotidiana, le relazioni o la carriera, può diventare un limite invalidante che merita attenzione psicologica.</p>
 
 <h2>Riconoscere i segnali della timidezza eccessiva</h2>
@@ -50,11 +50,11 @@ export const extraArticles6 = [
   },
   {
     slug: 'riposo-e-pausa-mentale',
-    title: 'Riposo e pausa mentale: perché fermarsi aiuta',
+    title: 'Perché fermarsi fa bene alla mente?',
     keyword: 'pausa mentale',
     metaDescription: 'Il riposo non è tempo perso, ma un investimento nella tua salute. Scopri l\'importanza della pausa mentale per il benessere e la produttività.',
     date: '2026-08-24',
-    body: `<h1>Riposo e pausa mentale: perché fermarsi aiuta</h1>
+    body: `<h1>Perché fermarsi fa bene alla mente?</h1>
 <p>Nella società moderna, spesso si cade nell'errore di pensare che essere costantemente occupati sia sinonimo di successo. Tuttavia, la ricerca psicologica dimostra il contrario: il cervello ha bisogno di momenti di pausa mentale per elaborare informazioni, consolidare la memoria e rigenerare le energie creative. Senza un adeguato riposo, la produttività cala drasticamente e il rischio di burnout aumenta.</p>
 
 <h2>Che cos'è davvero la pausa mentale?</h2>
@@ -77,11 +77,11 @@ export const extraArticles6 = [
   },
   {
     slug: 'supporto-per-caregivers',
-    title: 'Chi accudisce: supporto psicologico per i caregiver',
+    title: 'Chi assiste un familiare: chi aiuta lui?',
     keyword: 'caregiver supporto psicologico',
     metaDescription: 'Essere un caregiver è un impegno gravoso. Scopri come il supporto psicologico può prevenire il burnout e aiutarti a gestire lo stress emotivo.',
     date: '2026-08-24',
-    body: `<h1>Chi accudisce: il supporto psicologico per chi si prende cura degli altri</h1>
+    body: `<h1>Chi assiste un familiare: chi aiuta lui?</h1>
 <p>Il ruolo del caregiver, ovvero di colui che si prende cura di un familiare malato o non autosufficiente, è uno dei compiti più nobili ma anche più logoranti dal punto di vista emotivo e fisico. Spesso, chi accudisce tende a mettere da parte i propri bisogni per dedicarsi totalmente all'altro, rischiando di andare incontro a una sindrome da stress cronico nota come "caregiver burnout".</p>
 
 <h2>Il carico emotivo dell'assistenza</h2>
@@ -99,11 +99,11 @@ export const extraArticles6 = [
   },
   {
     slug: 'dipendenza-da-gioco',
-    title: 'Dipendenza da gioco: riconoscerla e chiedere aiuto',
+    title: 'Dipendenza da gioco: come chiedere aiuto?',
     keyword: 'dipendenza da gioco',
     metaDescription: 'Le dipendenze comportamentali sono un rischio reale. Scopri come identificare i segnali della dipendenza da gioco e internet e come uscirne con il giusto…',
     date: '2026-08-24',
-    body: `<h1>Dipendenza da gioco e internet: riconoscerla e chiedere aiuto</h1>
+    body: `<h1>Dipendenza da gioco: come chiedere aiuto?</h1>
 <p>Negli ultimi anni, le dipendenze comportamentali legate al gioco d'azzardo online e all'uso eccessivo di internet sono diventate una sfida crescente per la salute mentale. Queste forme di dipendenza, pur non coinvolgendo sostanze, attivano gli stessi circuiti cerebrali del piacere e della ricompensa, portando a una perdita di controllo che può devastare la vita personale, economica e sociale dell'individuo.</p>
 
 <h2>Come riconoscere i segnali di allarme</h2>
@@ -121,11 +121,11 @@ export const extraArticles6 = [
   },
   {
     slug: 'perdita-del-lavoro',
-    title: 'Perdita del lavoro: come gestire la crisi',
+    title: 'Ho perso il lavoro: come reagire?',
     keyword: 'perdita del lavoro',
     metaDescription: 'Perdere il lavoro è un trauma. Scopri strategie psicologiche per affrontare il cambiamento, gestire l\'ansia e ripartire con nuove energie e fiducia.',
     date: '2026-08-24',
-    body: `<h1>Perdita del lavoro: gestire la crisi</h1>
+    body: `<h1>Ho perso il lavoro: come reagire?</h1>
 <p>La perdita del lavoro rappresenta molto più di una semplice interruzione del reddito; per molti, è una vera e propria crisi di identità. Il lavoro non è solo un mezzo di sussistenza, ma una fonte di scopo, relazioni sociali e stabilità quotidiana. Affrontare questa transizione richiede tempo, pazienza e una solida strategia psicologica per evitare di cadere nello sconforto cronico.</p>
 
 <h2>Le fasi dell'elaborazione della perdita</h2>
@@ -148,11 +148,11 @@ export const extraArticles6 = [
   },
   {
     slug: 'cambiare-lavoro',
-    title: 'Cambiare lavoro: gestire l\'ansia e orientarsi',
+    title: 'Cambiare lavoro: come gestire l'ansia?'ansia?'ansia e orientarsi',
     keyword: 'cambiare lavoro',
     metaDescription: 'Cambiare carriera può generare stress. Impara a gestire l\'ansia del cambiamento e a prendere decisioni consapevoli per il tuo futuro professionale.',
     date: '2026-08-24',
-    body: `<h1>Cambiare lavoro: gestire l'ansia e orientarsi</h1>
+    body: `<h1>Cambiare lavoro: come gestire l'ansia?</h1>
 <p>La decisione di cambiare lavoro è spesso accompagnata da un mix di eccitazione e timore. Anche quando il cambiamento è desiderato, l'incertezza del nuovo ambiente, la paura di non essere all'altezza o il senso di colpa per aver lasciato i vecchi colleghi possono generare un'ansia significativa. Gestire queste emozioni è fondamentale per affrontare il salto di carriera con lucidità e successo.</p>
 
 <h2>Perché il cambiamento fa paura?</h2>

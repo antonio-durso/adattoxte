@@ -2,7 +2,7 @@
 export const extraArticles7 = [
   {
     slug: 'test-ansia-gad-7',
-    title: "Test ansia GAD-7: cos'è e come leggere il risultato",
+    title: "Test ansia GAD-7: come leggere il punteggio?",
     keyword: 'test ansia gad 7',
     metaDescription: "Il test GAD-7 misura i sintomi del disturbo d'ansia generalizzata in 7 domande. Scopri come funziona, come si interpreta e quando chiedere aiuto.",
     date: '2026-08-26',
@@ -32,7 +32,7 @@ export const extraArticles7 = [
   },
   {
     slug: 'test-phq-9-umore',
-    title: 'Test PHQ-9: la scala per valutare il tuo umore',
+    title: 'Test PHQ-9: come si legge il risultato?',
     keyword: 'test depressione phq 9 umore',
     metaDescription: "Il PHQ-9 valuta la severità dei sintomi depressivi con 9 domande. Scopri come funziona, come si interpreta il punteggio e quando chiedere aiuto.",
     date: '2026-08-27',
@@ -61,7 +61,7 @@ export const extraArticles7 = [
   },
   {
     slug: 'gestire-ansia-concorsi-pubblici',
-    title: 'Ansia da concorso: come gestirla e superarla',
+    title: 'Ansia da concorso: come gestirla?',
     keyword: 'ansia da concorso preparazione mentale',
     metaDescription: 'Ansia da concorso: come gestire lo studio, la pressione e il giorno della prova con la psicologia. Percorsi online per i concorsi pubblici.',
     date: '2026-08-28',
@@ -86,7 +86,7 @@ export const extraArticles7 = [
   },
   {
     slug: 'ansia-da-prestazione-sportiva',
-    title: 'Ansia da prestazione sportiva: gestirla al meglio',
+    title: 'Ansia da prestazione sportiva: come gestirla?',
     keyword: 'ansia da prestazione sportiva psicologia',
     metaDescription: 'Ansia da prestazione sportiva: sintomi, cause e tecniche per gestirla. Come uno psicologo dello sport online può aiutarti a rendere al meglio.',
     date: '2026-08-29',
@@ -111,7 +111,7 @@ export const extraArticles7 = [
   },
   {
         slug: 'tradimento-ricostruire-fiducia',
-        title: 'Tradimento: come ricostruire la fiducia nella coppia',
+        title: 'Tradimento: si può ricostruire la fiducia?',
         keyword: 'tradimento ricostruire fiducia',
         metaDescription: 'Dopo un tradimento si può ricostruire la fiducia? Le fasi della crisi, gli errori da evitare, il ruolo della terapia di coppia e come decidere se…',
         date: '2026-08-31',

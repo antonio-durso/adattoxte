@@ -2,7 +2,7 @@
 export const baseArticles = [
   {
     "slug": "ansia-e-depressione-segnali",
-    "title": "Ansia e depressione: i segnali da non ignorare",
+    title: "Ansia e depressione: quali sono i segnali?",
     "keyword": "ansia e depressione",
     "metaDescription": "Ansia e depressione: come riconoscere i segnali precoci, le differenze, quando è il momento di chiedere aiuto e come funziona un percorso psicologico…",
     "date": "2026-08-24",
@@ -11,7 +11,7 @@ export const baseArticles = [
   },
   {
     "slug": "benessere-mentale-in-azienda",
-    "title": "Supporto psicologico ai dipendenti in azienda",
+    title: "Come sostenere il benessere mentale in azienda?",
     "keyword": "benessere mentale in azienda",
     "metaDescription": "Il benessere mentale in azienda è una priorità: stress, burnout e assenteismo costano caro. Come offrire supporto psicologico ai dipendenti, anche in…",
     "date": "2026-08-24",
@@ -20,7 +20,7 @@ export const baseArticles = [
   },
   {
     "slug": "paura-di-parlare-in-pubblico",
-    "title": "Paura di parlare in pubblico: cause e tecniche",
+    title: "Paura di parlare in pubblico: come superarla?",
     "keyword": "paura di parlare in pubblico",
     "metaDescription": "Glossophobia: perché si ha paura di parlare in pubblico e come superarla con tecniche psicologiche collaudate. Esercizi pratici e quando chiedere aiuto.",
     "date": "2026-08-24",
@@ -38,7 +38,7 @@ export const baseArticles = [
   },
   {
     "slug": "psicologia-comunicazione-politica",
-    "title": "Comunicazione politica: come prepararsi",
+    title: "Come si prepara un discorso politico?",
     "keyword": "psicologia comunicazione politica",
     "metaDescription": "La psicologia della comunicazione politica aiuta candidati, portavoce e comunicatori a gestire ansia, debriefing e messaggi efficaci. Scopri come…",
     "date": "2026-08-24",
@@ -47,7 +47,7 @@ export const baseArticles = [
   },
   {
     "slug": "psicologia-dello-sport",
-    "title": "Psicologia dello sport online: cos'è e come funziona",
+    title: "Psicologia dello sport: cos'è e come funziona?",
     "keyword": "psicologia dello sport",
     "metaDescription": "Psicologia dello sport online: gestione della pressione, ansia da prestazione e motivazione per atleti. Sedute video con professionisti.",
     "date": "2026-08-24",
@@ -69,7 +69,7 @@ export const baseArticles = [
   },
   {
     "slug": "psicologia-giuridica-consulenza-tecnica",
-    "title": "Psicologia giuridica: CTU, perizia e consulenza",
+    title: "Psicologo forense: quando serve la CTU?",
     "keyword": "psicologia giuridica",
     "metaDescription": "Psicologia giuridica: in cosa consiste la consulenza tecnica di parte e d'ufficio, la perizia, il supporto psicologico in cause di famiglia e l'ascolto…",
     "date": "2026-08-24",
@@ -87,7 +87,7 @@ export const baseArticles = [
   },
   {
     "slug": "psicologo-online",
-    "title": "Psicologo online: come funziona e quanto costa",
+    title: "Psicologo online: come funziona e quanto costa?",
     "keyword": "psicologo online",
     "metaDescription": "Come funziona una seduta di psicologia online, quanto costa (45€, prima gratuita) e come scegliere il terapeuta giusto. Guida completa aggiornata.",
     "date": "2026-08-24",

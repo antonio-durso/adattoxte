@@ -2,7 +2,7 @@
 export const extraArticles = [
   {
         slug: 'gaslighting-riconoscerlo',
-        title: 'Gaslighting: riconoscerlo e difendersi',
+        title: 'Gaslighting: come riconoscerlo e difendersi?',
         keyword: 'gaslighting',
         metaDescription: 'Gaslighting: cos\'è, come riconoscerlo e come difendersi dalla manipolazione psicologica in coppia, in famiglia e sul lavoro. Segnali, esempi e strategie.',
         date: '2026-08-31',
@@ -27,11 +27,11 @@ export const extraArticles = [
   },
   {
     slug: 'ansia-da-esame',
-    title: 'Ansia da esame: tecniche psicologiche per gestirla',
+    title: 'Ansia da esame: come gestirla?',
     keyword: 'ansia da esame',
     metaDescription: 'Ansia da esame: come riconoscerla, tecniche di respirazione e preparazione mentale, e quando può servire il supporto di uno psicologo online.',
     date: '2026-08-24',
-    body: `<h1>Ansia da esame: tecniche psicologiche per gestirla</h1>
+    body: `<h1>Gaslighting: come riconoscerlo e difendersi?</h1>
 <p>Palpitazioni, mente che si svuota, paura di non farcela: l'ansia da esame colpisce studenti di ogni età, dalle superiori all'università fino ai concorsi pubblici. È una reazione normale del corpo, ma quando diventa paralizzante va affrontata con le strategie giuste.</p>
 <h2>Cosa succede nel corpo e nella mente</h2>
 <p>L'ansia da prestazione attiva la stessa risposta di "allarme" che ci protegge dai pericoli: aumento del battito, respiro corto, tensione muscolare. Il problema è che davanti a un esame non c'è nessun pericolo reale, e la mente interpreta la sfida come una minaccia.</p>
@@ -45,12 +45,12 @@ export const extraArticles = [
   },
   {
     slug: 'burnout-lavoro',
-    title: 'Burnout da lavoro: sintomi, cause e come uscirne',
+    title: 'Burnout da lavoro: come uscirne?',
     keyword: 'burnout stress lavoro',
     metaDescription: 'Burnout da lavoro: i 12 segnali, le cause e il percorso per uscirne, anche con supporto psicologico online per te o per la tua azienda.',
     date: '2026-08-24',
     faq: [ { q: 'Come capisco se sono in burnout?', a: 'I 12 segnali nell\'articolo.' }, { q: 'Il burnout si può prevenire?', a: 'Sì: prevenzione e percorsi aziendali.' }, { q: 'Quanto costa?', a: '45€ a seduta; percorsi aziendali dedicati.' } ],
-    body: `<h1>Burnout da lavoro: sintomi, cause e come uscirne</h1>
+    body: `<h1>Burnout da lavoro: come uscirne?</h1>
 <p>Il burnout è più di una semplice stanchezza: è un esaurimento profondo di energie fisiche ed emotive legato al lavoro. Riconoscerlo in tempo è il primo passo per uscirne prima che comprometta salute e carriera.</p>
 <h2>I segnali da non sottovalutare</h2>
 <ul><li>stanchezza cronica che non passa nemmeno dopo il riposo;</li><li>cinismo e distacco verso colleghi e mansioni;</li><li>senso di inefficacia: "non servo a niente", "non ce la faccio";</li><li>irritabilità, difficoltà di concentrazione, insonnia;</li><li>sintomi fisici ricorrenti: mal di testa, tensione, problemi gastrointestinali.</li></ul>
@@ -64,12 +64,12 @@ export const extraArticles = [
   },
   {
     slug: 'insonnia-e-stress',
-    title: 'Insonnia e stress: i rimedi psicologici che funzionano',
+    title: 'Insonnia da stress: cosa fare?',
     keyword: 'insonnia stress rimedi',
     metaDescription: 'Insonnia e stress: igiene del sonno, tecniche di rilassamento e quando uno psicologo online può aiutarti a dormire meglio.',
     date: '2026-08-24',
     faq: [ { q: 'Come riprendo a dormire?', a: 'Regole pratiche di igiene del sonno nell\'articolo.' }, { q: 'Lo stress si cura con la terapia?', a: 'Sì, con tecniche specifiche: il percorso è spiegato nell\'articolo.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
-    body: `<h1>Insonnia e stress: i rimedi psicologici che funzionano</h1>
+    body: `<h1>Insonnia da stress: cosa fare?</h1>
 <p>Il sonno è il primo a soffrire quando la mente è in tensione: ci si corica stanchi, ma la testa non si ferma. L'insonnia legata allo stress è il disturbo del sonno più comune, e la buona notizia è che le tecniche psicologiche hanno un'efficacia documentata.</p>
 <h2>Perché lo stress ruba il sonno</h2>
 <p>Quando siamo in allarme, il corpo resta in uno stato di attivazione che impedisce l'addormentamento e frammenta il riposo notturno. Il risultato è un circolo vizioso: si dorme male, ci si sveglia affaticati, si è più vulnerabili allo stress, si dorme ancora peggio.</p>

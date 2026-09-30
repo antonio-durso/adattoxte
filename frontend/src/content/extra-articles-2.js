@@ -1,11 +1,11 @@
 export const extraArticles2 = [
   {
     slug: 'autostima-bassa',
-    title: 'Autostima bassa: cause e come migliorarla',
+    title: 'Perché ho l'autostima bassa?'autostima bassa?',
     keyword: 'autostima bassa',
     metaDescription: 'Scopri come migliorare l\'autostima bassa con consigli pratici e il supporto della psicoterapia online per ritrovare fiducia in te stesso ogni giorno.',
     date: '2026-08-24',
-    body: `<h1>Autostima bassa: come migliorarla</h1>
+    body: `<h1>Perché ho l'autostima bassa?</h1>
 <p>L'autostima non è un tratto immutabile del carattere, ma una percezione di sé che può variare nel tempo. Soffrire di autostima bassa significa spesso sentirsi inadeguati, temere il giudizio altrui e svalutare i propri successi. Tuttavia, è possibile intraprendere un percorso di cambiamento per ritrovare il proprio valore.</p>
 
 <h2>Riconoscere i segnali della scarsa autostima</h2>
@@ -28,11 +28,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'elaborazione-del-lutto',
-    title: 'Elaborazione del lutto: come affrontare una perdita',
+    title: 'Come elaborare il lutto?',
     keyword: 'elaborazione del lutto',
     metaDescription: 'L\'elaborazione del lutto è un processo complesso e personale. Scopri le fasi del dolore e come trovare supporto psicologico online per affrontarlo.',
     date: '2026-08-24',
-    body: `<h1>Elaborazione del lutto: come affrontare una perdita</h1>
+    body: `<h1>Come elaborare il lutto?</h1>
 <p>La perdita di una persona cara è una delle esperienze più dolorose e trasformative della vita umana. L'elaborazione del lutto non è un percorso lineare, ma un viaggio individuale che richiede tempo, pazienza e una profonda accoglienza delle proprie emozioni. Non esiste un modo giusto o sbagliato di soffrire, esiste solo il tuo modo.</p>
 
 <h2>Le fasi del dolore</h2>
@@ -55,11 +55,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'dipendenza-da-smartphone',
-    title: 'Dipendenza da smartphone: quando è un problema?',
+    title: 'Dipendenza da smartphone: è un problema?',
     keyword: 'dipendenza da smartphone',
     metaDescription: 'Senti il bisogno costante di controllare il cellulare? Scopri i sintomi della dipendenza da smartphone e come ritrovare il tuo tempo libero.',
     date: '2026-08-24',
-    body: `<h1>Dipendenza da smartphone: quando è un problema?</h1>
+    body: `<h1>Dipendenza da smartphone: è un problema?</h1>
 <p>Viviamo in un'era iper-connessa in cui lo smartphone è diventato un'estensione della nostra mano. Tuttavia, quando l'uso del dispositivo smette di essere uno strumento e diventa una necessità compulsiva, potremmo trovarci di fronte a una vera e propria dipendenza. Riconoscere il confine tra utilità e abuso è fondamentale per la nostra salute mentale.</p>
 
 <h2>I sintomi della nomofobia e dell'uso eccessivo</h2>
@@ -82,11 +82,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'separazione-e-figli',
-    title: 'Separazione e figli: proteggere i bambini nel divorzio',
+    title: 'Separazione: come proteggere i figli?',
     keyword: 'separazione e figli',
     metaDescription: 'Affrontare una separazione con figli richiede sensibilità. Leggi i nostri consigli per gestire il divorzio proteggendo il benessere dei più piccoli.',
     date: '2026-08-24',
-    body: `<h1>Separazione e figli: come proteggere i bambini durante il divorzio</h1>
+    body: `<h1>Separazione: come proteggere i figli?</h1>
 <p>La fine di una relazione di coppia è un evento stressante, ma quando ci sono dei figli, la priorità assoluta diventa la loro tutela emotiva. La separazione non segna la fine della famiglia, ma la sua trasformazione. È fondamentale che i genitori collaborino per garantire ai bambini un clima di sicurezza e continuità affettiva.</p>
 
 <h2>Comunicare la decisione in modo appropriato</h2>
@@ -109,12 +109,12 @@ export const extraArticles2 = [
   },
   {
     slug: 'ansia-generalizzata',
-    title: 'Ansia generalizzata: sintomi, cause e come gestirla',
+    title: 'Ansia generalizzata: come riconoscerla?',
     keyword: 'ansia generalizzata',
     metaDescription: 'Ansia generalizzata (GAD): sintomi, cause e strategie per gestirla. Quando uno psicologo online può aiutarti. Test GAD-7 gratuito.',
     date: '2026-08-24',
     faq: [ { q: 'Come capisco se ho ansia generalizzata?', a: 'Il test GAD-7 gratuito è un primo indicatore (non una diagnosi).' }, { q: 'Come si cura?', a: 'Con un percorso cognitivo-comportamentale, anche online.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
-    body: `<h1>Ansia generalizzata: sintomi, cause e come gestirla</h1>
+    body: `<h1>Ansia generalizzata: come riconoscerla?</h1>
 <p>Ti capita spesso di sentirti in allerta per motivi futili o di preoccuparti eccessivamente per il futuro? Se questa sensazione persiste per mesi, potresti soffrire di disturbo d'ansia generalizzata (DAG). A differenza di una normale preoccupazione passeggera, l'ansia generalizzata è pervasiva e può interferire pesantemente con la vita lavorativa e relazionale.</p>
 
 <h2>Come riconoscere i sintomi fisici e mentali</h2>
@@ -137,12 +137,12 @@ export const extraArticles2 = [
   },
   {
     slug: 'attacchi-di-panico',
-    title: 'Attacchi di panico: cosa fare e come superarli',
+    title: 'Attacchi di panico: cosa fare?',
     keyword: 'attacchi di panico',
     metaDescription: 'Attacchi di panico: cosa fare durante l\'attacco, le cause e come superarli con un percorso di psicoterapia online. Guida completa.',
     date: '2026-08-24',
     faq: [ { q: 'Cosa faccio durante un attacco di panico?', a: 'Passi pratici nell\'articolo: respirazione, ancoraggio, ricontestualizzare.' }, { q: 'Come si cura?', a: 'L\'approccio cognitivo-comportamentale è tra i più efficaci: disponibile online.' }, { q: 'Quanto costa un percorso?', a: '45€ a seduta, prima gratuita.' } ],
-    body: `<h1>Attacchi di panico: cosa fare e come superarli</h1>
+    body: `<h1>Attacchi di panico: cosa fare?</h1>
 <p>Un attacco di panico è un'ondata improvvisa di paura intensa che raggiunge il picco in pochi minuti. Chi lo prova spesso teme di avere un infarto o di impazzire. Nonostante la gravità dei sintomi, è importante sapere che il panico non è pericoloso per la vita ed è una condizione assolutamente trattabile con il giusto supporto professionale.</p>
 
 <h2>I sintomi fisici del panico</h2>
@@ -165,11 +165,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'depressione-chiedere-aiuto',
-    title: 'Depressione: quando e come chiedere aiuto',
+    title: 'Depressione: quando chiedere aiuto?',
     keyword: 'depressione chiedere aiuto',
     metaDescription: 'La depressione non è una semplice tristezza. Scopri come riconoscere i segnali e l\'importanza di chiedere aiuto a un professionista qualificato.',
     date: '2026-08-24',
-    body: `<h1>Depressione: come chiedere aiuto</h1>
+    body: `<h1>Depressione: quando chiedere aiuto?</h1>
 <p>La depressione è molto più di una giornata storta o di una tristezza passeggera. È una condizione clinica che influenza il modo in cui pensi, senti e affronti le attività quotidiane. Spesso chi ne soffre prova un profondo senso di vuoto, perdita di interesse per ogni attività e una stanchezza che non passa con il riposo.</p>
 
 <h2>Riconoscere le maschere della depressione</h2>
@@ -192,11 +192,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'stress-lavoro-correlato',
-    title: 'Stress lavoro-correlato: riconoscerlo e gestirlo',
+    title: 'Stress da lavoro: come riconoscerlo?',
     keyword: 'stress lavoro correlato',
     metaDescription: 'Il burnout è dietro l\'angolo? Impara a identificare i sintomi dello stress lavoro-correlato e scopri come ristabilire un equilibrio vita-lavoro sano.',
     date: '2026-08-24',
-    body: `<h1>Stress lavoro-correlato: riconoscerlo e gestirlo efficacemente</h1>
+    body: `<h1>Stress da lavoro: come riconoscerlo?</h1>
 <p>Lo stress sul posto di lavoro è una realtà comune, ma quando diventa cronico può portare a conseguenze serie per la salute, come il burnout. Lo stress lavoro-correlato si verifica quando le richieste dell'ambiente professionale eccedono le capacità del lavoratore di farvi fronte, generando un senso di impotenza e affaticamento perenne.</p>
 
 <h2>I segnali di allarme da non ignorare</h2>
@@ -219,11 +219,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'mindfulness',
-    title: 'Mindfulness: cos\'è, benefici e come iniziare',
+    title: 'Mindfulness: cos'è e come iniziare?'è e come iniziare?'è, benefici e come iniziare',
     keyword: 'mindfulness',
     metaDescription: 'La mindfulness è la chiave per ridurre lo stress e vivere nel presente. Scopri cos\'è, quali sono i benefici e come iniziare a praticarla oggi.',
     date: '2026-08-24',
-    body: `<h1>Mindfulness: cos’è e come iniziare</h1>
+    body: `<h1>Mindfulness: cos'è e come iniziare?</h1>
 <p>Negli ultimi anni si sente parlare sempre più spesso di mindfulness, ma di cosa si tratta esattamente? La mindfulness è la pratica di prestare attenzione al momento presente in modo intenzionale e non giudicante. È uno strumento potente per contrastare il pilota automatico con cui spesso affrontiamo le nostre giornate frenetiche.</p>
 
 <h2>I benefici scientificamente provati</h2>
@@ -246,11 +246,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'assertivita',
-    title: 'Assertività: dire di no e comunicare i propri bisogni',
+    title: 'Come imparare a dire di no?',
     keyword: 'assertivita',
     metaDescription: 'L\'assertività è l\'abilità di esprimersi con fermezza e rispetto. Scopri come migliorare la tua comunicazione e smettere di subire le decisioni altrui.',
     date: '2026-08-24',
-    body: `<h1>Assertività: imparare a dire di no e comunicare i propri bisogni</h1>
+    body: `<h1>Come imparare a dire di no?</h1>
 <p>Essere assertivi significa essere capaci di esprimere i propri pensieri, sentimenti e bisogni in modo chiaro e onesto, rispettando al contempo i diritti degli altri. È il giusto equilibrio tra l'aggressività e la passività, una competenza relazionale fondamentale per costruire rapporti sani e soddisfacenti.</p>
 
 <h2>La differenza tra essere gentili ed essere passivi</h2>
@@ -273,11 +273,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'relazioni-tossiche',
-    title: 'Relazioni tossiche: riconoscerle e trovare la forza',
+    title: 'Relazioni tossiche: come riconoscerle?',
     keyword: 'relazioni tossiche',
     metaDescription: 'Ti senti svuotato o manipolato dal partner? Impara a identificare i segnali di una relazione tossica e scopri come proteggere la tua salute mentale.',
     date: '2026-08-24',
-    body: `<h1>Relazioni tossiche: come riconoscerle e trovare la forza di uscirne</h1>
+    body: `<h1>Relazioni tossiche: come riconoscerle?</h1>
 <p>Una relazione dovrebbe essere un luogo di supporto, crescita e benessere. Tuttavia, a volte i rapporti diventano fonte di sofferenza, manipolazione e controllo. Identificare una relazione tossica non è sempre facile, poiché spesso il legame è intriso di dinamiche di dipendenza affettiva che offuscano il giudizio.</p>
 
 <h2>I segnali di allarme in un rapporto malsano</h2>
@@ -300,11 +300,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'gelosia-in-coppia',
-    title: 'Gelosia in coppia: quando da sale diventa veleno',
+    title: 'Gelosia in coppia: quando è un problema?',
     keyword: 'gelosia in coppia',
     metaDescription: 'La gelosia può distruggere la fiducia in un rapporto. Scopri come gestire la gelosia eccessiva e costruire una relazione basata sulla sicurezza.',
     date: '2026-08-24',
-    body: `<h1>Gelosia in coppia: quando da sale diventa veleno</h1>
+    body: `<h1>Gelosia in coppia: quando è un problema?</h1>
 <p>Un pizzico di gelosia può essere considerato un segno di interesse, ma quando diventa ossessiva si trasforma in un veleno che logora il rapporto. La gelosia patologica non è una prova d'amore, bensì un'espressione di insicurezza profonda e bisogno di controllo che finisce per allontanare proprio la persona che si teme di perdere.</p>
 
 <h2>Le radici della gelosia eccessiva</h2>
@@ -327,11 +327,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'comunicazione-di-coppia',
-    title: 'Comunicazione di coppia: ascolto attivo ed empatia',
+    title: 'Come migliorare la comunicazione di coppia?',
     keyword: 'comunicazione di coppia',
     metaDescription: 'Migliorare la comunicazione è essenziale per la felicità di coppia. Scopri come ascoltare davvero il partner e risolvere i conflitti senza litigare.',
     date: '2026-08-24',
-    body: `<h1>Comunicazione di coppia: l'arte dell'ascolto attivo e dell'empatia</h1>
+    body: `<h1>Come migliorare la comunicazione di coppia?</h1>
 <p>Molti problemi di coppia non nascono dalla mancanza di amore, ma dall'incapacità di comunicare efficacemente. Spesso parliamo per rispondere, non per capire, trasformando i dialoghi in duelli verbali dove l'obiettivo è avere ragione. Imparare a comunicare significa, prima di tutto, imparare ad ascoltare con il cuore e con la mente.</p>
 
 <h2>Le barriere a una comunicazione sana</h2>
@@ -354,11 +354,11 @@ export const extraArticles2 = [
   },
   {
     slug: 'crisi-di-coppia',
-    title: 'Crisi di coppia: come ritrovare l\'intesa',
+    title: 'Crisi di coppia: come ritrovare l'intesa?'intesa?'intesa',
     keyword: 'crisi di coppia',
     metaDescription: 'La crisi di coppia è un\'opportunità di crescita o la fine? Scopri come affrontare i momenti difficili e quando rivolgersi alla terapia di coppia.',
     date: '2026-08-24',
-    body: `<h1>Crisi di coppia: quando intervenire e come ritrovare l'intesa</h1>
+    body: `<h1>Crisi di coppia: come ritrovare l'intesa?</h1>
 <p>Ogni relazione attraversa momenti di crisi. Che si tratti di noia, conflitti ricorrenti o cambiamenti di vita importanti, la crisi non è necessariamente il preludio di una rottura. Può invece essere il segnale che il vecchio equilibrio non funziona più e che è necessario costruirne uno nuovo, più maturo e consapevole.</p>
 
 <h2>Riconoscere i segnali di una crisi profonda</h2>

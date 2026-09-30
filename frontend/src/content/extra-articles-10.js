@@ -2,7 +2,7 @@
 export const extraArticles10 = [
   {
     slug: 'paura-del-colloquio-di-lavoro',
-    title: 'Paura del colloquio di lavoro: tecniche per gestirla',
+    title: 'Paura del colloquio di lavoro: come gestirla?',
     keyword: 'paura del colloquio di lavoro',
     metaDescription:
       'Paura del colloquio di lavoro: perché nasce, come prepararsi e le tecniche psicologiche per gestire ansia e stress e presentarti al meglio.',
@@ -12,7 +12,7 @@ export const extraArticles10 = [
   },
   {
     slug: 'preparazione-mentale-concorsi-pubblici',
-    title: 'Preparazione ai concorsi: metodo in 5 punti',
+    title: 'Come prepararsi mentalmente ai concorsi?',
     keyword: 'preparazione mentale concorsi pubblici',
     metaDescription: 'Il metodo in 5 punti per la preparazione mentale ai concorsi pubblici: ansia da esame, concentrazione, gestione del tempo e del colloquio.',
     date: '2026-08-29',

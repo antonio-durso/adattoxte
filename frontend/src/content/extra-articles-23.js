@@ -2,7 +2,7 @@
 export const extraArticles23 = [
   {
     slug: 'concentrazione-studio-concorsi',
-    title: 'Concorsi: allenare concentrazione e memoria',
+    title: 'Come allenare la concentrazione per i concorsi?',
     keyword: 'concentrazione studio concorsi',
     metaDescription: 'Come mantenere concentrazione e memoria durante la preparazione a un concorso pubblico: tecniche di studio, gestione dello stress e prevenzione del…',
     date: '2026-09-02',
@@ -27,7 +27,7 @@ export const extraArticles23 = [
   },
   {
     slug: 'nostalgia-homesickness-estero',
-    title: 'Nostalgia di casa all’estero: come gestirla',
+    title: 'Nostalgia di casa all'estero: come gestirla?'estero: come gestirla?',
     keyword: 'nostalgia vivere all\'estero',
     metaDescription: 'La nostalgia di casa (homesickness) è una fase normale per chi vive all’estero. Come riconoscerla, gestirla e quando un supporto psicologico in italiano…',
     date: '2026-09-02',

@@ -2,12 +2,12 @@
 export const extraArticles14 = [
   {
     slug: 'come-scegliere-lo-psicologo',
-    title: 'Come scegliere lo psicologo online: 7 criteri pratici',
+    title: 'Come scegliere lo psicologo online?',
     keyword: 'come scegliere lo psicologo',
     metaDescription: 'Come scegliere lo psicologo giusto online: specializzazione, albo, recensioni, prezzo e feeling. I 7 criteri pratici per non sbagliare.',
     date: '2026-08-30',
     faq: [ { q: 'Come verifico che lo psicologo sia iscritto all\'albo?', a: 'Sull\'albo dell\'Ordine degli Psicologi; sulla piattaforma i profili indicano specializzazione ed esperienza.' }, { q: 'Conta di più la specializzazione o il feeling?', a: 'Entrambe: prima la competenza sul tuo problema, poi il rapporto.' }, { q: 'Posso cambiare terapeuta?', a: 'Sì, in qualsiasi momento.' } ],
-    body: `<h1>Come scegliere lo psicologo giusto: 7 criteri pratici</h1>
+    body: `<h1>Come scegliere lo psicologo online?</h1>
 <p>Scegliere uno psicologo è una decisione personale: non esiste "il migliore in assoluto", esiste il professionista <strong>adatto a te</strong>. Questi 7 criteri ti aiutano a fare una scelta informata, senza lasciarti guidare solo dalle prime impressioni.</p>
 <h2>1. Verifica l'iscrizione all'Albo</h2>
 <p>Il primo controllo è il più importante: lo psicologo deve essere <strong>iscritto all'Albo degli Psicologi</strong> (consultabile sul sito dell'Ordine della sua regione). Un titolo di studio o una certificazione non basta: l'iscrizione all'Albo garantisce formazione regolare e obblighi deontologici.</p>
@@ -28,12 +28,12 @@ export const extraArticles14 = [
   },
   {
     slug: 'prima-seduta-psicologo',
-    title: 'Prima seduta dallo psicologo: come prepararsi',
+    title: 'Come prepararsi alla prima seduta?',
     keyword: 'prima seduta psicologo',
     metaDescription: 'Prima seduta dallo psicologo: cosa succede, cosa dire, quanto dura e come prepararsi senza ansia. Guida pratica con i consigli del terapeuta.',
     date: '2026-08-30',
     faq: [ { q: 'La prima seduta è gratuita?', a: 'Su Adatto x Te sì: 15 minuti conoscitivi senza pagare.' }, { q: 'Cosa devo dire?', a: 'Niente di preparato: si parte da ciò che ti porta lì.' }, { q: 'Quanto dura?', a: 'La prima conoscitiva 15 minuti; le sedute successive 50 minuti.' } ],
-    body: `<h1>La prima seduta dallo psicologo: cosa succede e come prepararsi</h1>
+    body: `<h1>Come prepararsi alla prima seduta?</h1>
 <p>La prima seduta con uno psicologo genera spesso un misto di sollievo e timore: ci si chiede cosa dirà, cosa bisogna preparare, se si verrà giudicati. Tranquillo: <strong>non c'è nulla da preparare</strong> — e questo articolo ti spiega esattamente come funziona, così arrivi sereno.</p>
 <h2>Quanto dura e come si svolge</h2>
 <p>Una seduta standard dura circa <strong>45-50 minuti</strong>; molte piattaforme offrono un primo incontro conoscitivo più breve (15 minuti) e gratuito. Nella prima seduta lo psicologo ti ascolta, ti fa domande per capire <strong>cosa ti porta</strong> e il tuo contesto (lavoro, relazioni, salute, abitudini), e vi accordate su un obiettivo di lavoro. Non è un interrogatorio: è una conversazione strutturata.</p>

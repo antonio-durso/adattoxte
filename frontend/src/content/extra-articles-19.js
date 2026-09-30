@@ -2,11 +2,11 @@
 export const extraArticles19 = [
   {
     slug: 'ansia-rientro-lavoro-post-ferie',
-    title: 'Ansia da rientro al lavoro dopo le ferie: come gestirla',
+    title: 'Ansia da rientro al lavoro: come gestirla?',
     keyword: 'ansia da rientro al lavoro dopo le ferie',
     metaDescription: 'Tristezza, stanchezza e ansia al rientro dalle ferie? Come riconoscerle e gestirle con strategie pratiche, e quando chiedere aiuto a uno psicologo online.',
     date: '2026-10-02',
-    body: `<h1>Ansia da rientro al lavoro dopo le ferie: come gestirla</h1>
+    body: `<h1>Ansia da rientro al lavoro: come gestirla?</h1>
 <p>Il rientro al lavoro dopo le ferie è per molte persone un momento difficile: stanchezza, irritabilità, malinconia e una sensazione di "già saturi" prima ancora di riprendere il ritmo. Non è pigrizia: è una reazione normale del corpo e della mente al passaggio da una fase di libertà a una di routine e impegni.</p>
 <h2>Perché il rientro pesa tanto</h2>
 <p>Durante le ferie cambiano sonno, orari, attività e stimoli. Al rientro, il sistema nervoso deve riadattarsi a ritmi più rigidi, mentre la mente rielabora il contrasto tra il benessere appena vissuto e la quotidianità. Questo passaggio può generare ansia anticipatoria: si torna già pensando a scadenze, riunioni e carichi accumulati.</p>
@@ -24,11 +24,11 @@ export const extraArticles19 = [
   },
   {
     slug: 'ansia-rientro-scuola-adolescenti',
-    title: 'Rientro a scuola: come aiutare i figli',
+    title: 'Ansia da rientro a scuola: cosa fare?',
     keyword: 'ansia da rientro a scuola adolescenti',
     metaDescription: "Rifiuto di andare a scuola, mal di pancia, irritabilità al rientro? Come riconoscere l'ansia da rientro scolastico negli adolescenti e supportarli senza…",
     date: '2026-10-06',
-    body: `<h1>Ansia da rientro a scuola negli adolescenti</h1>
+    body: `<h1>Ansia da rientro a scuola: cosa fare?</h1>
 <p>Il rientro a scuola è una tappa carica di attese e timori: nuovi insegnanti, nuove classi, il peso dei voti e dei confronti. In molti adolescenti questa fase produce ansia: mal di pancia e mal di testa al mattino, irritabilità, insonnia, difficoltà a riprendere la concentrazione o un esplicito rifiuto di andare a scuola.</p>
 <h2>I segnali da non sottovalutare</h2>
 <ul>
@@ -46,11 +46,11 @@ export const extraArticles19 = [
   },
   {
     slug: 'ansia-da-aereo',
-    title: "Paura di volare: come gestire l'ansia da aereo",
+    title: "Paura di volare: come superarla?",
     keyword: 'ansia da aereo',
     metaDescription: "Sudorazione, tachicardia, pensieri catastrofici in volo: la paura di volare si supera. Strategie pratiche per gestire l'ansia da aereo prima e durante il…",
     date: '2026-10-09',
-    body: `<h1>Paura di volare: come gestire l'ansia da aereo</h1>
+    body: `<h1>Paura di volare: come superarla?</h1>
 <p>Per molte persone salire su un aereo è un'esperienza che scatena ansia intensa: tachicardia, sudorazione, sensazione di mancanza d'aria, pensieri catastrofici ("e se succedesse qualcosa?"). La paura di volare (o aviofobia) può portare a evitare viaggi, lavoro e occasioni importanti: una limitazione che si può superare con il lavoro giusto.</p>
 <h2>Da dove nasce la paura di volare</h2>
 <p>Spesso non è il volo in sé a spaventare, ma la sensazione di non avere controllo: ci si affida completamente a qualcosa che non si può gestire. A questo si aggiungono i sintomi fisici dell'ansia (cuore che accelera, respiro corto) che vengono interpretati come pericolo imminente, alimentando il circolo: più paura, più sintomi, più paura.</p>
@@ -67,11 +67,11 @@ export const extraArticles19 = [
   },
   {
     slug: 'ansia-e-stress-differenze',
-    title: 'Ansia e stress: differenze e come distinguerli',
+    title: 'Ansia o stress? Come distinguerli',
     keyword: 'differenza tra ansia e stress',
     metaDescription: "Stress e ansia non sono la stessa cosa: capire la differenza aiuta a gestirli. Segnali, cause e strategie pratiche per riconoscerli e affrontarli.",
     date: '2026-10-13',
-    body: `<h1>Ansia e stress: differenze e come distinguerli</h1>
+    body: `<h1>Ansia o stress? Come distinguerli</h1>
 <p>Stress e ansia vengono spesso usati come sinonimi, ma sono due esperienze diverse, che richiedono risposte diverse. Riuscire a distinguerli è il primo passo per gestirli: lo stress è una reazione a una richiesta esterna, l'ansia è una preoccupazione che continua anche quando la richiesta è finita.</p>
 <h2>Le differenze essenziali</h2>
 <ul>

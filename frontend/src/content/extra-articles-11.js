@@ -2,7 +2,7 @@
 export const extraArticles11 = [
   {
     slug: 'allenamento-mentale-atleti',
-    title: 'Allenamento mentale per atleti: le tecniche',
+    title: 'Come si allena la mente di un atleta?',
     keyword: 'allenamento mentale atleti',
     metaDescription:
       'Allenamento mentale per atleti: visualizzazione, gestione dell’attivazione, routine pre-gara e le altre tecniche della psicologia dello sport, anche…',
@@ -12,7 +12,7 @@ export const extraArticles11 = [
   },
   {
     slug: 'concorsi-forze-dell-ordine',
-    title: 'Concorsi forze dell’ordine: preparazione mentale',
+    title: 'Concorsi forze dell'ordine: come prepararsi?'ordine: come prepararsi?',
     keyword: 'concorsi forze dell ordine',
     metaDescription: 'Concorsi forze dell’ordine: preparazione mentale: gestire ansia, pressione e colloquio psicologico con un professionista online.',
     date: '2026-08-31',
@@ -22,7 +22,7 @@ export const extraArticles11 = [
   },
   {
     slug: 'come-funziona-una-seduta-di-psicologia-online',
-    title: 'Seduta di psicologia online: come funziona',
+    title: 'Come funziona una seduta di psicologia online?',
     keyword: 'seduta psicologia online',
     metaDescription:
       'Come funziona una seduta di psicologia online: prenotazione, pagamento, videochiamata, privacy e differenze con la terapia in presenza. Guida completa.',

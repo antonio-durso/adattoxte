@@ -2,11 +2,11 @@
 export const extraArticles15 = [
   {
     slug: 'psicologo-online-o-in-presenza',
-    title: 'Psicologo online o in presenza? Pro e contro',
+    title: 'Meglio psicologo online o in presenza?',
     keyword: 'psicologo online o in presenza',
     metaDescription: 'Psicologo online o in studio: efficacia, costi, comodità e limiti delle due modalità. Guida a scegliere quella giusta per te, con i dati della ricerca.',
     date: '2026-08-30',
-    body: `<h1>Psicologo online o in presenza? Pro e contro</h1>
+    body: `<h1>Meglio psicologo online o in presenza?</h1>
 <p>La terapia online non è più un'eccezione: dopo la pandemia è diventata una modalità consolidata e studiata. Ma è adatta a tutti? E quando conviene ancora lo studio in presenza? Vediamo i pro e i contro di entrambe, così scegli con consapevolezza.</p>
 <h2>Cosa dice la ricerca</h2>
 <p>Gli studi sull'efficacia della psicoterapia online (telehealth) mostrano risultati <strong>comparabili alla terapia in presenza</strong> per la maggior parte dei problemi: ansia, depressione lieve-moderata, gestione dello stress, disturbi del sonno. Le eccezioni riguardano situazioni acute o complesse, dove il clinico può consigliare un percorso misto o in presenza.</p>
@@ -22,12 +22,12 @@ export const extraArticles15 = [
   },
   {
     slug: 'la-terapia-online-funziona',
-    title: 'La terapia online funziona? Cosa dice la ricerca (2026)',
+    title: 'La terapia online funziona? La ricerca',
     keyword: 'la terapia online funziona',
     metaDescription: 'La terapia online è efficace quanto quella in presenza? Ecco cosa dice la ricerca scientifica, i vantaggi e i limiti della psicologia a distanza.',
     date: '2026-08-30',
     faq: [ { q: 'La terapia online è efficace come quella in presenza?', a: 'Gli studi indicano risultati comparabili per ansia e depressione: i dettagli nell\'articolo.' }, { q: 'Per chi non è adatta?', a: 'In alcuni casi (emergenze, disturbi gravi) serve il percorso in presenza: lo valuta il terapeuta nel primo colloquio.' }, { q: 'Quanto dura un percorso?', a: 'Dipende dall\'obiettivo: le stime nell\'articolo dedicato.' } ],
-    body: `<h1>La terapia online funziona? Cosa dice la ricerca scientifica</h1>
+    body: `<h1>La terapia online funziona? La ricerca</h1>
 <p>Se ti stai chiedendo se "parlare con uno psicologo attraverso uno schermo" possa funzionare, sei in buona compagnia: è la domanda più frequente di chi valuta la terapia online. La risposta, supportata da anni di studi, è <strong>sì</strong> — con alcune precisazioni.</p>
 <h2>I dati principali della ricerca</h2>
 <p>Le revisioni sistematiche e le meta-analisi sulla psicoterapia erogata a distanza (telehealth, videoterapia) convergono su questi risultati:</p>

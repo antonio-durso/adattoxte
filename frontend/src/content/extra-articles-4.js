@@ -1,11 +1,11 @@
 export const extraArticles4 = [
   {
     slug: 'gestione-della-rabbia',
-    title: 'Gestione della rabbia: riprendere il controllo',
+    title: 'Come gestire la rabbia?',
     keyword: 'gestione della rabbia',
     metaDescription: 'Scopri tecniche pratiche per la gestione della rabbia. Impara a riconoscere i segnali e a trasformare questa emozione in energia costruttiva con Adatto x…',
     date: '2026-08-24',
-    body: `<h1>Gestione della rabbia: tecniche pratiche per riprendere il controllo</h1>
+    body: `<h1>Come gestire la rabbia?</h1>
 <p>La rabbia è un'emozione primaria, potente e spesso fraintesa. Non è intrinsecamente negativa; è un segnale che il nostro corpo invia quando percepiamo un'ingiustizia, una minaccia o una frustrazione. Tuttavia, quando la gestione della rabbia diventa difficile, questa emozione può danneggiare le relazioni, la carriera e la salute fisica. Imparare a canalizzarla correttamente è fondamentale per il benessere psicologico.</p>
 <h2>Riconoscere i segnali premonitori</h2>
 <p>Il primo passo per una gestione della rabbia efficace è la consapevolezza. La rabbia non esplode dal nulla; è preceduta da segnali fisici chiari. Aumento del battito cardiaco, tensione muscolare nelle spalle o nelle mascelle, e una sensazione di calore improvviso sono avvisaglie tipiche. Identificare questi sintomi precocemente permette di intervenire prima che l'emozione diventi travolgente.</p>
@@ -22,11 +22,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'perfezionismo',
-    title: 'Perfezionismo: quando l\'eccellenza diventa un problema',
+    title: 'Perfezionismo: quando diventa un problema?'eccellenza diventa un problema',
     keyword: 'perfezionismo',
     metaDescription: 'Il perfezionismo può essere un ostacolo al successo e alla felicità. Scopri come riconoscere il perfezionismo clinico e come gestirlo efficacemente.',
     date: '2026-08-24',
-    body: `<h1>Perfezionismo: quando la ricerca dell'eccellenza diventa un problema</h1>
+    body: `<h1>Perfezionismo: quando diventa un problema?</h1>
 <p>Molti considerano il perfezionismo come una qualità desiderabile, un motore che spinge verso il successo. Tuttavia, esiste una linea sottile tra la sana ricerca dell'eccellenza e il perfezionismo clinico disadattivo. Quest'ultimo non riguarda solo il fare bene le cose, ma è spesso legato a un'eccessiva autocritica e alla paura costante del fallimento.</p>
 <h2>Le caratteristiche del perfezionismo tossico</h2>
 <p>Il perfezionista non è mai soddisfatto. Anche quando raggiunge obiettivi elevati, tende a minimizzare i propri successi e a concentrarsi esclusivamente sui piccoli errori commessi. Questo atteggiamento porta a standard irrealistici che, se non soddisfatti, generano ansia, stress e, paradossalmente, una bassa produttività dovuta alla paura di iniziare o finire un compito.</p>
@@ -43,11 +43,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'procrastinazione',
-    title: 'Procrastinazione: cause e come smettere di rimandare',
+    title: 'Procrastinazione: come smettere di rimandare?',
     keyword: 'procrastinazione',
     metaDescription: 'Perché rimandiamo sempre a domani? Scopri le cause profonde della procrastinazione e le strategie pratiche per ritrovare la tua produttività.',
     date: '2026-08-24',
-    body: `<h1>Procrastinazione: cause psicologiche e soluzioni per smettere di rimandare</h1>
+    body: `<h1>Procrastinazione: come smettere di rimandare?</h1>
 <p>La procrastinazione non è una questione di pigrizia o scarsa gestione del tempo. È, al suo nucleo, un meccanismo di difesa emotiva. Rimandiamo i compiti non perché ci manchi la voglia di fare, ma perché l'attività in questione suscita in noi emozioni negative come ansia, paura del fallimento, insicurezza o noia profonda. Capire questo è essenziale per risolvere il problema alla radice.</p>
 <h2>Le diverse forme della procrastinazione</h2>
 <p>Esistono diversi motivi per cui una persona tende alla procrastinazione. Alcuni rimandano perché si sentono sopraffatti dalla mole di lavoro (procrastinazione da sovraccarico), altri perché temono che il risultato non sarà perfetto (procrastinazione perfezionista), e altri ancora perché hanno bisogno della "scarica di adrenalina" dell'ultimo minuto per concentrarsi.</p>
@@ -85,11 +85,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'maternita-benessere-psicologico',
-    title: 'Maternità: benessere e cambiamento',
+    title: 'Maternità: come cambia l'equilibrio psicologico?'equilibrio psicologico?',
     keyword: 'maternità benessere psicologico',
     metaDescription: 'La maternità è una fase di grande trasformazione. Scopri come preservare il tuo benessere psicologico durante questo viaggio con i consigli di Adatto x Te.',
     date: '2026-08-24',
-    body: `<h1>Maternità e benessere psicologico</h1>
+    body: `<h1>Maternità: come cambia l'equilibrio psicologico?</h1>
 <p>Il viaggio verso la maternità è una delle transizioni più profonde nella vita di una donna. Oltre ai cambiamenti fisici evidenti, avviene una vera e propria ristrutturazione dell'identità. In questo contesto, la maternità e il benessere psicologico sono strettamente legati: prendersi cura della propria mente è tanto importante quanto prendersi cura del neonato.</p>
 <h2>Le sfide emotive del post-parto</h2>
 <p>Dopo il parto, è comune attraversare fasi di fragilità. Il "baby blues", caratterizzato da sbalzi d'umore e pianto facile nei primi giorni, è fisiologico. Tuttavia, quando la tristezza persiste o diventa invalidante, è fondamentale monitorare la situazione per prevenire o gestire la depressione post-partum. La pressione sociale del dover essere una "madre perfetta" può aggravare il senso di inadeguatezza.</p>
@@ -106,11 +106,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'menopausa-benessere',
-    title: 'Menopausa e benessere emotivo: gestirla con serenità',
+    title: 'Menopausa: come gestire l'umore?'umore?',
     keyword: 'menopausa benessere',
     metaDescription: 'La menopausa non è solo un cambiamento fisico. Scopri come affrontare gli aspetti emotivi e psicologici di questa fase con il supporto di Adatto x Te.',
     date: '2026-08-24',
-    body: `<h1>Menopausa e benessere emotivo: gestire la transizione con serenità</h1>
+    body: `<h1>Menopausa: come gestire l'umore?</h1>
 <p>La menopausa rappresenta una tappa significativa nel ciclo di vita femminile. Spesso descritta solo attraverso i suoi sintomi fisici, questa fase porta con sé profondi mutamenti emotivi. Il legame tra menopausa e benessere è complesso e influenzato da fattori ormonali, sociali e psicologici che meritano un'attenzione dedicata e priva di pregiudizi.</p>
 <h2>Navigare tra i cambiamenti emotivi</h2>
 <p>Le fluttuazioni ormonali possono influenzare direttamente l'umore, portando a irritabilità, ansia o sentimenti di malinconia. A ciò si aggiunge il significato simbolico della menopausa nella nostra società, spesso erroneamente associata alla fine della giovinezza o della vitalità. È essenziale riscrivere questa narrazione, vedendo il cambiamento come un'opportunità di nuova consapevolezza.</p>
@@ -127,11 +127,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'paura-del-futuro',
-    title: 'Ansia e paura del futuro: come gestirla',
+    title: 'Paura del futuro: come gestirla?',
     keyword: 'paura del futuro',
     metaDescription: 'L\'incertezza del domani può generare ansia. Impara a gestire la paura del futuro e a ritrovare la calma nel momento presente con Adatto x Te.',
     date: '2026-08-24',
-    body: `<h1>Paura del futuro: come gestirla</h1>
+    body: `<h1>Paura del futuro: come gestirla?</h1>
 <p>Viviamo in un'epoca di rapido cambiamento e incertezza globale, il che rende la paura del futuro un sentimento comune a molte persone. Questa forma di ansia, spesso chiamata "ansia anticipatoria", ci spinge a focalizzarci costantemente su scenari ipotetici negativi, impedendoci di godere appieno della nostra vita attuale e di agire in modo efficace.</p>
 <h2>Perché temiamo ciò che deve ancora accadere</h2>
 <p>La mente umana è programmata per cercare sicurezza e prevedibilità. Quando il futuro appare nebbioso, il nostro cervello tenta di "colmare i vuoti" proiettando preoccupazioni. La paura del futuro non riguarda tanto ciò che accadrà, quanto la nostra percezione di non avere le risorse necessarie per affrontare eventuali avversità. È una sfida alla nostra resilienza.</p>
@@ -148,11 +148,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'resilienza',
-    title: 'Resilienza: come svilupparla e affrontare le sfide',
+    title: 'Resilienza: come si sviluppa?',
     keyword: 'resilienza',
     metaDescription: 'La resilienza non è una dote innata ma una capacità che si può allenare. Scopri come sviluppare la resilienza emotiva per affrontare meglio le difficoltà.',
     date: '2026-08-24',
-    body: `<h1>Resilienza: come svilupparla per affrontare le sfide della vita</h1>
+    body: `<h1>Resilienza: come si sviluppa?</h1>
 <p>La resilienza è la capacità di un individuo di affrontare e superare eventi traumatici o periodi di difficoltà, uscendone rinforzato o addirittura trasformato. Non è una caratteristica che si ha o non si ha; è un insieme di comportamenti, pensieri e azioni che possono essere appresi e sviluppati da chiunque. Essere resilienti non significa non provare dolore, ma saper navigare attraverso di esso.</p>
 <h2>I pilastri della persona resiliente</h2>
 <p>Gli studi psicologici hanno individuato alcuni fattori chiave che favoriscono la resilienza:</p>
@@ -170,11 +170,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'supporto-psicologico-separazione',
-    title: 'Supporto psicologico dopo la separazione: ripartire',
+    title: 'Come ripartire dopo una separazione?',
     keyword: 'supporto psicologico separazione',
     metaDescription: 'La fine di una relazione è un lutto che richiede tempo. Scopri l\'importanza del supporto psicologico dopo la separazione per ripartire con serenità.',
     date: '2026-08-24',
-    body: `<h1>Supporto psicologico dopo la separazione: ripartire da se stessi</h1>
+    body: `<h1>Come ripartire dopo una separazione?</h1>
 <p>La fine di una relazione importante, che sia un matrimonio o una convivenza, rappresenta uno degli eventi più stressanti nella vita di una persona. È un vero e proprio lutto che coinvolge la perdita di una routine, di un progetto di vita e, spesso, di una parte della propria identità. In questo contesto, cercare un supporto psicologico separazione può essere fondamentale per elaborare il dolore e guardare al futuro.</p>
 <h2>Le fasi dell'elaborazione del distacco</h2>
 <p>Chi affronta una separazione attraversa solitamente diverse fasi emotive: negazione, rabbia, contrattazione, depressione e, infine, accettazione. Non è un percorso lineare; si può oscillare tra queste emozioni per mesi. Il supporto di un professionista aiuta a normalizzare questi sentimenti, evitando che il dolore si trasformi in un blocco cronico o in una perdita di autostima.</p>
@@ -191,11 +191,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'motivazione-allenamento',
-    title: 'Motivazione ad allenarsi: la psicologia dello sport',
+    title: 'Come trovare la motivazione per allenarsi?',
     keyword: 'motivazione allenamento',
     metaDescription: 'Perché è così difficile essere costanti nello sport? Scopri i segreti della motivazione ad allenarsi attraverso la psicologia con Adatto x Te.',
     date: '2026-08-24',
-    body: `<h1>Motivazione ad allenarsi: la psicologia dello sport per amatori</h1>
+    body: `<h1>Come trovare la motivazione per allenarsi?</h1>
 <p>Tutti conosciamo l'entusiasmo iniziale di un nuovo abbonamento in palestra che, troppo spesso, si spegne dopo poche settimane. La motivazione ad allenarsi non è qualcosa che piove dal cielo, ma un processo psicologico che può essere coltivato e gestito. Comprendere le leve mentali che ci spingono all'azione è il segreto per trasformare lo sport da un dovere a un piacere duraturo.</p>
 <h2>Motivazione intrinseca vs estrinseca</h2>
 <p>La motivazione estrinseca deriva da fattori esterni: voler dimagrire per un evento, compiacere gli altri o vincere un premio. Sebbene utile all'inizio, tende a svanire. La motivazione intrinseca, invece, nasce dal piacere stesso dell'attività: la sensazione di forza, il divertimento o il senso di competenza. Per essere costanti, è fondamentale trovare un'attività che ci piaccia realmente.</p>
@@ -212,11 +212,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'equilibrio-lavoro-vita-privata',
-    title: 'Equilibrio lavoro e vita privata: ritrovare il tempo',
+    title: 'Come ritrovare l'equilibrio lavoro-vita?'equilibrio lavoro-vita?'equilibrio lavoro-vita?',
     keyword: 'equilibrio lavoro vita privata',
     metaDescription: 'Il work-life balance è essenziale per prevenire il burnout. Scopri le strategie per un sano equilibrio lavoro e vita privata con Adatto x Te.',
     date: '2026-08-24',
-    body: `<h1>Equilibrio lavoro e vita privata: come ritrovare il proprio tempo</h1>
+    body: `<h1>Come ritrovare l'equilibrio lavoro-vita?</h1>
 <p>Nell'era dell'iperconnessione, il confine tra ufficio e casa è diventato sempre più labile. Raggiungere un buon equilibrio lavoro e vita privata non è più solo un desiderio, ma una necessità biologica e psicologica. Senza confini chiari, corriamo il rischio di un esaurimento emotivo che finisce per compromettere sia la nostra produttività che la qualità delle nostre relazioni personali.</p>
 <h2>I segnali di uno squilibrio pericoloso</h2>
 <p>Come capire se abbiamo perso la bussola? I sintomi sono spesso silenziosi: irritabilità costante, difficoltà a staccare il pensiero dal lavoro durante la cena, problemi di sonno e una sensazione di "essere sempre in ritardo". Ignorare questi segnali può portare a lungo andare al burnout e a problemi di salute fisica legati allo stress cronico.</p>
@@ -233,11 +233,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'solitudine',
-    title: 'Solitudine e isolamento: quando chiedere aiuto',
+    title: 'Solitudine: quando chiedere aiuto?',
     keyword: 'solitudine',
     metaDescription: 'Sentirsi soli non è una colpa. Scopri la differenza tra solitudine e isolamento e come ritrovare la connessione sociale con un supporto adatto a te.',
     date: '2026-08-24',
-    body: `<h1>Solitudine e isolamento: quando chiedere aiuto</h1>
+    body: `<h1>Solitudine: quando chiedere aiuto?</h1>
 <p>La solitudine è un'esperienza umana universale, ma nel mondo moderno ha assunto sfumature preoccupanti. È importante distinguere tra la solitudine scelta (il desiderio di stare con se stessi per ricaricarsi) e la solitudine subita, che può portare a un isolamento sociale profondo e a conseguenze negative sulla salute mentale e fisica, come depressione e ansia.</p>
 <h2>La solitudine nell'era dei social media</h2>
 <p>Paradossalmente, possiamo sentirci profondamente soli pur essendo costantemente connessi digitalmente. La "solitudine emotiva" nasce dalla mancanza di connessioni autentiche e profonde, dove ci sentiamo visti e compresi per chi siamo veramente. I contatti superficiali online spesso non riescono a colmare questo bisogno fondamentale di appartenenza e comprensione.</p>
@@ -254,11 +254,11 @@ export const extraArticles4 = [
   },
   {
     slug: 'digital-detox',
-    title: 'Digital detox: come riprendere il controllo',
+    title: 'Come fare un digital detox?',
     keyword: 'digital detox',
     metaDescription: 'Troppo tempo sugli schermi? Scopri i benefici del digital detox e come ristabilire un rapporto sano con la tecnologia, senza rinunce drastiche.',
     date: '2026-08-24',
-    body: `<h1>Digital detox: come riprendere il controllo della propria vita digitale</h1>
+    body: `<h1>Come fare un digital detox?</h1>
 <p>La tecnologia è uno strumento straordinario, ma il suo uso eccessivo può avere un impatto significativo sulla nostra salute mentale. Il digital detox, ovvero la pratica di ridurre o sospendere l'uso di dispositivi digitali, sta diventando essenziale per combattere lo stress da sovraccarico informativo, l'ansia da confronto sociale e la riduzione della capacità di attenzione.</p>
 <h2>I segnali di una dipendenza tecnologica</h2>
 <p>Abbiamo bisogno di un digital detox quando sentiamo l'impulso incontrollabile di controllare il telefono appena svegli, quando proviamo ansia se la batteria è scarica o quando la nostra produttività cala drasticamente a causa delle continue distrazioni. Questo costante stato di allerta impedisce al cervello di entrare in modalità di riposo profondo e riflessione.</p>

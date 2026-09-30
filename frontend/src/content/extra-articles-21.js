@@ -2,7 +2,7 @@
 export const extraArticles21 = [
   {
     slug: 'disfunzione-erettile-psicologica-cause',
-    title: 'Disfunzione erettile: cause psicologiche',
+    title: 'Disfunzione erettile: è psicologica?',
     keyword: 'disfunzione erettile psicologica',
     metaDescription: 'Disfunzione erettile psicologica: cause, come distinguerla da quella organica e quando un percorso psicologico può risolvere il problema. Sintomi e…',
     date: '2026-09-01',
@@ -30,7 +30,7 @@ export const extraArticles21 = [
   },
   {
     slug: 'paura-di-guidare-amaxofobia',
-    title: 'Paura di guidare (amaxofobia): come superarla',
+    title: 'Paura di guidare: come superarla?',
     keyword: 'paura di guidare',
     metaDescription: 'Paura di guidare (amaxofobia): sintomi, cause e percorso psicologico per superarla. Tecniche per ricominciare a guidare senza ansia, anche online.',
     date: '2026-09-01',
@@ -56,7 +56,7 @@ export const extraArticles21 = [
   },
   {
     slug: 'lutto-per-animale-domestico',
-    title: 'Lutto per un animale domestico: come elaborarlo',
+    title: 'Come superare il lutto per un animale?',
     keyword: 'lutto animale domestico',
     metaDescription: 'Il dolore per la perdita di un animale domestico è un lutto vero. Come elaborarlo, aiutare i bambini e quando un supporto psicologico può fare la…',
     date: '2026-09-01',
@@ -78,7 +78,7 @@ export const extraArticles21 = [
   },
   {
     slug: 'rientro-sportivo-dopo-infortunio',
-    title: 'Infortunio: preparazione mentale al rientro',
+    title: 'Come tornare ad allenarsi dopo un infortunio?',
     keyword: 'rientro sportivo dopo infortunio',
     metaDescription: 'Il rientro dopo un infortunio non è solo fisico: la paura di farsi male di nuovo è reale. Preparazione mentale, psicologia dello sport e percorso di…',
     date: '2026-09-01',

@@ -4,17 +4,17 @@
 export const blogPreview = [
   {
     slug: 'aumentare-autostima-pratica',
-    title: 'Autostima: come aumentarla con piccoli passi',
+    title: 'Come aumentare l'autostima?'autostima?'autostima?',
     date: '2026-09-04',
   },
   {
     slug: 'quanto-costa-la-terapia',
-    title: 'Quanto costa la terapia psicologica online',
+    title: 'Quanto costa uno psicologo online?',
     date: '2026-08-28',
   },
   {
     slug: 'lutto-per-animale-domestico',
-    title: 'Lutto per un animale domestico: come elaborarlo',
+    title: 'Come superare il lutto per un animale?',
     date: '2026-09-01',
   },
 ];

@@ -79,7 +79,7 @@ export const extraArticles8 = [
   },
   {
     slug: 'burnout-lavoro-prevenzione',
-    title: 'Burnout: riconoscerlo e prevenirlo nel lavoro',
+    title: 'Come prevenire il burnout?',
     keyword: 'burnout stress lavoro prevenzione',
     metaDescription: "Il burnout è un esaurimento emotivo legato al lavoro: riconoscerne i segnali è il primo passo. Sintomi, cause, prevenzione e quando chiedere aiuto a uno…",
     date: '2026-09-03',
@@ -105,7 +105,7 @@ export const extraArticles8 = [
   },
   {
     slug: 'aumentare-autostima-pratica',
-    title: 'Autostima: come aumentarla con piccoli passi',
+    title: 'Come aumentare l'autostima?'autostima?',
     keyword: 'autostima bassa aumentare fiducia',
     metaDescription: "L'autostima si costruisce con azioni concrete, non con i pensieri positivi forzati. Scopri esercizi pratici per aumentare la fiducia in te stesso e…",
     date: '2026-09-04',

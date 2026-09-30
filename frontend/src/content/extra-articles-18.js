@@ -2,11 +2,11 @@
 export const extraArticles18 = [
   {
     slug: 'come-si-svolge-una-seduta-di-coppia',
-    title: 'Come si svolge una seduta di terapia di coppia',
+    title: 'Come si svolge una seduta di terapia di coppia?',
     keyword: 'seduta terapia di coppia',
     metaDescription: 'Come funziona una seduta di terapia di coppia: durata, domande, come si lavora in coppia e come prepararsi. Guida pratica per il primo incontro, online o…',
     date: '2026-08-30',
-    body: `<h1>Come si svolge una seduta di terapia di coppia</h1>
+    body: `<h1>Come si svolge una seduta di terapia di coppia?</h1>
 <p>Se state pensando alla terapia di coppia, la prima domanda è quasi sempre: "ma come si svolge una seduta?". È una modalità particolare: non si viene "giudicati" e non serve prepararsi un discorso. Ecco cosa succede, passo dopo passo.</p>
 <h2>La prima seduta: conoscenza e ascolto</h2>
 <p>Nella prima seduta lo psicologo/psicoterapeuta <strong>ascolta entrambi</strong>, alternando le domande: da quanto tempo siete insieme, che cosa vi ha portato, come comunicate nei momenti difficili, cosa vi aspettate dal percorso. È normale che uno dei due parli più dell'altro: il terapeuta si occuperà di riequilibrare i tempi. Nessuno viene giudicato: l'obiettivo è capire <strong>la dinamica</strong>, non stabilire chi ha ragione.</p>

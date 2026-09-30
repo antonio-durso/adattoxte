@@ -2,12 +2,12 @@
 export const extraArticles17 = [
   {
     slug: 'quanto-costa-la-terapia-di-coppia',
-    title: 'Quanto costa la terapia di coppia online',
+    title: 'Quanto costa la terapia di coppia online?',
     keyword: 'quanto costa la terapia di coppia',
     metaDescription: 'Quanto costa la terapia di coppia online: 50€ a seduta, pacchetti scontati e prima conoscitiva gratuita. Guida prezzi 2026.',
     date: '2026-08-30',
     faq: [ { q: 'Quanto costa una seduta di coppia?', a: '50€ per 50 minuti; il pacchetto di 3 sedute ha il 15% di sconto.' }, { q: 'La prima seduta di coppia è gratuita?', a: 'La prima conoscitiva gratuita è individuale; per la coppia si parte dalla seduta standard.' }, { q: 'La terapia di coppia online funziona?', a: 'Sì, entrambi i partner si collegano alla videochiamata.' } ],
-    body: `<h1>Quanto costa la terapia di coppia? Prezzi e fattori da considerare</h1>
+    body: `<h1>Quanto costa la terapia di coppia online?</h1>
 <p>La terapia di coppia è un investimento nella relazione, ma il costo è una delle prime domande: quanto costa davvero, e da cosa dipende? Ecco una guida realistica ai prezzi, con i fattori che fanno la differenza.</p>
 <h2>Quanto costa in media una seduta</h2>
 <p>In Italia una seduta di terapia di coppia costa in media <strong>tra i 50 e i 100 euro</strong>. I prezzi variano molto per area geografica: nelle grandi città (Milano, Roma) si supera spesso gli 80-100 euro, mentre in altre aree si parte da 50-60 euro. La seduta dura in genere <strong>60-75 minuti</strong> (più lunga di quella individuale, perché coinvolge due persone).</p>

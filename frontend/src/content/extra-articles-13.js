@@ -2,12 +2,12 @@
 export const extraArticles13 = [
   {
     slug: 'quanto-costa-la-terapia',
-    title: 'Quanto costa la terapia psicologica online',
+    title: 'Quanto costa uno psicologo online?',
     keyword: 'quanto costa la terapia',
     metaDescription: 'Quanto costa uno psicologo online in Italia: sedute da 45€, prima gratuita, differenze tra psicologo e psicoterapeuta. Guida aggiornata 2026.',
     date: '2026-08-28',
     faq: [ { q: 'La prima seduta dallo psicologo è davvero gratuita?', a: 'Sì: 15 minuti conoscitivi, senza impegno.' }, { q: 'Quanto costa una seduta online da 50 minuti?', a: '45€ individuale, 50€ di coppia; il pacchetto di 3 sedute ha il 15% di sconto.' }, { q: 'La terapia online costa meno di quella in studio?', a: 'In genere sì, perché non ci sono i costi di struttura e di spostamento.' } ],
-    body: `<h1>Quanto costa la terapia psicologica: prezzi medi e come risparmiare</h1>
+    body: `<h1>Quanto costa uno psicologo online?</h1>
 <p>Il costo è una delle prime domande quando si pensa di iniziare un percorso psicologico — e anche uno dei motivi per cui tante persone rimandano. Ecco i prezzi medi in Italia, cosa li influenza e le strategie concrete per rendere la terapia sostenibile.</p>
 <h2>I prezzi medi di una seduta</h2>
 <ul><li><strong>Psicologo in studio</strong>: 60-80 euro a seduta nelle città principali, meno in provincia;</li><li><strong>Psicologo online</strong>: 45-60 euro a seduta, in media più accessibile;</li><li><strong>Psicoterapeuta</strong>: spesso 70-100 euro, perché ha una specializzazione post-laurea in psicoterapia;</li><li><strong>Terapia di coppia</strong>: 50-90 euro a seduta, in base a città e professionista.</li></ul>
