@@ -5,7 +5,7 @@ export const extraArticles19 = [
     title: 'Ansia da rientro al lavoro: come gestirla?',
     keyword: 'ansia da rientro al lavoro dopo le ferie',
     metaDescription: 'Tristezza, stanchezza e ansia al rientro dalle ferie? Come riconoscerle e gestirle con strategie pratiche, e quando chiedere aiuto a uno psicologo online.',
-    date: '2026-10-02',
+    date: '2026-08-31',
     body: `<h1>Ansia da rientro al lavoro: come gestirla?</h1>
 <p>Il rientro al lavoro dopo le ferie è per molte persone un momento difficile: stanchezza, irritabilità, malinconia e una sensazione di "già saturi" prima ancora di riprendere il ritmo. Non è pigrizia: è una reazione normale del corpo e della mente al passaggio da una fase di libertà a una di routine e impegni.</p>
 <h2>Perché il rientro pesa tanto</h2>
@@ -27,7 +27,7 @@ export const extraArticles19 = [
     title: 'Ansia da rientro a scuola: cosa fare?',
     keyword: 'ansia da rientro a scuola adolescenti',
     metaDescription: "Rifiuto di andare a scuola, mal di pancia, irritabilità al rientro? Come riconoscere l'ansia da rientro scolastico negli adolescenti e supportarli senza…",
-    date: '2026-10-06',
+    date: '2026-08-31',
     body: `<h1>Ansia da rientro a scuola: cosa fare?</h1>
 <p>Il rientro a scuola è una tappa carica di attese e timori: nuovi insegnanti, nuove classi, il peso dei voti e dei confronti. In molti adolescenti questa fase produce ansia: mal di pancia e mal di testa al mattino, irritabilità, insonnia, difficoltà a riprendere la concentrazione o un esplicito rifiuto di andare a scuola.</p>
 <h2>I segnali da non sottovalutare</h2>
@@ -49,7 +49,7 @@ export const extraArticles19 = [
     title: "Paura di volare: come superarla?",
     keyword: 'ansia da aereo',
     metaDescription: "Sudorazione, tachicardia, pensieri catastrofici in volo: la paura di volare si supera. Strategie pratiche per gestire l'ansia da aereo prima e durante il…",
-    date: '2026-10-09',
+    date: '2026-08-31',
     body: `<h1>Paura di volare: come superarla?</h1>
 <p>Per molte persone salire su un aereo è un'esperienza che scatena ansia intensa: tachicardia, sudorazione, sensazione di mancanza d'aria, pensieri catastrofici ("e se succedesse qualcosa?"). La paura di volare (o aviofobia) può portare a evitare viaggi, lavoro e occasioni importanti: una limitazione che si può superare con il lavoro giusto.</p>
 <h2>Da dove nasce la paura di volare</h2>
@@ -70,7 +70,7 @@ export const extraArticles19 = [
     title: 'Ansia o stress? Come distinguerli',
     keyword: 'differenza tra ansia e stress',
     metaDescription: "Stress e ansia non sono la stessa cosa: capire la differenza aiuta a gestirli. Segnali, cause e strategie pratiche per riconoscerli e affrontarli.",
-    date: '2026-10-13',
+    date: '2026-08-31',
     body: `<h1>Ansia o stress? Come distinguerli</h1>
 <p>Stress e ansia vengono spesso usati come sinonimi, ma sono due esperienze diverse, che richiedono risposte diverse. Riuscire a distinguerli è il primo passo per gestirli: lo stress è una reazione a una richiesta esterna, l'ansia è una preoccupazione che continua anche quando la richiesta è finita.</p>
 <h2>Le differenze essenziali</h2>
@@ -96,7 +96,7 @@ export const extraArticles19 = [
     title: 'Psicologo online in inglese per stranieri',
     keyword: 'psicologo online in inglese',
     metaDescription: 'Psicologo online in inglese per expat: sedute in videochiamata con terapeuti qualificati. English-speaking therapy online.',
-    date: '2026-10-16',
+    date: '2026-08-31',
     faq: [ { q: 'Posso fare la terapia in inglese?', a: 'Sì, la piattaforma offre sedute in italiano e inglese.' }, { q: 'Posso iniziare dall\'estero?', a: 'Sì, la videochiamata funziona ovunque.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
     body: `<h1>Psicologo online in inglese: terapia per expat e stranieri in Italia</h1>
 <p>Chi vive all'estero — expat, studenti internazionali, stranieri in Italia — affronta una doppia sfida: le difficoltà comuni a tutti (ansia, stress, relazioni) e il peso del cambiamento culturale. E in terapia la lingua è tutto: parlare delle proprie emozioni in una lingua che non è la propria può creare una distanza emotiva che rende il lavoro meno profondo.</p>

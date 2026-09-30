@@ -5,7 +5,7 @@ export const extraArticles20 = [
     title: "Umore basso in autunno: è il disturbo stagionale?",
     keyword: 'disturbo affettivo stagionale',
     metaDescription: "Con l'autunno cala l'umore, aumenta la stanchezza e il bisogno di dormire? Può essere il disturbo affettivo stagionale: sintomi, cause e come affrontarlo.",
-    date: '2026-10-20',
+    date: '2026-08-31',
     body: `<h1>Umore basso in autunno: è il disturbo stagionale?</h1>
 <p>Con la fine dell'estate e il calo della luce, molte persone notano un peggioramento dell'umore: stanchezza che non passa, aumento del bisogno di dormire, voglia di carboidrati, meno energia e motivazione. Quando questi cambiamenti si ripetono ogni anno nella stessa stagione, si parla di disturbo affettivo stagionale (SAD).</p>
 <h2>I sintomi tipici</h2>
@@ -33,7 +33,7 @@ export const extraArticles20 = [
     title: "Come aiutare un familiare con depressione?",
     keyword: 'come aiutare chi ha ansia e depressione',
     metaDescription: "Cosa dire e cosa evitare con chi soffre di ansia o depressione: ascolto, validazione, supporto pratico e quando consigliare un percorso con un…",
-    date: '2026-10-23',
+    date: '2026-08-31',
     body: `<h1>Come aiutare un familiare con depressione?</h1>
 <p>Quando una persona cara soffre di ansia o depressione, chi le sta accanto vive spesso un senso di impotenza: si vorrebbe aiutare ma non si trovano le parole, si teme di dire la cosa sbagliata, si fatica a capire cosa serve davvero. Eppure il supporto della famiglia è uno dei fattori più importanti nel percorso di recupero.</p>
 <h2>Cosa dire (e cosa funziona)</h2>
@@ -59,7 +59,7 @@ export const extraArticles20 = [
     title: 'Relazione a distanza: funziona davvero?',
     keyword: 'relazione a distanza',
     metaDescription: "La distanza mette alla prova la coppia: gelosia, comunicazione, progetti. Come far funzionare una relazione a distanza e quando la terapia di coppia…",
-    date: '2026-10-27',
+    date: '2026-08-31',
     body: `<h1>Relazione a distanza: funziona davvero?</h1>
 <p>Le relazioni a distanza sono sempre più comuni: lavoro, studio o scelte di vita separano temporaneamente molte coppie. Possono funzionare molto bene, ma richiedono abilità di comunicazione e gestione delle emozioni più sviluppate rispetto a una convivenza: la distanza amplifica incomprensioni, gelosie e insicurezze.</p>
 <h2>I fattori che fanno funzionare una relazione a distanza</h2>
@@ -80,7 +80,7 @@ export const extraArticles20 = [
     title: "Perché gli uomini faticano a chiedere aiuto?",
     keyword: 'uomini e psicologo',
     metaDescription: "Perché gli uomini faticano a iniziare un percorso psicologico, come superare i pregiudizi e quanto può cambiare la vita: la prima seduta gratuita è il…",
-    date: '2026-10-29',
+    date: '2026-08-31',
     body: `<h1>Perché gli uomini faticano a chiedere aiuto?</h1>
 <p>Ancora oggi molti uomini vivono il disagio in silenzio. Il messaggio sociale — spesso implicito — è che un uomo debba farcela da solo, gestire le emozioni senza mostrarsi vulnerabile e risolvere i problemi in autonomia. Il risultato è che l'aiuto psicologico arriva tardi, quando il malessere si è già cronicizzato.</p>
 <h2>Come si manifesta il disagio negli uomini</h2>
@@ -100,7 +100,7 @@ export const extraArticles20 = [
     title: 'Cybercondria: perché temo di essere malato?',
     keyword: 'cybercondria ansia da malattia',
     metaDescription: "Cercare sintomi online e convincersi di essere gravemente malati: la cybercondria (o ansia da malattia) si supera. Riconoscerla e affrontarla con…",
-    date: '2026-10-30',
+    date: '2026-08-31',
     body: `<h1>Cybercondria: perché temo di essere malato?</h1>
 <p>Un dolore, un fastidio, un sintomo strano: e in pochi minuti si è passati da un mal di testa a scenari inquietanti letti su internet. La ricerca ossessiva di sintomi online — la "cybercondria" — è la forma moderna dell'ansia per la propria salute: più si cerca, più l'ansia cresce, e più l'ansia spinge a cercare. Un circolo che può avvelenare le giornate.</p>
 <h2>Come riconoscerla</h2>
