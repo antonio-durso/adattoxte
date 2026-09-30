@@ -56,7 +56,7 @@ const IT = {
   home: 'Home',
   therapists: 'Terapeuti',
   forLabel: 'Psicologo online per',
-  inLabel: 'Psicologo online a',
+  inLabel: 'Psicologo online',
   cta: 'Trova il tuo terapeuta',
   meta: 'Sedute da 45€ · Videochiamata sicura · Orari flessibili',
   signs: 'Segnali da non ignorare',
