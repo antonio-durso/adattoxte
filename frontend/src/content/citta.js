@@ -121,6 +121,10 @@ import { cittaEstesi1 } from './citta-estesi-1.js';
 import { cittaEstesi2 } from './citta-estesi-2.js';
 import { cittaEstesi3 } from './citta-estesi-3.js';
 import { cittaEstesi4 } from './citta-estesi-4.js';
+import { cittaEstesi5 } from './citta-estesi-5.js';
+import { cittaEstesi6 } from './citta-estesi-6.js';
+import { cittaEstesi7 } from './citta-estesi-7.js';
+import { cittaEstesi8 } from './citta-estesi-8.js';
 
 const cittaBase = [
     {
@@ -1737,6 +1741,10 @@ const cittaEstesi = [
   ...cittaEstesi2,
   ...cittaEstesi3,
   ...cittaEstesi4,
+  ...cittaEstesi5,
+  ...cittaEstesi6,
+  ...cittaEstesi7,
+  ...cittaEstesi8,
 ];
 
 const cittaPerSlug = new Map(cittaBase.map((x) => [x.slug, x]));
