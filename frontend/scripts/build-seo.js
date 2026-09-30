@@ -33,6 +33,9 @@ const { EN_ACTIVE } = await import('../src/config.js');
 const { cittaEn } = await import('../src/content/citta-en.js');
 const { disturbiEn } = await import('../src/content/disturbi-en.js');
 const { paesi } = await import('../src/content/paesi.js');
+// Slug uniti in un'altra pagina (301): vanno esclusi dalla sitemap. Elenco unico
+// in articles.js, cosi' build-seo e il sito non possono divergere.
+const { SLUG_UNITI } = await import('../src/content/articles.js');
 const LANDING_ROUTES = [
   ...disturbi.map((d) => ({ path: `/psicologo-online/${d.slug}`, priority: '0.7', freq: 'weekly' })),
   // Solo le città TOP con contenuto differenziato: le altre restano noindex e fuori sitemap
@@ -90,7 +93,10 @@ function readArticles() {
     const dates = [...src.matchAll(dateRe)].map((m) => m[1]);
     slugs.forEach((slug, i) => found.push({ slug, date: dates[i] || today }));
   }
-  return found;
+  // Gli slug uniti in un'altra pagina (sezione 4 del documento) NON devono stare in
+  // sitemap: il loro URL risponde 301. L'elenco arriva da articles.js (SLUG_UNITI),
+  // non da una copia locale, cosi' non puo' andare fuori sincrono.
+  return found.filter((a) => !SLUG_UNITI.has(a.slug));
 }
 
 

@@ -373,6 +373,27 @@ function CittaView({ c, isEn }) {
         ]} />
       )}
 
+      {/* Firma dell'autore anche sulle pagine città: prima c'era solo sulle
+          pagine disturbo e sugli articoli. Stesse credenziali di BlogArticle.jsx. */}
+      {!isEn && (
+        <section className="container section">
+          <div style={{ maxWidth: 640, display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+            <div
+              aria-hidden="true"
+              style={{ width: 40, height: 40, borderRadius: '50%', background: '#2f7ba6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 17, flexShrink: 0 }}
+            >
+              A
+            </div>
+            <p className="muted small" style={{ margin: 0, lineHeight: 1.5 }}>
+              <strong style={{ color: '#0f172a' }}>Contenuto a cura di Dott. Antonio D&apos;Urso</strong>
+              <br />
+              Iscritto all&apos;Albo degli Psicologi della Campania n. 5408, fondatore di Adatto x Te. Informazioni a scopo informativo: non sostituiscono un consulto professionale.{' '}
+              <Link to="/chi-siamo">Scopri chi siamo</Link>
+            </p>
+          </div>
+        </section>
+      )}
+
       <section className="container section">
         <Reveal>
           <h3>{L.nearby}</h3>

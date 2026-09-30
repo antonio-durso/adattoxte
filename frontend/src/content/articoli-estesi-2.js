@@ -288,7 +288,7 @@ export const articoliEstesi2 = [
 
 <h2>Cos'è un attacco di panico (e cosa non è)</h2>
 <p>Un attacco di panico è un'ondata improvvisa di paura intensa che raggiunge il picco in pochi minuti e poi scende. Non è una malattia improvvisa del cuore e non è un segno di follia: è una <strong>risposta di allarme</strong> che il corpo attiva in assenza di un pericolo reale. I sintomi sono forti, ma l'attacco non è pericoloso per la vita e, di per sé, passa.</p>
-<p><strong>Cosa non è.</strong> Non è una mancanza di forza, non è un capriccio, non è qualcosa che "ti sei andato a cercare". E non è nemmeno, da solo, un disturbo: un singolo episodio può capitare a chiunque in un periodo di stress. Il problema nasce dopo, quando la paura dell'attacco comincia a organizzare la vita — ma di questo parliamo nella nostra <a href="/blog/attacchi-di-panico-guida-completa">guida completa agli attacchi di panico</a>.</p>
+<p><strong>Cosa non è.</strong> Non è una mancanza di forza, non è un capriccio, non è qualcosa che "ti sei andato a cercare". E non è nemmeno, da solo, un disturbo: un singolo episodio può capitare a chiunque in un periodo di stress. Il problema nasce dopo, quando la paura dell'attacco comincia a organizzare la vita — ma di questo parliamo nella nostra <a href="/blog/attacchi-di-panico">guida completa agli attacchi di panico</a>.</p>
 <p>Solo un professionista può valutare cosa sta succedendo e distinguere un attacco di panico da altre condizioni che possono assomigliargli.</p>
 
 <h2>Come si riconosce: i segnali di un attacco</h2>

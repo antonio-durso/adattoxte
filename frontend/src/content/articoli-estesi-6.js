@@ -250,7 +250,7 @@ export const articoliEstesi6 = [
 <p>Alcune attenzioni utili: separare il risultato dalla persona ("questo compito non è andato, ma tu non sei il compito"), cercare insieme una strategia concreta (metodo di studio, supporto, tempi), e valorizzare ciò in cui il bambino è portato, anche se non è la matematica. Nei casi di ansia legati alla scuola, può aiutare leggere <a href="/blog/ansia-rientro-scuola-adolescenti">ansia e rientro a scuola negli adolescenti</a>, che descrive dinamiche simili.</p>
 <h2>Quando serve un supporto psicologico</h2>
 <p>Non sempre una bassa autostima è "una fase". Vale la pena chiedere il parere di un professionista quando: la svalutazione è costante e non reagisce agli incoraggiamenti; il bambino evita sistematicamente le situazioni sociali o scolastiche; compaiono ansia, sintomi fisici legati alla scuola, o un umore basso persistente; il ritiro o l'autocritica interferiscono con le amicizie e con l'apprendimento.</p>
-<p>Una <a href="/blog/autostima-bassa">bassa autostima</a>, se consolidata, tende ad accompagnare la persona anche in età adulta, se non viene affrontata. Intervenire da piccoli è uno dei regali più utili che un genitore possa fare. Se il bambino tende all'isolamento, trovi elementi utili anche in <a href="/blog/timidezza">timidezza: quando diventa un limite</a>.</p>
+<p>Una <a href="/blog/aumentare-autostima-pratica">bassa autostima</a>, se consolidata, tende ad accompagnare la persona anche in età adulta, se non viene affrontata. Intervenire da piccoli è uno dei regali più utili che un genitore possa fare. Se il bambino tende all'isolamento, trovi elementi utili anche in <a href="/blog/timidezza">timidezza: quando diventa un limite</a>.</p>
 <p>Per un percorso mirato puoi vedere la pagina dedicata all'<a href="/psicologo-online/autostima">autostima</a>.</p>
 <h2>Come funziona un percorso online</h2>
 <p>Con i bambini, il percorso coinvolge sempre i genitori e si adatta all'età: nei più piccoli si lavora molto attraverso il gioco e il colloquio con la famiglia, negli adolescenti anche con colloqui individuali. La terapia online permette di iniziare senza spostamenti e con orari compatibili con la scuola e il lavoro. Puoi vedere <a href="/prezzi">quanto costa</a> e conoscere i professionisti nella <a href="/terapeuti">pagina dell'équipe</a>.</p>
@@ -569,7 +569,7 @@ export const articoliEstesi6 = [
 <li><strong>Sensa di perdita di identità.</strong> La fatica a riconoscersi, o il sentire che il proprio posto nel mondo cambia.</li>
 <li><strong>Riflessione sul corpo.</strong> Il rapporto con il proprio corpo si rinegozia, e con esso il rapporto con l'immagine di sé.</li>
 </ul>
-<p>Nessuno di questi vissuti, da solo, indica un problema clinico. Ma se diventano intensi o persistenti, meritano ascolto — anche perché ansia e umore basso in questa fase possono essere confusi con "il carattere" o con "l'età", e finire per non essere mai affrontati. Puoi approfondire i segnali in <a href="/blog/autostima-bassa">bassa autostima</a>.</p>
+<p>Nessuno di questi vissuti, da solo, indica un problema clinico. Ma se diventano intensi o persistenti, meritano ascolto — anche perché ansia e umore basso in questa fase possono essere confusi con "il carattere" o con "l'età", e finire per non essere mai affrontati. Puoi approfondire i segnali in <a href="/blog/aumentare-autostima-pratica">bassa autostima</a>.</p>
 <h2>Cosa aiuta davvero</h2>
 <p>Alcune cose che fanno la differenza, sul piano del benessere psicologico (lasciando al medico tutto ciò che riguarda i sintomi fisici):</p>
 <ul>

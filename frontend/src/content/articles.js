@@ -29,6 +29,9 @@ import { extraArticles23 } from './extra-articles-23.js';
 // Estensioni: contengono la versione lunga di articoli già esistenti (stesso slug).
 // Stanno in fondo e vincono sull'originale — vedi la deduplica per slug qui sotto.
 import { articoliEstesi1 } from './articoli-estesi-1.js';
+import { articoliUniti1 } from './articoli-uniti-1.js';
+import { articoliUniti2 } from './articoli-uniti-2.js';
+import { dateReali } from './date-reali.js';
 import { articoliEstesi2 } from './articoli-estesi-2.js';
 import { articoliEstesi3 } from './articoli-estesi-3.js';
 import { articoliEstesi4 } from './articoli-estesi-4.js';
@@ -78,14 +81,46 @@ const rawArticles = [
   ...articoliEstesi10,
   ...articoliEstesi11,
   ...articoliEstesi12,
+  ...articoliUniti1,
+  ...articoliUniti2,
 ];
 
 // Deduplica per slug: a parità di slug vince l'ULTIMA occorrenza, cioè la versione
 // estesa. Prima di questo filtro l'elenco conteneva due volte lo stesso slug e
 // getArticle() restituiva la prima — quindi un'estensione scritta in coda non si
 // sarebbe mai vista. Il test 'articoli: slug univoci' copre la regressione.
+// Slug uniti in un'altra pagina (sezione 4 del documento): la voce viene tolta
+// dall'elenco, quindi non viene piu' generata, sparisce dalla sitemap e il vecchio
+// URL risponde 301 verso il keeper (vedi vercel.json). Tieni questo set allineato
+// ai redirect: se un slug sta qui ma non in vercel.json, l'URL diventa un 404.
+export const SLUG_UNITI = new Set([
+  'attacchi-di-panico-guida-completa',   // -> attacchi-di-panico
+  'insonnia-e-stress-dormire-meglio',    // -> insonnia-e-stress
+  'preparazione-concorsi-pubblici',      // -> preparazione-mentale-concorsi-pubblici
+  'primo-colloquio-psicologo',           // -> prima-seduta-psicologo
+  'psicologia-giuridica-cosa-fa',        // -> psicologia-giuridica-consulenza-tecnica
+  'psicologo-online-o-studio',           // -> psicologo-online-o-in-presenza
+  'autostima-bassa',                     // -> aumentare-autostima-pratica
+]);
+
+// Merge PER CAMPO (come in disturbi.js/citta.js): le voci di articoli-uniti-*.js
+// portano solo { slug, body }, quindi title/keyword/metaDescription/date restano
+// quelli dell'articolo originale. Gli articoli-estesi portano tutti i campi, per
+// cui il risultato è identico a prima (l'ultima occorrenza vince campo per campo).
 const perSlug = new Map();
-for (const a of rawArticles) perSlug.set(a.slug, a);
+for (const a of rawArticles) {
+  if (SLUG_UNITI.has(a.slug)) continue;
+  const base = perSlug.get(a.slug);
+  perSlug.set(a.slug, base ? { ...base, ...a } : a);
+}
+
+// Date di pubblicazione e di ultima revisione lette dalla storia git reale
+// (date-reali.js). Prima 68 articoli avevano tutti 2026-08-24, data sbagliata per
+// quelli aggiunti dopo.
+for (const [slug, a] of perSlug) {
+  const d = dateReali[slug];
+  if (d) perSlug.set(slug, { ...a, date: d.date, dateModified: d.dateModified || a.dateModified });
+}
 
 export const articles = [...perSlug.values()].sort(
   (a, b) => (a.date < b.date ? 1 : -1)

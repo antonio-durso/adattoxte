@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { visibleArticles as articles } from '../content/articles';;
 import { disturbi } from '../content/disturbi';
 import { citta, CITTA_TOP } from '../content/citta';
+import { hubOnlineTesto } from '../content/hub-online-testo.js';
 import Seo from '../components/Seo';
 import { useI18n } from '../i18n';
 
@@ -259,6 +260,17 @@ export default function NicheLanding({ niche }) {
           Trova il tuo psicologo →
         </Link>
       </div>
+
+      {/* Testo lungo dell'hub /psicologo-online (hub-online-testo.js). La pagina
+          ha 178 link in uscita: senza testo proprio il rapporto parole/link resta
+          il più basso fra i concorrenti misurati. Solo italiano. */}
+      {niche === 'online' && hubOnlineTesto && (
+        <div
+          className="prose-guida"
+          style={{ maxWidth: 780, margin: '6px auto 0', lineHeight: 1.7 }}
+          dangerouslySetInnerHTML={{ __html: hubOnlineTesto }}
+        />
+      )}
 
       {/* Firma clinica (E-E-A-T): autore della pagina */}
       {n.firma && (

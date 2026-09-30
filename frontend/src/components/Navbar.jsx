@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n';
 import { EN_ACTIVE } from '../config';
@@ -67,16 +67,18 @@ export default function Navbar() {
   // Prefisso lingua: in modalità inglese i link di navigazione puntano a /en/...
   const enPrefix = lang === 'en' ? '/en' : '';
 
-  const toggleLang = () => {
-    const next = lang === 'it' ? 'en' : 'it';
-    const path = window.location.pathname;
-    const isEnPath = path === '/en' || path.startsWith('/en/');
-    const target = next === 'en'
-      ? (isEnPath ? path : path === '/' ? '/en' : '/en' + path)
-      : (isEnPath ? (path.replace(/^\/en/, '') || '/') : path);
-    setLang(next);
-    navigate(target);
-  };
+  // URL corrispondente nell'altra lingua. Il selettore è un <Link> vero e non un
+  // solo onClick: prima era un <button>, quindi per i crawler le pagine /en
+  // restavano 100 URL in sitemap senza nessun link interno in entrata.
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const isEnPath = currentPath === '/en' || currentPath.startsWith('/en/');
+  const nextLang = lang === 'it' ? 'en' : 'it';
+  const langTarget = nextLang === 'en'
+    ? (isEnPath ? currentPath : currentPath === '/' ? '/en' : '/en' + currentPath)
+    : (isEnPath ? (currentPath.replace(/^\/en/, '') || '/') : currentPath);
+
+  const toggleLang = () => setLang(nextLang);
 
   return (
     <header className="navbar">
@@ -130,14 +132,15 @@ export default function Navbar() {
           {/* Bottone lingua: visibile solo se EN attiva oppure se si è già su una
               pagina /en (in quel caso serve per tornare alla versione italiana) */}
           {(EN_ACTIVE || lang === 'en') && (
-          <button
+          <Link
             className="lang-toggle"
+            to={langTarget}
             onClick={toggleLang}
             aria-label={`${t('common.language')}: ${lang === 'it' ? 'EN' : 'IT'}`}
             title={`${t('common.language')}: ${lang === 'it' ? 'EN' : 'IT'}`}
           >
             {lang === 'it' ? 'EN' : 'IT'} <span aria-hidden="true">▾</span>
-          </button>
+          </Link>
           )}
           {user ? (
             <button className="btn btn-outline btn-sm" onClick={handleLogout}>

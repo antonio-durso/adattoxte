@@ -469,7 +469,7 @@ export const articoliEstesi9 = [
 <li><strong>Non cercare di vincere il confronto.</strong> Provare a dimostrare all'altro la realtà, ogni volta, spesso logora e non funziona. Il punto non è convincerlo: è ritrovare fiducia nella tua percezione.</li>
 <li><strong>Mantenere i legami esterni.</strong> Non isolarti: le persone di fiducia fuori dalla dinamica sono una base concreta, anche solo per avere un altro punto di vista.</li>
 <li><strong>Ascoltare il disagio.</strong> Ansia, insonnia, il senso di essere sempre in errore sono segnali da prendere sul serio, non da minimizzare. Non dicono automaticamente cosa sta succedendo, ma dicono che qualcosa pesa.</li>
-<li><strong>Parlarne con un professionista.</strong> Uno psicologo aiuta a distinguere ciò che appartiene alla dinamica da ciò che appartiene a te, e a ricostruire l'<a href="/blog/autostima-bassa">autostima</a> che si è consumata.</li>
+<li><strong>Parlarne con un professionista.</strong> Uno psicologo aiuta a distinguere ciò che appartiene alla dinamica da ciò che appartiene a te, e a ricostruire l'<a href="/blog/aumentare-autostima-pratica">autostima</a> che si è consumata.</li>
 </ul>
 <p>Cosa invece non aiuta: cercare continue rassicurazioni dall'altro; isolarti per "non disturbare"; usare la parola gaslighting come arma in una lite; o aspettare di essere completamente sicuro prima di chiedere un aiuto esterno. Se nella relazione c'è gelosia che ti controlla, può essere utile anche leggere di <a href="/blog/gelosia-in-coppia">gelosia in coppia</a>.</p>
 <h2>Quando chiedere aiuto</h2>

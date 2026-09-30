@@ -113,7 +113,7 @@ export default function BlogArticle() {
         headline: article.title,
         description: article.metaDescription,
         datePublished: article.date,
-        dateModified: article.date,
+        dateModified: article.dateModified || article.date,
         inLanguage: 'it',
         author: {
           '@type': 'Person',
@@ -139,7 +139,7 @@ export default function BlogArticle() {
         headline: article.title,
         description: article.metaDescription,
         datePublished: article.date,
-        dateModified: article.date,
+        dateModified: article.dateModified || article.date,
         inLanguage: 'it',
         author: {
           '@type': 'Person',
@@ -256,6 +256,9 @@ export default function BlogArticle() {
             </strong>
             <span className="muted" style={{ fontSize: 12.5 }}>
               {ARTICLE_AUTHOR.role} · {formatDate(article.date)} · ⏱ {minutes} {lang === 'it' ? 'min di lettura' : 'min read'}
+              {article.dateModified && article.dateModified !== article.date && (
+                <> · {lang === 'it' ? 'Ultima revisione' : 'Last reviewed'} {formatDate(article.dateModified)}</>
+              )}
             </span>
           </div>
         </div>

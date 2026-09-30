@@ -202,7 +202,7 @@ export const disturbiEstesi3 = [
 <p>Anche l'esposizione alla luce conta: qualche minuto di luce naturale al mattino aiuta a sincronizzare i ritmi, mentre la luce intensa la sera li ritarda. Non è un dettaglio secondario: questi segnali dicono al corpo quando è il momento di essere sveglio e quando di riposare.</p>
 <p>Se il sonno è sfasato rispetto agli orari del mondo - per turni o per un cronotipo tardivo - il lavoro è diverso e riguarda il riallineamento; puoi approfondirlo nella pagina sul <a href="/psicologo-online/disturbo-del-ritmo-circadiano">disturbo del ritmo circadiano</a>. La terapia non sostituisce il medico: se la sonnolenza è invalidante o compaiono altri sintomi fisici, è utile parlarne con chi ti segue.</p>
 
-<p>Puoi iniziare consultando i <a href="/terapeuti">terapeuti</a> e, per un primo orientamento, l'articolo su <a href="/blog/insonnia-e-stress">insonnia e stress</a> e l'approfondimento su <a href="/blog/insonnia-e-stress-dormire-meglio">dormire meglio</a>. Anche la pagina sull'<a href="/psicologo-online/ansia">ansia</a> può aiutarti a capire se il sonno è la punta di un problema più ampio.</p>`,
+<p>Puoi iniziare consultando i <a href="/terapeuti">terapeuti</a> e, per un primo orientamento, l'articolo su <a href="/blog/insonnia-e-stress">insonnia e stress</a> e l'approfondimento su <a href="/blog/insonnia-e-stress">dormire meglio</a>. Anche la pagina sull'<a href="/psicologo-online/ansia">ansia</a> può aiutarti a capire se il sonno è la punta di un problema più ampio.</p>`,
     sintomi: [
       "Ti addormenti solo dopo ore di letto, con la mente che non si spegne",
       "Ti svegli più volte nella notte e fai fatica a riaddormentarti",

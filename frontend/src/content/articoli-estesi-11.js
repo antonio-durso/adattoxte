@@ -115,7 +115,7 @@ export const articoliEstesi11 = [
 <h3>Cambia qualcosa scegliere l'online?</h3>
 <p>Cambia il canale, non le credenziali. Anche nella terapia a distanza il professionista è iscritto all'albo e vincolato al segreto professionale. Qui trovi <a href="/blog/psicoterapia-online-privacy">come funziona la privacy nella terapia online</a>.</p>
 <h3>Come capisco se il professionista giusto è lui?</h3>
-<p>Non lo capisci leggendo. Lo capisci dopo uno o due incontri, sentendo se ti ascolta davvero e se ti dà un'ipotesi di lavoro. Se vuoi iniziare senza impegno, la prima seduta conoscitiva è il modo più semplice: su Adatto x Te la prima seduta individuale è gratuita e non vincolante. Puoi <a href="/terapeuti">vedere i profili dei professionisti</a> con qualifica e orientamento, e trovare i dettagli sui costi nella pagina <a href="/prezzi">prezzi</a>. Se è il tuo primo incontro in assoluto, leggi anche <a href="/blog/primo-colloquio-psicologo">cosa aspettarti dal primo colloquio</a>.</p>`,
+<p>Non lo capisci leggendo. Lo capisci dopo uno o due incontri, sentendo se ti ascolta davvero e se ti dà un'ipotesi di lavoro. Se vuoi iniziare senza impegno, la prima seduta conoscitiva è il modo più semplice: su Adatto x Te la prima seduta individuale è gratuita e non vincolante. Puoi <a href="/terapeuti">vedere i profili dei professionisti</a> con qualifica e orientamento, e trovare i dettagli sui costi nella pagina <a href="/prezzi">prezzi</a>. Se è il tuo primo incontro in assoluto, leggi anche <a href="/blog/prima-seduta-psicologo">cosa aspettarti dal primo colloquio</a>.</p>`,
   },
   {
     slug: "come-funziona-una-seduta-di-psicologia-online",
@@ -124,7 +124,7 @@ export const articoliEstesi11 = [
     metaDescription: "Come funziona una seduta di psicologia online: prenotazione, pagamento, videochiamata, privacy e differenze con la terapia in presenza. Guida completa.",
     date: "2026-09-01",
     body: `<p>Hai l'appuntamento fissato, magari per le nove di sera, il portatile sul tavolo, e una domanda molto concreta: ma come funziona esattamente? Ti chiedi se devi installare qualcosa, dove si entra, quanto dura, se la seduta è come la immagini. È una domanda pratica, e merita una risposta pratica.</p>
-<p>Questo articolo racconta il <strong>come</strong>: passo per passo, cosa succede dall'appuntamento alla chiusura, cosa ti serve, quanto dura, con che cadenza si ripete. Non trovi qui cosa dirai — quello è il tema del <a href="/blog/primo-colloquio-psicologo">primo colloquio</a> — ma cosa farai, concretamente, e in che ordine.</p>
+<p>Questo articolo racconta il <strong>come</strong>: passo per passo, cosa succede dall'appuntamento alla chiusura, cosa ti serve, quanto dura, con che cadenza si ripete. Non trovi qui cosa dirai — quello è il tema del <a href="/blog/prima-seduta-psicologo">primo colloquio</a> — ma cosa farai, concretamente, e in che ordine.</p>
 <h2>Cosa serve per fare una seduta online?</h2>
 <ul>
 <li>un dispositivo con fotocamera e microfono: computer, tablet o smartphone;</li>
@@ -250,7 +250,7 @@ export const articoliEstesi11 = [
     metaDescription: "Prima seduta dallo psicologo: cosa succede, cosa dire, quanto dura e come prepararsi senza ansia. Guida pratica con i consigli del terapeuta.",
     date: "2026-08-30",
     body: `<p>Hai deciso di iniziare: hai scelto un professionista, magari hai già guardato gli orari disponibili. E adesso arriva la parte che nessuno racconta, quella fatta di dettagli pratici: come si prenota, cosa succede se devo spostare, cosa porto con me, come mi organizzo per collegarmi. Sembrano cose piccole, ma sono proprio quelle che, se non chiare, fanno rimandare.</p>
-<p>Questo articolo è una guida all'<strong>organizzazione</strong> della prima seduta. Non parla di cosa dirai né di cosa ti chiederà il terapeuta — quello lo trovi in <a href="/blog/primo-colloquio-psicologo">cosa aspettarsi dal primo colloquio</a>. Qui parliamo di tutto il resto: la logistica, le regole, e come decidere, dopo, se continuare.</p>
+<p>Questo articolo è una guida all'<strong>organizzazione</strong> della prima seduta. Non parla di cosa dirai né di cosa ti chiederà il terapeuta — quello lo trovi in <a href="/blog/prima-seduta-psicologo">cosa aspettarsi dal primo colloquio</a>. Qui parliamo di tutto il resto: la logistica, le regole, e come decidere, dopo, se continuare.</p>
 <h2>Cosa fare prima della seduta?</h2>
 <p>Poco, ma nell'ordine giusto.</p>
 <ol>
@@ -388,7 +388,7 @@ export const articoliEstesi11 = [
     metaDescription: "Psicologo online o in studio: efficacia, costi, comodità e limiti delle due modalità. Guida a scegliere quella giusta per te, con i dati della ricerca.",
     date: "2026-08-30",
     body: `<p>Stai guardando due opzioni, online o in presenza, e non riesci a decidere. Ogni volta trovi un motivo pro e uno contro, e la domanda ti blocca più di quanto dovrebbe. Il problema, quasi sempre, è che stai cercando una risposta universale a una domanda che invece è personale.</p>
-<p>Questo articolo serve a una cosa sola: darti dei <strong>criteri</strong> per scegliere tra le due modalità. Non è un confronto su "quale è migliore" — non esiste una risposta valida per tutti — ma una guida per capire quale delle due è giusta <em>per te</em>, adesso. Se invece il tuo dubbio è tra una piattaforma strutturata e lo studio di un singolo professionista, quello è un altro discorso: lo trovi in <a href="/blog/psicologo-online-o-studio">psicologo online o studio</a>.</p>
+<p>Questo articolo serve a una cosa sola: darti dei <strong>criteri</strong> per scegliere tra le due modalità. Non è un confronto su "quale è migliore" — non esiste una risposta valida per tutti — ma una guida per capire quale delle due è giusta <em>per te</em>, adesso. Se invece il tuo dubbio è tra una piattaforma strutturata e lo studio di un singolo professionista, quello è un altro discorso: lo trovi in <a href="/blog/psicologo-online-o-in-presenza">psicologo online o studio</a>.</p>
 <h2>Due modi di fare la stessa terapia</h2>
 <p>Partiamo da un punto fermo: non stai scegliendo tra "terapia vera" e "terapia di serie B". Stai scegliendo il canale attraverso cui fare la stessa cosa. Le differenze che contano non stanno nella sostanza del lavoro, ma in come quel lavoro si incastra nella tua vita.</p>
 <p>La domanda utile, quindi, non è "cosa funziona di più?", ma "quale delle due riesco a sostenere, e in quale mi sento più a mio agio?".</p>
@@ -628,6 +628,6 @@ export const articoliEstesi11 = [
 <p>Sulle credenziali, sulla chiarezza delle informazioni e sulla prima seduta. Un professionista competente senza recensioni non è meno valido di uno con molte.</p>
 <h3>Posso fidarmi di un servizio che verifica le recensioni?</h3>
 <p>È un buon segno, se la verifica è reale e legata a un percorso svolto. Chiedi come funziona: un servizio trasparente spiega il processo senza giri di parole.</p>
-<p>In sintesi: usa le recensioni come indizio, non come verdetto. La scelta vera si fa sulle credenziali e sul primo incontro. Se vuoi iniziare, la prima seduta conoscitiva è gratuita e non vincolante: puoi <a href="/terapeuti">scegliere un professionista</a> e vedere i dettagli nella pagina <a href="/prezzi">prezzi</a>. E se il tuo dubbio è tra una piattaforma e lo studio di un singolo professionista, leggi <a href="/blog/psicologo-online-o-studio">psicologo online o studio</a>.</p>`,
+<p>In sintesi: usa le recensioni come indizio, non come verdetto. La scelta vera si fa sulle credenziali e sul primo incontro. Se vuoi iniziare, la prima seduta conoscitiva è gratuita e non vincolante: puoi <a href="/terapeuti">scegliere un professionista</a> e vedere i dettagli nella pagina <a href="/prezzi">prezzi</a>. E se il tuo dubbio è tra una piattaforma e lo studio di un singolo professionista, leggi <a href="/blog/psicologo-online-o-in-presenza">psicologo online o studio</a>.</p>`,
   },
 ];

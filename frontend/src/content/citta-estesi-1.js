@@ -161,7 +161,7 @@ export const cittaEstesi1 = [
 <li>le sedute si svolgono dal browser, senza installare nulla;</li>
 <li>si può spostare un appuntamento concordandolo in anticipo.</li>
 </ul>
-<p>Se vuoi capire le differenze rispetto a uno studio tradizionale, <a href="/blog/psicologo-online-o-studio">qui</a> c'è un confronto onesto fra le due modalità.</p>
+<p>Se vuoi capire le differenze rispetto a uno studio tradizionale, <a href="/blog/psicologo-online-o-in-presenza">qui</a> c'è un confronto onesto fra le due modalità.</p>
 <h2>Non è una versione "ridotta" della terapia</h2>
 <p>Online non significa approssimativo. La seduta ha la stessa durata e la stessa struttura di quella in studio, il terapeuta è un professionista abilitato e la riservatezza è garantita dal segreto professionale. Cambia solo il canale: invece di sederti di fronte a lui in una stanza, lo fai attraverso uno schermo, da uno spazio che scegli tu.</p>
 <p>Per molte persone è proprio questa modalità a rendere possibile un percorso che altrimenti non inizierebbe mai, perché elimina l'ostacolo che le ha sempre fermate: arrivare. Il resto del lavoro resta identico, con gli stessi obiettivi e la stessa serietà, e con la possibilità di interrompere o mettere in pausa senza vincoli.</p>

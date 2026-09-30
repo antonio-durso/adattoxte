@@ -33,6 +33,52 @@ export default function ChiSiamo() {
         title="Chi siamo"
         description="Adatto x Te è la piattaforma di psicologia online che rende la terapia accessibile: sedute in videochiamata da 45€, terapeuti iscritti all'Albo, recensioni verificate."
         path="/chi-siamo"
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: "Antonio D'Urso",
+            honorificPrefix: 'Dott.',
+            jobTitle: 'Psicologo, fondatore e direttore clinico di Adatto x Te',
+            url: 'https://www.adattoxte.com/chi-siamo',
+            worksFor: {
+              '@type': 'Organization',
+              name: 'Adatto x Te',
+              url: 'https://www.adattoxte.com',
+            },
+            // La credenziale che regge tutto l'E-E-A-T del sito: numero d'albo
+            // verificabile. Stesse credenziali in BlogArticle.jsx e nelle landing.
+            hasCredential: [
+              {
+                '@type': 'EducationalOccupationalCredential',
+                credentialCategory: 'Abilitazione all\'esercizio della professione di psicologo',
+                name: "Iscrizione all'Albo degli Psicologi della Campania n. 5408",
+                identifier: '5408',
+                recognizedBy: {
+                  '@type': 'Organization',
+                  name: 'Ordine degli Psicologi della Campania',
+                },
+              },
+            ],
+            knowsAbout: [
+              'Psicologia clinica',
+              "Disturbi d'ansia",
+              "Disturbi dell'umore",
+              'Psicologia forense e giuridica',
+              'Psicologia del lavoro',
+            ],
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'AboutPage',
+            name: 'Chi siamo — Adatto x Te',
+            url: 'https://www.adattoxte.com/chi-siamo',
+            about: {
+              '@type': 'Person',
+              name: "Antonio D'Urso",
+            },
+          },
+        ]}
       />
       <h1 style={{ textAlign: 'center' }}>Chi siamo</h1>
       <p className="section-sub" style={{ maxWidth: 640, textAlign: 'center', margin: '0 auto 26px' }}>
@@ -49,7 +95,7 @@ export default function ChiSiamo() {
             <h3 style={{ margin: '0 0 4px', fontSize: 17 }}>Dott. Antonio D'Urso</h3>
             <p style={{ margin: '0 0 8px', fontSize: 13, color: '#475569', fontWeight: 700 }}>Fondatore e Direttore</p>
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, color: '#334155' }}>
-              Psicologo iscritto all'Albo degli Psicologi della Campania  con 13 anni
+              Psicologo iscritto all'Albo degli Psicologi della Campania n. 5408, con 13 anni
               di esperienza, fondatore e direttore clinico di Adatto x Te. Coordina l'équipe dei
               terapeuti, la selezione dei professionisti e la qualità dei percorsi clinici della
               piattaforma. Ha ideato il modello "online, accessibile, senza vincoli" per rendere
@@ -86,6 +132,33 @@ export default function ChiSiamo() {
           <strong>Politica editoriale</strong>: i contenuti del blog sono scritti da psicologi
           iscritti all'Albo e revisionati dall'équipe; riflettono le buone pratiche cliniche
           e non sostituiscono in alcun modo un consulto professionale.
+        </p>
+      </div>
+
+      <h2 style={{ textAlign: 'center', margin: '34px 0 18px' }}>Credenziali e metodo editoriale</h2>
+      <div className="card" style={{ maxWidth: 860, margin: '0 auto', padding: '22px 24px' }}>
+        <p style={{ margin: '0 0 10px', fontSize: 14, lineHeight: 1.6, color: '#334155' }}>
+          Il direttore clinico della piattaforma è il <strong>Dott. Antonio D&apos;Urso</strong>,
+          psicologo iscritto all&apos;<strong>Albo degli Psicologi della Campania n. 5408</strong>.
+          Il numero di iscrizione è verificabile presso l&apos;Ordine degli Psicologi della Campania:
+          è la credenziale che risponde di tutti i contenuti pubblicati su questo sito.
+        </p>
+        <p style={{ margin: '0 0 10px', fontSize: 14, lineHeight: 1.6, color: '#334155' }}>
+          <strong>Chi scrive.</strong> Gli articoli e le guide del sito sono scritti da psicologi e
+          psicoterapeuti iscritti all&apos;Albo. Ogni pagina riporta in fondo la firma dell&apos;autore
+          e la data dell&apos;ultima revisione.
+        </p>
+        <p style={{ margin: '0 0 10px', fontSize: 14, lineHeight: 1.6, color: '#334155' }}>
+          <strong>Come vengono rivisti i contenuti.</strong> Ogni testo viene riletto dall&apos;équipe
+          clinica prima della pubblicazione e aggiornato quando cambiano le conoscenze o il quadro
+          delle raccomandazioni. Non pubblichiamo contenuti generati automaticamente senza revisione
+          di un professionista.
+        </p>
+        <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: '#334155' }}>
+          <strong>Come selezioniamo i terapeuti.</strong> Verifichiamo l&apos;iscrizione all&apos;Albo,
+          il titolo di specializzazione e l&apos;esperienza clinica dichiarata prima di inserire un
+          professionista in piattaforma. Le recensioni visibili sono le valutazioni lasciate dai
+          pazienti dopo le sedute completate.
         </p>
       </div>
 

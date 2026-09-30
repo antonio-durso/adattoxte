@@ -43,7 +43,7 @@ export const cittaEstesi8 = [
 <h2>E se il problema riguarda la coppia?</h2>
 <p>In un centro dove ci si conosce, andare insieme da uno psicologo è ancora più esposto che andarci da soli. La seduta di coppia online permette di lavorare sul rapporto senza che nessuno vi veda entrare, con entrambi collegati anche da luoghi diversi. Si comincia con un incontro gratuito per capire se il terapeuta è adatto alla vostra situazione.</p>
 <h2>La tua privacy viene prima di tutto</h2>
-<p>Il colloquio è un collegamento privato tra te e il terapeuta, coperto dal segreto professionale come in qualsiasi studio. Scegli tu dove collegarti e non devi comunicare a nessuno di aver iniziato. Se vuoi capire meglio come funziona un attacco di panico e cosa lo alimenta, puoi leggere la <a href="/blog/attacchi-di-panico-guida-completa">guida completa</a> sul blog.</p>`,
+<p>Il colloquio è un collegamento privato tra te e il terapeuta, coperto dal segreto professionale come in qualsiasi studio. Scegli tu dove collegarti e non devi comunicare a nessuno di aver iniziato. Se vuoi capire meglio come funziona un attacco di panico e cosa lo alimenta, puoi leggere la <a href="/blog/attacchi-di-panico">guida completa</a> sul blog.</p>`,
   },
   {
     slug: 'trapani',

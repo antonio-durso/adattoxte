@@ -6,6 +6,41 @@
       "permanent": true
     },
     {
+      "source": "/blog/attacchi-di-panico-guida-completa",
+      "destination": "/blog/attacchi-di-panico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/insonnia-e-stress-dormire-meglio",
+      "destination": "/blog/insonnia-e-stress",
+      "permanent": true
+    },
+    {
+      "source": "/blog/preparazione-concorsi-pubblici",
+      "destination": "/blog/preparazione-mentale-concorsi-pubblici",
+      "permanent": true
+    },
+    {
+      "source": "/blog/primo-colloquio-psicologo",
+      "destination": "/blog/prima-seduta-psicologo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/psicologia-giuridica-cosa-fa",
+      "destination": "/blog/psicologia-giuridica-consulenza-tecnica",
+      "permanent": true
+    },
+    {
+      "source": "/blog/psicologo-online-o-studio",
+      "destination": "/blog/psicologo-online-o-in-presenza",
+      "permanent": true
+    },
+    {
+      "source": "/blog/autostima-bassa",
+      "destination": "/blog/aumentare-autostima-pratica",
+      "permanent": true
+    },
+    {
       "source": "/psicologo-online/stati-uniti",
       "destination": "/italiani-all-estero/stati-uniti",
       "permanent": true

@@ -496,7 +496,7 @@ export const articoliEstesi7 = [
 <p>La gelosia intensa ha spesso radici che precedono la relazione attuale.</p>
 <ul>
 <li><strong>Un attaccamento insicuro:</strong> chi ha imparato presto che le persone se ne vanno vive ogni legame con la paura della perdita.</li>
-<li><strong>Una bassa autostima:</strong> se non mi sento di valore, il fatto che l'altro scelga qualcun altro mi sembra la cosa più probabile del mondo. Ne parliamo in <a href="/blog/autostima-bassa">autostima bassa</a>.</li>
+<li><strong>Una bassa autostima:</strong> se non mi sento di valore, il fatto che l'altro scelga qualcun altro mi sembra la cosa più probabile del mondo. Ne parliamo in <a href="/blog/aumentare-autostima-pratica">autostima bassa</a>.</li>
 <li><strong>Esperienze passate di tradimento:</strong> una ferita reale che rende il sistema di allarme più sensibile.</li>
 <li><strong>Un modello appreso:</strong> aver visto in famiglia la gelosia vissuta come amore, controllo e possesso.</li>
 <li><strong>Dinamiche attuali della coppia:</strong> silenzi, ambiguità, segreti non detti possono dare terreno al sospetto, anche quando non c'è alcun tradimento.</li>
@@ -674,7 +674,7 @@ export const articoliEstesi7 = [
 <p>Non aiuta la volontà, e non aiutano gli ultimatum a se stessi ("da domani lo lascio"). La dipendenza affettiva non si risolve con la forza di volontà, perché non è nata da una scelta. Aiuta invece un lavoro che mira a ricostruire il senso di sé.</p>
 <p>I perni del lavoro:</p>
 <ol>
-<li><strong>Ricostruire il valore personale.</strong> L'autostima è il cuore della questione: finché il tuo valore dipende dall'altro, non potrai che dipendere dall'altro. Ne parliamo in <a href="/blog/autostima-bassa">autostima bassa</a>.</li>
+<li><strong>Ricostruire il valore personale.</strong> L'autostima è il cuore della questione: finché il tuo valore dipende dall'altro, non potrai che dipendere dall'altro. Ne parliamo in <a href="/blog/aumentare-autostima-pratica">autostima bassa</a>.</li>
 <li><strong>Recuperare gli spazi personali.</strong> Non tutto insieme, ma un passo alla volta: un interesse, un'amicizia, un tempo per te che non debba essere giustificato.</li>
 <li><strong>Imparare a tollerare la distanza.</strong> Allenarsi a stare con il disagio dell'allontanamento senza doverlo subito colmare. È la parte più difficile, ed è quella che cambia le cose.</li>
 <li><strong>Riconoscere i modelli appresi.</strong> Esplorare le storie relazionali precedenti aiuta a capire da dove viene la paura dell'abbandono e a non ripeterla.</li>

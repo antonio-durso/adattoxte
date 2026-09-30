@@ -390,6 +390,25 @@ export default function PaeseLanding() {
         </p>
       </section>
 
+      {/* Firma dell'autore: mancava sulle pagine paese estero (c'era su articoli
+          e pagine disturbo). Stesse credenziali di BlogArticle.jsx. */}
+      <section className="container section" style={{ textAlign: 'center' }}>
+        <div style={{ maxWidth: 640, margin: '0 auto', display: 'flex', gap: 12, alignItems: 'flex-start', textAlign: 'left' }}>
+          <div
+            aria-hidden="true"
+            style={{ width: 40, height: 40, borderRadius: '50%', background: '#2f7ba6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 17, flexShrink: 0 }}
+          >
+            A
+          </div>
+          <p className="muted small" style={{ margin: 0, lineHeight: 1.5 }}>
+            <strong style={{ color: '#0f172a' }}>Contenuto a cura di Dott. Antonio D&apos;Urso</strong>
+            <br />
+            Iscritto all&apos;Albo degli Psicologi della Campania n. 5408, fondatore di Adatto x Te. Informazioni a scopo informativo: non sostituiscono un consulto professionale.{' '}
+            <Link to="/chi-siamo">Scopri chi siamo</Link>
+          </p>
+        </div>
+      </section>
+
       <section className="container section" style={{ textAlign: 'center' }}>
         <h2>Inizia il tuo percorso {isCapitale ? `da ${nome}` : art.dal}</h2>
         <p className="muted" style={{ maxWidth: 560, margin: '0 auto 20px' }}>
