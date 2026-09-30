@@ -26,7 +26,11 @@ import { extraArticles21 } from './extra-articles-21.js';
 import { extraArticles22 } from './extra-articles-22.js';
 import { extraArticles23 } from './extra-articles-23.js';
 
-export const articles = [
+// Estensioni: contengono la versione lunga di articoli già esistenti (stesso slug).
+// Stanno in fondo e vincono sull'originale — vedi la deduplica per slug qui sotto.
+import { articoliEstesi1 } from './articoli-estesi-1.js';
+
+const rawArticles = [
   ...baseArticles,
   ...extraArticles,
   ...extraArticles2,
@@ -51,7 +55,17 @@ export const articles = [
   ...extraArticles21,
   ...extraArticles22,
   ...extraArticles23,
-].sort(
+  ...articoliEstesi1,
+];
+
+// Deduplica per slug: a parità di slug vince l'ULTIMA occorrenza, cioè la versione
+// estesa. Prima di questo filtro l'elenco conteneva due volte lo stesso slug e
+// getArticle() restituiva la prima — quindi un'estensione scritta in coda non si
+// sarebbe mai vista. Il test 'articoli: slug univoci' copre la regressione.
+const perSlug = new Map();
+for (const a of rawArticles) perSlug.set(a.slug, a);
+
+export const articles = [...perSlug.values()].sort(
   (a, b) => (a.date < b.date ? 1 : -1)
 );
 
