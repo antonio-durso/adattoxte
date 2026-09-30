@@ -191,5 +191,6 @@ export const extraArticles20 = [
 <p>No. Test come il <a href="/blog/test-ansia-gad-7">GAD-7</a> misurano l'intensità di ansia e umore, non fanno diagnosi e non distinguono quadro da quadro. Sono uno strumento di screening, non una risposta.</p>
 <h3>Posso fare qualcosa subito, senza iniziare un percorso?</h3>
 <p>Sì: togliere le ricerche serali, mettere un limite ai controlli, chiedere ai familiari di non rispondere alle richieste di rassicurazione. Sono misure che da sole non risolvono, ma interrompono il circuito e rendono il percorso più semplice da iniziare.</p>
-<p>Se ti riconosci in questa descrizione, puoi <a href="/terapeuti">scegliere un terapeuta</a> e prenotare una prima seduta gratuita: serve a capire se e come proseguire, senza impegno.</p>`,  },
+<p>Se ti riconosci in questa descrizione, puoi <a href="/terapeuti">scegliere un terapeuta</a> e prenotare una prima seduta gratuita: serve a capire se e come proseguire, senza impegno.</p>`,
+  },
 ];

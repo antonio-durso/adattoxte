@@ -46,18 +46,89 @@ export const extraArticles5 = [
     metaDescription: 'Essere genitori è meraviglioso ma estenuante. Scopri i segnali del burnout genitoriale e come recuperare le energie per te e per la tua famiglia.',
     date: '2026-08-24',
     body: `<h1>Burnout genitoriale: perché i figli stancano?</h1>
-<p>Il termine "burnout" è solitamente associato al contesto lavorativo, ma negli ultimi anni si parla sempre più di burnout genitoriale. Si tratta di uno stato di esaurimento fisico ed emotivo profondo legato alle responsabilità croniche della cura dei figli. Quando le richieste superano le risorse a disposizione per troppo tempo, il genitore può sentirsi svuotato e incapace di svolgere il proprio ruolo con serenità.</p>
-
-<h2>Sintomi da non sottovalutare</h2>
-<p>Il burnout genitoriale si manifesta attraverso tre dimensioni principali: un esaurimento travolgente, un distanziamento emotivo dai figli e un senso di inefficacia genitoriale. Il genitore potrebbe sentirsi irritabile, avere disturbi del sonno e provare un costante senso di colpa per non "godersi" i figli come la società si aspetta. È una condizione che può colpire chiunque, indipendentemente dal numero di figli o dalla situazione economica.</p>
-
-<h2>Le cause del sovraccarico</h2>
-<p>La mancanza di una rete di supporto, la pressione sociale verso la "genitorialità perfetta" e il tentativo di conciliare carriera e famiglia senza sosta sono tra i fattori scatenanti. Spesso i genitori mettono i propri bisogni all'ultimo posto, dimenticando che per prendersi cura degli altri è necessario stare bene in prima persona.</p>
-
-<h2>Come uscire dal ciclo dell'esaurimento</h2>
-<p>Il primo passo è ammettere di essere esausti senza giudicarsi. Chiedere aiuto, sia pratico (delegando alcuni compiti) sia emotivo, è fondamentale. Ritagliarsi piccoli spazi per sé, anche solo pochi minuti al giorno, può aiutare a ricaricare le batterie. La comunicazione con il partner è altrettanto essenziale per redistribuire il carico mentale.</p>
-
-<p>Se senti che la stanchezza sta prendendo il sopravvento, parlare con uno psicologo può aiutarti a ritrovare l'equilibrio. Con Adatto x Te, puoi consultare terapeuti verificati e iscritti all'albo comodamente da casa tramite videochiamate sicure. La piattaforma è pienamente conforme al GDPR. Offriamo sedute individuali a 45 euro e sedute di coppia a 50 euro. Prenditi cura di te su <a href="/terapeuti">Adatto x Te</a> e <a href="/registrazione">registrati gratuitamente</a>.</p>`
+<p>C'è una stanchezza che conosci bene, e non è quella delle notti insonni. È quella che arriva quando il bambino finalmente dorme, la casa è in silenzio, hai due ore libere davanti — e tu resti immobile sul divano, incapace di fare qualsiasi cosa. Non è pigrizia. È che non hai più niente da dare, nemmeno a te stesso.</p>
+<p>E insieme a quella stanchezza arriva una voce che dice: <em>"ma gli altri ce la fanno", "eppure li amo", "che madre sono"</em>. Quella voce è la parte più faticosa di tutte, perché trasforma un problema di risorse in un problema di colpa.</p>
+<p>Questa pagina serve a mettere in ordine le cose: cosa è davvero il burnout genitoriale, come si riconosce, perché succede a persone competenti e presenti, e cosa aiuta — senza ricette magiche.</p>
+<h2>Cos'è il burnout genitoriale (e cosa non è)</h2>
+<p>Il termine è mutuato dal burnout lavorativo: descrive uno stato di <strong>esaurimento fisico ed emotivo legato alle richieste croniche della cura</strong>. Tre elementi lo caratterizzano:</p>
+<ul>
+<li><strong>Esaurimento:</strong> le energie non si ricaricano più con il riposo;</li>
+<li><strong>Distacco emotivo:</strong> una sensazione di lontananza dai figli, che spaventa e fa sentire in colpa;</li>
+<li><strong>Ridotta efficacia:</strong> la percezione di non essere più un buon genitore, di fare tutto male.</li>
+</ul>
+<p><strong>Cosa non è.</strong> Non è mancanza d'amore. Non è una diagnosi psichiatrica ufficiale: è una condizione descrittiva, non una categoria clinica. Non è depressione, anche se può accompagnarsi a un umore depresso. E non è debolezza: nella maggior parte dei casi succede a genitori molto presenti e coinvolti, perché è esattamente il coinvolgimento intenso e prolungato che consuma le riserve.</p>
+<p>Un punto che vale la pena dire subito: <strong>non è una questione di quantità d'amore, è una questione di risorse.</strong> Quando le richieste superano le risorse disponibili per un tempo abbastanza lungo, il sistema si spegne per proteggersi. È fisiologia, non carattere.</p>
+<h2>Come si riconosce: i segnali</h2>
+<p>Non serve avere tutto l'elenco. Se ti riconosci in quattro o cinque di questi punti, e vanno avanti da settimane, è il caso di prenderlo sul serio.</p>
+<ul>
+<li><strong>Ti svegli già stanco</strong>, e la stanchezza non passa né con il sonno né con una giornata libera.</li>
+<li><strong>Provi irritabilità verso i tuoi figli</strong> per cose piccole, e poi ti senti in colpa per ore.</li>
+<li><strong>Ti senti emotivamente distante:</strong> li guardi, sai che li ami, ma non senti nulla nell'immediato. È la parte che fa più paura, ed è anche la più tipica.</li>
+<li><strong>Eviti il contatto</strong> quando puoi: più schermi, più deleghe, più tempo da solo.</li>
+<li><strong>Hai perso le cose che erano tue:</strong> sport, amici, lettura, musica. Non per scelta, per esaurimento.</li>
+<li><strong>Non ti riconosci più</strong> nel genitore che pensavi di essere, o nella persona che eri prima.</li>
+<li><strong>Dormi male anche quando potresti dormire.</strong></li>
+<li><strong>Somatizzi:</strong> mal di testa, tensione, stomaco, frequenti malanni.</li>
+<li><strong>Pensi, almeno una volta, "non ce la faccio più"</strong> — non come minaccia, come constatazione.</li>
+</ul>
+<p>Nota una cosa: la colpa è <em>dentro</em> il quadro, non fuori. Se ti senti in colpa per essere esaurito, quella colpa è essa stessa un sintomo, non una valutazione oggettiva.</p>
+<h2>Perché succede (e non è colpa tua)</h2>
+<p>Ci sono cause strutturali, e vale la pena nominarle perché liberano dalla lettura moralistica.</p>
+<ul>
+<li><strong>Privazione cronica di sonno.</strong> Non una notte, ma anni di sonno interrotto: ha effetti misurabili su umore, concentrazione e tolleranza allo stress.</li>
+<li><strong>Assenza di recupero.</strong> Il problema non è il carico, è il carico <em>senza pause</em>. Il corpo non si ricarica se non c'è un tempo in cui la vigilanza si abbassa davvero.</li>
+<li><strong>Carico mentale invisibile.</strong> Non solo fare le cose, ma ricordarle, organizzarle, anticiparle. È la parte che nessuno vede e che consuma più di tutto.</li>
+<li><strong>Perdita di identità.</strong> Il ruolo di genitore assorbe gli altri ruoli, e con essi le fonti di gratificazione personale.</li>
+<li><strong>Pressione sociale.</strong> L'idea che esista un modo giusto di essere genitori, e che ogni difficoltà sia una propria mancanza.</li>
+<li><strong>Rete di supporto ridotta.</strong> Nonni lontani, amici trasferiti, servizi assenti, partner con orari incompatibili.</li>
+<li><strong>Contesto:</strong> il lavoro, i turni, la mancanza di aiuti concreti. Fattori che non dipendono dalla volontà di nessuno.</li>
+</ul>
+<p>Se la maggior parte di questi punti non è nella tua disponibilità di scelta, il burnout non è un fallimento personale: è la conseguenza prevedibile di un carico senza ammortizzatori.</p>
+<h2>Le differenze con la depressione — e con la stanchezza normale</h2>
+<p><strong>La stanchezza normale</strong> migliora con il riposo, e i momenti di piacere restano accessibili. Nel burnout il riposo non basta e il piacere si appiattisce.</p>
+<p><strong>La depressione</strong> è un quadro clinico con criteri propri: umore depresso per la maggior parte del tempo, perdita di interesse generalizzata (non solo verso il ruolo genitoriale), alterazioni di sonno, appetito, energia, pensieri di colpa eccessivi. Il burnout è più circoscritto al ruolo: una persona esaurita dal ruolo può ancora provare piacere in altro.</p>
+<p>Le due cose però possono convivere, e quando si sommano la situazione merita un percorso. Se ti accorgi che il calo di interesse e l'umore basso sono diventati <strong>generali</strong>, non solo legati ai figli, è un buon motivo per parlare con un professionista. Ne parliamo in <a href="/blog/depressione-chiedere-aiuto">depressione: quando chiedere aiuto</a> e in <a href="/blog/ansia-e-depressione-segnali">ansia e depressione: quali sono i segnali</a>.</p>
+<p>Vale la stessa nota anche per il burnout da lavoro, che ha dinamiche simili e spesso si accompagna: vedi <a href="/blog/burnout-lavoro">burnout da lavoro: come uscirne</a>.</p>
+<h2>Cosa aiuta davvero</h2>
+<p>L'intervento non consiste nel "fare di più" o nell'imparare a essere più paziente. Consiste nel <strong>ricostruire le risorse</strong> — e nel ridurre il carico, dove è possibile.</p>
+<h3>1. Recupero vero, non pausa</h3>
+<p>Una pausa è quando smetti di fare; il recupero è quando il sistema nervoso si abbassa davvero. La differenza è concreta: scorrere il telefono non è recupero. Camminare, dormire senza sveglia, stare nella natura, un'ora di sport, un bagno lungo senza nessuno che bussi: queste sono attività che abbassano l'attivazione. La regola pratica è che il recupero deve essere <strong>programmato</strong>, non lasciato al caso — perché al caso non arriva mai.</p>
+<h3>2. Dividere il carico, compreso quello mentale</h3>
+<p>Non basta dire "mi aiuta di più": serve spostare anche la responsabilità dell'organizzazione. Chi tiene la lista non riposa nemmeno quando l'altro esegue. Un modo concreto: assegnare interi ambiti (non compiti singoli) all'altra persona, compresa la pianificazione.</p>
+<h3>3. Chiedere aiuto senza aspettare la crisi</h3>
+<p>Chiedere aiuto quando si è esauriti è già tardi e costa di più. Chiedere prima è più efficace e meno drammatico. E va detto: chiedere aiuto non è delegare l'educazione dei figli, è distribuire il peso.</p>
+<h3>4. Riprendere almeno una cosa propria</h3>
+<p>Non per egoismo: perché una fonte di gratificazione indipendente è ciò che permette di stare nel ruolo senza svuotarsi. Deve essere piccola, realistica e non negoziabile — la prima a cadere, di solito, è proprio quella, ed è l'errore.</p>
+<h3>5. Abbassare lo standard, non l'affetto</h3>
+<p>Molti genitori esauriti stanno inseguendo un modello che nessuno ha chiesto loro di raggiungere. Ridurre gli standard su cose che non contano (la casa perfetta, il pomeriggio organizzato) libera risorse per quello che conta.</p>
+<h3>6. Lavorare sulla colpa</h3>
+<p>È il punto meno visibile e più potente. La colpa consuma energie e non migliora nessuna prestazione: si può imparare a riconoscerla, a ridurne il volume, a distinguere responsabilità da colpa. È una parte tipica del lavoro psicologico su questo tema.</p>
+<h2>Quando chiedere aiuto</h2>
+<p>Non serve arrivare al limite. Ma questi sono motivi chiari per una prima seduta:</p>
+<ul>
+<li>l'esaurimento va avanti da <strong>settimane o mesi</strong> e non migliora con il riposo;</li>
+<li>senti <strong>distacco emotivo</strong> dai tuoi figli, e questo ti spaventa;</li>
+<li>il calo di umore e interesse è diventato <strong>generale</strong>, non solo legato al ruolo;</li>
+<li>l'irritabilità ha un impatto sui rapporti in famiglia, o davanti ai bambini;</li>
+<li>stai <strong>evitando</strong> sempre di più il contatto con i figli o con il partner;</li>
+<li>usare alcol, cibo, schermi o acquisti come anestetico è diventato frequente.</li>
+</ul>
+<p>E una nota separata, importante: se stanno emergendo pensieri di farti del male o di non farcela più a vivere, quello è un motivo per parlarne subito con un professionista o con un servizio di ascolto. Non c'è nulla di drammatico nel chiederlo, e non serve aspettare il momento giusto.</p>
+<h2>Come funziona un percorso online</h2>
+<p>Le sedute si svolgono in videochiamata, di norma una volta a settimana. La prima è gratuita e serve a capire se è il percorso giusto e con chi farlo. La terapia online ha un vantaggio specifico per i genitori: <strong>si fa da casa, negli orari che riesci a ritagliare</strong> — dopo la nanna, durante la pausa pranzo, mentre il partner copre il turno. Elimina il problema del tempo di spostamento, che spesso è il motivo per cui il percorso non inizia mai.</p>
+<p>Puoi vedere <a href="/prezzi">quanto costa</a>, chi sono i professionisti nella <a href="/terapeuti">pagina dell'équipe</a>, e se è la prima volta che affronti un percorso, leggi <a href="/blog/prima-seduta-psicologo">come prepararsi alla prima seduta</a>. Se il tema è più ampio del solo ruolo genitoriale, può essere utile anche <a href="/blog/equilibrio-lavoro-vita-privata">ritrovare l'equilibrio tra lavoro e vita privata</a>.</p>
+<h2>Domande frequenti</h2>
+<h3>Il burnout genitoriale significa che non amo abbastanza i miei figli?</h3>
+<p>No, ed è il fraintendimento che fa più male. Il burnout riguarda le risorse, non l'affetto: succede in genere a chi è molto coinvolto. Il distacco emotivo è un sintomo dello stato di esaurimento, e si riduce quando le risorse si ricostruiscono.</p>
+<h3>È lo stesso per madri e padri?</h3>
+<p>Il fenomeno riguarda entrambi, ma i carichi e le aspettative sociali non sono distribuiti allo stesso modo, e spesso chi si occupa della maggior parte dell'organizzazione familiare ha meno margine. Anche le aspettative su chi "dovrebbe" essere paziente per natura pesano in modo diverso.</p>
+<h3>Serve la terapia per questo?</h3>
+<p>Non per forza in tutti i casi: a volte bastano un recupero reale, una redistribuzione del carico e un aiuto concreto. Ma quando l'esaurimento è persistente, o quando la colpa e il distacco emotivo sono diventati dominanti, il percorso aiuta più dei tentativi di "tenere duro" — perché non si trattava di volontà.</p>
+<h3>Quanto dura un percorso su questo tema?</h3>
+<p>Dipende da quanto è consolidato lo stato di esaurimento e da quanto il contesto permette di cambiare il carico. I primi miglioramenti spesso riguardano il sonno, l'irritabilità e la colpa; i cambiamenti più stabili richiedono tempo. Se ne parla nella prima seduta, senza vincoli.</p>
+<h3>Se non ho nessuno che mi aiuta con i figli, ha senso iniziare?</h3>
+<p>Sì, e spesso è proprio in quella situazione che serve di più. Un percorso non aumenta il carico: aiuta a ridurre le richieste che ci si mette addosso e a trovare le poche leve disponibili. Nella prima seduta si valuta anche questo.</p>
+<p>Se ti riconosci in questa pagina, puoi <a href="/terapeuti">scegliere un terapeuta</a> e prenotare una prima seduta gratuita: serve a capire se e come proseguire, senza impegno.</p>`
   },
   {
     slug: 'adolescenti-e-social-media',
