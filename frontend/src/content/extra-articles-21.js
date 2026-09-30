@@ -60,21 +60,75 @@ export const extraArticles21 = [
     keyword: 'lutto animale domestico',
     metaDescription: 'Il dolore per la perdita di un animale domestico è un lutto vero. Come elaborarlo, aiutare i bambini e quando un supporto psicologico può fare la…',
     date: '2026-09-01',
-    body: `<p>Perdere un cane, un gatto o un altro animale domestico può essere un dolore devastante, spesso più forte di quanto ci si aspetti. Eppure, per anni questo lutto è stato considerato "minore" rispetto a quello per una persona: chi lo vive si sente incompreso, giudicato ("era solo un animale") e a volte si vergogna di soffrire così tanto. Invece è un lutto vero: l'animale è stato un compagno di vita quotidiano, una presenza costante, spesso una fonte di amore incondizionato.</p>
-    <h2>Perché fa così male</h2>
-    <p>La relazione con un animale è fatta di routine, vicinanza fisica e attenzione reciproca. Quando viene a mancare, cambiano le abitudini di ogni giorno — la passeggiata, il posto sul divano, il suono alla porta — e ogni piccolo dettaglio riapre il dolore. A questo si aggiungono spesso senso di colpa ("avrei potuto fare di più", "avrei dovuto accorgermene prima") e la difficoltà a trovare persone che comprendano la profondità del legame.</p>
-    <h2>Le fasi del lutto</h2>
-    <p>Come per ogni perdita, si attraversano fasi che non seguono un ordine fisso: negazione, rabbia, trattativa, tristezza profonda e, infine, accettazione. È normale alternare momenti di apparente serenità a improvvise ondate di dolore, anche a distanza di mesi. Il lutto non ha tempi standard: ciò che conta è non restare bloccati nel senso di colpa o nell'isolamento.</p>
-    <h2>Cosa aiuta davvero</h2>
-    <ul><li><strong>Parlarne</strong> con chi non giudica: un amico che ha vissuto la stessa esperienza, un gruppo di supporto, o lo psicologo.</li>
-    <li><strong>Dare un rito di saluto</strong>: una cerimonia, una lettera, una foto in un posto speciale. I riti aiutano a riconoscere l'importanza del legame.</li>
-    <li><strong>Non rimuovere il dolore</strong>: dedicare del tempo al ricordo (guardare le foto, raccontare aneddoti) è parte dell'elaborazione, non un modo per "restarci dentro".</li>
-    <li><strong>Non decidere subito</strong> se prendere un altro animale: la scelta va fatta per desiderio, non per riempire un vuoto.</li>
-    </ul>
-    <h2>Quando chiedere aiuto a uno psicologo</h2>
-    <p>Vale la pena un supporto psicologico quando: il dolore non diminuisce dopo molti mesi, il senso di colpa è opprimente, il lutto interferisce con il lavoro e le relazioni, o si somma ad altre perdite recenti. Anche il vissuto dei bambini merita attenzione: la perdita di un animale è spesso il primo lutto che un bambino affronta, e come viene accompagnato in quel momento può influenzare il suo rapporto con il dolore in futuro.</p>
-    <p>Approfondisci la pagina dedicata al <a href="/psicologo-online/lutto-per-animale">lutto per un animale</a> per capire come funziona il percorso.</p>
-    <p>Il dolore per un animale non è sproporzionato: è la misura di quanto amavi. Su <a href="/terapeuti">Adatto x Te</a> trovi psicologi che ti ascoltano senza giudizio, con la <a href="/registrazione">registrazione gratuita</a> e la prima seduta individuale senza costi.</p>`
+    body: `<h1>Come superare il lutto per un animale?</h1>
+<p>Quando muore un cane o un gatto, intorno a te succede una cosa strana: nessuno ti chiede come stai, o qualcuno lo chiede con una formula che chiude subito la conversazione — "ne prendi un altro". E tu ti ritrovi a elaborare una perdita vera dentro un silenzio, quasi fosse una cosa di cui non si parla.</p>
+<p>Se è quello che stai vivendo, la prima cosa da dire è che <strong>non stai esagerando</strong>. Questa pagina spiega perché, e cosa aiuta.</p>
+<h2>Perché il lutto per un animale è un lutto vero</h2>
+<p>Chi convive con un animale non ha accanto "un animale": ha una presenza quotidiana fatta di rituali. Il saluto quando torni, il posto sul letto, il rumore delle zampe, l'ora della passeggiata che scandiva la giornata.</p>
+<p>Quella presenza è, di fatto, <strong>una relazione</strong> — con affetto, cura, routine condivise e una forma di comunicazione che si è costruita nel tempo. Per molte persone è anche la relazione più stabile e meno giudicante che hanno. Quando finisce, finisce una relazione.</p>
+<p>Per questo il lutto per un animale segue le stesse dinamiche di altri lutti: shock, negazione, rabbia, tristezza, riorganizzazione. E per questo non "passa in fretta" solo perché l'oggetto del legame non era umano.</p>
+<h2>Il problema in più: un lutto che gli altri non riconoscono</h2>
+<p>Negli studi sul lutto esiste una categoria che descrive bene questa situazione: il <strong>lutto non riconosciuto</strong> (disenfranchised grief). È quello che accade quando la perdita è reale ma il contesto sociale non la considera legittima: non ci sono giorni di permesso, non ci sono condoglianze, e a volte arriva il commento che ferisce di più — "era solo un animale".</p>
+<p>Questo produce due conseguenze pesanti:</p>
+<ul>
+<li><strong>Si soffre di più</strong>, perché alla tristezza si aggiunge la solitudine;</li>
+<li><strong>Si soffre di nascosto</strong>, cioè si riducono le occasioni di ricevere sostegno — che è esattamente ciò che rende più difficile elaborare un lutto.</li>
+</ul>
+<p>Riconoscere questo meccanismo è già un primo passo: quello che provi non ha bisogno di un permesso per esistere.</p>
+<h2>Come si manifesta</h2>
+<ul>
+<li><strong>Tristezza che arriva a ondate</strong>, anche giornate intere in cui sembra essere tornati al primo giorno;</li>
+<li><strong>Sensazione di vuoto nei momenti fissi</strong> — la passeggiata, il rientro a casa, l'ora della pappa;</li>
+<li><strong>Ricerca della presenza:</strong> credere di sentirlo, guardare dove dormiva, aspettare di vederlo alla porta;</li>
+<li><strong>Colpa:</strong> "potevo portarlo dal veterinario prima", "ho deciso io di farlo addormentare";</li>
+<li><strong>Rabbia</strong> verso chi non capisce, o verso se stessi;</li>
+<li><strong>Difficoltà a parlare con qualcuno</strong>, perché non si vuole dover giustificare il proprio dolore;</li>
+<li><strong>Evitamento:</strong> non si passa più da certi posti, non si guardano le foto.</li>
+</ul>
+<h2>Le fasi, senza rigidità</h2>
+<p>Si parla spesso di fasi — negazione, rabbia, negoziazione, tristezza, accettazione — ma la cosa importante da sapere è che <strong>non sono in ordine</strong> e non sono obbligatorie. Si torna indietro, si salta avanti, e alcune tornano a distanza di mesi, per esempio nei giorni che erano significativi.</p>
+<p>Non c'è un tempo giusto. C'è il tuo.</p>
+<h2>Le cose che aiutano</h2>
+<h3>1. Un rituale di commiato</h3>
+<p>Il lutto umano ha riti: il funerale, la veglia, le visite. Il lutto per un animale spesso non ne ha. Costruirne uno — un posto dove disperdere le ceneri, un albero, una piccola cerimonia con le persone che lo conoscevano, una lettera — dà alla perdita una forma riconoscibile. Non è una cosa "per bambini": è il modo in cui la mente chiude un capitolo.</p>
+<h3>2. Parlarne con chi capisce</h3>
+<p>Non con tutti, e non per forza con chi non ha animali. Con chi ha vissuto la stessa cosa, o in uno spazio dove quel dolore è considerato normale. Una sola persona che capisce vale più di dieci che minimizzano.</p>
+<h3>3. Dare un posto al ricordo, non cancellarlo</h3>
+<p>Le foto, la ciotola, il posto sul divano: non vanno "via" per stare meglio. Il ricordo non è il problema, il problema è l'assenza. Si può passare da "il suo posto" a "il posto dove stava lui", che è una frase completamente diversa.</p>
+<h3>4. Tenere le routine</h3>
+<p>Gli orari della giornata che erano costruiti intorno a lui vanno riempiti, non svuotati. Un impegno fisso alla stessa ora riduce la sensazione di vuoto nei momenti critici.</p>
+<h3>5. Non decidere subito se prendere un altro animale</h3>
+<p>È una decisione personale, e non esiste una regola. Ma se la spinta è tappare il vuoto, di solito non funziona: il nuovo animale non è il sostituto di nessuno, e chiedergli di esserlo non gli fa bene. Se invece è un desiderio autonomo, non c'è niente di sbagliato — e non è un tradimento della memoria.</p>
+<h3>6. Muoversi e stare fuori</h3>
+<p>Se camminavi con lui, continua a camminare. Il movimento aiuta l'umore in modo misurabile, e la luce naturale aiuta il sonno, che nei primi tempi si rompe facilmente.</p>
+<h2>Quando il lutto diventa un problema</h2>
+<p>Il lutto non è una malattia e non va "curato". Ma in alcuni casi si complica, e vale la pena riconoscerlo:</p>
+<ul>
+<li>dopo <strong>molti mesi</strong> l'intensità non cala, e il dolore resta invalidante ogni giorno;</li>
+<li><strong>eviti completamente</strong> qualsiasi ricordo: foto, posti, persone legate a lui;</li>
+<li>l'<strong>umore è basso in modo generalizzato</strong>, non solo sul tema della perdita, e non provi più interesse per nulla;</li>
+<li>la <strong>colpa</strong> è diventata un pensiero fisso e invalidante;</li>
+<li>sonno e appetito sono compromessi da settimane;</li>
+<li>usi <strong>alcol o altre sostanze</strong> per tenere a bada il dolore;</li>
+<li>sono comparsi <strong>pensieri di morte</strong> o di farti del male — in questo caso è importante parlarne subito con un professionista o con un servizio di ascolto.</li>
+</ul>
+<h2>Quando chiedere aiuto</h2>
+<p>Non serve essere al limite. Un percorso può servire anche solo per una ragione: <strong>avere un posto dove quella perdita viene presa sul serio</strong>, senza doverla giustificare. Molte persone scoprono che il vero sollievo comincia quando finalmente possono parlare di lui senza sentirsi fuori luogo.</p>
+<h2>Come funziona un percorso online</h2>
+<p>Le sedute si svolgono in videochiamata, di norma a cadenza settimanale, e la prima è gratuita. Su un lutto, la modalità online ha un vantaggio concreto: si parla <strong>da casa</strong>, cioè dal luogo in cui la presenza manca — e dove stanno le cose di cui è difficile parlare.</p>
+<p>Puoi <a href="/terapeuti">scegliere un terapeuta</a>, vedere <a href="/prezzi">quanto costa</a>, o leggere la <a href="/italiani-all-estero">pagina dedicata a chi vive all'estero</a> se la perdita è avvenuta lontano da casa. Se il tema del lutto è più ampio, è utile anche <a href="/blog/elaborazione-del-lutto">come elaborare il lutto</a>.</p>
+<h2>Domande frequenti</h2>
+<h3>È normale piangere più per il mio cane che per una persona?</h3>
+<p>Sì, ed è più comune di quanto si dica. Non dipende dall'importanza "in astratto" delle persone, ma dalla quantità di vita quotidiana condivisa e dal tipo di legame. La persona con cui passi ogni giorno di dieci anni può lasciare un vuoto quotidiano molto più fitto.</p>
+<h3>Quanto dura il lutto per un animale?</h3>
+<p>Non c'è un tempo standard. Il dolore acuto tende a ridursi nelle prime settimane o mesi, mentre il ritorno di ondate si può avere per molto più tempo, specialmente in date significative. La variabile che conta di più non è il tempo, è quanto puoi parlarne con qualcuno che capisce.</p>
+<h3>Devo prendere subito un altro animale?</h3>
+<p>Non c'è una regola. Prendilo quando il desiderio è tuo e riguarda lui, non quando serve a riempire un vuoto: in quel caso rischia di non funzionare per nessuno dei due.</p>
+<h3>Come faccio con i bambini?</h3>
+<p>I bambini capiscono la morte molto prima di quanto si pensi, e nascondere la verità di solito non li protegge. Le parole semplici, senza eufemismi confusi, aiutano di più. Ed è utile permettere loro di vedere che anche i grandi sono tristi: li autorizza a esserlo.</p>
+<h3>Serve davvero uno psicologo per questo?</h3>
+<p>Non sempre. Molte persone elaborano un lutto con il proprio tempo e le proprie risorse. Serve quando il dolore non si muove, quando la colpa diventa invalidante, o quando non hai nessuno con cui parlarne. E serve anche solo per non dover spiegare perché stai male.</p>
+<p>Se ti riconosci in questa pagina, puoi <a href="/terapeuti">scegliere un terapeuta</a> e prenotare una prima seduta gratuita.</p>`
   },
   {
     slug: 'rientro-sportivo-dopo-infortunio',

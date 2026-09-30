@@ -83,29 +83,83 @@ export const extraArticles23 = [
     keyword: 'nostalgia vivere all\'estero',
     metaDescription: 'La nostalgia di casa (homesickness) è una fase normale per chi vive all’estero. Come riconoscerla, gestirla e quando un supporto psicologico in italiano…',
     date: '2026-09-02',
-    body: `<p>Sei partito/a per lavoro o per studio, in una nuova città, magari con un lavoro che desideravi da tempo. Eppure, dopo l'entusiasmo iniziale, arriva un senso di vuoto: la mancanza della famiglia, degli amici, della lingua, dei sapori, di una battuta capita al volo. Ti chiedi se hai sbagliato tutto, se "non sei fatto/a per l'estero". La risposta è no: quello che stai vivendo ha un nome — homesickness, nostalgia di casa — ed è una fase normale e superabile, non una debolezza.</p>
-    <h2>Perché succede proprio a chi ce l'ha fatta</h2>
-    <p>La nostalgia di casa non colpisce chi è "fragile": colpisce chi ha un legame profondo con le proprie radici. Vivere all'estero è una delle esperienze più arricchenti e nello stesso tempo più stressanti: si perde la rete di supporto invisibile che in patria davi per scontata (amici, famiglia, abitudini, anche solo il medico di fiducia). Il cervello deve fare un doppio lavoro: adattarsi al nuovo e gestire la perdita del vecchio. È faticoso, e sentirsi stanchi e soli in questa fase è la norma, non l'eccezione.</p>
-    <h2>I segnali da non ignorare</h2>
-    <ul><li>Trascorri molto tempo a guardare video, foto o pagine di casa, con un senso di malinconia crescente.</li>
-    <li>Eviti occasioni sociali nella nuova città: "tanto non capiranno comunque".</li>
-    <li>Ti confronti in continuazione con chi è rimasto in Italia ("loro sì che stanno bene").</li>
-    <li>Dormi male, mangi in modo irregolare o perdi interesse per le cose che prima ti piacevano.</li>
-    <li>Il senso di solitudine dura da settimane e non diminuisce con il tempo.</li>
-    </ul>
-    <p>I primi quattro segnali fanno parte dell'adattamento. Se il quinto è vero — la solitudine non accenna a passare — vale la pena chiedere aiuto, prima che si trasformi in depressione o isolamento.</p>
-    <h2>Cosa aiuta davvero</h2>
-    <ul><li><strong>Costruire una routine locale</strong>: corsi, palestra, volontariato, un caffè fisso. La nuova città diventa "tua" attraverso le abitudini, non i monumenti.</li>
-    <li><strong>Fissare contatti reali con l'Italia</strong> — ma con limiti: una videochiamata programmata alla settimana con la famiglia vale più di dieci messaggi al giorno che ti tengono agganciato al passato.</li>
-    <li><strong>Imparare la lingua locale</strong>: ogni parola in più è un pezzo di autonomia e di appartenenza.</li>
-    <li><strong>Accettare la nostalgia</strong>: non è un nemico da combattere ma un'emozione da ascoltare. Ti sta dicendo cosa ti manca; il lavoro è trovare il modo di compensarlo nel nuovo contesto.</li>
-    <li><strong>Parlarne con chi ti capisce</strong>: altri italiani all'estero hanno vissuto la stessa cosa, ma attenzione: solo sfogarsi con chi condivide la nostalgia può consolidarla. Meglio un supporto strutturato che ti aiuti ad andare avanti.</li>
-    </ul>
-    <h2>Perché uno psicologo "in italiano" fa la differenza</h2>
-    <p>Nei momenti di fragilità, la lingua madre è una porta che le altre lingue non aprono: molte sfumature emotive semplicemente non si dicono in una lingua imparata da adulti. Parlare con uno psicologo in italiano — anche a migliaia di chilometri di distanza — permette di lavorare con la profondità giusta, senza lo sforzo extra di tradurre le emozioni. È il motivo per cui la terapia online per italiani all'estero è cresciuta così tanto: <a href="/italiani-all-estero">scopri come funziona</a> e trova il supporto pensato per chi vive fuori dall'Italia, per esempio la pagina dedicata agli italiani a <a href="/italiani-all-estero/regno-unito/londra">Londra</a>.</p>
-    <p>Se la solitudine ti sta portando verso un calo del tono dell'umore, può aiutarti leggere la pagina dedicata alla <a href="/psicologo-online/depressione">depressione</a> per riconoscere i segnali.</p>
-    <h2>Il punto</h2>
-    <p>La nostalgia non significa che hai sbagliato a partire: significa che hai lasciato qualcosa di importante, e che ora stai costruendo qualcosa di nuovo. Concediti il tempo dell'adattamento, usa le strategie giuste e — se il peso diventa troppo — chiedi aiuto: è il gesto più intelligente che puoi fare per il tuo nuovo inizio.</p>
-    <p>Su <a href="/terapeuti">Adatto x Te</a> trovi psicologi che parlano la tua lingua, ovunque tu sia: <a href="/registrazione">registrati gratuitamente</a>, la prima seduta individuale è gratuita e le successive partono da 45€.</p>`
+    body: `<h1>Nostalgia di casa all'estero: come gestirla?</h1>
+<p>C'è un momento preciso in cui arriva: sei in un supermercato, o in treno, o stai camminando in una via che non conosci. Senti una voce in italiano, o passa un profumo che ti ricorda una cucina. E per un attimo hai una voglia fisica di casa, così forte che ti viene da piangere in pubblico.</p>
+<p>Se vivi all'estero, questo non è un segnale che hai sbagliato tutto. È uno dei modi in cui una persona si adatta a un posto nuovo. Ed è anche la cosa di cui si parla meno, perché ammetterla sembra un'ingratitudine verso la scelta che hai fatto.</p>
+<h2>Cos'è la nostalgia (non è debolezza)</h2>
+<p>La nostalgia è molto più di un pensiero triste: è una <strong>risposta fisiologica alla separazione dai legami</strong>. Il corpo la tratta come un segnale di allarme — perché, per buona parte della storia umana, l'allontanamento dal gruppo era una condizione pericolosa.</p>
+<p>Da lì alcune cose che forse riconosci: il sonno che si rompe, la difficoltà a concentrarti, la fame di contatti che non siano superficiali, l'irritabilità per cose che normalmente non ti toccano. Non è debolezza e non è mancanza di spirito di adattamento: è l'attaccamento che fa il suo lavoro.</p>
+<h2>Perché arriva proprio a chi ha scelto di partire</h2>
+<p>C'è una cosa controintuitiva: la nostalgia colpisce spesso di più <strong>chi ha scelto</strong> di andare, e in modo più forte proprio quando le cose cominciano a funzionare. Le ragioni sono più di una.</p>
+<ul>
+<li><strong>La scelta implica responsabilità.</strong> Se hai deciso tu di partire, senti di non avere il diritto di stare male. E quella censura peggiora il dolore.</li>
+<li><strong>Dopo la fase "turistica" arriva il quotidiano.</strong> I primi mesi sono pieni di cose da organizzare — casa, permessi, lavoro, lingua. Quando l'emergenza finisce, arriva lo spazio per sentire.</li>
+<li><strong>Piangi quello che hai lasciato, non quello che hai trovato:</strong> e per sostituirlo serve tempo, che nessuno può accelerare.</li>
+<li><strong>Il contesto italiano rende il tema paradossalmente più denso:</strong> legami, rapporti con i genitori, aspettative, il peso del "dovere" verso chi è rimasto.</li>
+</ul>
+<h2>I segnali</h2>
+<ul>
+<li><strong>Controlli ossessivo delle notizie da casa:</strong> gruppi locali, quotidiani del tuo paese, orari delle persone che ami.</li>
+<li><strong>Chiami la famiglia e stai male per giorni</strong>, oppure al contrario eviti le telefonate perché ti lasciano a pezzi.</li>
+<li><strong>Non costruisci legami locali:</strong> conosci persone, ma restano conoscenti. Il divario fra "avere relazioni" e "avere amici" diventa evidente.</li>
+<li><strong>Fai confronti continui</strong>: il caffè, gli orari, il modo di stare insieme. Nulla di qui regge il confronto.</li>
+<li><strong>Conti i mesi</strong> che mancano al rientro, o al prossimo volo, come se stessi in una parentesi.</li>
+<li><strong>Sensazioni fisiche:</strong> sonno irregolare, stomaco chiuso, stanchezza che non passa, difficoltà di concentrazione.</li>
+<li><strong>Non ti senti né di qui né di là</strong>, e cerchi di non pensarci.</li>
+</ul>
+<h2>Le fasi della vita all'estero</h2>
+<p>Un modello utile divide l'esperienza in quattro momenti, che non sono obbligatori ma aiutano a capire dove sei.</p>
+<ol>
+<li><strong>Luna di miele.</strong> Tutto è nuovo e interessante. L'adrenalina compensa ogni fatica.</li>
+<li><strong>Urto.</strong> Il contrasto fra aspettative e realtà: burocrazia, lingua, solitudine, differenze di cultura nel lavoro e nelle relazioni.</li>
+<li><strong>Adattamento.</strong> Si imparano le regole implicite, si trovano le prime relazioni vere, e cominciano a esistere cose che sono piacevoli <em>qui</em>.</li>
+<li><strong>Appartenenza o ripartenza.</strong> O si costruisce un senso di casa in due posti, oppure si decide di rientrare — e anche il rientro è una fase, con le sue difficoltà.</li>
+</ol>
+<h2>Cosa aiuta davvero</h2>
+<h3>1. Legami locali, ma pochi e veri</h3>
+<p>La rete di conoscenti non cura la nostalgia: la cura un numero piccolo di relazioni in cui puoi essere te stesso. Vale la pena investire su due o tre persone invece di presidiare dieci cene superficiali. E funziona meglio se la lingua locale è sufficiente a stare in una conversazione profonda: se non lo è, la lingua è un obiettivo da mettere in agenda, non un dettaglio.</p>
+<h3>2. Un ponte con casa, con misura</h3>
+<p>Non serve tagliare i contatti: serve togliere loro il ruolo di unica fonte di benessere. Buone pratiche: orari fissi per le telefonate (non tutto il giorno), gruppi che non diventano un'occupazione, e attenzione al controllo compulsivo delle notizie. Il collegamento deve nutrire, non sostituire la vita locale.</p>
+<h3>3. Rituali tuoi</h3>
+<p>La scoperta più utile è che si può <strong>scegliere</strong> cosa portare con sé: la cena della domenica, il caffè al mattino, la passeggiata dopo il lavoro. I rituali danno alla giornata una struttura familiare senza dover tornare indietro.</p>
+<h3>4. Un posto tuo, non un posto di passaggio</h3>
+<p>Finché consideri la casa un alloggio temporaneo, il corpo resta in attesa. Piccoli segni di appropriazione — oggetti, piante, una parete sistemata — hanno un effetto sorprendentemente concreto sul senso di appartenenza.</p>
+<h3>5. Il corpo</h3>
+<p>Movimento regolare, luce naturale, sonno stabile. Con l'inverno e le giornate corte, questo diventa ancora più importante: la riduzione di luce incide sull'umore in modo misurabile, e si somma alla lontananza.</p>
+<h3>6. Dire le cose come stanno</h3>
+<p>Uno dei pesi maggiori è dover fingere che vada tutto bene, per non far preoccupare chi è rimasto e per non sembrare incoerente con la propria scelta. Poter dire "sto vivendo un periodo difficile" a una persona che non lo usa contro di te cambia molto. Se non c'è quella persona, è una delle cose su cui un percorso aiuta.</p>
+<h2>La decisione: restare o tornare</h2>
+<p>Prima o poi arriva, ed è spesso la fonte di ansia più grande. Tre cose che aiutano a non restare bloccati:</p>
+<ul>
+<li><strong>Distinguere la nostalgia dalla decisione.</strong> Sentire la mancanza di casa è normale sia per chi resta sia per chi torna. Non è un'informazione sulla scelta giusta.</li>
+<li><strong>Mettere una data al posto dell'angoscia.</strong> "Fra otto mesi valuto" trasforma una decisione senza fine in un momento definito. Toglie il pensiero continuo.</li>
+<li><strong>Vale anche per il rientro.</strong> Tornare dopo anni è una nuova partenza, con le sue fasi: aspettative alte, urto con una realtà che è cambiata, e la sensazione di non appartenere più nemmeno a casa. Saperlo in anticipo alleggerisce molto.</li>
+</ul>
+<h2>Quando chiedere aiuto</h2>
+<ul>
+<li>la nostalgia è diventata una presenza quotidiana che ti impedisce di vivere il presente;</li>
+<li>dormi male o ti svegli con l'ansia da settimane;</li>
+<li>sei in una fase di umore basso generalizzato, senza interesse per nulla;</li>
+<li>eviti le telefonate con la famiglia o, al contrario, non riesci a farne a meno;</li>
+<li>non costruisci alcun legame nel posto in cui vivi da mesi;</li>
+<li>la decisione restare/tornare ti blocca da troppo tempo e ti toglie il sonno;</li>
+<li>bevi o usi altre sostanze per stare meglio.</li>
+</ul>
+<p>E un punto importante: se confrontarsi con la nostalgia fa emergere <strong>pensieri di non voler più esserci</strong>, quello è un motivo per parlare subito con qualcuno. Non è una cosa da gestire da soli, e non è una questione di forza.</p>
+<h2>Come funziona un percorso online</h2>
+<p>Un percorso psicologico sull'espatrio ha un vantaggio specifico: <strong>si svolge in italiano</strong>. Non devi tradurre le sfumature, non devi spiegare il contesto culturale — e non devi spiegare perché un litigio con tua madre pesa così tanto.</p>
+<p>Le sedute si svolgono in videochiamata e gli orari si concordano sul <strong>tuo</strong> fuso. Puoi partire dalla <a href="/italiani-all-estero">pagina dedicata agli italiani all'estero</a>, vedere <a href="/prezzi">quanto costa</a>, <a href="/terapeuti">scegliere un terapeuta</a> o prenotare una prima seduta gratuita. Utile anche <a href="/blog/psicologo-online-all-estero">psicologo online all'estero: come funziona</a>.</p>
+<h2>Domande frequenti</h2>
+<h3>Sento la mancanza di casa: significa che ho sbagliato a partire?</h3>
+<p>No. La nostalgia non valuta la tua scelta: misura il tuo attaccamento. La sentono anche moltissime persone che restano e stanno bene. Il suo livello non dice se hai scelto bene, dice che hai legami a cui tieni.</p>
+<h3>Quanto dura?</h3>
+<p>Il picco tende a stare nei primi mesi, ma ci sono periodi in cui torna forte: le feste, gli anniversari, le malattie dei familiari, gli inverni. Con il tempo cambia forma più che sparire: da mancanza dolorosa a malinconia gestibile.</p>
+<h3>È depressione o è nostalgia?</h3>
+<p>La nostalgia è legata a qualcosa di specifico — casa, persone, certi luoghi — e ci sono momenti in cui stai bene. La depressione è generalizzata e toglie interesse per quasi tutto, qui e altrove. Quando il calo diventa generale, vale la pena una valutazione professionale.</p>
+<h3>Devo dirlo ai miei genitori?</h3>
+<p>Non c'è una risposta unica. Molti evitano per non farli preoccupare o per non sentirsi dire "te l'avevo detto". Trova il modo e il momento di farlo con almeno una persona: tenere tutto dentro peggiora la situazione, e non è un favore che fai a nessuno.</p>
+<h3>Un percorso può aiutarmi anche se il problema è "solo" la nostalgia?</h3>
+<p>La nostalgia ha un impatto misurabile su sonno, umore e relazioni. Un percorso breve aiuta a costruire l'appartenenza nel posto nuovo, a ridurre il controllo dei contatti con casa e a decidere senza paralisi. Non è un lusso: è manutenzione di una vita costruita in due posti.</p>
+<p>Se ti riconosci in questa pagina, puoi prenotare una <a href="/terapeuti">prima seduta gratuita</a>.</p>`
   },
 ];
