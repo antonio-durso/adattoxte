@@ -33,6 +33,13 @@ import { articoliEstesi2 } from './articoli-estesi-2.js';
 import { articoliEstesi3 } from './articoli-estesi-3.js';
 import { articoliEstesi4 } from './articoli-estesi-4.js';
 import { articoliEstesi5 } from './articoli-estesi-5.js';
+import { articoliEstesi6 } from './articoli-estesi-6.js';
+import { articoliEstesi7 } from './articoli-estesi-7.js';
+import { articoliEstesi8 } from './articoli-estesi-8.js';
+import { articoliEstesi9 } from './articoli-estesi-9.js';
+import { articoliEstesi10 } from './articoli-estesi-10.js';
+import { articoliEstesi11 } from './articoli-estesi-11.js';
+import { articoliEstesi12 } from './articoli-estesi-12.js';
 
 const rawArticles = [
   ...baseArticles,
@@ -64,6 +71,13 @@ const rawArticles = [
   ...articoliEstesi3,
   ...articoliEstesi4,
   ...articoliEstesi5,
+  ...articoliEstesi6,
+  ...articoliEstesi7,
+  ...articoliEstesi8,
+  ...articoliEstesi9,
+  ...articoliEstesi10,
+  ...articoliEstesi11,
+  ...articoliEstesi12,
 ];
 
 // Deduplica per slug: a parità di slug vince l'ULTIMA occorrenza, cioè la versione
