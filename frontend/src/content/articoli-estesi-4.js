@@ -93,6 +93,7 @@ export const articoliEstesi4 = [
     date: '2026-09-04',
     body: `<p>Hai già letto qualcosa sull'autostima. Magari ti sei ripetuto "sono capace, valgo" davanti allo specchio per un paio di mattine. Magari hai scaricato un'app per il diario delle cose belle. E dopo una settimana hai smesso, con la sensazione di essere anche incapace di fare gli esercizi.</p>
 <p>Il problema, nella maggior parte dei casi, non è la tua forza di volontà. È che quegli esercizi erano pensati male. L'autostima non sale perché te la ripeti: sale perché fai qualcosa che dimostra a te stesso che conti. La differenza è tutta qui, e cambia completamente cosa devi mettere in pratica.</p>
+<p>Questo articolo non ti chiede di cambiare carattere: spiega come aumentarla con piccoli passi, e cosa puoi fare già da questa settimana.</p>
 <p>Questo articolo è la parte pratica. Se vuoi prima capire da dove viene e come si riconosce l'autostima bassa, ne parliamo in <a href="/blog/autostima-bassa">autostima bassa</a>. Qui invece c'è cosa fare, e cosa puoi cominciare questa settimana.</p>
 <h2>Perché i pensieri positivi non bastano?</h2>
 <p>Immagina di doverti convincere che una porta è aperta mentre la stai spingendo e non si muove. Per quante volte te lo ripeti, la mano ti dice un'altra cosa. Con l'autostima funziona uguale: la parte di te che si giudica non si convince con una frase, si convince con <strong>un'esperienza</strong>.</p>
