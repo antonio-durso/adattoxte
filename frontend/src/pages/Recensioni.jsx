@@ -59,6 +59,29 @@ export default function Recensioni() {
         title="Recensioni dei pazienti"
         description="Recensioni dei pazienti sulla piattaforma Adatto x Te: media delle valutazioni, distribuzione delle stelle e opinioni sui nostri psicologi online."
         path="/recensioni"
+        // AggregateRating costruito SOLO dai dati reali della piattaforma
+        // (api.get('/ratings') → data.avg e data.total), cioè gli stessi numeri
+        // mostrati in questa pagina: è il requisito che chiede Google e il motivo
+        // per cui il vecchio punteggio Trustpilot era stato rimosso da Home.jsx.
+        // Stesso @id dell'organizzazione, così non nasce una seconda entità.
+        jsonLd={
+          data && data.total > 0 && data.avg
+            ? {
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                '@id': 'https://www.adattoxte.com/#organization',
+                name: 'Adatto x Te',
+                url: 'https://www.adattoxte.com/',
+                aggregateRating: {
+                  '@type': 'AggregateRating',
+                  ratingValue: String(Number(data.avg).toFixed(1)),
+                  reviewCount: data.total,
+                  bestRating: 5,
+                  worstRating: 1,
+                },
+              }
+            : undefined
+        }
       />
 
       <h1>Recensioni dei pazienti</h1>
