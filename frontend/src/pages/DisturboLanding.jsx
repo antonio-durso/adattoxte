@@ -287,8 +287,40 @@ function CittaView({ c, isEn }) {
     },
   ];
   const arch = isEn ? cittaEn : citta;
-  const altre = arch.filter((x) => x.slug !== c.slug && x.regione === c.regione).slice(0, 5);
-  const principali = arch.filter((x) => ['milano', 'roma', 'torino', 'napoli', 'bologna', 'firenze'].includes(x.slug) && x.slug !== c.slug);
+  // Maglia fra pagine città, replicando la procedura misurata su Serenis il 30/09:
+  // prima le città della stessa regione in ordine alfabetico, poi le grandi città
+  // nazionali, fino a 31 link in uscita. La misura che l'ha resa necessaria: le 109
+  // pagine città non si linkavano mai fra loro (0 link in uscita) e 107 su 109
+  // avevano nell'hub l'unica fonte di link in entrata.
+  // Solo in italiano: la sezione /en non si tocca senza una decisione.
+  const NAZIONALI = [
+    'milano', 'roma', 'napoli', 'torino', 'palermo', 'genova', 'bologna', 'firenze', 'bari',
+    'catania', 'venezia', 'verona', 'messina', 'padova', 'trieste', 'brescia', 'taranto',
+    'modena', 'parma', 'reggio-calabria', 'reggio-emilia', 'perugia', 'ravenna', 'livorno',
+    'cagliari', 'foggia', 'rimini', 'salerno', 'ferrara', 'sassari', 'lecce',
+  ];
+  const vicine = (() => {
+    if (isEn) {
+      const altre = arch.filter((x) => x.slug !== c.slug && x.regione === c.regione).slice(0, 5);
+      const principali = arch.filter((x) => ['milano', 'roma', 'torino', 'napoli', 'bologna', 'firenze'].includes(x.slug) && x.slug !== c.slug);
+      return [...altre, ...principali].slice(0, 8);
+    }
+    const proprie = arch
+      .filter((x) => x.slug !== c.slug && x.regione === c.regione)
+      .sort((a, b) => a.nome.localeCompare(b.nome, 'it'));
+    const out = [...proprie];
+    const visti = new Set([c.slug, ...out.map((x) => x.slug)]);
+    for (const s of NAZIONALI) {
+      if (out.length >= 31) break;
+      if (visti.has(s)) continue;
+      const x = arch.find((y) => y.slug === s);
+      if (x) {
+        out.push(x);
+        visti.add(s);
+      }
+    }
+    return out.slice(0, 31);
+  })();
   return (
     <>
       <Seo
@@ -398,7 +430,7 @@ function CittaView({ c, isEn }) {
         <Reveal>
           <h3>{L.nearby}</h3>
           <div className="chip-row">
-            {[...altre, ...principali].slice(0, 8).map((x) => (
+            {vicine.map((x) => (
               <Link key={x.slug} to={`${isEn ? '/en' : ''}/psicologo-online/${x.slug}`} className="chip">{x.nome}</Link>
             ))}
           </div>
