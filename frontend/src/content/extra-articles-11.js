@@ -2,7 +2,7 @@
 export const extraArticles11 = [
   {
     slug: 'allenamento-mentale-atleti',
-    title: 'Allenamento mentale per atleti',
+    title: 'Allenamento mentale per atleti: le tecniche',
     keyword: 'allenamento mentale atleti',
     metaDescription:
       'Allenamento mentale per atleti: visualizzazione, gestione dell’attivazione, routine pre-gara e le altre tecniche della psicologia dello sport, anche…',

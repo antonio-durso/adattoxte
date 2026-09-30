@@ -2,7 +2,7 @@
 export const baseArticles = [
   {
     "slug": "ansia-e-depressione-segnali",
-    "title": "Ansia e depressione: segnali e quando chiedere aiuto",
+    "title": "Ansia e depressione: i segnali da non ignorare",
     "keyword": "ansia e depressione",
     "metaDescription": "Ansia e depressione: come riconoscere i segnali precoci, le differenze, quando è il momento di chiedere aiuto e come funziona un percorso psicologico…",
     "date": "2026-08-24",
@@ -11,7 +11,7 @@ export const baseArticles = [
   },
   {
     "slug": "benessere-mentale-in-azienda",
-    "title": "Benessere mentale in azienda: come supportarlo",
+    "title": "Supporto psicologico ai dipendenti in azienda",
     "keyword": "benessere mentale in azienda",
     "metaDescription": "Il benessere mentale in azienda è una priorità: stress, burnout e assenteismo costano caro. Come offrire supporto psicologico ai dipendenti, anche in…",
     "date": "2026-08-24",
@@ -20,7 +20,7 @@ export const baseArticles = [
   },
   {
     "slug": "paura-di-parlare-in-pubblico",
-    "title": "Paura di parlare in pubblico: come superarla",
+    "title": "Paura di parlare in pubblico: cause e tecniche",
     "keyword": "paura di parlare in pubblico",
     "metaDescription": "Glossophobia: perché si ha paura di parlare in pubblico e come superarla con tecniche psicologiche collaudate. Esercizi pratici e quando chiedere aiuto.",
     "date": "2026-08-24",
@@ -29,7 +29,7 @@ export const baseArticles = [
   },
   {
     "slug": "preparazione-concorsi-pubblici",
-    "title": "Preparazione mentale ai concorsi pubblici",
+    "title": "Preparazione mentale ai concorsi: le tecniche",
     "keyword": "come prepararsi ai concorsi pubblici",
     "metaDescription": "Preparazione mentale ai concorsi pubblici: come gestire ansia, memoria e concentrazione durante lo studio e le prove. Le tecniche degli psicologi per…",
     "date": "2026-08-24",
@@ -38,7 +38,7 @@ export const baseArticles = [
   },
   {
     "slug": "psicologia-comunicazione-politica",
-    "title": "Psicologia della comunicazione politica",
+    "title": "Comunicazione politica: come prepararsi",
     "keyword": "psicologia comunicazione politica",
     "metaDescription": "La psicologia della comunicazione politica aiuta candidati, portavoce e comunicatori a gestire ansia, debriefing e messaggi efficaci. Scopri come…",
     "date": "2026-08-24",
@@ -69,7 +69,7 @@ export const baseArticles = [
   },
   {
     "slug": "psicologia-giuridica-consulenza-tecnica",
-    "title": "Psicologia giuridica: CTU e consulenza tecnica",
+    "title": "Psicologia giuridica: CTU, perizia e consulenza",
     "keyword": "psicologia giuridica",
     "metaDescription": "Psicologia giuridica: in cosa consiste la consulenza tecnica di parte e d'ufficio, la perizia, il supporto psicologico in cause di famiglia e l'ascolto…",
     "date": "2026-08-24",

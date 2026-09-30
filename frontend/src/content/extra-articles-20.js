@@ -97,7 +97,7 @@ export const extraArticles20 = [
   },
   {
     slug: 'cybercondria-ansia-da-malattia',
-    title: 'Cybercondria: la paura di essere malati',
+    title: 'Cybercondria: quando la paura ossessiona',
     keyword: 'cybercondria ansia da malattia',
     metaDescription: "Cercare sintomi online e convincersi di essere gravemente malati: la cybercondria (o ansia da malattia) si supera. Riconoscerla e affrontarla con…",
     date: '2026-10-30',

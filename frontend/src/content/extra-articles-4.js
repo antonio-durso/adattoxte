@@ -85,7 +85,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'maternita-benessere-psicologico',
-    title: 'Maternità e benessere psicologico',
+    title: 'Maternità: benessere e cambiamento',
     keyword: 'maternità benessere psicologico',
     metaDescription: 'La maternità è una fase di grande trasformazione. Scopri come preservare il tuo benessere psicologico durante questo viaggio con i consigli di Adatto x Te.',
     date: '2026-08-24',
@@ -127,7 +127,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'paura-del-futuro',
-    title: 'Paura del futuro: come gestirla',
+    title: 'Ansia e paura del futuro: come gestirla',
     keyword: 'paura del futuro',
     metaDescription: 'L\'incertezza del domani può generare ansia. Impara a gestire la paura del futuro e a ritrovare la calma nel momento presente con Adatto x Te.',
     date: '2026-08-24',
@@ -254,7 +254,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'digital-detox',
-    title: 'Digital detox: riprendere il controllo',
+    title: 'Digital detox: come riprendere il controllo',
     keyword: 'digital detox',
     metaDescription: 'Troppo tempo sugli schermi? Scopri i benefici del digital detox e come ristabilire un rapporto sano con la tecnologia, senza rinunce drastiche.',
     date: '2026-08-24',

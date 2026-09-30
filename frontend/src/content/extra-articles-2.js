@@ -1,7 +1,7 @@
 export const extraArticles2 = [
   {
     slug: 'autostima-bassa',
-    title: 'Autostima bassa: come migliorarla',
+    title: 'Autostima bassa: cause e come migliorarla',
     keyword: 'autostima bassa',
     metaDescription: 'Scopri come migliorare l\'autostima bassa con consigli pratici e il supporto della psicoterapia online per ritrovare fiducia in te stesso ogni giorno.',
     date: '2026-08-24',
@@ -165,7 +165,7 @@ export const extraArticles2 = [
   },
   {
     slug: 'depressione-chiedere-aiuto',
-    title: 'Depressione: come chiedere aiuto',
+    title: 'Depressione: quando e come chiedere aiuto',
     keyword: 'depressione chiedere aiuto',
     metaDescription: 'La depressione non è una semplice tristezza. Scopri come riconoscere i segnali e l\'importanza di chiedere aiuto a un professionista qualificato.',
     date: '2026-08-24',
@@ -219,7 +219,7 @@ export const extraArticles2 = [
   },
   {
     slug: 'mindfulness',
-    title: 'Mindfulness: cos’è e come iniziare',
+    title: 'Mindfulness: cos\'è, benefici e come iniziare',
     keyword: 'mindfulness',
     metaDescription: 'La mindfulness è la chiave per ridurre lo stress e vivere nel presente. Scopri cos\'è, quali sono i benefici e come iniziare a praticarla oggi.',
     date: '2026-08-24',

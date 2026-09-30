@@ -61,7 +61,7 @@ export const extraArticles7 = [
   },
   {
     slug: 'gestire-ansia-concorsi-pubblici',
-    title: 'Ansia da concorso: come gestirla',
+    title: 'Ansia da concorso: come gestirla e superarla',
     keyword: 'ansia da concorso preparazione mentale',
     metaDescription: 'Ansia da concorso: come gestire lo studio, la pressione e il giorno della prova con la psicologia. Percorsi online per i concorsi pubblici.',
     date: '2026-08-28',

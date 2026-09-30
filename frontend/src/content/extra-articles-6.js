@@ -121,7 +121,7 @@ export const extraArticles6 = [
   },
   {
     slug: 'perdita-del-lavoro',
-    title: 'Perdita del lavoro: gestire la crisi',
+    title: 'Perdita del lavoro: come gestire la crisi',
     keyword: 'perdita del lavoro',
     metaDescription: 'Perdere il lavoro è un trauma. Scopri strategie psicologiche per affrontare il cambiamento, gestire l\'ansia e ripartire con nuove energie e fiducia.',
     date: '2026-08-24',

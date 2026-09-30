@@ -2,7 +2,7 @@
 export const extraArticles21 = [
   {
     slug: 'disfunzione-erettile-psicologica-cause',
-    title: 'Disfunzione erettile psicologica: cause e aiuto',
+    title: 'Disfunzione erettile: cause psicologiche',
     keyword: 'disfunzione erettile psicologica',
     metaDescription: 'Disfunzione erettile psicologica: cause, come distinguerla da quella organica e quando un percorso psicologico può risolvere il problema. Sintomi e…',
     date: '2026-09-01',
@@ -78,7 +78,7 @@ export const extraArticles21 = [
   },
   {
     slug: 'rientro-sportivo-dopo-infortunio',
-    title: 'Rientro sportivo dopo un infortunio',
+    title: 'Infortunio: preparazione mentale al rientro',
     keyword: 'rientro sportivo dopo infortunio',
     metaDescription: 'Il rientro dopo un infortunio non è solo fisico: la paura di farsi male di nuovo è reale. Preparazione mentale, psicologia dello sport e percorso di…',
     date: '2026-09-01',

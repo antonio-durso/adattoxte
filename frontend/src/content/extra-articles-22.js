@@ -2,7 +2,7 @@
 export const extraArticles22 = [
   {
     slug: 'terapia-di-coppia-quando-uno-non-vuole',
-    title: 'Terapia di coppia quando uno non vuole',
+    title: 'Terapia di coppia quando uno dei due non vuole',
     keyword: 'terapia di coppia quando uno dei due non vuole',
     metaDescription: 'Il tuo partner non vuole la terapia di coppia? Come parlarne senza conflitti, fare il primo passo da soli e capire quando è il momento di insistere.',
     date: '2026-09-01',
@@ -29,7 +29,7 @@ export const extraArticles22 = [
   },
   {
     slug: 'disturbo-bipolare-come-conviverci',
-    title: 'Disturbo bipolare: come conviverci',
+    title: 'Disturbo bipolare: conviverci e chiedere aiuto',
     keyword: 'disturbo bipolare',
     metaDescription: 'Vivere con il disturbo bipolare: sintomi delle fasi, il ruolo di psicologo e psichiatra, come aiutare un familiare e quando chiedere supporto.',
     date: '2026-09-01',

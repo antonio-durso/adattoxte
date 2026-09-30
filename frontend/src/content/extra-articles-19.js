@@ -24,7 +24,7 @@ export const extraArticles19 = [
   },
   {
     slug: 'ansia-rientro-scuola-adolescenti',
-    title: 'Ansia da rientro a scuola negli adolescenti',
+    title: 'Rientro a scuola: come aiutare i figli',
     keyword: 'ansia da rientro a scuola adolescenti',
     metaDescription: "Rifiuto di andare a scuola, mal di pancia, irritabilità al rientro? Come riconoscere l'ansia da rientro scolastico negli adolescenti e supportarli senza…",
     date: '2026-10-06',
@@ -93,7 +93,7 @@ export const extraArticles19 = [
   },
   {
     slug: 'psicologo-online-in-inglese',
-    title: 'Psicologo online in inglese per expat',
+    title: 'Psicologo online in inglese per stranieri',
     keyword: 'psicologo online in inglese',
     metaDescription: 'Psicologo online in inglese per expat: sedute in videochiamata con terapeuti qualificati. English-speaking therapy online.',
     date: '2026-10-16',

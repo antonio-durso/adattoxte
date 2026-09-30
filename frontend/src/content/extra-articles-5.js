@@ -21,7 +21,7 @@ export const extraArticles5 = [
   },
   {
     slug: 'adhd-negli-adulti',
-    title: 'ADHD negli adulti: segnali e aiuto',
+    title: 'ADHD negli adulti: segnali da riconoscere',
     keyword: 'ADHD adulti',
     metaDescription: "L'ADHD non riguarda solo i bambini. Scopri come si manifesta il disturbo da deficit di attenzione negli adulti e l'importanza di una diagnosi corretta.",
     date: '2026-08-24',
@@ -61,7 +61,7 @@ export const extraArticles5 = [
   },
   {
     slug: 'adolescenti-e-social-media',
-    title: 'Adolescenti e social media: benessere digitale',
+    title: 'Adolescenti e social: come proteggerli',
     keyword: 'adolescenti social media',
     metaDescription: "L'impatto dei social network sulla salute mentale degli adolescenti è un tema centrale. Consigli pratici per genitori e ragazzi per un uso consapevole…",
     date: '2026-08-24',
