@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import api from '../api';
 import { visibleArticles as articles } from '../content/articles';;
 import { disturbi } from '../content/disturbi';
 import { citta, CITTA_TOP } from '../content/citta';
@@ -199,6 +201,26 @@ completeOnlineHub();
 
 export default function NicheLanding({ niche }) {
   const { lang } = useI18n();
+  // Rating reale della piattaforma: stessa fonte e stessi numeri della pagina
+  // /recensioni (api.get('/ratings')). Serve solo al JSON-LD delle pagine
+  // commerciali; se i dati non arrivano il markup non viene emesso, quindi non
+  // resta in pagina nessun rating finto.
+  const [rating, setRating] = useState(null);
+  useEffect(() => {
+    let attivo = true;
+    api
+      .get('/ratings')
+      .then((r) => {
+        const d = r.data;
+        if (!attivo || !d || !d.total || !d.avg) return;
+        setRating({ avg: String(Number(d.avg).toFixed(1)), total: d.total });
+      })
+      .catch(() => {});
+    return () => {
+      attivo = false;
+    };
+  }, []);
+
   const n = NICHES[niche];
   if (!n) return null;
 
@@ -221,7 +243,22 @@ export default function NicheLanding({ niche }) {
             '@type': 'Service',
             name: n.h1,
             description: n.desc,
-            provider: { '@type': 'Organization', name: 'Adatto x Te' },
+            provider: {
+              '@type': 'Organization',
+              '@id': 'https://www.adattoxte.com/#organization',
+              name: 'Adatto x Te',
+              ...(rating
+                ? {
+                    aggregateRating: {
+                      '@type': 'AggregateRating',
+                      ratingValue: rating.avg,
+                      reviewCount: rating.total,
+                      bestRating: 5,
+                      worstRating: 1,
+                    },
+                  }
+                : {}),
+            },
             areaServed: 'IT',
             serviceType: 'Consulenza psicologica online',
           },
