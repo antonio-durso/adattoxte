@@ -142,7 +142,7 @@ export const extraArticles5 = [
   },
   {
     slug: 'dialogo-interno',
-    title: 'Come fermare l'autocritica interiore?'autocritica interiore?'autocritica',
+    title: "Come fermare l'autocritica interiore?",
     keyword: 'dialogo interiore',
     metaDescription: 'La voce nella tua testa è amica o nemica? Scopri come identificare il dialogo interiore negativo e trasformarlo in un supporto per il tuo benessere…',
     date: '2026-08-24',

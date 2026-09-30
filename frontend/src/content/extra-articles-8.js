@@ -105,7 +105,7 @@ export const extraArticles8 = [
   },
   {
     slug: 'aumentare-autostima-pratica',
-    title: 'Come aumentare l'autostima?'autostima?',
+    title: "Come aumentare l'autostima?",
     keyword: 'autostima bassa aumentare fiducia',
     metaDescription: "L'autostima si costruisce con azioni concrete, non con i pensieri positivi forzati. Scopri esercizi pratici per aumentare la fiducia in te stesso e…",
     date: '2026-09-04',

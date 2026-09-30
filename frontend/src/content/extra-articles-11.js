@@ -12,7 +12,7 @@ export const extraArticles11 = [
   },
   {
     slug: 'concorsi-forze-dell-ordine',
-    title: 'Concorsi forze dell'ordine: come prepararsi?'ordine: come prepararsi?',
+    title: "Concorsi forze dell'ordine: come prepararsi?",
     keyword: 'concorsi forze dell ordine',
     metaDescription: 'Concorsi forze dell’ordine: preparazione mentale: gestire ansia, pressione e colloquio psicologico con un professionista online.',
     date: '2026-08-31',

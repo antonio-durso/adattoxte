@@ -4,7 +4,7 @@
 export const blogPreview = [
   {
     slug: 'aumentare-autostima-pratica',
-    title: 'Come aumentare l'autostima?'autostima?'autostima?',
+    title: "Come aumentare l'autostima?",
     date: '2026-09-04',
   },
   {

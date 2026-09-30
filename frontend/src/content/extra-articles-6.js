@@ -1,7 +1,7 @@
 export const extraArticles6 = [
   {
     slug: 'psicologo-online-all-estero',
-    title: 'Psicologo online all'estero: come funziona?'estero: come funziona?',
+    title: "Psicologo online all'estero: come funziona?",
     keyword: 'psicologo online estero',
     metaDescription: 'Vivere all\'estero può essere difficile. Scopri come un supporto psicologico online in italiano può aiutarti a gestire il malessere e l\'adattamento.',
     date: '2026-08-24',
@@ -148,7 +148,7 @@ export const extraArticles6 = [
   },
   {
     slug: 'cambiare-lavoro',
-    title: 'Cambiare lavoro: come gestire l'ansia?'ansia?'ansia e orientarsi',
+    title: "Cambiare lavoro: come gestire l'ansia?",
     keyword: 'cambiare lavoro',
     metaDescription: 'Cambiare carriera può generare stress. Impara a gestire l\'ansia del cambiamento e a prendere decisioni consapevoli per il tuo futuro professionale.',
     date: '2026-08-24',

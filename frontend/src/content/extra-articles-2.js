@@ -1,7 +1,7 @@
 export const extraArticles2 = [
   {
     slug: 'autostima-bassa',
-    title: 'Perché ho l'autostima bassa?'autostima bassa?',
+    title: "Perché ho l'autostima bassa?",
     keyword: 'autostima bassa',
     metaDescription: 'Scopri come migliorare l\'autostima bassa con consigli pratici e il supporto della psicoterapia online per ritrovare fiducia in te stesso ogni giorno.',
     date: '2026-08-24',
@@ -219,7 +219,7 @@ export const extraArticles2 = [
   },
   {
     slug: 'mindfulness',
-    title: 'Mindfulness: cos'è e come iniziare?'è e come iniziare?'è, benefici e come iniziare',
+    title: "Mindfulness: cos'è e come iniziare?",
     keyword: 'mindfulness',
     metaDescription: 'La mindfulness è la chiave per ridurre lo stress e vivere nel presente. Scopri cos\'è, quali sono i benefici e come iniziare a praticarla oggi.',
     date: '2026-08-24',
@@ -354,7 +354,7 @@ export const extraArticles2 = [
   },
   {
     slug: 'crisi-di-coppia',
-    title: 'Crisi di coppia: come ritrovare l'intesa?'intesa?'intesa',
+    title: "Crisi di coppia: come ritrovare l'intesa?",
     keyword: 'crisi di coppia',
     metaDescription: 'La crisi di coppia è un\'opportunità di crescita o la fine? Scopri come affrontare i momenti difficili e quando rivolgersi alla terapia di coppia.',
     date: '2026-08-24',

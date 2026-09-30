@@ -22,7 +22,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'perfezionismo',
-    title: 'Perfezionismo: quando diventa un problema?'eccellenza diventa un problema',
+    title: "Perfezionismo: quando diventa un problema?",
     keyword: 'perfezionismo',
     metaDescription: 'Il perfezionismo può essere un ostacolo al successo e alla felicità. Scopri come riconoscere il perfezionismo clinico e come gestirlo efficacemente.',
     date: '2026-08-24',
@@ -85,7 +85,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'maternita-benessere-psicologico',
-    title: 'Maternità: come cambia l'equilibrio psicologico?'equilibrio psicologico?',
+    title: "Maternità: come cambia l'equilibrio psicologico?",
     keyword: 'maternità benessere psicologico',
     metaDescription: 'La maternità è una fase di grande trasformazione. Scopri come preservare il tuo benessere psicologico durante questo viaggio con i consigli di Adatto x Te.',
     date: '2026-08-24',
@@ -106,7 +106,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'menopausa-benessere',
-    title: 'Menopausa: come gestire l'umore?'umore?',
+    title: "Menopausa: come gestire l'umore?",
     keyword: 'menopausa benessere',
     metaDescription: 'La menopausa non è solo un cambiamento fisico. Scopri come affrontare gli aspetti emotivi e psicologici di questa fase con il supporto di Adatto x Te.',
     date: '2026-08-24',
@@ -212,7 +212,7 @@ export const extraArticles4 = [
   },
   {
     slug: 'equilibrio-lavoro-vita-privata',
-    title: 'Come ritrovare l'equilibrio lavoro-vita?'equilibrio lavoro-vita?'equilibrio lavoro-vita?',
+    title: "Come ritrovare l'equilibrio lavoro-vita?",
     keyword: 'equilibrio lavoro vita privata',
     metaDescription: 'Il work-life balance è essenziale per prevenire il burnout. Scopri le strategie per un sano equilibrio lavoro e vita privata con Adatto x Te.',
     date: '2026-08-24',
