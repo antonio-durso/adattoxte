@@ -117,7 +117,12 @@ export const CITTA_TOP = [
 
 ];;
 
-export const citta = [
+import { cittaEstesi1 } from './citta-estesi-1.js';
+import { cittaEstesi2 } from './citta-estesi-2.js';
+import { cittaEstesi3 } from './citta-estesi-3.js';
+import { cittaEstesi4 } from './citta-estesi-4.js';
+
+const cittaBase = [
     {
     nome: 'Agrigento',
     slug: 'agrigento',
@@ -1722,3 +1727,22 @@ export const citta = [
     ],
   },
 ];
+
+// --- Estensioni ---------------------------------------------------------
+// I file citta-estesi-*.js contengono SOLO i campi riscritti. Il merge è per campo:
+// quello che non è nell'estensione resta quello originale, così un campo
+// dimenticato non fa sparire un pezzo della pagina.
+const cittaEstesi = [
+  ...cittaEstesi1,
+  ...cittaEstesi2,
+  ...cittaEstesi3,
+  ...cittaEstesi4,
+];
+
+const cittaPerSlug = new Map(cittaBase.map((x) => [x.slug, x]));
+for (const o of cittaEstesi) {
+  const base = cittaPerSlug.get(o.slug);
+  cittaPerSlug.set(o.slug, base ? { ...base, ...o } : o);
+}
+
+export const citta = [...cittaPerSlug.values()];

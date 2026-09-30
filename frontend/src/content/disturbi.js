@@ -2,7 +2,15 @@
 // Contenuti informativi generici (non sostituiscono il parere clinico).
 // Struttura: { slug, nome, keyword, intro, sintomi[4], consiglio, faq[[q,a]x2] }
 
-export const disturbi = [
+import { disturbiEstesi1 } from './disturbi-estesi-1.js';
+import { disturbiEstesi2 } from './disturbi-estesi-2.js';
+import { disturbiEstesi3 } from './disturbi-estesi-3.js';
+import { disturbiEstesi4 } from './disturbi-estesi-4.js';
+import { disturbiEstesi5 } from './disturbi-estesi-5.js';
+import { disturbiEstesi6 } from './disturbi-estesi-6.js';
+import { disturbiEstesi7 } from './disturbi-estesi-7.js';
+
+const disturbiBase = [
   {
     slug: 'depressione',
     nome: 'Depressione',
@@ -1454,3 +1462,24 @@ export const disturbi = [
 },
 ];
 
+// --- Estensioni ---------------------------------------------------------
+// I file disturbi-estesi-*.js contengono SOLO i campi riscritti. Il merge è per campo:
+// quello che non è nell'estensione resta quello originale, così un campo
+// dimenticato non fa sparire un pezzo della pagina.
+const disturbiEstesi = [
+  ...disturbiEstesi1,
+  ...disturbiEstesi2,
+  ...disturbiEstesi3,
+  ...disturbiEstesi4,
+  ...disturbiEstesi5,
+  ...disturbiEstesi6,
+  ...disturbiEstesi7,
+];
+
+const disturbiPerSlug = new Map(disturbiBase.map((x) => [x.slug, x]));
+for (const o of disturbiEstesi) {
+  const base = disturbiPerSlug.get(o.slug);
+  disturbiPerSlug.set(o.slug, base ? { ...base, ...o } : o);
+}
+
+export const disturbi = [...disturbiPerSlug.values()];

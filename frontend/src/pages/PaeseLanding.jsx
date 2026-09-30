@@ -246,6 +246,20 @@ export default function PaeseLanding() {
         </section>
       )}
 
+      {/* Guida lunga sul paese (sistema sanitario locale, comunità italiana, fusi,
+          lingua, continuità del percorso): è ciò che distingue una pagina paese da
+          una pagina porta con il nome dello stato cambiato. Vedi paesi-estesi-*.js.
+          Solo sulla pagina del paese: le pagine città restano sul loro `local`. */}
+      {!isCittaLocale && paese.guida && (
+        <section className="container section">
+          <div
+            className="prose-guida"
+            style={{ maxWidth: 780, margin: '0 auto', lineHeight: 1.7 }}
+            dangerouslySetInnerHTML={{ __html: paese.guida }}
+          />
+        </section>
+      )}
+
       <section className="container section">
         <h2 style={{ textAlign: 'center' }}>Perché uno psicologo online per chi vive {isCapitale ? `a ${nome}` : art.in}</h2>
         <div className="cards-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginTop: 24 }}>

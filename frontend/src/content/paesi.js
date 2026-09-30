@@ -1,7 +1,13 @@
 // Paesi con comunità italiana significativa o grande presenza di expat italiani.
 // Ogni voce alimenta una landing unica per paese e una per capitale.
 // Struttura: { slug, nome, bandiera, capitale: { slug, nome, nota }, regione, fuso, comunita }
-export const paesi = [
+import { paesiEstesi1 } from './paesi-estesi-1.js';
+import { paesiEstesi2 } from './paesi-estesi-2.js';
+import { paesiEstesi3 } from './paesi-estesi-3.js';
+import { paesiEstesi4 } from './paesi-estesi-4.js';
+import { paesiEstesi5 } from './paesi-estesi-5.js';
+
+const paesiBase = [
   { slug: 'stati-uniti', nome: 'Stati Uniti', bandiera: '🇺🇸', capitale: { slug: 'washington', nome: 'Washington', nota: 'capitale federale e città dove lavorano molti professionisti italiani' }, regione: 'Nord America', fuso: '6-9 ore in meno rispetto all\'Italia', comunita: 'Gli Stati Uniti ospitano una delle comunità italiane più grandi al mondo, da New York alla California', citta: ['New York', 'New Jersey', 'Miami', 'Chicago', 'Los Angeles', 'San Francisco', 'Boston', 'Houston'] },
   { slug: 'canada', nome: 'Canada', bandiera: '🇨🇦', capitale: { slug: 'ottawa', nome: 'Ottawa', nota: 'capitale amministrativa con una comunità italiana attiva' }, regione: 'Nord America', fuso: 'da 6 a 9 ore in meno rispetto all\'Italia', comunita: 'La comunità italiana in Canada è storica e organizzata, con forti presenze a Montréal e Toronto', citta: ['Toronto', 'Montréal', 'Vancouver', 'Calgary', 'Ottawa', 'Hamilton', 'Winnipeg', 'Edmonton'] },
   { slug: 'regno-unito', nome: 'Regno Unito', bandiera: '🇬🇧', capitale: { slug: 'londra', nome: 'Londra', nota: 'prima destinazione europea dei giovani italiani' }, regione: 'Europa', fuso: '1 ora in meno rispetto all\'Italia', comunita: 'Il Regno Unito ospita una delle comunità italiane più numerose e giovani d\'Europa', citta: ['Londra', 'Manchester', 'Birmingham', 'Glasgow', 'Edimburgo', 'Leeds', 'Leicester', 'Milton Keynes'] },
@@ -118,3 +124,23 @@ export const paesi = [
   { slug: 'india', nome: 'India', bandiera: '🇮🇳', capitale: { slug: 'nuova-delhi', nome: 'Nuova Delhi', nota: 'capitale con italiani tra aziende e istituzioni' }, regione: 'Asia', fuso: '+4 ore e 30 minuti rispetto all\'Italia', comunita: 'L\'India conta professionisti italiani tra aziende, commercio e istituzioni', citta: ['Nuova Delhi', 'Mumbai', 'Bangalore', 'Calcutta', 'Chennai', 'Hyderabad', 'Pune'] },
   { slug: 'thailandia', nome: 'Thailandia', bandiera: '🇹🇭', capitale: { slug: 'bangkok', nome: 'Bangkok', nota: 'capitale con italiani residenti e imprenditori' }, regione: 'Asia', fuso: '+6 ore rispetto all\'Italia', comunita: 'La Thailandia ospita italiani residenti, imprenditori e pensionati', citta: ['Bangkok', 'Chiang Mai', 'Phuket', 'Pattaya', 'Hua Hin', 'Ko Samui'] },
 ];
+
+// --- Estensioni ---------------------------------------------------------
+// I file paesi-estesi-*.js contengono SOLO i campi riscritti. Il merge è per campo:
+// quello che non è nell'estensione resta quello originale, così un campo
+// dimenticato non fa sparire un pezzo della pagina.
+const paesiEstesi = [
+  ...paesiEstesi1,
+  ...paesiEstesi2,
+  ...paesiEstesi3,
+  ...paesiEstesi4,
+  ...paesiEstesi5,
+];
+
+const paesiPerSlug = new Map(paesiBase.map((x) => [x.slug, x]));
+for (const o of paesiEstesi) {
+  const base = paesiPerSlug.get(o.slug);
+  paesiPerSlug.set(o.slug, base ? { ...base, ...o } : o);
+}
+
+export const paesi = [...paesiPerSlug.values()];

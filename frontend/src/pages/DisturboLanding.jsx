@@ -208,6 +208,20 @@ function DisturboView({ d, isEn }) {
         </Reveal>
       </section>
 
+      {/* Guida lunga: contenuto scritto per il singolo disturbo. Solo in
+          italiano — le pagine /en non hanno il campo e non cambiano. */}
+      {!isEn && data.guida && (
+        <section className="container section">
+          <Reveal>
+            <div
+              className="prose-guida"
+              style={{ maxWidth: 760, lineHeight: 1.7 }}
+              dangerouslySetInnerHTML={{ __html: data.guida }}
+            />
+          </Reveal>
+        </section>
+      )}
+
       <section className="container section">
         <Reveal>
           <div className="card" style={{ padding: 20 }}>
@@ -304,6 +318,14 @@ function CittaView({ c, isEn }) {
             className="card"
             style={{ maxWidth: 640, marginTop: 16, padding: '18px 20px', textAlign: 'left', lineHeight: 1.6 }}
             dangerouslySetInnerHTML={{ __html: data.local }}
+          />
+        )}
+        {/* Guida lunga per la singola città: stesso meccanismo dei disturbi. */}
+        {!isEn && data.guida && (
+          <div
+            className="prose-guida"
+            style={{ maxWidth: 760, marginTop: 20, textAlign: 'left', lineHeight: 1.7 }}
+            dangerouslySetInnerHTML={{ __html: data.guida }}
           />
         )}
         <div className="row-gap" style={{ margin: '18px 0' }}>
