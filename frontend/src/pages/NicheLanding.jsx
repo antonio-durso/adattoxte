@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api';
+import { ratingIstantanea } from '../content/rating.js';
 import { visibleArticles as articles } from '../content/articles';;
 import { disturbi } from '../content/disturbi';
 import { citta, CITTA_TOP } from '../content/citta';
@@ -205,7 +206,15 @@ export default function NicheLanding({ niche }) {
   // /recensioni (api.get('/ratings')). Serve solo al JSON-LD delle pagine
   // commerciali; se i dati non arrivano il markup non viene emesso, quindi non
   // resta in pagina nessun rating finto.
-  const [rating, setRating] = useState(null);
+  // Base: istantanea rigenerata a ogni build da scripts/build-rating.js, quindi
+  // già presente nell'HTML statico prodotto dal prerender — è la differenza
+  // misurata rispetto a Serenis, che ha il markup nell'HTML grezzo. Il fetch a
+  // runtime sotto la raffina se i numeri cambiano dopo il deploy.
+  const [rating, setRating] = useState(
+    ratingIstantanea && ratingIstantanea.total > 0
+      ? { avg: ratingIstantanea.avg, total: ratingIstantanea.total }
+      : null
+  );
   useEffect(() => {
     let attivo = true;
     api
