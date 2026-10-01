@@ -264,7 +264,7 @@ router.get('/public', (req, res) => {
   res.json({ profili: rows.map((r) => ({ slug: r.public_slug, city: r.city || '' })) });
 });
 
-router.get('/earnings', authRequired, requireRole('therapist'), (req, res) => {// ── Foto di profilo ──────────────────────────────────────────────────────
+// ── Foto di profilo ──────────────────────────────────────────────────────
 // Salvata come dato nel database (che vive su Turso): non si perde ai
 // riavvii. Servita da una rotta sua, cosi le liste restano leggere.
 const BASE_PUBBLICA = 'https://www.adattoxte.com';
@@ -310,6 +310,7 @@ router.get('/photo/:id', (req, res) => {
   res.send(r.photo_data);
 });
 
+router.get('/earnings', authRequired, requireRole('therapist'), (req, res) => {
   const rows = db.prepare('SELECT status, price FROM bookings WHERE therapist_id = ?').all(req.user.id);
   const sum = (statuses) => rows.filter((b) => statuses.includes(b.status)).reduce((a, b) => a + (b.price || 0), 0);
   res.json({
