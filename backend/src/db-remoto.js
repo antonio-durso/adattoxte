@@ -19,6 +19,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const Database = require('better-sqlite3');
 
 const URL_TURSO = process.env.TURSO_URL || '';
 const TOKEN = process.env.TURSO_TOKEN || '';
@@ -33,6 +34,40 @@ function percorsoDb() {
   const dataDir = path.join(__dirname, '..', 'data');
   return process.env.DB_PATH || path.join(dataDir, 'adattoxte.db');
 }
+
+// ── Copia consistente ───────────────────────────────────────────────────────
+// Il database gira in journal_mode = WAL: le scritture finiscono nel file -wal
+// e il file principale cambia solo al checkpoint. Leggere direttamente il .db
+// significa caricare su Turso una copia vecchia, o addirittura vuota.
+// Quindi: prima si forza il checkpoint, poi si legge.
+function checkpoint() {
+  const file = percorsoDb();
+  if (!fs.existsSync(file)) return false;
+  let connessione = null;
+  try {
+    connessione = new Database(file);
+    connessione.pragma('wal_checkpoint(TRUNCATE)');
+    return true;
+  } catch (e) {
+    console.warn('[db-remoto] checkpoint non riuscito:', String(e.message).slice(0, 160));
+    return false;
+  } finally {
+    if (connessione) { try { connessione.close(); } catch (e) { /* niente */ } }
+  }
+}
+
+// Firma del database: include il file -wal, che e' quello che cambia a ogni
+// scrittura. Guardando solo il file principale le modifiche restano invisibili
+// finche' non arriva un checkpoint, e quindi non vengono mai caricate.
+function firma() {
+  const file = percorsoDb();
+  const pezzo = (f) => {
+    try { const s = fs.statSync(f); return `${s.size}-${s.mtimeMs}`; } catch (e) { return 'x'; }
+  };
+  return `${pezzo(file)}|${pezzo(file + '-wal')}`;
+}
+
+let pronta = false;
 
 async function pipeline(richieste) {
   const r = await fetch(`${endpoint()}/v2/pipeline`, {
@@ -85,6 +120,12 @@ async function scarica() {
   const tmp = `${file}.tmp`;
   fs.writeFileSync(tmp, dati);
   fs.renameSync(tmp, file);
+  // Un -wal rimasto da una generazione precedente del database verrebbe
+  // applicato al file appena scaricato. Senza disco persistente non capita,
+  // ma con il disco (piano a pagamento) questo corrompe il database.
+  for (const residuo of [file + '-wal', file + '-shm']) {
+    try { if (fs.existsSync(residuo)) fs.unlinkSync(residuo); } catch (e) { /* niente */ }
+  }
   console.log(`[db-remoto] database scaricato da Turso (${Math.round(fs.statSync(file).size / 1024)} KB)`);
   return true;
 }
@@ -94,8 +135,11 @@ async function carica() {
   if (!ATTIVO) return false;
   const file = percorsoDb();
   if (!fs.existsSync(file)) return false;
+  // Il file principale deve contenere anche cio' che sta nel -wal, altrimenti
+  // si spedisce a Turso una copia incompleta.
+  checkpoint();
   const b64 = fs.readFileSync(file).toString('base64');
-  await creaTabella();
+  if (!pronta) { await creaTabella(); pronta = true; }
   await pipeline([
     EXEC('INSERT OR REPLACE INTO archivio (id, dati, aggiornato) VALUES (1, ?, ?)',
       [{ type: 'blob', base64: b64 }, { type: 'text', value: new Date().toISOString() }]),
@@ -114,25 +158,17 @@ function avviaSincronizzazione(intervalloMs = 5000) {
     return null;
   }
   const file = percorsoDb();
-  let ultimaFirma = null;
-  try {
-    if (fs.existsSync(file)) {
-      const s = fs.statSync(file);
-      ultimaFirma = `${s.size}-${s.mtimeMs}`;
-    }
-  } catch (e) { /* niente */ }
+  let ultimaFirma = firma();
 
   let inCorso = false;
   const timer = setInterval(async () => {
     if (inCorso) return;
     try {
       if (!fs.existsSync(file)) return;
-      const s = fs.statSync(file);
-      const firma = `${s.size}-${s.mtimeMs}`;
-      if (firma === ultimaFirma) return;
+      if (firma() === ultimaFirma) return;
       inCorso = true;
       await carica();
-      ultimaFirma = firma;
+      ultimaFirma = firma();
     } catch (e) {
       console.warn('[db-remoto] caricamento non riuscito:', String(e.message).slice(0, 160));
     } finally {

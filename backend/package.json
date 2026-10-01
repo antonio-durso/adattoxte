@@ -7,7 +7,7 @@
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "seed": "node src/seed.js",
-    "test": "node --test tests/"
+    "test": "node --test"
   },
   "dependencies": {
     "@sentry/node": "^10.72.0",
