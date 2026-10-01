@@ -19,7 +19,7 @@ function parseLanguages(row) {
   try { return JSON.parse(row.languages || '["it"]'); } catch { return ['it']; }
 }
 
-function therapistView(row) {// ── Scheda pubblica del professionista (blocco 2) ───────────────────────────
+// ── Scheda pubblica del professionista (blocco 2) ───────────────────────────
 // La pubblicazione e una SCELTA esplicita: senza i campi obbligatori
 // il profilo non puo andare online. Cosi una riga nel database non basta.
 
@@ -72,6 +72,7 @@ const SQL_PROFILO_PUBBLICO =
   'FROM users u JOIN therapist_profiles p ON p.user_id = u.id WHERE p.public_slug = ? AND p.published = 1';
 
 
+function therapistView(row) {
   return {
     id: row.id,
     name: row.name,
@@ -263,7 +264,52 @@ router.get('/public', (req, res) => {
   res.json({ profili: rows.map((r) => ({ slug: r.public_slug, city: r.city || '' })) });
 });
 
-router.get('/earnings', authRequired, requireRole('therapist'), (req, res) => {
+router.get('/earnings', authRequired, requireRole('therapist'), (req, res) => {// ── Foto di profilo ──────────────────────────────────────────────────────
+// Salvata come dato nel database (che vive su Turso): non si perde ai
+// riavvii. Servita da una rotta sua, cosi le liste restano leggere.
+const BASE_PUBBLICA = 'https://www.adattoxte.com';
+const MAX_FOTO = 700 * 1024;
+
+function tipoImmagine(buf) {
+  if (buf.length > 3 && buf[0] === 0xFF && buf[1] === 0xD8 && buf[2] === 0xFF) return 'image/jpeg';
+  if (buf.length > 8 && buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4E && buf[3] === 0x47) return 'image/png';
+  if (buf.length > 12 && buf.slice(0, 4).toString('ascii') === 'RIFF' && buf.slice(8, 12).toString('ascii') === 'WEBP') return 'image/webp';
+  return null;
+}
+
+function urlFoto(userId) { return BASE_PUBBLICA + '/api/therapists/photo/' + userId; }
+
+// POST /api/therapists/me/photo — carica la foto (base64)
+router.post('/me/photo', authRequired, requireRole('therapist'), (req, res) => {
+  const b = req.body || {};
+  const grezzo = String(b.data || '').replace(/^data:[^;]+;base64,/, '');
+  if (!grezzo) return res.status(400).json({ error: 'Nessuna immagine ricevuta' });
+
+  let buf;
+  try { buf = Buffer.from(grezzo, 'base64'); } catch (e) { return res.status(400).json({ error: 'Immagine non leggibile' }); }
+  if (!buf.length || buf.length > MAX_FOTO) return res.status(400).json({ error: 'Immagine troppo grande: massimo 500 KB.' });
+
+  const tipo = tipoImmagine(buf);
+  if (!tipo) return res.status(400).json({ error: 'Formato non supportato: usa JPG, PNG o WEBP.' });
+
+  let riga = db.prepare('SELECT user_id FROM therapist_profiles WHERE user_id = ?').get(req.user.id);
+  if (!riga) db.prepare('INSERT INTO therapist_profiles (user_id) VALUES (?)').run(req.user.id);
+
+  db.prepare('UPDATE therapist_profiles SET photo_data = ?, photo_type = ? WHERE user_id = ?').run(buf, tipo, req.user.id);
+  db.prepare('UPDATE therapist_profiles SET photo_url = ? WHERE user_id = ?').run(urlFoto(req.user.id), req.user.id);
+
+  res.json({ ok: true, url: urlFoto(req.user.id), byte: buf.length, tipo: tipo });
+});
+
+// GET /api/therapists/photo/:id — serve la foto (pubblica)
+router.get('/photo/:id', (req, res) => {
+  const r = db.prepare('SELECT photo_data, photo_type FROM therapist_profiles WHERE user_id = ?').get(String(req.params.id || ''));
+  if (!r || !r.photo_data) return res.status(404).end();
+  res.set('Content-Type', r.photo_type || 'image/jpeg');
+  res.set('Cache-Control', 'public, max-age=86400');
+  res.send(r.photo_data);
+});
+
   const rows = db.prepare('SELECT status, price FROM bookings WHERE therapist_id = ?').all(req.user.id);
   const sum = (statuses) => rows.filter((b) => statuses.includes(b.status)).reduce((a, b) => a + (b.price || 0), 0);
   res.json({

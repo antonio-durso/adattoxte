@@ -75,7 +75,9 @@ function initDb() {
       public_slug      TEXT DEFAULT '',
       same_as          TEXT NOT NULL DEFAULT '{}',
       published        INTEGER NOT NULL DEFAULT 0,
-      accetta_richieste INTEGER NOT NULL DEFAULT 0
+      accetta_richieste INTEGER NOT NULL DEFAULT 0,
+      photo_data       BLOB,
+      photo_type       TEXT
     );
 
     CREATE TABLE IF NOT EXISTS availabilities (
@@ -190,6 +192,8 @@ function initDb() {
   if (!tprofCols.includes('same_as')) db.exec("ALTER TABLE therapist_profiles ADD COLUMN same_as TEXT NOT NULL DEFAULT '{}'");
   if (!tprofCols.includes('published')) db.exec('ALTER TABLE therapist_profiles ADD COLUMN published INTEGER NOT NULL DEFAULT 0');
   if (!tprofCols.includes('accetta_richieste')) db.exec('ALTER TABLE therapist_profiles ADD COLUMN accetta_richieste INTEGER NOT NULL DEFAULT 0');
+  if (!tprofCols.includes('photo_data')) db.exec('ALTER TABLE therapist_profiles ADD COLUMN photo_data BLOB');
+  if (!tprofCols.includes('photo_type')) db.exec('ALTER TABLE therapist_profiles ADD COLUMN photo_type TEXT');
 
   if (!bookingCols.includes('credit_used')) {
     db.exec('ALTER TABLE bookings ADD COLUMN credit_used INTEGER NOT NULL DEFAULT 0');

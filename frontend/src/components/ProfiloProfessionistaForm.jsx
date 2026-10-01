@@ -47,6 +47,7 @@ export default function ProfiloProfessionistaForm() {
   const [msg, setMsg] = useState('');
   const [errore, setErrore] = useState('');
   const [busy, setBusy] = useState(false);
+  const [statoFoto, setStatoFoto] = useState('');
 
   useEffect(() => {
     api.get('/therapists/me')
@@ -80,6 +81,41 @@ export default function ProfiloProfessionistaForm() {
     const lista = form[k];
     set(k, lista.includes(v) ? lista.filter((x) => x !== v) : [...lista, v]);
   };
+
+  // La foto viene ridimensionata QUI nel browser (max 500 px) prima di essere
+  // inviata: quindi viaggiano poche decine di KB invece di megabyte.
+  async function caricaFoto(e) {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    setStatoFoto('Preparo l’immagine...');
+    try {
+      const ridimensionata = await new Promise((resolve, reject) => {
+        const lettore = new FileReader();
+        lettore.onerror = () => reject(new Error('lettura'));
+        lettore.onload = () => {
+          const img = new Image();
+          img.onerror = () => reject(new Error('immagine'));
+          img.onload = () => {
+            const lato = 500;
+            const scala = Math.min(1, lato / Math.max(img.width, img.height));
+            const c = document.createElement('canvas');
+            c.width = Math.round(img.width * scala);
+            c.height = Math.round(img.height * scala);
+            c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+            resolve(c.toDataURL('image/jpeg', 0.82));
+          };
+          img.src = lettore.result;
+        };
+        lettore.readAsDataURL(file);
+      });
+
+      const r = await api.post('/therapists/me/photo', { data: ridimensionata });
+      set('photoUrl', r.data.url);
+      setStatoFoto('Foto caricata.');
+    } catch (err) {
+      setStatoFoto((err.response && err.response.data && err.response.data.error) || 'Non sono riuscito a caricare la foto.');
+    }
+  }
 
   async function salva(published) {
     setBusy(true); setMsg(''); setErrore('');
@@ -161,6 +197,13 @@ export default function ProfiloProfessionistaForm() {
       <p className="muted" style={{ fontSize: 13 }}>{form.bio.length} caratteri</p>
 
       <label>Foto (indirizzo dell’immagine)</label>
+      <input type="file" accept="image/*" onChange={caricaFoto} />
+      {statoFoto && <p className="muted" style={{ fontSize: 13, margin: '6px 0' }}>{statoFoto}</p>}
+      {form.photoUrl ? (
+        <img src={form.photoUrl} alt="Anteprima" width="96" height="96"
+          style={{ borderRadius: 10, objectFit: 'cover', display: 'block', margin: '8px 0' }} />
+      ) : null}
+      <label>…oppure incolla l’indirizzo di una foto già online</label>
       <input type="text" value={form.photoUrl} onChange={(e) => set('photoUrl', e.target.value)} />
 
       <h3 style={{ fontSize: 16, marginTop: 20 }}>Tariffe</h3>
