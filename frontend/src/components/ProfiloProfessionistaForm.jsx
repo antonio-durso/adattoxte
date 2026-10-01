@@ -196,7 +196,7 @@ export default function ProfiloProfessionistaForm() {
       <textarea rows={6} value={form.bio} onChange={(e) => set('bio', e.target.value)} />
       <p className="muted" style={{ fontSize: 13 }}>{form.bio.length} caratteri</p>
 
-      <label>Foto (indirizzo dell’immagine)</label>
+      <label>Foto di profilo</label>
       <input type="file" accept="image/*" onChange={caricaFoto} />
       {statoFoto && <p className="muted" style={{ fontSize: 13, margin: '6px 0' }}>{statoFoto}</p>}
       {form.photoUrl ? (
