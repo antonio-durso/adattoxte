@@ -11,6 +11,9 @@ import Home from './pages/Home';
 const Therapists = lazy(() => import('./pages/Therapists'));
 const TherapistDetail = lazy(() => import('./pages/TherapistDetail'));
 const Register = lazy(() => import('./pages/Register'));
+const RegistrazioneProfessionista = lazy(() => import('./pages/RegistrazioneProfessionista'));
+const Professionista = lazy(() => import('./pages/Professionista'));
+const Incrocio = lazy(() => import('./pages/Incrocio'));
 const Login = lazy(() => import('./pages/Login'));
 const PatientDashboard = lazy(() => import('./pages/PatientDashboard'));
 const Checkout = lazy(() => import('./pages/Checkout'));
@@ -89,6 +92,9 @@ function LangRoutes() {
       <Route path="/disturbi" element={<DisturbiIndex />} />
       <Route path="/psicologo-online/:slug" element={<DisturboLanding />} />
       <Route path="/registrazione" element={<Register />} />
+      <Route path="/registrazione-professionista" element={<RegistrazioneProfessionista />} />
+      <Route path="/professionisti/:slug" element={<Professionista />} />
+      <Route path="/psicologo-online/:disturbo/:citta" element={<Incrocio />} />
       <Route path="/accedi" element={<Login />} />
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/cookie" element={<CookiePolicy />} />

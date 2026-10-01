@@ -47,7 +47,12 @@ function initDb() {
       experience_years INTEGER DEFAULT 0,
       languages        TEXT NOT NULL DEFAULT '["it"]',
       photo_url        TEXT DEFAULT '',
-      verified         INTEGER NOT NULL DEFAULT 0
+      verified         INTEGER NOT NULL DEFAULT 0,
+      city             TEXT DEFAULT '',
+      public_slug      TEXT DEFAULT '',
+      same_as          TEXT NOT NULL DEFAULT '{}',
+      published        INTEGER NOT NULL DEFAULT 0,
+      accetta_richieste INTEGER NOT NULL DEFAULT 0
     );
 
     CREATE TABLE IF NOT EXISTS availabilities (
@@ -155,6 +160,14 @@ function initDb() {
     db.exec('CREATE UNIQUE INDEX IF NOT EXISTS idx_users_referral_code ON users(referral_code)');
   }
   const bookingCols = db.prepare('PRAGMA table_info(bookings)').all().map((c) => c.name);
+  // Blocco 2: campi della scheda pubblica del professionista
+  const tprofCols = db.prepare('PRAGMA table_info(therapist_profiles)').all().map((c) => c.name);
+  if (!tprofCols.includes('city')) db.exec("ALTER TABLE therapist_profiles ADD COLUMN city TEXT DEFAULT ''");
+  if (!tprofCols.includes('public_slug')) db.exec("ALTER TABLE therapist_profiles ADD COLUMN public_slug TEXT DEFAULT ''");
+  if (!tprofCols.includes('same_as')) db.exec("ALTER TABLE therapist_profiles ADD COLUMN same_as TEXT NOT NULL DEFAULT '{}'");
+  if (!tprofCols.includes('published')) db.exec('ALTER TABLE therapist_profiles ADD COLUMN published INTEGER NOT NULL DEFAULT 0');
+  if (!tprofCols.includes('accetta_richieste')) db.exec('ALTER TABLE therapist_profiles ADD COLUMN accetta_richieste INTEGER NOT NULL DEFAULT 0');
+
   if (!bookingCols.includes('credit_used')) {
     db.exec('ALTER TABLE bookings ADD COLUMN credit_used INTEGER NOT NULL DEFAULT 0');
   }

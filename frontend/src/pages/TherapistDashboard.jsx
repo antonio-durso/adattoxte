@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
+import ProfiloProfessionistaForm from '../components/ProfiloProfessionistaForm';
 import api from '../api';
 import Messaging from '../components/Messaging';
 import VideoRoom from '../components/VideoRoom';
@@ -58,6 +59,7 @@ export default function TherapistDashboard() {
   return (
     <div className="container section">
       <h1>La mia agenda</h1>
+      <ProfiloProfessionistaForm />
       {error && <p className="error-text">{error}</p>}
       {loading && <p className="muted">Caricamento…</p>}
 

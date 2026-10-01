@@ -14,3 +14,7 @@ Disallow: /prenota
 Disallow: /chat
 Disallow: /app
 Sitemap: https://www.adattoxte.com/sitemap.xml
+
+# Sitemap dinamica: profili pubblicati + incroci che hanno superato il gate.
+# Non elenca mai pagine sotto soglia.
+Sitemap: https://www.adattoxte.com/api/therapists/sitemap-profili.xml

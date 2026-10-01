@@ -104,6 +104,7 @@ const ROUTES = FAST
       '/psicologo-sport',
       '/psicologia-giuridica',
       '/registrazione',
+      '/registrazione-professionista',
       '/accedi',
       '/privacy',
       '/cookie',

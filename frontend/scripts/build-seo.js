@@ -50,6 +50,8 @@ const STATIC_ROUTES = [
   // NOTA: /en NON è in sitemap — versione inglese non indicizzata fino all'arrivo
   // di terapeuti anglofoni (vedi Seo.jsx: noindex sulle rotte /en).
   { path: '/terapeuti', priority: '0.9', freq: 'daily' },
+  // Porta d'ingresso per i professionisti. Indicizzabile di proposito.
+  { path: '/registrazione-professionista', priority: '0.7', freq: 'monthly' },
   { path: '/psicologo-online', priority: '0.9', freq: 'weekly' },
   { path: '/chi-siamo', priority: '0.6', freq: 'monthly' },
   { path: '/blog', priority: '0.9', freq: 'daily' },

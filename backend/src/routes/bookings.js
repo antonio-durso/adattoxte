@@ -131,8 +131,13 @@ router.post('/', requireRole('patient'), (req, res) => {
     .get(req.user.id).c;
   const isFree = type === 'individual' && priorBookings === 0;
 
-  const therapist = db.prepare('SELECT id FROM users WHERE id = ? AND role = ?').get(therapistId, 'therapist');
-  if (!therapist) return res.status(404).json({ error: 'Terapeuta non trovato' });
+  // Il professionista deve essere PUBBLICATO e PRENDERE prenotazioni:
+  // cosi un profilo presente solo nella directory non puo essere prenotato.
+  const therapist = db.prepare(
+    'SELECT u.id FROM users u JOIN therapist_profiles p ON p.user_id = u.id ' +
+    "WHERE u.id = ? AND u.role = 'therapist' AND p.accetta_richieste = 1"
+  ).get(therapistId);
+  if (!therapist) return res.status(404).json({ error: 'Professionista non disponibile per le prenotazioni' });
 
   // Recupera o crea lo slot
   let slot = db.prepare('SELECT * FROM availabilities WHERE therapist_id = ? AND date = ? AND start_time = ?').get(therapistId, date, startTime);
