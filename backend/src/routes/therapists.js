@@ -171,7 +171,7 @@ router.get('/sitemap-profili.xml', (req, res) => {
   res.type('application/xml').send(xml);
 });
 
-router.get('/earnings', authRequired, requireRole('therapist'), (req, res) => {// GET /api/therapists/me — il proprio profilo professionista
+// GET /api/therapists/me — il proprio profilo professionista
 router.get('/me', authRequired, requireRole('therapist'), (req, res) => {
   const row = db.prepare(SQL_MIO_PROFILO).get(req.user.id);
   if (!row) return res.status(404).json({ error: 'Profilo non trovato' });
@@ -263,6 +263,7 @@ router.get('/public', (req, res) => {
   res.json({ profili: rows.map((r) => ({ slug: r.public_slug, city: r.city || '' })) });
 });
 
+router.get('/earnings', authRequired, requireRole('therapist'), (req, res) => {
   const rows = db.prepare('SELECT status, price FROM bookings WHERE therapist_id = ?').all(req.user.id);
   const sum = (statuses) => rows.filter((b) => statuses.includes(b.status)).reduce((a, b) => a + (b.price || 0), 0);
   res.json({
