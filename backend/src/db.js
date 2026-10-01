@@ -16,7 +16,30 @@ const dataDir = path.join(__dirname, '..', 'data');
 const dbFile = process.env.DB_PATH || path.join(dataDir, 'adattoxte.db');
 if (!fs.existsSync(path.dirname(dbFile))) fs.mkdirSync(path.dirname(dbFile), { recursive: true });
 
+// ── Persistenza su Turso ────────────────────────────────────────────────────
+// Render (piano free) ha un filesystem che si azzera a ogni riavvio e dopo 15
+// minuti di inattivita'. Il file del database viene quindi tenuto anche su Turso
+// e recuperato QUI, prima di aprirlo. Fail-safe: se Turso non e' configurato o
+// non risponde, l'applicazione parte comunque con il database locale.
+try {
+  if (process.env.TURSO_URL && process.env.TURSO_TOKEN) {
+    const { execFileSync } = require('child_process');
+    execFileSync(process.execPath, [path.join(__dirname, 'db-remoto.js')], {
+      stdio: 'inherit',
+      timeout: 30000
+    });
+  }
+} catch (e) {
+  console.warn('[db] recupero da Turso non riuscito:', String(e.message).slice(0, 200));
+}
 const db = new Database(dbFile);
+// Sincronizzazione: appena il file del database cambia, lo carica su Turso.
+// Basta questo: non serve toccare nessuna rotta.
+try {
+  require('./db-remoto').avviaSincronizzazione(5000);
+} catch (e) {
+  console.warn('[db] sincronizzazione non attivata:', String(e.message).slice(0, 200));
+}
 db.pragma('journal_mode = WAL');
 db.pragma('foreign_keys = ON');
 
