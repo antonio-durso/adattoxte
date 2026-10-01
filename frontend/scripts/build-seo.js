@@ -194,6 +194,10 @@ Disallow: /prenota
 Disallow: /chat
 Disallow: /app
 Sitemap: ${BASE}/sitemap.xml
+
+# Sitemap dinamica: profili pubblicati + incroci che hanno superato il gate.
+# Non elenca mai pagine sotto soglia.
+Sitemap: ${BASE}/api/therapists/sitemap-profili.xml
 `;
   fs.writeFileSync(path.join(publicDir, 'robots.txt'), robots);
 }
