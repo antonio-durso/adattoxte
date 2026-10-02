@@ -269,20 +269,10 @@ export default function PaeseLanding() {
         </div>
       </section>
 
-      <section className="container section section-deep">
-        <h2 style={{ textAlign: 'center' }}>Come funziona</h2>
-        <div className="cards-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16, marginTop: 24 }}>
-          {['Registrati in 2 minuti', 'Scegli il terapeuta e prenota', 'Collegati in videochiamata'].map((s, i) => (
-            <Reveal key={s} delay={i * 90}>
-              <div className="card" style={{ height: '100%' }}>
-                <div className="card-icon" style={{ fontSize: 26, fontWeight: 800 }}>{i + 1}</div>
-                <h3>{s}</h3>
-                <p>{i === 0 ? 'Bastano email e password.' : i === 1 ? 'Confronta i profili e scegli l\'orario più comodo.' : 'La seduta si apre nel browser, da qualsiasi dispositivo.'}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      {/* Sezione "Come funziona" (i 3 passi generici) rimossa da questa pagina: la guida lunga
+          del paese spiega già come funziona il percorso, e 30 pagine su 43 mostravano due
+          titoli "Come funziona" nella stessa pagina. Il blocco resta sulle altre pagine del
+          sito (hub, nicchie, estero), quindi l'informazione non si perde. */}
 
       {/* Sezione città (solo vista paese): testo ricco con i nomi delle città per intercettare
           le ricerche "psicologo italiano online [città]" — dati dal campo `citta` in paesi.js */}
@@ -296,11 +286,8 @@ export default function PaeseLanding() {
               le sedute si svolgono in videochiamata in italiano, senza spostamenti e senza problemi
               di fuso orario ({paese.fuso}).
             </p>
-            <p>
-              La prima seduta conoscitiva è gratuita, le sedute da 50 minuti costano {isCH ? 'CHF 130' : '45€'} e, se ti sposti
-              per lavoro o per un trasferimento tra le città {art.di},
-              il tuo percorso ti segue senza interruzioni.
-            </p>
+            {/* Il prezzo era ripetuto qui, nella guida del paese e nelle FAQ: ora una volta sola.
+                Per la Svizzera il CHF 130 resta nella sezione "Pagamenti e assicurazione". */}
             {/* Maglia interna: le località che hanno una pagina propria devono essere
                 raggiungibili dalla pagina del paese (senza questo link resterebbero
                 orfane, e Google le troverebbe solo dalla sitemap). */}

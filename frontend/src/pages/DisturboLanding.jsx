@@ -377,15 +377,11 @@ function CittaView({ c, isEn }) {
         </Reveal>
       </section>
 
-      <section className="container section">
-        <Reveal>
-          <div className="card" style={{ padding: 20 }}>
-            <h2 style={{ marginTop: 0 }}>{L.howWorks}</h2>
-            <p>{L.steps}</p>
-            <Link to={isEn ? '/en/terapeuti' : '/terapeuti'} className="btn btn-primary">{L.start}</Link>
-          </div>
-        </Reveal>
-      </section>
+      {/* Sezione "Come funziona" (i 3 passi, L.steps) rimossa da questo ramo (città): la guida
+          lunga della città e le FAQ coprono già il tema, e 30 pagine su 109 mostravano un
+          secondo titolo "Come funziona". Il pulsante di prenotazione resta sopra; un blocco
+          "Come funziona" resta comunque sull'hub e sulle pagine nicchia (Estero.jsx,
+          NicheLanding.jsx), quindi l'informazione non si perde dal sito. */}
 
       {isEn ? (
         <FaqBlockEn faqs={[
