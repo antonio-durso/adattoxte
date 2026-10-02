@@ -286,6 +286,11 @@ export default function PaeseLanding() {
               le sedute si svolgono in videochiamata in italiano, senza spostamenti e senza problemi
               di fuso orario ({paese.fuso}).
             </p>
+            {/* Frase facoltativa per paese (`zoneNota` in paesi.js): nomina le località che
+                la pagina non elenca altrove. Serve alle ricerche tipo "psicologo italiano
+                online [cantone]": Google può mostrare nel risultato solo parole che
+                esistono sulla pagina, quindi un cantone mai nominato non può comparire. */}
+            {paese.zoneNota && <p>{paese.zoneNota}</p>}
             {/* Il prezzo era ripetuto qui, nella guida del paese e nelle FAQ: ora una volta sola.
                 Per la Svizzera il CHF 130 resta nella sezione "Pagamenti e assicurazione". */}
             {/* Maglia interna: le località che hanno una pagina propria devono essere
