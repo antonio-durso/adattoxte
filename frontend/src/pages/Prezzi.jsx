@@ -78,7 +78,7 @@ export default function Prezzi() {
           <span className="muted">
             Per chi risiede in Svizzera si applica il listino dedicato: <strong>CHF 130</strong> la
             seduta individuale, <strong>CHF 145</strong> quella di coppia, pacchetto 3 sedute con il
-            15% di sconto. Paghi online in EUR all'equivalente fisso (CHF 130 = 138 €), sempre senza
+            15% di sconto. Paghi online in EUR all'equivalente fisso (CHF 130 = 130 €), sempre senza
             prescrizione e senza passare dal medico — nessuna diagnosi nel dossier assicurativo.{' '}
           </span>
           <Link to="/italiani-all-estero/svizzera#senza-prescrizione" style={{ color: '#286a8f', fontWeight: 600, whiteSpace: 'nowrap' }}>

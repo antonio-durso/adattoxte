@@ -214,7 +214,7 @@ export default function TherapistDetail() {
             <h2>{t('common.book')} una seduta</h2>
             {isCH && (
               <p className="muted small" style={{ margin: '0 0 8px' }}>
-                🇨🇭 Listino Svizzera applicato automaticamente: CHF 130 = 138 € (paghi in EUR
+                🇨🇭 Listino Svizzera applicato automaticamente: CHF 130 = 130 € (paghi in EUR
                 all'equivalente fisso).
                 {isAdminPreview && (
                   <>

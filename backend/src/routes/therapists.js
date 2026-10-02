@@ -47,6 +47,26 @@ function slugUnico(base, userId) {
   }
 }
 
+/**
+ * Un indirizzo salvato nel profilo deve essere http(s) assoluto.
+ *
+ * Perche': photo_url e same_as finiscono in un href della scheda pubblica e
+ * nei dati strutturati. Senza controllo, un profilo puo' salvare un link
+ * javascript: o data: — che nella pagina diventa cliccabile — oppure un
+ * indirizzo relativo che non porta da nessuna parte.
+ * Il campo vuoto e' ammesso: significa "non indicato".
+ */
+function urlAmmessa(v) {
+  const s = String(v == null ? '' : v).trim();
+  if (!s) return true;
+  try {
+    const u = new URL(s);
+    return u.protocol === 'http:' || u.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
 // Cosa manca perche il profilo sia pubblicabile
 function campiMancanti(p, user) {
   const manca = [];
@@ -203,8 +223,76 @@ router.put('/me', authRequired, requireRole('therapist'), (req, res) => {
     if (v) sameAs[k] = v;
   }
 
+  // ── Controlli PRIMA di scrivere ────────────────────────────────────────
+  // Una richiesta rifiutata non deve lasciare il profilo a meta': prima si
+  // valida tutto, poi si scrive.
+  if (!urlAmmessa(photoUrl)) {
+    return res.status(400).json({
+      error: 'L indirizzo della foto deve essere completo e iniziare con http:// o https://',
+      campo: 'photoUrl'
+    });
+  }
+  const linkNonValido = Object.keys(sameAs).find((k) => !urlAmmessa(sameAs[k]));
+  if (linkNonValido) {
+    return res.status(400).json({
+      error: 'Il link "' + linkNonValido + '" deve essere completo e iniziare con http:// o https://',
+      campo: 'sameAs.' + linkNonValido
+    });
+  }
+
+  // Stato che il profilo avrebbe DOPO questa modifica: serve per decidere
+  // pubblicazione e prenotabilita' senza dover scrivere per scoprirlo.
+  const bio = b.bio != null ? testo(b.bio, 2000) : String(attuale.bio || '');
+  const manca = campiMancanti(
+    { city, license, specialties: JSON.stringify(specialties) },
+    { bio }
+  );
+
+  // Pubblicazione: solo se richiesta ESPLICITAMENTE e solo con profilo completo
+  let published = attuale.published ? 1 : 0;
+  if (b.published === false) published = 0;
+  if (b.published === true) {
+    if (manca.length) {
+      return res.status(400).json({
+        error: 'Profilo non ancora pubblicabile. Manca: ' + manca.join(', '),
+        campiMancanti: manca
+      });
+    }
+    published = 1;
+  }
+  // Un profilo GIA pubblicato non puo' diventare incompleto per effetto di una
+  // modifica: la pagina pubblica resterebbe online senza i dati che la rendono
+  // utile, e nessuno se ne accorgerebbe.
+  if (published === 1 && manca.length) {
+    return res.status(400).json({
+      error:
+        'Il profilo è pubblicato: non puoi lasciare vuoti ' + manca.join(', ') +
+        '. Completa i campi, oppure ritira prima il profilo.',
+      campiMancanti: manca
+    });
+  }
+
+  // Interruttore separato: nella directory (published) ma senza prendere
+  // prenotazioni (accetta_richieste = 0). Serve per inserire i professionisti
+  // nella directory prima di aprirli alle richieste.
+  //
+  // Accendere l'interruttore rende PRENOTABILI, quindi valgono le stesse
+  // condizioni della pubblicazione: prima si poteva risultare prenotabili con
+  // un profilo senza citta', albo, biografia o disturbi — e senza pagina
+  // pubblica, quindi raggiungibili solo per id.
+  const accetta = b.accettaRichieste === undefined
+    ? (attuale.accetta_richieste ? 1 : 0)
+    : (b.accettaRichieste ? 1 : 0);
+  if (accetta === 1 && published !== 1) {
+    return res.status(400).json({
+      error: 'Per ricevere richieste il profilo deve prima essere pubblicato e completo.',
+      campiMancanti: manca
+    });
+  }
+
+  // ── Scritture ──────────────────────────────────────────────────────────
   if (b.bio != null) {
-    db.prepare('UPDATE users SET bio = ? WHERE id = ?').run(testo(b.bio, 2000), req.user.id);
+    db.prepare('UPDATE users SET bio = ? WHERE id = ?').run(bio, req.user.id);
   }
 
   db.prepare(
@@ -225,27 +313,7 @@ router.put('/me', authRequired, requireRole('therapist'), (req, res) => {
     db.prepare('UPDATE therapist_profiles SET public_slug = ? WHERE user_id = ?').run(slug, req.user.id);
   }
 
-  // Pubblicazione: solo se richiesta ESPLICITAMENTE e solo con profilo completo
-  const dopo = db.prepare(SQL_MIO_PROFILO).get(req.user.id);
-  const manca = campiMancanti(dopo, user);
-  let published = attuale.published ? 1 : 0;
-  if (b.published === false) published = 0;
-  if (b.published === true) {
-    if (manca.length) {
-      return res.status(400).json({
-        error: 'Profilo non ancora pubblicabile. Manca: ' + manca.join(', '),
-        campiMancanti: manca
-      });
-    }
-    published = 1;
-  }
   db.prepare('UPDATE therapist_profiles SET published = ? WHERE user_id = ?').run(published, req.user.id);
-  // Interruttore separato: nella directory (published) ma senza prendere
-  // prenotazioni (accetta_richieste = 0). Serve per inserire i professionisti
-  // nella directory prima di aprirli alle richieste.
-  const accetta = b.accettaRichieste === undefined
-    ? (attuale.accetta_richieste ? 1 : 0)
-    : (b.accettaRichieste ? 1 : 0);
   db.prepare('UPDATE therapist_profiles SET accetta_richieste = ? WHERE user_id = ?').run(accetta, req.user.id);
 
   res.json({ ok: true, publicSlug: slug, published: !!published, accettaRichieste: !!accetta, campiMancanti: manca });
@@ -338,6 +406,7 @@ router.get('/', (req, res) => {
     FROM users u
     JOIN therapist_profiles p ON p.user_id = u.id
     WHERE u.role = 'therapist'
+      AND p.published = 1
       AND p.accetta_richieste = 1
     ORDER BY u.name
   `).all();
@@ -360,20 +429,27 @@ router.get('/:id', (req, res) => {
            p.license, p.experience_years, p.languages, p.photo_url, p.verified,
            (SELECT ROUND(AVG(r.score), 1) FROM ratings r WHERE r.therapist_id = u.id) AS rating_avg,
            (SELECT COUNT(*) FROM ratings r WHERE r.therapist_id = u.id) AS rating_count
-    FROM users u
-    JOIN therapist_profiles p ON p.user_id = u.id
-    WHERE u.id = ? AND u.role = 'therapist'
-  `).get(req.params.id);
+      FROM users u
+      JOIN therapist_profiles p ON p.user_id = u.id
+      WHERE u.id = ? AND u.role = 'therapist' AND p.published = 1
+    `).get(req.params.id);
 
-  if (!row) return res.status(404).json({ error: 'Terapeuta non trovato' });
+    if (!row) return res.status(404).json({ error: 'Terapeuta non trovato' });
   res.json({ therapist: therapistView(row) });
 });
 
 // GET /api/therapists/:id/availability?date=YYYY-MM-DD
 router.get('/:id/availability', (req, res) => {
   const therapistId = req.params.id;
-  const therapist = db.prepare('SELECT id FROM users WHERE id = ? AND role = ?').get(therapistId, 'therapist');
-  if (!therapist) return res.status(404).json({ error: 'Terapeuta non trovato' });
+  // Stesse condizioni della prenotazione: chi non è pubblicato, o non accetta
+  // richieste, non deve nemmeno mostrare un agenda prenotabile.
+  const therapist = db
+    .prepare(
+      'SELECT u.id FROM users u JOIN therapist_profiles p ON p.user_id = u.id ' +
+      "WHERE u.id = ? AND u.role = 'therapist' AND p.published = 1 AND p.accetta_richieste = 1"
+    )
+    .get(therapistId);
+  if (!therapist) return res.status(404).json({ error: 'Professionista non disponibile per le prenotazioni' });
 
   const date = req.query.date;
   if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
@@ -417,3 +493,6 @@ function cryptoRandomId() {
 }
 
 module.exports = router;
+// Esportati per i test: decidono quali link accettare e cosa manca per pubblicare.
+module.exports.urlAmmessa = urlAmmessa;
+module.exports.campiMancanti = campiMancanti;

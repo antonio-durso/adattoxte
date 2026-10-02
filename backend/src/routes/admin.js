@@ -8,6 +8,7 @@ const crypto = require('crypto');
 const rateLimit = require('express-rate-limit');
 const { db } = require('../db');
 const { authRequired, requireRole } = require('../middleware/auth');
+const { annullaPrenotazione } = require('../cancelBooking');
 
 const router = express.Router();
 router.use(authRequired, requireRole('admin'));
@@ -211,6 +212,16 @@ router.patch('/bookings/:id/status', (req, res) => {
   }
   const booking = db.prepare('SELECT * FROM bookings WHERE id = ?').get(req.params.id);
   if (!booking) return res.status(404).json({ error: 'Prenotazione non trovata' });
+
+  if (status === 'cancelled') {
+    // Stesse regole del paziente e del terapeuta: libera il posto e
+    // restituisce il credito. Prima l'annullamento dall'area riservata
+    // cambiava solo lo stato: il posto restava occupato per sempre.
+    const esito = annullaPrenotazione(booking.id);
+    if (!esito.ok) return res.status(409).json({ error: esito.error });
+    return res.json({ ok: true, status, ...esito });
+  }
+
   db.prepare('UPDATE bookings SET status = ? WHERE id = ?').run(status, booking.id);
   res.json({ ok: true, status });
 });

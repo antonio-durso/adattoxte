@@ -39,6 +39,40 @@ publicRouter.post('/cron/reminders', (req, res) => {
 const { authRequired, requireRole } = require('../middleware/auth');
 const { countryCharge } = require('../pricing');
 const { pricingCountryFromReq } = require('../geo');
+const { annullaPrenotazione } = require('../cancelBooking');
+
+/**
+ * Controlli su data e ora della prenotazione (predicati puri, testabili).
+ *
+ * Senza questi, si poteva prenotare una data nel passato o una data che non
+ * esiste (il 31 febbraio): JavaScript la sposta al 3 marzo e la prenotazione
+ * finiva su un giorno diverso da quello scelto dal paziente.
+ */
+function dataAmmessa(date, oggi) {
+  const d = String(date || '');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) {
+    return { ok: false, error: 'Data non valida: serve il formato AAAA-MM-GG.' };
+  }
+  const parsed = new Date(d + 'T00:00:00Z');
+  if (Number.isNaN(parsed.getTime())) return { ok: false, error: 'Data non valida.' };
+  // Ricontrollo: JS accetta 2026-02-31 e la sposta al 3 marzo.
+  if (parsed.toISOString().slice(0, 10) !== d) {
+    return { ok: false, error: 'Questa data non esiste nel calendario.' };
+  }
+  // Confronto tra stringhe: nel formato AAAA-MM-GG l'ordine alfabetico
+  // coincide con l'ordine cronologico.
+  if (d < String(oggi)) {
+    return { ok: false, error: 'Non si può prenotare una data già passata.' };
+  }
+  return { ok: true };
+}
+
+function oraAmmessa(startTime) {
+  if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(String(startTime || ''))) {
+    return { ok: false, error: 'Orario non valido: serve il formato HH:MM.' };
+  }
+  return { ok: true };
+}
 
 const router = express.Router();
 router.use(authRequired);
@@ -119,6 +153,11 @@ router.post('/', requireRole('patient'), (req, res) => {
   if (!['individual', 'couple'].includes(type)) {
     return res.status(400).json({ error: 'Tipo seduta non valido (individual o couple)' });
   }
+  const oggi = new Date().toISOString().slice(0, 10);
+  const dataOk = dataAmmessa(date, oggi);
+  if (!dataOk.ok) return res.status(400).json({ error: dataOk.error });
+  const oraOk = oraAmmessa(startTime);
+  if (!oraOk.ok) return res.status(400).json({ error: oraOk.error });
   const pkg = Number(packageSessions) === 3 ? 3 : 1;
   // Paese di listino BLOCCATO: rilevato dall'IP della richiesta, mai dal client.
   // Il prezzo è calcolato lato server (countryCharge sotto).
@@ -133,9 +172,13 @@ router.post('/', requireRole('patient'), (req, res) => {
 
   // Il professionista deve essere PUBBLICATO e PRENDERE prenotazioni:
   // cosi un profilo presente solo nella directory non puo essere prenotato.
+  // Servono ENTRAMBE le condizioni: il profilo pubblicato (published = 1) e
+  // l'interruttore delle richieste acceso (accetta_richieste = 1).
+  // Prima si controllava solo il secondo: un profilo non pubblicato — quindi
+  // senza pagina pubblica, raggiungibile solo per id — era prenotabile lo stesso.
   const therapist = db.prepare(
     'SELECT u.id FROM users u JOIN therapist_profiles p ON p.user_id = u.id ' +
-    "WHERE u.id = ? AND u.role = 'therapist' AND p.accetta_richieste = 1"
+    "WHERE u.id = ? AND u.role = 'therapist' AND p.published = 1 AND p.accetta_richieste = 1"
   ).get(therapistId);
   if (!therapist) return res.status(404).json({ error: 'Professionista non disponibile per le prenotazioni' });
 
@@ -239,11 +282,15 @@ router.patch('/:id/status', (req, res) => {
     return res.status(409).json({ error: 'La prenotazione è già chiusa' });
   }
 
-  db.prepare('UPDATE bookings SET status = ? WHERE id = ?').run(status, booking.id);
-
-  // Libera lo slot se annullata
-  if (status === 'cancelled' && booking.availability_id) {
-    db.prepare('UPDATE availabilities SET booked = 0 WHERE id = ?').run(booking.availability_id);
+  if (status === 'cancelled') {
+    // L'annullamento non e' solo un cambio di stato: libera il posto e
+    // restituisce al paziente il credito usato per quella prenotazione.
+    // Prima il credito restava perso, senza avviso e senza traccia
+    // (vedi cancelBooking.js).
+    const esito = annullaPrenotazione(booking.id);
+    if (!esito.ok) return res.status(409).json({ error: esito.error });
+  } else {
+    db.prepare('UPDATE bookings SET status = ? WHERE id = ?').run(status, booking.id);
   }
 
   const row = db.prepare(`
@@ -278,3 +325,6 @@ function addMinutes(hhmm, minutes) {
 }
 
 module.exports = [publicRouter, router];
+// Esportati per i test: decidono se una prenotazione e' accettabile.
+module.exports.dataAmmessa = dataAmmessa;
+module.exports.oraAmmessa = oraAmmessa;

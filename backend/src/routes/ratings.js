@@ -102,6 +102,22 @@ router.get('/', (req, res) => {
 
 // GET /api/ratings/therapist/:id — recensioni pubbliche di un terapeuta
 router.get('/therapist/:id', (req, res) => {
+  // Le recensioni escono solo per i professionisti PUBBLICATI.
+  //
+  // Senza questo controllo bastava conoscere l'id del professionista: e l'id
+  // e' calcolabile da chiunque, perche' deriva da uno SHA-1 dell'email (vedi
+  // stableId in seed.js) e seed.js sta su un repository pubblico. Cosi' si
+  // potevano leggere le recensioni di un profilo che non e' pubblico.
+  const pubblicato = db
+    .prepare(
+      "SELECT 1 AS ok FROM users u JOIN therapist_profiles p ON p.user_id = u.id " +
+        "WHERE u.id = ? AND u.role = 'therapist' AND p.published = 1"
+    )
+    .get(req.params.id);
+  if (!pubblicato) {
+    return res.status(404).json({ error: 'Professionista non trovato', ratings: [], total: 0 });
+  }
+
   const rows = db
     .prepare(
       `SELECT r.score, r.comment, r.created_at, u.name AS patient_name

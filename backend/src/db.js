@@ -216,6 +216,13 @@ function initDb() {
   if (!bookingCols.includes('country')) {
     db.exec("ALTER TABLE bookings ADD COLUMN country TEXT NOT NULL DEFAULT 'IT'");
   }
+  // Legame con l'ordine PayPal creato al checkout. Senza questo, al capture si
+  // risaliva alla prenotazione leggendo il custom_id DALL'ORDINE RICEVUTO, cioe'
+  // un dato che il server non aveva scritto: bastava costruire un ordine
+  // proprio, di importo qualsiasi, con dentro il custom_id della prenotazione.
+  if (!bookingCols.includes('paypal_order_id')) {
+    db.exec('ALTER TABLE bookings ADD COLUMN paypal_order_id TEXT');
+  }
 
   // Codici invito per gli utenti esistenti che non ne hanno uno
   const missing = db.prepare('SELECT id FROM users WHERE referral_code IS NULL').all();

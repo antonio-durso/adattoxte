@@ -4,17 +4,20 @@
  * (geolocalizzazione IP, endpoint GET /api/pricing/country) e il prezzo
  * autoritativo è calcolato al booking. Il paziente NON può cambiare paese.
  *
- * Addebito in EUR per tutti; per la Svizzera listino ancorato a 45€ → 138€
- * (≈ CHF 130) e 50€ → 154€ (≈ CHF 145). Equivalente CHF = tasso fisso 138€/130CHF.
+ * Addebito in EUR per tutti; per la Svizzera listino ancorato a 130 €
+ * (individuale) e 145 € (coppia), 1:1 con il CHF mostrato:
+ *   CHF 130 = 130 €   CHF 145 = 145 €
+ *
+ * Nota storica: fino al 2 ottobre 2026 l'addebito era 138 € / 154 €.
  *
  * ⚠️ Mantenere allineato a backend/src/pricing.js.
  */
 
 const COUNTRY_MULTIPLIERS = {
-  CH: { individual: 138 / 45, couple: 154 / 50 },
+  CH: { individual: 130 / 45, couple: 145 / 50 },
 };
 
-export const CHF_DISPLAY_PER_EUR = 130 / 138;
+export const CHF_DISPLAY_PER_EUR = 1;
 
 /** Prezzo di listino (addebito EUR) per paese, tipo seduta e prezzo base terapeuta. */
 export function eurCharge(basePriceEur, country, type) {

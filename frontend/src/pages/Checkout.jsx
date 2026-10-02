@@ -209,7 +209,7 @@ export default function Checkout() {
         </p>
         {booking?.country === 'CH' && (
           <p className="muted small" style={{ marginTop: 8 }}>
-            Listino Svizzera: paghi in EUR all'equivalente fisso (CHF 130 = 138 €) — nessuna
+            Listino Svizzera: paghi in EUR all'equivalente fisso (CHF 130 = 130 €) — nessuna
             conversione applicata da PayPal.
           </p>
         )}

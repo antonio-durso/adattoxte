@@ -5,10 +5,17 @@
  * lato server: il client non invia mai importi (solo il paese, whitelisted).
  *
  * Addebito: resta in EUR per tutti (PayPal, ricevute, referral, analytics).
- * Per la Svizzera il listino è ancorato a 45€ → 138€ (≈ CHF 130) e 50€ → 154€
- * (≈ CHF 145): si applica un moltiplicatore al prezzo base del terapeuta.
- * L'equivalente CHF mostrato all'utente usa un TASSO FISSO di visualizzazione
- * (138 € = 130 CHF), non il tasso di cambio: niente sorprese al checkout.
+ * Per la Svizzera il listino è ancorato a 130 € (individuale) e 145 € (coppia):
+ * si applica un moltiplicatore al prezzo base del terapeuta.
+ *
+ * Il listino svizzero è ancorato 1:1 al CHF mostrato all'utente:
+ *   CHF 130 = 130 €   CHF 145 = 145 €
+ * Quindi 1 € addebitato corrisponde a 1 CHF mostrato. Non è un tasso di cambio:
+ * è un'anchor commerciale, e resta fermo finché non lo si cambia qui.
+ *
+ * Nota storica: fino al 2 ottobre 2026 l'addebito era 138 € (equivalenti di
+ * CHF 130 a un cambio fisso di 138/130) e la coppia 154 €. Chi legge una
+ * ricevuta precedente a quella data trova quei valori, ed erano corretti.
  *
  * ⚠️ Mantenere allineato a frontend/src/pricing.js (specchio di sola UI).
  */
@@ -16,11 +23,12 @@ const SUPPORTED_COUNTRIES = ['IT', 'CH'];
 
 // Moltiplicatori per paese applicati al prezzo base EUR del terapeuta.
 const COUNTRY_MULTIPLIERS = {
-  CH: { individual: 138 / 45, couple: 154 / 50 },
+  CH: { individual: 130 / 45, couple: 145 / 50 },
 };
 
 // Tasso fisso di visualizzazione: quanto vale 1 € addebitato in CHF mostrato.
-const CHF_DISPLAY_PER_EUR = 130 / 138;
+// Ancorato 1:1 (CHF 130 = 130 €).
+const CHF_DISPLAY_PER_EUR = 1;
 
 /** Prezzo di listino (addebito EUR) per paese, tipo seduta e prezzo base terapeuta. */
 function countryCharge(basePriceEur, country, type) {

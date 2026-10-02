@@ -12,12 +12,18 @@
  * Sicurezza:
  * - vengono toccate SOLO prenotazioni status='pending' AND paid=0: se il
  *   terapeuta ha già confermato (status 'confirmed') non si annulla nulla;
- * - lo slot viene liberato solo se è ancora quello della prenotazione
- *   (booked=1): mai a scapito di un'altra prenotazione;
+ * - lo slot viene liberato solo se nessun'altra prenotazione attiva lo occupa
+ *   (vedi cancelBooking.liberaSlot): mai a scapito di un'altra prenotazione;
  * - la guardia anti-race è in POST /api/payments/capture (rifiuta il
  *   pagamento di una prenotazione già auto-annullata).
+ *
+ * Nota sul credito: una prenotazione scaduta e non pagata può aver già
+ * scalato credito al paziente al momento della prenotazione. Qui il credito
+ * viene restituito, esattamente come in un annullamento esplicito: senza,
+ * lasciar scadere una prenotazione bruciava soldi veri.
  */
 const { db } = require('./db');
+const { liberaSlot, ripristinaCredito } = require('./cancelBooking');
 
 const DEFAULT_MINUTES = 30;
 const SWEEP_INTERVAL_MS = 5 * 60 * 1000; // ogni 5 minuti mentre il processo è attivo
@@ -34,7 +40,7 @@ function expireStaleUnpaidBookings(dbHandle = db, minutes = DEFAULT_MINUTES) {
   const cutoff = cutoffUtc(minutes);
   const stale = dbHandle
     .prepare(
-      `SELECT id, availability_id FROM bookings
+      `SELECT * FROM bookings
        WHERE status = 'pending' AND paid = 0
          AND created_at IS NOT NULL AND created_at <= ?`
     )
@@ -43,15 +49,13 @@ function expireStaleUnpaidBookings(dbHandle = db, minutes = DEFAULT_MINUTES) {
   const cancelStmt = dbHandle.prepare(
     `UPDATE bookings SET status = 'cancelled' WHERE id = ? AND status = 'pending'`
   );
-  const freeSlotStmt = dbHandle.prepare(
-    `UPDATE availabilities SET booked = 0 WHERE id = ? AND booked = 1`
-  );
 
   let cancelled = 0;
   for (const row of stale) {
     const info = cancelStmt.run(row.id);
     if (info.changes === 1) {
-      if (row.availability_id) freeSlotStmt.run(row.availability_id);
+      liberaSlot(row, dbHandle);
+      ripristinaCredito(row, dbHandle);
       cancelled += 1;
     }
   }

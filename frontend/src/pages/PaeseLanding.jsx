@@ -126,7 +126,7 @@ export default function PaeseLanding() {
     {
       q: 'Quanto costa una seduta?',
       a: isCH
-        ? 'CHF 130 la seduta individuale (50 minuti), CHF 145 quella di coppia, prima seduta conoscitiva gratuita e pacchetto 3 sedute con il 15% di sconto. Il pagamento avviene online in EUR all\'equivalente fisso (CHF 130 = 138 €).'
+        ? 'CHF 130 la seduta individuale (50 minuti), CHF 145 quella di coppia, prima seduta conoscitiva gratuita e pacchetto 3 sedute con il 15% di sconto. Il pagamento avviene online in EUR all\'equivalente fisso (CHF 130 = 130 €).'
         : '45€ la seduta individuale (50 minuti), 50€ quella di coppia, prima seduta conoscitiva gratuita e pacchetto 3 sedute con il 15% di sconto.',
     },
     ...(!isCapitale && cittaPrincipali.length > 0

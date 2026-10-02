@@ -27,11 +27,29 @@ const paymentsLimiter = rateLimit({
 });
 router.use(paymentsLimiter);
 
-const PAYPAL_CONFIGURED = !!(process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET);
 const PAYPAL_API =
   process.env.PAYPAL_MODE === 'live'
     ? 'https://api-m.paypal.com'
     : 'https://api-m.sandbox.paypal.com';
+
+/**
+ * Le credenziali si leggono a ogni chiamata, non una volta sola all'avvio.
+ * Serve a poterle cambiare (o togliere) senza riavviare, e a poterle
+ * simulare nei test.
+ */
+function paypalConfigurato() {
+  return !!(process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET);
+}
+
+/**
+ * Il ramo "demo" (nessuna credenziale: la seduta risulta pagata senza alcun
+ * addebito) è una comodità di sviluppo. In produzione non deve MAI attivarsi:
+ * se le chiavi PayPal mancassero o venissero ruotate male, ogni prenotazione
+ * risulterebbe pagata in silenzio, senza un errore da nessuna parte.
+ */
+function demoConsentito() {
+  return String(process.env.NODE_ENV || '').toLowerCase() !== 'production';
+}
 
 // Cache del token OAuth PayPal (i token scadono dopo ~9 ore)
 let tokenCache = { token: null, expiresAt: 0 };
@@ -113,7 +131,7 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
   // SEDUTA GRATUITA (prima seduta individuale, 15 minuti): nessun addebito PayPal,
   // la prenotazione viene marcata come saldata direttamente.
   if (booking.is_free) {
-    db.prepare('UPDATE bookings SET paid = 1 WHERE id = ?').run(booking.id);
+    segnaPagata(booking.id, req.user.id);
     return res.json({
       free: true,
       booking: {
@@ -127,10 +145,20 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
     });
   }
 
-  // MODALITÀ DEMO: nessuna credenziale PayPal configurata
-  if (!PAYPAL_CONFIGURED) {
-    db.prepare('UPDATE bookings SET paid = 1 WHERE id = ?').run(booking.id);
-    rewardReferralIfFirstPaid(req.user.id);
+  // MODALITÀ DEMO: nessuna credenziale PayPal configurata.
+  // Attiva SOLO fuori produzione: vedi demoConsentito().
+  if (!paypalConfigurato()) {
+    if (!demoConsentito()) {
+      console.error(
+        '[payments] checkout rifiutato: PayPal non configurato e NODE_ENV=production. ' +
+          'Mancano PAYPAL_CLIENT_ID / PAYPAL_CLIENT_SECRET.'
+      );
+      return res.status(503).json({
+        error: 'Pagamenti non disponibili: configurazione PayPal assente sul server.',
+        code: 'PAYPAL_NOT_CONFIGURED',
+      });
+    }
+    segnaPagata(booking.id, req.user.id);
     return res.json({
       demo: true,
       message: 'Pagamento demo confermato (nessuna credenziale PayPal configurata)',
@@ -172,6 +200,16 @@ router.post('/checkout', authRequired, requireRole('patient'), async (req, res) 
       },
       token
     );
+
+    // Si annota SULLA PRENOTAZIONE quale ordine è stato creato per lei.
+    // Da qui in avanti al capture si pretende che l'ordine ricevuto sia
+    // questo: un ordine che non abbiamo creato noi non paga più nulla.
+    // Se il paziente riprova il checkout, vince l'ordine più recente.
+    db.prepare('UPDATE bookings SET paypal_order_id = ? WHERE id = ? AND paid = 0').run(
+      order.id,
+      booking.id
+    );
+
     res.json({
       demo: false,
       orderId: order.id,
@@ -208,26 +246,92 @@ function captureOutcome(orderStatus, captureStatus) {
   return { error: 'Pagamento non completato. Riprova.' };
 }
 
+/**
+ * Verifica che l'ordine PayPal corrisponda DAVVERO alla prenotazione.
+ *
+ * Perche' serve: captureOutcome() guarda solo gli stati. Un ordine da 0,01 €
+ * senza questo controllo marcherebbe come pagata una seduta da 45 €.
+ * Qui si confrontano tre cose, tutte scritte da noi al checkout:
+ *   - il riferimento alla prenotazione (custom_id);
+ *   - la valuta (deve essere EUR: e' la sola in cui addebitiamo);
+ *   - l'importo, al centesimo.
+ *
+ * Predicato puro: non tocca il database, si testa da solo.
+ * Ritorna { ok: true } oppure { ok: false, error }.
+ */
+function verificaOrdine(order, booking) {
+  const unit = order && Array.isArray(order.purchase_units) ? order.purchase_units[0] : null;
+  if (!unit) return { ok: false, error: 'Ordine PayPal senza dettagli di pagamento.' };
+
+  if (String(unit.custom_id || '') !== String(booking.id)) {
+    return { ok: false, error: 'Ordine PayPal riferito a un altra prenotazione.' };
+  }
+
+  const valuta = String((unit.amount && unit.amount.currency_code) || '');
+  if (valuta !== 'EUR') {
+    return { ok: false, error: 'Valuta dell ordine non ammessa: ' + (valuta || 'assente') + '.' };
+  }
+
+  // Confronto in centesimi: evita i confronti tra numeri in virgola mobile.
+  const atteso = Math.round(Number(booking.price) * 100);
+  const ricevuto = Math.round(Number(unit.amount && unit.amount.value) * 100);
+  if (!Number.isFinite(ricevuto) || ricevuto !== atteso) {
+    return {
+      ok: false,
+      error: 'Importo dell ordine diverso dal prezzo della prenotazione.',
+      atteso: atteso / 100,
+      ricevuto: Number.isFinite(ricevuto) ? ricevuto / 100 : null,
+    };
+  }
+
+  return { ok: true };
+}
+
+/**
+ * Segna la prenotazione come pagata una volta sola.
+ *
+ * L'aggiornamento e' condizionato a paid = 0: se due richieste arrivano
+ * insieme (doppio click, retry del browser), solo la prima trova la riga da
+ * cambiare. Il premio referral scatta su quella, non su entrambe.
+ */
+function segnaPagata(bookingId, patientId, dbHandle = db) {
+  const info = dbHandle
+    .prepare('UPDATE bookings SET paid = 1 WHERE id = ? AND paid = 0')
+    .run(bookingId);
+  if (info.changes === 1) {
+    rewardReferralIfFirstPaid(patientId);
+    return true;
+  }
+  return false;
+}
+
 // POST /api/payments/capture - conferma e cattura l'addebito dopo l'approvazione della carta
 router.post('/capture', authRequired, requireRole('patient'), async (req, res) => {
   const { orderId } = req.body || {};
   if (!orderId) return res.status(400).json({ error: 'orderId obbligatorio' });
-  if (!PAYPAL_CONFIGURED) {
+  if (!paypalConfigurato()) {
     return res.status(400).json({ error: 'PayPal non configurato (modalità demo)' });
   }
 
   try {
     const token = await getPayPalToken();
 
-    // Verifica l'ordine: deve appartenere a una prenotazione dell'utente
     const order = await paypalFetch(`/v2/checkout/orders/${orderId}`, {}, token);
-    const bookingId = order.purchase_units?.[0]?.custom_id;
-    if (!bookingId) return res.status(400).json({ error: 'Ordine non valido' });
 
+    // La prenotazione si cerca tramite l'ordine che abbiamo salvato NOI al
+    // checkout, non tramite il custom_id letto dall'ordine ricevuto. Un ordine
+    // non creato da noi non trova nessuna prenotazione: la catena si interrompe
+    // qui, prima di qualsiasi addebito.
     const booking = db
-      .prepare('SELECT * FROM bookings WHERE id = ? AND patient_id = ?')
-      .get(bookingId, req.user.id);
-    if (!booking) return res.status(404).json({ error: 'Prenotazione non trovata' });
+      .prepare('SELECT * FROM bookings WHERE paypal_order_id = ? AND patient_id = ?')
+      .get(String(orderId), req.user.id);
+    if (!booking) {
+      console.error(
+        '[payments] capture rifiutato: ordine non associato a nessuna prenotazione. orderId=' +
+          String(orderId).slice(0, 40)
+      );
+      return res.status(400).json({ error: 'Ordine non associato a una tua prenotazione.' });
+    }
     if (booking.paid) return res.json({ paid: true, alreadyPaid: true, bookingId: booking.id });
     // Guardia anti-race con l'auto-annullo: una prenotazione già annullata
     // per mancato pagamento non può essere pagata (nessun addebito PayPal).
@@ -237,11 +341,24 @@ router.post('/capture', authRequired, requireRole('patient'), async (req, res) =
         .json({ error: 'Prenotazione annullata per mancato pagamento. Effettua una nuova prenotazione.' });
     }
 
+    // L'ordine deve corrispondere alla prenotazione: riferimento, valuta e
+    // importo al centesimo. Senza questo, un ordine da 0,01 € marcherebbe
+    // pagata una seduta da 45 €.
+    const coerenza = verificaOrdine(order, booking);
+    if (!coerenza.ok) {
+      console.error(
+        '[payments] capture rifiutato: ' +
+          coerenza.error +
+          ' ' +
+          JSON.stringify({ orderId, bookingId: booking.id, prezzo: booking.price })
+      );
+      return res.status(400).json({ error: coerenza.error });
+    }
+
     // Regola d'oro: si marca pagato SOLO con status COMPLETED (ordine già completato = retry)
     const outcome = captureOutcome(order.status, null);
     if (outcome.paid) {
-      db.prepare('UPDATE bookings SET paid = 1 WHERE id = ?').run(booking.id);
-      rewardReferralIfFirstPaid(req.user.id);
+      segnaPagata(booking.id, req.user.id);
       return res.json({ paid: true, bookingId: booking.id });
     }
     if (order.status !== 'APPROVED') {
@@ -256,8 +373,7 @@ router.post('/capture', authRequired, requireRole('patient'), async (req, res) =
 
     const finalOutcome = captureOutcome(order.status, capture.status);
     if (finalOutcome.paid) {
-      db.prepare('UPDATE bookings SET paid = 1 WHERE id = ?').run(booking.id);
-      rewardReferralIfFirstPaid(req.user.id);
+      segnaPagata(booking.id, req.user.id);
       return res.json({ paid: true, bookingId: booking.id });
     }
     return res.status(400).json({ error: finalOutcome.error });
@@ -271,4 +387,9 @@ router.post('/capture', authRequired, requireRole('patient'), async (req, res) =
 });
 
 module.exports = router;
+// Esportati per i test: sono i predicati che decidono se una seduta risulta pagata.
 module.exports.captureOutcome = captureOutcome;
+module.exports.verificaOrdine = verificaOrdine;
+module.exports.segnaPagata = segnaPagata;
+module.exports.paypalConfigurato = paypalConfigurato;
+module.exports.demoConsentito = demoConsentito;
