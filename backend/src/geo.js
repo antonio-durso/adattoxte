@@ -19,18 +19,51 @@ function isPrivate(ip) {
   );
 }
 
+const RE_IPV4 = /^\d{1,3}(\.\d{1,3}){3}$/;
+const RE_IPV6 = /^[0-9a-fA-F:]+$/;
+
+/** Un indirizzo deve avere una forma plausibile, non essere testo qualsiasi. */
+function formaValida(ip) {
+  return RE_IPV4.test(ip) || (ip.includes(':') && RE_IPV6.test(ip));
+}
+
+/**
+ * Primo indirizzo utilizzabile dentro un'intestazione (può contenerne più di
+ * uno, separati da virgola). Salta quelli privati e quelli senza forma valida.
+ */
+function primoIpUtile(valore) {
+  const parti = String(valore || '').split(',');
+  for (const parte of parti) {
+    const c = parte.trim().replace(/^::ffff:/, '');
+    if (c && !isPrivate(c) && formaValida(c)) return c;
+  }
+  return '';
+}
+
 function clientIp(req) {
-  // Con 'trust proxy' attivo req.ip è già l'IP del client (Render).
+  // 1) CF-Connecting-IP.
+  //
+  // Cloudflare è davanti a questo backend — verificato: la risposta porta
+  // "server: cloudflare" e "cf-ray". Cloudflare riscrive questa intestazione
+  // con l'indirizzo reale di chi si connette, quindi il visitatore non può
+  // inventarla.
+  //
+  // Perché serve: qui sotto req.ip viene ricavato da X-Forwarded-For, e quel
+  // valore il visitatore può dichiararlo. Verificato sul backend in
+  // produzione: con "X-Forwarded-For: 85.0.0.1" il server rispondeva CH, e
+  // quindi uno svizzero poteva pagare 45 € invece di 130 €.
+  const daCloudflare = primoIpUtile(req.headers && req.headers['cf-connecting-ip']);
+  if (daCloudflare) return daCloudflare;
+
+  // 2) Ripiego: identico a prima, per quando Cloudflare non c'è (sviluppo
+  //    locale, chiamate interne). Se l'intestazione di Cloudflare manca, il
+  //    comportamento resta quello di sempre: nessuna regressione.
   let ip = req.ip || (req.socket && req.socket.remoteAddress) || '';
   if (isPrivate(ip)) {
-    // Fallback: prima voce reale di X-Forwarded-For (solo se non privata)
-    const xff = String(req.headers['x-forwarded-for'] || '').split(',');
-    for (const part of xff) {
-      const candidate = part.trim();
-      if (candidate && !isPrivate(candidate)) return candidate.replace(/^::ffff:/, '');
-    }
+    const candidato = primoIpUtile(req.headers && req.headers['x-forwarded-for']);
+    if (candidato) return candidato;
   }
-  return ip.replace(/^::ffff:/, '');
+  return String(ip).replace(/^::ffff:/, '');
 }
 
 function countryFromIp(ip) {

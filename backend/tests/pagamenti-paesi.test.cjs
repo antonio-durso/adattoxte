@@ -142,6 +142,51 @@ test('un IP non riconosciuto ricade sul listino italiano, non su quello svizzero
   assert.equal(pricingCountryFromReq({ ip: '', headers: {} }), 'IT');
 });
 
+// ── 2b. Chi decide il paese: Cloudflare, non il visitatore ─────────────────
+// Verificato in produzione PRIMA di questa correzione: con
+// "X-Forwarded-For: 85.0.0.1" il server rispondeva CH, e quindi uno svizzero
+// poteva pagare 45 € invece di 130 €. Adesso si legge CF-Connecting-IP, che
+// Cloudflare riscrive e il visitatore non può inventare.
+
+test('il paese si legge da CF-Connecting-IP, che vince su X-Forwarded-For', () => {
+  const req = {
+    ip: IP_ITALIA,
+    headers: { 'cf-connecting-ip': IP_SVIZZERA, 'x-forwarded-for': IP_ITALIA },
+  };
+  assert.equal(pricingCountryFromReq(req), 'CH', 'vale quello che dice Cloudflare');
+});
+
+test('un X-Forwarded-For dichiarato dal visitatore NON decide piu il paese', () => {
+  // E' esattamente il caso che era sfruttabile: req.ip arriva da XFF, ma
+  // l'intestazione di Cloudflare dice altro e ha la precedenza.
+  const req = {
+    ip: IP_SVIZZERA,
+    headers: { 'cf-connecting-ip': IP_ITALIA, 'x-forwarded-for': IP_SVIZZERA },
+  };
+  assert.equal(pricingCountryFromReq(req), 'IT', 'il valore dichiarato dal client non conta');
+});
+
+test('un CF-Connecting-IP senza forma di indirizzo viene ignorato', () => {
+  // Difesa in profondita': del testo qualsiasi non deve decidere il listino.
+  const req = { ip: IP_SVIZZERA, headers: { 'cf-connecting-ip': 'non-un-indirizzo' } };
+  assert.equal(pricingCountryFromReq(req), 'CH', 'si ricade sul comportamento di prima');
+});
+
+test('un CF-Connecting-IP privato viene ignorato', () => {
+  const req = { ip: IP_SVIZZERA, headers: { 'cf-connecting-ip': '10.0.0.5' } };
+  assert.equal(pricingCountryFromReq(req), 'CH');
+});
+
+test('senza CF-Connecting-IP il comportamento resta identico a prima', () => {
+  assert.equal(pricingCountryFromReq({ ip: IP_SVIZZERA, headers: {} }), 'CH');
+  assert.equal(pricingCountryFromReq({ ip: IP_ITALIA, headers: {} }), 'IT');
+  // e il ripiego su X-Forwarded-For, quando req.ip e' privato (sviluppo)
+  assert.equal(
+    pricingCountryFromReq({ ip: '127.0.0.1', headers: { 'x-forwarded-for': IP_SVIZZERA } }),
+    'CH'
+  );
+});
+
 // ── 3. Il percorso completo: prenotazione da IP svizzero e italiano ────────
 
 test('prenotazione da IP SVIZZERO: salvata a 130 € con paese CH', async () => {
