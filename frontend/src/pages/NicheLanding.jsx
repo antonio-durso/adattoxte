@@ -85,13 +85,10 @@ const NICHES = {
       'Pressione e ansia da prestazione: sport, concorsi, esami, colloqui',
       'Lutti, separazioni, grandi cambiamenti o un momento di crisi personale',
     ],
-    prezzi: [
-      { label: 'Primo colloquio conoscitivo', detail: 'Gratuito · 15 minuti · senza impegno' },
-      { label: 'Seduta individuale', detail: '45€ · 50 minuti · videochiamata sicura' },
-      { label: 'Seduta di coppia', detail: '50€ · 50 minuti' },
-      { label: 'Pacchetto 3 sedute', detail: '−15% sul totale' },
-      { label: 'Messaggi con il terapeuta', detail: 'Illimitati, tra una seduta e l\'altra' },
-    ],
+    // prezzi: rimosso da questa nicchia. L'hub /psicologo-online ha già la sezione
+    // "Quanto costa e perché" nel suo testo lungo (hub-online-testo.js): tenerli entrambi
+    // dava due sezioni sui prezzi e due titoli quasi identici nella stessa pagina.
+    // Il blocco tabella di NicheLanding resta pronto per le nicchie che lo definiranno.
     requisiti: [
       'Un computer, tablet o smartphone con fotocamera e microfono',
       'Una connessione internet stabile',
@@ -453,24 +450,28 @@ export default function NicheLanding({ niche }) {
         </div>
       )}
 
-      {/* Come funziona */}
-      <div className="card" style={{ marginTop: 34, padding: 22 }}>
-        <h2 style={{ marginTop: 0 }}>Come funziona</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
-          <div>
-            <strong>1. Prenoti</strong>
-            <p className="muted small">Scegli l'orario che preferisci, paghi online in modo sicuro con carta di credito: 45€ la seduta individuale.</p>
-          </div>
-          <div>
-            <strong>2. Parli in video</strong>
-            <p className="muted small">La seduta si svolge nel browser con videochiamata sicura, senza installare nulla.</p>
-          </div>
-          <div>
-            <strong>3. Segui il percorso</strong>
-            <p className="muted small">Messaggi illimitati con il tuo terapeuta tra una seduta e l'altra, recensioni e test clinici.</p>
+      {/* Blocco "Come funziona" (i 3 passi). Sull'hub /psicologo-online NON serve: il suo
+          testo lungo (hub-online-testo.js) ha già "Come funziona una seduta in videochiamata?".
+          Sulle altre nicchie resta ed è l'unico blocco "Come funziona" che hanno. */}
+      {niche !== 'online' && (
+        <div className="card" style={{ marginTop: 34, padding: 22 }}>
+          <h2 style={{ marginTop: 0 }}>Come funziona</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
+            <div>
+              <strong>1. Prenoti</strong>
+              <p className="muted small">Scegli l'orario che preferisci, paghi online in modo sicuro con carta di credito: 45€ la seduta individuale.</p>
+            </div>
+            <div>
+              <strong>2. Parli in video</strong>
+              <p className="muted small">La seduta si svolge nel browser con videochiamata sicura, senza installare nulla.</p>
+            </div>
+            <div>
+              <strong>3. Segui il percorso</strong>
+              <p className="muted small">Messaggi illimitati con il tuo terapeuta tra una seduta e l'altra, recensioni e test clinici.</p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Articoli correlati */}
       {related.length > 0 && (

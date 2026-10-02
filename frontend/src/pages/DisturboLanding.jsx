@@ -33,7 +33,7 @@ const EN = {
   whyList: [
     '<strong>No travel:</strong> no traffic or parking, you connect from home, the office or wherever you are',
     '<strong>Qualified therapists:</strong> licensed professionals, selected and verified',
-    '<strong>Transparent prices:</strong> €45 for an individual session, €50 for couples, secure online payment',
+    '<strong>Transparent prices:</strong> no subscription, you only pay for the sessions you book, with secure online payment',
     '<strong>Flexible hours:</strong> sessions also in the evening and at weekends, ideal for those who work',
     '<strong>Same effectiveness:</strong> online therapy is as effective as in-person therapy for anxiety, depression and many other conditions',
   ],
@@ -70,7 +70,7 @@ const IT = {
   whyList: [
     '<strong>Zero spostamenti:</strong> niente traffico o parcheggi, ti colleghi da casa, dall\'ufficio o da dove sei',
     '<strong>Terapeuti qualificati:</strong> professionisti iscritti all\'albo, selezionati e verificati',
-    '<strong>Prezzi trasparenti:</strong> 45€ la seduta individuale, 50€ quella di coppia, pagamento sicuro online',
+    '<strong>Prezzi trasparenti:</strong> nessun abbonamento, paghi solo le sedute che prenoti, con pagamento sicuro online',
     '<strong>Orari flessibili:</strong> sedute anche la sera e nel weekend, adatte a chi lavora',
     '<strong>Stessa efficacia:</strong> la terapia online è efficace quanto quella in presenza per ansia, depressione e molti altri disturbi',
   ],
