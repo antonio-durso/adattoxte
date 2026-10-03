@@ -135,9 +135,9 @@ const paesiEstesi = [
   ...paesiEstesi2,
   ...paesiEstesi3,
   ...paesiEstesi4,
-    ...paesiEstesi5,
-    ...paesiZone,
-  ];
+  ...paesiEstesi5,
+  ...paesiZone,
+];
 
 const paesiPerSlug = new Map(paesiBase.map((x) => [x.slug, x]));
 for (const o of paesiEstesi) {
