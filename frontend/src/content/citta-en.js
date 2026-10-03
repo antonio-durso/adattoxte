@@ -39,6 +39,12 @@ export const cittaEn = [
     regione: 'Puglia',
     intro: 'In Bari and throughout Puglia, online therapy makes psychological support accessible even for those with difficult schedules or living far from major centers. Simply book, pay, and connect.',
     desc: 'Online psychologist in Bari: video sessions from €45, first meeting free. Support for anxiety, sports psychology, and couples from qualified professionals.',
+    faqLocal: [
+      ['Do I have to be in Bari for the sessions?', 'No. Sessions are on video call, so you can join from Bari, from elsewhere in Puglia, or from wherever you happen to be. What matters is a stable connection and a quiet room.'],
+      ['Can I book outside standard office hours?', 'Yes. Many people in Bari book in the evening, after work, or early in the morning. The calendar shows the free slots in your own time zone, so you always see your hours.'],
+      ['How does payment work?', 'You pay online when you book, by card or PayPal. The first meeting is free; after that a session costs €45. There is no subscription and no minimum number of sessions.'],
+      ['What if I have never been in therapy before?', 'That is the most common situation. The first meeting is there to understand what you need and whether the professional is right for you. You can stop after it, with no obligation.'],
+    ],
   },
   {
     nome: 'Bologna',
@@ -63,6 +69,7 @@ export const cittaEn = [
     regione: 'Veneto',
     intro: 'In Verona and its province, online therapy adapts to your lifestyle, whether you\'re balancing work, family, or the demands of a tourist city. Connect for 50 minutes from wherever you prefer.',
     desc: 'Online psychologist in Verona: video sessions from €45, first meeting free. Professional support for anxiety, work stress, and relationships online.',
+    local: "<p>Verona lives on a rhythm that is hard to switch off: tourism, logistics, shift work, and for many people a daily commute between the city and Lake Garda. When the difficulty is the pace itself &mdash; sleep, stress, exhaustion &mdash; a useful starting point is <a href=\"/blog/burnout-lavoro-prevenzione\">how work stress affects mood</a>. If it concerns a relationship, the page on <a href=\"/blog/quanto-costa-la-terapia-di-coppia\">couples therapy</a> explains how it works and what it costs. To find the right professional, the list of <a href=\"/terapeuti\">therapists</a> is organised by area of work, and <a href=\"/blog/equilibrio-lavoro-vita-privata\">work-life balance</a> covers the practical side.</p>",
   },
   {
     nome: 'Palermo',

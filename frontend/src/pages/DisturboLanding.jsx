@@ -345,7 +345,9 @@ function CittaView({ c, isEn }) {
           {L.cityIntro} {data.nome} {L.cityIntro2} {data.provincia}).
         </p>
         {data.intro && <p style={{ maxWidth: 640, marginTop: 12 }}>{data.intro}</p>}
-        {!isEn && data.local && (
+        {/* Blocco locale (`local` in citta.js / citta-en.js): prima esisteva solo in
+            italiano, e le pagine inglesi restavano senza. */}
+        {data.local && (
           <div
             className="card"
             style={{ maxWidth: 640, marginTop: 16, padding: '18px 20px', textAlign: 'left', lineHeight: 1.6 }}

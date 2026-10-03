@@ -89,8 +89,10 @@ export default function PaeseLanding() {
   const cittaAltre = (paese.citta || []).slice(6);
 
   const nome = isCapitale ? eff.nome : paese.nome;
+  // Una capitale può portare il proprio titolo (`titolo` in paesi.js) quando la formula
+  // generica non copre la ricerca reale di quella città. Senza, resta quella di prima.
   const titolo = isCapitale
-    ? `Psicologo online per italiani a ${nome}`
+    ? eff.titolo || `Psicologo online per italiani a ${nome}`
     : `Psicologo online per italiani ${art.in}`;
   // Meta description: quella scritta su misura per la località (`desc` in paesi.js)
   // vince sul testo generico. È il testo che Google mostra nel risultato, ed è scritto
@@ -223,7 +225,10 @@ export default function PaeseLanding() {
           <p className="lead">
             {paese.comunita}. Sedute in videochiamata in italiano {isCittaLocale ? `a ${nome} e da qualsiasi città ${art.di}` : `da qualsiasi città ${art.di}`}, {paese.fuso}. Prima seduta conoscitiva gratuita, {seduteTxt}.
           </p>
-          {isCittaLocale && eff.intro && (
+          {/* Testo proprio della pagina locale (`intro` in paesi.js). Prima valeva solo per
+              le `cittaPagine`: le capitali (Berlino, Caracas…) restavano senza una riga di
+              testo unico, ed erano le pagine messe peggio. */}
+          {(isCittaLocale || isCapitale) && eff.intro && (
             <p style={{ maxWidth: 660, margin: '14px auto 0', fontSize: 17, lineHeight: 1.65 }}>{eff.intro}</p>
           )}
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 20 }}>
@@ -290,7 +295,12 @@ export default function PaeseLanding() {
                 la pagina non elenca altrove. Serve alle ricerche tipo "psicologo italiano
                 online [cantone]": Google può mostrare nel risultato solo parole che
                 esistono sulla pagina, quindi un cantone mai nominato non può comparire. */}
-            {paese.zoneNota && <p>{paese.zoneNota}</p>}
+            {paese.zoneNota && (
+              <div
+                style={{ maxWidth: 660, margin: '14px auto 0', fontSize: 17, lineHeight: 1.65 }}
+                dangerouslySetInnerHTML={{ __html: paese.zoneNota }}
+              />
+            )}
             {/* Il prezzo era ripetuto qui, nella guida del paese e nelle FAQ: ora una volta sola.
                 Per la Svizzera il CHF 130 resta nella sezione "Pagamenti e assicurazione". */}
             {/* Maglia interna: le località che hanno una pagina propria devono essere
