@@ -926,42 +926,6 @@
       "destination": "/app.html"
     },
     {
-      "source": "/blog/nostalgia-homesickness-estero",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/concentrazione-studio-concorsi",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/limiti-digitali-per-figli",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/disturbo-bipolare-come-conviverci",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/terapia-di-coppia-quando-uno-non-vuole",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/rientro-sportivo-dopo-infortunio",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/lutto-per-animale-domestico",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/paura-di-guidare-amaxofobia",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/disfunzione-erettile-psicologica-cause",
-      "destination": "/app.html"
-    },
-    {
       "source": "/blog/cybercondria-ansia-da-malattia",
       "destination": "/app.html"
     },
@@ -998,6 +962,78 @@
       "destination": "/app.html"
     },
     {
+      "source": "/blog/aumentare-autostima-pratica",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/burnout-lavoro-prevenzione",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/nostalgia-homesickness-estero",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/concentrazione-studio-concorsi",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologia-giuridica-cosa-fa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/limiti-digitali-per-figli",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/disturbo-bipolare-come-conviverci",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/terapia-di-coppia-quando-uno-non-vuole",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/rientro-sportivo-dopo-infortunio",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/lutto-per-animale-domestico",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/paura-di-guidare-amaxofobia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/disfunzione-erettile-psicologica-cause",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/come-funziona-una-seduta-di-psicologia-online",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/insonnia-e-stress-dormire-meglio",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/concorsi-forze-dell-ordine",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/attacchi-di-panico-guida-completa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/tradimento-ricostruire-fiducia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/gaslighting-riconoscerlo",
+      "destination": "/app.html"
+    },
+    {
       "source": "/blog/come-si-svolge-una-seduta-di-coppia",
       "destination": "/app.html"
     },
@@ -1026,18 +1062,6 @@
       "destination": "/app.html"
     },
     {
-      "source": "/blog/quanto-costa-la-terapia",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/come-funziona-una-seduta-di-psicologia-online",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/concorsi-forze-dell-ordine",
-      "destination": "/app.html"
-    },
-    {
       "source": "/blog/allenamento-mentale-atleti",
       "destination": "/app.html"
     },
@@ -1046,31 +1070,23 @@
       "destination": "/app.html"
     },
     {
-      "source": "/blog/paura-del-colloquio-di-lavoro",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/quando-andare-dallo-psicologo",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/aumentare-autostima-pratica",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/burnout-lavoro-prevenzione",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/blog/tradimento-ricostruire-fiducia",
-      "destination": "/app.html"
-    },
-    {
       "source": "/blog/ansia-da-prestazione-sportiva",
       "destination": "/app.html"
     },
     {
+      "source": "/blog/quanto-costa-la-terapia",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/paura-del-colloquio-di-lavoro",
+      "destination": "/app.html"
+    },
+    {
       "source": "/blog/gestire-ansia-concorsi-pubblici",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/quando-andare-dallo-psicologo",
       "destination": "/app.html"
     },
     {
@@ -1238,6 +1254,10 @@
       "destination": "/app.html"
     },
     {
+      "source": "/blog/primo-colloquio-psicologo",
+      "destination": "/app.html"
+    },
+    {
       "source": "/blog/psicoterapia-online-privacy",
       "destination": "/app.html"
     },
@@ -1294,6 +1314,10 @@
       "destination": "/app.html"
     },
     {
+      "source": "/blog/autostima-bassa",
+      "destination": "/app.html"
+    },
+    {
       "source": "/blog/insonnia-e-stress",
       "destination": "/app.html"
     },
@@ -1306,15 +1330,15 @@
       "destination": "/app.html"
     },
     {
-      "source": "/blog/gaslighting-riconoscerlo",
-      "destination": "/app.html"
-    },
-    {
       "source": "/blog/terapia-di-coppia-online",
       "destination": "/app.html"
     },
     {
       "source": "/blog/psicologo-online",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/psicologo-online-o-studio",
       "destination": "/app.html"
     },
     {
@@ -1327,6 +1351,10 @@
     },
     {
       "source": "/blog/psicologia-comunicazione-politica",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/blog/preparazione-concorsi-pubblici",
       "destination": "/app.html"
     },
     {
