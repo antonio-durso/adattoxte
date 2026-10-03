@@ -64,5 +64,101 @@ export const paesiZone = [
   {
     slug: 'brasile',
     zoneNota: "<h2>Piano de saúde: cosa entra e cosa resta fuori</h2><p>In Brasile molte persone hanno un <em>plano de saúde</em> collegato al lavoro, ma la psicologia è spesso esclusa o limitata a un numero ridotto di sedute. Il risultato è che la terapia si paga di tasca propria, con tariffe che variano molto da città a città. Se hai un benefit aziendale, la domanda da fare è una sola: copre anche un professionista che lavora dall'Italia? È la domanda che fa la differenza tra un percorso che inizi e uno che rimandi.</p>",
+  },
+  {
+    slug: 'cile',
+    zoneNota: "<h2>Fonasa o Isapre: chi paga le sedute in Cile</h2><p>In Cile la copertura sanitaria passa da due binari: <em>Fonasa</em>, il fondo pubblico, oppure le <em>Isapre</em>, le assicurazioni private. Con le Isapre il rimborso delle sedute psicologiche è parziale e dipende dal piano — alcuni coprono un numero limitato di incontri, altri chiedono una diagnosi scritta. Con Fonasa il percorso passa dal sistema pubblico, con attese che possono essere lunghe. Molti italiani finiscono quindi per pagare di tasca, e la cifra cambia molto tra Santiago e le altre regioni.</p>"
+  },
+  {
+    slug: 'cina',
+    zoneNota: "<h2>Chi paga le sedute in Cina</h2><p>Il sistema sanitario pubblico copre soprattutto le cure ospedaliere: la salute mentale resta in gran parte fuori dai rimborsi di base. Chi ha un contratto internazionale si appoggia di solito a un'assicurazione privata o a quella dell'azienda, che a volte include la psicoterapia e a volte no. Le sedute si tengono per lo più in cliniche private e internazionali, e l'offerta cambia molto tra Pechino, Shanghai e le città minori.</p>"
+  },
+  {
+    slug: 'corea-del-sud',
+    zoneNota: "<h2>Il sistema nazionale copre le sedute? La situazione coreana</h2><p>In Corea del Sud l'assicurazione sanitaria nazionale copre una parte delle sedute psicologiche, ma i limiti sono stretti: il numero di incontri rimborsati è ridotto e molti percorsi passano comunque dal medico. Nella pratica la maggior parte delle persone paga di tasca, e gli studi privati — concentrati a Seoul e nelle città maggiori — applicano tariffe variabili. Chi ha un'assicurazione integrativa aziendale può recuperare una quota, spesso solo dopo autorizzazione.</p>"
+  },
+  {
+    slug: 'croazia',
+    zoneNota: "<h2>Liste d'attesa e privato: come funziona in Croazia</h2><p>In Croazia l'assicurazione sanitaria obbligatoria copre la psicoterapia solo in determinati percorsi, e chi passa dal pubblico si trova spesso davanti a liste d'attesa lunghe. Per questo una parte consistente delle sedute avviene nel privato, a pagamento, con tariffe che variano sensibilmente tra Zagabria e le città più piccole. Se arrivi dall'Italia conviene verificare prima se il tuo percorso rientra nella copertura obbligatoria o in un'assicurazione integrativa.</p>"
+  },
+  {
+    slug: 'danimarca',
+    zoneNota: "<h2>Chi paga le sedute in Danimarca</h2><p>Il sistema danese è pubblico e la psicoterapia rientra nella copertura solo in casi specifici, in genere con prescrizione del medico di base e dentro percorsi definiti. Fuori da lì, chi vuole un percorso continuativo si rivolge al privato: gli psicologi autorizzati applicano tariffe regolate, e una parte può essere rimborsata da un'assicurazione integrativa, molto diffusa nel paese. Le attese nel pubblico sono la ragione più comune per cui si finisce per pagare.</p>"
+  },
+  {
+    slug: 'emirati-arabi',
+    zoneNota: "<h2>L'assicurazione del datore di lavoro: gli Emirati</h2><p>Negli Emirati la copertura sanitaria è obbligatoria e legata al contratto di lavoro: ogni datore deve fornire un'assicurazione, a Dubai come ad Abu Dhabi. Quello che cambia è cosa copre il piano. La salute mentale rientra in modo molto variabile — alcuni piani rimborsano un numero limitato di sedute all'anno, altri la escludono, altri richiedono l'autorizzazione preventiva. Vale la pena leggere la polizza prima di iniziare, non dopo la prima fattura.</p>"
+  },
+  {
+    slug: 'finlandia',
+    zoneNota: "<h2>Centro di salute o privato: la Finlandia</h2><p>In Finlandia il primo passaggio è il centro di salute pubblico, con attese che possono essere lunghe. La psicoterapia rientra in percorsi rimborsabili solo a determinate condizioni, in genere con una valutazione medica che ne attesti la necessità. Fuori da quei percorsi si va nel privato, e una parte della spesa può rientrare tramite l'ente previdenziale o tramite l'assicurazione integrativa del datore di lavoro. Molti italiani arrivati per lavoro scoprono che la strada più rapida è quella privata, rimborsata a metà.</p>"
+  },
+  {
+    slug: 'giappone',
+    zoneNota: "<h2>Come si pagano le sedute in Giappone</h2><p>In Giappone l'assicurazione sanitaria nazionale copre la salute mentale, ma il sistema è sbilanciato verso la visita psichiatrica breve e la prescrizione, più che verso la psicoterapia regolare. Le sedute di psicoterapia vera e propria restano spesso fuori copertura e si pagano al privato, in studi concentrati a Tokyo e Osaka. Chi ha un'assicurazione internazionale o aziendale può recuperare una quota. Le tariffe sono in genere alte e la lingua di lavoro è quasi sempre il giapponese o l'inglese.</p>"
+  },
+  {
+    slug: 'grecia',
+    zoneNota: "<h2>Copertura pubblica e privato: chi paga in Grecia</h2><p>In Grecia l'assicurazione pubblica copre la psicoterapia solo in percorsi limitati, spesso legati a strutture pubbliche e con attese. Una parte molto ampia delle sedute avviene nel privato, con tariffe che variano parecchio tra Atene, Salonicco e le isole. Chi arriva dall'Italia per lavoro o per studio si trova di solito a pagare di tasca, e a cercare un professionista raggiungibile senza spostamenti.</p>"
+  },
+  {
+    slug: 'india',
+    zoneNota: "<h2>Chi paga le sedute in India</h2><p>In India la salute mentale è quasi interamente a carico di chi la cerca: le assicurazioni sanitarie coprono soprattutto i ricoveri, non le sedute ambulatoriali, anche se negli ultimi anni alcune polizze hanno iniziato a includerle. Gli studi privati si concentrano a Mumbai, Delhi e Bangalore, e le tariffe variano enormemente da città a città e da professionista a professionista. Chi arriva per lavoro con un'assicurazione internazionale ha di solito una copertura parziale.</p>"
+  },
+  {
+    slug: 'israele',
+    zoneNota: "<h2>Le casse malattia e la copertura integrativa</h2><p>In Israele la sanità passa dalle casse malattia, che garantiscono una copertura di base e includono la psicoterapia entro limiti definiti, spesso con percorsi e attese. Chi vuole un accesso più rapido aggiunge un'assicurazione integrativa privata, largamente diffusa, che rimborsa una parte delle sedute. La differenza tra il percorso base e quello integrativo è, nella pratica, la differenza tra aspettare mesi e cominciare in poche settimane.</p>"
+  },
+  {
+    slug: 'malta',
+    zoneNota: "<h2>Servizio pubblico e privato: Malta</h2><p>A Malta il servizio sanitario pubblico è gratuito e copre anche la salute mentale, ma l'accesso alla psicoterapia passa da liste d'attesa che possono essere lunghe. Molti si rivolgono quindi al privato, dove le tariffe sono più contenute che altrove in Europa e l'offerta si concentra tra La Valletta e Sliema. Chi ha un'assicurazione integrativa legata al lavoro può recuperare una parte della spesa.</p>"
+  },
+  {
+    slug: 'messico',
+    zoneNota: "<h2>IMSS, privato e spese di tasca: il Messico</h2><p>In Messico la copertura dei lavoratori dipendenti passa dall'<em>IMSS</em>, che include la salute mentale in modo limitato e con percorsi lenti. Chi non è nel sistema formale, o vuole tempi rapidi, si rivolge al privato: le sedute si pagano quasi sempre di tasca, con tariffe molto diverse tra Città del Messico, Guadalajara e le zone turistiche. Le assicurazioni private di spesa medica raramente coprono la psicoterapia ambulatoriale.</p>"
+  },
+  {
+    slug: 'norvegia',
+    zoneNota: "<h2>Rimborso pubblico e attese: la Norvegia</h2><p>In Norvegia la psicoterapia è coperta dal sistema pubblico quando si passa dal medico di base e si rientra nei criteri previsti: serve in genere una prescrizione e il rimborso è parziale. Le attese, però, sono il vero ostacolo, e per molti percorsi si parla di mesi. Chi non vuole aspettare si rivolge al privato e paga l'intera tariffa, tra le più alte d'Europa. Anche qui l'assicurazione sanitaria del datore di lavoro può coprire una quota.</p>"
+  },
+  {
+    slug: 'polonia',
+    zoneNota: "<h2>Chi paga le sedute in Polonia</h2><p>In Polonia il fondo sanitario pubblico copre la psicoterapia solo in percorsi limitati e con attese lunghe, concentrate in poche strutture. Di conseguenza una parte molto ampia delle sedute avviene nel privato: Varsavia, Cracovia e Breslavia hanno un'offerta ricca, con tariffe ancora inferiori a quelle italiane. Chi ha un'assicurazione integrativa aziendale — frequente nelle multinazionali — può recuperare una parte della spesa.</p>"
+  },
+  {
+    slug: 'repubblica-ceca',
+    zoneNota: "<h2>Assicurazione obbligatoria e privato: la Repubblica Ceca</h2><p>Qui l'assicurazione sanitaria pubblica è obbligatoria e la psicoterapia rientra in parte nella copertura, ma i percorsi pubblici hanno attese lunghe e l'offerta si concentra a Praga e Brno. Molti si rivolgono quindi al privato, con tariffe ancora moderate rispetto all'Europa occidentale. Per chi arriva da un'azienda italiana o internazionale, l'assicurazione integrativa è spesso la via più semplice per farsi rimborsare le sedute.</p>"
+  },
+  {
+    slug: 'romania',
+    zoneNota: "<h2>Copertura limitata e privato: la Romania</h2><p>In Romania la copertura sanitaria pubblica include la salute mentale solo in misura ridotta, e l'accesso passa da percorsi con attese. La maggior parte delle sedute avviene quindi nel privato, con un'offerta concentrata a Bucarest, Cluj e Timișoara e tariffe inferiori alla media europea. Chi ha un'assicurazione integrativa legata al lavoro può recuperare una quota, ma conviene verificare prima se il professionista è riconosciuto dal piano.</p>"
+  },
+  {
+    slug: 'singapore',
+    zoneNota: "<h2>Chi paga le sedute a Singapore</h2><p>A Singapore il sistema sanitario si appoggia a risparmi individuali obbligatori, pensati soprattutto per le cure ospedaliere: la psicoterapia ambulatoriale resta in gran parte fuori. Chi ha un'assicurazione integrativa — spesso legata al datore di lavoro — può recuperare una quota delle sedute, entro limiti annuali. Gli studi privati abbondano e le tariffe sono alte, tra le più care dell'area asiatica, con differenze notevoli tra il centro e i quartieri periferici.</p>"
+  },
+  {
+    slug: 'slovenia',
+    zoneNota: "<h2>Assicurazione obbligatoria e integrativa: la Slovenia</h2><p>In Slovenia l'assicurazione sanitaria obbligatoria copre la psicoterapia in percorsi definiti, con attese che possono essere lunghe, e gran parte della popolazione integra con un'assicurazione volontaria che copre la differenza. Il risultato è un sistema in cui lo scarto tra tempi pubblici e privati è netto. L'offerta privata si concentra a Lubiana e Maribor, con tariffe vicine a quelle italiane.</p>"
+  },
+  {
+    slug: 'sudafrica',
+    zoneNota: "<h2>Medical aid e settore pubblico: il Sudafrica</h2><p>In Sudafrica coesistono due mondi. Chi ha un <em>medical aid</em> privato accede a sedute rimborsate, ma con tetti annuali e con una quota a carico del paziente; chi non ce l'ha passa dal sistema pubblico, dove l'accesso alla psicoterapia è molto limitato. È il paese con la distanza più ampia tra le due strade. Le tariffe private variano molto tra Johannesburg, Città del Capo e le città minori.</p>"
+  },
+  {
+    slug: 'svezia',
+    zoneNota: "<h2>Ticket, attese e privato: la Svezia</h2><p>In Svezia la psicoterapia rientra nella sanità pubblica regionale e si paga con un ticket, ma l'accesso dipende dalle liste d'attesa della tua regione — e cambiano molto da una all'altra. Fuori dal pubblico il privato è a carico di chi lo sceglie, e una parte può rientrare tramite l'assicurazione sanitaria integrativa, comune tra chi ha un contratto aziendale. Molti italiani in Svezia partono dal centro di salute e finiscono nel privato.</p>"
+  },
+  {
+    slug: 'thailandia',
+    zoneNota: "<h2>Chi paga le sedute in Thailandia</h2><p>In Thailandia la copertura pubblica riguarda in prevalenza i cittadini e le cure di base; gli stranieri si appoggiano di norma a un'assicurazione internazionale o privata, oppure pagano di tasca. La psicoterapia è offerta soprattutto in cliniche private e ospedali internazionali, concentrati a Bangkok, Phuket e Chiang Mai. Le tariffe variano molto e la copertura va verificata prima: molti piani escludono le cure ambulatoriali di salute mentale.</p>"
+  },
+  {
+    slug: 'ungheria',
+    zoneNota: "<h2>Copertura pubblica e privato: l'Ungheria</h2><p>In Ungheria la copertura sanitaria nazionale include la salute mentale solo in parte, e l'accesso passa da percorsi pubblici con attese. La maggior parte delle sedute avviene nel privato, con un'offerta concentrata a Budapest e tariffe ancora inferiori a quelle italiane. Per chi arriva per lavoro, l'assicurazione integrativa aziendale è la via più frequente per farsi rimborsare una parte della spesa.</p>"
+  },
+  {
+    slug: 'uruguay',
+    zoneNota: "<h2>Sistema misto: chi paga le sedute in Uruguay</h2><p>In Uruguay la sanità è mista: il sistema pubblico e le mutualiste private convivono, e la copertura della psicoterapia dipende dal percorso a cui sei iscritto. In genere le sedute sono coperte solo in parte, con un numero limitato di incontri o con una quota a carico del paziente. L'offerta si concentra a Montevideo, e chi vive nell'interno ha spesso meno scelta e deve spostarsi oppure lavorare a distanza.</p>"
   }
 ];
