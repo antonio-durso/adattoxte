@@ -93,23 +93,24 @@ export const extraArticles19 = [
   },
   {
     slug: 'psicologo-online-in-inglese',
-    title: 'Psicologo online in inglese per stranieri',
-    keyword: 'psicologo online in inglese',
-    metaDescription: 'Psicologo online in inglese per expat: sedute in videochiamata con terapeuti qualificati. English-speaking therapy online.',
+    title: 'Psicologo online in italiano per chi vive all\'estero',
+    keyword: 'psicologo online in italiano all\'estero',
+    metaDescription: 'Terapia online in italiano per chi vive all\'estero: sedute in videochiamata con psicologi e psicoterapeuti italiani. 45 € a seduta, prima conoscitiva gratuita. Le sedute si svolgono solo in italiano.',
     date: '2026-08-31',
-    faq: [ { q: 'Posso fare la terapia in inglese?', a: 'Sì, la piattaforma offre sedute in italiano e inglese.' }, { q: 'Posso iniziare dall\'estero?', a: 'Sì, la videochiamata funziona ovunque.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
-    body: `<h1>Psicologo online in inglese: terapia per expat e stranieri in Italia</h1>
+    faq: [ { q: 'In che lingua si svolgono le sedute?', a: 'In italiano. Le sedute si svolgono solo in italiano, con psicologi e psicoterapeuti italiani.' }, { q: 'Posso iniziare dall\'estero?', a: 'Sì, la videochiamata funziona ovunque.' }, { q: 'Quanto costa?', a: '45€ a seduta, prima gratuita.' } ],
+    body: `<h1>Psicologo online in italiano per chi vive all'estero</h1>
 <p>Chi vive all'estero — expat, studenti internazionali, stranieri in Italia — affronta una doppia sfida: le difficoltà comuni a tutti (ansia, stress, relazioni) e il peso del cambiamento culturale. E in terapia la lingua è tutto: parlare delle proprie emozioni in una lingua che non è la propria può creare una distanza emotiva che rende il lavoro meno profondo.</p>
 <h2>Perché la lingua conta in terapia</h2>
-<p>Le emozioni si vivono nella lingua madre: è quella in cui ricordiamo, sogniamo e soffriamo. Esprimere un disagio in una lingua appresa può "smorzare" ciò che proviamo o, al contrario, rendere tutto più faticoso. Per questo offriamo sedute anche in <strong>inglese, francese e spagnolo</strong>: la terapia deve parlare la tua lingua.</p>
+<p>Le emozioni si vivono nella lingua madre: è quella in cui ricordiamo, sogniamo e soffriamo. Esprimere un disagio in una lingua appresa può "smorzare" ciò che proviamo o, al contrario, rendere tutto più faticoso. Per questo le sedute di Adatto x Te si svolgono <strong>in italiano</strong>, con psicologi e psicoterapeuti italiani: non è una limitazione, è il motivo per cui il percorso funziona per chi è partito dall'Italia.</p>
 <h2>Come funziona</h2>
-<p>Le sedute si svolgono in videochiamata sicura (Jitsi Meet) direttamente nel browser, senza installare nulla. Puoi scegliere lo psicologo in base alla lingua e alla specializzazione, prenotare giorno e ora che preferisci e pagare online in modo sicuro. I tuoi dati e il contenuto delle sedute sono protetti secondo il GDPR, con totale riservatezza.</p>
+<p>Le sedute si svolgono in videochiamata sicura (Jitsi Meet) direttamente nel browser, senza installare nulla. Puoi scegliere lo psicologo in base alla specializzazione, prenotare giorno e ora che preferisci e pagare online in modo sicuro. L'orario lo scegli guardando la tua ora locale: dalla Francia agli Stati Uniti, non devi ricalcolare niente. I tuoi dati e il contenuto delle sedute sono protetti secondo il GDPR, con totale riservatezza.</p>
 <h2>Per chi è pensato</h2>
 <ul>
-<li>Espatriati italiani che vivono all'estero e vogliono parlare nella propria lingua o in inglese;</li>
-<li>Stranieri in Italia che preferiscono la terapia in inglese, francese o spagnolo;</li>
-<li>Chiunque si senta più a suo agio in un'altra lingua, indipendentemente dalla nazionalità.</li>
+<li>Italiani all'estero che vogliono affrontare un problema nella propria lingua;</li>
+<li>Chi si è trasferito da poco e sente il peso dell'adattamento;</li>
+<li>Chi vive all'estero da anni e non vuole spiegare il contesto da zero a un professionista locale;</li>
+<li>Chi è rientrato in Italia e vuole continuare il percorso con lo stesso professionista.</li>
 </ul>
-<p><a href="/terapeuti">Scegli il tuo terapeuta</a> — la prima seduta individuale è gratuita: un colloquio conoscitivo di 15 minuti per capire se è la persona giusta per te. <em>English, français, español: we are here for you.</em></p>`,
+<p><a href="/terapeuti">Scegli il tuo terapeuta</a> — la prima seduta individuale è gratuita: un colloquio conoscitivo di 15 minuti per capire se è la persona giusta per te. <strong>Le sedute si svolgono solo in italiano.</strong> Se hai bisogno di una terapia in un'altra lingua, ti conviene rivolgerti a un professionista locale nel paese in cui vivi.</p>`,
   },
 ];
