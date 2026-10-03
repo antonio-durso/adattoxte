@@ -15,7 +15,7 @@
 export const paesiZone = [
   {
     slug: 'stati-uniti',
-    zoneNota: "<h2>Chi paga le sedute, negli Stati Uniti</h2><p>Qui la terapia passa quasi sempre dall'assicurazione sanitaria legata al datore di lavoro. La legge federale obbliga i piani a trattare la salute mentale come quella fisica, ma nella pratica serve spesso un'autorizzazione preventiva e i professionisti in rete sono pochi. Prima di cominciare conviene chiedere al proprio piano tre cose: se la seduta è coperta, quanto resta a carico tuo, e se vale anche per un professionista che non si trova negli Stati Uniti.</p>",
+    zoneNota: "<h2>Chi paga le sedute, negli Stati Uniti</h2><p>La legge che regge questo equilibrio ha un nome: <em>Mental Health Parity and Addiction Equity Act</em>. Impedisce ai piani di trattare la salute mentale in modo più restrittivo di quella fisica — ma vale per i piani che la coprono, non obbliga un datore di lavoro a offrirla.</p><p>Qui la terapia passa quasi sempre dall'assicurazione sanitaria legata al datore di lavoro. La legge federale obbliga i piani a trattare la salute mentale come quella fisica, ma nella pratica serve spesso un'autorizzazione preventiva e i professionisti in rete sono pochi. Prima di cominciare conviene chiedere al proprio piano tre cose: se la seduta è coperta, quanto resta a carico tuo, e se vale anche per un professionista che non si trova negli Stati Uniti.</p>",
   },
   {
     slug: 'canada',
@@ -23,15 +23,15 @@ export const paesiZone = [
   },
   {
     slug: 'regno-unito',
-    zoneNota: "<h2>NHS e privato: cosa aspettarsi davvero</h2><p>Il NHS esiste, e per la salute mentale il percorso parte dal medico di base, che indirizza ai servizi di zona. Il problema sono i tempi: le attese per la psicoterapia pubblica si contano in mesi, non in settimane. Per questo molti finiscono per pagare un professionista privato di tasca propria. Se hai un'assicurazione sanitaria privata, controlla due cose: se copre la salute mentale e se la copertura vale per sedute in videochiamata con un professionista all'estero.</p>",
+    zoneNota: "<h2>NHS e privato: cosa aspettarsi davvero</h2><p>Il percorso pubblico per ansia e depressione ha un nome proprio: <em>NHS Talking Therapies</em>. In molte zone si accede per auto-segnalazione, senza passare dal medico di base, ma le attese restano la variabile che decide tutto.</p><p>Il NHS esiste, e per la salute mentale il percorso parte dal medico di base, che indirizza ai servizi di zona. Il problema sono i tempi: le attese per la psicoterapia pubblica si contano in mesi, non in settimane. Per questo molti finiscono per pagare un professionista privato di tasca propria. Se hai un'assicurazione sanitaria privata, controlla due cose: se copre la salute mentale e se la copertura vale per sedute in videochiamata con un professionista all'estero.</p>",
   },
   {
     slug: 'francia',
-    zoneNota: "<h2>La Sécu, la mutuelle, e quello che resta fuori</h2><p>In Francia l'assicurazione sanitaria pubblica rimborsa il medico, ma lo psicologo liberale è rimasto a lungo escluso. Esistono dispositivi pubblici di sostegno, con un numero limitato di sedute e un elenco di professionisti convenzionati: se ne sente parlare, ma le condizioni cambiano e conviene informarsi aggiornati. Se hai una mutuelle aziendale, leggi la voce dedicata alla psicologia: molte coprono un pacchetto annuo di sedute, a volte anche a distanza.</p>",
+    zoneNota: "<h2>La Sécu, la mutuelle, e quello che resta fuori</h2><p>Dal 2022 esiste un dispositivo pubblico che vale la pena conoscere: <em>Mon soutien psy</em>. Dà diritto a <strong>fino a 12 sedute all'anno</strong> con uno psicologo convenzionato, su prescrizione del medico. La seduta costa <strong>50 €</strong> e viene rimborsata in parte dall'Assurance Maladie. È la via più economica, ma passa dalla prescrizione e dall'elenco dei professionisti convenzionati.</p><p>In Francia l'assicurazione sanitaria pubblica rimborsa il medico, ma lo psicologo liberale è rimasto a lungo escluso. Esistono dispositivi pubblici di sostegno, con un numero limitato di sedute e un elenco di professionisti convenzionati: se ne sente parlare, ma le condizioni cambiano e conviene informarsi aggiornati. Se hai una mutuelle aziendale, leggi la voce dedicata alla psicologia: molte coprono un pacchetto annuo di sedute, a volte anche a distanza.</p>",
   },
   {
     slug: 'germania',
-    zoneNota: "<h2>Le Krankenkassen e il percorso a tappe</h2><p>In Germania la psicoterapia rientra nella copertura sanitaria, pubblica o privata. Il percorso però ha tappe obbligate: si parte dal medico di base per un primo colloquio orientativo, poi si cerca un terapeuta con un posto libero — e i posti sono pochi, con attese che in alcune città superano i sei mesi. Con un'assicurazione privata le regole sono diverse, spesso più rapide. Nessuno di questi percorsi si applica a un professionista che lavora dall'Italia: è una cosa da verificare prima, non dopo.</p>",
+    zoneNota: "<h2>Le Krankenkassen e il percorso a tappe</h2><p>Un dettaglio che sorprende quasi tutti: la psicoterapia <strong>non è una prestazione standard</strong> delle casse malattia. Si ottiene solo presentando domanda, e nella procedura di rimborso serve un rapporto clinico scritto destinato a un perito. È la ragione per cui, anche avendo la copertura, trovare un posto di terapia può richiedere mesi.</p><p>In Germania la psicoterapia rientra nella copertura sanitaria, pubblica o privata. Il percorso però ha tappe obbligate: si parte dal medico di base per un primo colloquio orientativo, poi si cerca un terapeuta con un posto libero — e i posti sono pochi, con attese che in alcune città superano i sei mesi. Con un'assicurazione privata le regole sono diverse, spesso più rapide. Nessuno di questi percorsi si applica a un professionista che lavora dall'Italia: è una cosa da verificare prima, non dopo.</p>",
   },
   {
     slug: 'spagna',
@@ -51,7 +51,7 @@ export const paesiZone = [
   },
   {
     slug: 'australia',
-    zoneNota: "<h2>Medicare, il piano del medico di base, e la differenza</h2><p>In Australia il medico di base può preparare un piano di cura per la salute mentale, che dà diritto a un numero limitato di sedute l'anno con rimborso parziale di Medicare. Attenzione a quella parola: il rimborso copre una parte della tariffa, non tutta, e la differenza resta a carico tuo. Per questo molti hanno anche un'assicurazione privata che copre la quota restante. Nessuno di questi meccanismi vale per un professionista che lavora dall'estero, quindi va verificato prima.</p>",
+    zoneNota: "<h2>Medicare, il piano del medico di base, e la differenza</h2><p>Il meccanismo ha un nome: <em>Better Access</em>. Il medico di base prepara un <em>Mental health treatment plan</em>, che dà diritto a <strong>10 sedute individuali e 10 di gruppo per anno solare</strong> con rimborso Medicare. Attenzione: il rimborso copre una parte della tariffa, e la differenza resta a carico di chi la riceve.</p><p>In Australia il medico di base può preparare un piano di cura per la salute mentale, che dà diritto a un numero limitato di sedute l'anno con rimborso parziale di Medicare. Attenzione a quella parola: il rimborso copre una parte della tariffa, non tutta, e la differenza resta a carico tuo. Per questo molti hanno anche un'assicurazione privata che copre la quota restante. Nessuno di questi meccanismi vale per un professionista che lavora dall'estero, quindi va verificato prima.</p>",
   },
   {
     slug: 'nuova-zelanda',
@@ -160,5 +160,9 @@ export const paesiZone = [
   {
     slug: 'uruguay',
     zoneNota: "<h2>Sistema misto: chi paga le sedute in Uruguay</h2><p>In Uruguay la sanità è mista: il sistema pubblico e le mutualiste private convivono, e la copertura della psicoterapia dipende dal percorso a cui sei iscritto. In genere le sedute sono coperte solo in parte, con un numero limitato di incontri o con una quota a carico del paziente. L'offerta si concentra a Montevideo, e chi vive nell'interno ha spesso meno scelta e deve spostarsi oppure lavorare a distanza.</p>"
+  },
+  {
+    slug: 'venezuela',
+    zoneNota: "<h2>Chi paga le sedute in Venezuela</h2><p>In Venezuela il sistema pubblico attraversa da anni una difficoltà profonda, e la salute mentale è tra le aree più penalizzate. Nella pratica chi può si rivolge al privato, e le sedute si pagano di tasca, spesso con tariffe in dollari. Gli studi si concentrano a Caracas e nelle città maggiori; fuori da lì l'offerta è molto ridotta. È il contesto in cui una terapia a distanza cambia più radicalmente le opzioni disponibili.</p>"
   }
 ];
