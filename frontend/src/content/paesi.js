@@ -6,6 +6,7 @@ import { paesiEstesi2 } from './paesi-estesi-2.js';
 import { paesiEstesi3 } from './paesi-estesi-3.js';
 import { paesiEstesi4 } from './paesi-estesi-4.js';
 import { paesiEstesi5 } from './paesi-estesi-5.js';
+import { paesiZone } from './paesi-zone.js';
 
 const paesiBase = [
   { slug: 'stati-uniti', nome: 'Stati Uniti', bandiera: '🇺🇸', capitale: { slug: 'washington', nome: 'Washington', nota: 'capitale federale e città dove lavorano molti professionisti italiani' }, regione: 'Nord America', fuso: '6-9 ore in meno rispetto all\'Italia', comunita: 'Gli Stati Uniti ospitano una delle comunità italiane più grandi al mondo, da New York alla California', citta: ['New York', 'New Jersey', 'Miami', 'Chicago', 'Los Angeles', 'San Francisco', 'Boston', 'Houston'] },
@@ -134,8 +135,9 @@ const paesiEstesi = [
   ...paesiEstesi2,
   ...paesiEstesi3,
   ...paesiEstesi4,
-  ...paesiEstesi5,
-];
+    ...paesiEstesi5,
+    ...paesiZone,
+  ];
 
 const paesiPerSlug = new Map(paesiBase.map((x) => [x.slug, x]));
 for (const o of paesiEstesi) {
