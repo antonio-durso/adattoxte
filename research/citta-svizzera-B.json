@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "baden",
+    "nome": "Baden",
+    "nota": "città termale e industriale a venti minuti da Zurigo",
+    "desc": "Psicologo online in italiano per chi vive a Baden e nel Cantone Argovia: sedute in videochiamata, prima seduta gratuita, senza prescrizione.",
+    "intro": "Baden è cresciuta attorno alle terme e alla grande industria elettrotecnica, e oggi è uno dei posti da cui si raggiunge Zurigo in venti minuti di treno. Molti italiani ci lavorano nell'ingegneria, nell'IT o nella ricerca: una vita efficiente, che lascia poco spazio per fermarsi.",
+    "local": "<h3>Terapia in italiano a Baden, per chi vive di pendolarismo</h3><p>La valle della Limmat a Baden è uno dei poli industriali storici del paese, e il treno per Zurigo è così comodo che in molti ci abitano lavorando altrove. Il risultato è una giornata lunga, fatta di ufficio, spostamenti e poco altro. È il tipo di vita in cui il disagio non si annuncia con un crollo: si annuncia con l'apatia delle domeniche, con la sensazione di non avere più niente da raccontare.</p><p>Un percorso online si inserisce dove c'è spazio: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione, nessuna lista d'attesa, niente nel dossier assicurativo. Se preferisci passare dalla cassa malattia, servono invece la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Vale se vivi a Baden, a Wettingen, a Neuenhof o nei comuni della valle, e anche se lavori a Zurigo e rientri la sera.</p>",
+    "faqLocal": [
+      ["Quanto costa rispetto a uno studio a Baden o a Zurigo?", "Uno studio privato in Svizzera parte da 150-200 CHF a seduta. Il percorso diretto costa CHF 130 la seduta individuale da 50 minuti, con la prima seduta gratuita."],
+      ["Se abito in Argovia posso comunque iniziare?", "Sì. Il percorso è in videochiamata e non dipende dal cantone di residenza: contano solo la tua disponibilità e una connessione stabile."]
+    ]
+  },
+  {
+    "slug": "baar",
+    "nome": "Baar",
+    "nota": "nel Cantone Zugo, terra di aziende e trasferimenti",
+    "desc": "Psicologo online in italiano per chi vive a Baar e nel Cantone Zugo: videochiamata, prima seduta gratuita, senza prescrizione.",
+    "intro": "Baar sta nel Cantone Zugo, dove ogni anno arrivano persone da mezzo mondo per lavorare in aziende e società di commercio. È un posto ricco, ordinato e internazionale, dove però le relazioni si costruiscono con fatica e si sciolgono in fretta, perché molti restano pochi anni.",
+    "local": "<h3>Un percorso in italiano a Baar e nel Cantone Zugo</h3><p>Zugo è il cantone delle sedi societarie e dei trasferimenti: si arriva per un incarico, si resta due o tre anni, poi si riparte. Questa mobilità continua rende facile conoscere gente e difficile legare. A Baar, poi, la vita è organizzata intorno al lavoro e alla famiglia, con poco spazio per i legami che non rientrano in nessuno dei due.</p><p>La terapia online offre una continuità che il resto non ha: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se vuoi il rimborso tramite LAMal, servono la prescrizione medica e un terapeuta riconosciuto in Svizzera (PsiReg), con un massimo di 15 sedute per ricetta.</p><p>Vale se vivi a Baar, a Zugo, a Cham o in uno dei comuni del cantone, e resta valido anche se il tuo incarico ti porta altrove.</p>",
+    "faqLocal": [
+      ["Mi trasferisco spesso: ha senso iniziare un percorso?", "Sì, proprio per questo. Stesso terapeuta e stessa lingua anche se cambi casa, cantone o paese: il percorso non riparte da zero a ogni trasferimento."],
+      ["Quanto costa la seduta?", "CHF 130 la seduta individuale da 50 minuti, in euro all'equivalente fisso. La prima seduta conoscitiva è gratuita e non serve prescrizione."]
+    ]
+  },
+  {
+    "slug": "svitto",
+    "nome": "Svitto",
+    "nota": "il cantone che dà il nome al paese, fra i due Mythen",
+    "desc": "Psicologo online in italiano per chi vive a Svitto e nei comuni del Cantone: videochiamata, prima seduta gratuita, senza prescrizione.",
+    "intro": "Il Cantone di Svitto è il luogo da cui prende il nome l'intero paese: due montagne sopra i pascoli, paesi ordinati e una tradizione civica molto sentita. È una terra bella e poco abituata a chi arriva da fuori, dove inserirsi richiede tempo che spesso non si ha.",
+    "local": "<h3>Terapia in italiano a Svitto e nei comuni del cantone</h3><p>Il Cantone di Svitto è fatto di paesi e di valli, con una vita associativa forte e legami che vengono da generazioni. Chi si trasferisce qui per lavoro — verso Zurigo, verso Zugo o in uno dei comuni del cantone — trova paesaggi splendidi e una rete sociale difficile da aprire. A questo si aggiunge la distanza dai servizi specialistici, che si concentrano altrove.</p><p>Il percorso online accorcia entrambe le distanze: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se punti al rimborso della cassa malattia, la strada prevede invece la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Funziona se vivi a Svitto, a Brunnen, a Schwyz o in uno dei comuni del cantone, anche in una zona di campagna.</p>",
+    "faqLocal": [
+      ["In un posto così piccolo la riservatezza è un problema?", "Nella terapia online il terapeuta non vive nel tuo paese e non incrocia la tua cerchia. È spesso il motivo principale per cui, in una comunità piccola, si sceglie questa strada."],
+      ["Serve la prescrizione del medico?", "No, se scegli il percorso diretto. La prescrizione serve solo se vuoi il rimborso LAMal, e in quel caso la ricetta copre al massimo 15 sedute."]
+    ]
+  },
+  {
+    "slug": "emmen",
+    "nome": "Emmen",
+    "nota": "grande comune operaio alle porte di Lucerna",
+    "desc": "Psicologo online in italiano per chi vive a Emmen e nell'area di Lucerna: sedute in videochiamata, prima seduta gratuita, senza prescrizione.",
+    "intro": "Emmen sta appena fuori Lucerna: un comune grande, popoloso, con zone industriali, capannoni e quartieri residenziali cresciuti in fretta. Ci vive gente arrivata da mezza Europa, e proprio per questo è facile restare invisibili anche in mezzo a tanta gente.",
+    "local": "<h3>Terapia in italiano a Emmen, accanto a Lucerna</h3><p>Emmen è uno dei comuni più popolosi del Cantone di Lucerna e uno dei più industriali: officine, logistica, grandi superfici commerciali e quartieri come Emmenbrücke, cresciuti per accogliere chi arrivava a lavorare. È un posto concreto, dove molte famiglie vivono tra turni e doppi lavori, e dove chiedere aiuto per la salute mentale non è ancora la cosa più semplice da fare.</p><p>Un percorso online si incastra negli orari che hai: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione, nessuna lista d'attesa, nessuna traccia nel dossier assicurativo. Se preferisci il rimborso LAMal, servono la prescrizione medica e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Vale se vivi a Emmen, a Emmenbrücke o in uno dei comuni dell'agglomerato di Lucerna, e anche se lavori su turni che cambiano ogni settimana.</p>",
+    "faqLocal": [
+      ["Devo per forza andare in studio?", "No: tutte le sedute sono in videochiamata, da casa o da un posto tranquillo. È pensato anche per chi non può assentarsi dal lavoro o dai turni."],
+      ["Quanto costa uno psicologo da queste parti?", "Uno studio privato in Svizzera parte da 150-200 CHF a seduta. Con il percorso diretto la seduta individuale da 50 minuti costa CHF 130 e la prima è gratuita."]
+    ]
+  },
+  {
+    "slug": "san-gallo",
+    "nome": "San Gallo",
+    "nota": "capoluogo della Svizzera orientale, terra di ricamo e tessuti",
+    "desc": "Psicologo online in italiano per chi vive a San Gallo e nella Svizzera orientale: videochiamata, prima seduta gratuita, senza prescrizione.",
+    "intro": "San Gallo è la città svizzera del ricamo e dei tessuti, con l'abbaziale e la sua biblioteca fra i patrimoni dell'umanità. È il capoluogo della Svizzera orientale, a pochi minuti dal confine con l'Austria e con la Germania: una terra di passaggio dove molti arrivano per lavoro e ripartono.",
+    "local": "<h3>Un percorso in italiano a San Gallo e nella Svizzera orientale</h3><p>San Gallo è una città media, con una tradizione tessile che ha portato lavoro e persone da tutta Europa, e un tessuto universitario che continua ad attirare chi viene da fuori. La vicinanza al confine rende normale lavorare in un paese e abitare in un altro, e questa mobilità continua ha un prezzo: legami brevi, case che cambiano, la sensazione di essere sempre di passaggio.</p><p>La terapia online dà continuità: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se invece vuoi passare dalla cassa malattia, servono la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg), con il tetto di 15 sedute per ricetta.</p><p>Vale se vivi in città o nei comuni intorno, e anche se lavori oltre confine o ti dividi fra due paesi.</p>",
+    "faqLocal": [
+      ["Quanto costa uno psicologo a San Gallo?", "Gli studi privati in Svizzera partono da 150-200 CHF a seduta. Con Adatto x Te la seduta individuale da 50 minuti costa CHF 130 e la prima è gratuita."],
+      ["Vale anche se vivo oltre confine e lavoro a San Gallo?", "Sì: essendo tutto in videochiamata, il percorso non dipende da dove ti trovi nella settimana, né da quale lato del confine ti svegli."]
+    ]
+  },
+  {
+    "slug": "basilea-campagna",
+    "nome": "Basilea Campagna",
+    "nota": "il cantone attorno a Basilea, fra Liestal e la grande industria",
+    "desc": "Psicologo online in italiano per chi vive nel Cantone di Basilea Campagna: videochiamata, prima seduta gratuita, senza prescrizione.",
+    "intro": "Il Cantone di Basilea Campagna circonda la città di Basilea senza esserne parte: il capoluogo è Liestal, e molti comuni funzionano come quartieri residenziali della grande industria chimica e farmaceutica. Si abita in un cantone e si lavora in un altro, e questo basta a complicare il senso di appartenenza.",
+    "local": "<h3>Terapia in italiano nel Cantone di Basilea Campagna</h3><p>Basilea Campagna è una fascia di comuni attorno alla città: Liestal, Reinach, Allschwil, Pratteln, Binningen. Molti italiani ci vivono perché si sta un po' meglio che in città e si arriva al lavoro in tram o in bicicletta, nei laboratori e negli stabilimenti dell'area renana. È una vita comoda, ma vissuta in un territorio amministrativo che non è quello in cui si lavora, e per chi arriva da fuori questo doppio riferimento pesa più di quanto sembri.</p><p>Il percorso online elimina anche questo problema: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione, nessuna lista d'attesa, niente nel dossier assicurativo. Se punti al rimborso della cassa malattia, serviranno la prescrizione medica e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Funziona se vivi a Liestal, a Reinach, ad Allschwil o in uno dei comuni del cantone, e anche se lavori a Basilea o in uno dei poli industriali della zona.</p>",
+    "faqLocal": [
+      ["Vivo in campagna, in un comune piccolo: funziona lo stesso?", "Sì, serve solo una connessione stabile e un posto tranquillo. Se la rete è debole possiamo lavorare per telefono."],
+      ["Quanto costa la seduta?", "CHF 130 la seduta individuale da 50 minuti, in euro all'equivalente fisso, con la prima seduta conoscitiva gratuita e senza prescrizione."]
+    ]
+  }
+]

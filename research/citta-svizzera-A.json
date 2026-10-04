@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "lucerna",
+    "nome": "Lucerna",
+    "nota": "sul lago dei Quattro Cantoni, fra turismo e sanità",
+    "desc": "Psicologo online in italiano per chi vive a Lucerna: sedute in videochiamata, prima seduta conoscitiva gratuita, senza prescrizione e senza lista d'attesa.",
+    "intro": "Lucerna è una città che lavora: ospedali, alberghi, cantieri, servizi. Molti italiani ci sono arrivati per una stagione o per un impiego in reparto, e poi ci sono rimasti. Il punto è che la lingua del lavoro e quella in cui ti apri non coincidono quasi mai.",
+    "local": "<h3>Terapia in italiano a Lucerna, senza liste d'attesa</h3><p>Lucerna è piccola, ordinata e cara, e il mercato della salute mentale non fa eccezione: gli studi privati del Cantone lavorano su appuntamento, con tariffe che in Svizzera partono da <strong>150-200 CHF</strong> a seduta. Per il rimborso tramite LAMal serve la prescrizione del medico, e da lì vengono anche i limiti: al massimo <strong>15 sedute per ricetta</strong>, più la franchigia e il 10 per cento di partecipazione a tuo carico.</p><p>Con il percorso diretto paghi <strong>CHF 130</strong> la seduta individuale da 50 minuti (145 CHF quella di coppia), in euro all'equivalente fisso, e la prima seduta conoscitiva è gratuita. Nessuna prescrizione, nessuna diagnosi nel dossier assicurativo, nessuna lista d'attesa.</p><p>Funziona se vivi in città o in uno dei comuni dell'agglomerato, come Kriens o Ebikon, se lavori su turni in ospedale o negli alberghi, e anche se ogni tanto rientri in Italia: il percorso non si interrompe quando cambia il tuo orario.</p>",
+    "faqLocal": [
+      ["Quanto costa uno psicologo a Lucerna?", "Gli studi privati del Cantone lavorano intorno ai 150-200 CHF a seduta. Con Adatto x Te la seduta individuale da 50 minuti costa CHF 130 e la prima è gratuita."],
+      ["Serve la prescrizione del medico per iniziare?", "Serve solo se vuoi il rimborso LAMal: in quel caso la cura va seguita da terapeuti riconosciuti in Svizzera (PsiReg) e la ricetta copre al massimo 15 sedute. Il percorso diretto non richiede prescrizione."]
+    ]
+  },
+  {
+    "slug": "glarona",
+    "nome": "Glarona",
+    "nota": "il cantone di montagna che ha attirato manodopera italiana per generazioni",
+    "desc": "Psicologo online in italiano per chi vive a Glarona e nel Glarnerland: videochiamata, prima seduta gratuita, senza prescrizione e senza liste d'attesa.",
+    "intro": "Glarona è un cantone piccolo, di valle, dove le aziende e le famiglie si conoscono tutte. Per chi arriva da fuori la vita sociale può sembrare chiusa, e il disagio passa inosservato proprio perché manca qualcuno con cui nominarlo.",
+    "local": "<h3>Terapia in italiano nel Glarnerland, in videochiamata</h3><p>Il cantone di Glarona conta poche decine di migliaia di abitanti e una tradizione industriale che ha portato manodopera italiana in valle per generazioni. Il rovescio della medaglia è la dimensione: pochi professionisti, attese lunghe e la sensazione che tutti sappiano chi sei. Nelle valli laterali l'offerta specialistica è ancora più rarefatta.</p><p>Per questo la videochiamata cambia le cose. Costo del percorso diretto: <strong>CHF 130</strong> la seduta individuale da 50 minuti, pagabile in euro all'equivalente fisso, con la prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se invece punti al rimborso LAMal, la strada resta quella della prescrizione medica e dei terapeuti riconosciuti in Svizzera (PsiReg), con il tetto di 15 sedute per ricetta, più franchigia e 10 per cento.</p><p>Vale se vivi a Glarona, a Näfels, a Schwanden o in uno dei comuni della valle, e anche se lavori su turni in fabbrica o in ospedale.</p>",
+    "faqLocal": [
+      ["In un cantone piccolo si rischia di incontrarsi in giro?", "È un timore legittimo e va detto: nella terapia online non incroci il terapeuta al supermercato, e nulla entra nel tuo giro di conoscenze. È uno dei motivi per cui in una valle stretta molte persone scelgono la videochiamata."],
+      ["Il percorso online vale anche se poi mi trasferisco?", "Sì, ed è uno dei suoi vantaggi in un cantone dove i contratti durano pochi anni. Stesso terapeuta e stessa lingua anche se ti sposti in un'altra valle, in un altro cantone o rientri in Italia."]
+    ]
+  },
+  {
+    "slug": "soletta",
+    "nome": "Soletta",
+    "nota": "città barocca sull'Aar, terra di pendolari",
+    "desc": "Psicologo online in italiano per chi vive a Soletta e nel Cantone: sedute in videochiamata, prima seduta gratuita, senza prescrizione e senza attese.",
+    "intro": "Soletta è una città di provincia ordinata e silenziosa, con una piazza barocca che sembra ferma nel tempo. Molti ci vivono per lavorare altrove, tra Olten, Basilea e Zurigo, e tornare la sera in una città tranquilla è comodo ma anche solitario.",
+    "local": "<h3>Terapia in italiano a Soletta, fra casa e pendolarismo</h3><p>Soletta vive di pendolarismo: la mattina la stazione si riempie di chi va a Olten, a Basilea o fino a Zurigo, e la sera si svuota. È una vita che funziona sulla carta e costa molto in pratica, perché il tempo del viaggio si toglie al riposo e alle relazioni. In una città di questa dimensione, poi, i servizi di salute mentale sono pochi e le liste si allungano.</p><p>La videochiamata toglie di mezzo proprio il problema logistico: nessuno spostamento dopo una giornata già passata in treno. La seduta individuale da 50 minuti costa <strong>CHF 130</strong>, in euro all'equivalente fisso, e la prima seduta conoscitiva è gratuita. Nessuna prescrizione medica, nessuna lista d'attesa, niente nel dossier assicurativo.</p><p>Vale se vivi a Soletta, a Grenchen, a Olten o nei comuni intorno, e anche se il tuo orario cambia ogni settimana.</p>",
+    "faqLocal": [
+      ["Devo spostarmi fino a uno studio?", "No. Tutte le sedute sono in videochiamata: si fanno da casa o dall'ufficio, senza aggiungere viaggi a una giornata già segnata dal pendolarismo."],
+      ["E se voglio il rimborso della cassa malattia?", "In quel caso serve la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg): la ricetta copre al massimo 15 sedute, e restano a tuo carico franchigia e 10 per cento. Il percorso diretto con noi resta privato."]
+    ]
+  },
+  {
+    "slug": "sciaffusa",
+    "nome": "Sciaffusa",
+    "nota": "sul Reno, al confine con la Germania",
+    "desc": "Psicologo online in italiano per chi vive a Sciaffusa e nel Cantone: videochiamata, prima seduta gratuita, senza prescrizione e senza liste d'attesa.",
+    "intro": "Sciaffusa è una città sul Reno, con il Munot sopra le case e le cascate più famose del paese a pochi minuti. Il cantone ha una forma strana, fatta di pezzi separati: la vita quotidiana scavalca continuamente un confine che non si vede.",
+    "local": "<h3>Terapia online in italiano a Sciaffusa</h3><p>Il Cantone di Sciaffusa è un puzzle: il capoluogo, le exclave, la campagna attorno a Reiath, e un confine con la Germania che si attraversa senza pensarci. Molti ci lavorano nell'industria e nella meccanica di precisione, altri pendolano verso Zurigo o Winterthur. In un territorio così piccolo l'offerta di psicoterapia è limitata e i tempi di attesa si allungano.</p><p>Il percorso online aggira il problema: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione, nessuna lista d'attesa, nessuna diagnosi nel dossier assicurativo. Se invece vuoi passare dalla cassa malattia, serve la prescrizione medica e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Funziona se vivi in città, a Neuhausen, a Beringen o nei comuni del cantone, e anche se la tua settimana è fatta di turni.</p>",
+    "faqLocal": [
+      ["Quanto costa rispetto a uno studio locale?", "Uno studio privato in Svizzera parte da 150-200 CHF a seduta. Il percorso diretto con Adatto x Te costa CHF 130 la seduta individuale da 50 minuti, con la prima gratuita."],
+      ["Vale anche se vivo in una delle exclave?", "Sì: essendo tutto in videochiamata, conta solo la tua disponibilità oraria, non la distanza dal capoluogo."]
+    ]
+  },
+  {
+    "slug": "appenzello-interno",
+    "nome": "Appenzello Interno",
+    "nota": "il cantone più piccolo, di tradizione contadina",
+    "desc": "Psicologo online in italiano per chi vive ad Appenzello Interno: sedute in videochiamata, prima seduta gratuita, senza prescrizione e senza attese.",
+    "intro": "Appenzello Interno è il cantone più piccolo del paese: colline, case dipinte, latterie e una comunità dove le tradizioni contano ancora molto. Chi arriva da fuori impiega anni a entrare davvero nei giri, e la solitudine qui non si vede perché il paesaggio è bellissimo.",
+    "local": "<h3>Un percorso in italiano per chi vive ad Appenzello Interno</h3><p>Ad Appenzello Interno le distanze sono brevi e i legami sono antichi: le famiglie si conoscono da generazioni e la vita associativa è intensa, ma resta chiusa a chi arriva da poco. Per una persona italiana trasferita qui, la fatica più comune non è la lingua del lavoro, è non avere nessuno con cui parlare di come si sente. E i servizi specialistici sono lontani, a San Gallo o a Herisau.</p><p>La videochiamata risolve la distanza: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se vuoi il rimborso tramite LAMal serve invece la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg), con il tetto di 15 sedute per ricetta.</p><p>Vale se vivi ad Appenzello, ad Appenzello Esterno o nei comuni della valle del Reno, anche in una fattoria.</p>",
+    "faqLocal": [
+      ["Non c'è nessuno con cui parlare in italiano qui: serve comunque?", "È esattamente la situazione per cui esiste questo percorso. Le sedute sono in italiano e il terapeuta non fa parte della tua comunità, quindi puoi dire le cose senza il timore di come verranno prese in paese."],
+      ["Funziona da una zona di campagna con poca connessione?", "Basta una connessione stabile e un posto tranquillo. Se la rete è debole possiamo lavorare per telefono senza problemi."]
+    ]
+  },
+  {
+    "slug": "koniz",
+    "nome": "Köniz",
+    "nota": "il grande comune alle porte di Berna",
+    "desc": "Psicologo online in italiano per chi vive a Köniz e nell'area di Berna: videochiamata, prima seduta gratuita, senza prescrizione e senza attese.",
+    "intro": "Köniz non è un paesino: è uno dei comuni più popolosi della Svizzera, attaccato a Berna, fatto di quartieri residenziali e di pendolari. Ci si vive comodi, a due fermate dal centro, ma è facile scivolare in una routine in cui non si parla mai davvero con nessuno.",
+    "local": "<h3>Terapia in italiano a Köniz e nell'area di Berna</h3><p>Köniz è la tipica periferia ben collegata: tram verso Berna, quartieri tranquilli, case ordinate e una vita sociale che resta per lo più dentro le mura di casa. Molti italiani ci arrivano per lavorare nel settore pubblico, nella ricerca o nella sanità, e scoprono che una città ordinata non mette automaticamente a proprio agio. La lingua dei colleghi è una, quella degli affetti un'altra.</p><p>Il percorso online sta negli orari che scegli tu: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione, nessuna lista d'attesa, niente nel dossier assicurativo. Se vuoi invece il rimborso LAMal serve la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Funziona se vivi a Köniz, a Liebefeld, a Spiegel o in uno dei comuni intorno a Berna, e anche se lavori a Berna e torni a casa solo la sera.</p>",
+    "faqLocal": [
+      ["Quanto costa rispetto a uno studio a Berna?", "Uno studio privato in Svizzera parte da 150-200 CHF a seduta. Con il percorso diretto la seduta individuale da 50 minuti costa CHF 130 e la prima è gratuita."],
+      ["Serve la prescrizione per il rimborso LAMal?", "Sì: la prescrizione del medico è necessaria e la cura va seguita da terapeuti riconosciuti in Svizzera (PsiReg), con un massimo di 15 sedute per ricetta, più franchigia e 10 per cento a tuo carico."]
+    ]
+  },
+  {
+    "slug": "biel-bienne",
+    "nome": "Biel/Bienne",
+    "nota": "la città dell'orologeria, dove la metà degli abitanti viene da fuori",
+    "desc": "Psicologo online in italiano per chi vive a Biel/Bienne: sedute in videochiamata, prima seduta gratuita, senza prescrizione e senza liste d'attesa.",
+    "intro": "Biel/Bienne è la città svizzera dell'orologeria, cresciuta a forza di officine e di lavoratori arrivati da lontano. Qui l'italiano è una presenza storica: ci sono famiglie italiane da tre generazioni e altre arrivate da poco per lavorare nel settore tecnico.",
+    "local": "<h3>Terapia in italiano a Biel/Bienne</h3><p>Biel/Bienne è una città industriale con una storia precisa: le fabbriche di orologi hanno attirato manodopera straniera per tutto il Novecento, e le famiglie italiane sono parte di questa storia da generazioni. È anche una città dichiarata bilingue, con quartieri storici e altri nuovi, e un lago a pochi minuti dal centro. Per chi ci vive oggi, la fatica più frequente non riguarda il lavoro: riguarda il sentirsi parte di un posto che conosce da sempre senza esserne davvero dentro.</p><p>Il percorso online dà uno spazio tuo: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se punti al rimborso della cassa malattia, la strada resta quella della prescrizione medica e dei terapeuti riconosciuti in Svizzera (PsiReg).</p><p>Vale per la città e per i comuni intorno, da Nidau a Brügg, e anche per chi lavora in orologeria su turni che cambiano ogni mese.</p>",
+    "faqLocal": [
+      ["A Biel molta gente parla italiano: che bisogno c'è di un percorso online?", "Parlare una lingua non è la stessa cosa che essere a proprio agio in un percorso. Il terapeuta online non fa parte né della tua cerchia né della comunità locale, e questa estraneità è ciò che rende possibile dire le cose difficili."],
+      ["Quanto costa la seduta?", "CHF 130 per la seduta individuale da 50 minuti, in euro all'equivalente fisso, con la prima seduta conoscitiva gratuita. Nessuna prescrizione richiesta."]
+    ]
+  }
+]

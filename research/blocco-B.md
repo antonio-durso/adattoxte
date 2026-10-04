@@ -1,0 +1,33 @@
+METODO CURL: FUNZIONA
+
+### irlanda — Irlanda
+- ente: Health Service Executive (HSE) — servizio sanitario pubblico; pagina ufficiale letta: Citizens Information (Citizens Information Board, ente statutario) citizensinformation.ie
+- fatto: Il servizio pubblico di salute mentale è fornito dalla HSE tramite servizi comunitari; l'équipe comprende di norma un psychiatrist consulente, un registrar in psichiatria e infermieri, e in molte aree anche addiction counsellor, psicologo, assistente sociale e terapista occupazionale. Si accede parlando con il proprio GP (medico di famiglia), che in alcuni casi può indirizzare a un professionista della salute mentale come psychiatrist, psicologo clinico o addiction counsellor; per lo psicologo clinico il referral avviene di solito tramite GP o psychiatrist, ma ci si può anche auto-indirizzare, e la maggior parte dei servizi comunitari è accessibile senza referral. È previsto counselling gratuito tramite il National Counselling Service (NCS) per gli over 18. Lo psychiatrist può lavorare anche in studio privato.
+- cifre: nessuna
+- fonte: https://www.citizensinformation.ie/en/health/health-services/mental-health/mental-health-services/ ; https://www.citizensinformation.ie/en/health/health-services/mental-health/mental-health-professionals/
+- citazione: «In some cases, your GP may refer you to a mental health professional such as a psychiatrist, clinical psychologist or addiction counsellor.»
+- note: hse.ie è bloccato (403/WAF) e restituisce Human Verification; nessuna cifra su tariffe o rimborsi nelle pagine ufficiali lette; non trovata dichiarazione ufficiale su rimborso di sedute private (l'eventuale via privata è a pagamento, ma nessuna pagina ufficiale letta lo quantifica); non letto se i servizi pubblici siano esplicitamente "gratuiti" salvo il counselling NCS indicato come "free".
+
+### argentina — Argentina
+- ente: Superintendencia de Servicios de Salud (SSS) — Ministero della Salute; norma letta: Ley 26.657 (Ley Nacional de Salud Mental) su InfoLEG
+- fatto: La SSS "fiscaliza a las Obras Sociales Nacionales y Entidades de Medicina Prepaga para garantizar los derechos de los beneficiarios a las prestaciones de salud". Secondo la Ley 26.657 la cura della salute mentale deve essere a carico di un'équipe interdisciplinare che include l'area di psicología (art. 8) e l'Autorità di applicazione, in coordinamento con la SSS, deve promuovere l'adeguamento della copertura in salute mentale delle obras sociales ai principi della legge (art. 37). I beneficiari/utenti possono presentare pratiche, consultas y denuncias a distanza tramite il Centro de Atención Virtual della SSS, ed esiste un "Procedimiento de mediación prejudicial en materia de salud - PROMESA"; l'oggetto del rimborso/richiesta è l'obra social o prepaga, con vigilanza della SSS.
+- cifre: Ley 26.657, art. 37: adeguamento della copertura entro un "plazo no mayor a los NOVENTA (90) días corridos" dalla sanzione
+- fonte: http://servicios.infoleg.gob.ar/infolegInternet/anexos/175000-179999/175977/norma.htm ; https://www.sssalud.gob.ar/ ; https://www.argentina.gob.ar/sssalud/centro-de-atencion-virtual
+- citazione: «La Autoridad de Aplicación, en coordinación con la Superintendencia de Servicios de Salud, debe promover la adecuación de la cobertura en salud mental de las obras sociales a los principios establecidos en la presente ley»
+- note: non trovata pagina ufficiale con percentuali/massimali di copertura della psicoterapia né con l'elenco del PMO; la pagina di dettaglio PROMESA su sssalud.gob.ar risulta "no disponible"; il numero verde è 0800-222-72583 (SALUD).
+
+### brasile — Brasile
+- ente: Agência Nacional de Saúde Suplementar (ANS)
+- fatto: L'ANS definisce il "Rol de Procedimentos e Eventos em Saúde", la lista di consultas, exames, cirurgias e tratamentos che i planos de saúde sono obbligati a offrire, valida per i "planos novos" (dal 02/01/1999) e per gli "planos antigos" adeguati. L'ANEXO I del Rol include le voci "SESSÃO COM PSICÓLOGO" e "CONSULTA/AVALIAÇÃO COM PSICÓLOGO" (con Diretriz de Utilização). Per il rimborso: la richiesta la presenta il beneficiario (o il rappresentante legale) alla operadora, che deve concludere l'analisi e pagare entro il termine massimo di 30 giorni dalla richiesta; il diritto al rimborso sussiste anche se il contratto non lo prevede, quando non c'è professionista o struttura disponibile nella città cercata.
+- cifre: Resolução Normativa nº 465/2021; rimborso: "prazo máximo de 30 dias"; planos novos a partire dal 02 de janeiro de 1999
+- fonte: https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos/cobertura-assistencial ; https://www.gov.br/ans/pt-br/assuntos/consumidor/o-que-o-seu-plano-de-saude-deve-cobrir-1/reembolso ; https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos/Anexo_I_Rol_2021RN_465.2021_RN678.2026.xlsx
+- citazione: «Atualmente, o Rol de Procedimentos e Eventos em Saúde é regulamentado pela Resolução Normativa nº 465/2021 e seus Anexos.»
+- note: la psicologia compare nell'Anexo I del Rol come "SESSÃO COM PSICÓLOGO"/"CONSULTA/AVALIAÇÃO COM PSICÓLOGO"; non ho letto in una pagina ufficiale il testo della Diretriz de Utilização con l'eventuale limite annuo di sedute (non confermato); il termine "psicoterapia" non compare nel file Anexo I scaricato.
+
+### cile — Cile
+- ente: Fondo Nacional de Salud (Fonasa) — con la Superintendencia de Salud come organo di tutela
+- fatto: La depressione nelle persone di 15 anni e più è una garanzia GES/AUGE: con conferma diagnostica si ha accesso al trattamento, con tempi massimi di attenzione garantiti. Per i beneficiari Fonasa di qualunque tratto (tramo A-B-C-D) il copago è "Copago Cero". Se il centro di salute non eroga le prestazioni garantite o fa pagare un beneficiario Fonasa, si può presentare un reclamo formale davanti a Fonasa (sucursales in tutto il Paese); se Fonasa non risponde entro il termine o la risposta è insoddisfacente, si può insistere davanti alla Superintendencia de Salud.
+- cifre: Copago Cero (beneficiari Fonasa, tutti i tratti); garanzia GES per depressione "en personas de 15 años y más"
+- fonte: https://www.fonasa.gob.cl/coberturas-de-salud/depresion-en-personas-de-15-anos-y-mas/
+- citazione: «Los beneficiarios Fonasa de cualquier tramo tienen Copago Cero.»
+- note: fonte letta riguarda la garanzia GES per la depressione, non le sedute private; non ho letto valori di copago della Modalità di Libera Scelta (MLE) né tariffe/rimborso per sedute di psicoterapia private (non confermati); i valori numerici della tabella copago non erano presenti nel testo estratto.

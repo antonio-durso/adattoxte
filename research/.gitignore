@@ -1,0 +1,11 @@
+# Materiale di lavoro della verifica sulle fonti ufficiali.
+# I dump scaricati (PDF, HTML, XML, estratti di testo, risposte API) restano nel
+# working tree ma NON vanno in storia: sono intermedi, non deliverable.
+# Per versionare un file ignorato: git add -f <file>
+*.pdf
+*.html
+*.xml
+*.txt
+*.json
+!batch-*.json
+!citta-svizzera-*.json
