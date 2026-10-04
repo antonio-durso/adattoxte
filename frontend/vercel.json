@@ -2146,6 +2146,58 @@
       "destination": "/app.html"
     },
     {
+      "source": "/italiani-all-estero/svizzera/lucerna",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/glarona",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/soletta",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/sciaffusa",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/appenzello-interno",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/koniz",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/biel-bienne",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/baden",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/baar",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/svitto",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/emmen",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/san-gallo",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/italiani-all-estero/svizzera/basilea-campagna",
+      "destination": "/app.html"
+    },
+    {
       "source": "/italiani-all-estero/belgio",
       "destination": "/app.html"
     },

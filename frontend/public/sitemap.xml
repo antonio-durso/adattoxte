@@ -901,6 +901,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.adattoxte.com/registrazione-professionista</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.adattoxte.com/psicologo-online</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -1502,13 +1507,13 @@
   </url>
   <url>
     <loc>https://www.adattoxte.com/en</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.adattoxte.com/en/terapeuti</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2213,6 +2218,71 @@
   </url>
   <url>
     <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/basilea</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/lucerna</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/glarona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/soletta</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/sciaffusa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/appenzello-interno</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/koniz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/biel-bienne</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/baden</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/baar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/svitto</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/emmen</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/san-gallo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adattoxte.com/italiani-all-estero/svizzera/basilea-campagna</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

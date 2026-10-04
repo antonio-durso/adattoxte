@@ -86,13 +86,17 @@ test('paesi: le pagine locali (cittaPagine) hanno un contenuto proprio e slug un
   }
   assert.ok(uniq(coppie), `coppie paese/località duplicate: ${coppie.join(', ')}`);
 
-  // Blocco Svizzera: queste quattro sono le località per cui Search Console registra
-  // query reali (18/09/2026) e per cui non esisteva alcuna pagina. Se spariscono, è una
-  // regressione voluta e va decisa, non subita.
+  // Blocco Svizzera: le prime quattro sono le località individuate il 18/09/2026. Le altre
+  // sono state aggiunte il 04/10/2026 sulle query reali di Search Console ("psicologo
+  // italiano online <luogo>", posizioni medie 12-68) per cui non esisteva alcuna pagina:
+  // la pagina Svizzera veniva servita come ripiego. Se qualcuna sparisce, è una
+  // regressione voluta e va decisa, non subita. L'ordine è quello di inserimento.
   const ch = paesi.find((p) => p.slug === 'svizzera');
   assert.deepEqual(
     (ch.cittaPagine || []).map((c) => c.slug),
-    ['lugano', 'zurigo', 'ginevra', 'basilea'],
+    ['lugano', 'zurigo', 'ginevra', 'basilea', 'lucerna', 'glarona', 'soletta', 'sciaffusa',
+     'appenzello-interno', 'koniz', 'biel-bienne', 'baden', 'baar', 'svitto', 'emmen',
+     'san-gallo', 'basilea-campagna'],
     'pagine locali svizzere cambiate'
   );
 });
