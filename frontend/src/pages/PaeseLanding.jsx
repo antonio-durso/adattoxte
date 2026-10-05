@@ -94,8 +94,15 @@ export default function PaeseLanding() {
   // la formula generica. Prima l'H1 era hardcoded con la formula generica: dove il campo
   // `titolo` c'era, <title> e H1 dicevano due cose diverse e nessuno dei due conteneva la
   // frase cercata.
+  // La formula generica è allineata a come si cerca davvero, cioè "psicologo italiano
+  // online <luogo>". Prima era "psicologo online per italiani a <luogo>", che non
+  // corrisponde a nessuna delle ricerche misurate su Search Console (finestra 28 giorni).
+  // Vale per tutte le 41 capitali che non hanno ancora un `titolo` scritto su misura:
+  // Washington, Ottawa, Londra, Parigi, Bruxelles, Madrid, Amsterdam, Dublino, Vienna...
+  // Su Londra, in particolare, c'erano 8 varianti di query per ~71 impression, tutte a
+  // zero clic e a posizione 18-56.
   const titolo = isCapitale
-    ? eff.titolo || `Psicologo online per italiani a ${nome}`
+    ? eff.titolo || `Psicologo italiano online a ${nome}`
     : `Psicologo online per italiani ${art.in}`;
   // Frase esatta della query anche nelle prime righe del testo visibile: sulla coda lunga
   // locale la corrispondenza letterale pesa, e la prima riga è quella che Google riassume
@@ -108,8 +115,8 @@ export default function PaeseLanding() {
   // sulla domanda reale di quella città.
   const desc = eff.desc
     ? eff.desc
-    : isCapitale
-      ? `Psicologo online per italiani a ${nome} (${paese.nome}): sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}.`
+      : isCapitale
+        ? `Psicologo italiano online a ${nome}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta conoscitiva gratuita, ${seduteTxt}.`
       : `Psicologo online per italiani ${art.in}: sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta gratuita, ${seduteTxt}, terapeuti qualificati.`;
   const path = isCapitale ? `/italiani-all-estero/${paese.slug}/${localita.slug}` : `/italiani-all-estero/${paese.slug}`;
   // Città-stato (es. Singapore, Lussemburgo): capitale e paese coincidono, quindi
