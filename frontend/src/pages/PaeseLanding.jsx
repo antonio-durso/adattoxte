@@ -305,14 +305,19 @@ export default function PaeseLanding() {
         </section>
       )}
 
+      {/* Griglia generica: le tre card sono identiche su tutte le pagine, quindi resta
+          sulla pagina del paese, dove spiega il servizio. Sulle pagine locali era testo
+          ripetuto identico che abbassava la quota di contenuto unico (piano, intervento 2). */}
+      {!isCapitale && (
       <section className="container section">
-        <h2 style={{ textAlign: 'center' }}>Perché uno psicologo online per chi vive {isCapitale ? `a ${nome}` : art.in}</h2>
+        <h2 style={{ textAlign: 'center' }}>Perché uno psicologo online per chi vive {art.in}</h2>
         <div className="cards-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginTop: 24 }}>
           <Reveal delay={0}><div className="card" style={{ height: '100%' }}><div className="card-icon">🗣️</div><h3>In italiano</h3><p>Sedute nella tua lingua con professionisti che conoscono il contesto culturale italiano.</p></div></Reveal>
           <Reveal delay={90}><div className="card" style={{ height: '100%' }}><div className="card-icon">🕒</div><h3>Fusi orari gestiti</h3><p>{paese.fuso}: prenoti quando vuoi, anche sera e weekend, e sposti le sedute se cambi città.</p></div></Reveal>
           <Reveal delay={180}><div className="card" style={{ height: '100%' }}><div className="card-icon">🌍</div><h3>Continuità totale</h3><p>Il tuo percorso ti segue in ogni spostamento: trasferte, rientri, nuovi progetti.</p></div></Reveal>
         </div>
       </section>
+      )}
 
       {/* Sezione "Come funziona" (i 3 passi generici) rimossa da questa pagina: la guida lunga
           del paese spiega già come funziona il percorso, e 30 pagine su 43 mostravano due
@@ -352,7 +357,7 @@ export default function PaeseLanding() {
                 {(paese.cittaPagine || []).map((c, i, arr) => (
                   <span key={c.slug}>
                     <Link to={`/italiani-all-estero/${paese.slug}/${c.slug}`} style={{ fontWeight: 600 }}>
-                      Psicologo online per italiani a {c.nome}
+                      {c.titolo || `Psicologo online per italiani a ${c.nome}`}
                     </Link>
                     {i < arr.length - 1 ? ' · ' : ''}
                   </span>
@@ -412,9 +417,12 @@ export default function PaeseLanding() {
         </section>
       )}
 
-      {/* Cross-link SEO: paesi della stessa area (maglia interna verso le altre destinazioni) */}
+      {/* Cross-link fra destinazioni: solo sulla pagina del paese. Su una pagina locale
+          elencava altri paesi (Austria, Germania, Francia...) e ripeteva lo stesso blocco
+          su tutte: lì il posto è della maglia fra località dello stesso paese. */}
+      {!isCapitale && (
       <section className="container section section-deep">
-        <h2 style={{ textAlign: 'center' }}>{isCapitale ? `Altre destinazioni vicine per chi vive a ${nome}` : `Altre destinazioni per italiani nella stessa area`}</h2>
+        <h2 style={{ textAlign: 'center' }}>Altre destinazioni per italiani nella stessa area</h2>
         <p style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 18px' }}>
           {(() => {
             const vicini = paesi.filter((p) => p.slug !== paese.slug && p.regione === paese.regione);
@@ -431,6 +439,7 @@ export default function PaeseLanding() {
           <Link to="/italiani-all-estero">Tutte le destinazioni per italiani all'estero →</Link>
         </p>
       </section>
+      )}
 
       {/* Firma dell'autore: mancava sulle pagine paese estero (c'era su articoli
           e pagine disturbo). Stesse credenziali di BlogArticle.jsx. */}
