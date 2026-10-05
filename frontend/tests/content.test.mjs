@@ -103,7 +103,7 @@ test('paesi: le pagine locali (cittaPagine) hanno un contenuto proprio e slug un
      'frauenfeld', 'wettingen', 'arbon', 'neuhausen', 'san-moritz', 'uster',
      'heiden', 'langenthal', 'einsiedeln', 'thun', 'uri', 'arosa',
      'cham', 'davos', 'kerns', 'stans', 'naefels', 'buchs',
-     'coira', 'kriens', 'wil', 'obvaldo', 'grigioni'],
+     'coira', 'kriens', 'wil', 'obvaldo', 'grigioni', 'ticino', 'appenzello-esterno'],
     'pagine locali svizzere cambiate'
   );
 });
