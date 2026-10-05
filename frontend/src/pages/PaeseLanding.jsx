@@ -89,11 +89,20 @@ export default function PaeseLanding() {
   const cittaAltre = (paese.citta || []).slice(6);
 
   const nome = isCapitale ? eff.nome : paese.nome;
-  // Una capitale può portare il proprio titolo (`titolo` in paesi.js) quando la formula
-  // generica non copre la ricerca reale di quella città. Senza, resta quella di prima.
+  // Titolo della pagina e H1 vengono dallo stesso valore: `titolo` in paesi.js — scritto
+  // sulla query reale ("psicologo italiano online <luogo>") — quando esiste, altrimenti
+  // la formula generica. Prima l'H1 era hardcoded con la formula generica: dove il campo
+  // `titolo` c'era, <title> e H1 dicevano due cose diverse e nessuno dei due conteneva la
+  // frase cercata.
   const titolo = isCapitale
     ? eff.titolo || `Psicologo online per italiani a ${nome}`
     : `Psicologo online per italiani ${art.in}`;
+  // Frase esatta della query anche nelle prime righe del testo visibile: sulla coda lunga
+  // locale la corrispondenza letterale pesa, e la prima riga è quella che Google riassume
+  // più spesso nello snippet. Sulle pagine che non sono locali resta il testo di prima.
+  const lead = isCittaLocale
+    ? `Psicologo italiano online a ${nome} per chi ci vive o ci lavora. ${paese.comunita}. Sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta conoscitiva gratuita, ${seduteTxt}.`
+    : `${paese.comunita}. Sedute in videochiamata in italiano da qualsiasi città ${art.di}, ${paese.fuso}. Prima seduta conoscitiva gratuita, ${seduteTxt}.`;
   // Meta description: quella scritta su misura per la località (`desc` in paesi.js)
   // vince sul testo generico. È il testo che Google mostra nel risultato, ed è scritto
   // sulla domanda reale di quella città.
@@ -192,7 +201,7 @@ export default function PaeseLanding() {
           {
             '@context': 'https://schema.org',
             '@type': 'Service',
-            name: isCapitale ? `Psicologo online per italiani a ${nome}` : `Psicologo online per italiani ${art.in}`,
+            name: titolo,
             serviceType: 'Psicologia online',
             provider: { '@id': `${BASE}/#organization` },
             areaServed: isCapitale ? nome : paese.nome,
@@ -221,10 +230,8 @@ export default function PaeseLanding() {
           <p className="badge" style={{ display: 'inline-block', background: 'var(--secondary, #eef2ff)', color: 'var(--primary, #4f46e5)', padding: '6px 14px', borderRadius: 999, fontSize: 13, fontWeight: 600 }}>
             {paese.bandiera} {isCapitale ? `Italiani a ${nome}` : `Italiani ${art.in}`}
           </p>
-          <h1>{isCapitale ? `Psicologo online per italiani a ${nome}` : `Psicologo online per italiani ${art.in}`}</h1>
-          <p className="lead">
-            {paese.comunita}. Sedute in videochiamata in italiano {isCittaLocale ? `a ${nome} e da qualsiasi città ${art.di}` : `da qualsiasi città ${art.di}`}, {paese.fuso}. Prima seduta conoscitiva gratuita, {seduteTxt}.
-          </p>
+          <h1>{titolo}</h1>
+          <p className="lead">{lead}</p>
           {/* Testo proprio della pagina locale (`intro` in paesi.js). Prima valeva solo per
               le `cittaPagine`: le capitali (Berlino, Caracas…) restavano senza una riga di
               testo unico, ed erano le pagine messe peggio. */}
@@ -243,11 +250,44 @@ export default function PaeseLanding() {
           cambiato: vedi il campo `local` in src/content/paesi.js. */}
       {isCittaLocale && eff.local && (
         <section className="container section">
+          {/* H2 con la frase esatta della query reale ("psicologo italiano online <città>"):
+              sulla coda lunga locale Google è letterale, e un titolo di sezione che ripete la
+              formula di ricerca aiuta. Il testo del blocco resta quello scritto per la città. */}
+          <h2 style={{ textAlign: 'center', maxWidth: 780, margin: '0 auto 18px' }}>
+            Psicologo italiano online a {nome}: come funziona il percorso
+          </h2>
           <div
             className="card"
             style={{ maxWidth: 780, margin: '0 auto', padding: '22px 24px', lineHeight: 1.7 }}
             dangerouslySetInnerHTML={{ __html: eff.local }}
           />
+        </section>
+      )}
+
+      {/* Maglia di link interni fra le pagine locali. Prima non si linkavano fra loro:
+          ogni città arrivava solo dalla sitemap e dalla pagina paese, quindi l'autorità
+          interna restava ferma sull'hub. `vicine` (in paesi.js) indica le località
+          pertinenti per ogni città, e l'anchor ripete la frase della query. */}
+      {isCapitale && (eff.vicine || []).length > 0 && (
+        <section className="container section">
+          <h2 style={{ textAlign: 'center' }}>Altre località con una pagina dedicata {art.in}</h2>
+          <p style={{ textAlign: 'center', maxWidth: 660, margin: '0 auto' }}>
+            {eff.vicine.map((slug, i, arr) => {
+              const v = [...(paese.cittaPagine || []), paese.capitale].find((c) => c && c.slug === slug);
+              if (!v) return null;
+              return (
+                <span key={slug}>
+                  <Link to={`/italiani-all-estero/${paese.slug}/${v.slug}`} style={{ fontWeight: 600 }}>
+                    Psicologo italiano online a {v.nome}
+                  </Link>
+                  {i < arr.length - 1 ? ' · ' : ''}
+                </span>
+              );
+            })}
+          </p>
+          <p style={{ textAlign: 'center' }}>
+            <Link to={`/italiani-all-estero/${paese.slug}`}>Tutte le località {art.in} →</Link>
+          </p>
         </section>
       )}
 
@@ -265,14 +305,19 @@ export default function PaeseLanding() {
         </section>
       )}
 
+      {/* Griglia generica: le tre card sono identiche su tutte le pagine, quindi resta
+          sulla pagina del paese, dove spiega il servizio. Sulle pagine locali era testo
+          ripetuto identico che abbassava la quota di contenuto unico (piano, intervento 2). */}
+      {!isCapitale && (
       <section className="container section">
-        <h2 style={{ textAlign: 'center' }}>Perché uno psicologo online per chi vive {isCapitale ? `a ${nome}` : art.in}</h2>
+        <h2 style={{ textAlign: 'center' }}>Perché uno psicologo online per chi vive {art.in}</h2>
         <div className="cards-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginTop: 24 }}>
           <Reveal delay={0}><div className="card" style={{ height: '100%' }}><div className="card-icon">🗣️</div><h3>In italiano</h3><p>Sedute nella tua lingua con professionisti che conoscono il contesto culturale italiano.</p></div></Reveal>
           <Reveal delay={90}><div className="card" style={{ height: '100%' }}><div className="card-icon">🕒</div><h3>Fusi orari gestiti</h3><p>{paese.fuso}: prenoti quando vuoi, anche sera e weekend, e sposti le sedute se cambi città.</p></div></Reveal>
           <Reveal delay={180}><div className="card" style={{ height: '100%' }}><div className="card-icon">🌍</div><h3>Continuità totale</h3><p>Il tuo percorso ti segue in ogni spostamento: trasferte, rientri, nuovi progetti.</p></div></Reveal>
         </div>
       </section>
+      )}
 
       {/* Sezione "Come funziona" (i 3 passi generici) rimossa da questa pagina: la guida lunga
           del paese spiega già come funziona il percorso, e 30 pagine su 43 mostravano due
@@ -312,7 +357,7 @@ export default function PaeseLanding() {
                 {(paese.cittaPagine || []).map((c, i, arr) => (
                   <span key={c.slug}>
                     <Link to={`/italiani-all-estero/${paese.slug}/${c.slug}`} style={{ fontWeight: 600 }}>
-                      Psicologo online per italiani a {c.nome}
+                      {c.titolo || `Psicologo online per italiani a ${c.nome}`}
                     </Link>
                     {i < arr.length - 1 ? ' · ' : ''}
                   </span>
@@ -372,9 +417,12 @@ export default function PaeseLanding() {
         </section>
       )}
 
-      {/* Cross-link SEO: paesi della stessa area (maglia interna verso le altre destinazioni) */}
+      {/* Cross-link fra destinazioni: solo sulla pagina del paese. Su una pagina locale
+          elencava altri paesi (Austria, Germania, Francia...) e ripeteva lo stesso blocco
+          su tutte: lì il posto è della maglia fra località dello stesso paese. */}
+      {!isCapitale && (
       <section className="container section section-deep">
-        <h2 style={{ textAlign: 'center' }}>{isCapitale ? `Altre destinazioni vicine per chi vive a ${nome}` : `Altre destinazioni per italiani nella stessa area`}</h2>
+        <h2 style={{ textAlign: 'center' }}>Altre destinazioni per italiani nella stessa area</h2>
         <p style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 18px' }}>
           {(() => {
             const vicini = paesi.filter((p) => p.slug !== paese.slug && p.regione === paese.regione);
@@ -391,6 +439,7 @@ export default function PaeseLanding() {
           <Link to="/italiani-all-estero">Tutte le destinazioni per italiani all'estero →</Link>
         </p>
       </section>
+      )}
 
       {/* Firma dell'autore: mancava sulle pagine paese estero (c'era su articoli
           e pagine disturbo). Stesse credenziali di BlogArticle.jsx. */}

@@ -96,9 +96,37 @@ test('paesi: le pagine locali (cittaPagine) hanno un contenuto proprio e slug un
     (ch.cittaPagine || []).map((c) => c.slug),
     ['lugano', 'zurigo', 'ginevra', 'basilea', 'lucerna', 'glarona', 'soletta', 'sciaffusa',
      'appenzello-interno', 'koniz', 'biel-bienne', 'baden', 'baar', 'svitto', 'emmen',
-     'san-gallo', 'basilea-campagna'],
+     'san-gallo', 'basilea-campagna', 'grenchen', 'herisau', 'muttenz', 'altdorf', 'turgovia',
+     'teufen', 'duebendorf', 'weinfelden', 'hergiswil', 'rapperswil-jona', 'liestal',
+     'reinach', 'sarnen', 'zugo', 'winterthur', 'olten', 'kuessnacht'],
     'pagine locali svizzere cambiate'
   );
+});
+
+test('paesi: le pagine locali portano la frase della query in title/desc e hanno una maglia interna valida', () => {
+  // La frase che le persone cercano davvero sulle query locali è "psicologo italiano
+  // online <luogo>". Da `titolo` vengono SIA il <title> SIA l'H1 (vedi PaeseLanding.jsx):
+  // se `titolo` sparisce o smette di contenere la frase, la pagina torna a non
+  // corrispondere a ciò che si cerca — ed è ciò che teneva quelle query a posizione
+  // 10-25 con zero clic (Search Console, finestra 28 giorni, 05/10/2026).
+  // `vicine` alimenta la maglia di link interni: se punta a uno slug inesistente, il
+  // link si rompe silenziosamente.
+  let controllate = 0;
+  for (const p of paesi) {
+    const slugs = new Set([p.capitale && p.capitale.slug, ...(p.cittaPagine || []).map((c) => c.slug)].filter(Boolean));
+    const locali = [p.capitale, ...(p.cittaPagine || [])].filter((c) => c && c.vicine);
+    for (const c of locali) {
+      controllate += 1;
+      assert.match(c.titolo || '', /^Psicologo italiano online/, `${p.slug}/${c.slug}: titolo senza la frase della query`);
+      assert.match(c.desc || '', /^Psicologo italiano online/, `${p.slug}/${c.slug}: desc senza la frase della query`);
+      assert.ok(c.desc.length <= 165, `${p.slug}/${c.slug}: desc troppo lunga (${c.desc.length})`);
+      assert.ok(c.vicine.length >= 3, `${p.slug}/${c.slug}: maglia interna troppo corta (${c.vicine.length})`);
+      for (const v of c.vicine) assert.ok(slugs.has(v), `${p.slug}/${c.slug}: vicine -> slug inesistente "${v}"`);
+      assert.ok(!c.vicine.includes(c.slug), `${p.slug}/${c.slug}: vicine contiene la pagina stessa`);
+      assert.equal(new Set(c.vicine).size, c.vicine.length, `${p.slug}/${c.slug}: vicine con duplicati`);
+    }
+  }
+  assert.ok(controllate >= 18, `pagine locali con maglia interna: ${controllate}`);
 });
 
 test('articoli: 100+ articoli con slug univoci e campi essenziali', () => {
