@@ -98,7 +98,12 @@ test('paesi: le pagine locali (cittaPagine) hanno un contenuto proprio e slug un
      'appenzello-interno', 'koniz', 'biel-bienne', 'baden', 'baar', 'svitto', 'emmen',
      'san-gallo', 'basilea-campagna', 'grenchen', 'herisau', 'muttenz', 'altdorf', 'turgovia',
      'teufen', 'duebendorf', 'weinfelden', 'hergiswil', 'rapperswil-jona', 'liestal',
-     'reinach', 'sarnen', 'zugo', 'winterthur', 'olten', 'kuessnacht'],
+     'reinach', 'sarnen', 'zugo', 'winterthur', 'olten', 'kuessnacht',
+     'aarau', 'argovia', 'wohlen', 'kreuzlingen', 'pratteln', 'dietikon',
+     'frauenfeld', 'wettingen', 'arbon', 'neuhausen', 'san-moritz', 'uster',
+     'heiden', 'langenthal', 'einsiedeln', 'thun', 'uri', 'arosa',
+     'cham', 'davos', 'kerns', 'stans', 'naefels', 'buchs',
+     'coira', 'kriens', 'wil', 'obvaldo', 'grigioni'],
     'pagine locali svizzere cambiate'
   );
 });
