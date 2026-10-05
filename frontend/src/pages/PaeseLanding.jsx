@@ -107,8 +107,11 @@ export default function PaeseLanding() {
   // Frase esatta della query anche nelle prime righe del testo visibile: sulla coda lunga
   // locale la corrispondenza letterale pesa, e la prima riga è quella che Google riassume
   // più spesso nello snippet. Sulle pagine che non sono locali resta il testo di prima.
+  // La frase esatta si ricava da `titolo`, non da `nome`: per i cantoni la preposizione
+  // è "in" o "nei" e davanti a vocale diventa "ad" ("ad Appenzello Esterno"), quindi
+  // comporla a mano con un "a" fisso produceva errori di grammatica in pagina.
   const lead = isCittaLocale
-    ? `Psicologo italiano online a ${nome} per chi ci vive o ci lavora. ${paese.comunita}. Sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta conoscitiva gratuita, ${seduteTxt}.`
+    ? `${titolo} per chi ci vive o ci lavora. ${paese.comunita}. Sedute in videochiamata in italiano, ${paese.fuso}. Prima seduta conoscitiva gratuita, ${seduteTxt}.`
     : `${paese.comunita}. Sedute in videochiamata in italiano da qualsiasi città ${art.di}, ${paese.fuso}. Prima seduta conoscitiva gratuita, ${seduteTxt}.`;
   // Meta description: quella scritta su misura per la località (`desc` in paesi.js)
   // vince sul testo generico. È il testo che Google mostra nel risultato, ed è scritto
@@ -261,7 +264,7 @@ export default function PaeseLanding() {
               sulla coda lunga locale Google è letterale, e un titolo di sezione che ripete la
               formula di ricerca aiuta. Il testo del blocco resta quello scritto per la città. */}
           <h2 style={{ textAlign: 'center', maxWidth: 780, margin: '0 auto 18px' }}>
-            Psicologo italiano online a {nome}: come funziona il percorso
+            {titolo}: come funziona il percorso
           </h2>
           <div
             className="card"
@@ -285,7 +288,7 @@ export default function PaeseLanding() {
               return (
                 <span key={slug}>
                   <Link to={`/italiani-all-estero/${paese.slug}/${v.slug}`} style={{ fontWeight: 600 }}>
-                    Psicologo italiano online a {v.nome}
+                    {v.titolo || `Psicologo italiano online a ${v.nome}`}
                   </Link>
                   {i < arr.length - 1 ? ' · ' : ''}
                 </span>
