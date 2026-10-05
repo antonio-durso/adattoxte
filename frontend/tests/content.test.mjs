@@ -96,7 +96,9 @@ test('paesi: le pagine locali (cittaPagine) hanno un contenuto proprio e slug un
     (ch.cittaPagine || []).map((c) => c.slug),
     ['lugano', 'zurigo', 'ginevra', 'basilea', 'lucerna', 'glarona', 'soletta', 'sciaffusa',
      'appenzello-interno', 'koniz', 'biel-bienne', 'baden', 'baar', 'svitto', 'emmen',
-     'san-gallo', 'basilea-campagna', 'grenchen', 'herisau', 'muttenz', 'altdorf', 'turgovia'],
+     'san-gallo', 'basilea-campagna', 'grenchen', 'herisau', 'muttenz', 'altdorf', 'turgovia',
+     'teufen', 'duebendorf', 'weinfelden', 'hergiswil', 'rapperswil-jona', 'liestal',
+     'reinach', 'sarnen', 'zugo', 'winterthur', 'olten', 'kuessnacht'],
     'pagine locali svizzere cambiate'
   );
 });
