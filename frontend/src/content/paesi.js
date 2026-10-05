@@ -14,7 +14,7 @@ const paesiBase = [
   { slug: 'regno-unito', nome: 'Regno Unito', bandiera: '🇬🇧', capitale: { slug: 'londra', nome: 'Londra', nota: 'prima destinazione europea dei giovani italiani' }, regione: 'Europa', fuso: '1 ora in meno rispetto all\'Italia', comunita: 'Il Regno Unito ospita una delle comunità italiane più numerose e giovani d\'Europa', citta: ['Londra', 'Manchester', 'Birmingham', 'Glasgow', 'Edimburgo', 'Leeds', 'Leicester', 'Milton Keynes'] },
   { slug: 'francia', nome: 'Francia', bandiera: '🇫🇷', capitale: { slug: 'parigi', nome: 'Parigi', nota: 'capitale con una comunità italiana storica e vivace' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'La comunità italiana in Francia è storica e numerosa, presente in tutto il territorio', citta: ['Parigi', 'Lione', 'Nizza', 'Marsiglia', 'Tolosa', 'Bordeaux', 'Lille', 'Grenoble'] },
   { slug: 'germania', nome: 'Germania', bandiera: '🇩🇪', capitale: { slug: 'berlino', nome: 'Berlino', nota: 'capitale creativa con molti italiani giovani e professionisti', titolo: 'Psicologo italiano online a Berlino', desc: 'Psicologo italiano online a Berlino: sedute in videochiamata in italiano, fuso orario identico a quello italiano. Prima seduta gratuita, 45 € la seduta.' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'La Germania ospita una delle comunità italiane più numerose d\'Europa', citta: ['Berlino', 'Monaco', 'Francoforte', 'Stoccarda', 'Colonia', 'Amburgo', 'Düsseldorf', 'Norimberga'] },
-  { slug: 'svizzera', nome: 'Svizzera', bandiera: '🇨🇭', capitale: { slug: 'berna', nome: 'Berna', nota: 'capitale federale, hub di aziende e istituzioni' }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'La Svizzera conta una delle comunità italiane più grandi d\'Europa, tra frontalieri e residenti', zoneNota: "Non conta in quale cantone ti trovi: uno psicologo online in italiano raggiunge anche chi vive nei cantoni di Svitto, Nidvaldo, Lucerna, Sciaffusa e Turgovia, non solo nelle grandi città.", citta: ['Zurigo', 'Ginevra', 'Lugano', 'Basilea', 'Berna', 'Losanna', 'San Gallo', 'Soletta', 'Glarona', 'Grenchen', 'Herisau', 'Küssnacht', 'Muttenz', 'Arosa', 'Emmen'],
+  { slug: 'svizzera', nome: 'Svizzera', bandiera: '🇨🇭', capitale: { slug: 'berna', nome: 'Berna', nota: 'capitale federale, hub di aziende e istituzioni', titolo: 'Psicologo italiano online a Berna', desc: "Psicologo italiano online a Berna: sedute in videochiamata a CHF 130, prima seduta conoscitiva gratuita, senza prescrizione né lista d'attesa.", vicine: ['koniz', 'soletta', 'biel-bienne', 'basilea'] }, regione: 'Europa', fuso: 'stesso orario dell\'Italia', comunita: 'La Svizzera conta una delle comunità italiane più grandi d\'Europa, tra frontalieri e residenti', zoneNota: "Non conta in quale cantone ti trovi: uno psicologo online in italiano raggiunge anche chi vive nei cantoni di Svitto, Nidvaldo, Lucerna, Sciaffusa e Turgovia, non solo nelle grandi città.", citta: ['Zurigo', 'Ginevra', 'Lugano', 'Basilea', 'Berna', 'Losanna', 'San Gallo', 'Soletta', 'Glarona', 'Grenchen', 'Herisau', 'Küssnacht', 'Muttenz', 'Arosa', 'Emmen'],
     // Località con una PAGINA PROPRIA, oltre alla capitale. Stessa forma di `capitale`
     // (slug + nome) più i campi di contenuto differenziato: `desc` (meta description),
     // `intro` (paragrafo sotto il titolo), `local` (scheda con i dettagli del posto),
@@ -33,10 +33,23 @@ const paesiBase = [
     // dell'assicurazione di base con prescrizione medica, max 15 sedute per ricetta, più
     // franchigia e 10% di partecipazione. Il percorso del sito resta privato e senza
     // prescrizione: non promettere rimborsi.
+    //
+    // Campi aggiunti il 05/10/2026 (Lane A, misurati sulla finestra GSC a 28 giorni):
+    // - `titolo`: la frase della query reale ("psicologo italiano online <luogo>").
+    //   Alimenta <title> E H1 (vedi PaeseLanding.jsx), così i due non possono divergere.
+    //   Prima esisteva solo su alcune pagine e l'H1 restava la formula generica, che
+    //   nessuno cercava: le query a pos. 10-25 con 0 clic sono la prova.
+    // - `vicine`: slug di altre località con pagina propria. Alimenta la maglia di link
+    //   interni: le pagine locali non si linkavano fra loro e arrivavano solo da sitemap
+    //   e dalla pagina paese.
+    // - `desc`: riscritta per aprirsi con la frase esatta della query (prima apriva con
+    //   "per italiani a <luogo>", formula che non corrisponde ad alcuna ricerca misurata).
     cittaPagine: [
       {
         slug: 'lugano',
         nome: 'Lugano',
+        titolo: 'Psicologo italiano online a Lugano',
+        vicine: ['glarona', 'svitto', 'lucerna', 'zurigo'],
         nota: 'il cuore della Svizzera italiana, a pochi minuti dal confine',
         intro: "A Lugano la terapia in italiano non è una comodità: è la lingua in cui sei abituato a pensare. In Ticino gli studi privati lavorano già in italiano, ma con tariffe alte e tempi lunghi. Online inizi quando vuoi, a CHF 130 e senza prescrizione.",
         local: `<h3>Terapia online a Lugano: in italiano, senza prescrizione e senza lista d'attesa</h3><p>In Ticino il problema non è trovare un terapeuta che parli italiano — è il <strong>prezzo</strong> e l'<strong>attesa</strong>. Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta (il riferimento LAMal è di 155 CHF l'ora) e per il rimborso serve la prescrizione del medico: al massimo <strong>15 sedute per ricetta</strong>, più franchigia e il 10% di partecipazione a tuo carico.</p><p>Con Adatto x Te la seduta individuale da 50 minuti costa <strong>CHF 130</strong> (145 CHF quella di coppia), si paga in euro all'equivalente fisso e la prima seduta conoscitiva è gratuita. Nessuna prescrizione, nessuna diagnosi nel dossier assicurativo, nessuna lista d'attesa: scegli il terapeuta e prenoti.</p><p>Funziona se vivi a Lugano, a Paradiso o in uno dei comuni del Luganese, se fai il frontaliere o se ti sposti spesso fra Ticino e Italia: il percorso non si interrompe quando cambi casa, ufficio o confine.</p>`,
@@ -45,11 +58,13 @@ const paesiBase = [
           ["Serve la prescrizione del medico per iniziare?", "No, se scegli il percorso diretto: inizi senza prescrizione e senza che nulla finisca nel dossier assicurativo. La prescrizione serve solo se vuoi il rimborso LAMal, e in quel caso il trattamento va svolto da terapeuti riconosciuti in Svizzera (PsiReg)."],
           ["Sono frontaliere: posso seguire le sedute dall'Italia?", "Sì. La videochiamata funziona da qualsiasi luogo e il fuso è lo stesso dell'Italia: puoi fare la seduta da casa in Italia, dall'ufficio a Lugano o in pausa pranzo."]
         ],
-        desc: "Psicologo online per italiani a Lugano: sedute video in italiano a CHF 130, prima gratuita, senza prescrizione né lista d'attesa."
+        desc: "Psicologo italiano online a Lugano: sedute in videochiamata a CHF 130, prima seduta conoscitiva gratuita, senza prescrizione né lista d'attesa."
       },
       {
         slug: 'zurigo',
         nome: 'Zurigo',
+        titolo: 'Psicologo italiano online a Zurigo',
+        vicine: ['baden', 'baar', 'lucerna', 'san-gallo', 'sciaffusa'],
         nota: 'la città più grande della Svizzera',
         intro: "A Zurigo lavori in tedesco o in inglese tutto il giorno. Ma quando si parla di te, la lingua che ti viene naturale è un'altra. Le sedute si svolgono in italiano, con terapeuti italiani.",
         local: `<h3>Terapia in italiano a Zurigo: parlare di sé nella propria lingua</h3><p>Zurigo è la città più grande della Svizzera e una delle mete europee con la maggiore presenza di professionisti italiani. Molti arrivano per lavoro e si trovano a vivere, negoziare, discutere e perfino scherzare in una lingua che non è la loro. In terapia questo pesa più che altrove: raccontare un disagio in tedesco o in inglese è uno sforzo che spesso fa rimandare la richiesta d'aiuto.</p><p>Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta, e i terapeuti che lavorano in italiano a Zurigo sono pochi. Online hai un elenco di psicologi e psicoterapeuti italiani a <strong>CHF 130</strong> la seduta da 50 minuti, con la prima conversazione gratuita.</p><p>Se lavori a Zurigo, a Winterthur o lungo la Limmat, oppure sei in smart working e ti sposti, prenoti quando hai un'ora libera: sera, pausa pranzo o weekend.</p>`,
@@ -58,11 +73,13 @@ const paesiBase = [
           ["Quanto costa rispetto a uno studio a Zurigo?", "In Svizzera una seduta privata costa mediamente 150-200 CHF. Online la seduta individuale da 50 minuti costa CHF 130, con la prima conversazione gratuita."],
           ["Lavoro tutto il giorno: quali orari ci sono?", "Prenoti tu lo slot, anche la sera o nel weekend, con lo stesso fuso dell'Italia. E se ti trasferisci in un'altra città il percorso continua senza interruzioni."]
         ],
-        desc: "Psicologo online per italiani a Zurigo: sedute in italiano a CHF 130, prima gratuita. Parla di te nella tua lingua, senza lista d'attesa."
+        desc: "Psicologo italiano online a Zurigo: parla di te nella tua lingua, CHF 130 a seduta, prima conoscitiva gratuita, senza lista d'attesa."
       },
       {
         slug: 'ginevra',
         nome: 'Ginevra',
+        titolo: 'Psicologo italiano online a Ginevra',
+        vicine: ['basilea', 'berna', 'lucerna', 'lugano'],
         nota: 'città internazionale, sede di organizzazioni e grandi aziende',
         intro: "A Ginevra si lavora in francese e in inglese, fra organizzazioni internazionali, missioni e contratti a termine. Le sedute online sono in italiano, con terapeuti italiani.",
         local: `<h3>Terapia in italiano a Ginevra: per chi vive fra contratti e trasferimenti</h3><p>Ginevra è una città di passaggio per mestiere: organizzazioni internazionali, missioni, contratti a durata determinata, trasferimenti ogni pochi anni. È un contesto stimolante e faticoso insieme — e la lingua in cui ti racconti resta l'italiano.</p><p>Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta, e per il rimborso LAMal serve la prescrizione del medico (al massimo 15 sedute per ricetta, più franchigia e 10% a tuo carico). Con il percorso diretto paghi <strong>CHF 130</strong> a seduta individuale, in euro all'equivalente fisso, senza prescrizione e senza diagnosi nel dossier assicurativo.</p><p>Se vivi a Ginevra, a Carouge o sulla rive droite, o se il contratto ti porterà altrove fra sei mesi, il percorso online ti segue: stesso terapeuta, stessa lingua, stesso orario.</p>`,
@@ -71,11 +88,13 @@ const paesiBase = [
           ["E se il mio contratto mi porta in un'altra città?", "Il percorso è online: non cambia nulla. Puoi continuare con lo stesso terapeuta anche se ti trasferisci in un altro paese, con lo stesso fuso dell'Italia."],
           ["Il rimborso LAMal è possibile?", "Solo con prescrizione medica e con terapeuti riconosciuti in Svizzera (PsiReg). Il percorso diretto con noi resta privato e riservato: paghi la seduta e niente finisce nel dossier assicurativo."]
         ],
-        desc: "Psicologo online per italiani a Ginevra: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione, nessuna lista d'attesa."
+        desc: "Psicologo italiano online a Ginevra: sedute in videochiamata a CHF 130, prima gratuita, senza prescrizione né lista d'attesa."
       },
       {
         slug: 'basilea',
         nome: 'Basilea',
+        titolo: 'Psicologo italiano online a Basilea',
+        vicine: ['basilea-campagna', 'soletta', 'baden', 'zurigo', 'sciaffusa'],
         nota: 'sul Reno, al confine con Germania e Francia',
         intro: "A Basilea vivi a pochi minuti da due paesi e lavori in un ambiente internazionale. Le sedute online si svolgono in italiano, senza spostamenti e senza coincidenze da prendere.",
         local: `<h3>Terapia in italiano a Basilea: per chi vive fra tre paesi</h3><p>A Basilea la giornata attraversa tre paesi: casa in Svizzera, ufficio magari a Weil am Rhein o a Saint-Louis, tempo libero dove capita. È una vita comoda e complicata insieme, e incastrare uno studio di psicoterapia fra dogana, tram e turni non è banale.</p><p>Uno studio privato in Svizzera costa mediamente <strong>150-200 CHF</strong> a seduta, e per il rimborso tramite LAMal serve una prescrizione medica. Online elimini il problema logistico: <strong>CHF 130</strong> la seduta individuale da 50 minuti, prima seduta conoscitiva gratuita, pagamento in euro all'equivalente fisso.</p><p>Funziona anche per chi lavora su turni o in laboratorio con orari che cambiano ogni settimana: sposti la seduta quando serve, senza perdere l'appuntamento.</p>`,
@@ -84,13 +103,15 @@ const paesiBase = [
           ["Quanto costa rispetto a uno studio a Basilea?", "In Svizzera una seduta privata costa mediamente 150-200 CHF. Con Adatto x Te la seduta individuale costa CHF 130 e la prima è gratuita."],
           ["Lavoro su turni: posso spostare le sedute?", "Sì: prenoti lo slot che ti serve ogni volta. Molti pazienti alternano settimane con orari diversi senza problemi."]
         ],
-        desc: "Psicologo online per italiani a Basilea: sedute in italiano a CHF 130, prima gratuita. Nessuna prescrizione, nessuno spostamento."
+        desc: "Psicologo italiano online a Basilea: sedute a CHF 130, prima gratuita, senza prescrizione, nessuno spostamento."
       },
       {
         slug: 'lucerna',
         nome: 'Lucerna',
+        titolo: 'Psicologo italiano online a Lucerna',
+        vicine: ['emmen', 'baar', 'svitto', 'zurigo', 'glarona'],
         nota: "sul lago dei Quattro Cantoni, fra turismo e sanità",
-        desc: "Psicologo online in italiano per chi vive a Lucerna: sedute in videochiamata, prima seduta conoscitiva gratuita, senza prescrizione e senza lista d'attesa.",
+        desc: "Psicologo italiano online a Lucerna: sedute in videochiamata a CHF 130, prima seduta conoscitiva gratuita, senza prescrizione né attese.",
         intro: "Lucerna è una città che lavora: ospedali, alberghi, cantieri, servizi. Molti italiani ci sono arrivati per una stagione o per un impiego in reparto, e poi ci sono rimasti. Il punto è che la lingua del lavoro e quella in cui ti apri non coincidono quasi mai.",
         local: `<h3>Terapia in italiano a Lucerna, senza liste d'attesa</h3><p>Lucerna è piccola, ordinata e cara, e il mercato della salute mentale non fa eccezione: gli studi privati del Cantone lavorano su appuntamento, con tariffe che in Svizzera partono da <strong>150-200 CHF</strong> a seduta. Per il rimborso tramite LAMal serve la prescrizione del medico, e da lì vengono anche i limiti: al massimo <strong>15 sedute per ricetta</strong>, più la franchigia e il 10 per cento di partecipazione a tuo carico.</p><p>Con il percorso diretto paghi <strong>CHF 130</strong> la seduta individuale da 50 minuti (145 CHF quella di coppia), in euro all'equivalente fisso, e la prima seduta conoscitiva è gratuita. Nessuna prescrizione, nessuna diagnosi nel dossier assicurativo, nessuna lista d'attesa.</p><p>Funziona se vivi in città o in uno dei comuni dell'agglomerato, come Kriens o Ebikon, se lavori su turni in ospedale o negli alberghi, e anche se ogni tanto rientri in Italia: il percorso non si interrompe quando cambia il tuo orario.</p>`,
         faqLocal: [
@@ -101,8 +122,10 @@ const paesiBase = [
       {
         slug: 'glarona',
         nome: 'Glarona',
+        titolo: 'Psicologo italiano online a Glarona',
+        vicine: ['svitto', 'lucerna', 'zurigo', 'san-gallo'],
         nota: "il cantone di montagna che ha attirato manodopera italiana per generazioni",
-        desc: "Psicologo online in italiano per chi vive a Glarona e nel Glarnerland: videochiamata, prima seduta gratuita, senza prescrizione e senza liste d'attesa.",
+        desc: "Psicologo italiano online a Glarona e nel Glarnerland: sedute a CHF 130, prima gratuita, senza prescrizione né liste d'attesa.",
         intro: "Glarona è un cantone piccolo, di valle, dove le aziende e le famiglie si conoscono tutte. Per chi arriva da fuori la vita sociale può sembrare chiusa, e il disagio passa inosservato proprio perché manca qualcuno con cui nominarlo.",
         local: `<h3>Terapia in italiano nel Glarnerland, in videochiamata</h3><p>Il cantone di Glarona conta poche decine di migliaia di abitanti e una tradizione industriale che ha portato manodopera italiana in valle per generazioni. Il rovescio della medaglia è la dimensione: pochi professionisti, attese lunghe e la sensazione che tutti sappiano chi sei. Nelle valli laterali l'offerta specialistica è ancora più rarefatta.</p><p>Per questo la videochiamata cambia le cose. Costo del percorso diretto: <strong>CHF 130</strong> la seduta individuale da 50 minuti, pagabile in euro all'equivalente fisso, con la prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se invece punti al rimborso LAMal, la strada resta quella della prescrizione medica e dei terapeuti riconosciuti in Svizzera (PsiReg), con il tetto di 15 sedute per ricetta, più franchigia e 10 per cento.</p><p>Vale se vivi a Glarona, a Näfels, a Schwanden o in uno dei comuni della valle, e anche se lavori su turni in fabbrica o in ospedale.</p>`,
         faqLocal: [
@@ -113,8 +136,10 @@ const paesiBase = [
       {
         slug: 'soletta',
         nome: 'Soletta',
+        titolo: 'Psicologo italiano online a Soletta',
+        vicine: ['basilea-campagna', 'basilea', 'baden', 'berna', 'koniz'],
         nota: "città barocca sull'Aar, terra di pendolari",
-        desc: "Psicologo online in italiano per chi vive a Soletta e nel Cantone: sedute in videochiamata, prima seduta gratuita, senza prescrizione e senza attese.",
+        desc: "Psicologo italiano online a Soletta e nel Cantone: sedute a CHF 130, prima gratuita, senza prescrizione né liste d'attesa.",
         intro: "Soletta è una città di provincia ordinata e silenziosa, con una piazza barocca che sembra ferma nel tempo. Molti ci vivono per lavorare altrove, tra Olten, Basilea e Zurigo, e tornare la sera in una città tranquilla è comodo ma anche solitario.",
         local: `<h3>Terapia in italiano a Soletta, fra casa e pendolarismo</h3><p>Soletta vive di pendolarismo: la mattina la stazione si riempie di chi va a Olten, a Basilea o fino a Zurigo, e la sera si svuota. È una vita che funziona sulla carta e costa molto in pratica, perché il tempo del viaggio si toglie al riposo e alle relazioni. In una città di questa dimensione, poi, i servizi di salute mentale sono pochi e le liste si allungano.</p><p>La videochiamata toglie di mezzo proprio il problema logistico: nessuno spostamento dopo una giornata già passata in treno. La seduta individuale da 50 minuti costa <strong>CHF 130</strong>, in euro all'equivalente fisso, e la prima seduta conoscitiva è gratuita. Nessuna prescrizione medica, nessuna lista d'attesa, niente nel dossier assicurativo.</p><p>Vale se vivi a Soletta, a Grenchen, a Olten o nei comuni intorno, e anche se il tuo orario cambia ogni settimana.</p>`,
         faqLocal: [
@@ -125,8 +150,10 @@ const paesiBase = [
       {
         slug: 'sciaffusa',
         nome: 'Sciaffusa',
+        titolo: 'Psicologo italiano online a Sciaffusa',
+        vicine: ['zurigo', 'san-gallo', 'baden', 'baar'],
         nota: "sul Reno, al confine con la Germania",
-        desc: "Psicologo online in italiano per chi vive a Sciaffusa e nel Cantone: videochiamata, prima seduta gratuita, senza prescrizione e senza liste d'attesa.",
+        desc: "Psicologo italiano online a Sciaffusa e nel Cantone: sedute a CHF 130, prima gratuita, senza prescrizione né liste d'attesa.",
         intro: "Sciaffusa è una città sul Reno, con il Munot sopra le case e le cascate più famose del paese a pochi minuti. Il cantone ha una forma strana, fatta di pezzi separati: la vita quotidiana scavalca continuamente un confine che non si vede.",
         local: `<h3>Terapia online in italiano a Sciaffusa</h3><p>Il Cantone di Sciaffusa è un puzzle: il capoluogo, le exclave, la campagna attorno a Reiath, e un confine con la Germania che si attraversa senza pensarci. Molti ci lavorano nell'industria e nella meccanica di precisione, altri pendolano verso Zurigo o Winterthur. In un territorio così piccolo l'offerta di psicoterapia è limitata e i tempi di attesa si allungano.</p><p>Il percorso online aggira il problema: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione, nessuna lista d'attesa, nessuna diagnosi nel dossier assicurativo. Se invece vuoi passare dalla cassa malattia, serve la prescrizione medica e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Funziona se vivi in città, a Neuhausen, a Beringen o nei comuni del cantone, e anche se la tua settimana è fatta di turni.</p>`,
         faqLocal: [
@@ -137,8 +164,10 @@ const paesiBase = [
       {
         slug: 'appenzello-interno',
         nome: 'Appenzello Interno',
+        titolo: 'Psicologo italiano online ad Appenzello Interno',
+        vicine: ['san-gallo', 'zurigo', 'glarona'],
         nota: "il cantone più piccolo, di tradizione contadina",
-        desc: "Psicologo online in italiano per chi vive ad Appenzello Interno: sedute in videochiamata, prima seduta gratuita, senza prescrizione e senza attese.",
+        desc: "Psicologo italiano online ad Appenzello Interno: sedute a CHF 130, prima gratuita, senza prescrizione né attese.",
         intro: "Appenzello Interno è il cantone più piccolo del paese: colline, case dipinte, latterie e una comunità dove le tradizioni contano ancora molto. Chi arriva da fuori impiega anni a entrare davvero nei giri, e la solitudine qui non si vede perché il paesaggio è bellissimo.",
         local: `<h3>Un percorso in italiano per chi vive ad Appenzello Interno</h3><p>Ad Appenzello Interno le distanze sono brevi e i legami sono antichi: le famiglie si conoscono da generazioni e la vita associativa è intensa, ma resta chiusa a chi arriva da poco. Per una persona italiana trasferita qui, la fatica più comune non è la lingua del lavoro, è non avere nessuno con cui parlare di come si sente. E i servizi specialistici sono lontani, a San Gallo o a Herisau.</p><p>La videochiamata risolve la distanza: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se vuoi il rimborso tramite LAMal serve invece la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg), con il tetto di 15 sedute per ricetta.</p><p>Vale se vivi ad Appenzello, ad Appenzello Esterno o nei comuni della valle del Reno, anche in una fattoria.</p>`,
         faqLocal: [
@@ -149,8 +178,10 @@ const paesiBase = [
       {
         slug: 'koniz',
         nome: 'Köniz',
+        titolo: 'Psicologo italiano online a Köniz',
+        vicine: ['berna', 'soletta', 'biel-bienne', 'basilea-campagna'],
         nota: "il grande comune alle porte di Berna",
-        desc: "Psicologo online in italiano per chi vive a Köniz e nell'area di Berna: videochiamata, prima seduta gratuita, senza prescrizione e senza attese.",
+        desc: "Psicologo italiano online a Köniz e nell'area di Berna: sedute a CHF 130, prima gratuita, senza prescrizione né attese.",
         intro: "Köniz non è un paesino: è uno dei comuni più popolosi della Svizzera, attaccato a Berna, fatto di quartieri residenziali e di pendolari. Ci si vive comodi, a due fermate dal centro, ma è facile scivolare in una routine in cui non si parla mai davvero con nessuno.",
         local: `<h3>Terapia in italiano a Köniz e nell'area di Berna</h3><p>Köniz è la tipica periferia ben collegata: tram verso Berna, quartieri tranquilli, case ordinate e una vita sociale che resta per lo più dentro le mura di casa. Molti italiani ci arrivano per lavorare nel settore pubblico, nella ricerca o nella sanità, e scoprono che una città ordinata non mette automaticamente a proprio agio. La lingua dei colleghi è una, quella degli affetti un'altra.</p><p>Il percorso online sta negli orari che scegli tu: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione, nessuna lista d'attesa, niente nel dossier assicurativo. Se vuoi invece il rimborso LAMal serve la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Funziona se vivi a Köniz, a Liebefeld, a Spiegel o in uno dei comuni intorno a Berna, e anche se lavori a Berna e torni a casa solo la sera.</p>`,
         faqLocal: [
@@ -161,8 +192,10 @@ const paesiBase = [
       {
         slug: 'biel-bienne',
         nome: 'Biel/Bienne',
+        titolo: 'Psicologo italiano online a Biel/Bienne',
+        vicine: ['koniz', 'soletta', 'berna', 'basilea-campagna'],
         nota: "la città dell'orologeria, dove la metà degli abitanti viene da fuori",
-        desc: "Psicologo online in italiano per chi vive a Biel/Bienne: sedute in videochiamata, prima seduta gratuita, senza prescrizione e senza liste d'attesa.",
+        desc: "Psicologo italiano online a Biel/Bienne: sedute a CHF 130, prima gratuita, senza prescrizione né liste d'attesa.",
         intro: "Biel/Bienne è la città svizzera dell'orologeria, cresciuta a forza di officine e di lavoratori arrivati da lontano. Qui l'italiano è una presenza storica: ci sono famiglie italiane da tre generazioni e altre arrivate da poco per lavorare nel settore tecnico.",
         local: `<h3>Terapia in italiano a Biel/Bienne</h3><p>Biel/Bienne è una città industriale con una storia precisa: le fabbriche di orologi hanno attirato manodopera straniera per tutto il Novecento, e le famiglie italiane sono parte di questa storia da generazioni. È anche una città dichiarata bilingue, con quartieri storici e altri nuovi, e un lago a pochi minuti dal centro. Per chi ci vive oggi, la fatica più frequente non riguarda il lavoro: riguarda il sentirsi parte di un posto che conosce da sempre senza esserne davvero dentro.</p><p>Il percorso online dà uno spazio tuo: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se punti al rimborso della cassa malattia, la strada resta quella della prescrizione medica e dei terapeuti riconosciuti in Svizzera (PsiReg).</p><p>Vale per la città e per i comuni intorno, da Nidau a Brügg, e anche per chi lavora in orologeria su turni che cambiano ogni mese.</p>`,
         faqLocal: [
@@ -173,8 +206,10 @@ const paesiBase = [
       {
         slug: 'baden',
         nome: 'Baden',
+        titolo: 'Psicologo italiano online a Baden',
+        vicine: ['zurigo', 'basilea-campagna', 'basilea', 'soletta', 'baar'],
         nota: "città termale e industriale a venti minuti da Zurigo",
-        desc: "Psicologo online in italiano per chi vive a Baden e nel Cantone Argovia: sedute in videochiamata, prima seduta gratuita, senza prescrizione.",
+        desc: "Psicologo italiano online a Baden e nel Cantone Argovia: sedute a CHF 130, prima gratuita, senza prescrizione.",
         intro: "Baden è cresciuta attorno alle terme e alla grande industria elettrotecnica, e oggi è uno dei posti da cui si raggiunge Zurigo in venti minuti di treno. Molti italiani ci lavorano nell'ingegneria, nell'IT o nella ricerca: una vita efficiente, che lascia poco spazio per fermarsi.",
         local: `<h3>Terapia in italiano a Baden, per chi vive di pendolarismo</h3><p>La valle della Limmat a Baden è uno dei poli industriali storici del paese, e il treno per Zurigo è così comodo che in molti ci abitano lavorando altrove. Il risultato è una giornata lunga, fatta di ufficio, spostamenti e poco altro. È il tipo di vita in cui il disagio non si annuncia con un crollo: si annuncia con l'apatia delle domeniche, con la sensazione di non avere più niente da raccontare.</p><p>Un percorso online si inserisce dove c'è spazio: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione, nessuna lista d'attesa, niente nel dossier assicurativo. Se preferisci passare dalla cassa malattia, servono invece la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Vale se vivi a Baden, a Wettingen, a Neuenhof o nei comuni della valle, e anche se lavori a Zurigo e rientri la sera.</p>`,
         faqLocal: [
@@ -185,8 +220,10 @@ const paesiBase = [
       {
         slug: 'baar',
         nome: 'Baar',
+        titolo: 'Psicologo italiano online a Baar',
+        vicine: ['zurigo', 'lucerna', 'svitto', 'emmen', 'baden'],
         nota: "nel Cantone Zugo, terra di aziende e trasferimenti",
-        desc: "Psicologo online in italiano per chi vive a Baar e nel Cantone Zugo: videochiamata, prima seduta gratuita, senza prescrizione.",
+        desc: "Psicologo italiano online a Baar e nel Cantone Zugo: sedute a CHF 130, prima gratuita, senza prescrizione.",
         intro: "Baar sta nel Cantone Zugo, dove ogni anno arrivano persone da mezzo mondo per lavorare in aziende e società di commercio. È un posto ricco, ordinato e internazionale, dove però le relazioni si costruiscono con fatica e si sciolgono in fretta, perché molti restano pochi anni.",
         local: `<h3>Un percorso in italiano a Baar e nel Cantone Zugo</h3><p>Zugo è il cantone delle sedi societarie e dei trasferimenti: si arriva per un incarico, si resta due o tre anni, poi si riparte. Questa mobilità continua rende facile conoscere gente e difficile legare. A Baar, poi, la vita è organizzata intorno al lavoro e alla famiglia, con poco spazio per i legami che non rientrano in nessuno dei due.</p><p>La terapia online offre una continuità che il resto non ha: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se vuoi il rimborso tramite LAMal, servono la prescrizione medica e un terapeuta riconosciuto in Svizzera (PsiReg), con un massimo di 15 sedute per ricetta.</p><p>Vale se vivi a Baar, a Zugo, a Cham o in uno dei comuni del cantone, e resta valido anche se il tuo incarico ti porta altrove.</p>`,
         faqLocal: [
@@ -197,8 +234,10 @@ const paesiBase = [
       {
         slug: 'svitto',
         nome: 'Svitto',
+        titolo: 'Psicologo italiano online a Svitto',
+        vicine: ['lucerna', 'baar', 'glarona', 'zurigo'],
         nota: "il cantone che dà il nome al paese, fra i due Mythen",
-        desc: "Psicologo online in italiano per chi vive a Svitto e nei comuni del Cantone: videochiamata, prima seduta gratuita, senza prescrizione.",
+        desc: "Psicologo italiano online a Svitto e nei comuni del Cantone: sedute a CHF 130, prima gratuita, senza prescrizione.",
         intro: "Il Cantone di Svitto è il luogo da cui prende il nome l'intero paese: due montagne sopra i pascoli, paesi ordinati e una tradizione civica molto sentita. È una terra bella e poco abituata a chi arriva da fuori, dove inserirsi richiede tempo che spesso non si ha.",
         local: `<h3>Terapia in italiano a Svitto e nei comuni del cantone</h3><p>Il Cantone di Svitto è fatto di paesi e di valli, con una vita associativa forte e legami che vengono da generazioni. Chi si trasferisce qui per lavoro — verso Zurigo, verso Zugo o in uno dei comuni del cantone — trova paesaggi splendidi e una rete sociale difficile da aprire. A questo si aggiunge la distanza dai servizi specialistici, che si concentrano altrove.</p><p>Il percorso online accorcia entrambe le distanze: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se punti al rimborso della cassa malattia, la strada prevede invece la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Funziona se vivi a Svitto, a Brunnen, a Schwyz o in uno dei comuni del cantone, anche in una zona di campagna.</p>`,
         faqLocal: [
@@ -209,8 +248,10 @@ const paesiBase = [
       {
         slug: 'emmen',
         nome: 'Emmen',
+        titolo: 'Psicologo italiano online a Emmen',
+        vicine: ['lucerna', 'baar', 'svitto', 'zurigo'],
         nota: "grande comune operaio alle porte di Lucerna",
-        desc: "Psicologo online in italiano per chi vive a Emmen e nell'area di Lucerna: sedute in videochiamata, prima seduta gratuita, senza prescrizione.",
+        desc: "Psicologo italiano online a Emmen e nell'area di Lucerna: sedute a CHF 130, prima gratuita, senza prescrizione.",
         intro: "Emmen sta appena fuori Lucerna: un comune grande, popoloso, con zone industriali, capannoni e quartieri residenziali cresciuti in fretta. Ci vive gente arrivata da mezza Europa, e proprio per questo è facile restare invisibili anche in mezzo a tanta gente.",
         local: `<h3>Terapia in italiano a Emmen, accanto a Lucerna</h3><p>Emmen è uno dei comuni più popolosi del Cantone di Lucerna e uno dei più industriali: officine, logistica, grandi superfici commerciali e quartieri come Emmenbrücke, cresciuti per accogliere chi arrivava a lavorare. È un posto concreto, dove molte famiglie vivono tra turni e doppi lavori, e dove chiedere aiuto per la salute mentale non è ancora la cosa più semplice da fare.</p><p>Un percorso online si incastra negli orari che hai: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione, nessuna lista d'attesa, nessuna traccia nel dossier assicurativo. Se preferisci il rimborso LAMal, servono la prescrizione medica e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Vale se vivi a Emmen, a Emmenbrücke o in uno dei comuni dell'agglomerato di Lucerna, e anche se lavori su turni che cambiano ogni settimana.</p>`,
         faqLocal: [
@@ -221,8 +262,10 @@ const paesiBase = [
       {
         slug: 'san-gallo',
         nome: 'San Gallo',
+        titolo: 'Psicologo italiano online a San Gallo',
+        vicine: ['appenzello-interno', 'zurigo', 'glarona', 'sciaffusa'],
         nota: "capoluogo della Svizzera orientale, terra di ricamo e tessuti",
-        desc: "Psicologo online in italiano per chi vive a San Gallo e nella Svizzera orientale: videochiamata, prima seduta gratuita, senza prescrizione.",
+        desc: "Psicologo italiano online a San Gallo e nella Svizzera orientale: sedute a CHF 130, prima gratuita, senza prescrizione.",
         intro: "San Gallo è la città svizzera del ricamo e dei tessuti, con l'abbaziale e la sua biblioteca fra i patrimoni dell'umanità. È il capoluogo della Svizzera orientale, a pochi minuti dal confine con l'Austria e con la Germania: una terra di passaggio dove molti arrivano per lavoro e ripartono.",
         local: `<h3>Un percorso in italiano a San Gallo e nella Svizzera orientale</h3><p>San Gallo è una città media, con una tradizione tessile che ha portato lavoro e persone da tutta Europa, e un tessuto universitario che continua ad attirare chi viene da fuori. La vicinanza al confine rende normale lavorare in un paese e abitare in un altro, e questa mobilità continua ha un prezzo: legami brevi, case che cambiano, la sensazione di essere sempre di passaggio.</p><p>La terapia online dà continuità: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione e nessuna lista d'attesa. Se invece vuoi passare dalla cassa malattia, servono la prescrizione del medico e un terapeuta riconosciuto in Svizzera (PsiReg), con il tetto di 15 sedute per ricetta.</p><p>Vale se vivi in città o nei comuni intorno, e anche se lavori oltre confine o ti dividi fra due paesi.</p>`,
         faqLocal: [
@@ -233,8 +276,10 @@ const paesiBase = [
       {
         slug: 'basilea-campagna',
         nome: 'Basilea Campagna',
+        titolo: 'Psicologo italiano online nel Cantone di Basilea Campagna',
+        vicine: ['basilea', 'soletta', 'baden', 'zurigo'],
         nota: "il cantone attorno a Basilea, fra Liestal e la grande industria",
-        desc: "Psicologo online in italiano per chi vive nel Cantone di Basilea Campagna: videochiamata, prima seduta gratuita, senza prescrizione.",
+        desc: "Psicologo italiano online nel Cantone di Basilea Campagna: sedute a CHF 130, prima gratuita, senza prescrizione.",
         intro: "Il Cantone di Basilea Campagna circonda la città di Basilea senza esserne parte: il capoluogo è Liestal, e molti comuni funzionano come quartieri residenziali della grande industria chimica e farmaceutica. Si abita in un cantone e si lavora in un altro, e questo basta a complicare il senso di appartenenza.",
         local: `<h3>Terapia in italiano nel Cantone di Basilea Campagna</h3><p>Basilea Campagna è una fascia di comuni attorno alla città: Liestal, Reinach, Allschwil, Pratteln, Binningen. Molti italiani ci vivono perché si sta un po' meglio che in città e si arriva al lavoro in tram o in bicicletta, nei laboratori e negli stabilimenti dell'area renana. È una vita comoda, ma vissuta in un territorio amministrativo che non è quello in cui si lavora, e per chi arriva da fuori questo doppio riferimento pesa più di quanto sembri.</p><p>Il percorso online elimina anche questo problema: <strong>CHF 130</strong> la seduta individuale da 50 minuti, in euro all'equivalente fisso, prima seduta conoscitiva gratuita. Nessuna prescrizione, nessuna lista d'attesa, niente nel dossier assicurativo. Se punti al rimborso della cassa malattia, serviranno la prescrizione medica e un terapeuta riconosciuto in Svizzera (PsiReg).</p><p>Funziona se vivi a Liestal, a Reinach, ad Allschwil o in uno dei comuni del cantone, e anche se lavori a Basilea o in uno dei poli industriali della zona.</p>`,
         faqLocal: [
