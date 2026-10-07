@@ -53,7 +53,7 @@ export default function Prezzi() {
   return (
     <>
       <Seo
-        title="Prezzi"
+        title="Prezzi: 45€ a seduta, 130 CHF in Svizzera"
         description="Prezzi chiari e senza abbonamenti: prima seduta gratuita, seduta individuale 45€, di coppia 50€, pacchetto 3 sedute con -15%. Pagamento sicuro PayPal."
         path="/prezzi"
         jsonLd={{
