@@ -14,7 +14,7 @@ const EN_LANDING_SLUGS = new Set([
 // Elenco BIANCO: solo le pagine con interfaccia davvero tradotta (usano t()).
 // /prezzi, /chi-siamo, /risorse e /recensioni hanno testo italiano fisso: restando
 // fuori da qui non vengono indicizzate sotto URL inglese.
-const EN_STATIC_INDEXABLE = new Set(['/', '/terapeuti', '/blog', '/test', '/lavora-con-noi']);
+const EN_STATIC_INDEXABLE = new Set(['/', '/terapeuti']);
 
 export function enIndexable(itPath) {
   if (!EN_ACTIVE) return false;

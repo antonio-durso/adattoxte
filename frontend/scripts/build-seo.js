@@ -152,7 +152,7 @@ function buildSitemap() {
       urls.push({ loc: u.loc.replace(`${BASE}/psicologo-online/`, `${BASE}/en/psicologo-online/`), freq: 'weekly', priority: '0.7' });
     }
     // Pagine inglesi con interfaccia tradotta (le stesse prerenderizzate)
-    for (const p of ['/en', '/en/terapeuti', '/en/blog', '/en/test', '/en/lavora-con-noi']) {
+    for (const p of ['/en', '/en/terapeuti']) {
       urls.push({ loc: `${BASE}${p}`, lastmod: today, freq: 'weekly', priority: p === '/en' ? '0.9' : '0.6' });
     }
   }
