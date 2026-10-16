@@ -51,6 +51,11 @@ export default function TherapistDetail() {
 
   const days = useMemo(nextDays, []);
 
+  // Giorni realmente prenotabili nei prossimi 7: serve a non far atterrare il
+  // paziente su un giorno senza orari (domenica, o giornata già piena).
+  // null = non ancora calcolato, quindi nessun giorno viene disabilitato.
+  const [bookableDates, setBookableDates] = useState(null);
+
   useEffect(() => {
     api
       .get(`/therapists/${id}`)
@@ -81,6 +86,34 @@ export default function TherapistDetail() {
       .catch(() => setSlots([]))
       .finally(() => setLoadingSlots(false));
   }, [id, date]);
+
+  // Precarica l'intera settimana: i giorni senza orari vengono disabilitati, così
+  // il paziente non finisce in un vicolo cieco. Se la lettura fallisce non
+  // disabilitiamo nulla: meglio il comportamento di prima che bloccare tutto.
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all(
+      days.map((d) =>
+        api
+          .get(`/therapists/${id}/availability?date=${fmt(d)}`)
+          .then((r) => ({
+            date: fmt(d),
+            failed: false,
+            has: (r.data.slots || []).some((s) => s.available),
+          }))
+          .catch(() => ({ date: fmt(d), failed: true, has: false }))
+      )
+    ).then((res) => {
+      if (cancelled) return;
+      if (res.some((x) => x.failed)) return;
+      const ok = res.filter((x) => x.has).map((x) => x.date);
+      setBookableDates(new Set(ok));
+      setDate((cur) => (ok.includes(cur) ? cur : ok[0] || cur));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [id, days]);
 
   // Paese di listino dal server (geolocalizzazione IP): allinea i prezzi mostrati
   // a quelli che verranno applicati al booking. Il paziente non può cambiarlo.
@@ -251,22 +284,31 @@ export default function TherapistDetail() {
 
             <p className="label">Scegli il giorno</p>
             <div className="date-row">
-              {days.map((d) => (
-                <button
-                  key={d.toISOString()}
-                  className={date === fmt(d) ? 'date-chip active' : 'date-chip'}
-                  onClick={() => setDate(fmt(d))}
-                >
-                  {label(d)}
-                </button>
-              ))}
+              {days.map((d) => {
+                const ds = fmt(d);
+                const off = !!bookableDates && !bookableDates.has(ds);
+                return (
+                  <button
+                    key={d.toISOString()}
+                    className={date === ds ? 'date-chip active' : 'date-chip'}
+                    onClick={() => setDate(ds)}
+                    disabled={off}
+                  >
+                    {label(d)}
+                  </button>
+                );
+              })}
             </div>
 
             <p className="label">Scegli l’orario</p>
             {loadingSlots ? (
               <p className="muted">{t('common.loading')}</p>
             ) : availableSlots.length === 0 ? (
-              <p className="muted">Nessuno slot disponibile per questa data. Prova un altro giorno.</p>
+              <p className="muted">
+                {bookableDates && bookableDates.size === 0
+                  ? 'Nessun orario disponibile nei prossimi giorni.'
+                  : 'Nessun orario disponibile in questa data.'}
+              </p>
             ) : (
               <div className="slot-grid">
                 {availableSlots.map((s) => (

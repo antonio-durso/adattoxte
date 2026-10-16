@@ -409,6 +409,8 @@ a.card:hover { text-decoration: none; transform: translateY(-2px); box-shadow: 0
   border-radius: 10px; padding: 8px 12px; font-size: 13px; cursor: pointer;
 }
 .date-chip.active { border-color: var(--primary); background: var(--primary-soft); color: var(--primary-dark); font-weight: 600; }
+/* Giorno senza orari (domenica, o giornata già piena): visibile ma non selezionabile. */
+.date-chip:disabled { opacity: .45; cursor: not-allowed; text-decoration: line-through; }
 .slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 8px; }
 .slot {
   border: 1.5px solid var(--border); background: var(--bg);

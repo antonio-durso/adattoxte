@@ -450,17 +450,22 @@ router.get('/:id/availability', (req, res) => {
     return res.status(400).json({ error: 'Parametro date obbligatorio nel formato YYYY-MM-DD' });
   }
 
+  // Confronto per GIORNO, non per istante: con l'ora corrente il giorno di oggi
+  // risulterebbe sempre "passato" e non genererebbe mai orari.
   const today = new Date();
+  today.setHours(0, 0, 0, 0);
   const dateObj = new Date(date + 'T00:00:00');
   const day = dateObj.getDay(); // 0 = domenica
-  const isWeekend = day === 0 || day === 6;
+  const chiuso = day === 0; // la domenica non e' prenotabile
+  const isToday = dateObj.getTime() === today.getTime();
+  const oraAttuale = new Date().toTimeString().slice(0, 5);
 
   const existing = db.prepare(
     'SELECT id, start_time, duration_min, booked FROM availabilities WHERE therapist_id = ? AND date = ? ORDER BY start_time'
   ).all(therapistId, date);
 
   // Se la data è nel futuro e non esistono slot, ne generiamo di predefiniti (demo)
-  if (existing.length === 0 && dateObj >= today && !isWeekend) {
+  if (existing.length === 0 && dateObj >= today && !chiuso) {
     const insert = db.prepare('INSERT OR IGNORE INTO availabilities (id, therapist_id, date, start_time, duration_min) VALUES (?, ?, ?, ?, ?)');
     for (const start of DEFAULT_SLOTS) {
       insert.run(cryptoRandomId(), therapistId, date, start, DURATION_MIN);
@@ -473,12 +478,15 @@ router.get('/:id/availability', (req, res) => {
 
   res.json({
     date,
-    slots: slots.map(s => ({
-      id: s.id,
-      startTime: s.start_time,
-      durationMin: s.duration_min,
-      available: !s.booked,
-    })),
+    slots: slots
+      // Per oggi togliamo gli orari gia' passati: non si prenota le 09:00 alle 19:00.
+      .filter((s) => !(isToday && s.start_time <= oraAttuale))
+      .map((s) => ({
+        id: s.id,
+        startTime: s.start_time,
+        durationMin: s.duration_min,
+        available: !s.booked,
+      })),
   });
 });
 
