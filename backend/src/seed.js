@@ -31,6 +31,7 @@ const THERAPISTS = [
     password: 'Terapeuta1!',
     bio: 'Psicologa dello sport, lavoro con atleti professionisti e dilettanti per gestire pressione, ansia da prestazione e motivazione.',
     specialties: ['psicologia dello sport'],
+    city: 'Milano',
     license: 'A-12345',
     experienceYears: 9,
     languages: ['it', 'en'],
@@ -42,6 +43,7 @@ const THERAPISTS = [
     password: 'Terapeuta2!',
     bio: 'Preparazione mentale ai concorsi pubblici e alle prove selettive per le forze dell\'ordine: gestione dello stress, memoria e concentrazione.',
     specialties: ['preparazione concorsi pubblici'],
+    city: 'Roma',
     license: 'B-23456',
     experienceYears: 7,
     languages: ['it'],
@@ -53,6 +55,7 @@ const THERAPISTS = [
     password: 'Terapeuta3!',
     bio: 'Psicologa giuridica: supporto in ambito forense, consulenze per professionisti legali e gestione delle dinamiche relazionali complesse.',
     specialties: ['psicologia giuridica'],
+    city: 'Torino',
     license: 'C-34567',
     experienceYears: 11,
     languages: ['it', 'fr'],
@@ -64,6 +67,7 @@ const THERAPISTS = [
     password: 'Terapeuta4!',
     bio: 'Terapia di coppia online: comunicazione, crisi di relazione, supporto alle decisioni. Sedute anche per due persone da remoto.',
     specialties: ['terapia di coppia'],
+    city: 'Bologna',
     license: 'D-45678',
     experienceYears: 12,
     languages: ['it'],
@@ -75,6 +79,7 @@ const THERAPISTS = [
     password: 'Terapeuta5!',
     bio: 'Ansia e depressione: percorsi di psicoterapia individuale per adulti tra i 15 e i 50 anni, con approccio cognitivo-comportamentale.',
     specialties: ['ansia e depressione'],
+    city: 'Napoli',
     license: 'E-56789',
     experienceYears: 6,
     languages: ['it', 'en', 'es'],
@@ -314,6 +319,11 @@ function run() {
           insertUser.run(id, t.name, t.email, hash(demoPw(t.email, t.password)), 'therapist', t.bio, new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
         }
         insertProfile.run(id, JSON.stringify(t.specialties), t.license, t.experienceYears, JSON.stringify(t.languages), '', t.verified ? 1 : 0);
+        // I profili demo devono essere VISIBILI e PRENOTABILI: senza published = 1
+        // restano fuori dal catalogo e gli orari non si aprono, quindi il flusso
+        // completo (catalogo -> orari -> prenotazione -> pagamento) non e' provabile.
+        // Vale SOLO quando SEED_DEMO_DATA=1: in produzione normale questa riga non gira.
+        db.prepare('UPDATE therapist_profiles SET city = ?, published = 1 WHERE user_id = ?').run(t.city, id);
       }
 
       // Recensioni demo (500) — dopo terapeuti e pazienti
