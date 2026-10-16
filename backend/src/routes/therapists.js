@@ -272,17 +272,11 @@ router.put('/me', authRequired, requireRole('therapist'), (req, res) => {
     });
   }
 
-  // Interruttore separato: nella directory (published) ma senza prendere
-  // prenotazioni (accetta_richieste = 0). Serve per inserire i professionisti
-  // nella directory prima di aprirli alle richieste.
-  //
-  // Accendere l'interruttore rende PRENOTABILI, quindi valgono le stesse
-  // condizioni della pubblicazione: prima si poteva risultare prenotabili con
-  // un profilo senza citta', albo, biografia o disturbi — e senza pagina
-  // pubblica, quindi raggiungibili solo per id.
-  const accetta = b.accettaRichieste === undefined
-    ? (attuale.accetta_richieste ? 1 : 0)
-    : (b.accettaRichieste ? 1 : 0);
+  // Un solo interruttore: pubblicare la scheda attiva anche le prenotazioni,
+  // metterla offline le chiude. Le condizioni di pubblicazione (citta', albo,
+  // biografia, disturbi) valgono quindi automaticamente anche per le
+  // prenotazioni: non esiste piu' lo stato "pubblicato ma non prenotabile".
+  const accetta = published === 1 ? 1 : 0;
   if (accetta === 1 && published !== 1) {
     return res.status(400).json({
       error: 'Per ricevere richieste il profilo deve prima essere pubblicato e completo.',
@@ -407,7 +401,6 @@ router.get('/', (req, res) => {
     JOIN therapist_profiles p ON p.user_id = u.id
     WHERE u.role = 'therapist'
       AND p.published = 1
-      AND p.accetta_richieste = 1
     ORDER BY u.name
   `).all();
 
@@ -441,12 +434,13 @@ router.get('/:id', (req, res) => {
 // GET /api/therapists/:id/availability?date=YYYY-MM-DD
 router.get('/:id/availability', (req, res) => {
   const therapistId = req.params.id;
-  // Stesse condizioni della prenotazione: chi non è pubblicato, o non accetta
-  // richieste, non deve nemmeno mostrare un agenda prenotabile.
+  // Stesse condizioni della prenotazione: chi non è pubblicato non deve
+  // nemmeno mostrare un'agenda prenotabile. La pubblicazione è l'unico
+  // interruttore e attiva anche le prenotazioni.
   const therapist = db
     .prepare(
       'SELECT u.id FROM users u JOIN therapist_profiles p ON p.user_id = u.id ' +
-      "WHERE u.id = ? AND u.role = 'therapist' AND p.published = 1 AND p.accetta_richieste = 1"
+      "WHERE u.id = ? AND u.role = 'therapist' AND p.published = 1"
     )
     .get(therapistId);
   if (!therapist) return res.status(404).json({ error: 'Professionista non disponibile per le prenotazioni' });

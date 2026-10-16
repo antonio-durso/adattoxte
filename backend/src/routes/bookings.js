@@ -170,15 +170,13 @@ router.post('/', requireRole('patient'), (req, res) => {
     .get(req.user.id).c;
   const isFree = type === 'individual' && priorBookings === 0;
 
-  // Il professionista deve essere PUBBLICATO e PRENDERE prenotazioni:
-  // cosi un profilo presente solo nella directory non puo essere prenotato.
-  // Servono ENTRAMBE le condizioni: il profilo pubblicato (published = 1) e
-  // l'interruttore delle richieste acceso (accetta_richieste = 1).
-  // Prima si controllava solo il secondo: un profilo non pubblicato — quindi
-  // senza pagina pubblica, raggiungibile solo per id — era prenotabile lo stesso.
+  // Il professionista deve essere PUBBLICATO: la pubblicazione della scheda e'
+  // l'unico interruttore e attiva anche le prenotazioni. Cosi un profilo non
+  // pubblicato — senza pagina pubblica, raggiungibile solo per id — non e'
+  // prenotabile.
   const therapist = db.prepare(
     'SELECT u.id FROM users u JOIN therapist_profiles p ON p.user_id = u.id ' +
-    "WHERE u.id = ? AND u.role = 'therapist' AND p.published = 1 AND p.accetta_richieste = 1"
+    "WHERE u.id = ? AND u.role = 'therapist' AND p.published = 1"
   ).get(therapistId);
   if (!therapist) return res.status(404).json({ error: 'Professionista non disponibile per le prenotazioni' });
 

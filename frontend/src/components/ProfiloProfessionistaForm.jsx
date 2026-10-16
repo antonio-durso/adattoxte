@@ -231,22 +231,17 @@ export default function ProfiloProfessionistaForm() {
 
 
       <h3 style={{ fontSize: 16, marginTop: 20 }}>Prenotazioni</h3>
-      <label style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-        <input type="checkbox" checked={!!form.accettaRichieste}
-          onChange={(e) => set('accettaRichieste', e.target.checked)} />
-        <span>
-          <strong>Accetto richieste di prenotazione.</strong> Se lo attivi, i pazienti
-          possono prenotare e pagare le sedute. Se resta spento, la tua scheda è online
-          e trovabile su Google, ma nessuno può ancora prenotarti.
-        </span>
-      </label>
+      <p className="muted" style={{ margin: 0, fontSize: 14 }}>
+        Quando <strong>pubblichi</strong> la scheda, i pazienti possono prenotare e pagare
+        le sedute. Quando la <strong>metti offline</strong>, le prenotazioni si chiudono.
+      </p>
       <div style={{ display: 'flex', gap: 12, marginTop: 16, flexWrap: 'wrap' }}>
         <button type="button" className="btn" disabled={busy} onClick={() => salva(undefined)}>
           {busy ? 'Salvo…' : 'Salva'}
         </button>
         <button type="button" className="btn btn-primary" disabled={busy || !completo}
           onClick={() => salva(true)}>
-          {stato.published ? 'Ripubblica' : 'Pubblica il profilo'}
+          {stato.published ? 'Ripubblica' : 'Pubblica e attiva le prenotazioni'}
         </button>
         {stato.published && (
           <button type="button" className="btn" disabled={busy} onClick={() => salva(false)}>
