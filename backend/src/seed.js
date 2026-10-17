@@ -287,10 +287,14 @@ function run() {
     // SICUREZZA: in produzione gli account demo vengono creati con password
     // CASUALI (stampate nei log), mai con quelle pubbliche documentate.
     const isProd = process.env.NODE_ENV === 'production';
-    // Dati demo (terapeuti fittizi + recensioni): SOLO in sviluppo locale o con
-    // SEED_DEMO_DATA=1 esplicito. Mai in produzione: il catalogo e le recensioni
-    // devono essere reali.
+    // Recensioni demo: SOLO in sviluppo locale o con SEED_DEMO_DATA=1 esplicito.
+    // Mai in produzione: le recensioni devono essere reali.
     const demoData = process.env.SEED_DEMO_DATA === '1' || !isProd;
+    // CATALOGO INIZIALE: i terapeuti sotto servono SEMPRE, anche in produzione.
+    // Senza di loro il catalogo dei pazienti resta vuoto e la prenotazione non
+    // parte. Sono profili di catalogo (non account operativi): in produzione la
+    // password resta casuale, quindi nessuno puo' entrare al loro posto.
+    const catalogTherapists = true;
     const demoPw = (label, fallback) => {
       if (!isProd) return fallback;
       const pw = crypto.randomBytes(9).toString('base64url') + '!A';
@@ -308,8 +312,9 @@ function run() {
     const patientId = stableId('antonio@adattoxte.it');
     insertUser.run(patientId, 'Antonio Demo', 'antonio@adattoxte.it', hash(demoPw('paziente demo', 'Demo1234!')), 'patient', 'Utente di prova per testare la piattaforma.', new Date().toISOString(), crypto.randomBytes(4).toString('hex').toUpperCase());
 
-    // Terapeuti fittizi + recensioni demo: SOLO con dati demo abilitati
-    if (demoData) {
+    // Terapeuti del catalogo: sempre creati e sempre pubblicati, cosi' il
+    // paziente trova subito qualcuno da prenotare.
+    if (catalogTherapists) {
       // Terapeuti (idempotente: riusa l'ID esistente per email, così il profilo
       // non viola la foreign key al secondo run)
       for (const t of THERAPISTS) {
@@ -325,8 +330,10 @@ function run() {
         // Vale SOLO quando SEED_DEMO_DATA=1: in produzione normale questa riga non gira.
         db.prepare('UPDATE therapist_profiles SET city = ?, published = 1 WHERE user_id = ?').run(t.city, id);
       }
+    }
 
-      // Recensioni demo (500) — dopo terapeuti e pazienti
+    // Recensioni demo (500): restano legate a SEED_DEMO_DATA, non al catalogo.
+    if (demoData) {
       seedReviews();
     }
 
@@ -335,9 +342,9 @@ function run() {
       console.log('   Admin:    admin@adattoxte.it / Admin123!');
       console.log('   Paziente: antonio@adattoxte.it / Demo1234!');
     }
-    if (demoData) {
-      console.log('   Terapeuti demo (email / password):');
-      for (const t of THERAPISTS) console.log(`   - ${t.email} / ${t.password}`);
+    if (catalogTherapists) {
+      console.log('   Terapeuti di catalogo (email):');
+      for (const t of THERAPISTS) console.log(`   - ${t.email}`);
     }
   });
 }
