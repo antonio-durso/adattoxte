@@ -114,9 +114,28 @@ if (!isStatic || PRERENDER || !hasStaticContent) {
   );
 }
 
-// PWA: registra il service worker (app installabile, funziona offline)
+// PWA: registra il service worker (app installabile, funziona offline).
+// Il service worker serve gli asset in cache-first: senza un aggiornamento
+// esplicito un dispositivo puo' restare per giorni su un bundle vecchio (per
+// esempio una lista terapeuti o un calendario ormai superati). Qui forziamo il
+// controllo di una nuova versione e ricarichiamo UNA sola volta quando il nuovo
+// worker prende il controllo.
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then((reg) => {
+        reg.update().catch(() => {});
+      })
+      .catch(() => {});
+  });
+
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (refreshing) return;
+    if (sessionStorage.getItem('adt-sw-reloaded') === '1') return;
+    refreshing = true;
+    sessionStorage.setItem('adt-sw-reloaded', '1');
+    window.location.reload();
   });
 }
