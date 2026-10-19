@@ -73,6 +73,11 @@ const FROM = () => ({
   address: process.env.EMAIL_FROM || 'ant.durso1@gmail.com',
 });
 
+// Destinatario delle notifiche interne (nuove registrazioni di terapeuti).
+// Se ADMIN_EMAIL non è impostata si ricade sul mittente: meglio una notifica
+// in più nella casella sbagliata che nessuna notifica.
+const ADMIN_EMAIL = () => process.env.ADMIN_EMAIL || FROM().address;
+
 function base(html) {
   return `<div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;color:#1e293b">
     <div style="background:#48A8D8;color:#fff;padding:18px 24px;border-radius:12px 12px 0 0;font-size:20px;font-weight:700">Adatto x Te</div>
@@ -88,6 +93,29 @@ function btn(url, label) {
 }
 
 const TEMPLATES = {
+  // Notifica interna all'amministratore: serve a sapere subito che un
+  // professionista si è iscritto, senza dover controllare il database.
+  adminNewTherapist: (d) => {
+    const name = (d && d.name) || '(nome non indicato)';
+    const email = (d && d.email) || '(email non indicata)';
+    const when = new Date().toLocaleString('it-IT', {
+      timeZone: 'Europe/Rome',
+      dateStyle: 'long',
+      timeStyle: 'short',
+    });
+    return base(`
+      <h2 style="margin-top:0">Nuova registrazione terapeuta</h2>
+      <p>Un professionista ha creato un account su Adatto x Te.</p>
+      <p style="background:#f1f5f9;border-radius:8px;padding:14px">
+        <strong>${esc(name)}</strong><br/>
+        ${esc(email)}<br/>
+        <span style="color:#64748b">${esc(when)}</span>
+      </p>
+      <p>Il profilo esiste, ma <strong>non è ancora pubblicato</strong>: finché non pubblichi la scheda non compare nel catalogo e i pazienti non lo vedono.</p>
+      ${btn(SITE_URL + '/area-terapeuta', "Controlla l'area terapeuta")}
+    `);
+  },
+
   welcome: (data) => {
     const name = (data && data.name) || '';
     const role = (data && data.role) || 'patient';
@@ -266,8 +294,24 @@ async function sendEmail(to, subject, key, data) {
   }
 }
 
+/**
+ * Notifica interna: avvisa ADMIN_EMAIL quando si registra un terapeuta.
+ * Non blocca mai la registrazione; gli errori finiscono solo nei log.
+ */
+async function notifyAdminNewTherapist(data) {
+  const to = ADMIN_EMAIL();
+  if (!to) {
+    console.log('✉️  notifica admin saltata: ADMIN_EMAIL non impostata');
+    return { skipped: true };
+  }
+  const subject = 'Nuova registrazione terapeuta: ' + ((data && data.name) || 'senza nome');
+  return sendEmail(to, subject, 'adminNewTherapist', data || {});
+}
+
 module.exports = {
   sendEmail,
+  notifyAdminNewTherapist,
+  adminEmail: ADMIN_EMAIL,
   configured,
   // true quando l'indirizzo SFA di Trustpilot è configurato: senza di esso gli
   // inviti non possono essere accodati su Trustpilot (nessuna recensione "Su invito").

@@ -67,6 +67,22 @@ router.post('/register', async (req, res) => {
     db.prepare('INSERT INTO therapist_profiles (user_id) VALUES (?)').run(id);
   }
 
+  // Notifica interna: avvisa l'amministratore che si è iscritto un terapeuta.
+  // Non blocca la registrazione se l'invio fallisce.
+  if (role === 'therapist') {
+    try {
+      const mailer = require('../mailer');
+      const notify = await mailer.notifyAdminNewTherapist({
+        name: name.trim(),
+        email: email.toLowerCase(),
+        id,
+      });
+      console.log('✉️  risultato notifica admin:', JSON.stringify(notify));
+    } catch (e) {
+      console.error('✉️  errore notifica admin (non blocca la registrazione):', e.message);
+    }
+  }
+
   // Programma referral (BP cap. 6.2): chi si registra con un codice riceve 10€ di credito
   let referralApplied = false;
   if (refCode) {
