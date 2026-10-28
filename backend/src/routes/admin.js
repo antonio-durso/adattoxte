@@ -87,6 +87,42 @@ router.get('/therapists', (req, res) => {
   res.json({ therapists: rows.map(adminTherapistView), total: rows.length });
 });
 
+// GET /api/admin/patients — pazienti con il bisogno dichiarato e l'assegnazione
+router.get('/patients', (req, res) => {
+  const rows = db.prepare(`
+    SELECT u.id, u.name, u.email, u.need_text, u.assigned_therapist_id, u.created_at,
+           t.name AS assigned_name
+      FROM users u
+      LEFT JOIN users t ON t.id = u.assigned_therapist_id
+     WHERE u.role = 'patient'
+     ORDER BY u.created_at DESC
+  `).all();
+  res.json({
+    patients: rows.map((r) => ({
+      id: r.id,
+      name: r.name,
+      email: r.email,
+      need: r.need_text || '',
+      assignedTherapistId: r.assigned_therapist_id || null,
+      assignedName: r.assigned_name || '',
+      createdAt: r.created_at,
+    })),
+  });
+});
+
+// PATCH /api/admin/patients/:id/assign — assegna (o azzera) il terapeuta
+router.patch('/patients/:id/assign', (req, res) => {
+  const therapistId = (req.body && req.body.therapistId) || null;
+  const patient = db.prepare("SELECT id FROM users WHERE id = ? AND role = 'patient'").get(req.params.id);
+  if (!patient) return res.status(404).json({ error: 'Paziente non trovato' });
+  if (therapistId) {
+    const t = db.prepare("SELECT id FROM users WHERE id = ? AND role = 'therapist'").get(therapistId);
+    if (!t) return res.status(400).json({ error: 'Terapeuta non valido' });
+  }
+  db.prepare('UPDATE users SET assigned_therapist_id = ? WHERE id = ?').run(therapistId, req.params.id);
+  res.json({ ok: true, assignedTherapistId: therapistId });
+});
+
 // POST /api/admin/therapists — crea un nuovo terapeuta
 router.post('/therapists', (req, res) => {
   const b = req.body || {};

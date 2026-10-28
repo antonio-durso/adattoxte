@@ -174,6 +174,24 @@ router.post('/', requireRole('patient'), (req, res) => {
   // l'unico interruttore e attiva anche le prenotazioni. Cosi un profilo non
   // pubblicato — senza pagina pubblica, raggiungibile solo per id — non e'
   // prenotabile.
+  // Assegnazione manuale (attiva solo con ASSIGNMENT_ENFORCED=1): il paziente
+  // prenota SOLO il professionista che l'admin gli ha assegnato. Spenta di
+  // default, cosi' il comportamento attuale resta identico finche' non si abilita.
+  if (process.env.ASSIGNMENT_ENFORCED === '1') {
+    const p = db.prepare('SELECT assigned_therapist_id FROM users WHERE id = ?').get(req.user.id);
+    const assigned = p && p.assigned_therapist_id;
+    if (!assigned) {
+      return res.status(403).json({
+        error: 'La tua richiesta e in valutazione: ti assegniamo noi il professionista adatto.',
+      });
+    }
+    if (assigned !== therapistId) {
+      return res.status(403).json({
+        error: 'Puoi prenotare solo con il professionista che ti e stato assegnato.',
+      });
+    }
+  }
+
   const therapist = db.prepare(
     'SELECT u.id FROM users u JOIN therapist_profiles p ON p.user_id = u.id ' +
     "WHERE u.id = ? AND u.role = 'therapist' AND p.published = 1"

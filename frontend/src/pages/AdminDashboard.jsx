@@ -38,6 +38,7 @@ export default function AdminDashboard() {
   const [therapists, setTherapists] = useState([]);
   const [specialties, setSpecialties] = useState([]);
   const [bookings, setBookings] = useState([]);
+  const [patients, setPatients] = useState([]);
   const [editing, setEditing] = useState(null); // null | 'new' | terapeuta
   const [form, setForm] = useState(emptyForm());
   const [error, setError] = useState('');
@@ -68,6 +69,23 @@ export default function AdminDashboard() {
       setBookings(bk.data.bookings || []);
     } catch {
       setBookings([]);
+    }
+    try {
+      const pt = await api.get('/admin/patients');
+      setPatients(pt.data.patients || []);
+    } catch {
+      setPatients([]);
+    }
+  }
+
+  async function assignTherapist(patientId, therapistId) {
+    try {
+      await api.patch(`/admin/patients/${patientId}/assign`, { therapistId: therapistId || null });
+      setPatients((list) =>
+        list.map((p) => (p.id === patientId ? { ...p, assignedTherapistId: therapistId || null } : p))
+      );
+    } catch {
+      setError('Assegnazione non riuscita. Riprova.');
     }
   }
 
@@ -421,6 +439,40 @@ export default function AdminDashboard() {
               <div style={{ display: 'flex', gap: 8 }}>
                 <button className="btn btn-outline btn-sm" onClick={() => startEdit(t)}>Modifica</button>
                 <button className="btn btn-outline btn-sm" onClick={() => remove(t)} style={{ color: '#b91c1c' }}>Elimina</button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h2 id="sezione-richieste" style={{ margin: '28px 0 12px', scrollMarginTop: 16 }}>
+        Richieste dei pazienti ({patients.filter((p) => !p.assignedTherapistId).length} da assegnare)
+      </h2>
+      {patients.length === 0 && (
+        <p className="muted">Nessun paziente registrato ancora.</p>
+      )}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        {patients.map((p) => (
+          <div key={p.id} style={cardStyle}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+              <div style={{ flex: 1, minWidth: 240 }}>
+                <strong>{p.name}</strong> <span className="muted small">{p.email}</span>
+                <div className="muted small" style={{ marginTop: 4 }}>
+                  {p.need ? p.need : 'Nessun bisogno dichiarato'}
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <select
+                  value={p.assignedTherapistId || ''}
+                  onChange={(e) => assignTherapist(p.id, e.target.value)}
+                  style={{ padding: '8px 10px', borderRadius: 8 }}
+                >
+                  <option value="">— da assegnare —</option>
+                  {therapists.map((t) => (
+                    <option key={t.id} value={t.id}>{t.name}</option>
+                  ))}
+                </select>
+                {p.assignedTherapistId && <span className="small" style={{ color: '#1e7e34' }}>assegnato</span>}
               </div>
             </div>
           </div>

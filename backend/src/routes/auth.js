@@ -24,7 +24,7 @@ function isValidEmail(email) {
 
 // POST /api/auth/register
 router.post('/register', async (req, res) => {
-  const { name, email, password, role, consent, healthConsent, refCode } = req.body || {};
+  const { name, email, password, role, consent, healthConsent, refCode, need } = req.body || {};
 
   if (!name || !email || !password) {
     return res.status(400).json({ error: 'Nome, email e password sono obbligatori' });
@@ -49,10 +49,12 @@ router.post('/register', async (req, res) => {
   const id = crypto.randomUUID();
   const passwordHash = bcrypt.hashSync(String(password), 10);
   const referralCode = crypto.randomBytes(4).toString('hex').toUpperCase();
+  // Il bisogno dichiarato dal paziente: lo legge l'admin in fase di assegnazione.
+  const needText = role === 'patient' && need ? String(need).trim().slice(0, 4000) : '';
   const insert = db.prepare(
-    'INSERT INTO users (id, name, email, password_hash, role, consent_to_tos, consent_date, health_consent, health_consent_date, referral_code) VALUES (?, ?, ?, ?, ?, 1, ?, 1, ?, ?)'
+    'INSERT INTO users (id, name, email, password_hash, role, consent_to_tos, consent_date, health_consent, health_consent_date, referral_code, need_text) VALUES (?, ?, ?, ?, ?, 1, ?, 1, ?, ?, ?)'
   );
-  insert.run(id, name.trim(), email.toLowerCase(), passwordHash, role, new Date().toISOString(), new Date().toISOString(), referralCode);
+  insert.run(id, name.trim(), email.toLowerCase(), passwordHash, role, new Date().toISOString(), new Date().toISOString(), referralCode, needText);
 
   // Email di benvenuto (ATTESA del risultato: i Logs di Render mostrano l'esito esatto dell'invio)
   try {

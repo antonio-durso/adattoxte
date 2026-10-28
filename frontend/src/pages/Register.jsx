@@ -19,6 +19,7 @@ export default function Register() {
     consent: false,
     healthConsent: false,
     refCode: searchParams.get('ref') || '',
+    need: '',
   });
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
@@ -70,6 +71,20 @@ export default function Register() {
               <span>Voglio offrire consulenze</span>
             </label>
           </div>
+
+          {form.role === 'patient' && (
+            <label className="field">
+              <span>Di cosa hai bisogno?</span>
+              <textarea
+                rows={4}
+                value={form.need}
+                onChange={(e) => set('need', e.target.value)}
+                placeholder="Racconta in due righe cosa ti sta succedendo e cosa cerchi. Serve a scegliere il professionista adatto a te: ti risponderemo noi."
+                required
+                minLength={20}
+              />
+            </label>
+          )}
 
           <label className="field">
             <span>Nome e cognome</span>

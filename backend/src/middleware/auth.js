@@ -21,6 +21,8 @@ function publicUser(u) {
     bio: u.bio,
     referralCode: u.referral_code || null,
     credit: u.credit || 0,
+    assignedTherapistId: u.assigned_therapist_id || null,
+    assignmentEnforced: process.env.ASSIGNMENT_ENFORCED === '1',
   };
 }
 

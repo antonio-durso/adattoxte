@@ -140,6 +140,14 @@ export default function TherapistDetail() {
   const fmtPrice = (eur) => (isCH ? `CHF ${chfDisplay(eur)}` : `${eur} €`);
   const fmtFor = (baseEur, typeOf) => (isCH ? `CHF ${chfDisplay(eurCharge(baseEur, 'CH', typeOf))}` : `${baseEur} €`);
   const availableSlots = slots.filter((s) => s.available);
+  // Assegnazione manuale: se il backend la impone e il paziente non e' stato
+  // assegnato a questo professionista, la prenotazione resta bloccata.
+  const blockedByAssignment = !!(
+    user &&
+    user.role === 'patient' &&
+    user.assignmentEnforced &&
+    user.assignedTherapistId !== therapist?.id
+  );
 
   async function handleBook() {
     if (!user) {
@@ -325,13 +333,30 @@ export default function TherapistDetail() {
 
             {error && <p className="error-text">{error}</p>}
 
+            {blockedByAssignment && (
+              <p className="muted small">
+                La tua richiesta e in valutazione: il professionista lo assegniamo noi. Appena assegnato
+                potrai prenotare da qui.
+              </p>
+            )}
+
             <div className="booking-summary">
               <span>Totale</span>
               <strong>{pkg === 3 ? `🎁 ${fmtPrice(packagePrice)} (3 sedute)` : fmtPrice(unitPrice)}</strong>
             </div>
 
-            <button className="btn btn-primary btn-block btn-lg" onClick={handleBook} disabled={!selectedSlot || booking}>
-              {booking ? 'Prenotazione in corso…' : user ? `Conferma e paga ${fmtPrice(pkg === 3 ? packagePrice : unitPrice)}` : 'Accedi per prenotare'}
+            <button
+              className="btn btn-primary btn-block btn-lg"
+              onClick={handleBook}
+              disabled={!selectedSlot || booking || blockedByAssignment}
+            >
+              {booking
+                ? 'Prenotazione in corso…'
+                : blockedByAssignment
+                ? 'In attesa di assegnazione'
+                : user
+                ? `Conferma e paga ${fmtPrice(pkg === 3 ? packagePrice : unitPrice)}`
+                : 'Accedi per prenotare'}
             </button>
             {!user && (
               <p className="muted small">

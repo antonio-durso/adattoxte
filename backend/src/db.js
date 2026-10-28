@@ -184,6 +184,14 @@ function initDb() {
     db.exec('ALTER TABLE users ADD COLUMN referral_code TEXT');
     db.exec('CREATE UNIQUE INDEX IF NOT EXISTS idx_users_referral_code ON users(referral_code)');
   }
+  // Assegnazione manuale del terapeuta: il paziente dichiara il bisogno alla
+  // registrazione, l'admin decide chi lo prende in carico. NULL = da assegnare.
+  if (!userCols.includes('need_text')) {
+    db.exec("ALTER TABLE users ADD COLUMN need_text TEXT DEFAULT ''");
+  }
+  if (!userCols.includes('assigned_therapist_id')) {
+    db.exec('ALTER TABLE users ADD COLUMN assigned_therapist_id TEXT');
+  }
   const bookingCols = db.prepare('PRAGMA table_info(bookings)').all().map((c) => c.name);
   // Blocco 2: campi della scheda pubblica del professionista
   const tprofCols = db.prepare('PRAGMA table_info(therapist_profiles)').all().map((c) => c.name);

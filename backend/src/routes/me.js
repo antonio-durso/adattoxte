@@ -17,7 +17,11 @@ function fullProfile(userId) {
   if (!user) return null;
   const profile = db.prepare('SELECT * FROM therapist_profiles WHERE user_id = ?').get(userId);
   const { password_hash, ...safe } = user;
-  return { ...safe, therapistProfile: profile || null };
+  return {
+    ...safe,
+    therapistProfile: profile || null,
+    assignmentEnforced: process.env.ASSIGNMENT_ENFORCED === '1',
+  };
 }
 
 // GET /api/me
